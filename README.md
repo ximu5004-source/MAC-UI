@@ -7,6 +7,9 @@ MAC UI is an independent Windows desktop customization project based on [eythaan
 The project remains licensed under **AGPL-3.0-or-later**. The upstream application source, original assets and attribution are retained. Private signing materials and build outputs are excluded; upstream CI recipes are archived as inactive references rather than configured as MAC UI release automation. See [LICENSE](LICENSE), [NOTICE](NOTICE.md) and the [preserved upstream introduction](README.upstream.md). MAC UI is neither an Apple product nor an official Seelen UI release.
 
 ![MAC UI desktop overview with personal information redacted](documentation/images/mac-ui/desktop-overview.png)
+<img width="380" height="620" alt="image" src="https://github.com/user-attachments/assets/128b9800-8205-47be-8bdc-604d24406d56" />
+<img width="340" height="333" alt="image" src="https://github.com/user-attachments/assets/742d58d4-95a5-439d-9e7c-6cb8f96ea370" />
+<img width="708" height="72" alt="image" src="https://github.com/user-attachments/assets/680b17f5-205d-4fbc-944a-49f0c38aa37e" />
 
 ## Features
 
