@@ -19,6 +19,10 @@ MAC UI 是基于 [eythaann/Seelen-UI](https://github.com/eythaann/Seelen-UI) 独
 ### 桌面整理
 
 ![已遮盖个人应用与文件信息的桌面堆栈](documentation/images/mac-ui/desktop-stacks.png)
+<img width="380" height="620" alt="image" src="https://github.com/user-attachments/assets/128b9800-8205-47be-8bdc-604d24406d56" />
+<img width="340" height="333" alt="image" src="https://github.com/user-attachments/assets/742d58d4-95a5-439d-9e7c-6cb8f96ea370" />
+<img width="708" height="72" alt="image" src="https://github.com/user-attachments/assets/680b17f5-205d-4fbc-944a-49f0c38aa37e" />
+
 
 “桌面管理”页面提供整理模块开关和外观调节。这里的 Dock 控件与 Dock 设置页使用同一组偏好设置。
 
