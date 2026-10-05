@@ -1,0 +1,465 @@
+action:
+  confirm: ਤੁਹਾਨੂੰ ਪੂਰਾ ਵਿਸ਼ਵਾਸ ਹੈ?
+  confirm_body: ਇਸ ਕਿਰਿਆ ਨੂੰ ਵਾਪਸ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ.
+apps_configurations:
+  app:
+    bindings: ਬਾਈਡਿੰਗ (ਨੋਟ ਕਰੋ ਕਿ ਦੋਵੇਂ ਵਿਕਲਪ ਲੋੜੀਂਦੇ ਹਨ)
+    category: ਸ਼੍ਰੇਣੀ
+    category_placeholder: ਕੋਈ ਨਹੀਂ
+    monitor: ਮਾਨੀਟਰ
+    monitor_placeholder: ਕੋਈ ਨਹੀਂ
+    name: ਨਾਮ
+    ok_create: ਬਣਾਓ
+    ok_edit: ਅਪਡੇਟ
+    ok_readonly: ਨਵੇਂ ਵਜੋਂ ਸੰਪਾਦਿਤ ਕਰੋ
+    options:
+      NoInteractive: ਕੋਈ ਇੰਟਰਐਕਟਿਵ ਨਹੀਂ
+      VdPinned: ਸਾਰੇ ਵਰਕਸਪੇਸ ਵਿੱਚ ਦਿਖਾਓ
+      WmFloat: Twm - ਫਲੋਟਿੰਗ ਸ਼ੁਰੂ ਕਰੋ
+      WmForce: Twm - ਫੋਰਸ ਪ੍ਰਬੰਧਨ
+      WmUnmanage: Twm - ਅਪ੍ਰਬੰਧਿਤ
+    options_label: ਵਾਧੂ ਵਿਕਲਪ
+    title_create: '{{name}} ਬਣਾਉਣਾ'
+    title_edit: ਸੰਪਾਦਨ {ime neame}
+    title_readonly: '{{name}} ਦੇਖ ਰਹੇ ਹਾਂ'
+    weg_options_label: ਡੌਕ / ਟਾਸਕਬਾਰ ਚੋਣਾਂ
+    wm_options_label: ਵਿੰਡੋ ਮੈਨੇਜਰ ਦੇ ਵਿਕਲਪ
+    workspace: ਵਰਕਸਪੇਸ
+    workspace_placeholder: ਕੋਈ ਨਹੀਂ
+  bundled_msg: >-
+    ਇਹ ਬੰਡਲ ਕੀਤੀਆਂ ਸੰਰਚਨਾਵਾਂ ਸੰਪਾਦਨਯੋਗ ਨਹੀਂ ਹਨ ਅਤੇ ਤੁਹਾਨੂੰ ਅਨੁਕੂਲਿਤ ਕੀਤੇ ਬਿਨਾਂ
+    ਵਧੀਆ ਅਨੁਭਵ ਪ੍ਰਦਾਨ ਕਰਨ ਲਈ ਤਿਆਰ ਕੀਤੀਆਂ ਗਈਆਂ ਹਨ। ਉਹ ਤੁਹਾਡੇ ਲਈ ਸਭ ਤੋਂ ਆਮ
+    ਐਪਲੀਕੇਸ਼ਨਾਂ ਨੂੰ ਸਵੈਚਲਿਤ ਤੌਰ 'ਤੇ ਕੌਂਫਿਗਰ ਕਰਦੇ ਹਨ।
+  bundled_title: ਐਪ ਕੌਂਫਿਗ ਸੀਲੇਨ ਨਾਲ ਬੰਡਲ ਕੀਤੀ ਗਈ
+  confirm_delete: ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਤੌਰ 'ਤੇ ਇਸ ਸੰਰਚਨਾ/s ਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?
+  confirm_delete_title: ਮਿਟਾਉਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ
+  delete: ਮਿਟਾਓ
+  export: ਨਿਰਯਾਤ
+  export_full: ਐਪਲੀਕੇਸ਼ਨ ਦੁਆਰਾ ਸੈਟਿੰਗਜ਼ ਨਿਰਯਾਤ ਕਰੋ
+  extra_info: ਵੇਖਣਯੋਗ UI ਪ੍ਰਤੀ ਐਪ ਨੂੰ ਸਿਰਫ ਇਕ ਪਛਾਣਕਰਤਾ ਦੀ ਵਰਤੋਂ ਕਰਦੇ ਹਨ
+  identifier:
+    add_block: ਬਲਾਕ ਸ਼ਾਮਲ ਕਰੋ
+    and: ਅਤੇ
+    id: ਪਛਾਣਕਰਤਾ
+    kind: ਦੁਆਰਾ ਪਛਾਣੋ
+    matching_strategy: ਮੈਚਿੰਗ ਰਣਨੀਤੀ
+    matching_strategy_option:
+      contains: ਸ਼ਾਮਿਲ ਹੈ
+      ends_with: ਨਾਲ ਖਤਮ ਹੁੰਦਾ ਹੈ
+      equals: ਬਰਾਬਰ ਹੈ
+      regex: ਨਿਯਮਤ ਸਮੀਕਰਨ
+      starts_with: ਨਾਲ ਸ਼ੁਰੂ ਹੁੰਦਾ ਹੈ
+    negation: ਨੈਗੇਟ ਮੈਚਿੰਗ
+    or: ਜਾਂ
+    remove: ਬਲਾਕ ਮਿਟਾਓ
+    type:
+      class: ਕਲਾਸ
+      exe: ਐਕਸ
+      path: ਮਾਰਗ
+      title: ਸਿਰਲੇਖ
+  import: ਆਯਾਤ ਕਰੋ
+  import_full: ਐਪਲੀਕੇਸ਼ਨ ਦੁਆਰਾ ਸੈਟਿੰਗਾਂ ਆਯਾਤ ਕਰੋ
+  new: ਨਵਾਂ
+  search: ਖੋਜ
+  swap: ਸਵੈਪ
+cancel: ਰੱਦ ਕਰੋ
+close: ਨੇੜੇ
+delete: ਮਿਟਾਓ
+devtools:
+  app_folders: ਐਪ ਫੋਲਡਰ
+  color_palette: ਰੰਗ ਪੈਲੇਟ
+  color_palette_note: >-
+    ਇਹ ਰੰਗ ਆਟੋਮੈਟਿਕ ਹੀ ਲਾਈਟ/ਡਾਰਕ ਮੋਡ ਦੇ ਅਨੁਕੂਲ ਹੋ ਜਾਂਦੇ ਹਨ — ਹਰੇਕ ਸ਼ੇਡ ਮੌਜੂਦਾ
+    ਬੈਕਗ੍ਰਾਉਂਡ ਦੇ ਉਲਟ ਹੈ, ਇੱਕ ਨਿਸ਼ਚਿਤ ਮੁੱਲ ਨਹੀਂ। ਆਟੋਮੈਟਿਕ ਥੀਮ ਸਹਾਇਤਾ ਪ੍ਰਾਪਤ ਕਰਨ
+    ਲਈ ਹਾਰਡਕੋਡ ਕੀਤੇ ਰੰਗਾਂ ਦੀ ਬਜਾਏ ਉਹਨਾਂ ਦੀ ਵਰਤੋਂ ਕਰੋ।
+  custom_config_file: ਕਸਟਮ ਕੌਂਫਿਗ ਫਾਈਲ ਲੋਡ ਕਰੋ
+  data_folder: ਡਾਟਾ ਫੋਲਡਰ
+  enable: ਡਿਵੈਲਪਰ ਟੂਲਸ ਨੂੰ ਸਮਰੱਥ ਬਣਾਓ
+  enable_description: >-
+    ਸੀਲੇਨ UI ਇੰਟਰਨਲ ਦੀ ਜਾਂਚ ਕਰਨ ਅਤੇ ਡੀਬੱਗ ਕਰਨ ਲਈ ਉੱਨਤ ਟੂਲਸ ਨੂੰ ਅਨਲੌਕ ਕਰਦਾ ਹੈ।
+    ਨਿਯਮਤ ਵਰਤੋਂ ਲਈ ਨਹੀਂ ਹੈ।
+  icons: ਕੈਸ਼ ਕੀਤੇ ਆਈਕਾਨ
+  install_folder: ਇੰਸਟਾਲੇਸ਼ਨ ਫੋਲਡਰ
+  load: ਲੋਡ ਕਰੋ
+  settings_file: ਸੈਟਿੰਗਜ਼ ਫਾਈਲ
+  shared_components: SLU ਸਟੈਂਡਰਡ ਕੰਪੋਨੈਂਟਸ
+  simulate_dialog:
+    label: ਸਿਮੂਲੇਟ ਡਾਇਲਾਗ
+    trigger: ਟਰਿੱਗਰ
+  simulate_perm:
+    label: ਵਿਜੇਟ ਅਨੁਮਤੀ ਬੇਨਤੀ ਦੀ ਨਕਲ ਕਰੋ
+    result_allowed: ✓ ਇਜਾਜ਼ਤ ਦਿੱਤੀ ਗਈ
+    result_denied: ✗ ਇਜਾਜ਼ਤ ਅਸਵੀਕਾਰ ਕੀਤੀ ਗਈ
+    trigger: ਸਿਮੂਲੇਟ
+    widget_id_placeholder: '@author/widget-name'
+  tools: ਸੰਦ
+  unlock_shortcuts: ਸਿਰਫ਼-ਪੜ੍ਹਨ ਲਈ ਸ਼ਾਰਟਕੱਟਾਂ ਨੂੰ ਅਨਲੌਕ ਕਰੋ
+  unlock_shortcuts_description: >-
+    ਉਹਨਾਂ ਸ਼ਾਰਟਕੱਟਾਂ ਨੂੰ ਸੰਪਾਦਿਤ ਕਰਨ ਦਿਓ ਜੋ ਆਮ ਤੌਰ 'ਤੇ ਸਿਰਫ਼-ਪੜ੍ਹਨ ਲਈ ਹੁੰਦੇ ਹਨ
+    (ਜਿਵੇਂ ਕਿ ਸਿਸਟਮ ਓਵਰਰਾਈਡਜ਼)।
+  unstable_optimizations: ਅਸਥਿਰ ਓਪਟੀਮਾਈਜੇਸ਼ਨ
+  unstable_optimizations_description: >-
+    ਪ੍ਰਯੋਗਾਤਮਕ Chromium ਫਲੈਗ ਨੂੰ ਸਮਰੱਥ ਬਣਾਓ ਜੋ RAM ਦੀ ਵਰਤੋਂ ਨੂੰ ਘਟਾਉਂਦੇ ਹਨ।
+
+    ਚੇਤਾਵਨੀ: ਜੇਕਰ ਕੋਈ ਵਿਜੇਟ ਕ੍ਰੈਸ਼ ਹੋ ਜਾਂਦਾ ਹੈ, ਤਾਂ ਇੱਕੋ ਲੋਡਰ ਨੂੰ ਸਾਂਝਾ ਕਰਨ ਵਾਲੇ
+    ਸਾਰੇ ਵਿਜੇਟ ਇਕੱਠੇ ਕਰੈਸ਼ ਹੋ ਜਾਣਗੇ।
+  widgets_debug:
+    actions: ਕਾਰਵਾਈਆਂ
+    empty: ਕੋਈ ਵਿਜੇਟਸ ਲੋਡ ਨਹੀਂ ਹੋਏ। ਰਿਫ੍ਰੈਸ਼ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।
+    instance_id: ਉਦਾਹਰਨ ID
+    monitor_id: ਮਾਨੀਟਰ ਆਈ.ਡੀ
+    open_devtools: DevTools
+    refresh: ਤਾਜ਼ਾ ਕਰੋ
+    status: ਸਥਿਤੀ
+    tab: ਵਿਜੇਟਸ
+    widget_id: ਵਿਜੇਟ ਆਈ.ਡੀ
+discord_banner:
+  message: >-
+    ਹੋਰ ਸੀਲੇਨ UI ਉਪਭੋਗਤਾਵਾਂ ਨਾਲ ਜੁੜੋ, ਮਦਦ ਪ੍ਰਾਪਤ ਕਰੋ, ਥੀਮ ਸਾਂਝੇ ਕਰੋ, ਅਤੇ ਨਵੀਨਤਮ
+    ਖਬਰਾਂ ਨਾਲ ਅੱਪ ਟੂ ਡੇਟ ਰਹੋ।
+  title: ਸਾਡੇ ਭਾਈਚਾਰੇ ਵਿੱਚ ਸ਼ਾਮਲ ਹੋਵੋ
+extras:
+  backup_group: ਕਲਾਊਡ ਬੈਕਅੱਪ
+  backup_last_sync: ਆਖਰੀ ਸਮਕਾਲੀਕਰਨ
+  backup_never_synced: ਕਦੇ ਸਿੰਕ ਨਹੀਂ ਕੀਤਾ
+  backup_sync: ਕਲਾਉਡ ਲਈ ਸੈਟਿੰਗਾਂ ਨੂੰ ਸਿੰਕ ਕਰੋ
+  backup_sync_description: ਕਲਾਊਡ ਰਾਹੀਂ ਸਵੈਚਲਿਤ ਤੌਰ 'ਤੇ ਆਪਣੀਆਂ ਸੈਟਿੰਗਾਂ ਦਾ ਬੈਕਅੱਪ ਲਓ ਅਤੇ ਰੀਸਟੋਰ ਕਰੋ।
+  clear_icons: ਸਿਸਟਮ ਆਈਕਾਨ ਕੈਚੇ ਸਾਫ਼ ਕਰੋ
+  clear_icons_tooltip: ਸਾਰੇ ਵਿਜੇਟਸ 'ਤੇ ਪੂਰੀ ਤਰ੍ਹਾਂ ਲਾਗੂ ਹੋਣ ਲਈ ਇੱਕ ਰੀਸਟਾਰਟ ਦੀ ਜ਼ਰੂਰਤ ਹੋ ਸਕਦੀ ਹੈ
+  discord_rpc: ਅਮੀਰ ਮੌਜੂਦਗੀ ਨੂੰ ਰੱਦ ਕਰੋ
+  discord_rpc_description: ਹਰ ਕਿਸੇ ਨੂੰ ਦਿਖਾਓ ਕਿ ਤੁਹਾਡੇ ਕੋਲ ਸ਼ੈਲੀ ਹੈ!
+  exit: ਛੱਡੋ/ਬਾਹਰ ਨਿਕਲੋ
+  relaunch: ਮੁੜ-ਲਾਂਚ ਕਰੋ
+  streaming_mode: ਸਟ੍ਰੀਮਿੰਗ ਮੋਡ
+  streaming_mode_description: >-
+    ਰਿਕਾਰਡਿੰਗਾਂ ਜਾਂ ਸਕ੍ਰੀਨਸ਼ੌਟਸ ਦੌਰਾਨ ਗੋਪਨੀਯਤਾ ਦੀ ਰੱਖਿਆ ਕਰਨ ਲਈ ਪਲੇਸਹੋਲਡਰਾਂ ਨਾਲ
+    ਸੰਵੇਦਨਸ਼ੀਲ ਜਾਣਕਾਰੀ (ਉਦਾਹਰਨ ਲਈ ਈਮੇਲਾਂ) ਨੂੰ ਬਦਲਦਾ ਹੈ।
+  version: ਸੰਸਕਰਣ
+  version_fixed: >-
+    ਐਪਲੀਕੇਸ਼ਨ ਅਤੇ WebView2 ਰਨਟਾਈਮ ਸੰਸਕਰਣ ਸਥਿਰ ਹਨ। ਇਸਦਾ ਮਤਲਬ ਹੈ ਕਿ ਐਪਲੀਕੇਸ਼ਨ
+    ਅੱਪਡੇਟ ਪ੍ਰਾਪਤ ਨਹੀਂ ਕਰੇਗੀ ਅਤੇ WebView2 ਰਨਟਾਈਮ ਨੂੰ ਵਿੰਡੋਜ਼ ਅੱਪਡੇਟ ਨਾਲ ਆਪਣੇ ਆਪ
+    ਅੱਪਡੇਟ ਨਹੀਂ ਕੀਤਾ ਜਾਵੇਗਾ।
+general:
+  accent_color: ਲਹਿਜ਼ਾ ਰੰਗ ਦਾ ਰੰਗ
+  date_format: ਤਾਰੀਖ ਦਾ ਫਾਰਮੈਟ
+  date_format_how_to: ਇੱਕ ਮਿਤੀ ਫਾਰਮੈਟ ਕਿਵੇਂ ਲਿਖਣਾ ਹੈ?
+  hardware_acceleration: ਹਾਰਡਵੇਅਰ ਪ੍ਰਵੇਗ
+  hardware_acceleration_description: >-
+    ਹਾਰਡਵੇਅਰ ਪ੍ਰਵੇਗ ਨੂੰ ਅਯੋਗ ਕਰਨ ਨਾਲ ਮੈਮੋਰੀ ਦੀ ਵਰਤੋਂ ਘੱਟ ਜਾਵੇਗੀ। ਜੇਕਰ ਤੁਸੀਂ ਭਾਰੀ
+    ਐਨੀਮੇਸ਼ਨਾਂ ਦੀ ਵਰਤੋਂ ਨਹੀਂ ਕਰ ਰਹੇ ਹੋ ਤਾਂ ਇਸਨੂੰ ਅਯੋਗ ਕਰਨਾ ਸੁਰੱਖਿਅਤ ਹੈ, ਹਾਲਾਂਕਿ
+    ਵਿਅਕਤੀਗਤ ਵਿਜੇਟਸ ਅਜੇ ਵੀ ਇਸ ਸੈਟਿੰਗ ਦੀ ਪਰਵਾਹ ਕੀਤੇ ਬਿਨਾਂ GPU ਵਰਤੋਂ ਲਈ ਮਜਬੂਰ ਕਰ
+    ਸਕਦੇ ਹਨ।
+  icon_pack:
+    available: ਉਪਲਬਧ ਆਈਕਨ ਪੈਕ
+    selected: ਐਕਟਿਵ ਆਈਕਨ ਪੈਕ
+  language: ਭਾਸ਼ਾ
+  monday: ਸੋਮਵਾਰ
+  performance_mode:
+    label: ਅਨੁਕੂਲਤਾਵਾਂ
+    on_battery: ਬੈਟਰੀ ਤੇ
+    on_energy_saver: Energy ਰਜਾ ਸੇਵਰ ਤੇ
+    options:
+      disabled: ਅਯੋਗ
+      extreme: ਅੱਤ
+      minimal: ਘੱਟੋ ਘੱਟ
+    plugged: ਪਲੱਗ ਕੀਤਾ ਜਾਂ ਚਾਰਜ ਕਰਨਾ
+  polling_interval: ਸਿਸਟਮ ਪੋਲਿੰਗ ਅੰਤਰਾਲ
+  polling_interval_description: >-
+    ਕਿੰਨੀ ਵਾਰ (ਸਕਿੰਟਾਂ ਵਿੱਚ) ਸੀਲੇਨ UI CPU, RAM, ਨੈੱਟਵਰਕ, ਅਤੇ ਡਿਸਕ ਗਤੀਵਿਧੀ ਵਰਗੇ
+    ਸਿਸਟਮ ਸਰੋਤਾਂ ਦੀ ਜਾਂਚ ਕਰਦਾ ਹੈ। ਇੱਕ ਛੋਟੀ ਸੰਖਿਆ ਦਾ ਮਤਲਬ ਹੈ ਵਧੇਰੇ ਵਾਰ-ਵਾਰ
+    ਅੱਪਡੇਟ, ਪਰ ਥੋੜਾ ਵੱਧ ਸਰੋਤ ਵਰਤੋਂ।
+  saturday: ਸ਼ਨੀਵਾਰ
+  start_of_week: ਹਫ਼ਤੇ ਦੀ ਸ਼ੁਰੂਆਤ
+  startup: ਸਟਾਰਟਅੱਪ 'ਤੇ ਚਲਾਉਣਾ?
+  sunday: ਐਤਵਾਰ
+  suspend_on_game_mode: ਗੇਮ ਮੋਡ 'ਤੇ ਵਿਜੇਟਸ ਨੂੰ ਮੁਅੱਤਲ ਕਰੋ
+  suspend_on_game_mode_description: >-
+    ਜਦੋਂ ਵਿੰਡੋਜ਼ ਗੇਮ ਮੋਡ ਕਿਰਿਆਸ਼ੀਲ ਹੁੰਦਾ ਹੈ, ਤਾਂ ਗੇਮ ਲਈ CPU ਅਤੇ ਮੈਮੋਰੀ ਨੂੰ ਖਾਲੀ
+    ਕਰਨ ਲਈ ਸਾਰੇ ਵਿਜੇਟ ਵੈਬਵਿਊਜ਼ ਨਸ਼ਟ ਹੋ ਜਾਂਦੇ ਹਨ। ਗੇਮ ਮੋਡ ਖਤਮ ਹੋਣ 'ਤੇ ਵਿਜੇਟਸ
+    ਆਟੋਮੈਟਿਕਲੀ ਰੀਸਟੋਰ ਹੋ ਜਾਂਦੇ ਹਨ।
+  theme:
+    available: ਉਪਲਬਧ ਥੀਮ
+    selected: ਕਿਰਿਆਸ਼ੀਲ ਥੀਮ
+global: ਗਲੋਬਲ
+header:
+  labels:
+    config: ਸੰਰਚਨਾ
+    developer: ਡਿਵੈਲਪਰਾਂ ਲਈ
+    extras: ਵਾਧੂ
+    general: ਜਨਰਲ
+    home: ਘਰ
+    iconpack: ਆਈਕਾਨ ਪੈਕ
+    monitors: ਨਿਗਰਾਨੀ ਕਰਦਾ ਹੈ
+    plugin: ਪਲੱਗਇਨ
+    resources: ਸਰੋਤ
+    session: ਖਾਤਾ
+    shortcuts: ਸ਼ਾਰਟਕੱਟ
+    soundpack: ਧੁਨੀ ਪੈਕ
+    specific_apps: ਐਪਲੀਕੇਸ਼ਨ ਦੁਆਰਾ ਸੈਟਿੰਗਾਂ
+    theme: ਥੀਮ
+    virtual_desk: ਵਰਚੁਅਲ ਡੈਸਕਟਾਪ
+    wallpaper: ਵਾਲਪੇਪਰ
+    widget: ਵਿਜੇਟਸ
+home:
+  new_resources: ਨਵੇਂ ਸਰੋਤ
+inherit: ਵਿਰਾਸਤ
+inProgress: ਤਰੱਕੀ ਹੋ ਰਹੀ ਹੈ...
+insert: ਸੰਮਿਲਿਤ ਕਰੋ
+join_us: ਸਾਡੇ ਨਾਲ ਸ਼ਾਮਲ!
+loading: ਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ...
+miscellaneous: ਫੁਟਕਲ
+monitors_configurations:
+  label: ਨਿਗਰਾਨੀ {{ਇੰਡੈਕਸ}
+more: ਹੋਰ
+'no': ਨਹੀਂ
+open: ਖੋਲ੍ਹੋ
+quit: ਛੱਡੋ
+remove: ਹਟਾਓ
+reset_all_to_default: ਸਾਰੇ ਡਿਫੌਲਟ ਮੁੱਲਾਂ ਤੇ ਰੀਸੈਟ ਕਰੋ
+reset_configurations: ਸੰਰਚਨਾ ਰੀਸੈਟ ਕਰੋ
+reset_to_default: ਡਿਫੌਲਟ ਵੈਲਯੂ ਤੇ ਰੀਸੈਟ ਕਰੋ
+resources:
+  affected_widgets: ਪ੍ਰਭਾਵਿਤ ਵਿਜੇਟਸ
+  app_outdated: ਇਸ ਸਰੋਤ ਲਈ ਸਹੀ ਤਰ੍ਹਾਂ ਕੰਮ ਕਰਨ ਲਈ ਇੱਕ ਨਵੇਂ ਸੰਸਕਰਣ ਦੀ ਜ਼ਰੂਰਤ ਹੈ.
+  coming_soon: ਆਨ ਵਾਲੀ
+  corrupted_wallpaper: ਥੰਬਨੇਲ ਨੂੰ ਐਕਸਟਰੈਕਟ ਕਰਨ ਵਿੱਚ ਅਸਫਲ - ਖਰਾਬ ਜਾਂ ਅਸਮਰਥਿਤ ਵੀਡੀਓ ਫਾਰਮੈਟ
+  delete: ਸਰੋਤ ਨੂੰ ਮਿਟਾਓ
+  discover: ਹੋਰ ਸਰੋਤਾਂ ਦੀ ਖੋਜ ਕਰੋ
+  has_update: ਇੱਕ ਅਪਡੇਟ ਉਪਲਬਧ ਹੈ
+  high_impact: ਪ੍ਰਦਰਸ਼ਨ 'ਤੇ ਉੱਚ ਪ੍ਰਭਾਵ
+  import_wallpapers: ਸਥਾਨਕ ਵਾਲਪੇਪਰ ਆਯਾਤ ਕਰੋ
+  included_plugins: ਸ਼ਾਮਲ ਪਲੱਗਇਨ
+  modified: ਸੋਧਿਆ ਗਿਆ
+  open_folder: ਓਪਨ ਸਰੋਤ ਫੋਲਡਰ
+  outdated: >-
+    ਇਹ ਸਰੋਤ ਸੰਸਥ UI ਦੇ ਪੁਰਾਣੇ ਸੰਸਕਰਣ ਲਈ ਤਿਆਰ ਕੀਤਾ ਗਿਆ ਸੀ ਅਤੇ ਸ਼ਾਇਦ ਸਹੀ ਤਰ੍ਹਾਂ
+    ਕੰਮ ਨਾ ਕਰੇ.
+  see_on_website: ਵੈੱਬਸਾਈਟ 'ਤੇ ਦੇਖੋ
+  update_now: ਅੱਪਡੇਟ ਕਰੋ
+  updates_available: ਅੱਪਡੇਟ ਉਪਲਬਧ ਹਨ
+  updates_available_description: ਹੇਠਾਂ ਦਿੱਤੇ ਸਰੋਤਾਂ ਵਿੱਚ ਅੱਪਡੇਟ ਉਪਲਬਧ ਹਨ।
+review_request:
+  not_now: ਹਾਲੇ ਨਹੀਂ
+  sure: ਯਕੀਨਨ!
+  title: ਸੀਲੇਨ UI ਦਾ ਆਨੰਦ ਮਾਣ ਰਹੇ ਹੋ?
+save: ਸੇਵ ਕਰੋ
+save_and_restart: ਸੇਵ ਅਤੇ ਰੀਸਟਾਰਟ
+search: ਖੋਜ
+see_more: ਹੋਰ ਦੇਖੋ
+session:
+  logout: ਸਾਇਨ ਆਉਟ
+  plan: ਯੋਜਨਾ
+  sign_in: ਸਾਈਨ - ਇਨ
+  sign_in_hint: ਤੁਹਾਡਾ ਬ੍ਰਾਊਜ਼ਰ ਖੁੱਲ੍ਹ ਜਾਵੇਗਾ ਤਾਂ ਜੋ ਤੁਸੀਂ ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਸਾਈਨ ਇਨ ਕਰ ਸਕੋ।
+  upgrade_to: ਤੱਕ ਅੱਪਗਰੇਡ ਕਰੋ
+shortcuts:
+  disabled_tooltip: ਵਿਜੇਟ ਅਤੇ ਇਸਦੇ ਸ਼ਾਰਟਕੱਟ ਅਯੋਗ ਹਨ
+  duplicate_error: ਵਿਰੋਧੀ ਸ਼ਾਰਟਕੱਟ ਖੋਜੇ ਗਏ
+  duplicate_error_hint: >-
+    ਕੁਝ ਸ਼ਾਰਟਕੱਟ ਇੱਕ ਤੋਂ ਵੱਧ ਕਾਰਵਾਈਆਂ ਲਈ ਨਿਰਧਾਰਤ ਕੀਤੇ ਗਏ ਹਨ। ਵਿਵਾਦਪੂਰਨ ਵਿਜੇਟਸ
+    ਵਿੱਚੋਂ ਇੱਕ ਨੂੰ ਅਸਮਰੱਥ ਕਰੋ ਜਾਂ ਹੱਲ ਕਰਨ ਲਈ ਡੁਪਲੀਕੇਟ ਕੁੰਜੀ ਬਾਈਡਿੰਗ ਨੂੰ ਮੁੜ
+    ਅਸਾਈਨ ਕਰੋ।
+  enable: ਬਿਲਟ-ਇਨ ਸ਼ਾਰਟਕੱਟ ਸਿਸਟਮ ਨੂੰ ਸਮਰੱਥ ਕਰੋ
+  enable_tooltip: >-
+    ਅਯੋਗ ਕਰੋ ਜੇ ਤੁਸੀਂ ਵੇਖਿਆ UI ਕਲਾਇੰਟ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਆਪਣੇ ਖੁਦ ਦੇ ਸ਼ੌਰਟਕਟ ਸਿਸਟਮ
+    ਨੂੰ ਲਾਗੂ ਕਰੋਗੇ
+  labels:
+    create_new_workspace: ਨਵਾਂ ਵਰਕਸਪੇਸ ਬਣਾਓ
+    create_new_workspace_row: ਨਵੀਂ ਵਰਕਸਪੇਸ ਕਤਾਰ ਬਣਾਓ
+    destroy_current_workspace: ਮੌਜੂਦਾ ਵਰਕਸਪੇਸ ਨੂੰ ਨਸ਼ਟ ਕਰੋ
+    misc_force_quit: ਰੱਦ
+    misc_force_restart: ਫੋਰਸ ਚਾਲੂ
+    move_to_workspace: ਵਰਕਸਪੇਸ ਵਿੱਚ ਜਾਓ {{0}}}
+    pause_toggle: ਸ਼ਾਰਟਕੱਟ ਰੋਕੋ/ਮੁੜ ਸ਼ੁਰੂ ਕਰੋ
+    send_to_next_workspace: ਵਿੰਡੋ ਨੂੰ ਅਗਲੀ ਵਰਕਸਪੇਸ 'ਤੇ ਭੇਜੋ
+    send_to_previous_workspace: ਵਿੰਡੋ ਨੂੰ ਪਿਛਲੇ ਵਰਕਸਪੇਸ ਵਿੱਚ ਭੇਜੋ
+    send_to_workspace: ਵਰਕਸਪੇਸ ਨੂੰ ਭੇਜੋ {{0}}
+    send_to_workspace_down: ਵਿੰਡੋ ਨੂੰ ਹੇਠਾਂ ਵਰਕਸਪੇਸ ਵਿੱਚ ਭੇਜੋ
+    send_to_workspace_up: ਵਿੰਡੋ ਨੂੰ ਉੱਪਰ ਵਰਕਸਪੇਸ ਵਿੱਚ ਭੇਜੋ
+    switch_to_next_workspace: ਅਗਲੇ ਵਰਕਸਪੇਸ ਤੇ ਜਾਓ
+    switch_to_previous_workspace: ਪਿਛਲੇ ਵਰਕਸਪੇਸ ਤੇ ਜਾਓ
+    switch_to_workspace_down: ਹੇਠਾਂ ਵਰਕਸਪੇਸ 'ਤੇ ਸਵਿਚ ਕਰੋ
+    switch_to_workspace_up: ਉੱਪਰ ਵਰਕਸਪੇਸ 'ਤੇ ਸਵਿਚ ਕਰੋ
+    switch_workspace: ਵਰਕਸਪੇਸ ਵਿੱਚ ਸਵਿੱਚ ਕਰੋ {{0}}}
+  readonly_tooltip: ਇਹ ਸਿਰਫ ਇਕੋ ਸ਼ਾਰਟਕੱਟ ਹੈ
+  reset: ਡਿਫੌਲਟਸ ਤੇ ਰੀਸੈਟ ਕਰੋ
+sides:
+  bottom: ਹੇਠਾਂ
+  left: ਖੱਬੇ
+  right: ਸੱਜਾ
+  top: ਸਿਖਰ
+toolbar:
+  auto_hide: ਆਟੋ ਓਹਲੇ
+  auto_hide_touch_disabled: ਟੱਚ ਸਕ੍ਰੀਨ ਡਿਵਾਈਸਾਂ 'ਤੇ ਆਟੋ ਹਾਈਡ ਉਪਲਬਧ ਨਹੀਂ ਹੈ
+  delay_to_hide: ਛੁਪਾਉਣ ਲਈ ਦੇਰੀ
+  delay_to_show: ਦਿਖਾਉਣ ਵਿੱਚ ਦੇਰੀ
+  dock_side: ਸਥਿਤੀ
+  enable: ਫੈਂਸੀ ਟੂਲਬਾਰ ਨੂੰ ਸਮਰੱਥ ਬਣਾਓ
+  hide_mode:
+    always: ਹਮੇਸ਼ਾ
+    never: ਕਦੇ ਨਹੀਂ
+    on_overlap: ਓਵਰਲੈਪ 'ਤੇ
+  item_size: ਆਈਟਮ ਦਾ ਆਕਾਰ
+  label: ਟੂਲਬਾਰ
+  margin: ਹਾਸ਼ੀਏ ਦਾ ਆਕਾਰ
+  padding: ਪੈਡਿੰਗ ਆਕਾਰ
+  placeholder: {}
+update:
+  available: ਅਪਡੇਟ ਉਪਲਬਧ!
+  channel: ਚੈਨਲ ਅਪਡੇਟ ਕਰੋ
+  downloading: ਡਾ ing ਨਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ...
+wall:
+  blur: ਧੁੰਦਲਾ
+  cancel: ਰੱਦ ਕਰੋ
+  close: ਬੰਦ ਕਰੋ
+  collection_name: ਸੰਗ੍ਰਹਿ ਦਾ ਨਾਮ
+  collections: ਸੰਗ੍ਰਹਿ
+  contrast: ਇਸ ਦੇ ਉਲਟ
+  corrupted_wallpapers_message: 'ਖਰਾਬ ਵਾਲਪੇਪਰ, ਇਹਨਾਂ ਨੂੰ ਮਿਟਾਉਣ ''ਤੇ ਵਿਚਾਰ ਕਰੋ:'
+  coverage_pause_threshold: ਥ੍ਰੈਸ਼ਹੋਲਡ ਨੂੰ ਰੋਕੋ (ਵਿੰਡੋ ਕਵਰੇਜ)
+  create: ਬਣਾਓ
+  create_collection: ਸੰਗ੍ਰਹਿ ਬਣਾਓ
+  default_collection: ਡਿਫੌਲਟ ਵਾਲਪੇਪਰ ਜਾਂ ਸੰਗ੍ਰਹਿ
+  default_collection_description: >-
+    ਉਹਨਾਂ ਸਾਰੇ ਮਾਨੀਟਰਾਂ ਅਤੇ ਵਰਕਸਪੇਸਾਂ 'ਤੇ ਲਾਗੂ ਕੀਤਾ ਜਾਂਦਾ ਹੈ ਜਿਨ੍ਹਾਂ ਦਾ ਕੋਈ ਖਾਸ
+    ਓਵਰਰਾਈਡ ਸੈੱਟ ਨਹੀਂ ਹੁੰਦਾ ਹੈ।
+  delete_collection: ਸੰਗ੍ਰਹਿ ਮਿਟਾਓ
+  edit_collection: ਸੰਗ੍ਰਹਿ ਦਾ ਸੰਪਾਦਨ ਕਰੋ
+  extend: ਪ੍ਰਾਇਮਰੀ ਵਧਾਓ
+  fit:
+    contain: ਸ਼ਾਮਲ
+    cover: ਕਵਰ
+    fill: ਭਰੋ
+  flipHorizontal: ਹਰੀਜੱਟਲ ਫਲਿੱਪ ਕਰੋ
+  flipVertical: ਲੰਬਕਾਰੀ ਫਲਿੱਪ ਕਰੋ
+  generating_thumbnails: ਵਾਲਪੇਪਰ ਥੰਬਨੇਲ ਤਿਆਰ ਕੀਤੇ ਜਾ ਰਹੇ ਹਨ
+  hours: ਘੰਟੇ
+  interval: ਵਾਲਪੇਪਰ ਬਦਲੋ
+  minutes: ਮਿੰਟ
+  monitor_collection: ਨਿਗਰਾਨ ਸੰਗ੍ਰਹਿ
+  multimonitor_behaviour: ਮਲਟੀਮੋਨੀਟਰ ਵਿਵਹਾਰ
+  muted: ਵੀਡੀਓ ਆਡੀਓ ਨੂੰ ਮਿਊਟ ਕਰੋ
+  no_background: ਇਸ ਦੀ ਬਜਾਏ ਥੀਮ ਦੇ ਬੈਕਗ੍ਰਾਉਂਡ ਦੀ ਵਰਤੋਂ ਕਰਦਿਆਂ, ਖਾਲੀ ਸਲਾਈਡ ਸ਼ੋਅ ਕਰੋ.
+  no_collections: ਅਜੇ ਤੱਕ ਕੋਈ ਸੰਗ੍ਰਹਿ ਨਹੀਂ ਬਣਾਇਆ ਗਿਆ। ਇੱਕ ਬਣਾਉਣ ਲਈ + ਬਟਨ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।
+  objectFit: ਪਿਛੋਕੜ ਫਿਟ
+  objectPosition: ਪਿਛੋਕੜ ਦੀ ਸਥਿਤੀ
+  overlayColor: ਓਵਰਲੇ ਰੰਗ
+  overlayMixBlendMode: ਓਵਰਲੇਅ ਮਿਕਸ ਬਰੇਂਡ ਮੋਡ
+  per_monitor: ਪ੍ਰਤੀ ਮਾਨੀਟਰ
+  per_monitor_config: ਪ੍ਰਤੀ-ਮਾਨੀਟਰ ਸੰਰਚਨਾ
+  playback: ਪਲੇਬੈਕ ਸਪੀਡ
+  position:
+    bottom: ਤਲ
+    center: ਕੇਂਦਰ
+    left: ਖੱਬੇ
+    right: ਸੱਜੇ
+    top: ਸਿਖਰ
+  processing_video: ਵੀਡੀਓ 'ਤੇ ਪ੍ਰਕਿਰਿਆ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ
+  random: ਸਿਲਾਈਡ ਸਲਾਈਡ ਸ਼ੋਅ
+  saturation: ਸੰਤ੍ਰਿਪਤ
+  seconds: ਸਕਿੰਟ
+  select_collection: ਸੰਗ੍ਰਹਿ ਚੁਣੋ
+  thumbnail_generation_complete: ਥੰਬਨੇਲ ਜਨਰੇਸ਼ਨ ਪੂਰਾ ਹੋਇਆ
+  thumbnail_generation_finished: ਥੰਬਨੇਲ ਬਣਾਉਣਾ ਸਫਲਤਾਪੂਰਵਕ ਸਮਾਪਤ ਹੋ ਗਿਆ ਹੈ
+  use_accent_color: ਵਾਲਪੇਪਰ ਲਹਿਜ਼ੇ ਦੇ ਰੰਗ ਦੀ ਵਰਤੋਂ ਕਰੋ
+  wallpaper_collection: ਵਾਲਪੇਪਰ ਸੰਗ੍ਰਹਿ
+  wallpaper_settings: ਵਾਲਪੇਪਰ ਸੈਟਿੰਗਾਂ
+  wallpapers: ਵਾਲਪੇਪਰ
+  wallpapers_and_collections: ਵਾਲਪੇਪਰ ਅਤੇ ਸੰਗ੍ਰਹਿ
+  withOverlay: ਓਵਰਲੇਅ ਦੇ ਨਾਲ
+  workspace_collections: ਵਰਕਸਪੇਸ ਸੰਗ੍ਰਹਿ
+weg:
+  auto_hide: ਆਟੋ ਓਹਲੇ
+  auto_hide_touch_disabled: ਟੱਚ ਸਕ੍ਰੀਨ ਡਿਵਾਈਸਾਂ 'ਤੇ ਆਟੋ ਹਾਈਡ ਉਪਲਬਧ ਨਹੀਂ ਹੈ
+  delay_to_hide: ਛੁਪਾਉਣ ਲਈ ਦੇਰੀ
+  delay_to_show: ਦਿਖਾਉਣ ਵਿੱਚ ਦੇਰੀ
+  dock_side: ਸਥਿਤੀ
+  filtering: ਆਈਟਮ ਫਿਲਟਰਿੰਗ
+  gap: ਪਾੜਾ
+  hide_mode:
+    always: ਹਮੇਸ਼ਾ
+    never: ਕਦੇ ਨਹੀਂ
+    on_overlap: ਓਵਰਲੈਪ 'ਤੇ
+  import_error: ਟਾਸਕਬਾਰ ਆਈਟਮਾਂ ਨੂੰ ਆਯਾਤ ਕਰਨ ਵਿੱਚ ਅਸਫਲ
+  import_from_taskbar:
+    button: ਵਿੰਡੋਜ਼ ਟਾਸਕਬਾਰ ਤੋਂ ਆਯਾਤ ਕਰੋ
+    label: ਪਿੰਨ ਕੀਤੀਆਂ ਆਈਟਮਾਂ ਆਯਾਤ ਕਰੋ
+  import_no_items: ਵਿੰਡੋਜ਼ ਟਾਸਕਬਾਰ ਵਿੱਚ ਕੋਈ ਪਿੰਨ ਕੀਤੀਆਂ ਆਈਟਮਾਂ ਨਹੀਂ ਮਿਲੀਆਂ
+  import_success: ਵਿੰਡੋਜ਼ ਟਾਸਕਬਾਰ ਤੋਂ {{count}} ਆਈਟਮਾਂ ਨੂੰ ਸਫਲਤਾਪੂਰਵਕ ਆਯਾਤ ਕੀਤਾ ਗਿਆ
+  items:
+    gap: ਆਈਟਮਾਂ ਵਿਚਕਾਰ ਸਪੇਸ
+    label: ਇਕਾਈ
+    middle_click_action:
+      close_app: ਐਪ ਬੰਦ ਕਰੋ
+      label: ਮਿਡਲ ਕਲਿਕ ਐਕਸ਼ਨ
+      open_new_instance: ਨਵੀਂ ਉਦਾਹਰਣ ਖੋਲ੍ਹੋ
+    pinned_visibility:
+      always: ਹਮੇਸ਼ਾ
+      label: ਪਿੰਨ ਕੀਤੀਆਂ ਆਈਟਮਾਂ ਦੀ ਦਿੱਖ
+      when_primary: ਜਦੋਂ ਮਾਨੀਟਰ ਪ੍ਰਾਇਮਰੀ ਹੁੰਦਾ ਹੈ
+    show_instance_counter: ਓਪਨ ਵਿੰਡੋਜ਼ ਕਾਉਂਟਰ ਦਿਖਾਓ
+    show_window_title: ਓਪਨ ਵਿੰਡੋ ਦਾ ਸਿਰਲੇਖ ਦਿਖਾਓ (ਸਿਰਫ ਖਿਤਿਜੀ)
+    size: ਆਈਟਮ ਦਾ ਆਕਾਰ
+    split_windows: ਵਿੰਡੋਜ਼ ਨੂੰ ਸਪਲਿਟ ਕਰੋ (ਪ੍ਰਤੀ ਵਿੰਡੋ ਇੱਕ ਆਈਟਮ)
+    temporal_visibility:
+      all: ਸਾਰੇ
+      label: ਅਨਪਿੰਨ ਕੀਤੀਆਂ ਆਈਟਮਾਂ ਦੀ ਦਿੱਖ
+      on_monitor: ਮਾਨੀਟਰ 'ਤੇ
+  label: ਡੌਕ/ਟਾਸਕਬਾਰ
+  margin: ਹਾਸ਼ੀਏ
+  mode:
+    full_width: ਪੂਰੀ ਸਕ੍ਰੀਨ ਚੌੜਾਈ
+    min_content: ਛੋਟਾ ਜਿੰਨਾ ਹੋ ਸਕਦਾ ਹੈ
+  padding: ਪੈਡਿੰਗ
+  show_end_task: ਟਾਸਕਬਾਰ ਵਿੱਚ ਅੰਤ ਦਾ ਕੰਮ ਵੇਖੋ
+  width: ਚੌੜਾਈ
+welcome:
+  give_a_review: ਇੱਕ ਸਮੀਖਿਆ ਦਿਓ
+  message: >-
+    Seelen UI ਵਿੰਡੋਜ਼ ਲਈ ਇੱਕ ਮੁਫਤ ਅਤੇ ਓਪਨ ਸੋਰਸ ਡੈਸਕਟਾਪ ਵਾਤਾਵਰਣ ਹੈ। ਇੱਥੇ ਤੁਹਾਡੇ
+    ਕੋਲ ਤੁਹਾਡੇ ਡੈਸਕਟੌਪ ਦੇ ਦਿੱਖ ਅਤੇ ਵਿਵਹਾਰ 'ਤੇ ਪੂਰਾ ਨਿਯੰਤਰਣ ਹੈ, ਜਿਸ ਨਾਲ ਤੁਸੀਂ
+    ਆਪਣੇ ਵਰਕਫਲੋ ਅਤੇ ਸ਼ੈਲੀ ਨਾਲ ਮੇਲ ਕਰਨ ਲਈ ਹਰ ਵੇਰਵੇ ਨੂੰ ਅਨੁਕੂਲਿਤ ਕਰ ਸਕਦੇ ਹੋ।
+  ok: ਆਓ ਸ਼ੁਰੂ ਕਰੀਏ!
+  review: >-
+    ਜੇਕਰ ਤੁਸੀਂ ਸੀਲੇਨ UI ਦੀ ਵਰਤੋਂ ਕਰਨ ਦਾ ਅਨੰਦ ਲੈਂਦੇ ਹੋ, ਤਾਂ ਸਟੋਰ 'ਤੇ ਇੱਕ ਸਮੀਖਿਆ
+    ਛੱਡਣ 'ਤੇ ਵਿਚਾਰ ਕਰੋ — ਤੁਹਾਡਾ ਫੀਡਬੈਕ ਪ੍ਰੋਜੈਕਟ ਨੂੰ ਵਧਣ ਅਤੇ ਬਿਹਤਰ ਬਣਾਉਣ ਵਿੱਚ ਮਦਦ
+    ਕਰਦਾ ਹੈ।
+  title: Seelen UI ਵਿੱਚ ਸੁਆਗਤ ਹੈ!
+widget:
+  default_instance: ਪੂਰਵ-ਨਿਰਧਾਰਤ ਉਦਾਹਰਨ
+  default_instance_hint: ਹਮੇਸ਼ਾ ਕਿਰਿਆਸ਼ੀਲ, ਰੂਟ ਵਿਜੇਟ ਸੰਰਚਨਾ ਦੀ ਵਰਤੋਂ ਕਰਦਾ ਹੈ
+  enable: ਇਸ ਵਿਦਜਿਟ ਨੂੰ ਸਮਰੱਥ ਕਰੋ
+  enable_for_monitor: ਇਸ ਮਾਨੀਟਰ ਨੂੰ ਸਮਰੱਥ ਕਰੋ
+  extra_instances: ਵਾਧੂ ਉਦਾਹਰਨਾਂ
+  instance: ਉਦਾਹਰਨ
+  instances: ਉਦਾਹਰਣ
+wm:
+  animations:
+    duration: ਐਨੀਮੇਸ਼ਨ ਅੰਤਰਾਲ (ਐਮਐਸ)
+    ease_function: ਐਨੀਮੇਸ਼ਨ ਆਸਾਨ ਫੰਕਸ਼ਨ
+    enable: ਵਿੰਡੋ ਦੇ ਐਨੀਮੇਸ਼ਨ ਨੂੰ ਸਮਰੱਥ ਕਰੋ
+  author: ਲੇਖਕ
+  auto_stack: ਐਪ ਸ਼੍ਰੇਣੀ ਦੁਆਰਾ ਆਟੋ ਸਟੈਕ
+  border:
+    enable: ਵਿੰਡੋ ਦੇ ਬਾਰਡਰ ਨੂੰ ਸਮਰੱਥ ਬਣਾਓ
+    offset: ਬਾਰਡਰ ਆਫਸੈੱਟ
+    width: ਬਾਰਡਰ ਚੌੜਾਈ
+  description: ਵਰਣਨ
+  drag_behavior: ਡਰੈਗ ਵਿਵਹਾਰ
+  drag_behavior_options:
+    sort: ਕ੍ਰਮਬੱਧ (ਖਿੱਚਣ ਵੇਲੇ ਵਿੰਡੋਜ਼ ਨੂੰ ਮੁੜ ਕ੍ਰਮਬੱਧ ਕਰੋ)
+    swap: ਸਵੈਪ (ਡਰੈਗ ਐਂਡ 'ਤੇ ਵਿੰਡੋਜ਼ ਨੂੰ ਸਵੈਪ ਕਰੋ)
+  floating:
+    height: ਫਲੋਟਿੰਗ ਵਿੰਡੋਜ਼ ਦੀ ਉਚਾਈ
+    title: ਫਲੋਟਿੰਗ ਵਿੰਡੋਜ਼ ਦਾ ਆਕਾਰ
+    width: ਫਲੋਟਿੰਗ ਵਿੰਡੋਜ਼ ਚੌੜਾਈ
+  layout: ਖਾਕਾ
+  resize_delta: ਡੈਲਟਾ ਦਾ ਆਕਾਰ ਬਦਲੋ (%)
+  space_between_containers: ਕੰਟੇਨਰਾਂ ਵਿਚਕਾਰ ਸਪੇਸ
+  stack_bar_visibility: ਸਟੈਕ ਬਾਰ ਦਿਖਣਯੋਗਤਾ
+  stack_bar_visibility_options:
+    always: ਹਮੇਸ਼ਾ
+    as_needed: ਲੋੜ ਅਨੁਸਾਰ
+  workspace_offset: ਵਰਕਸਪੇਸ ਆਫਸੈੱਟ (ਮਾਰਜਿਨ)
+  workspace_padding: ਵਰਕਸਪੇਸ ਪੈਡਿੰਗ
+'yes': ਹਾਂ

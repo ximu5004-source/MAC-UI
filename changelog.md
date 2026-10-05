@@ -1,0 +1,2391 @@
+# Changelog
+
+## [3.0.1] — MAC UI, 2026-10-05
+
+### MAC UI fixes
+
+- Add an explicit Launchpad enable switch to its shortcut group and accept standalone Win in the shortcut editor.
+- Subscribe to settings updates before the initial fetch; refresh the live settings snapshot when the main settings file or its sidecars change.
+- Keep keyboard capture alive when shortcuts are temporarily disabled, allowing re-enabling without restarting the service.
+- Isolate shortcut recordings by request identity and clean up listeners on accept, cancel, failure and dialog close.
+- Exclude nightly-only debug symbols from stable installers at compile time.
+- Retain the accepted 3.0 visuals and saved preferences. The user confirmed the shortcut issue resolved on 2026-10-05 and authorized 3.0.1 packaging.
+- Genie minimization remains disabled; no new animation functionality is enabled in this maintenance release.
+
+## [3.0.0] — MAC UI, 2026-10-05
+
+### MAC UI updates
+
+- Unify built-in glass popovers, the calendar, account menu and session sheet with neutral frosted interiors, edge-only gloss and clear text.
+- Use a macOS-inspired Launchpad application grid without Quick Access or a right sidebar; opening folders hides the underlying application grid.
+- Restore the editable standalone Win-key Launchpad shortcut. Trigger only on release and preserve native Win-key combinations.
+- Keep application icons free of added glow and retain proportional Dock sizing, transparency and gloss controls.
+- Dismiss Launchpad/account panels before opening the session sheet; preserve cancellation-first focus and explicit confirmation for destructive actions.
+- Retain saved layouts, pinned applications and compatibility identifiers. The user accepted the current test build on 2026-10-05.
+- Genie mesh/capture work remains gated off in production; this release does not enable a replacement for Windows minimize animations.
+
+## [2.8.7] — MAC UI, 2026-10-04
+
+### MAC UI fixes
+
+- Use the native Windows Start menu by default. The custom Launchpad is opt-in; its saved layout is retained.
+- Remove added icon-edge glow and artwork shadows from desktop, Dock and Launchpad icons while preserving icon geometry.
+- Retain Dock overall-size, transparency and gloss controls and the existing desktop-management improvements.
+- Keep MAC UI / JONA product branding and upstream attribution; do not modify Windhawk or patch Windows system files.
+
+### enhancements
+
+- customizable widgets show/hide animations, themes can style them via the `data-widget-hidden` attribute on the root
+  element. The default theme includes a fade in/out.
+
+## [2.8.6]
+
+### enhancements
+
+- customizable toolbar items transitions (in/out).
+- customizable dock items transitions (in/out).
+- detailed information of WLAN when devtools enabled.
+- detailed information of bluetooth when devtools enabled.
+
+### fix
+
+- dock and toolbar edge triggering on high DPI displays.
+- duplicated dock items briefly appearing (and then disappearing) for open, unpinned apps on multi-monitor setups.
+- WLAN networks and Bluetooth devices not being scanned automatically after turning their radio back on.
+- bluetooth popup scanning indicator/scanning showing while the popup was unfocused instead of while it was open.
+- dock/toolabr behind windows after exiting fullscreen mode.
+
+## [2.8.5]
+
+### features
+
+- HDR toggle for supported monitors on quick settings widget.
+- Light/dark mode toggle on quick settings widget.
+- Night Light toggle on quick settings widget.
+- Mobile hotspot toggle on quick settings widget and network popup, with QR code and connection details (SSID, password,
+  band) for quick sharing.
+
+### enhancements
+
+- show apps menu on the monitor where the cursor is positioned.
+
+### fix
+
+- notifications behaviors
+- apps menu and power menu stuck on mounting when the user folders indexing was slow or failed.
+- apps menu inmediately dissmising.
+
+## [2.8.4]
+
+### enhancements
+
+- media player, seekable progress bar with live-updating playback position while playing.
+
+### fix
+
+- PWA windows (e.g. Firefox PWAs) grouped under their parent browser instead of being detected as separate apps when the
+  AppUserModelId is assigned after window creation.
+- Toolbar and dock maximized window colors api.
+
+## [2.8.3]
+
+### enhancements
+
+- load native taskbar pins, for new users.
+- show task switcher on the monitor where the cursor is positioned.
+- add option to filter task switcher apps by the active monitor.
+- customizable twm float size
+
+### fix
+
+- launched apps not seeing environment variable changes made after Seelen UI started.
+- context menu metadata not being send for submenus.
+- context menu not being close on submenu item interaction.
+- toolbar showing the muted volume icon when there is no default audio output device.
+- default audio device flags being cleared when the new default device was not loaded yet.
+
+## [2.8.2]
+
+### features
+
+- Grid workspaces system.
+- Workspaces shortcuts to switch to the next/previous workspace column or row.
+- Workspaces shortcuts to send the focused window to the next/previous workspace column or row.
+
+### enhancements
+
+- use of Chrome DevTools Protocol to clean memory periodically.
+
+### fix
+
+- not loading system account profile picture on windows 10.
+- apps menu not prioritizing apps on search.
+- apps menu failing to load entirely when a single packaged app entry has an invalid resource map.
+- apps menu keyboard navigation.
+
+## [2.8.1]
+
+### features
+
+- mutiple dock items sizes.
+- new renderer for toolbar plugins via canvas.
+- configurable stack bar visibility on window manager: "Always" or "As needed" (2+ windows).
+
+### enhancements
+
+- tooltip placement on toolbar and dock items.
+
+### fix
+
+- floating windows while twm is disabled.
+- disabling widgets on shortcuts change.
+- workspaces behaviors on multimonitor setups.
+- wallpaper flicker/fade caused by spurious monitor-change notifications retriggering the desktop refresh.
+
+## [2.8.0]
+
+### features
+
+- plugins system for dock/taskbar.
+- add clock plugin to dock.
+- add network plugin to dock
+- add bluetooth plugin to dock.
+- add notifications plugin to dock.
+- add system tray plugin to dock.
+- add keyboard selector plugin to dock.
+- add battery plugin to dock.
+- add volume plugin to dock.
+- Separators for dock.
+
+### enhancements
+
+- toolbar and dock autohide on overlap logic for multimonitor setups.
+- tooltips on sliders.
+- bluetooth toolbar module.
+- twm animations for multimonitor movement.
+
+### fix
+
+- fullscreen state being removed from background windows on foreground change.
+- dock and toolbar hidding while dragging items.
+- state while switching workspaces.
+- twm window not being moved when there is a fullscreen app on target monitor.
+- native taskbar autohide being disabled on settings save.
+- icon editor missing translations.
+- dock drag and sorting not working properly.
+- dock full size not working on vertical mode.
+- twm flickering on stacks when manual uniminized a window from a stack in another workspace.
+- wallpaper incorrect size/position after monitor hotplug (stale virtual screen metrics).
+- widgets not being created/destroyed on monitors change.
+- stucked tooltips.
+
+## [2.7.4]
+
+### enhancements
+
+- default theme inconsistencies.
+- QoL improvements for developers of widgets.
+- add support for disabled attribute on the standard styled components library.
+
+### fix
+
+- widgets not fitting into monitor bounds when restoring last position.
+- non-interactable windows being added to a workspace when using send to workspace command.
+- language detection not preserving regional variants (e.g. `pt-BR`, `zh-CN`) when supported.
+- i18n English fallback not loading when the initial locale was not English.
+- edit of readonly shortcuts not working when devtools - unlock shortcuts is true.
+
+## [2.7.3]
+
+### fix
+
+- slu client failing without printing real error.
+- tooltips being focused on show.
+- not closing tooltips on hide.
+
+## [2.7.2]
+
+### features
+
+- html wallpapers.
+
+### enhancements
+
+- twm animations.
+- lazy load of translations.
+- reduce boot time for toolbar and dock.
+
+### fix
+
+- app bars not being registered.
+- dock and toolbar not being on top, after exiting from fullscreen app.
+
+## [2.7.1]
+
+### enhancements
+
+- user flow for resources download.
+- more dev tools.
+
+### fix
+
+- apps menu crashing on search when too many items.
+- gui settings not persisting internal state.
+- saving raw shortcuts instead normalized ones.
+
+## [2.7.0]
+
+### feature
+
+- Allow users easily create icon packs via an Icon Editor widget.
+
+### enhancements
+
+- add min/max limits to all number inputs in Settings GUI to prevent users from entering values that break the desktop
+  layout.
+- keyboard/language selector fixes and improvements (now shows active IME).
+- wallpaper selector allow select single wallpapers.
+- disable autohide of dock and toolbar on touch screen devices.\
+- show apps icon on dock item's context menu.
+
+### fix
+
+- discord rich presence not inmediately updated after settings change.
+- inconsistency on styles of dock and quick settings widgets.
+- toolbar and dock autohide weird behaviour on hitboxes.
+- twm not reflecting changes inmediately on settings change.
+- dock/toolbar/twm behaviours while using fullscreen apps.
+- not showing toolbar and dock when Apps Menu open.
+- drag being triggered on touchpads with electrical noise or touchpad sensitivity issues.
+- dock and toolbar not being always on top, after exiting from fullscreen app.
+- task switcher not exiting on escape key.
+- inconsistent windows order on dock.
+- errors on elevated windows.
+- fix invisible hitbox caused by flyouts at start.
+
+## [2.6.10]
+
+### fix
+
+- some widgets not applying user configured language.
+
+## [2.6.9]
+
+### feature
+
+- command for temporarily pause shoutcuts.
+
+### enhancements
+
+- apps menu search.
+
+### fix
+
+- service exiting after suspend/resume if enough time passed.
+- dark border on app windows preview.
+- twm move/focus via keyboard.
+- twm stack nodes not working as expected.
+- apps menu and task switcher not working when used on fullscreen apps.
+- dock touch support.
+- toolbar and dock showing while fullscreen on multimonitor setups.
+- twm pause not working as expected.
+
+## [2.6.8]
+
+### fix
+
+- resource assets download silently failing.
+
+## [2.6.7]
+
+### fix
+
+- deadlock when native shell explorer not responding.
+- wallpaper manager not working on MSIX (raised desktop layout).
+- nsis updater sometimes having conflics on update.
+
+## [2.6.6]
+
+### features
+
+- expose api to get audio wave form and frequencies.
+
+### enhancements
+
+- app startup time reduced.
+- show shortcuts conflics dialog on new widget addition.
+
+### fix
+
+- creating widgets for turnned off monitors.
+- task switcher first trigger not working correctly.
+- dock stucked after minimizing some app via click.
+
+## [2.6.5]
+
+### features
+
+- twm auto stack by application categories.
+- twm node splitting implementation.
+- pause wallpaper by monitor overlap threshold.
+
+### enhancements
+
+- use webp for system extracted icons and media player thumbnails.
+- twm reset of workspaces on reset size shortcut.
+- twm focus side monitor when theres no more nodes at the specified side in the current workspace.
+- twm allow move windows between monitors via shortcuts.
+- add variables system on extended yaml syntax.
+- new bundled plugins/layouts for the tiling window manager.
+- allow drag/drop windows on workspaces viewer to move them to another workspace.
+
+### refactor
+
+- tiling window manager.
+- capture window system.
+- GUI and CLI splited into different executables.
+
+### fix
+
+- stealing focus on widgets reload.
+
+## [2.6.4]
+
+### enhancements
+
+- features like accent color by wallpaper, and supend widgets on game mode are now disabled by default.
+- show popup dialog on login failure.
+
+### fix
+
+- crash on audio device null pointers.
+- widgets showing not responding message after session resume.
+- style artifacts on dock previews.
+
+## [2.6.3]
+
+### fix
+
+- toolbar and dock crashing on some resolutions.
+
+## [2.6.2]
+
+### fix
+
+- popups widgets not working after session resumed (sleep/wake up).
+
+## [2.6.1]
+
+### fix
+
+- dock auto hide not working.
+
+## [2.6.0]
+
+### features
+
+- Support for game mode.
+- Close webviews while in game mode.
+- Add new unstable optimizations flag under 'for developers' tab.
+- dynamic accent color by wallpaper.
+- expose media player to wallpapers.
+
+### enhancements
+
+- refactor apps menu to use standard context menu widget.
+- settings > resources views.
+
+### fix
+
+- multiline tooltips.
+- show desktop not working.
+- flicker on wallpapers on change.
+- settings download update icon.
+
+## [2.5.9]
+
+### features
+
+- font selector for widgets and themes.
+- reset configurations button on widgets.
+- allow customize middle click action on dock app items.
+
+### enhancements
+
+- show percentage on volume and brightness flyouts.
+- add forget network button on wlan network module.
+- show dnd button on notifications center module.
+- when do not disturb is enabled, disable flyout notifications.
+
+### fix
+
+- multiple instance widgets not having default instance.
+- some audio devices not being loaded correctly.
+- no player thumbnail on song change.
+- settings window stealing focus on reload.
+- connect/disconnect buttons on bluetooth module not working.
+- broken PATH env after installing or uninstalling the app via exe setup.
+- connect wifi not working on all networks.
+- backup loop on app starts.
+- notification trigger not working for uwp apps.
+- bundle resources serializer.
+- not removing win32 notifications on clear all.
+
+## [2.5.8]
+
+### features
+
+- allows login with Seelen account from settings.
+- streaming mode to hide sensitive information to widgets.
+- reusable tooltip widget.
+
+### enh
+
+- remove redundant logs.
+- improvements on apps menu performance and behaviors.
+
+### refactor
+
+- remove deprecated theme and widget folder loader.
+- shortcuts definition system and settings.
+
+### fix
+
+- emitting liveness prover events while session suspended.
+- service not restarting the app on crash.
+- shortcuts stoping working as expected.
+- dock and toolbar not hidding after change settings.
+- popups and overlays rarely not being always on top.
+- popups overflowing monitor on auto resize.
+- can't drop toolbar items into the center when the container is empty.
+- can't drag items with inner buttons on toolbar widget.
+- flyouts widget showing old notifications when new one dismissed.
+- no updating memory after file resource deletion.
+
+## [2.5.7]
+
+### features
+
+- allow split multiple windows into separated items on dock.
+- trash bin module for dock.
+- allow change polling interval for system resources (cpu, ram, network usage, etc).
+
+### fix
+
+- not displaying tooltips on settings.
+- apps menu folder creation being skipped.
+- apps menu folder items not scrollable when overflowing.
+- some msix apps using resources mapping via 'pri' files not having icons (ex: iCloud).
+- PWA edge apps not extracting icons.
+- power menu and workspace viewer not scaling properly when users set text scale factor.
+- icons not refreshing on new installed apps.
+- not clearing icon extraction failure list on cache clear.
+- toolbar and calendar language not changing.
+- flyout widget being shown on media player close as a dot in the screen.
+
+## [2.5.6]
+
+### fix
+
+- dock pinned apps not being rendered correctly.
+
+## [2.5.5]
+
+### features
+
+- disable all css animations on performance mode extreme.
+- add more position options for flyouts.
+- show custom browser profile icons instead program one.
+- add 'pin to dock' option on apps menu widget.
+
+### refactor
+
+- dock state reimplemented.
+
+### fix
+
+- slow down on performace while dragging apps.
+- prevent win32 handle leaks.
+- user menu slow render.
+- calendar language not being changed.
+- media player stucked state.
+- some lnk files (ex: docker) not appearing on apps menu.
+- app not starting on corrupted settings files.
+
+## [2.5.4]
+
+### features
+
+- new configurations for toolbar customization.
+
+### enhancements
+
+- log system.
+- icon pack extractor and cache system.
+
+### fix
+
+- toolbar and dock state resetting on widget reload.
+
+## [2.5.3]
+
+### fix
+
+- can't open apps using apps menu.
+- app crashing for new users.
+
+## [2.5.2]
+
+### features
+
+- add new widget security layer for exposed commands.
+- apps menu optinal acrylic effect.
+- allow users decide if use or not hardware acceleration.
+
+### enhancements
+
+- widgets loading time.
+- settings resources lists.
+
+### refactors
+
+- remake wallpaper manager from react to svelte.
+
+### fix
+
+- infinity switching of items on toolbar.
+- app not starting correctly from service.
+- power menu clossing instantly.
+- settings by apps not working after saving new state.
+- context menu on toolbar bottom position.
+- external links being opened on webview instead external browser.
+- apps menu widget freeze on search.
+- change wallpaper shortcuts not working.
+- apps menu drag and drop.
+
+## [2.5.1]
+
+### enhancements
+
+- add liveness prove for widgets.
+
+### fix
+
+- app failing opening on MSIX version.
+
+## [2.5.0]
+
+### features
+
+- add corner actions on toolbar.
+- add toggle desktop module on dock.
+- allow layout sorting by windows dragging on the tiling window manager.
+- workspaces viewer gui.
+- wallpapers per monitor and per workspace.
+- wallpaper collections.
+- allow set start of week on calendars.
+- extended wallpapers across all monitors.
+- new start menu widget.
+- customizable flyouts (volume, brightness, workspaces, notification, etc)
+- resources usage plugins for toolbar.
+
+### enhancements
+
+- improve display changes events.
+- tiling window manager now swap windows by center point on drag end.
+- improve windows preview system.
+- improvements on wallpaper manager syncronization and changes.
+- settings UX improvements.
+- extraction on local video wallpapers thumbnails.
+- avoid reload the UI while playing as this can cause fps drops.
+- reduce memory usage!
+- copy button for icon list on settings.
+
+### refactor
+
+- toolbar items structure (breaking change).
+
+### fix
+
+- window manager moving windows being currently dragged by the user.
+- power menu on multi-monitor setups.
+- showing paused message on no video wallpapers.
+- app not working on local accounts.
+- app and service not running if already running on another session.
+- high cpu usage while user session inactive.
+- fix stale battery percentage on sleep wake up.
+- click on keyboard layout no changing the layout on the system.
+- window labels not being shown on dock.
+- tiling window manager not pausing on maximized/fullscreen apps.
+- run as admin not working on dock/taskbar.
+- single key shortcuts not taking in care holded keys.
+- wallpaper sometimes not showing on windows 11.
+- no emitting brightness events.
+- monitors missmatch.
+
+## [2.4.11]
+
+### fix
+
+- tray not working on MSIX installation.
+- shortcuts not being enabled by default but widgets yes.
+
+## [2.4.10]
+
+### refactor
+
+- entire rewrite of the bluetooth module.
+- internal widgets loader.
+- internal generated icon pack logic.
+
+### enhancements
+
+- expose complementary colors of the system accent to css.
+- change theme config url from input to local file selector.
+- lazy widgets initialization.
+- auto closing of popup widgets to save resources.
+- show paused message on wallpaper manager.
+
+### fix
+
+- no updating data attribute on toolbar for maximized windows on background.
+- ghost items on dock and window manager.
+- missing messages to the service on startup.
+- options field on theme settings rendering an input instead of selector.
+- missing events on app windows hook.
+- wasted space reserved for tiling window manager when dock/toolbar are disabled on monitor.
+- fix missing variables values on default percentages for theme variables.
+- #1290 dock and toolbar showing on other monitors when mouse is at edge of screen.
+
+## [2.4.9]
+
+### features
+
+- implement wallpaper downloads.
+- add new wallpaper type "layered" it allows create unique wallpaper via css.
+- new css variables added related to the date (hour, minute, day, month, year).
+
+## [2.4.8]
+
+### enhancements
+
+- toolbar overlapped and hidden state.
+- addition of pdb files on nightly builds.
+- interactable windows matching system.
+
+### fix
+
+- crash caused by wallpaper manager.
+- toolbar being shown while using fullscreen apps.
+- dock being shown while using fullscreen apps.
+
+## [2.4.7]
+
+### features
+
+- add new cli command to tranlate resource texts.
+
+### enhancements
+
+- improve window manager matching system.
+
+## [2.4.6]
+
+### features
+
+- add new cli command to bundle resources.
+- allow close window using middle click on dock item preview.
+
+### refactor
+
+- remove export resource button from settings.
+- remake wm ui from react to svelte (this reduced 10mb of ram usage).
+- remove native shell window hook, instead use win32 hooks via dlls.
+
+### fix
+
+- infity switching loop on workspaces.
+- memory leak on long sessions.
+- external links not working.
+- wallpaper manager corner barder radius.
+- windows overlaping the toolbar and dock when autohide is disabled.
+- Power Menu not showing corrently on multiple monitors (#1266).
+
+## [2.4.5]
+
+### features
+
+- new power menu widget.
+- widgets now can declare plugins to be loaded.
+- new fields on widgets metadata.
+- new system tray widget.
+
+### enhancements
+
+- disable individual shortcuts if attached widget is not enabled.
+- only show enabled themes as quick access in settings window.
+
+### refactor
+
+- refactor on widget declarations for bundled widgets.
+
+### fix
+
+- app cli was not working.
+- (#1258) missing translations on background process.
+- apps being filtering wrong.
+- stucked video wallpapers.
+- deadlocks on media manager.
+
+## [2.4.4]
+
+### features
+
+- add emergency shortcut to stop seelen process (Ctrl + Win + Alt + K).
+
+### enhancements
+
+- improve development ecosystem of resources via embedding of yaml files.
+- allow open dev tools on release builds.
+- optimize window movement animations.
+- don't show version warning if target version is not present.
+
+### fix
+
+- not considering multiple batteries on setups.
+- app not forcing restart on pc sleep/resume.
+- app/service ipc messages corrupted on encode/decode.
+- window manager animations enable logic.
+- window manager not forcing size of windows on tiling.
+- wallpaper paused while using Alt + Tab.
+- stucked menus on extreme performance mode.
+- stucked inline items after being dragged on toolbar.
+
+### refactor
+
+- move core library to main repository.
+- remove app tray icon registration.
+- remove windows tray icons related code.
+- discord RPC now is disabled by default.
+
+## [2.4.3]
+
+### fix
+
+- notifications not showing or working as expected.
+- autohide not working properly on some screen resolutions.
+- managing incorrect app windows on restart the app.
+
+## [2.4.2]
+
+### features
+
+- tiling window manager animations.
+- performance mode for seelen.
+
+### enhancements
+
+- improvement on power events.
+- reduce memory usage (RAM).
+
+### fix
+
+- third party widgets sometimes not starting.
+- can not save settings on empty wallpaper list.
+- not updating UI on remotion of resources.
+- button to update downloaded resources not working properly.
+- crash on max integer caused by media players.
+- media player popup not working properly.
+- app not working when system installed on different drive unit.
+- twm not considerationg the dock size.
+
+## [2.4.1]
+
+### features
+
+- add a button to delete resources.
+- add a button to update downloaded resources.
+
+### enhancements
+
+- cleanup of old service logs on start.
+- add time to service logs.
+
+### fix
+
+- toolbar not showing when user deleted basic system folders.
+- hotkeys stopping working after lock screen.
+- update app button not showing correctly on settings.
+
+## [2.4.0]
+
+### features
+
+- wallpaper resources.
+- filter for wallpapers.
+- tranfomation for wallpapers.
+- wallpaper animations on in/out.
+- unique wallpaper slider per monitor.
+- new shortcuts to create/delete and change virtual desktops.
+- add force restart of gui, via shortcut `Ctrl + Win + Alt + R`.
+- now workspaces are per monitor.
+- now workspaces persist over restarts.
+- on window manager windows now can be float or tiled.
+- implement focus change via keyboard hotkeys on tiling window manager.
+- implement container swapping via keyboard hotkeys on tiling window manager.
+- swap twm containers on window drag event.
+
+### refactor
+
+- monitors ids.
+- wallpaper manager.
+- virtual desktops.
+- tiling window manager.
+
+### fix
+
+- drag of text toolbar items not working.
+- live wallpapers blocking screensaver and lock screen.
+- sleep/wake up events not working.
+
+## [2.3.12]
+
+### enhancements
+
+- add new ways of customization for theme settings
+
+### fix
+
+- volume changed popup wrong placement.
+
+## [2.3.11]
+
+### features
+
+- allow add shared styles on themes to be applied to all the widgets.
+
+### enhancements
+
+- dock and toolbar autohide behaviors.
+- animations on popups and start of the own component library.
+
+### refactor
+
+- start migrating to preact signals.
+
+### fix
+
+- (#1019) maximized windows being detected as fullscreen.
+- icorrect resource id regex.
+- sorting of items on dock and toolbar.
+
+## [2.3.10]
+
+### hotfix
+
+- missing react icons.
+
+## [2.3.9]
+
+### features
+
+- discord rich presence.
+
+### refactor
+
+- icon packs implementation.
+- changed react to preact.
+
+### fix
+
+- app crashing on start by missing user folder (desktop, pictures, etc).
+
+## [2.3.8]
+
+### enhancements
+
+- show a warning to users with monitors drivers disabled.
+- allow change workspace using wheel on toolbar.
+
+### fix
+
+- (#897) stucked arrival notifications.
+- showing native notifications preview with the seelen ones (now only seelen arrival will be shown).
+- (#934) invisible edge window on dock.
+- (#925) invisible spotify widget on dock.
+- (#938) listing 6ghz networks as 5g networks.
+- (#962) JetBrains software isn't showing in dock.
+- (#923) Can't change media device on MSIX version.
+
+## [2.3.7]
+
+### enhancements
+
+- expose timeline on media players.
+- reduce bundled size of js code.
+- reduce verbosity on logs comming from widgets.
+
+## [2.3.6]
+
+### features
+
+- widgets implementation.
+- allow load/unload widgets via command line client.
+
+### refactor
+
+- improve internal code quality related to app console client.
+
+### fix
+
+- app not starting on start-menu cache corruption.
+- widgets being reloaded on ctrl + r.
+
+## [2.3.5]
+
+### fix
+
+- settings by monitor not working correctly.
+
+## [2.3.4]
+
+### enhancements
+
+- sort windows on dock by activation order.
+
+### fix
+
+- duplicated themes on settings GUI.
+- bad toolbar color on multiple maximized windows.
+
+## [2.3.3]
+
+### features
+
+- add open window label on dock for app items (configurable).
+- add input to write custom text items on the toolbar.
+- add export resource button on developer tools.
+- allow settings by theme.
+
+### enhancements
+
+- Settings UI refactor to follow the new resources ecosystem.
+- (#838) Improve dynamic color behavior on toolbar.
+
+### fix
+
+- not removing old icons mask on icon pack change.
+- styles for dock media item.
+- not scrollable dock on overflow (many items).
+- media player not being correctly updated on player close event.
+- (#636) input experience and another background process appearing on dock.
+
+## [2.3.2]
+
+### enhancements
+
+- mini performance improve on dock.
+
+### fix
+
+- resources not being updated correctly.
+
+## [2.3.1]
+
+### breaking changes
+
+- rename scope variables for toolbar plugins.
+
+### refactor
+
+- improve inner code quality on toolbar plugins.
+
+### enhancements
+
+- improve robustness on toolbar items to avoid blue screen.
+
+## [2.3.0]
+
+### breaking changes
+
+- remove mathjs eval by an more accurated eval for js code in toolbar plugins. This will break any plugin created before
+  v2.2.10.
+
+### features
+
+- add resources endpoint to home tab on settings.
+- add customizable and reusable popups implementation.
+- improvements on toolbar plugins system.
+- allow set buttons with custom actions on toolbar, via toolbar plugins.
+- add restore to default button for toolbar structure.
+- allow fetching remote data on toolbar plugins.
+
+### enhancements
+
+- reduce CPU usage on slu-service process.
+- improve ui on toolbar modules.
+
+### fix
+
+- media player styles on toolbar.
+- steam pin item on dock not working properly.
+- plugins not being updated on toolbar.
+
+## [2.2.9]
+
+### enhancements
+
+- store service logs in a file to help debugging.
+- wait for native shell on startup before start seelen ui.
+
+## [2.2.7]
+
+### fix
+
+- dock items not opening correctly.
+
+## [2.2.6]
+
+### feature
+
+- icons on icon packs now can declare a mask that could be used by themes.
+
+### enhancements
+
+- add custom icons to bluetooth devices.
+- allow set different icons by color scheme (light or dark) on icon packs.
+
+### fix
+
+- no dragable dock files and folders.
+- focusing widgets on creation.
+- not opening settings window when starting the app with an instance already running.
+
+## [2.2.4]
+
+### enhancements
+
+- add suspend/resume logic.
+
+### fix
+
+- not restoring native taskbar on close/crash.
+- clear all notifications button not updating UI.
+- not translated date on chinese and norwegian.
+
+## [2.2.3]
+
+### enhancements
+
+- wrap webview console as soon as posible to avoid missing errors on logs.
+- wait some seconds before remove media players to avoid shifting on chrome.
+
+### refactor
+
+- remove minified classnames and add do-not-use prefix to be clear to users.
+
+### fix
+
+- panic on media module when loading initial devices.
+- discord window without umid (for now umid was hardcoded).
+- focused app not updating on title change.
+- not considerating accesibility text scale factor on toolbar and dock.
+- wheel not changing volume level.
+- clear all notifications button not working correctly.
+
+## [2.2.2]
+
+### enhancements
+
+- add option to disable dynamic colors on toolbar.
+- reduce notification arrival time on screen from 10 seconds to 5 seconds.
+
+### fix
+
+- not showing some notifications.
+- crash when disabling a monitor on windows native settings.
+- unsyncronized clock on toolbar.
+
+## [2.2.1]
+
+### enhancements
+
+- add new bundled theme as example of animated icons with css.
+
+## [2.2.0]
+
+### features
+
+- add option to disable app thumbnail generation (dock).
+- allow lock the dock/toolbar items.
+- show instances counter of the same app on dock.
+- allow set the toolbar on different positions.
+- allow set custom start menu icon.
+- language selector for toolbar.
+- add dynamic color by focused app on toolbar.
+- add hibernate button on toolbar power menu.
+- add media volume mixer by apps and by device.
+- add clickable notifications, images, and more.
+
+### enhancements
+
+- settings shown each time on startup.
+- expand power module with power plan.
+
+### refactor
+
+- update windows-rs crate to 0.59.0.
+
+### fix
+
+- showing domain on username for local accounts.
+- showing application frame host instead real app name.
+- incorrect event order on win events.
+
+## [2.1.9]
+
+### fix
+
+- shortcuts not working on MSIX.
+- empty username for local accounts.
+
+## [2.1.8]
+
+### features
+
+- add button to clear the cached icons on settings.
+
+### enhancements
+
+- allow custom icons by extension on icon packs.
+
+### fix
+
+- error on file icons.
+- fix blue screen on toolbar when errors on template evaluation.
+
+## [2.1.7]
+
+### fix
+
+- power module not clickable on toolbar.
+- pinned items not working correctly for some apps.
+- electron apps without aumid.
+
+## [2.1.6]
+
+### fix
+
+- missing translations.
+- fullscreen match not beeing removed.
+
+## [2.1.5]
+
+### fix
+
+- devices and battery not clickables on toolbar.
+- missing icon on dock media module while not playing.
+- msix store not showing admin prompt.
+- links on settings not opening.
+
+## [2.1.4]
+
+### fix
+
+- crash on user module.
+- slow loading of toolbar.
+- no icons on PWA from edge browser.
+- icon packs not modifying icons on toolbar/dock media modules.
+- icon packs bad ordering, now the priority order is (umid > full-path > filename > extension).
+- bad dock execution path on apps with property store umid but no shortcut on start menu.
+
+## [2.1.3]
+
+### fix
+
+- bad user infomation on user module.
+
+## [2.1.2]
+
+### fix
+
+- style issue on toolbar user module.
+- showing unhandable tray icons (ex: nvidia old control panel).
+- installer being frozen on update.
+
+## [2.1.0]
+
+### features
+
+- allow custom animations on popups/dropdowns.
+- show open new window buttons on dock app items context menu.
+- toggle dock items using win + number.
+- notifications count on dock app items.
+- add brightness slider to quick settings on toolbar.
+- add user module on toolbar.
+
+### refactor
+
+- create separated system service to handle elevated actions.
+
+### fix
+
+- ghost windows caused by a refactor donde on v2.0.13.
+- not showing save button after icon packs change.
+- app failing when powershell is not part of the $PATH enviroment.
+- dock items no updatings paths on store updates.
+- unremovable workspace module on toolbar.
+- missing system tray icons.
+- date not being inmediately updated on settings change.
+- ghost notification hitbox preventing mouse events on windows.
+
+## [2.0.14]
+
+### hotfix
+
+- not creating the default (system) icon pack.
+
+## [2.0.13]
+
+### features
+
+- add kill process option on context menu for dock items.
+- multi-language calendar and date module on toolbar.
+- add icon packs selector on settings > general.
+- allow show only windows on monitor owner of Dock/Taskbar.
+
+### enhancements
+
+- allow search languages by their english label.
+
+### refactor
+
+- move dock state to the background.
+- remove pin sub-menu on dock.
+
+### fix
+
+- slu-service was being closed on exit code 1.
+- logging errors on monitor changes.
+- duplicated items on dock after drag items.
+
+## [2.0.12]
+
+### fix
+
+- msix version crashing on start.
+
+## [2.0.11]
+
+### features
+
+- add new setting on dock and toolbar to maintain overlap state by monitor.
+- add service to restart the seelen-ui app on crash.
+
+### enhancements
+
+- force run the app as an APPX if it was installed using msix.
+
+### refactor
+
+- custom http server to serve files instead bundle it in the executable on development (local).
+
+### fix
+
+- remove ghost settings window from dock.
+
+## [2.0.10]
+
+### fixes
+
+- fix settings `cancel` button not working correctly.
+- fix settings `save` button not saving the monitor settings correctly.
+
+## [2.0.9]
+
+### enhancements
+
+- add `XboxGameBarWidgets.exe` to the bundled apps settings list.
+
+### refactor
+
+- themes now use widget ids instead hard-coded keys.
+- improvements on events propagation.
+- improvements on settings by monitor implementation.
+
+### fix
+
+- window manager not working properly.
+- resolution, scale changes not refreshing the UI.
+
+## [2.0.8]
+
+### enhancements
+
+- add task manager shortcut on toolbar and dock context menu.
+- improve default no media style on dock.
+- add icons to context menus.
+
+### fix
+
+- randomized wallpaper slice freeze.
+- bad behavior on context menus and popups.
+
+## [2.0.7]
+
+### fix
+
+- crashing on fresh installations.
+
+## [2.0.6]
+
+### feature
+
+- add bases for future plugins and widgets sytems.
+- change wallpaper randomly.
+
+### enhancements
+
+- some UI/UX improvements on seelen wallpaper manager.
+- UI/UX improvements on wi-fi toolbar module.
+- seelen-ui added to user PATH enviroment variable.
+
+### fix
+
+- popups and context menus fast flashing.
+- media player app not appearing on media module (weg & toolbar).
+- touch looking the cursor.
+- improve start up failure behavior.
+
+## [2.0.5]
+
+### features
+
+- allow change default output volume using mouse wheel on media module items.
+- add mini calendar to date module.
+
+### enhancements
+
+- add new settings to delay the show and hide of dock and toolbar.
+
+### fix
+
+- dock and toolbar animations
+- fix update notifications for release and nightly channels.
+
+## [2.0.4]
+
+### fix
+
+- app crashing when changing settings on app launcher.
+- app previews on wrong position on dock.
+
+## [2.0.3]
+
+### fix
+
+- apps being runned as admin instead normal.
+
+## [2.0.2]
+
+### fix
+
+- infinite render loop on settings home page, fetching news.
+
+## [2.0.1]
+
+### refactor
+
+- unification of SeelenWeg pinned files, folder and apps in a single structure.
+
+### enhancements
+
+- improve open_file function to allow arguments.
+- allow to users select update channel between release, beta and nightly.
+
+### fix
+
+- not getting icons directly from .lnk files.
+- users not recieving update notification on settings header.
+- start-menu item on dock not closing native start menu.
+- default theme wallpaper showing cut on ultra-wide monitors.
+
+## [2.0.0]
+
+### breaking changes
+
+- Window Manager Layout Conditions was reimplemented, old conditions (v1) will fail.
+
+### refactor
+
+- refactors, more and more refactors, refactors for everyone.
+- reimplementation of Tiling Window Manager.
+- remove Update modal at startup by an update button on settings.
+
+### features
+
+- make the dock/taskbar solid when hide mode is `never`.
+- add app launcher (rofi for windows).
+- add seelen wall (rain-meter and wallpaper engine alternatives).
+- expose function to pin items into the dock.
+- settings by monitor.
+- window manager multimonitor support.
+- allow users change date format directly on UI settings.
+- add context menu to toolbar items.
+
+### enhancements
+
+- improve quality icons from all app/files items.
+- improve init loading performance.
+- improve fullscreen matching system.
+- reduce UI total size from 355mb (v1) to 121mb (v2-beta4) to 93mb (v2-beta8).
+- reduce Installer size from 75mb (v1) to 40mb (v2-beta4) to 28.8mb (v2-beta8).
+- allow drop files, apps and folders into the dock to pin them.
+- now Virtual Desktop shortcuts doesn't require Tiling WM be enabled to work.
+- now Themes are wrapped in a CSS layer, making easier the override theming.
+- allow change size of Window Manager Layouts via window resizing with the mouse.
+- allow close windows by middle clicking on dock items.
+- show icon of app in media players that are not uwp/msix.
+- show pwa apps like a separeted app from browser on dock.
+
+### fix
+
+- missing icons for files with a different extension than `exe`.
+- losing cursor events on clicking a dock item.
+- app allowing be closed via Alt + F4.
+- native taskbar being hidden regardless of whether the program starts successfully or not.
+- app continuing running when the program fails to start (case: WebView2 Runtime not installed).
+- no stoping correctly secondary processes/threads on app close.
+- showing unmanageable windows on dock.
+- restart seelen-ui button not working properly.
+- tray icons not working on others language than english.
+- edge tabs open in file explorer.
+
+## [1.10.6]
+
+### fix
+
+- tray module only working when the system language is english.
+
+## [1.10.5]
+
+### fix
+
+- app crashing on IMMDevice disconnection.
+
+## [1.10.4]
+
+### enhancements
+
+- clean weg items on load to remove duped items and apps/files that don't exist.
+- remove 1/2px thickness border on window manager border.
+- remove 1/2px black border on some previews of apps.
+
+### fix
+
+- can not restore settings window.
+- taskbar not been restored when changing weg enabled state.
+- taskbar been restored always as not autohide, now it will restored as initial state.
+
+## [1.10.3]
+
+### features
+
+- add beta channel
+
+### enhancements
+
+- add debugger cli toggles to tracing more info on logs.
+- media modules now exports the app related to the media player.
+
+### fix
+
+- saving ahk lib in wrong location.
+
+## [1.10.2]
+
+### fix
+
+- app crashing on enumerating many monitors or on large load.
+
+## [1.10.1]
+
+### fix
+
+- app crashing if uwp package has missing path.
+- app no working fine on multiple monitors.
+
+## [1.10.0]
+
+### features
+
+- add volume changed popup.
+- new custom virtual desktop implementation.
+- shortcut to toggle debug mode on hitboxes (Control + Win + Alt + H).
+
+### enhancements
+
+- remove black borders of windows previews on dock.
+- improve uwp app manage on dock/taskbar.
+
+### refactor
+
+- add strategy pattern to virtual desktops.
+
+### fix
+
+- topbar hitbox rect on auto hide equals to on-overlap.
+- bad matching fullscreen apps.
+- suspended process (ex: Settings) been shown on dock.
+- uwp icons not loading correctly.
+- bad focused app matching strategy.
+
+## [1.9.11]
+
+### features
+
+- add a option to hide apps from the dock/taskbar, requested on #5.
+- update tray labels when tray icons module are open.
+- add auto-hide option to the toolbar.
+
+### fix
+
+- route no maintaining on cancel changes on settings window.
+- cancel button no working correctly after save the settings multiple times.
+- tray module no forcing tray overflow creating on startup.
+- native taskbar not been restored on close.
+
+## [1.9.10]
+
+### features
+
+- add `getIcon` fn to the scopes of toolbar placeholders.
+
+### refactored
+
+- improve interfaces and documentation.
+
+### fix
+
+- styles of media module when dock is on left side.
+- opened apps been removing on weg items file change.
+- app crashing on update if language prop was null in the settings.json file.
+
+## [1.9.9]
+
+### refactored
+
+- internal interfaces to improve documentation and development.
+
+### enhancements
+
+- add language selector to the nsis installer.
+- allow search on lang selector on Seelen UI Settings.
+
+### fix
+
+- app no opening to new users.
+
+## [1.9.8]
+
+### enhancements
+
+- avoid recreate already existing folders.
+- separate lib and app in two crates.
+- improve click behavior on seelen weg item to make it more intuitive.
+
+### fix
+
+- can no disable run on startup.
+- text been cut on toolbar.
+- app crashing on wallpaper change on win11 24h2
+
+## [1.9.7]
+
+### enhancements
+
+- made all invoke handlers async
+
+### fix
+
+- crash on registering network event
+
+## [1.9.6]
+
+### fix
+
+- app crashing on 24h2
+
+## [1.9.5]
+
+### fix
+
+- app crashing by tray icon module
+
+## [1.9.4]
+
+### fix
+
+- app crashing for new users
+
+## [1.9.3]
+
+### performance
+
+- reduce load time from ~7s to ~4s
+
+### features
+
+- .slu and uri now are loaded correctly on seelen ui.
+- allow change wallpaper from seelen settings.
+
+### enhancements
+
+- add file associations for .slu files
+- add uri associations for seelen-ui:uri
+- improve settings editor experience by adding live reload feature.
+
+### fix
+
+- cli no working on production
+
+## [1.9.1]
+
+### fix
+
+- no listening window moving of virtual desktop events.
+- no closing or starting widgets on settings changes.
+- no listening monitors changes.
+- no loading toolbar modules on wake up
+
+## [1.9.0]
+
+### features
+
+- allow custom images on toolbar by `imgFromUrl`, `imgFromPath` and `imgFromExe` functions.
+- add notifications module to toolbar.
+- add exe path to window in generic module for toolbar.
+- add focused window icon to default toolbar layouts.
+
+### enhancements
+
+- icons now are recreated from exe path if icon was deleted.
+- uwp icons now are loaded from background.
+- improvements on themes selector.
+- improvements on system color detection and expose more system colors based in accent gamma.
+- improve theme creation experience by adding live reload feature.
+- improve toolbar layouts (placeholders) creation experience by adding live reload feature.
+- improve weg items editor experience by adding live reload feature.
+
+### refactor
+
+- deprecate `onClick` and add new `onClickV2` on toolbar modules.
+
+### fix
+
+- bad translations keys.
+- no restoring dock on closing fullscreened app.
+
+## [1.8.12]
+
+### fix
+
+- app installed by msix no opening.
+
+## [1.8.11]
+
+### fix
+
+- remove unnecessary 1px padding on toolbar.
+
+## [1.8.10]
+
+### enhancements
+
+- remove unnecessary loop on taskbar hiding function.
+
+### fix
+
+- no loading translations correctly on update modal.
+
+## [1.8.9]
+
+### enhancements
+
+- add translation to the rest of apps (dock, toolbar, and update modal).
+
+### fix
+
+- not hiding the taskbar at start.
+- opening multiple instances of the app.
+
+## [1.8.8]
+
+### fix
+
+- app not running on startup
+
+## [1.8.7]
+
+### fix
+
+- no updating themes on changes saved.
+
+## [1.8.6]
+
+### features
+
+- Add multi-language support! 🥳.
+- Add default media input/output selectors to media module in fancy toolbar.
+- Add start module to dock/taskbar (opens start menu).
+
+### enhancements
+
+- Flat default themes to allow easier overrides.
+
+### fix
+
+- Fix zorder on hovering on weg and toolbar respectively to wm borders.
+- Applying bad themes on apps.
+- Not hiding the taskbar at start.
+
+## [1.8.5]
+
+### fix
+
+- no executing seelen after update installation
+
+## [1.8.4]
+
+## [1.8.3]
+
+### refactor
+
+- migrate settings files from `$USER/.config/seelen` to `$APPDATA/com.seelen.seelen-ui`
+- load uwp apps info asynchronously
+
+### fix
+
+- crash on move toolbar item
+- can not remove media module
+
+## [1.8.2]
+
+### features
+
+- fancy toolbar items now can be dragged of position.
+- using fancy toolbar's layout now can be modified and saved as custom.yml.
+
+## [1.8.1]
+
+### features
+
+- styles can be specified in fancy toolbar placeholder item.
+- fancy toolbar item now will have an unique id, this can be specified in the placeholder file.
+
+### enhancements
+
+- replace "bluetooth" for "devices" on bundled fancy toolbar placeholders.
+
+## [1.8.0]
+
+### features
+
+- Media module added to the toolbar.
+- Media module added to SeelenWeg.
+
+  ![Media Module Example](documentation/images/media_module_preview.png)
+
+- SeelenWeg now has a context menu (Right Click Menu).
+
+### enhancements
+
+- enhancements on fullscreen events.
+
+### refactor
+
+- remove Default Wave animation on seelenweg (users will be able to add their own animations).
+
+### fix
+
+- no updating colors correctly on change light or dark mode on windows settings.
+- window manager enabled by default for new users.
+- showing tray icons with empty name.
+- no focusing seelen settings if it was minimized.
+
+## [1.7.7]
+
+### fix
+
+- no registering system events (battery/network/etc)
+
+## [1.7.6]
+
+### enhancements
+
+- improve logging on dev mode and fix missing target on production logged errors.
+- improve fullscreen matching.
+
+### fix
+
+- network icon showing incorrect interface icon (lan instead wifi).
+- no updating adapters list and using adapter on network changes.
+
+## [1.7.5]
+
+## [1.7.4]
+
+### enhancements
+
+- improvements on workflows to auto upload artifacts to the store.
+
+## [1.7.3]
+
+### enhancements
+
+- improvements on fullscreen events.
+
+## [1.7.2]
+
+### enhancements
+
+- disable tiling window manager on windows 10 from UI (can be forced on settings.json file)
+
+### fix
+
+- app crashing on windows 10
+- empty tray icons list on windows 10
+
+## [1.7.1]
+
+### enhancements
+
+- separate `information` and `developer tools` tabs in the settings.
+- add a option to open the install path in explorer.
+- focus settings window if already exist.
+- better performance on canceling changes in settings.
+- avoid loading innecesary files in modules that are not used.
+- update pinned apps path by filename on open (some apps change of path on updates so this will fix that).
+- show empty message on toolbar when no wlan networks are found.
+
+### fix
+
+- ahk error on save.
+
+## [1.7.0]
+
+### features
+
+- add Network toolbar module.
+- add WLAN selector to the Network toolbar module.
+- add css variable (--config-accent-color-rgb) to be used with css functions like `rgb` or `rgba`.
+
+### enhancements
+
+- now placeholders, layouts and themes can be loaded from data users folder (`AppData\Roaming\com.seelen.seelen-ui`)
+- now buttons and others components will use the user accent color.
+
+### fix
+
+- no max size on System Tray List module.
+
+## [1.6.4]
+
+### fix
+
+- xbox games showing missing icons on SeelenWeg.
+
+### enhancements
+
+- follow user accent color for tray list and windows borders
+
+### fix
+
+- no showing promoted (pinned on taskbar) tray icons.
+- toolbar no initialized correctly sometimes, now will retry if fails.
+- battery no updating level.
+- battery showing as always charging on default toolbar templates.
+- tray overflow module no working on different languages.
+
+### refactor
+
+- refactor on window_api and AppBar structures.
+
+## [1.6.3]
+
+### enhancements
+
+- only show a progress bar on update and not the complete installer GUI.
+
+### fix
+
+- main app no running if the forced creation of tray overflow fails.
+
+## [1.6.2]
+
+### features
+
+- now `batteries` and `battery` (same as: `batteries[0]`) are available on the scope of power toolbar module.
+
+### enhancements
+
+- add battery crate to handle batteries info directly from their drivers.
+- show if is smart charging.
+- now battery module wont be shown if batteries are not found.
+
+### fix
+
+- battery showing 255%.
+
+## [1.6.1]
+
+### fix
+
+- tray icons not showing on startup
+- hidden trays if icon was not found (now will show a missing icon)
+
+## [1.6.0]
+
+### features
+
+- add "Run as admin" option at context menu on Seelenweg.
+- allow receive commands using TCP connections.
+- Add System Tray Icons module, (incomplete, devices like usb or windows antivirus trays are still not supported).
+
+### enhancements
+
+- improve power (battery) events performance.
+- Window manager disabled by default to new users.
+
+### refactor
+
+- remove tauri single instance plugin by TCP connection.
+
+## [1.5.0]
+
+### features
+
+- new placeholder added to the bundle as alternative to default.
+- new workspace item available to be used in placeholders.
+
+### enhancements
+
+- support fullscreen apps (will hide the toolbar and the weg on fullscreen an app).
+
+### fix
+
+- showing incorrect format on dates at start of the app.
+- complex text with icons on toolbar items cause wraps.
+- missing icons on some uwp apps.
+
+### refactor
+
+- refactor on window event manager to allow synthetic events.
+
+## [1.4.1]
+
+### fix
+
+- no truncating text on toolbar items overflow.
+- rendering empty items on toolbar when empty placeholder is declared.
+
+## [1.4.0]
+
+### features
+
+- Modular Themes
+- Themes now allow tags to be categorized.
+- Allow add, organize, combine multiple themes as cascade layers.
+- Themes now allow folder structure to improve developers experience.
+
+### refactor
+
+- Now themes will use .yml files instead json to improve developers experience.
+- Themes schema updated, no backwards compatibility with json themes. (.json in themes folder will be ignored)
+
+### fix
+
+- No hiding the taskbar correctly.
+
+## [1.3.4]
+
+### enhancements
+
+- Add splash screen to Settings window.
+- Add discord link on Information Section.
+
+### refactor
+
+- Use TaskScheduler for autostart Seelen with priority and admin privileges.
+
+### fix
+
+- bad zorder on Weg and Toolbar under the WM borders
+
+## [1.3.3]
+
+### features
+
+- Multi-monitor support for Fancy Toolbar.
+- Multi-monitor support for Seelenweg.
+
+## [1.3.2]
+
+### enhancements
+
+- Remove unnecessary tooltip collision on toolbar items.
+
+### fix
+
+- Crash on restoring app in other virtual desktop using Weg.
+- Touch events not working on Toolbar and Weg.
+
+## [1.3.1]
+
+### fix
+
+- disable binding monitors and monitors on apps configurations for now.
+
+## [1.3.0]
+
+### features
+
+- Allow pin apps on Open using Apps Configurations.
+- Allow changes Shortcuts using UI.
+- Allow Binary Conditions in Apps Configurations Identifiers.
+- Allow change the Auto hide behavior for Seelenweg.
+
+### enhancements
+
+- Close AHK by itself if app is crashed or forcedly closed.
+- Configurations by apps are enabled again.
+- Allow open settings file from Extras/Information
+- Add opacity to toolbar (theme: default)
+
+### fix
+
+- Ahk not closing on app close or when user change options.
+
+## [1.2.4]
+
+### enhancements
+
+- Automatic MSIX bundle.
+- Add Github Actions for Releases.
+- Add Github Actions for Web Page.
+
+## [1.2.3]
+
+### features
+
+- Allow customize Fancy Toolbar modules using placeholders yaml files.
+- Add fast settings for toolbar allowing to adjust volume, brightness, etc.
+
+## [1.2.2]
+
+### enhancements
+
+- if app on weg is cloak, change of virtual desktop instead minimize/restore
+
+### fix
+
+- no closing AHK instances
+- floating size on fallback
+- reservation not working properly
+- ignore top most windows by default (normally these are tools or widgets)
+- minimization on weg not working properly if window manager is activated
+- change focus using commands not working with conditional layouts
+- randomly frozen app on start
+- no tiling UWP apps
+
+## [1.2.1]
+
+### enhancements
+
+- Allow quit from settings
+- Using Box-Content style in the position of windows instead outlined for a better user experience
+
+### fix
+
+- Managing windows without caption (Title bar)
+- can't update border configurations
+- hiding dock on switching virtual desktops
+
+## [1.2.0]
+
+### fix
+
+- Taskbar showing instead be always hidden
+
+## [1.1.1]
+
+### fix
+
+- Bad download URL in Update Notification
+- Showing update notification on installations by Windows Store
+
+## [1.1.0]
+
+### features
+
+- Add Smart Auto Hide for Seelenweg.
+- Add visible Separators Option
+- Enable animations for items into LEFT, TOP, RIGHT positions
+
+### enhancements
+
+- Now the copy handles option will return hexadecimal handles instead decimal (good for faster debug in tools like
+  spy++).
+
+### fix
+
+- duped handles
+- inconsistencies in separators width
+
+## [1.0.1]
+
+### fix
+
+- App downloaded form Microsoft Store was not running without admin.
+
+## [1.0.0]
+
+### refactored
+
+- Update notifications always enabled for nsis installer
+- Update notifications will not appear if app is installed using msix (Microsoft Store).
+
+### enhancements
+
+- Now by default if user is Admin, UAC will be triggered on run the app to allow a better integrated experience in
+  SeelenWeg and Komorebi Tiling Manager.
+
+## [1.0.0-prerelease.14]
+
+### features
+
+- add indicator to know opens and focused apps on SeelenWeg
+- allow set the position of seelenweg (left, top, right, bottom) 🎉
+
+### enhancements
+
+- only creates app icons the first time they are loaded
+
+### refactor
+
+- change themes implementation to allow customs css files
+
+### fix
+
+- incorrect icon for UWP (was using store icon instead taskbar icon)
+- replacing icons on each load
+- showing logs of opened apps on development
+- offset margins working like windows RECT instead like one side margins
+
+## [1.0.0-prerelease.13]
+
+### features
+
+- add Themes Feature 🎉 (incomplete only for Seelenweg for now)
+- add SeelenWeg (a Dock or Taskbar) beta feature
+- add SeelenWeg in to Settings
+- add ContextMenu for apps in SeelenWeg
+- allow move apps in the Weg 😄
+- add Grouped Apps in one item
+- live reload of Apps on events like change of title
+- UWP apps support
+
+### enhancements
+
+- move readme blob to documentation/images
+
+## [1.0.0-prerelease.12]
+
+### enhancements
+
+- add some traces on functions to save logs
+
+### fix
+
+- clean installation of komorebi no working
+
+## [1.0.0-prerelease.11]
+
+### refactor
+
+- little improvements on background code
+
+### fix
+
+- initial users can not save the settings
+
+## [1.0.0-prerelease.10]
+
+### features
+
+- add a update tab to allow users decide if will receive notifications for updates
+
+## [1.0.0-prerelease.9]
+
+## [1.0.0-prerelease.8]
+
+- add functionality to pause btn on tray menu
+
+## [1.0.0-prerelease.6]
+
+### added
+
+- Enable Updater 🎉
+
+## [1.0.0-prerelease.3]
+
+### fix
+
+- icon not showing on tray
+- poor icon quality on task bar
+- StartUp running bad exe file
+
+## [1.0.0-prerelease.2]
+
+## [1.0.0-prerelease.1]
+
+### added
+
+- implement tray icon
+
+### refactored
+
+- Migrate all app background from Electron ⚡ to Tauri 🦀
+- reimplement startup to use native system startup
+- reimplement included shortcuts with ahk
+- reimplement komorebi autostart
+- reimplement installer to use NSIS
+- refactor folder structure to isolate front-end apps
+
+## [1.0.0-beta.13]
+
+### enhancements
+
+- improve maximized windows experience
+
+### fixed
+
+- fix resize not working (now works like master)
+
+## [1.0.0-beta.12]
+
+### added
+
+- show current used versions on information
+- add grid layout preview
+- add win + k to open komorebi settings
+
+### refactored
+
+- update komorebi to 0.1.22
+
+### removed
+
+- remove invisible borders feature
+
+## [1.0.0-beta.11]
+
+### fixed
+
+- missing property on schema
+- white screen on start app
+
+## [1.0.0-beta.10]
+
+### added
+
+- add a new way to match applications by path
+
+### fixed
+
+- searching feature on apps
+- no focusing windows on change workspace
+- autostacking not working properly
+- workspaces rules not working
+
+## [1.0.0-beta.9]
+
+### added
+
+- add popups on actions 🦀
+- now can switch from installed and packaged and should work as the same
+
+### fixed
+
+- fix no removing old path
+- lag on many applications
+
+## [1.0.0-beta.8]
+
+### added
+
+- add more templates
+
+## [1.0.0-beta.7]
+
+### fixed
+
+- fix first install
+
+## [1.0.0-beta.6]
+
+### added
+
+- delete old paths on update
+
+### fixed
+
+- fix not saving templates
+- fix toggle ahk shortcuts does not run or stop the instance
+- running ahk when disabled
+- not updating the path of installation folder on update for windows tasks
+
+## [1.0.0-beta.5]
+
+### added
+
+- new searching option for applications
+- templates feature
+
+### fixed
+
+- including ghost apps on migration
+
+## [1.0.0-beta.4]
+
+### added
+
+- new feature of invisible borders per app
+- new easy way to hard restart the services and AHK
+
+### changed
+
+- delete border overflow and changed for invisible borders per app
+
+### fixed
+
+- components was not triggering dark mode correctly
+
+## [1.0.0-beta.3]
+
+### added
+
+- new apps templates
+- add AHK as a dependency to show to new users
+- add AHK settings
+
+## [1.0.0-beta.2]
+
+### added
+
+- export option for apps
+
+### fixed
+
+- delete bound monitor and workspace on an application
+- bad installation on setup

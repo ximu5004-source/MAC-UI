@@ -1,0 +1,70 @@
+desktop_shell:
+  icon_size: Icon size
+  icon_sizes:
+    '48': Small
+    '64': Medium
+    '80': Large
+    '96': Extra large
+  move_hint: Drag the title to move; arrow keys adjust, Shift moves faster
+  move_controls: Adjust position and size
+  snap_grid: Snap to grid
+  show_grid: Show grid
+  show_grid_hint: Keep alignment guides visible without changing snapping or stack positions
+  snap_hint: Align panel edges to a 20 px grid while moving or resizing; switch off for free placement
+  resize_hint: Drag an edge or corner to resize; arrow keys adjust the focused resize handle
+  narrower: Width −
+  wider: Width +
+  shorter: Height −
+  taller: Height +
+  resize_n: Resize top edge
+  resize_s: Resize bottom edge
+  resize_e: Resize right edge
+  resize_w: Resize left edge
+  resize_ne: Resize top-right corner
+  resize_nw: Resize top-left corner
+  resize_se: Resize bottom-right corner
+  resize_sw: Resize bottom-left corner
+  move_left: Move left
+  move_up: Move up
+  move_down: Move down
+  move_right: Move right
+  reset_layout: Reset stack layout
+  expand: Expand
+  collapse: Collapse
+  operation_failed: Operation failed
+  label: Desktop
+  controls_label: Desktop controls
+  rename_label: Rename desktop item
+  new_folder_name: New folder
+  new_text_name: New text document
+  new_markdown_name: New Markdown document
+  new_file_name: New {{type}}
+  new_file_fallback: New file
+  creating: Creating…
+  file_types:
+    text: Text document
+    markdown: Markdown document
+  arrange:
+    name: Arrange by name
+    name_short: Name
+    category: Organize by category
+    category_short: Organize
+  menu:
+    open: Open
+    open_folder: Open folder
+    reveal: Show in File Explorer
+    rename: Rename
+    new_folder: New folder
+    new_file: New file
+    arrange: Arrange desktop
+    refresh: Refresh
+    open_desktop: Open Desktop folder
+  categories:
+    folders: Folders
+    images: Images
+    documents: Documents
+    videos: Videos
+    audio: Audio
+    archives: Archives
+    apps: Apps and shortcuts
+    other: Other

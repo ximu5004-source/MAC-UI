@@ -1,0 +1,16 @@
+id: "@seelen/liquid-glass"
+metadata:
+  displayName: !extend i18n/display_name.yml
+  description: !extend i18n/description.yml
+  tags:
+    - weg
+    - toolbar
+    - apps-menu
+    - task-switcher
+    - liquid-glass
+styles:
+  "@seelen/fancy-toolbar": !include styles/fancy-toolbar.scss
+  "@seelen/weg": !include styles/weg.scss
+  "@seelen/apps-menu": !include styles/apps-menu.scss
+  "@seelen/task-switcher": !include styles/task-switcher.scss
+sharedStyles: !include shared/index.scss

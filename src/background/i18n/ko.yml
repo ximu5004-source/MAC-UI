@@ -1,0 +1,66 @@
+auth:
+  login_failed_body: >-
+    로그인하는 동안 문제가 발생했습니다. 이 문제가 지속되면 Windows 'Credential Manager' 서비스(VaultSvc)가
+    활성화되어 실행되고 있는지 확인한 후 다시 시도하십시오.
+  login_failed_title: 로그인 실패
+cancel: 취소
+done: 완료
+elevated:
+  description: |-
+    Seelen UI가 관리자 권한으로 실행되고 있습니다.
+    이는 기능을 추가하거나 개선하지 않으며 보안 위험을 초래할 수 있습니다.
+    보안 강화를 위해 관리자 권한 없이 다시 시작하시기 바랍니다.
+  title: 관리자로 실행
+file_explorer: 파일 탐색기
+resource:
+  added: 새로운 리소스가 추가되었습니다.
+  download_failed_body: 리소스를 다운로드하는 동안 문제가 발생했습니다. Seelen 개발자 팀에 신고해 주세요.
+  download_failed_title: 리소스 다운로드 실패
+  downloading: 에셋 다운로드...
+  downloading_body: 몇 초 정도 소요될 수 있으니 창을 닫지 마세요.
+  enable: 사용
+  login_required_action: 로그인
+  login_required_body: 이 리소스를 다운로드하려면 로그인해야 합니다.
+  login_required_title: 로그인이 필요합니다
+runtime:
+  corrupted_data: 손상된 데이터
+  corrupted_file: 구성 파일이 손상되어 기본값 대신 기본값을 사용합니다.
+  corrupted_file_path: 손상된 파일 경로
+  download: 다운로드 페이지로 이동
+  files_integrity: |-
+    애플리케이션 파일의 무결성을 확인할 수 없습니다.
+    파일이 수정, 손상되었거나 설치가 불완전한 경우 이런 일이 발생할 수 있습니다.
+    보안상의 이유로 Seelen UI를 계속할 수 없습니다.
+    공식 홈페이지에서 다시 설치해주세요.
+  files_integrity_title: 보안 경고 - 파일 무결성 검사 실패
+  not_found: WebView2 런타임을 찾을 수 없습니다.
+  not_found_description: Seelen UI에는 Webview2 런타임이 필요합니다. 설치해 주세요.
+  outdated: WebView2 런타임이 오래됨
+  outdated_description: Seelen UI에는 Webview2 런타임 %{min_version} 이상이 필요합니다. 업데이트해주세요.
+service:
+  not_running: Seelen UI 서비스가 실행되고 있지 않습니다.
+  not_running_description: Seelen UI 서비스(slu-service)는 앱이 제대로 작동하기 위한 종속성/도우미입니다.
+  not_running_ok: 서비스 시작
+shortcut:
+  conflicts:
+    body: 일부 단축키는 여러 작업에 할당되어 있습니다. 다시 할당하세요.
+    dismiss: 해고하다
+    review: 검토
+    title: 바로가기 충돌이 감지되었습니다.
+  register:
+    placeholder: 주요 조합을 누릅니다
+    title: 새로운 바로 가기 등록
+widget_liveness:
+  failed_description: |-
+    위젯 '%{widget_name}'이(가) 너무 자주 응답을 중지했습니다.
+
+    앱을 다시 시작해 보세요.
+  failed_title: 위젯 오류
+widget_permissions:
+  perm_open_file: 열린 파일
+  perm_run: 프로그램 실행
+  request_description: |-
+    '%{widget_name}' 위젯이 %{command}에 대한 권한을 요청하고 있습니다.
+
+    이것을 허용하시겠습니까?
+  request_title: 위젯 권한 요청

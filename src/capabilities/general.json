@@ -1,0 +1,19 @@
+{
+  "$schema": "../gen/schemas/windows-schema.json",
+  "identifier": "general",
+  "description": "general permissions for all widgets",
+  "local": true,
+  "windows": [
+    "*"
+  ],
+  "permissions": [
+    "core:event:default",
+    "core:webview:default",
+    "core:webview:allow-set-webview-focus",
+    "core:webview:allow-set-webview-zoom",
+    "core:path:default",
+    "core:app:default",
+    "dialog:default",
+    "shell:allow-open"
+  ]
+}

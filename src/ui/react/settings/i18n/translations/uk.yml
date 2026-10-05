@@ -1,0 +1,477 @@
+action:
+  confirm: Ви впевнені?
+  confirm_body: Цю дію не можна скасувати.
+apps_configurations:
+  app:
+    bindings: Прив'язка (візьміть до уваги, що обидва варіанти потрібні)
+    category: Категорія
+    category_placeholder: Ніяка
+    monitor: Монітор
+    monitor_placeholder: Ніякий
+    name: Назва
+    ok_create: Створити
+    ok_edit: Оновити
+    ok_readonly: Редагувати як нове
+    options:
+      NoInteractive: Немає інтерактиву
+      VdPinned: Показати в усіх робочих областях
+      WmFloat: Twm - почати плавати
+      WmForce: Twm – примусове керування
+      WmUnmanage: Twm - Скасувати керування
+    options_label: Додаткові варіанти
+    title_create: Створення {{name}}
+    title_edit: Редагування {{name}}
+    title_readonly: Перегляд {{name}}
+    weg_options_label: Параметри Dock/панелі задач
+    wm_options_label: Параметри менеджера вікон
+    workspace: Робочий простір
+    workspace_placeholder: Ніякий
+  bundled_msg: >-
+    Ці готові конфігурації не підлягають редагуванню і створені для того, щоб
+    забезпечити вам найкращий досвід роботи без кастомізації. Вони автоматично
+    налаштовують найпоширеніші програми для вас.
+  bundled_title: Запропонована конфігурація додатка Seelen
+  confirm_delete: Ви впевнені, що хочете видалити конфігурацію?
+  confirm_delete_title: Підтвердити видалення
+  delete: Видалити
+  export: Експорт
+  export_full: Експорт налаштувань за додатками
+  extra_info: >-
+    Seelen UI використовує лише один ідентифікатор для кожного додатка (перший
+    знайдений збіг), тому важливим є порядок, у якому вони вказуються. Останні
+    додані додатки матимуть пріоритет. Зауважте, що за замовчуванням таблиця
+    відсортована від найновішого до найстарішого.
+  identifier:
+    add_block: Додати блок
+    and: І
+    id: Ідентифікатор
+    kind: Ідентифікувати по
+    matching_strategy: Стратегія відповідності
+    matching_strategy_option:
+      contains: Містить
+      ends_with: Закінчується на
+      equals: Дорівнює
+      regex: Регулярний вираз
+      starts_with: Починається з
+    negation: Заперечувати відповідність
+    or: АБО
+    remove: Видалити блок
+    type:
+      class: Клас
+      exe: Виконуваний файл
+      path: Шлях
+      title: Назва
+  import: Імпорт
+  import_full: Імпорт налаштувань за додатками
+  new: Новий
+  search: Пошук
+  swap: Замінити
+cancel: Скасувати
+close: Закрити
+delete: Видалити
+devtools:
+  app_folders: Папки додатків
+  color_palette: Палітра кольорів
+  color_palette_note: >-
+    Ці кольори автоматично адаптуються до світлого/темного режиму — кожен
+    відтінок є контрастним відносно поточного фону, а не є фіксованим значенням.
+    Використовуйте їх замість жорстко закодованих кольорів, щоб отримати
+    автоматичну підтримку теми.
+  custom_config_file: Імпортувати файл конфігурації
+  data_folder: Папка даних
+  enable: Увімкнути інструменти розробника
+  enable_description: >-
+    Відкриває розширені інструменти для перевірки та налагодження внутрішніх
+    елементів інтерфейсу Seelen. Не призначений для регулярного використання.
+  icons: Кешовані значки
+  install_folder: Папка встановлення
+  load: Відкрити
+  settings_file: Файл налаштувань
+  shared_components: Стандартні компоненти SLU
+  simulate_dialog:
+    label: Імітація діалогу
+    trigger: Тригер
+  simulate_perm:
+    label: Симуляція запиту на дозвіл віджета
+    result_allowed: ✓ Дозвіл надано
+    result_denied: ✗ У дозволі відмовлено
+    trigger: Симулювати
+    widget_id_placeholder: '@author/назва-віджета'
+  tools: Інструменти
+  unlock_shortcuts: Розблокуйте ярлики лише для читання
+  unlock_shortcuts_description: >-
+    Дозволити редагування ярликів, які зазвичай доступні лише для читання
+    (наприклад, системні зміни).
+  unstable_optimizations: Нестабільні оптимізації
+  unstable_optimizations_description: >-
+    Увімкніть експериментальні позначки Chromium, які зменшують використання
+    оперативної пам’яті. 
+
+    Попередження: якщо віджет аварійно завершує роботу, усі віджети, які
+    використовують один і той самий завантажувач, аварійно завершать роботу.
+  widgets_debug:
+    actions: Дії
+    empty: Немає завантажених віджетів. Натисніть «Оновити».
+    instance_id: Ідентифікатор екземпляра
+    monitor_id: ID монітора
+    open_devtools: DevTools
+    refresh: Оновити
+    status: Статус
+    tab: Віджети
+    widget_id: ID віджета
+discord_banner:
+  message: >-
+    Спілкуйтеся з іншими користувачами Seelen UI, отримуйте допомогу, діліться
+    темами та будьте в курсі останніх новин.
+  title: Приєднуйтесь до нашої спільноти
+extras:
+  backup_group: Хмарне резервне копіювання
+  backup_last_sync: Остання синхронізація
+  backup_never_synced: Ніколи не синхронізовано
+  backup_sync: Синхронізація налаштувань із хмарою
+  backup_sync_description: Автоматичне резервне копіювання та відновлення налаштувань через хмару.
+  clear_icons: Очистити кеш системних іконок
+  clear_icons_tooltip: Може знадобитися перезапуск для повного набрання чинності для всіх віджетів
+  discord_rpc: Дискорд багата присутність
+  discord_rpc_description: Покажіть усім, що у вас є стиль!
+  exit: Закрити програму
+  relaunch: Перезапустити
+  streaming_mode: Потоковий режим
+  streaming_mode_description: >-
+    Замінює конфіденційну інформацію (наприклад, електронні листи) заповнювачами
+    для захисту конфіденційності під час записів або знімків екрана.
+  version: Версія
+  version_fixed: >-
+    Виправлено версії програми та WebView2 Runtime. Це означає, що програма не
+    отримуватиме оновлення, а WebView2 Runtime не буде автоматично оновлюватись
+    оновленнями Windows.
+general:
+  accent_color: Основний колір
+  date_format: Формат дати та часу
+  date_format_how_to: Як написати формат дати?
+  hardware_acceleration: Апаратне прискорення
+  hardware_acceleration_description: >-
+    Вимкнення апаратного прискорення зменшить використання пам’яті. Можна
+    безпечно вимкнути, якщо ви не використовуєте важку анімацію, хоча окремі
+    віджети все одно можуть змушувати використовувати GPU незалежно від цього
+    параметра.
+  icon_pack:
+    available: Доступні пакети іконок
+    selected: Активні пакети іконки
+  language: Мова
+  monday: понеділок
+  performance_mode:
+    label: Оптимізації
+    on_battery: На акумулятор
+    on_energy_saver: На енергозбереженні
+    options:
+      disabled: Інвалід
+      extreme: Екстремальний
+      minimal: Мінімальний
+    plugged: Підключений або заряджається
+  polling_interval: Інтервал опитування системи
+  polling_interval_description: >-
+    Як часто (у секундах) Seelen UI перевіряє системні ресурси, такі як ЦП,
+    оперативна пам’ять, мережа та активність диска. Менше число означає частіші
+    оновлення, але трохи більше використання ресурсів.
+  saturday: Субота
+  start_of_week: Початок тижня
+  startup: Запускати разом з Windows?
+  sunday: неділя
+  suspend_on_game_mode: Призупинити віджети в ігровому режимі
+  suspend_on_game_mode_description: >-
+    Коли ігровий режим Windows активний, усі веб-перегляди віджетів знищуються,
+    щоб звільнити ЦП і пам’ять для гри. Віджети автоматично відновлюються після
+    завершення ігрового режиму.
+  theme:
+    available: Доступні теми
+    selected: Активні теми
+global: Глобальний
+header:
+  labels:
+    config: Конфігурації
+    developer: Для розробників
+    extras: Додатково
+    general: Загальні налаштування
+    home: Домашня сторінка
+    iconpack: Пакети іконок
+    monitors: Монітори
+    plugin: Плагіни
+    resources: Ресурси
+    session: Обліковий запис
+    shortcuts: Сполучення клавіш
+    soundpack: Звукові пакети
+    specific_apps: Налаштування за додатками
+    theme: Теми
+    virtual_desk: Віртуальні робочі столи
+    wallpaper: Шпалери
+    widget: Віджети
+home:
+  new_resources: Нові ресурси
+inherit: Успадкувати
+inProgress: В процесі...
+insert: Вставити
+join_us: Приєднуйтесь до нас!
+loading: Завантаження...
+miscellaneous: Різне
+monitors_configurations:
+  label: Монітор {{index}}
+more: Більше
+'no': Ні
+open: Відкрити
+quit: Вийти
+remove: Видалити
+reset_all_to_default: Скинути все до значень за замовчуванням
+reset_configurations: Скидання конфігурацій
+reset_to_default: Скидання до значення за замовчуванням
+resources:
+  affected_widgets: Вражені віджети
+  app_outdated: Для коректної роботи цього ресурсу потрібна новіша версія інтерфейсу Seelen.
+  coming_soon: Незабаром
+  corrupted_wallpaper: >-
+    Не вдалося видобути мініатюру – формат відео пошкоджений або не
+    підтримується
+  delete: Видалити ресурс
+  discover: Відкрийте для себе більше ресурсів
+  has_update: Доступне оновлення
+  high_impact: Великий вплив на продуктивність
+  import_wallpapers: Імпортувати місцеві шпалери
+  included_plugins: Включені плагіни
+  modified: Змінено
+  open_folder: Відкрийте папку з ресурсами
+  outdated: >-
+    Цей ресурс був розроблений для старої версії інтерфейсу Seelen і може не
+    працювати належним чином.
+  see_on_website: Дивіться на сайті
+  update_now: оновлення
+  updates_available: Доступні оновлення
+  updates_available_description: На наступних ресурсах доступні оновлення.
+review_request:
+  not_now: Не зараз
+  sure: звичайно!
+  title: Подобається інтерфейс користувача Seelen?
+save: Зберегти
+save_and_restart: Зберегти та перезапустити
+search: Пошук
+see_more: Побачити більше
+session:
+  logout: Вийти
+  plan: План
+  sign_in: Увійти
+  sign_in_hint: Ваш браузер відкриється, щоб ви могли безпечно ввійти.
+  upgrade_to: Оновити до
+shortcuts:
+  disabled_tooltip: Віджет і його ярлики вимкнено
+  duplicate_error: Виявлено конфліктні ярлики
+  duplicate_error_hint: >-
+    Деякі ярлики призначені для кількох дій. Вимкніть один із конфліктуючих
+    віджетів або перепризначте повторюване прив’язування клавіш для вирішення.
+  enable: Увімкнути вбудовану систему ярликів
+  enable_tooltip: >-
+    Вимкніть, якщо ви реалізуєте власну систему ярликів за допомогою клієнта
+    інтерфейсу SEELEN
+  labels:
+    create_new_workspace: Створіть нову робочу область
+    create_new_workspace_row: Створити новий рядок робочої області
+    destroy_current_workspace: Знищити поточну робочу область
+    misc_force_quit: Сила кинути
+    misc_force_restart: Примусовий перезапуск
+    move_to_workspace: Перемістіть до робочої області {{0}}
+    pause_toggle: Призупинити/відновити ярлики
+    send_to_next_workspace: Надіслати вікно до наступної робочої області
+    send_to_previous_workspace: Надіслати вікно до попередньої робочої області
+    send_to_workspace: Надіслати на робочу область {{0}}
+    send_to_workspace_down: Надіслати вікно в робочу область нижче
+    send_to_workspace_up: Надіслати вікно в робочу область вище
+    switch_to_next_workspace: Перейдіть на наступну робочу область
+    switch_to_previous_workspace: Перехід на попередню робочу область
+    switch_to_workspace_down: Перейдіть до робочої області нижче
+    switch_to_workspace_up: Перейдіть до робочої області вище
+    switch_workspace: Переключення на робочу область {{0}}
+  readonly_tooltip: Це ярлик лише для читання
+  reset: Скидання за замовчуванням
+sides:
+  bottom: Низ
+  left: Ліво
+  right: Право
+  top: Верх
+toolbar:
+  auto_hide: Автоматично приховувати
+  auto_hide_touch_disabled: >-
+    Функція автоматичного приховування недоступна на пристроях із сенсорним
+    екраном
+  delay_to_hide: Затримка приховання
+  delay_to_show: Затримка показу
+  dock_side: Посада
+  enable: Увімкнути панель інструментів
+  hide_mode:
+    always: Завжди
+    never: Ніколи
+    on_overlap: При перекритті
+  item_size: Розмір елемента
+  label: Панель інструментів
+  margin: Розмір маржі
+  padding: Розмір прокладки
+  placeholder: {}
+update:
+  available: Доступне оновлення!
+  channel: Канал оновлення
+  downloading: Завантаження...
+wall:
+  blur: Плямистість.
+  cancel: Скасувати
+  close: Закрити
+  collection_name: Назва колекції
+  collections: Колекції
+  contrast: Контраст
+  corrupted_wallpapers_message: 'Пошкоджені шпалери, видаліть ці:'
+  coverage_pause_threshold: Поріг паузи (покриття вікна)
+  create: Створити
+  create_collection: Створити колекцію
+  default_collection: Шпалери або колекція за умовчанням
+  default_collection_description: >-
+    Застосовується до всіх моніторів і робочих областей, які не мають певного
+    набору замін.
+  delete_collection: Видалити колекцію
+  edit_collection: Редагувати колекцію
+  extend: Подовжити основний
+  fit:
+    contain: Містити
+    cover: Обкладинка
+    fill: Заповніть.
+  flipHorizontal: Горизонтальне перевертання
+  flipVertical: Фліп Вертикальний
+  generating_thumbnails: Створення мініатюр шпалер
+  hours: години
+  interval: Зміна шпалер кожні
+  minutes: хвилини
+  monitor_collection: Колекція моніторів
+  multimonitor_behaviour: Багатомоніторна поведінка
+  muted: Вимкнути звук відео
+  no_background: Слайдів не знайдено, натомість застосовано фон теми.
+  no_collections: Ще немає створених колекцій. Натисніть кнопку +, щоб створити його.
+  objectFit: Підгонка фону
+  objectPosition: Вихідна позиція
+  overlayColor: Колір накладання
+  overlayMixBlendMode: Режим змішування з накладанням
+  per_monitor: На монітор
+  per_monitor_config: Конфігурація для кожного монітора
+  playback: Швидкість відтворення
+  position:
+    bottom: Дно.
+    center: Центр
+    left: Ліворуч.
+    right: Так.
+    top: Верхня частина
+  processing_video: Обробка відео
+  random: Випадковий порядок слайд-шоу
+  saturation: Насиченість
+  seconds: секунди
+  select_collection: Виберіть Колекція
+  thumbnail_generation_complete: Генерація ескізів завершена
+  thumbnail_generation_finished: Створення мініатюри успішно завершено
+  use_accent_color: Використовуйте акцентний колір шпалер
+  wallpaper_collection: Колекція шпалер
+  wallpaper_settings: Налаштування шпалер
+  wallpapers: Шпалери
+  wallpapers_and_collections: Шпалери та колекції
+  withOverlay: З накладанням
+  workspace_collections: Колекції робочої області
+weg:
+  auto_hide: Автоматично приховувати
+  auto_hide_touch_disabled: >-
+    Функція автоматичного приховування недоступна на пристроях із сенсорним
+    екраном
+  delay_to_hide: Затримка приховання
+  delay_to_show: Затримка показу
+  dock_side: Позиція панелі
+  filtering: Фільтрація елементів
+  gap: Відступ від краю
+  hide_mode:
+    always: Завжди
+    never: Ніколи
+    on_overlap: При перекритті
+  import_error: Не вдалося імпортувати елементи панелі завдань
+  import_from_taskbar:
+    button: Імпортувати з панелі завдань Windows
+    label: Імпорт закріплених елементів
+  import_no_items: На панелі завдань Windows не знайдено закріплених елементів
+  import_success: Успішно імпортовано {{count}} елемент(ів) із панелі завдань Windows
+  items:
+    gap: Проміжок між піктограмами
+    label: Піктограми
+    middle_click_action:
+      close_app: Закрити додаток
+      label: Дія середнього клацання
+      open_new_instance: Відкрийте новий екземпляр
+    pinned_visibility:
+      always: Завжди
+      label: Видимість закріплених елементів
+      when_primary: Коли монітор є основним
+    show_instance_counter: Показати лічильник відкритих вікон
+    show_window_title: Показувати заголовок відкритого вікна (тільки горизонтально)
+    size: Розмір піктограм
+    split_windows: Розділені вікна (один елемент на вікно)
+    temporal_visibility:
+      all: всі
+      label: Видимість незакріплених елементів
+      on_monitor: На моніторі
+  label: Панель завдань
+  margin: Зовнішній відступ
+  mode:
+    full_width: На всю ширину екрана
+    min_content: Якнайменший
+  padding: Внутрішній відступ
+  show_end_task: Показати завершене завдання на панелі завдань
+  width: Ширина
+welcome:
+  give_a_review: Дайте відгук
+  message: >-
+    Seelen UI — це безкоштовне робоче середовище з відкритим кодом для Windows.
+    Тут ви маєте повний контроль над тим, як виглядає та поводиться ваш робочий
+    стіл, що дозволяє налаштувати кожну деталь відповідно до вашого робочого
+    процесу та стилю.
+  ok: Починаємо!
+  review: >-
+    Якщо вам подобається використовувати Seelen UI, подумайте про те, щоб
+    залишити відгук у магазині — ваш відгук допоможе проекту розвиватися та
+    вдосконалюватися.
+  title: Ласкаво просимо до Seelen UI!
+widget:
+  default_instance: Примірник за замовчуванням
+  default_instance_hint: Завжди активний, використовує конфігурацію кореневого віджета
+  enable: Увімкніть цей віджет
+  enable_for_monitor: Увімкнути на цьому моніторі
+  extra_instances: Додаткові екземпляри
+  instance: Екземпляр
+  instances: Екземпляри
+wm:
+  animations:
+    duration: Тривалість анімації (MS)
+    ease_function: Функція ослаблення анімації
+    enable: Увімкнути анімацію вікна
+  author: Автор
+  auto_stack: Автоматичний стек за категорією програми
+  border:
+    enable: Увімкнути кордон вікна
+    offset: Зміщення кордону
+    width: Ширина кордону
+  description: Опис
+  drag_behavior: Поведінка перетягування
+  drag_behavior_options:
+    sort: Сортування (зміна порядку вікон під час перетягування)
+    swap: Swap (міняти місцями вікна на кінці перетягування)
+  floating:
+    height: Плаваюча висота вікон
+    title: Плаваючий розмір вікна
+    width: Плаваюча ширина вікна
+  layout: Макет
+  resize_delta: Змінити розмір дельти (%)
+  space_between_containers: Простір між вікнами
+  stack_bar_visibility: Видимість панелі стека
+  stack_bar_visibility_options:
+    always: Завжди
+    as_needed: Як потрібно
+  workspace_offset: Зсув робочих просторів (Зовнішні поля)
+  workspace_padding: Внутрішній відступ робочих просторів
+'yes': Так

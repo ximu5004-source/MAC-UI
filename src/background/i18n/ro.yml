@@ -1,0 +1,84 @@
+auth:
+  login_failed_body: >-
+    Ceva a mers prost la conectare. Dacă acest lucru persistă, asigurați-vă că
+    serviciul Windows „Credential Manager” (VaultSvc) este activat și rulează,
+    apoi încercați din nou.
+  login_failed_title: Autentificare eșuată
+cancel: Anula
+done: Făcut
+elevated:
+  description: >-
+    Seelen UI rulează cu privilegii de administrator.
+
+    Acest lucru nu adaugă sau îmbunătățește nicio caracteristică și poate
+    prezenta un risc de securitate.
+
+    Pentru o mai bună securitate, reporniți-l fără permisiuni de administrator.
+  title: Funcționează ca administrator
+file_explorer: Explorator de fișiere
+resource:
+  added: O nouă resursă a fost adăugată
+  download_failed_body: >-
+    Ceva nu a mers bine în timpul descărcării resursei, vă rugăm să raportați
+    acest lucru echipei de dezvoltatori Seelen.
+  download_failed_title: Descărcarea resurselor a eșuat
+  downloading: Descărcarea activelor...
+  downloading_body: Aceasta poate dura câteva secunde, vă rugăm să nu închideți fereastra.
+  enable: Activare
+  login_required_action: Conectare
+  login_required_body: Trebuie să vă conectați pentru a descărca această resursă.
+  login_required_title: Conectare obligatorie
+runtime:
+  corrupted_data: Date corupte
+  corrupted_file: >-
+    Un fișier de configurare este corupt, utilizând în schimb valorile
+    implicite.
+  corrupted_file_path: Calea fișierului coruptă
+  download: Accesați pagina de descărcare
+  files_integrity: >-
+    Nu am putut verifica integritatea fișierelor aplicației.
+
+    Acest lucru se poate întâmpla dacă fișierele au fost modificate, corupte sau
+    instalarea este incompletă.
+
+    Din motive de securitate, Seelen UI nu poate continua.
+
+    Vă rugăm să-l reinstalați de pe site-ul oficial.
+  files_integrity_title: Alertă de securitate - Verificarea integrității fișierelor a eșuat
+  not_found: WebView2 Runtime nu a fost găsit
+  not_found_description: Seelen UI necesită Webview2 Runtime. Vă rugăm să o instalați.
+  outdated: WebView2 Runtime depășit
+  outdated_description: >-
+    Seelen UI necesită Webview2 Runtime %{min_version} sau mai mare. Vă rugăm să
+    o actualizați.
+service:
+  not_running: Serviciul Seelen UI nu rulează
+  not_running_description: >-
+    Seelen UI Service (serviciul slu) este o dependență/ajutor pentru ca
+    aplicația să funcționeze corect.
+  not_running_ok: Începeți serviciul
+shortcut:
+  conflicts:
+    body: >-
+      Unele comenzi rapide sunt atribuite mai multor acțiuni, vă rugăm să le
+      reatribuiți.
+    dismiss: Respingeți
+    review: Recenzie
+    title: S-au detectat conflicte de comenzi rapide
+  register:
+    placeholder: Apăsați orice combinație de taste
+    title: Înregistrarea unei noi comenzi rapide
+widget_liveness:
+  failed_description: |-
+    Widgetul „%{widget_name}” nu mai răspunde de prea multe ori.
+
+    Puteți încerca să reporniți aplicația.
+  failed_title: Eroare widget
+widget_permissions:
+  perm_open_file: deschide fișiere
+  perm_run: rulați programe
+  request_description: |-
+    Widgetul „%{widget_name}” solicită permisiunea %{command}.
+
+    Doriți să permiteți acest lucru?
+  request_title: Solicitare de permisiune pentru widgeturi

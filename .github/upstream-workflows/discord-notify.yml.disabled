@@ -1,0 +1,67 @@
+name: "Discord Notify"
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag to announce (e.g. v2.5.1)"
+        required: true
+  workflow_call:
+    inputs:
+      tag:
+        description: "Release tag to announce"
+        type: string
+        required: true
+
+jobs:
+  notify:
+    name: Send Announcement To Discord Server
+    runs-on: ubuntu-latest
+    steps:
+      - name: Discord notification
+        uses: actions/github-script@v7
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        with:
+          script: |
+            const tag = '${{ inputs.tag }}';
+            const { data: release } = await github.rest.repos.getReleaseByTag({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              tag: tag,
+            });
+
+            let body = release.body || '';
+            // Strip HTML comments
+            body = body.replace(/<!--[\s\S]*?-->/g, '');
+            // Strip GitHub's auto-generated "What's Changed" section (dependabot PR list + Full Changelog link)
+            body = body.replace(/##\s*What's Changed[\s\S]*$/i, '').trim();
+            // Reduce heading levels (avoid h1/h2 dominating the embed)
+            body = body.replace(/^### /gm, '#### ').replace(/^## /gm, '### ').replace(/^# /gm, '## ');
+            // Normalise whitespace
+            body = body.replace(/\r\n/g, '\n').replace(/\r/g, '\n').trim();
+            // Enforce Discord embed description limit
+            if (body.length > 4096) body = body.slice(0, 4093) + '...';
+
+            const payload = {
+              username: 'Seelen',
+              avatar_url: 'https://raw.githubusercontent.com/eythaann/Seelen-UI/master/documentation/images/logo_with_margins.png',
+              embeds: [{
+                title: release.name || tag,
+                description: body,
+                url: release.html_url,
+                color: 5814783,
+                footer: { text: 'Seelen Inc.' },
+              }],
+            };
+
+            const response = await fetch(process.env.DISCORD_WEBHOOK, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload),
+            });
+
+            if (!response.ok) {
+              const text = await response.text();
+              core.setFailed(`Discord webhook failed (${response.status}): ${text}`);
+            }

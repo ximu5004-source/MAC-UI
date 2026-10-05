@@ -1,0 +1,476 @@
+action:
+  confirm: Дали сте сигурни?
+  confirm_body: Оваа акција не може да се разоткрие.
+apps_configurations:
+  app:
+    bindings: Обврзувачки (Забележете дека се потребни и двете опции)
+    category: Категорија
+    category_placeholder: Ништо
+    monitor: Монитор
+    monitor_placeholder: Ништо
+    name: Име
+    ok_create: Креирај
+    ok_edit: Ажурирање
+    ok_readonly: Уреди како ново
+    options:
+      NoInteractive: Нема интерактивна
+      VdPinned: Прикажи во сите работни простори
+      WmFloat: Twm - Почнете да лебдите
+      WmForce: Twm - Управување со сила
+      WmUnmanage: Twm - Не управувај
+    options_label: Дополнителни опции
+    title_create: Креирање {{име}}
+    title_edit: Уредување {{име}}
+    title_readonly: Гледање {{име}}
+    weg_options_label: Опции на пристаништето/лентата со задачи
+    wm_options_label: Опции за управување со прозорецот
+    workspace: Работен простор
+    workspace_placeholder: Ништо
+  bundled_msg: >-
+    Овие конфигурации во комплет не се уредни и се дизајнирани да ви обезбедат
+    најдобро искуство без прилагодување. Тие автоматски ги конфигурираат
+    најчестите апликации за вас.
+  bundled_title: Конфигурирана апликација во комплет со Селен
+  confirm_delete: Дали сте сигурни дека сакате да ја избришете оваа конфигурација/а?
+  confirm_delete_title: Потврдете го Избриши
+  delete: Избриши
+  export: Извоз
+  export_full: Извезувајте ги поставките по апликација
+  extra_info: >-
+    UI UI Користете само еден идентификатор по апликација (пронајден прв
+    натпревар), така што нарачката за тоа е важна е важна, најновиот додаден ќе
+    биде приоритет, бидејќи белешката табелата е сортирана стандардно од
+    најновата до стара.
+  identifier:
+    add_block: Додадете блок
+    and: И
+    id: Идентификатор
+    kind: Идентификувајте од
+    matching_strategy: Стратегија за појавување
+    matching_strategy_option:
+      contains: Содржи
+      ends_with: Завршува со
+      equals: Еднакви
+      regex: Редовно изразување
+      starts_with: Започнува со
+    negation: Негираат совпаѓање
+    or: Или
+    remove: Избриши блок
+    type:
+      class: Класа
+      exe: Exe
+      path: Пат
+      title: Наслов
+  import: Увоз
+  import_full: Увезете ги поставките по апликација
+  new: Ново
+  search: Пребарување
+  swap: Разменување
+cancel: Откажи
+close: Затвори
+delete: Избриши
+devtools:
+  app_folders: Папки со апликации
+  color_palette: Палета на бои
+  color_palette_note: >-
+    Овие бои автоматски се прилагодуваат на светло/темен режим - секоја нијанса
+    е во однос на контрастот на моменталната позадина, а не фиксна вредност.
+    Користете ги наместо тврдокодирани бои за да добиете автоматска поддршка за
+    теми.
+  custom_config_file: Вчитајте ја датотеката за прилагодена конфигурација
+  data_folder: Папка со податоци
+  enable: Овозможете алатки за развивачи
+  enable_description: >-
+    Отклучува напредни алатки за проверка и дебагирање на внатрешните интерфејси
+    на Seelen UI. Не е наменет за редовна употреба.
+  icons: Кеширани икони
+  install_folder: Папка за инсталација
+  load: Оптоварување
+  settings_file: Датотека за поставки
+  shared_components: Стандардни компоненти на SLU
+  simulate_dialog:
+    label: Симулирај дијалог
+    trigger: Активирање
+  simulate_perm:
+    label: Симулирајте барање за дозвола за виџети
+    result_allowed: ✓ Дадена е дозвола
+    result_denied: ✗ Дозволата е одбиена
+    trigger: Симулирајте
+    widget_id_placeholder: '@author/виџет-име'
+  tools: Алатки
+  unlock_shortcuts: Отклучете ги кратенките само за читање
+  unlock_shortcuts_description: >-
+    Дозволете уредување кратенки кои вообичаено се само за читање (на пр.
+    системски отфрлања).
+  unstable_optimizations: Нестабилни оптимизации
+  unstable_optimizations_description: >-
+    Овозможете експериментални ознаки на Chromium што ја намалуваат употребата
+    на RAM меморија.
+
+    Предупредување: ако виџетот падне, сите додатоци што го споделуваат истиот
+    вчитувач ќе се срушат заедно.
+  widgets_debug:
+    actions: Акции
+    empty: Не се вчитани виџети. Кликнете Освежи.
+    instance_id: ИД на пример
+    monitor_id: ID на монитор
+    open_devtools: DevTools
+    refresh: Освежи
+    status: Статус
+    tab: Додатоци
+    widget_id: ID на графичка контрола
+discord_banner:
+  message: >-
+    Поврзете се со други корисници на Seelen UI, добијте помош, споделувајте
+    теми и бидете во тек со најновите вести.
+  title: Придружете се на нашата заедница
+extras:
+  backup_group: Облак резервна копија
+  backup_last_sync: Последна синхронизација
+  backup_never_synced: Никогаш не синхронизирано
+  backup_sync: Синхронизирајте ги поставките со облакот
+  backup_sync_description: >-
+    Автоматски правете резервна копија и вратете ги вашите поставки преку
+    облакот.
+  clear_icons: Јасна кеш за икони на системот
+  clear_icons_tooltip: >-
+    Може да се бара рестартирање за целосно да се стапат на сила на сите
+    додатоци
+  discord_rpc: Раздор богато присуство
+  discord_rpc_description: Покажете им на сите дека имате стил!
+  exit: Откажете/излез
+  relaunch: Повторно започнување
+  streaming_mode: Режим на стриминг
+  streaming_mode_description: >-
+    Ги заменува чувствителните информации (на пр. е-пораки) со поставки за да ја
+    заштити приватноста за време на снимките или сликите од екранот.
+  version: Верзија
+  version_fixed: >-
+    Апликацијата и верзиите WebView2 Runtime се поправени. Ова значи дека
+    апликацијата нема да прима ажурирања и WebView2 Runtime нема автоматски да
+    се ажурира со ажурирања на Windows.
+general:
+  accent_color: Боја на акцент
+  date_format: Формат на датум
+  date_format_how_to: Како да напишете формат на датум?
+  hardware_acceleration: Хардверско забрзување
+  hardware_acceleration_description: >-
+    Оневозможувањето на хардверското забрзување ќе ја намали употребата на
+    меморијата. Безбедно е да се оневозможи ако не користите тешки анимации,
+    иако поединечните графички контроли сè уште може да го принудат користењето
+    на графичкиот процесор без оглед на оваа поставка.
+  icon_pack:
+    available: Достапни пакети со икони
+    selected: Пакети со активни икони
+  language: Јазик
+  monday: понеделник
+  performance_mode:
+    label: Оптимизации
+    on_battery: На батеријата
+    on_energy_saver: На заштеда на енергија
+    options:
+      disabled: Оневозможено
+      extreme: Екстремни
+      minimal: Минимално
+    plugged: Вклучен или полнење
+  polling_interval: Интервал на системски анкети
+  polling_interval_description: >-
+    Колку често (во секунди) Seelen UI ги проверува системските ресурси како
+    процесорот, RAM меморијата, мрежата и активноста на дискот. Помал број значи
+    почести ажурирања, но малку поголема употреба на ресурси.
+  saturday: сабота
+  start_of_week: Почеток на неделата
+  startup: Стартувам на стартување?
+  sunday: недела
+  suspend_on_game_mode: Суспендирајте ги виџетите на режимот на игра
+  suspend_on_game_mode_description: >-
+    Кога е активен режимот на игра на Windows, сите веб-прегледи на виџетите се
+    уништуваат за да се ослободи процесорот и меморијата за играта. Виџетите
+    автоматски се враќаат кога ќе заврши режимот на игра.
+  theme:
+    available: Достапни теми
+    selected: Активни теми
+global: Глобална
+header:
+  labels:
+    config: Конфигурации
+    developer: За развивачи
+    extras: Додатоци
+    general: Општо
+    home: Дома
+    iconpack: Икони пакувања
+    monitors: Монитори
+    plugin: Приклучоци
+    resources: Ресурси
+    session: Сметка
+    shortcuts: Кратенки
+    soundpack: Звучни пакувања
+    specific_apps: Поставки по апликација
+    theme: Теми
+    virtual_desk: Виртуелни работна површина
+    wallpaper: Позадини
+    widget: Додатоци
+home:
+  new_resources: Нови ресурси
+inherit: Наследник
+inProgress: Во тек...
+insert: Вметнете
+join_us: Придружете ни се!
+loading: Вчитување ...
+miscellaneous: Различни
+monitors_configurations:
+  label: Монитор {{индекс}}
+more: Повеќе
+'no': Не
+open: Отворено
+quit: Откажете се
+remove: Отстранете
+reset_all_to_default: Ресетирајте ги сите на стандардните вредности
+reset_configurations: Ресетирајте ги конфигурациите
+reset_to_default: Ресетирање на стандардна вредност
+resources:
+  affected_widgets: Погодени виџети
+  app_outdated: Овој ресурс бара понова верзија на Seelen UI да работи правилно.
+  coming_soon: Наскоро
+  corrupted_wallpaper: Не успеа да се извлече сликичка - оштетен или неподдржан видео формат
+  delete: Избришете ресурс
+  discover: Откријте повеќе ресурси
+  has_update: Достапно е ажурирање
+  high_impact: Високо влијание врз перформансите
+  import_wallpapers: Увезете локални позадини
+  included_plugins: Вклучени приклучоци
+  modified: Изменето
+  open_folder: Отворена папка со ресурси
+  outdated: >-
+    Овој ресурс беше дизајниран за постара верзија на Seelen UI и можеби нема да
+    работи правилно.
+  see_on_website: Видете на веб-страницата
+  update_now: Ажурирање
+  updates_available: Достапни се ажурирања
+  updates_available_description: Следниве ресурси имаат достапни ажурирања.
+review_request:
+  not_now: Не сега
+  sure: Секако!
+  title: Уживате во Seelen UI?
+save: Зачувај
+save_and_restart: Зачувај и рестартирај
+search: Пребарување
+see_more: Погледнете повеќе
+session:
+  logout: Одјавете се
+  plan: Планирајте
+  sign_in: Пријавете се
+  sign_in_hint: Вашиот прелистувач ќе се отвори за да можете безбедно да се најавите.
+  upgrade_to: Надградба на
+shortcuts:
+  disabled_tooltip: Виџетот и неговите кратенки се оневозможени
+  duplicate_error: Откриени се конфликтни кратенки
+  duplicate_error_hint: >-
+    Некои кратенки се доделени на повеќе дејства. Оневозможете еден од
+    спротивставените графички контроли или преназначете го врзувањето за
+    дупликат клуч за решавање.
+  enable: Овозможете вграден систем за кратенки
+  enable_tooltip: >-
+    Оневозможете ако го имплементирате вашиот сопствен систем на кратенки со
+    помош на клиентот Seelen UI
+  labels:
+    create_new_workspace: Создадете нов работен простор
+    create_new_workspace_row: Создадете нов ред за работниот простор
+    destroy_current_workspace: Уништи сегашниот работен простор
+    misc_force_quit: Сила откажана
+    misc_force_restart: Рестартирање на силата
+    move_to_workspace: Преместете се на работниот простор {{0}}
+    pause_toggle: Кратенки за пауза/продолжување
+    send_to_next_workspace: Испратете го прозорецот до следниот работен простор
+    send_to_previous_workspace: Испрати прозорец до претходен работен простор
+    send_to_workspace: Испрати на работниот простор {{0}}
+    send_to_workspace_down: Испратете го прозорецот до Работниот простор подолу
+    send_to_workspace_up: Испратете го прозорецот до работен простор погоре
+    switch_to_next_workspace: Префрлете се на следниот работен простор
+    switch_to_previous_workspace: Префрлете се на претходниот работен простор
+    switch_to_workspace_down: Префрлете се на Работниот простор подолу
+    switch_to_workspace_up: Префрлете се на Работниот простор погоре
+    switch_workspace: Префрлете се на работниот простор {{0}}
+  readonly_tooltip: Ова е кратенка само за читање
+  reset: Ресетирање на стандардно
+sides:
+  bottom: Дно
+  left: Лево
+  right: Десно
+  top: Врв
+toolbar:
+  auto_hide: Автоматско скриј
+  auto_hide_touch_disabled: Автоматското криење не е достапно на уредите со екран на допир
+  delay_to_hide: Одложување за сокривање
+  delay_to_show: Одложување за прикажување
+  dock_side: Позиција
+  enable: Овозможете фенси лента со алатки
+  hide_mode:
+    always: Секогаш
+    never: Никогаш
+    on_overlap: На преклопување
+  item_size: Големина на ставка
+  label: Лента со алатки
+  margin: Големина на маргина
+  padding: Големина на баласт
+  placeholder: {}
+update:
+  available: Ажурирање достапно!
+  channel: Ажурирање на каналот
+  downloading: Преземање ...
+wall:
+  blur: Замаглување
+  cancel: Откажи
+  close: Затвори
+  collection_name: Име на колекцијата
+  collections: Колекции
+  contrast: Контраст
+  corrupted_wallpapers_message: 'Оштетени позадини, размислете да ги избришете овие:'
+  coverage_pause_threshold: Праг на пауза (покриеност на прозорецот)
+  create: Креирај
+  create_collection: Креирај колекција
+  default_collection: Стандардна позадина или колекција
+  default_collection_description: >-
+    Применето на сите монитори и работни простори кои немаат специфичен сет за
+    прескокнување.
+  delete_collection: Избришете ја колекцијата
+  edit_collection: Уреди колекција
+  extend: Прошири основно
+  fit:
+    contain: Содржат
+    cover: Покритие
+    fill: Пополнете
+  flipHorizontal: Флип хоризонтално
+  flipVertical: Флип вертикална
+  generating_thumbnails: Создавање сликички за позадина
+  hours: часови
+  interval: Променете ја позадината на секој
+  minutes: минути
+  monitor_collection: Колекција на монитори
+  multimonitor_behaviour: Однесување на мултимонитор
+  muted: Исклучете го звукот на видеото
+  no_background: Празен слајдшоу, наместо тоа, користејќи ја позадината на темата.
+  no_collections: Сè уште нема создадени колекции. Кликнете на копчето + за да креирате едно.
+  objectFit: Подготвување на позадината
+  objectPosition: Позиција во позадина
+  overlayColor: Боја на преклопување
+  overlayMixBlendMode: Режим на мешавина од мешавина од преклопување
+  per_monitor: По монитор
+  per_monitor_config: Конфигурација по монитор
+  playback: Брзина на репродукција
+  position:
+    bottom: Дно
+    center: Центар
+    left: Лево
+    right: Десно
+    top: Горе
+  processing_video: Се обработува видео
+  random: Рандомизирајте го слајдшоу
+  saturation: Заситеност
+  seconds: секунди
+  select_collection: Изберете Колекција
+  thumbnail_generation_complete: Генерирањето сликички е завршено
+  thumbnail_generation_finished: Генерирањето сликички заврши успешно
+  use_accent_color: Користете боја на акцент на позадина
+  wallpaper_collection: Колекција на тапети
+  wallpaper_settings: Поставки за позадина
+  wallpapers: Позадини
+  wallpapers_and_collections: Позадини и колекции
+  withOverlay: Со преклоп
+  workspace_collections: Колекции на работниот простор
+weg:
+  auto_hide: Автоматско скриј
+  auto_hide_touch_disabled: Автоматското криење не е достапно на уредите со екран на допир
+  delay_to_hide: Одложување за сокривање
+  delay_to_show: Одложување за прикажување
+  dock_side: Позиција
+  filtering: Филтрирање на артикли
+  gap: Јаз
+  hide_mode:
+    always: Секогаш
+    never: Никогаш
+    on_overlap: На преклопување
+  import_error: Не успеа да се увезат ставки од лентата со задачи
+  import_from_taskbar:
+    button: Увезете од лентата со задачи на Windows
+    label: Увезете закачени ставки
+  import_no_items: Не се пронајдени закачени ставки во лентата со задачи на Windows
+  import_success: Успешно увезени {{count}} ставки од лентата со задачи на Windows
+  items:
+    gap: Простор помеѓу предмети
+    label: Предмети
+    middle_click_action:
+      close_app: Затворете ја апликацијата
+      label: Акција со среден клик
+      open_new_instance: Отворете нова инстанца
+    pinned_visibility:
+      always: Секогаш
+      label: Видливост на закачени ставки
+      when_primary: Кога мониторот е примарен
+    show_instance_counter: Покажете бројач на отворени прозорци
+    show_window_title: Покажете го насловот на отворен прозорец (само хоризонтално)
+    size: Големина на артикалот
+    split_windows: Сплит Windows (една ставка по прозорец)
+    temporal_visibility:
+      all: Сите
+      label: Видливост на откачени ставки
+      on_monitor: На монитор
+  label: Док/лента со задачи
+  margin: Маргина
+  mode:
+    full_width: Ширина на цел екран
+    min_content: Мала колку што може
+  padding: Подлога
+  show_end_task: Покажете задача за крај во лентата со задачи
+  width: Ширина
+welcome:
+  give_a_review: Дајте преглед
+  message: >-
+    Seelen UI е бесплатна и работна околина со отворен код за Windows. Овде
+    имате целосна контрола врз тоа како изгледа и се однесува вашиот десктоп,
+    што ви овозможува да го приспособите секој детал за да одговара на вашиот
+    работен тек и стил.
+  ok: Да почнеме!
+  review: >-
+    Ако уживате во користењето на Seelen UI, размислете да оставите преглед во
+    продавницата - вашите повратни информации помагаат проектот да расте и да се
+    подобри.
+  title: Добредојдовте во Seelen UI!
+widget:
+  default_instance: Стандардна инстанца
+  default_instance_hint: Секогаш активен, ја користи конфигурацијата на root-виџетот
+  enable: Овозможете го овој додаток
+  enable_for_monitor: Овозможете на овој монитор
+  extra_instances: Дополнителни случаи
+  instance: Пример
+  instances: Примери
+wm:
+  animations:
+    duration: Времетраење на анимација (МС)
+    ease_function: Функција за олеснување на анимацијата
+    enable: Овозможете ги анимациите на прозорецот
+  author: Автор
+  auto_stack: Автоматско собирање по категорија на апликации
+  border:
+    enable: Овозможете ја границата на прозорецот
+    offset: Офсет за граница
+    width: Ширина на границата
+  description: Опис
+  drag_behavior: Повлечете однесување
+  drag_behavior_options:
+    sort: Подреди (прередете ги прозорците додека се влечете)
+    swap: Заменете (заменете ги прозорците на крајот на влечење)
+  floating:
+    height: Висина на пловечки прозорци
+    title: Лебдечка големина на Windows
+    width: Ширина на лебдечки прозорци
+  layout: Распоред
+  resize_delta: Променете ја големината на Делта (%)
+  space_between_containers: Простор помеѓу контејнери
+  stack_bar_visibility: Видливост на оџакот
+  stack_bar_visibility_options:
+    always: Секогаш
+    as_needed: По потреба
+  workspace_offset: Работни места за неутрализирање (маргини)
+  workspace_padding: Подлога за работни места
+'yes': Да

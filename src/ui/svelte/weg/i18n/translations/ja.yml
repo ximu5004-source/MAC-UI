@@ -1,0 +1,40 @@
+app_menu:
+  close: 閉じる
+  close_multiple: すべて閉じる
+  copy_handles: ハンドルをコピー
+  edit_app_icon: アプリアイコンの編集
+  kill: プロセスを強制終了
+  kill_multiple: すべてのプロセスを強制終了
+  open_file_location: ファイルの場所を開く
+  pin: ピン留め
+  pin_to_center: 中央にピン留め
+  pin_to_left: 左にピン留め
+  pin_to_right: 右にピン留め
+  run_as: 管理者として実行
+  unpin: ピン留めを解除
+context_menu:
+  edit_icon: 編集アイコン
+  remove_module: モジュールの削除
+  remove_separator: セパレータを削除する
+  reorder_disable: タスクバーをロック
+  reorder_enable: タスクバーのロック解除
+media:
+  label: メディアプレーヤー
+  not_playing: 何も再生されていません
+show_desktop:
+  label: デスクトップを表示
+start:
+  label: スタートメニュー
+taskbar_menu:
+  add_file: ファイルを追加
+  add_separator: 区切り文字を追加
+  media: メディアプレーヤー
+  modules: モジュール
+  settings: 設定
+  task_manager: タスクマネージャー
+trash_bin:
+  empty_bin: ごみ箱を空にする
+  item_count: '{{0}} 個のアイテム'
+  label: ごみ箱
+weg:
+  empty: 表示する項目がありません

@@ -1,0 +1,477 @@
+action:
+  confirm: Biztos vagy benne?
+  confirm_body: Ezt a műveletet nem lehet visszavonni.
+apps_configurations:
+  app:
+    bindings: Kötés (vegye figyelembe, hogy mindkét lehetőség szükséges)
+    category: Kategória
+    category_placeholder: Egyik sem
+    monitor: Monitor
+    monitor_placeholder: Egyik sem
+    name: Név
+    ok_create: Teremt
+    ok_edit: Frissít
+    ok_readonly: Szerkesztés újként
+    options:
+      NoInteractive: Nincs interaktív
+      VdPinned: Megjelenítés minden munkaterületen
+      WmFloat: Twm – Indítsa el a lebegést
+      WmForce: Twm – Kényszerkezelés
+      WmUnmanage: Twm – Kezelés megszüntetése
+    options_label: Extra lehetőségek
+    title_create: '{{Név}} létrehozása'
+    title_edit: Szerkesztés {{név}}
+    title_readonly: '{{Név}} megtekintés'
+    weg_options_label: Dokk/tálcás lehetőségek
+    wm_options_label: Ablakkezelő opciók
+    workspace: Munkaterület
+    workspace_placeholder: Egyik sem
+  bundled_msg: >-
+    Ezek a csomagolt konfigurációk nem szerkeszthetők, és úgy tervezték, hogy
+    testreszabás nélkül biztosítsa a legjobb élményt. Automatikusan
+    konfigurálják a leggyakoribb alkalmazásokat az Ön számára.
+  bundled_title: A Seelen -vel csomagolt alkalmazás konfigurációja
+  confirm_delete: Biztos benne, hogy törölni akarja ezt a konfigurációt/S -t?
+  confirm_delete_title: Törlés jóváhagyása
+  delete: Töröl
+  export: Export
+  export_full: Beállítások exportálása alkalmazásonként
+  extra_info: >-
+    A Seelen UI alkalmazásonként csak egy azonosítót használ (az első egyezés
+    található), ezért fontos a sorrend, a legutolsó hozzáadott lesz prioritás,
+    mivel a táblázat alapértelmezés szerint a legújabbtól a régiig van rendezve.
+  identifier:
+    add_block: Blokk hozzáadása
+    and: ÉS
+    id: Azonosító
+    kind: Azonosít
+    matching_strategy: Megfelelő stratégia
+    matching_strategy_option:
+      contains: Tartalmaz
+      ends_with: Ezzel végződik
+      equals: Egyenlő
+      regex: Reguláris kifejezés
+      starts_with: Ezzel kezdődik
+    negation: Tagadás egyeztetés
+    or: VAGY
+    remove: Blokk törlése
+    type:
+      class: Osztály
+      exe: Exe
+      path: Útvonal
+      title: Cím
+  import: Behozatal
+  import_full: Beállítások importálása alkalmazásonként
+  new: Új
+  search: Keresés
+  swap: Csere
+cancel: Megszünteti
+close: Közeli
+delete: Töröl
+devtools:
+  app_folders: App mappák
+  color_palette: Színpaletta
+  color_palette_note: >-
+    Ezek a színek automatikusan alkalmazkodnak a világos/sötét módhoz – minden
+    árnyalat az aktuális háttérhez képest kontrasztos, nem rögzített érték.
+    Használja ezeket a kódolt színek helyett az automatikus tématámogatás
+    eléréséhez.
+  custom_config_file: Töltse be az egyéni konfigurációs fájlt
+  data_folder: Adatmappa
+  enable: Engedélyezze a fejlesztői eszközöket
+  enable_description: >-
+    Feloldja a fejlett eszközöket a Seelen UI belső részeinek vizsgálatához és
+    hibakereséséhez. Nem rendszeres használatra készült.
+  icons: Gyorsítótárazott ikonok
+  install_folder: Telepítési mappa
+  load: Betöltés
+  settings_file: Beállítási fájl
+  shared_components: SLU szabványos komponensek
+  simulate_dialog:
+    label: Szimulációs párbeszédpanel
+    trigger: Kioldó
+  simulate_perm:
+    label: Szimulálja a Widget engedélykérését
+    result_allowed: ✓ Engedély megadva
+    result_denied: ✗ Engedély megtagadva
+    trigger: Szimulál
+    widget_id_placeholder: '@author/widget-name'
+  tools: Eszközök
+  unlock_shortcuts: Oldja fel a csak olvasható parancsikonokat
+  unlock_shortcuts_description: >-
+    Engedélyezze az általában csak olvasható parancsikonok szerkesztését (pl.
+    rendszerfelülbírálások).
+  unstable_optimizations: Instabil optimalizálás
+  unstable_optimizations_description: >-
+    Engedélyezze a kísérleti Chromium-jelzőket, amelyek csökkentik a
+    RAM-használatot.
+
+    Figyelmeztetés: ha egy widget összeomlik, az ugyanazt a betöltőt használó
+    összes widget együtt fog összeomlani.
+  widgets_debug:
+    actions: Akciók
+    empty: Nincsenek widgetek betöltve. Kattintson a Frissítés gombra.
+    instance_id: Példányazonosító
+    monitor_id: Monitor azonosító
+    open_devtools: DevTools
+    refresh: Frissítés
+    status: Állapot
+    tab: Widgetek
+    widget_id: Widget azonosító
+discord_banner:
+  message: >-
+    Lépjen kapcsolatba más Seelen UI-felhasználókkal, kérjen segítséget, osszon
+    meg témákat, és maradjon naprakész a legfrissebb hírekről.
+  title: Csatlakozz közösségünkhöz
+extras:
+  backup_group: Biztonsági mentés a felhőből
+  backup_last_sync: Utolsó szinkronizálás
+  backup_never_synced: Soha nem szinkronizált
+  backup_sync: Szinkronizálja a beállításokat a felhőbe
+  backup_sync_description: >-
+    A beállítások automatikus biztonsági mentése és visszaállítása a felhőn
+    keresztül.
+  clear_icons: Rendszerikonok gyorsítótárának törlése
+  clear_icons_tooltip: >-
+    Újraindítás szükséges lehet ahhoz, hogy az összes widget teljes mértékben
+    érvénybe lépjen.
+  discord_rpc: Discord gazdag jelenlét
+  discord_rpc_description: Mutasd meg mindenkinek, hogy van stílusod!
+  exit: Kilépés/kilépés
+  relaunch: Újraindít
+  streaming_mode: Streaming mód
+  streaming_mode_description: >-
+    Helyőrzőkkel helyettesíti az érzékeny információkat (pl. e-maileket), hogy
+    megvédje a magánéletet a felvételek vagy képernyőképek közben.
+  version: Változat
+  version_fixed: >-
+    Az alkalmazás és a WebView2 Runtime verziója rögzített. Ez azt jelenti, hogy
+    az alkalmazás nem kap frissítéseket, és a WebView2 Runtime nem frissül
+    automatikusan Windows-frissítésekkel.
+general:
+  accent_color: Akcentus szín
+  date_format: Dátum formátum
+  date_format_how_to: Hogyan írjunk dátumformátumot?
+  hardware_acceleration: Hardveres gyorsítás
+  hardware_acceleration_description: >-
+    A hardveres gyorsítás letiltása csökkenti a memóriahasználatot. Ha nem
+    használ nehéz animációkat, biztonságos a letiltása, bár az egyes widgetek
+    ettől a beállítástól függetlenül továbbra is kényszeríthetik a
+    GPU-használatot.
+  icon_pack:
+    available: Elérhető ikoncsomagok
+    selected: Aktív ikoncsomagok
+  language: Nyelv
+  monday: hétfő
+  performance_mode:
+    label: Optimalizálások
+    on_battery: Akkumulátorra
+    on_energy_saver: Az energiatakarékosról
+    options:
+      disabled: Fogyatékkal élők
+      extreme: Szélső
+      minimal: Minimális
+    plugged: Bedugva vagy töltés
+  polling_interval: Rendszerlekérdezési intervallum
+  polling_interval_description: >-
+    Milyen gyakran (másodpercben) ellenőrzi a Seelen UI a rendszererőforrásokat,
+    például a CPU-t, a RAM-ot, a hálózatot és a lemeztevékenységet. A kisebb
+    szám gyakoribb frissítéseket jelent, de valamivel nagyobb
+    erőforrás-felhasználást.
+  saturday: szombat
+  start_of_week: Hét kezdete
+  startup: Futtatni indításkor?
+  sunday: vasárnap
+  suspend_on_game_mode: A widgetek felfüggesztése Játék módban
+  suspend_on_game_mode_description: >-
+    Ha a Windows játékmód aktív, az összes widget webnézet megsemmisül, hogy
+    felszabadítsa a CPU-t és a memóriát a játék számára. A widgetek
+    automatikusan visszaállnak, amikor a Játék mód véget ér.
+  theme:
+    available: Elérhető témák
+    selected: Aktív témák
+global: Globális
+header:
+  labels:
+    config: Konfigurációk
+    developer: Fejlesztők számára
+    extras: Extrák
+    general: Tábornok
+    home: Otthon
+    iconpack: Ikon csomagok
+    monitors: Monitorok
+    plugin: Plugins
+    resources: Források
+    session: fiók
+    shortcuts: Parancsikonok
+    soundpack: Hang csomagok
+    specific_apps: Alkalmazásonkénti beállítások
+    theme: Témák
+    virtual_desk: Virtuális asztalok
+    wallpaper: Háttérképek
+    widget: Widgetek
+home:
+  new_resources: Új források
+inherit: Örököl
+inProgress: Folyamatban...
+insert: Beilleszt
+join_us: Csatlakozz hozzánk!
+loading: Betöltés...
+miscellaneous: Különféle
+monitors_configurations:
+  label: Monitor {{index}}
+more: Több
+'no': Nem
+open: Nyisd ki
+quit: Kilépés
+remove: Eltávolítás
+reset_all_to_default: Mindent visszaállít az alapértelmezett értékekre
+reset_configurations: Állítsa vissza a konfigurációkat
+reset_to_default: Alapértelmezett értékre visszaállítása
+resources:
+  affected_widgets: Érintett widgetek
+  app_outdated: Ez az erőforrás a Seelen UI újabb verzióját igényli a megfelelő működéshez.
+  coming_soon: Hamarosan
+  corrupted_wallpaper: Nem sikerült a miniatűr kibontása – sérült vagy nem támogatott videóformátum
+  delete: Az erőforrás törlése
+  discover: További források felfedezése
+  has_update: Frissítés érhető el
+  high_impact: Nagy hatás a teljesítményre
+  import_wallpapers: Helyi háttérképek importálása
+  included_plugins: Tartalmazott bővítmények
+  modified: Módosítva
+  open_folder: Nyissa meg az erőforrás mappát
+  outdated: >-
+    Ez az erőforrás a Seelen UI régebbi verziójához készült, és előfordulhat,
+    hogy nem működik megfelelően.
+  see_on_website: Lásd a weboldalon
+  update_now: Frissítés
+  updates_available: Frissítések érhetők el
+  updates_available_description: A következő forrásokhoz érhetők el frissítések.
+review_request:
+  not_now: Most nem
+  sure: Persze!
+  title: Élvezed a Seelen felhasználói felületet?
+save: Megment
+save_and_restart: Mentés és újraindítás
+search: Keresés
+see_more: Lásd még
+session:
+  logout: Jelentkezzen ki
+  plan: Terv
+  sign_in: Jelentkezzen be
+  sign_in_hint: Megnyílik a böngészője, így biztonságosan bejelentkezhet.
+  upgrade_to: Frissítés erre
+shortcuts:
+  disabled_tooltip: A widget és parancsikonjai le vannak tiltva
+  duplicate_error: Ütköző parancsikonok észlelve
+  duplicate_error_hint: >-
+    Néhány parancsikon több művelethez van hozzárendelve. Tiltsa le az ütköző
+    eszközprimitívek egyikét, vagy rendelje hozzá újra az ismétlődő
+    kulcs-összerendelést a megoldáshoz.
+  enable: Engedélyezze a beépített parancsikonok rendszerét
+  enable_tooltip: >-
+    Tiltsa le, ha a Seelen UI kliens segítségével megvalósítja saját
+    parancsikonjait
+  labels:
+    create_new_workspace: Hozzon létre új munkaterületet
+    create_new_workspace_row: Új munkaterület-sor létrehozása
+    destroy_current_workspace: Pusztítsd el az aktuális munkaterületet
+    misc_force_quit: Erőt hagy
+    misc_force_restart: Újraindítás kikényszerítése
+    move_to_workspace: Költözni a munkaterületre {{0}}
+    pause_toggle: Parancsikonok szüneteltetése/folytatása
+    send_to_next_workspace: Ablak küldése a következő munkaterületre
+    send_to_previous_workspace: Ablak küldése az előző munkaterületre
+    send_to_workspace: Küldje el a munkaterületre {{0}}
+    send_to_workspace_down: Küldje el az ablakot az alábbi munkaterületre
+    send_to_workspace_up: Küldje el az ablakot a fenti munkaterületre
+    switch_to_next_workspace: Váltás a következő munkaterületre
+    switch_to_previous_workspace: Váltás az előző munkaterületre
+    switch_to_workspace_down: Váltson az alábbi munkaterületre
+    switch_to_workspace_up: Váltson a fenti munkaterületre
+    switch_workspace: Váltás a munkaterületre {{0}}
+  readonly_tooltip: Ez egy csak olvasható parancsikon
+  reset: Alapértelmezés visszaállítása az alapértelmezésekre
+sides:
+  bottom: Alsó
+  left: Bal
+  right: Jobb
+  top: Felső
+toolbar:
+  auto_hide: Autóbizalom
+  auto_hide_touch_disabled: Az automatikus elrejtés nem érhető el érintőképernyős eszközökön
+  delay_to_hide: Késleltesse az elrejtést
+  delay_to_show: Megjelenítés késleltetése
+  dock_side: Pozíció
+  enable: Engedélyezze a divatos eszköztárat
+  hide_mode:
+    always: Mindig
+    never: Soha
+    on_overlap: Az átfedésben
+  item_size: Elem mérete
+  label: Eszköztár
+  margin: Margó mérete
+  padding: Padding Méret
+  placeholder: {}
+update:
+  available: A frissítés elérhető!
+  channel: Frissítési csatorna
+  downloading: Letöltés ...
+wall:
+  blur: Elmosódás
+  cancel: Mégsem
+  close: Közeli
+  collection_name: Gyűjtemény neve
+  collections: Gyűjtemények
+  contrast: Kontraszt
+  corrupted_wallpapers_message: 'Sérült háttérképek, fontolja meg ezek törlését:'
+  coverage_pause_threshold: Szünet küszöbértéke (ablak lefedettsége)
+  create: Teremt
+  create_collection: Gyűjtemény létrehozása
+  default_collection: Alapértelmezett háttérkép vagy gyűjtemény
+  default_collection_description: >-
+    Minden olyan monitorra és munkaterületre vonatkozik, amely nem rendelkezik
+    meghatározott felülírással.
+  delete_collection: Gyűjtemény törlése
+  edit_collection: Gyűjtemény szerkesztése
+  extend: Hosszabbítsa meg az elsődleges
+  fit:
+    contain: Tartalmazza a  címet.
+    cover: Borító
+    fill: Töltse ki a  címet.
+  flipHorizontal: Flip vízszintes
+  flipVertical: Flip függőleges
+  generating_thumbnails: Háttérkép miniatűrök generálása
+  hours: órák
+  interval: Változtasd meg minden háttérképet
+  minutes: jegyzőkönyv
+  monitor_collection: Monitor gyűjtemény
+  multimonitor_behaviour: Többmonitoros viselkedés
+  muted: Videó hang némítása
+  no_background: Üres diavetítés, inkább a téma hátterének felhasználásával.
+  no_collections: >-
+    Még nem jött létre gyűjtemény. Kattintson a + gombra, hogy létrehozzon
+    egyet.
+  objectFit: Háttér illeszkedés
+  objectPosition: Háttér Pozíció
+  overlayColor: Overlay szín
+  overlayMixBlendMode: Overlay Mix keverési mód
+  per_monitor: Monitoronként
+  per_monitor_config: Monitoronkénti konfiguráció
+  playback: Lejátszási sebesség
+  position:
+    bottom: Alul
+    center: Központ
+    left: Balra
+    right: Jobbra
+    top: Top
+  processing_video: Videó feldolgozása
+  random: Véletlenszerűsítse a diavetítést
+  saturation: Telítettség
+  seconds: másodpercek
+  select_collection: Válassza a Gyűjtemény lehetőséget
+  thumbnail_generation_complete: A miniatűrök generálása kész
+  thumbnail_generation_finished: A miniatűrök generálása sikeresen befejeződött
+  use_accent_color: Használjon tapéta kiemelő színt
+  wallpaper_collection: Háttérkép gyűjtemény
+  wallpaper_settings: Háttérkép beállításai
+  wallpapers: Háttérképek
+  wallpapers_and_collections: Háttérképek és gyűjtemények
+  withOverlay: Overlay-vel
+  workspace_collections: Munkaterület-gyűjtemények
+weg:
+  auto_hide: Automatikus elrejtés
+  auto_hide_touch_disabled: Az automatikus elrejtés nem érhető el érintőképernyős eszközökön
+  delay_to_hide: Késleltesse az elrejtést
+  delay_to_show: Megjelenítés késleltetése
+  dock_side: Pozíció
+  filtering: Elemszűrés
+  gap: Rés
+  hide_mode:
+    always: Mindig
+    never: Soha
+    on_overlap: Az átfedésben
+  import_error: Nem sikerült importálni a tálca elemeit
+  import_from_taskbar:
+    button: Importálás a Windows tálcáról
+    label: Rögzített elemek importálása
+  import_no_items: Nem található rögzített elem a Windows tálcán
+  import_success: Sikeresen importált {{count}} elemet a Windows tálcájáról
+  items:
+    gap: Hely az elemek között
+    label: Tárgyak
+    middle_click_action:
+      close_app: Zárja be az alkalmazást
+      label: Középső kattintás művelet
+      open_new_instance: Nyissa meg az Új példányt
+    pinned_visibility:
+      always: Mindig
+      label: Rögzített elemek láthatósága
+      when_primary: Amikor a monitor az elsődleges
+    show_instance_counter: Megnyílt ablakok számlálójának megjelenítése
+    show_window_title: Megnyílt ablak címének megjelenítése (csak vízszintes)
+    size: Elemméret
+    split_windows: Osztott ablakok (ablakonként egy elem)
+    temporal_visibility:
+      all: Minden
+      label: Rögzített elemek láthatósága
+      on_monitor: Monitoron
+  label: Dokk/tálca
+  margin: Árrés
+  mode:
+    full_width: Teljes képernyő szélesség
+    min_content: Amennyire csak lehet
+  padding: Párnázás
+  show_end_task: A feladat befejezésének megjelenítése a feladatsorban
+  width: Szélesség
+welcome:
+  give_a_review: Adj véleményt
+  message: >-
+    A Seelen UI egy ingyenes és nyílt forráskódú asztali környezet Windowshoz.
+    Itt teljes mértékben irányíthatja az asztali számítógép megjelenését és
+    viselkedését, így minden részletet személyre szabhat a munkafolyamatának és
+    stílusának megfelelően.
+  ok: Kezdjük!
+  review: >-
+    Ha szívesen használja a Seelen UI-t, fontolja meg, hogy véleményt írjon az
+    áruházban – visszajelzése segíti a projekt növekedését és fejlődését.
+  title: Üdvözöljük a Seelen UI-n!
+widget:
+  default_instance: Alapértelmezett példány
+  default_instance_hint: Mindig aktív, a root widget konfigurációját használja
+  enable: Engedélyezze ezt a widgetet
+  enable_for_monitor: Engedélyezés ezen a monitoron
+  extra_instances: Extra példányok
+  instance: Példa
+  instances: Instances
+wm:
+  animations:
+    duration: Animációs időtartam (MS)
+    ease_function: Animáció enyhítő funkciója
+    enable: Engedélyezze az ablak animációit
+  author: Szerző
+  auto_stack: Automatikus halmozás alkalmazáskategória szerint
+  border:
+    enable: Engedélyezze az ablak szegélyét
+    offset: Határ eltolás
+    width: Határszélesség
+  description: Leírás
+  drag_behavior: Húzási viselkedés
+  drag_behavior_options:
+    sort: Rendezés (ablakok átrendezése húzás közben)
+    swap: Csere (ablak cseréje a húzás végén)
+  floating:
+    height: Lebegő ablakmagasság
+    title: Lebegő Windows-méret
+    width: Lebegő ablakszélesség
+  layout: Elrendezés
+  resize_delta: Átméretezze a DELTA -t (%)
+  space_between_containers: Hely a konténerek között
+  stack_bar_visibility: Stack Bar láthatósága
+  stack_bar_visibility_options:
+    always: Mindig
+    as_needed: Szükség szerint
+  workspace_offset: A munkaterületek eltolása (margók)
+  workspace_padding: Munkaterületek párnázása
+'yes': Igen

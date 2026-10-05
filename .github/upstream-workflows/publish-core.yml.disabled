@@ -1,0 +1,68 @@
+name: "Publish Core Library"
+
+on:
+  workflow_call:
+  workflow_dispatch:
+    inputs:
+      next:
+        description: "Publish as next pre-release (uses date-based version with tag next)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish-core:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./libs/core
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Setup Rust
+        run: rustup --version
+
+      - name: Set next version
+        if: ${{ inputs.next }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = 'libs/core/deno.json';
+
+            const denoJson = JSON.parse(fs.readFileSync(path, 'utf8'));
+            const currentVersion = denoJson.version;
+
+            const timestamp = new Date().toISOString().replace(/[-:T]/g, '').slice(2, 12);
+            const nextVersion = `${currentVersion}-next.${timestamp}`;
+
+            denoJson.version = nextVersion;
+            fs.writeFileSync(path, JSON.stringify(denoJson, null, 2) + '\n');
+
+            core.info(`Version set to ${nextVersion}`);
+
+      - name: Build Rust Bindings (ts-rs)
+        run: deno task build:rs
+
+      - name: Publish to JSR
+        run: deno publish --allow-dirty
+
+      - name: Build NPM package
+        run: deno task build:npm
+
+      - name: Publish to NPM
+        run: |
+          cd ./npm
+          npm --verbose publish --tag ${{ inputs.next && 'next' || 'latest' }}

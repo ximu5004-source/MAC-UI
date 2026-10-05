@@ -1,0 +1,70 @@
+desktop_shell:
+  icon_size: 图标大小
+  icon_sizes:
+    '48': 小
+    '64': 中
+    '80': 大
+    '96': 超大
+  move_hint: 拖动标题移动；方向键微调，Shift 加速
+  move_controls: 位置与尺寸微调
+  snap_grid: 网格吸附
+  show_grid: 显示网格
+  show_grid_hint: 持续显示对齐格子；不改变网格吸附或现有收纳框的位置
+  snap_hint: 移动或缩放时按 20 像素网格对齐边缘；关闭后可自由摆放
+  resize_hint: 拖动边缘或角落调整大小；聚焦缩放手柄后可用方向键微调
+  narrower: 宽度 −
+  wider: 宽度 +
+  shorter: 高度 −
+  taller: 高度 +
+  resize_n: 调整上边缘
+  resize_s: 调整下边缘
+  resize_e: 调整右边缘
+  resize_w: 调整左边缘
+  resize_ne: 调整右上角
+  resize_nw: 调整左上角
+  resize_se: 调整右下角
+  resize_sw: 调整左下角
+  move_left: 向左移动
+  move_up: 向上移动
+  move_down: 向下移动
+  move_right: 向右移动
+  reset_layout: 恢复默认收纳布局
+  expand: 展开
+  collapse: 折叠
+  operation_failed: 操作失败
+  label: 桌面
+  controls_label: 桌面控制
+  rename_label: 重命名桌面项目
+  new_folder_name: 新建文件夹
+  new_text_name: 新建文本文档
+  new_markdown_name: 新建 Markdown 文档
+  new_file_name: 新建{{type}}
+  new_file_fallback: 新建文件
+  creating: 正在创建…
+  file_types:
+    text: 文本文档
+    markdown: Markdown 文档
+  arrange:
+    name: 按名称排列
+    name_short: 名称
+    category: 按类型整理收纳
+    category_short: 整理
+  menu:
+    open: 打开
+    open_folder: 打开文件夹
+    reveal: 在文件资源管理器中显示
+    rename: 重命名
+    new_folder: 新建文件夹
+    new_file: 新建文件
+    arrange: 桌面排列方式
+    refresh: 刷新
+    open_desktop: 打开桌面文件夹
+  categories:
+    folders: 文件夹
+    images: 图片
+    documents: 文档
+    videos: 视频
+    audio: 音频
+    archives: 压缩包
+    apps: 应用与快捷方式
+    other: 其他

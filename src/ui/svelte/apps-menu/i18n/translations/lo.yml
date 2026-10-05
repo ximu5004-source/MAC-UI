@@ -1,0 +1,22 @@
+all: ແອັບທັງໝົດ
+app_settings: ການຕັ້ງຄ່າແອັບ
+applications: ຄໍາຮ້ອງສະຫມັກ
+back: ກັບຄືນໄປບ່ອນ
+disband: Disband Folder
+edit_icon: ແກ້ໄຂໄອຄອນ
+folder: ໂຟລເດີ
+no_matching_items: ບໍ່ພົບລາຍການທີ່ກົງກັບການຊອກຫາຂອງທ່ານ
+open_file_location: ເປີດສະຖານທີ່ໄຟລ໌
+pin: ປັກໝຸດ
+pin_to_dock: ປັກໝຸດໃສ່ Dock
+power_menu: ເມນູພະລັງງານ
+query:
+  all: ທັງໝົດ
+  apps: ແອັບ
+  files: ໄຟລ໌
+  web: ເວັບ
+run_as_admin: ດໍາເນີນການເປັນ Administrator
+unpin: ຖອນປັກໝຸດ
+web_search: ກົດ Enter ເພື່ອຊອກຫາເວັບ
+welcome_message: ຍິນດີຕ້ອນຮັບສູ່ເມນູແອັບ Seelen UI.
+welcome_message2: ໃນແຖບນີ້, ທ່ານສາມາດປັກໝຸດແອັບທີ່ທ່ານມັກໄດ້.

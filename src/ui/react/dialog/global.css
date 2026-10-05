@@ -1,0 +1,108 @@
+body,
+#root {
+  background-color: transparent !important;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#root {
+  padding: 10px; /* this will allow the box-shadow to be visible */
+}
+
+.dialog {
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+  overflow-wrap: anywhere;
+
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+
+  background-color: var(--slu-std-bg-color);
+  color: var(--slu-std-fg-color);
+  border-radius: 10px;
+
+  box-shadow: var(--shadow-m);
+  font-size: 1rem;
+
+  .header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--slu-std-bg-light-color);
+
+    padding: var(--spacing-xs) var(--spacing-s);
+    font-weight: 600;
+    app-region: drag;
+
+    button {
+      app-region: no-drag;
+    }
+
+    .header-content {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-2xs);
+    }
+
+    .header-close {
+      padding: 0.25em 0.5em;
+      border-radius: 6px;
+      line-height: 0;
+
+      &:hover {
+        background-color: var(--color-red-400);
+        color: var(--color-gray-200);
+      }
+    }
+  }
+
+  .content {
+    width: 100%;
+    padding: var(--spacing-s) var(--spacing-m);
+    overflow: auto;
+  }
+
+  .footer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: var(--spacing-s);
+    gap: var(--spacing-s);
+  }
+
+  .group {
+    display: flex;
+    gap: var(--spacing-s);
+  }
+
+  .loader {
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-gray-200);
+    overflow: hidden;
+    border-radius: 4px;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, var(--system-accent-color), transparent);
+      animation: loader-slide 1.5s ease-in-out infinite;
+    }
+  }
+}
+
+@keyframes loader-slide {
+  0% {
+    transform: translateX(-200%);
+  }
+  100% {
+    transform: translateX(450%);
+  }
+}

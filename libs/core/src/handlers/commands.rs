@@ -1,0 +1,352 @@
+#[cfg(test)]
+use crate::{
+    rect::Rect, resource::*, state::by_monitor::MonitorConfiguration,
+    state::by_wallpaper::WallpaperInstanceSettings, state::context_menu::*,
+    state::settings::shortcuts::SystemShortcutDeclaration, state::*, system_state::*,
+};
+#[cfg(test)]
+use std::{collections::HashMap, path::PathBuf};
+
+macro_rules! slu_commands_declaration {
+    ($($key:ident = $fn_name:ident($($args:tt)*) $(-> $return_type:ty)?,)*) => {
+        #[cfg(test)]
+        pub struct SeelenCommand;
+
+        #[cfg(test)]
+        impl SeelenCommand {
+            #[cfg(feature = "gen-binds")]
+            pub(crate) fn generate_ts_file(path: &str) {
+                let mut content: Vec<String> = std::vec::Vec::new();
+
+                content.push("// This file was generated via rust macros. Don't modify manually.".to_owned());
+                content.push("export enum SeelenCommand {".to_owned());
+                $(
+                    content.push(format!("  {} = '{}',", stringify!($key), stringify!($fn_name)));
+                )*
+                content.push("}\n".to_owned());
+
+                std::fs::write(path, content.join("\n")).unwrap();
+            }
+        }
+
+        paste::paste! {
+            $(
+                $crate::__switch! {
+                    if { $($args)* }
+                    do {
+                        #[cfg(test)]
+                        #[derive(Deserialize)]
+                        #[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), derive(ts_rs::TS))]
+                        #[serde(rename_all = "camelCase")]
+                        #[allow(dead_code)]
+                        struct [<SeelenCommand $key Args>] {
+                            $($args)*
+                        }
+                    }
+                    else {}
+                }
+            )*
+
+            /// Internal used as mapping of commands to their arguments
+            #[cfg(test)]
+            #[allow(non_camel_case_types, dead_code)]
+            #[derive(Deserialize)]
+            #[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), derive(ts_rs::TS))]
+            #[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), ts(export))]
+            enum SeelenCommandArgument {
+                $(
+                    #[allow(non_snake_case)]
+                    $fn_name(Box<$crate::__switch! {
+                        if { $($args)* }
+                        do { [<SeelenCommand $key Args>] }
+                        else { () }
+                    }>),
+                )*
+            }
+        }
+
+        /// Internal used as mapping of commands to their return types
+        #[derive(Serialize)]
+        #[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), derive(ts_rs::TS))]
+        #[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), ts(export))]
+        #[allow(non_camel_case_types, dead_code)]
+        #[cfg(test)]
+        enum SeelenCommandReturn {
+            $(
+                $fn_name(Box<$crate::__switch! {
+                    if { $($return_type)? }
+                    do { $($return_type)? }
+                    else { () }
+                }>),
+            )*
+        }
+
+        #[macro_export]
+        macro_rules! command_handler_list {
+            () => {
+                tauri::generate_handler![
+                    $(
+                        $fn_name,
+                    )*
+                ]
+            };
+        }
+
+        pub use command_handler_list;
+    };
+}
+
+slu_commands_declaration! {
+    // virtual desktops
+    StateGetVirtualDesktops = get_virtual_desktops() -> VirtualDesktops,
+    SwitchWorkspace = switch_workspace(workspace_id: WorkspaceId),
+    CreateWorkspace = create_workspace(monitor_id: MonitorId) -> WorkspaceId,
+    CreateWorkspaceRow = create_workspace_row(monitor_id: MonitorId) -> WorkspaceId,
+    DestroyWorkspace = destroy_workspace(workspace_id: WorkspaceId),
+    RenameWorkspace = rename_workspace(workspace_id: WorkspaceId, name: Option<String>),
+    MoveWindowToWorkspace = move_window_to_workspace(hwnd: isize, workspace_id: WorkspaceId),
+
+    // wallpaper
+    WallpaperNext = wallpaper_next(),
+    WallpaperPrev = wallpaper_prev(),
+    WallpaperSaveThumbnail = wallpaper_save_thumbnail(wallpaper_id: ResourceId, thumbnail_bytes: Vec<u8>),
+    SetAsWallpaper = set_as_wallpaper(),
+    SetAsDesktop = set_as_desktop(),
+    SetDesktopRegions = set_desktop_regions(viewport: [f64; 2], rects: Vec<[f64; 4]>),
+    SetFrostedRegions = set_frosted_regions(viewport: [f64; 2], rects: Vec<[f64; 5]>),
+    GetToolbarWallpaperLuminance = get_toolbar_wallpaper_luminance(viewport: [f64; 2], rects: Vec<[f64; 4]>) -> Vec<f64>,
+    GetFrostedWallpaperLuminance = get_frosted_wallpaper_luminance(viewport: [f64; 2], rects: Vec<[f64; 4]>) -> Vec<f64>,
+    SetNativeDesktopIconsHidden = set_native_desktop_icons_hidden(hidden: bool),
+
+    // Logging
+    LogFromWebview = log_from_webview(level: u8, message: String, location: String),
+
+    // General
+    OpenFile = open_file(path: PathBuf),
+    SelectFileOnExplorer = select_file_on_explorer(path: PathBuf),
+    Run = run(program: PathBuf, args: Option<RelaunchArguments>, working_dir: Option<PathBuf>, elevated: bool),
+    SimulatePerm = simulate_perm(widget_id: String, perm: String),
+
+    IsDevMode = is_dev_mode() -> bool,
+    IsAppxPackage = is_appx_package() -> bool,
+    HasFixedRuntime = has_fixed_runtime() -> bool,
+
+    GetFocusedApp = get_focused_app() -> FocusedApp,
+    GetMousePosition = get_mouse_position() -> [i32; 2],
+    GetKeyState = get_key_state(key: String) -> bool,
+
+    GetUserEnvs = get_user_envs() -> HashMap<String, String>,
+    ShowStartMenu = show_start_menu(),
+    GetIcon = get_icon(
+        #[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), ts(optional = nullable))]
+        path: Option<PathBuf>,
+        #[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), ts(optional = nullable))]
+        umid: Option<String>
+    ),
+    ShowDesktop = show_desktop(),
+    ActivateExistingApp = activate_existing_app(path: PathBuf, executable: Option<PathBuf>) -> bool,
+    IsApplicationFile = is_application_file(path: PathBuf) -> bool,
+
+    RequestToUserInputShortcut = request_to_user_input_shortcut(callback_event: String),
+
+    CheckForUpdates = check_for_updates() -> bool,
+    // Restart the app after install the update so it returns a promise resolved with `never`
+    InstallLastAvailableUpdate = install_last_available_update(),
+
+    // System
+    SystemGetForegroundWindowColor = get_foreground_window_color() -> Color,
+    SystemGetMonitors = get_connected_monitors() -> Vec<PhysicalMonitor>,
+    SetMonitorHdr = set_monitor_hdr(id: MonitorId, state: bool),
+    SystemGetColors = get_system_colors() -> UIColors,
+    SystemSetAccentColor = set_system_accent_color(color: Color),
+    SystemGetDarkMode = get_system_dark_mode() -> bool,
+    SystemSetDarkMode = set_system_dark_mode(enabled: bool),
+    SystemGetNightLightSettings = get_system_night_light_settings() -> NightlightSettings,
+    SystemGetNightLightEnabled = get_system_night_light_enabled() -> bool,
+    SystemSetNightLightEnabled = set_system_night_light_enabled(enabled: bool),
+    SystemSetNightLightColorTemperature = set_system_night_light_color_temperature(temperature: u16),
+    SystemGetLanguages = get_system_languages() -> Vec<SystemLanguage>,
+    SystemSetKeyboardLayout = set_system_keyboard_layout(id: String, handle: String),
+    SystemGetImeState = get_ime_state() -> ImeState,
+    RegisterAppBar = register_app_bar(rect: Rect, edge: AppBarEdge),
+    UnregisterAppBar = unregister_app_bar(),
+
+    // Seelen Settings
+    StateGetDefaultSettings = state_get_default_settings() -> Settings,
+    StateGetDefaultMonitorSettings = state_get_default_monitor_settings() -> MonitorConfiguration,
+    StateGetDefaultWallpaperSettings = state_get_default_wallpaper_settings() -> WallpaperInstanceSettings,
+
+    SetAutoStart = set_auto_start(enabled: bool),
+    GetAutoStartStatus = get_auto_start_status() -> bool,
+    RemoveResource = remove_resource(id: ResourceId, kind: ResourceKind),
+
+    StateGetThemes = state_get_themes() -> Vec<Theme>,
+    StateGetWegItems = state_get_weg_items() -> WegItems,
+    StateWriteWegItems = state_write_weg_items(items: WegItems),
+    StateGetToolbarItems = state_get_toolbar_items() -> ToolbarState,
+    StateWriteToolbarItems = state_write_toolbar_items(items: ToolbarState),
+    StateGetSettings = state_get_settings(path: Option<PathBuf>) -> Settings,
+    StateWriteSettings = state_write_settings(settings: Settings),
+    StateGetSettingsByApp = state_get_settings_by_app() -> Vec<AppConfig> ,
+    StateGetPlugins = state_get_plugins() -> Vec<Plugin>,
+    StateGetWidgets = state_get_widgets() -> Vec<Widget>,
+    StateGetSystemShortcuts = state_get_system_shortcuts() -> Vec<SystemShortcutDeclaration>,
+    StateGetIconPacks = state_get_icon_packs() -> Vec<IconPack>,
+    StateGetWallpapers = state_get_wallpapers() -> Vec<Wallpaper>,
+    StateSetCustomIconPack = state_add_icon_to_custom_icon_pack(icon: IconPackEntry),
+    StateDeleteCachedIcons = state_delete_cached_icons(),
+    RegisterUserCustomAppIcon = register_user_custom_app_icon(icon_base64: String, entry: IconPackEntry),
+    DeleteUserCustomAppIcon = delete_user_custom_app_icon(entry: IconPackEntry),
+    StateRequestWallpaperAddition = state_request_wallpaper_addition(),
+    StateGetPerformanceMode = state_get_performance_mode() -> PerformanceMode,
+
+    // Widgets
+    DebugGetWidgetsStatuses = debug_get_widgets_statuses() -> Vec<WidgetDebugInfo>,
+    DebugOpenDevTools = debug_open_dev_tools(label: String),
+    TriggerWidget = trigger_widget(payload: WidgetTriggerPayload),
+    TriggerContextMenu = trigger_context_menu(menu: ContextMenu, forward_to: Option<String>),
+    TriggerDialog = trigger_dialog(dialog: Dialog),
+    SetCurrentWidgetStatus = set_current_widget_status(status: WidgetStatus),
+    GetSelfWindowId = get_self_window_handle() -> isize,
+    SetSelfPosition = set_self_position(rect: Rect),
+    SetSelfZOrder = set_self_z_order(z_order: ZOrder),
+    WriteFile = write_data_file(filename: String, content: String),
+    ReadFile = read_data_file(filename: String) -> String,
+
+    // Shell
+    GetNativeShellWallpaper = get_native_shell_wallpaper() -> PathBuf,
+    SetNativeShellWallpaper = set_native_shell_wallpaper(path: PathBuf),
+
+    // User
+    GetUser = get_user() -> User,
+    GetUserFolderContent = get_user_folder_content(folder_type: FolderType) -> Vec<std::path::PathBuf>,
+    GetDesktopEntries = get_desktop_entries() -> Vec<DesktopEntry>,
+    CreateDesktopFolder = create_desktop_folder(base_name: String) -> std::path::PathBuf,
+    GetDesktopNewFileTypes = get_desktop_new_file_types() -> Vec<DesktopNewFileType>,
+    CreateDesktopFile = create_desktop_file(extension: String, base_name: String) -> std::path::PathBuf,
+    RenameDesktopEntry = rename_desktop_entry(path: std::path::PathBuf, new_name: String) -> std::path::PathBuf,
+    GetUserAppWindows = get_user_app_windows() -> Vec<UserAppWindow>,
+    GetUserAppWindowsPreviews = get_user_app_windows_previews() -> HashMap<isize, UserAppWindowPreview>,
+    GetUserAppWindowsColors = get_user_app_windows_colors() -> HashMap<isize, UserAppWindowColors>,
+
+    // Media
+    GetMediaDevices = get_media_devices() -> [Vec<MediaDevice>; 2],
+    GetMediaSessions = get_media_sessions() -> Vec<MediaPlayer>,
+    MediaPrev = media_prev(id: String),
+    MediaTogglePlayPause = media_toggle_play_pause(id: String),
+    MediaNext = media_next(id: String),
+    MediaSeek = media_seek(id: String, position: i64),
+    SetVolumeLevel = set_volume_level(device_id: String, session_id: Option<String>, level: f32),
+    MediaToggleMute = media_toggle_mute(device_id: String, session_id: Option<String>),
+    MediaSetDefaultDevice = media_set_default_device(id: String, role: String),
+    GetMediaWaveform = get_media_waveform() -> AudioWaveform,
+
+    // Brightness - Multi-monitor support
+    GetAllMonitorsBrightness = get_all_monitors_brightness() -> Vec<MonitorBrightness>,
+    SetMonitorBrightness = set_monitor_brightness(instance_name: String, level: u8),
+
+    // Power
+    GetPowerStatus = get_power_status() -> PowerStatus,
+    GetPowerMode = get_power_mode() -> PowerMode,
+    GetBatteries = get_batteries() -> Vec<Battery>,
+    LogOut = log_out(),
+    Suspend = suspend(),
+    Hibernate = hibernate(),
+    Restart = restart(),
+    Shutdown = shutdown(),
+    Lock = lock(),
+
+    // SeelenWeg
+    WegCloseApp = weg_close_app(hwnd: isize),
+    WegKillApp = weg_kill_app(hwnd: isize),
+    WegToggleWindowState = weg_toggle_window_state(hwnd: isize, was_focused: bool, minimize_target: Option<Rect>),
+    WegPinItem = weg_pin_item(path: PathBuf),
+    WegImportPinnedTaskbarItems = weg_import_pinned_taskbar_items() -> usize,
+
+    // Windows Manager
+    WmGetRenderTree = wm_get_render_tree() -> TwmGlobalRuntimeTree,
+    SetAppWindowsPositions = set_app_windows_positions(positions: HashMap<isize, Rect>),
+    RequestFocus = request_focus(hwnd: isize),
+    WmSetStackActiveWindow = wm_set_stack_active_window(hwnd: isize),
+
+    // Network
+    WlanScan = wlan_scan(),
+    WlanConnect = wlan_connect(ssid: String, password: Option<String>, hidden: bool) -> bool,
+    WlanDisconnect = wlan_disconnect(),
+    WlanForget = wlan_forget(ssid: String),
+    GetNetworkDefaultLocalIp = get_network_default_local_ip() -> String,
+    GetNetworkAdapters = get_network_adapters() -> Vec<NetworkAdapter>,
+    GetNetworkInternetConnection = get_network_internet_connection() -> bool,
+    GetNetworkHotspot = get_network_hotspot() -> Option<Hotspot>,
+    SetNetworkHotspotState = set_network_hotspot_state(enabled: bool),
+
+    // system tray
+    GetSystemTrayIcons = get_system_tray_icons() -> Vec<SysTrayIcon>,
+    SendSystemTrayIconAction = send_system_tray_icon_action(id: SysTrayIconId, action: SystrayIconAction),
+
+    // Notifications
+    GetNotifications = get_notifications() -> Vec<AppNotification>,
+    NotificationsClose = notifications_close(id: u32),
+    NotificationsCloseAll = notifications_close_all(),
+    ActivateNotification = activate_notification(
+        id: u32,
+        umid: String,
+        args: String,
+        activation_type: ToastActionActivationType,
+        input_data: HashMap<String, String>,
+    ),
+
+    // Radios
+    GetRadios = get_radios() -> Vec<RadioDevice>,
+    SetRadioState = set_radios_state(kind: RadioDeviceKind, enabled: bool),
+
+    // System Info
+    GetSystemDisks = get_system_disks() -> Vec<Disk>,
+    GetSystemNetwork = get_system_network() -> Vec<NetworkStatistics>,
+    GetSystemMemory = get_system_memory() -> Memory,
+    GetSystemCores = get_system_cores() -> Vec<Core>,
+
+    // Bluetooth
+    GetBluetoothDevices = get_bluetooth_devices() -> Vec<BluetoothDevice>,
+    StartBluetoothScanning = start_bluetooth_scanning(),
+    StopBluetoothScanning = stop_bluetooth_scanning(),
+    RequestPairBluetoothDevice = request_pair_bluetooth_device(id: String) -> DevicePairingNeededAction,
+    ConfirmBluetoothDevicePairing = confirm_bluetooth_device_pairing(id: String, answer: DevicePairingAnswer),
+    DisconnectBluetoothDevice = disconnect_bluetooth_device(id: String),
+    ConnectBluetoothDevice = connect_bluetooth_device(id: String),
+    ForgetBluetoothDevice = forget_bluetooth_device(id: String),
+
+    // Start Menu
+    GetStartMenuItems = get_start_menu_items() -> Vec<StartMenuItem>,
+    GetNativeStartMenu = get_native_start_menu() -> StartMenuLayout,
+
+    // Trash Bin
+    GetTrashBinInfo = get_trash_bin_info() -> TrashBinInfo,
+    TrashBinEmpty = trash_bin_empty(),
+
+    // Seelen Session
+    GetSeelenSession = get_seelen_session() -> Option<SeelenSession>,
+    SeelenLogin = seelen_login(),
+    SeelenLogout = seelen_logout(),
+
+    // Cloud Backup
+    GetBackupStatus = get_backup_status() -> BackupStatus,
+
+    // Clipboard
+    ClipboardGetData = clipboard_get_data() -> ClipboardData,
+    ClipboardDeleteEntry = clipboard_delete_entry(id: String),
+    ClipboardClearHistory = clipboard_clear_history(),
+    ClipboardSetContent = clipboard_set_content(id: String),
+    ClipboardPaste = clipboard_paste(id: String, plain: bool),
+    ClipboardPinEntry = clipboard_pin_entry(id: String),
+    ClipboardUnpinEntry = clipboard_unpin_entry(id: String),
+
+    // Fonts
+    GetFonts = get_fonts() -> Vec<SeelenFont>,
+
+    // Focus Assist / DND
+    GetFocusAssist = get_focus_assist() -> bool,
+    SetFocusAssist = set_focus_assist(enabled: bool),
+    GetNotificationsMode = get_notifications_mode() -> NotificationsMode,
+    SetNotificationsMode = set_notifications_mode(mode: NotificationsMode),
+}

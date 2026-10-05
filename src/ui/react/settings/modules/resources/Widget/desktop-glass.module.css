@@ -1,0 +1,33 @@
+.section { display: flex; flex-direction: column; gap: 16px; margin-top: 20px; min-width: 0; }
+.heading { display: flex; justify-content: space-between; align-items: start; gap: 16px; }
+.heading h2 { font-size: 17px; font-weight: 600; margin: 0 0 6px; }
+.heading p, .group-heading p { color: var(--mac-secondary); font-size: 12px; line-height: 1.6; margin: 0; }
+.heading button { flex-shrink: 0; }
+.group-heading { padding: 2px 0 12px; }
+.group-heading h3 { font-size: 14px; margin: 0 0 5px; font-weight: 600; }
+.control { padding: 12px 0; border-top: 1px solid var(--mac-divider); }
+.control-label { display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 13px; }
+.control-label output { color: var(--mac-secondary); font-variant-numeric: tabular-nums; min-width: 4ch; text-align: right; }
+.control input { display: block; width: 100%; min-width: 0; height: 30px; margin: 5px 0 0; accent-color: #0874e8; cursor: pointer; }
+.control input:focus-visible { outline: 2px solid #0874e8; outline-offset: 3px; border-radius: 5px; }
+.range-ends { display: flex; justify-content: space-between; color: var(--mac-secondary); font-size: 12px; }
+.preview { position: relative; display: grid; place-items: center; min-height: 158px; padding: 34px 20px 22px; border-radius: 18px; overflow: hidden; background: radial-gradient(ellipse at 10% 0%, #a9c2c9 0, transparent 60%), radial-gradient(ellipse at 90% 100%, #c9b6a4 0, transparent 65%), #596d7a; }
+.preview-label { position: absolute; left: 16px; top: 12px; color: #16222c; font-size: 12px; }
+.preview-dock { position: relative; border-radius: 20px; padding: 9px; box-shadow: 0 8px 22px #0003; }
+.preview-dock > :global(.bg-layers) { position: absolute; inset: 0; }
+.preview-dock > :global(.bg-layers) > div { position: absolute; inset: 0; border-radius: inherit; }
+.preview-icons { position: relative; display: flex; gap: 10px; }
+.preview-icon { width: 52px; height: 52px; display: grid; place-items: center; position: relative; overflow: hidden; border-radius: 24%; background: linear-gradient(145deg, #f9fcff, #e1eafa 70%, #c8d8ed); }
+.preview-coat { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(145deg, #fff6, #ffffff09 38%, transparent 52%, #aadeff14 78%, #fff3); }
+.preview-artwork { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: #196eb9; color: #fff; }
+.preview-artwork[data-icon-index="1"] { background: #d69524; }
+.preview-artwork[data-icon-index="2"] { background: #346683; }
+.preview-artwork[data-icon-index="3"] { background: #538873; }
+.preview-artwork[data-icon-index="4"] { background: #6e7380; }
+@media (max-width: 760px) {
+  .heading { flex-wrap: wrap; }
+  .preview { padding-inline: 12px; }
+  .preview-icons { gap: 6px; }
+  .preview-icon { width: 44px; height: 44px; }
+  .preview-artwork { width: 34px; height: 34px; }
+}

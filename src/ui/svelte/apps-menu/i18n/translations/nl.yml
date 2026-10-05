@@ -1,0 +1,22 @@
+all: Alle apps
+app_settings: App-instellingen
+applications: Toepassingen
+back: Rug
+disband: Map ontbinden
+edit_icon: Pictogram bewerken
+folder: Map
+no_matching_items: Er zijn geen items gevonden die overeenkomen met uw zoekopdracht
+open_file_location: Open Bestandslocatie
+pin: Pin
+pin_to_dock: Vastmaken aan dock
+power_menu: Vermogensmenu
+query:
+  all: Alle
+  apps: Apps
+  files: Bestanden
+  web: Web
+run_as_admin: Uitvoeren als beheerder
+unpin: Losmaken
+web_search: Druk op Enter om op internet te zoeken
+welcome_message: Welkom bij het Seelen UI-appmenu.
+welcome_message2: Op dit tabblad kunt u uw favoriete apps vastzetten.

@@ -1,0 +1,468 @@
+action:
+  confirm: ඔයාට විශ්වාස ද?
+  confirm_body: මෙම ක්රියාව අහෝසි කළ නොහැක.
+apps_configurations:
+  app:
+    bindings: බැඳීම (විකල්ප දෙකම අවශ්‍ය බව සලකන්න)
+    category: වර්ගය
+    category_placeholder: කිසිවක් නැත
+    monitor: නිරීක්ෂණය කරන්න
+    monitor_placeholder: කිසිවක් නැත
+    name: නම
+    ok_create: නිර්මාණය කරන්න
+    ok_edit: යාවත්කාලීන කරන්න
+    ok_readonly: නව ලෙස සංස්කරණය කරන්න
+    options:
+      NoInteractive: අන්තර්ක්‍රියාකාරී නැත
+      VdPinned: සියලුම වැඩබිම්වල පෙන්වන්න
+      WmFloat: Twm - පාවෙන ආරම්භ කරන්න
+      WmForce: Twm - බල කළමනාකරණය
+      WmUnmanage: Twm - කළමනාකරණය කරන්න
+    options_label: අමතර විකල්ප
+    title_create: '{{name}} නිර්මාණය කරමින්'
+    title_edit: සංස්කරණය {{name}}
+    title_readonly: '{{name}} බලමින්'
+    weg_options_label: තටාකය / කාර්ය තීරුව විකල්ප
+    wm_options_label: කවුළු කළමනාකරුගේ විකල්ප
+    workspace: වැඩබිම
+    workspace_placeholder: කිසිවක් නැත
+  bundled_msg: >-
+    මෙම මිටි වින්‍යාසයන් සංස්කරණය කළ නොහැකි අතර අභිරුචිකරණයකින් තොරව ඔබට හොඳම
+    අත්දැකීම ලබා දීමට සැලසුම් කර ඇත. ඔවුන් ඔබ සඳහා වඩාත් පොදු යෙදුම්
+    ස්වයංක්‍රීයව වින්‍යාස කරයි.
+  bundled_title: යෙදුම් වින්‍යාසය සීලන් සමඟ බණ්ඩල් කර ඇත
+  confirm_delete: ඔබට මෙම වින්‍යාසය/s මැකීමට අවශ්‍ය බව විශ්වාසද?
+  confirm_delete_title: මකා දැමීම තහවුරු කරන්න
+  delete: මකන්න
+  export: අපනයන
+  export_full: අයදුම්පත මගින් සැකසුම් අපනයනය කරන්න
+  extra_info: >-
+    Applow Applay Apan Applen UI යෙදුමට එක් අනන්යතාවයක් භාවිතා කරන්න (පළමු තරගය
+    හමු විය) එබැවින් නිශ්චිතව දක්වන අනුපිළිවෙල වැදගත් ය, නවතම එකතු කරන ලද නවතම
+    එකතු කරනු ලැබේ, නවතම නම නවතම නවතම දක්වා පෙරනිමියෙන්.
+  identifier:
+    add_block: බ්ලොක් එක් කරන්න
+    and: සහ
+    id: හඳුනාගැනීම
+    kind: විසින් හඳුනා ගන්න
+    matching_strategy: ගැලපුම් උපාය මාර්ගය
+    matching_strategy_option:
+      contains: අඩංගු වේ
+      ends_with: සමඟ අවසන් වේ
+      equals: සමාන වේ
+      regex: නිතිපතා ප්රකාශනය
+      starts_with: සමඟ ආරම්භ වේ
+    negation: ගැලපීම නිෂේධනය කරන්න
+    or: හෝ
+    remove: අවහිර කිරීම මකන්න
+    type:
+      class: පන්තිය
+      exe: Exe
+      path: මාර්ගය
+      title: මාතෘකාව
+  import: ආනයන
+  import_full: අයදුම්පත අනුව සැකසුම් ආයාත කරන්න
+  new: අලුත්
+  search: සෙවීම
+  swap: හුවමාරු කරන්න
+cancel: අවලංගු කරන්න
+close: වසන්න
+delete: මකන්න
+devtools:
+  app_folders: යෙදුම් ෆෝල්ඩර
+  color_palette: වර්ණ පුවරුව
+  color_palette_note: >-
+    මෙම වර්ණ ස්වයංක්‍රීයව ආලෝකය/අඳුරු ප්‍රකාරයට අනුවර්තනය වේ - සෑම සෙවනක්ම
+    වත්මන් පසුබිමට ප්‍රතිවිරුද්ධ-සාපේක්ෂයි, ස්ථාවර අගයක් නොවේ. ස්වයංක්‍රීය තේමා
+    සහය ලබා ගැනීමට දෘඪ කේත වර්ණ වෙනුවට ඒවා භාවිතා කරන්න.
+  custom_config_file: අභිරුචි වින්‍යාස ගොනුව පූරණය කරන්න
+  data_folder: දත්ත ෆෝල්ඩරය
+  enable: සංවර්ධක මෙවලම් සබල කරන්න
+  enable_description: >-
+    සීලෙන් යූඅයි අභ්‍යන්තර පරීක්ෂා කිරීම සහ නිදොස් කිරීම සඳහා උසස් මෙවලම් අගුළු
+    හරියි. නිතිපතා භාවිතය සඳහා අදහස් නොකෙරේ.
+  icons: හැඹිලිගත අයිකන
+  install_folder: ස්ථාපන ෆෝල්ඩරය
+  load: පැටවීම
+  settings_file: සැකසුම් ගොනුව
+  shared_components: SLU සම්මත සංරචක
+  simulate_dialog:
+    label: ඩයලොග් අනුකරණය කරන්න
+    trigger: අවුලුවාලීම
+  simulate_perm:
+    label: විජට් අවසර ඉල්ලීම අනුකරණය කරන්න
+    result_allowed: ✓ අවසරය ලබා දී ඇත
+    result_denied: ✗ අවසරය ප්‍රතික්ෂේප විය
+    trigger: අනුකරණය කරන්න
+    widget_id_placeholder: '@author/widget-name'
+  tools: මෙවලම්
+  unlock_shortcuts: කියවීමට පමණක් කෙටිමං අගුළු හරින්න
+  unlock_shortcuts_description: >-
+    සාමාන්‍යයෙන් කියවීමට පමණක් ඇති කෙටිමං සංස්කරණය කිරීමට ඉඩ දෙන්න (උදා. පද්ධති
+    අභිබවා යාම).
+  unstable_optimizations: අස්ථායී ප්‍රශස්තකරණය
+  unstable_optimizations_description: >-
+    RAM භාවිතය අඩු කරන පර්යේෂණාත්මක Chromium ධජ සබල කරන්න.
+
+    අවවාදයයි: විජට් එකක් කඩා වැටුනහොත්, එකම ලෝඩරය බෙදා ගන්නා සියලුම විජට් එකට
+    කඩා වැටෙනු ඇත.
+  widgets_debug:
+    actions: ක්රියාවන්
+    empty: විජට් කිසිවක් පූරණය කර නැත. Refresh ක්ලික් කරන්න.
+    instance_id: උදාහරණ ID
+    monitor_id: නිරීක්ෂණ හැඳුනුම්පත
+    open_devtools: DevTools
+    refresh: නැවුම් කරන්න
+    status: තත්ත්වය
+    tab: විජට්
+    widget_id: විජට් හැඳුනුම්පත
+discord_banner:
+  message: >-
+    අනෙකුත් Seelen UI පරිශීලකයන් සමඟ සම්බන්ධ වන්න, උදවු ලබා ගන්න, තේමා බෙදාගන්න,
+    සහ නවතම පුවත් සමඟ යාවත්කාලීනව සිටින්න.
+  title: අපගේ ප්‍රජාවට එක්වන්න
+extras:
+  backup_group: Cloud Backup
+  backup_last_sync: අවසාන සමමුහුර්ත කිරීම
+  backup_never_synced: කිසිදා සමමුහුර්ත කර නැත
+  backup_sync: වලාකුළු වෙත සැකසුම් සමමුහුර්ත කරන්න
+  backup_sync_description: වලාකුළ හරහා ඔබගේ සැකසුම් ස්වයංක්‍රීයව උපස්ථ කර ප්‍රතිසාධනය කරන්න.
+  clear_icons: පැහැදිලි පද්ධති අයිකන හැඹිලිය
+  clear_icons_tooltip: >-
+    සියලුම විජට් සඳහා සම්පූර්ණයෙන්ම බලාත්මක වීමට නැවත ආරම්භ කිරීම අවශ්ය විය
+    හැකිය
+  discord_rpc: අසමගිය පොහොසත් පැමිණීම
+  discord_rpc_description: ඔබට විලාසය ඇති සියල්ලන්ට පෙන්වන්න!
+  exit: පිටවීම/පිටවීම
+  relaunch: නැවත දියත් කරන්න
+  streaming_mode: ප්‍රවාහ ප්‍රකාරය
+  streaming_mode_description: >-
+    පටිගත කිරීම් හෝ තිරපිටපත් අතරතුර පුද්ගලිකත්වය ආරක්ෂා කිරීම සඳහා සංවේදී
+    තොරතුරු (උදා. ඊමේල්) ස්ථාන දරන්නන් සමඟ ප්‍රතිස්ථාපනය කරයි.
+  version: පිටපත
+  version_fixed: >-
+    යෙදුම සහ WebView2 ධාවන කාල අනුවාද සවි කර ඇත. මෙයින් අදහස් වන්නේ යෙදුමට
+    යාවත්කාලීන නොලැබෙන අතර WebView2 ධාවන කාලය වින්ඩෝස් යාවත්කාලීන සමඟ
+    ස්වයංක්‍රීයව යාවත්කාලීන නොවන බවයි.
+general:
+  accent_color: උච්චාරණ වර්ණය
+  date_format: දිනය ආකෘතිය
+  date_format_how_to: දින ආකෘතියක් ලියන්නේ කෙසේද?
+  hardware_acceleration: දෘඪාංග ත්වරණය
+  hardware_acceleration_description: >-
+    දෘඪාංග ත්වරණය අක්‍රීය කිරීම මතක භාවිතය අඩු කරයි. මෙම සැකසුම නොසලකා තනි විජට්
+    තවමත් GPU භාවිතයට බල කළ හැකි වුවද, ඔබ බර සජීවිකරණ භාවිතා නොකරන්නේ නම් එය අබල
+    කිරීම ආරක්ෂිත වේ.
+  icon_pack:
+    available: පවතින අයිකන ඇසුරුම්
+    selected: ක්‍රියාකාරී අයිකන ඇසුරුම්
+  language: භාෂාව
+  monday: සඳුදා
+  performance_mode:
+    label: ප්රශස්තකරණයන්
+    on_battery: බැටරි මත
+    on_energy_saver: බලශක්ති ඉතිරිය
+    options:
+      disabled: ආබාධිත
+      extreme: අන්ත
+      minimal: අවම
+    plugged: ප්ලග් හෝ ආරෝපණය
+  polling_interval: පද්ධති ඡන්ද පරතරය
+  polling_interval_description: >-
+    සීලෙන් යූඅයි කොපමණ වාරයක් (තත්පර වලින්) CPU, RAM, ජාල, සහ තැටි ක්‍රියාකාරකම්
+    වැනි පද්ධති සම්පත් පරීක්ෂා කරයි. කුඩා සංඛ්‍යාවක් යන්නෙන් අදහස් වන්නේ නිතර
+    යාවත්කාලීන කිරීම්, නමුත් සම්පත් භාවිතය තරමක් ඉහළ ය.
+  saturday: සෙනසුරාදා
+  start_of_week: සතියේ ආරම්භය
+  startup: ආරම්භයේදී ධාවනය කරන්නද?
+  sunday: ඉරිදා
+  suspend_on_game_mode: ක්‍රීඩා මාදිලියේ විජට් අත්හිටුවන්න
+  suspend_on_game_mode_description: >-
+    වින්ඩෝස් ක්‍රීඩා ප්‍රකාරය සක්‍රිය වූ විට, සියලුම විජට් වෙබ් දසුන් ක්‍රීඩාව
+    සඳහා නිදහස් CPU සහ මතකයට විනාශ වේ. ක්‍රීඩා ප්‍රකාරය අවසන් වූ විට විජට්
+    ස්වයංක්‍රීයව ප්‍රතිසාධනය වේ.
+  theme:
+    available: පවතින තේමා
+    selected: ක්රියාකාරී තේමාවන්
+global: ගෝලීය
+header:
+  labels:
+    config: වින්යාසයන්
+    developer: සංවර්ධකයින් සඳහා
+    extras: අමතර
+    general: ජනරාල්
+    home: මුල් පිටුව
+    iconpack: අයිකන ඇසුරුම්
+    monitors: නිරීක්ෂකයින්
+    plugin: ප්ලගීන
+    resources: සම්පත්
+    session: ගිණුම
+    shortcuts: කෙටිමං
+    soundpack: ශබ්ද ඇසුරුම්
+    specific_apps: අයදුම්පත අනුව සැකසුම්
+    theme: තේමාවන්
+    virtual_desk: අතථ්ය ඩෙස්ක්ටොප්
+    wallpaper: බිතුපත්
+    widget: විජට්
+home:
+  new_resources: නව සම්පත්
+inherit: උරුම වේ
+inProgress: ප්රගතියේ...
+insert: ඇතුළු කරන්න
+join_us: අප හා එක් වන්න!
+loading: පූරණය වෙමින්...
+miscellaneous: විවිධ
+monitors_configurations:
+  label: '{{දර්ශකය} u අධීක්ෂණය කරන්න'
+more: තව
+'no': නැත
+open: විවෘත
+quit: ඉවත්
+remove: ඉවත් කරන්න
+reset_all_to_default: සියල්ල පෙරනිමි අගයන් වෙත නැවත සකසන්න
+reset_configurations: සැකසුම් යළි පිහිටුවන්න
+reset_to_default: පෙරනිමි වටිනාකමට නැවත සකසන්න
+resources:
+  affected_widgets: බලපෑමට ලක් වූ විජට්
+  app_outdated: මෙම සම්පතට සින්ලන් යූඅයි හි නවතම අනුවාදයක් නිසියාකාරව වැඩ කිරීමට අවශ්ය වේ.
+  coming_soon: ඉක්මණින් පැමිණෙන
+  corrupted_wallpaper: සිඟිති රුව උපුටා ගැනීමට අසමත් විය - දූෂිත හෝ සහාය නොදක්වන වීඩියෝ ආකෘතිය
+  delete: සම්පත මකන්න
+  discover: තවත් සම්පත් සොයා ගන්න
+  has_update: යාවත්කාලීන කිරීමක් තිබේ
+  high_impact: කාර්ය සාධනය කෙරෙහි ඉහළ බලපෑමක්
+  import_wallpapers: දේශීය බිතුපත් ආනයනය කරන්න
+  included_plugins: ඇතුළත් ප්ලගීන
+  modified: වෙනස් කරන ලදි
+  open_folder: සම්පත් ෆෝල්ඩරය විවෘත කරන්න
+  outdated: >-
+    මෙම සම්පත නිර්මාණය කර ඇත්තේ සීලන් UI හි පැරණි අනුවාදයක් සඳහා වන අතර නිසි ලෙස
+    ක්රියා නොකරනු ඇත.
+  see_on_website: වෙබ් අඩවියේ බලන්න
+  update_now: යාවත්කාලීන කරන්න
+  updates_available: යාවත්කාලීන තිබේ
+  updates_available_description: පහත සම්පත් යාවත්කාලීන ලබා ගත හැක.
+review_request:
+  not_now: දැන් නොවේ
+  sure: සහතිකයි!
+  title: Seelen UI භුක්ති විඳිනවාද?
+save: සුරකින්න
+save_and_restart: සුරකින්න සහ නැවත ආරම්භ කරන්න
+search: සොයන්න
+see_more: තවත් බලන්න
+session:
+  logout: වරන්න
+  plan: සැලසුම් කරන්න
+  sign_in: පුරන්න
+  sign_in_hint: ඔබට ආරක්ෂිතව පුරනය වීමට හැකි වන පරිදි ඔබගේ බ්‍රවුසරය විවෘත වනු ඇත.
+  upgrade_to: දක්වා උත්ශ්‍රේණි කරන්න
+shortcuts:
+  disabled_tooltip: විජට් සහ එහි කෙටිමං අබල කර ඇත
+  duplicate_error: ගැටුම්කාරී කෙටිමං අනාවරණය විය
+  duplicate_error_hint: >-
+    සමහර කෙටිමං ක්‍රියා කිහිපයක් සඳහා පවරා ඇත. ගැටෙන විජට් වලින් එකක් අබල කරන්න
+    හෝ විසඳීමට අනුපිටපත් යතුර බන්ධනය නැවත පවරන්න.
+  enable: සාදන ලද කෙටිමං පද්ධතියක් සක්රීය කරන්න
+  enable_tooltip: >-
+    ඔබ සීලංගා යූ සේවාදායකයා භාවිතා කරමින් ඔබේම කෙටිමං පද්ධතියක් ක්රියාත්මක
+    කරන්නේ නම් අක්රීය කරන්න
+  labels:
+    create_new_workspace: නව වැඩබිම සාදන්න
+    create_new_workspace_row: නව කාර්ය ඉඩ පේළියක් සාදන්න
+    destroy_current_workspace: වත්මන් වැඩබිම විනාශ කරන්න
+    misc_force_quit: බලය ඉවත්වීම
+    misc_force_restart: බලය නැවත ආරම්භ කරන්න
+    move_to_workspace: වැඩපොළ වෙත යන්න {{0}}
+    pause_toggle: කෙටිමං විරාම/නැවත ආරම්භ කරන්න
+    send_to_next_workspace: Next Workspace වෙත කවුළුව යවන්න
+    send_to_previous_workspace: පෙර වැඩබිමට කවුළුව යවන්න
+    send_to_workspace: වැඩපොළ වෙත යවන්න {{0}}
+    send_to_workspace_down: පහත වැඩබිම වෙත කවුළුව යවන්න
+    send_to_workspace_up: ඉහත වැඩබිමට කවුළුව යවන්න
+    switch_to_next_workspace: ඊළඟ වැඩබිම වෙත මාරු වන්න
+    switch_to_previous_workspace: පෙර වැඩබිම වෙත මාරු වන්න
+    switch_to_workspace_down: පහත වැඩබිම වෙත මාරු වන්න
+    switch_to_workspace_up: ඉහත කාර්ය ඉඩ වෙත මාරු වන්න
+    switch_workspace: වැඩබිම් වෙත මාරු වන්න {{0}}
+  readonly_tooltip: මෙය කියවීමට පමණක් කෙටිමඟකි
+  reset: පෙරනිමි වෙත නැවත සකසන්න
+sides:
+  bottom: පහළ
+  left: වම
+  right: හරි
+  top: ඉහල
+toolbar:
+  auto_hide: ස්වයංක්රීය සැඟවීම
+  auto_hide_touch_disabled: ස්වයංක්‍රීය සැඟවීම ස්පර්ශ තිර උපාංගවල නොමැත
+  delay_to_hide: සැඟවීමට ප්රමාද
+  delay_to_show: පෙන්වීමට ප්‍රමාදය
+  dock_side: තනතුර
+  enable: විසිතුරු මෙවලම් තීරුව සබල කරන්න
+  hide_mode:
+    always: සෑම විටම
+    never: කවදාවත් නැහැ
+    on_overlap: අතිච්ඡාදනය මත
+  item_size: අයිතමයේ ප්රමාණය
+  label: මෙවලම් තීරුව
+  margin: ආන්තික ප්රමාණය
+  padding: පිරවුම් ප්රමාණය
+  placeholder: {}
+update:
+  available: යාවත්කාලීන කිරීම!
+  channel: නාලිකාව යාවත්කාලීන කරන්න
+  downloading: බාගත කිරීම ...
+wall:
+  blur: බ්ලර්
+  cancel: අවලංගු කරන්න
+  close: වසන්න
+  collection_name: එකතුවේ නම
+  collections: එකතු කිරීම්
+  contrast: වෙනස
+  corrupted_wallpapers_message: 'දූෂිත බිතුපත්, මේවා මකා දැමීමට සලකා බලන්න:'
+  coverage_pause_threshold: විරාම එළිපත්ත (කවුළු ආවරණය)
+  create: නිර්මාණය කරන්න
+  create_collection: එකතුවක් සාදන්න
+  default_collection: පෙරනිමි බිතුපත හෝ එකතුව
+  default_collection_description: >-
+    විශේෂිත ප්‍රතික්‍රියා කට්ටලයක් නොමැති සියලුම මොනිටර සහ වැඩබිම් සඳහා යොදනු
+    ලැබේ.
+  delete_collection: එකතුව මකන්න
+  edit_collection: එකතුව සංස්කරණය කරන්න
+  extend: මූලික දිගු කරන්න
+  fit:
+    contain: අඩංගු
+    cover: ආවරණය
+    fill: පුරවන්න
+  flipHorizontal: ෆ්ලිප් හොරයිසොන්ටමල්
+  flipVertical: සිරස් රෝග
+  generating_thumbnails: Wallpaper Thumbnails උත්පාදනය කිරීම
+  hours: පැය
+  interval: සෑම කෙනෙකුම බිතුපත වෙනස් කරන්න
+  minutes: මිනිත්තු
+  monitor_collection: නිරීක්ෂණ එකතුව
+  multimonitor_behaviour: බහු නිරීක්ෂක හැසිරීම
+  muted: වීඩියෝ ශ්‍රව්‍ය නිශ්ශබ්ද කරන්න
+  no_background: හිස් විනිවිදක දර්ශනය, ඒ වෙනුවට තේමාවේ පසුබිම භාවිතා කිරීම.
+  no_collections: තවම එකතුවක් සාදා නැත. එකක් සෑදීමට + බොත්තම ක්ලික් කරන්න.
+  objectFit: පසුබිම් යෝග්යතාවය
+  objectPosition: පසුබිම් පිහිටීම
+  overlayColor: ආවරණයේ වර්ණය
+  overlayMixBlendMode: උඩිස් මිශ්ර මිශ්ර කිරීමේ මාදිලිය
+  per_monitor: මොනිටරයකට
+  per_monitor_config: Per-Monitor වින්‍යාසය
+  playback: ප්ලේබැක් වේගය
+  position:
+    bottom: පහළ
+    center: මධ්යස්ථානය
+    left: වමට
+    right: අයිතිය
+    top: ඉහළට
+  processing_video: වීඩියෝ සැකසීම
+  random: සසම්භාවී විනිවිදක දර්ශනය
+  saturation: සන්තෘප්තිය
+  seconds: තත්පර
+  select_collection: එකතුව තෝරන්න
+  thumbnail_generation_complete: සිඟිති රූ උත්පාදනය සම්පූර්ණයි
+  thumbnail_generation_finished: සිඟිති රූ උත්පාදනය සාර්ථකව නිම කර ඇත
+  use_accent_color: බිතුපත් උච්චාරණ වර්ණය භාවිතා කරන්න
+  wallpaper_collection: බිතුපත් එකතුව
+  wallpaper_settings: බිතුපත් සැකසීම්
+  wallpapers: Wallpapers
+  wallpapers_and_collections: බිතුපත් සහ එකතු කිරීම්
+  withOverlay: ආවරණය සමඟ
+  workspace_collections: වැඩ ඉඩ එකතු කිරීම්
+weg:
+  auto_hide: ස්වයංක්‍රීය සඟවන්න
+  auto_hide_touch_disabled: ස්වයංක්‍රීය සැඟවීම ස්පර්ශ තිර උපාංගවල නොමැත
+  delay_to_hide: සැඟවීමට ප්රමාද
+  delay_to_show: පෙන්වීමට ප්‍රමාදය
+  dock_side: තනතුර
+  filtering: අයිතම පෙරීම
+  gap: පරතරය
+  hide_mode:
+    always: සෑම විටම
+    never: කවදාවත් නැහැ
+    on_overlap: අතිච්ඡාදනය මත
+  import_error: කාර්ය තීරු අයිතම ආයාත කිරීමට අසමත් විය
+  import_from_taskbar:
+    button: Windows Taskbar වෙතින් ආයාත කරන්න
+    label: පින් කළ අයිතම ආනයනය කරන්න
+  import_no_items: Windows කාර්ය තීරුවේ අමුණන ලද අයිතම කිසිවක් හමු නොවීය
+  import_success: Windows කාර්ය තීරුවෙන් {{count}} අයිතම(ය) සාර්ථකව ආයාත කරන ලදී
+  items:
+    gap: අයිතම අතර අවකාශය
+    label: අයිතම
+    middle_click_action:
+      close_app: යෙදුම වසන්න
+      label: මැද ක්ලික් ක්‍රියාව
+      open_new_instance: නව අවස්ථාවක් විවෘත කරන්න
+    pinned_visibility:
+      always: සෑම විටම
+      label: අමුණන ලද අයිතම දෘශ්‍යතාව
+      when_primary: මොනිටරය ප්රාථමික වන විට
+    show_instance_counter: විවෘත වින්ඩෝස් කවුන්ටරය පෙන්වන්න
+    show_window_title: විවෘත කවුළු මාතෘකාව පෙන්වන්න (තිරස් පමණක්)
+    size: අයිතමයේ ප්රමාණය
+    split_windows: වින්ඩෝස් බෙදන්න (කවුළුවකට එක් අයිතමයක්)
+    temporal_visibility:
+      all: සියල්ල
+      label: ඇමුණුම් නොකළ අයිතම දෘශ්‍යතාව
+      on_monitor: මොනිටරය මත
+  label: ඩොක්/කාර්ය තීරුව
+  margin: ආන්තිකය
+  mode:
+    full_width: සම්පූර්ණ තිර පළල
+    min_content: හැකි තරම් කුඩා
+  padding: පෑඩිං
+  show_end_task: කාර්ය තීරුවේ අවසන් කාර්යය පෙන්වන්න
+  width: පළල
+welcome:
+  give_a_review: Review එකක් දෙන්න
+  message: >-
+    Seelen UI යනු Windows සඳහා නිදහස් සහ විවෘත මූලාශ්‍ර ඩෙස්ක්ටොප් පරිසරයකි.
+    මෙහිදී ඔබට ඔබේ වැඩ ප්‍රවාහයට සහ විලාසයට ගැලපෙන පරිදි සෑම විස්තරයක්ම
+    අභිරුචිකරණය කිරීමට ඉඩ සලසමින් ඔබේ ඩෙස්ක්ටොප් පෙනුම සහ හැසිරෙන ආකාරය පිළිබඳ
+    පූර්ණ පාලනය ඔබට ඇත.
+  ok: අපි පටන් ගනිමු!
+  review: >-
+    ඔබ Seelen UI භාවිතා කිරීමට කැමති නම්, ගබඩාවේ සමාලෝචනයක් තැබීමට සලකා බලන්න -
+    ඔබේ ප්‍රතිපෝෂණය ව්‍යාපෘතිය වර්ධනය වීමට සහ වැඩිදියුණු කිරීමට උපකාරී වේ.
+  title: Seelen UI වෙත සාදරයෙන් පිළිගනිමු!
+widget:
+  default_instance: පෙරනිමි අවස්ථාව
+  default_instance_hint: සැමවිටම සක්‍රියයි, root widget config භාවිතා කරයි
+  enable: මෙම විජට් සක්රීය කරන්න
+  enable_for_monitor: මෙම මොනිටරය මත සක්රීය කරන්න
+  extra_instances: අමතර අවස්ථා
+  instance: උදාහරණය
+  instances: අවස්ථා
+wm:
+  animations:
+    duration: සජීවිකරණ කාලය (MS)
+    ease_function: සජීවිකරණ ලිහිල් කිරීමේ ක්රියාකාරිත්වය
+    enable: කවුළුවේ සජීවිකරණ සක්රීය කරන්න
+  author: කර්තෘ
+  auto_stack: යෙදුම් කාණ්ඩය අනුව ස්වයංක්‍රීයව ගොඩගැසීම
+  border:
+    enable: කවුළුවේ මායිම සක්රිය කරන්න
+    offset: මායිම් ඕෆ්සෙට්
+    width: මායිම් පළල
+  description: විස්තර
+  drag_behavior: ඇදගෙන යාමේ හැසිරීම
+  drag_behavior_options:
+    sort: වර්ග කරන්න (ඇදගෙන යන අතරතුර කවුළු නැවත සකසන්න)
+    swap: Swap (drag end මත windows swap)
+  floating:
+    height: පාවෙන වින්ඩෝස් උස
+    title: පාවෙන වින්ඩෝස් ප්‍රමාණය
+    width: පාවෙන වින්ඩෝස් පළල
+  layout: පිරිසැලසුම
+  resize_delta: ඩෙල්ටා ප්‍රමාණය වෙනස් කරන්න (%)
+  space_between_containers: බහාලුම් අතර අවකාශය
+  stack_bar_visibility: Stack Bar Visibility
+  stack_bar_visibility_options:
+    always: සෑම විටම
+    as_needed: අවශ්ය පරිදි
+  workspace_offset: වැඩබිම් ඕෆ්සෙට් (ආන්තික)
+  workspace_padding: වැඩබිම් පිරවුම
+'yes': ඔව්

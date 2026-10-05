@@ -1,0 +1,73 @@
+@import "./frosted-material.css";
+
+/* Neutral material shared by real Dock/icons and settings previews.
+ * These layers never apply opacity/filter to an application's artwork. */
+.mac-dock-material[data-mac-material="dock"] {
+  background: transparent;
+  border: 0;
+}
+.mac-dock-material[data-mac-material="dock"] > .bg-layers {
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.mac-dock-material[data-mac-material="dock"] > .bg-layers > .bg-layer-1 {
+  background: rgb(255 255 255 / var(--mac-dock-alpha, .1));
+  backdrop-filter: var(--mac-glass-blur);
+  border: 0;
+  box-shadow: none;
+}
+.mac-dock-material[data-mac-material="dock"] > .bg-layers > .bg-layer-2 {
+  /* The hollow ring excludes the entire interior, including at 100% gloss. */
+  box-sizing: border-box;
+  padding: 1.5px;
+  background: var(--mac-glass-rim);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: calc(var(--mac-dock-gloss, 0) * (1 - pow(1 - var(--mac-dock-alpha, .1), 4)));
+  border-radius: inherit;
+  box-shadow: none;
+}
+.mac-dock-material[data-mac-material="dock"] > .bg-layers > .bg-layer-3 {
+  background: none;
+  box-shadow: none;
+}
+html[data-native-frosted="true"] .mac-dock-material[data-mac-material="dock"] > .bg-layers > .bg-layer-1 {
+  backdrop-filter: none;
+}
+.mac-icon-material {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24%;
+  isolation: isolate;
+  pointer-events: none;
+}
+.mac-icon-material.with-plate {
+  background: rgb(255 255 255 / var(--mac-icon-edge-alpha, .1));
+  backdrop-filter: blur(6px);
+}
+.mac-icon-material > .mac-icon-rim {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  /* The matte rim is edge-only. The artwork below remains fully opaque. */
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / var(--mac-icon-edge-alpha, .1));
+}
+.mac-icon-material > .mac-icon-rim::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: inherit;
+  background: linear-gradient(140deg, #ffff 0%, #fff7 22%, #fff0 48%, #fff9 100%);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: calc(var(--mac-icon-gloss, 0) * (1 - pow(1 - var(--mac-icon-edge-alpha, .1), 4)));
+}
+@media (prefers-reduced-transparency: reduce), (forced-colors: active), (prefers-contrast: more) {
+  .mac-dock-material[data-mac-material="dock"] > .bg-layers > .bg-layer-1,
+  .mac-icon-material.with-plate { background: Canvas; backdrop-filter: none; }
+  .mac-dock-material[data-mac-material="dock"] > .bg-layers > .bg-layer-2,
+  .mac-icon-material > .mac-icon-rim { display: none; }
+}

@@ -1,0 +1,28 @@
+available: Mevcut Cihazlar
+cancel: İptal etmek
+confirm: Onaylamak
+confirm_only: Eşleştirmeyi onaylayın
+confirm_pin: PIN'in eşleştiğini doğrulayın
+connect: Bağlamak
+connected: Bağlı
+connecting: Bağlanıyor...
+disconnect: Bağlantıyı kes
+disconnecting: Bağlantı kesiliyor...
+display_pin: Bu PIN'i cihaza girin
+lowenergy: Düşük Enerji
+more: Daha Fazla Bluetooth Ayarları
+no_adapter: Bluetooth adaptörü bulunamadı
+not_found: Hiçbir cihaz bulunamadı
+pair: Çift
+paired: Eşleştirilmiş
+pairing: Eşleştiriliyor...
+pairing_failed: Eşleştirme başarısız oldu
+password: Şifre
+provide_address: Adresi girin
+provide_password: Kullanıcı adını ve şifreyi girin
+provide_pin: PIN'i girin
+scanning: Cihazlar taranıyor...
+unpair: Eşlemeyi kaldır
+unpair_failed: Eşleştirme kaldırılamadı
+unpairing: Eşleme kaldırılıyor...
+username: Kullanıcı adı

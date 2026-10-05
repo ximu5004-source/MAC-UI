@@ -1,0 +1,22 @@
+all: Alle toepassings
+app_settings: Programinstellings
+applications: Aansoeke
+back: Terug
+disband: Ontbind gids
+edit_icon: Wysig ikoon
+folder: Vouer
+no_matching_items: Geen items gevind wat by jou soektog pas nie
+open_file_location: Maak lêerligging oop
+pin: Speld vas
+pin_to_dock: Speld aan Dock vas
+power_menu: Power Menu
+query:
+  all: Almal
+  apps: Toepassings
+  files: Lêers
+  web: Web
+run_as_admin: Begin as administrateur
+unpin: Ontspeld
+web_search: Druk Enter om op die web te soek
+welcome_message: Welkom by die Seelen UI-programkieslys.
+welcome_message2: Op hierdie oortjie kan jy jou gunsteling programme vaspen.

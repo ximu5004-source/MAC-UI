@@ -1,0 +1,30 @@
+.itemContainer {
+  display: grid;
+  grid-template-columns: minmax(200px, 1fr) 2fr;
+  grid-template-rows: 100%;
+  gap: var(--spacing-s);
+
+  .itemLeft {
+    display: grid;
+    grid-template-rows: min-content 1fr;
+    justify-items: center;
+    align-items: center;
+    gap: var(--spacing-2xs);
+
+    .label {
+      font-weight: 600;
+      font-size: 1.2rem;
+      line-height: 1.2em;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+    }
+  }
+
+  .itemRight {
+    overflow-y: auto;
+    min-height: 100%;
+  }
+}

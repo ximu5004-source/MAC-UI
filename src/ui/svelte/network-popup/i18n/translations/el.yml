@@ -1,0 +1,23 @@
+available: Διαθέσιμα δίκτυα
+connect: Συνδέω
+connected: Συνδεδεμένο με
+connecting: Συνδετικός...
+disconnect: Αποσυνδέω
+forget: Ξεχνώ
+hidden: Κρυφό Δίκτυο
+hotspot:
+  band: Ζώνη
+  'off': Μακριά από
+  'on': Επί
+  open_network: Ανοιχτό δίκτυο
+  password: Σύνθημα
+  settings: Περισσότερες ρυθμίσεις hotspot
+  ssid: Όνομα δικτύου
+  title: Hotspot
+more: Περισσότερες ρυθμίσεις δικτύου
+no_adapter: Δεν βρέθηκε προσαρμογέας Wi-Fi
+not_found: Δεν βρέθηκαν δίκτυα Wi-Fi
+password: Σύνθημα
+saved: Αποθηκευμένα δίκτυα
+scanning: Σάρωση για δίκτυα
+secured: Κρυπτογραφημένο δίκτυο

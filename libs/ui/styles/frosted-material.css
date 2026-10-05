@@ -1,0 +1,50 @@
+/* Material and specular reflection are separate layers. The reflection is a
+ * narrow masked ring: it must never brighten the contents of a surface.
+ * Native backdrop rendering supplies pixels behind the WebView on Windows. */
+:root {
+  --mac-glass-surface: rgb(255 255 255 / .1);
+  --mac-glass-blur: blur(18px) saturate(1);
+  --mac-glass-rim: linear-gradient(145deg, #fffb 0%, #fff3 28%, #fff1 52%, #fff6 100%);
+}
+
+:where(.mac-frosted-surface) {
+  position: relative;
+  isolation: isolate;
+  border: 0;
+  background: var(--mac-glass-surface);
+  backdrop-filter: var(--mac-glass-blur);
+  box-shadow: none;
+}
+
+.mac-frosted-surface::before {
+  content: "";
+  position: absolute;
+  z-index: 8;
+  inset: 0;
+  box-sizing: border-box;
+  padding: 1.5px;
+  border-radius: inherit;
+  background: var(--mac-glass-rim);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* The native brush supplies the blur; a CSS filter would only blur other web
+ * content and create redundant surfaces. Retain CSS for web-only QA previews. */
+html[data-native-frosted="true"] #root .mac-frosted-surface {
+  backdrop-filter: none;
+}
+
+#root .mac-frosted-surface[data-frosted-ink="black"] { color-scheme: light; }
+#root .mac-frosted-surface[data-frosted-ink="white"] { color-scheme: dark; }
+:is(#root, #app) .mac-frosted-surface[data-frosted-ink]:is(.mac-panel, .flyout) {
+  --mac-ink: light-dark(#000, #fff);
+  --mac-secondary: var(--mac-ink);
+  --flyout-ink: var(--mac-ink);
+}
+
+@media (prefers-reduced-transparency: reduce), (forced-colors: active), (prefers-contrast: more) {
+  #root .mac-frosted-surface { background: Canvas; color: CanvasText; backdrop-filter: none; }
+  .mac-frosted-surface::before { background: CanvasText; padding: 1px; }
+}

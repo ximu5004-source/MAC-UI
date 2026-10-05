@@ -1,0 +1,22 @@
+all: Lahat ng Apps
+app_settings: Mga Setting ng App
+applications: Mga aplikasyon
+back: Bumalik
+disband: I-disband ang Folder
+edit_icon: I-edit ang Icon
+folder: Folder
+no_matching_items: Walang nakitang mga item na tumutugma sa iyong paghahanap
+open_file_location: Buksan ang Lokasyon ng File
+pin: Pin
+pin_to_dock: I-pin sa Dock
+power_menu: Power Menu
+query:
+  all: Lahat
+  apps: Mga app
+  files: Mga file
+  web: Web
+run_as_admin: Patakbuhin bilang Administrator
+unpin: I-unpin
+web_search: Pindutin ang Enter upang maghanap sa web
+welcome_message: Maligayang pagdating sa menu ng Seelen UI app.
+welcome_message2: Sa tab na ito, maaari mong i-pin ang iyong mga paboritong app.

@@ -1,0 +1,40 @@
+app_menu:
+  close: Hurbileko
+  close_multiple: Itxi guztiak
+  copy_handles: Kopiatu heldulekuak
+  edit_app_icon: Editatu aplikazioaren ikonoa
+  kill: Hiltzeko prozesua
+  kill_multiple: Kill Prozesu guztiak
+  open_file_location: Ireki fitxategiaren kokapena
+  pin: Iskilinba
+  pin_to_center: Pin zentrora
+  pin_to_left: Ezkerrera
+  pin_to_right: PIN eskuin
+  run_as: Exekutatu administratzaile gisa
+  unpin: Desjendu
+context_menu:
+  edit_icon: Editatu ikonoa
+  remove_module: Kendu modulua
+  remove_separator: Kendu bereizlea
+  reorder_disable: Blokeatu ataza barra
+  reorder_enable: Desblokeatu ataza barra
+media:
+  label: Multimedia erreproduzitzailea
+  not_playing: Ez da ezer jolasten
+show_desktop:
+  label: Erakutsi mahaigaina
+start:
+  label: Hasi menua
+taskbar_menu:
+  add_file: PIN fitxategi pertsonalizatua
+  add_separator: Gehitu bereizlea
+  media: Multimedia erreproduzitzailea
+  modules: Moduluak
+  settings: Ezarpenak
+  task_manager: Zereginen kudeatzailea
+trash_bin:
+  empty_bin: Hustu zakarrontzira
+  item_count: '{{0}} elementu'
+  label: Birziklatzeko paperontzia
+weg:
+  empty: Ez dago erakusteko elementurik

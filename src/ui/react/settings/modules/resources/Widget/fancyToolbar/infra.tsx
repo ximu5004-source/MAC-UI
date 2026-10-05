@@ -1,0 +1,131 @@
+import { FancyToolbarSide, HideMode } from "@seelen-ui/lib/types";
+import { Icon } from "libs/ui/react/components/Icon/index.tsx";
+import { $is_touch_primary } from "libs/ui/react/utils/signals";
+import { Button, InputNumber, Select, Tooltip } from "antd";
+import { useTranslation } from "react-i18next";
+
+import { OptionsFromEnum } from "../../../shared/utils/app.ts";
+import {
+  getToolbarConfig,
+  setToolbarDelayToHide,
+  setToolbarDelayToShow,
+  setToolbarHideMode,
+  setToolbarItemSize,
+  setToolbarMargin,
+  setToolbarPadding,
+  setToolbarPosition,
+} from "./application.ts";
+
+import { SettingsGroup, SettingsOption, SettingsSubGroup } from "../../../../components/SettingsBox/index.tsx";
+import Compact from "antd/es/space/Compact";
+
+export function FancyToolbarSettings() {
+  const settings = getToolbarConfig();
+  const delayToShow = settings.delayToShow;
+  const delayToHide = settings.delayToHide;
+  const isTouchPrimary = $is_touch_primary.value;
+
+  const { t } = useTranslation();
+
+  return (
+    <>
+      <SettingsGroup>
+        <SettingsSubGroup label={t("toolbar.label")}>
+          <SettingsOption
+            label={t("toolbar.item_size")}
+            action={
+              <InputNumber
+                value={settings.itemSize}
+                onChange={(value) => setToolbarItemSize(value || 0)}
+                min={4}
+                max={100}
+              />
+            }
+          />
+
+          <SettingsOption
+            label={t("toolbar.padding")}
+            action={
+              <InputNumber
+                value={settings.padding}
+                onChange={(value) => setToolbarPadding(value || 0)}
+                min={0}
+                max={40}
+              />
+            }
+          />
+
+          <SettingsOption
+            label={t("toolbar.margin")}
+            action={
+              <InputNumber
+                value={settings.margin}
+                onChange={(value) => setToolbarMargin(value || 0)}
+                min={0}
+                max={40}
+              />
+            }
+          />
+
+          <SettingsOption
+            label={t("toolbar.dock_side")}
+            action={
+              <Compact>
+                {Object.values(FancyToolbarSide).map((side) => (
+                  <Button
+                    key={side}
+                    type={side === settings.position ? "primary" : "default"}
+                    onClick={() => setToolbarPosition(side)}
+                  >
+                    <Icon iconName={`CgToolbar${side}`} size={18} />
+                  </Button>
+                ))}
+              </Compact>
+            }
+          />
+        </SettingsSubGroup>
+      </SettingsGroup>
+
+      <SettingsGroup>
+        <SettingsSubGroup
+          label={
+            <SettingsOption>
+              <b>{t("toolbar.auto_hide")}</b>
+              {/* disabled on touch devices: autohide requires hover/pointer events that touchscreens don't fire */}
+              <Tooltip title={isTouchPrimary ? t("toolbar.auto_hide_touch_disabled") : undefined}>
+                <Select
+                  style={{ width: "120px" }}
+                  value={settings.hideMode}
+                  options={OptionsFromEnum(t, HideMode, "toolbar.hide_mode")}
+                  onChange={(value) => setToolbarHideMode(value)}
+                  disabled={isTouchPrimary}
+                />
+              </Tooltip>
+            </SettingsOption>
+          }
+        >
+          <SettingsOption>
+            <span>{t("toolbar.delay_to_show")} (ms)</span>
+            <InputNumber
+              value={delayToShow}
+              min={0}
+              max={10000}
+              disabled={settings.hideMode === HideMode.Never || isTouchPrimary}
+              onChange={(value) => setToolbarDelayToShow(value || 0)}
+            />
+          </SettingsOption>
+          <SettingsOption>
+            <span>{t("toolbar.delay_to_hide")} (ms)</span>
+            <InputNumber
+              value={delayToHide}
+              min={0}
+              max={10000}
+              disabled={settings.hideMode === HideMode.Never || isTouchPrimary}
+              onChange={(value) => setToolbarDelayToHide(value || 0)}
+            />
+          </SettingsOption>
+        </SettingsSubGroup>
+      </SettingsGroup>
+    </>
+  );
+}

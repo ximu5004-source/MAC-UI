@@ -1,0 +1,179 @@
+/* One neutral material and one scroll owner. Rounded native frost clips the
+ * complete account popover; cards and icons add no blur or colored halo. */
+html,
+body,
+#root {
+  background: transparent;
+}
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+#root .slu-std-popover.mac-panel.user-popup.mac-frosted-surface {
+  --mac-ink: light-dark(#171717, #fff);
+  --mac-secondary: var(--mac-ink);
+  --mac-card: rgb(255 255 255 / .1);
+  --mac-hover: rgb(255 255 255 / .18);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: min(368px, var(--mac-panel-max-width, 400px));
+  min-width: 0;
+  max-height: var(--mac-panel-max-height, 680px);
+  padding: 12px;
+  gap: 0;
+  border-radius: 28px;
+  border: 0;
+  overflow: hidden;
+  color: var(--mac-ink);
+  background: var(--mac-glass-surface);
+  backdrop-filter: var(--mac-glass-blur);
+  box-shadow: none;
+  text-shadow: none;
+  -webkit-font-smoothing: auto;
+}
+
+#root .user-popup .user-popup-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 0;
+  max-height: calc(var(--mac-panel-max-height, 680px) - 24px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--mac-line) transparent;
+  overscroll-behavior: contain;
+}
+
+#root .user-popup .user-popup-content > * {
+  flex-shrink: 0;
+}
+#root .user-popup .user-profile-container {
+  min-width: 0;
+  padding: 10px;
+  background: var(--mac-card);
+  box-shadow: none;
+  border-radius: 18px;
+}
+#root .user-popup :is(.user-profile-picture, .user-profile-picture-fallback, .svg-icon, .user-file-icon) {
+  filter: none;
+  box-shadow: none;
+  text-shadow: none;
+}
+#root .user-popup .user-profile-picture-fallback {
+  background: transparent;
+  color: var(--mac-ink);
+}
+#root .user-popup .user-profile-information {
+  min-width: 0;
+}
+#root .user-popup .user-profile-name {
+  font-weight: 650;
+}
+#root .user-popup .user-profile-name > span {
+  min-width: 0;
+}
+#root .user-popup .user-profile-actions button {
+  min-width: 36px;
+  padding: 6px;
+}
+#root .user-popup .user-profile-name button {
+  min-width: 32px;
+  padding: 6px;
+}
+#root .user-popup .user-label {
+  color: var(--mac-ink);
+  font-weight: 600;
+}
+#root .user-popup .user-directory-summary {
+  padding: 0;
+  gap: 0;
+  min-height: 44px;
+}
+#root .user-popup .user-directory-open {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+  min-height: 44px;
+  padding: 8px 10px;
+  text-align: left;
+  color: var(--mac-ink);
+  font-size: 14px;
+  font-weight: 500;
+}
+#root .user-popup .user-directory-title {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+#root .user-popup .user-directory-toggle {
+  width: 36px;
+  min-height: 40px;
+  padding: 8px;
+  flex-shrink: 0;
+}
+#root .user-popup .file-list {
+  max-height: none;
+  overflow: visible;
+  background: transparent;
+  padding: 4px;
+  margin: 0 4px 6px;
+}
+#root .user-popup .user-file {
+  min-width: 0;
+  min-height: 40px;
+  text-align: left;
+  color: var(--mac-ink);
+  background: transparent;
+  filter: none;
+  box-shadow: none;
+  text-shadow: none;
+}
+#root .user-popup .user-file-label {
+  min-width: 0;
+  font-size: 13px;
+  font-weight: 500;
+}
+#root .user-popup .user-empty-list {
+  color: var(--mac-ink);
+  font-style: normal;
+}
+#root .user-popup .user-seelen-option-item {
+  min-height: 40px;
+  color: var(--mac-ink);
+  background: transparent;
+}
+#root .user-popup .user-seelen-option-item:hover {
+  background: var(--mac-hover);
+}
+#root .user-popup .user-seelen-option-item-title {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+#root .user-popup button:focus-visible {
+  outline: 2px solid var(--mac-accent);
+  outline-offset: -2px;
+}
+#root .user-popup button:active:enabled {
+  transform: none;
+  background: var(--mac-hover);
+}
+
+html[data-native-frosted="true"] #root .user-popup.mac-frosted-surface {
+  backdrop-filter: none;
+}
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more), (forced-colors: active) {
+  #root .slu-std-popover.mac-panel.user-popup.mac-frosted-surface {
+    background: Canvas;
+    color: CanvasText;
+    --mac-ink: CanvasText;
+    --mac-secondary: CanvasText;
+    --mac-card: Canvas;
+    --mac-hover: Canvas;
+    --mac-line: CanvasText;
+    backdrop-filter: none;
+  }
+}

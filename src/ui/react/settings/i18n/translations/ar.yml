@@ -1,0 +1,457 @@
+action:
+  confirm: هل أنت متأكد؟
+  confirm_body: لا يمكن التراجع عن هذا الإجراء.
+apps_configurations:
+  app:
+    bindings: الزامي (لاحظ أن كلا الخيارين مطلوبه)
+    category: الفئة
+    category_placeholder: لا يوجد
+    monitor: الشاشة
+    monitor_placeholder: لا يوجد
+    name: الاسم
+    ok_create: إنشاء
+    ok_edit: تعديل
+    ok_readonly: عرض قرائه فقط
+    options:
+      NoInteractive: لا التفاعلية
+      VdPinned: إظهار في كافة مساحات العمل
+      WmFloat: Twm - ابدأ بالطفو
+      WmForce: Twm - إدارة القوة
+      WmUnmanage: Twm - عدم الإدارة
+    options_label: خيارات إضافية
+    title_create: إنشاء {{الأسم}}
+    title_edit: تعديل {{العنوان}}
+    title_readonly: عرض {{الأسم}}
+    weg_options_label: خيارات دائرة المهام/شريط المهام
+    wm_options_label: خيارات مدير النوافذ
+    workspace: مساحة العمل
+    workspace_placeholder: لا يوجد
+  bundled_msg: >-
+    هذه الأضافات المجمعة غير قابلة للتحرير وهي مصممة لتوفر لك أفضل تجربة من دون
+    تخصيص. يقومون تلقائيًا بإضافة التطبيقات الأكثر شهره لك.
+  bundled_title: أضافه التطبيقات المجمعه مع Seelen
+  confirm_delete: هل أنت متأكد أنك تريد حذف هذه الأضافات/التجميعات؟
+  confirm_delete_title: تأكيد الحذف
+  delete: حذف
+  export: صدر
+  export_full: إعدادات التصدير حسب التطبيق
+  extra_info: >-
+    تستخدم واجهة Seelen معرف واحد  فقط لكل تطبيق (تم العثور على أول تطابق) فإن
+    الترتيب في كيفية التحديد مهم، وسيتم إعطاء الأولوية لآخر إضافة، كما تلاحظ أنه
+    يتم فرز الجدول افتراضيًا من الأحدث إلى الأقدم.
+  identifier:
+    add_block: أضف بلوك
+    and: و
+    id: المعرف
+    kind: تحديد بواسطة
+    matching_strategy: استراتيجية المطابقة
+    matching_strategy_option:
+      contains: يتضمن
+      ends_with: ينتهي ب
+      equals: يساوي
+      regex: التعبير العادي
+      starts_with: يبدأ ب
+    negation: نفي المطابقة
+    or: أو
+    remove: حذف الحظر
+    type:
+      class: فصل
+      exe: إملف تنفيذى
+      path: طريق
+      title: عنوان
+  import: استيراد
+  import_full: استيراد الإعدادات حسب التطبيق
+  new: جديد
+  search: البحث
+  swap: تبديل
+cancel: إلغاء
+close: يغلق
+delete: حذف
+devtools:
+  app_folders: مجلدات التطبيق
+  color_palette: لوحة الألوان
+  color_palette_note: >-
+    تتكيف هذه الألوان تلقائيًا مع الوضع الفاتح/الداكن — كل ظل يكون متباينًا
+    بالنسبة للخلفية الحالية، وليس قيمة ثابتة. استخدمها بدلاً من الألوان المضمنة
+    للحصول على دعم تلقائي للموضوع.
+  custom_config_file: تحميل ملف الأعدادات المخصص
+  data_folder: مجلد البيانات
+  enable: تفعيل أدوات المطور
+  enable_description: >-
+    يفتح الأدوات المتقدمة لفحص وتصحيح الأجزاء الداخلية لـ Seelen UI. غير مخصص
+    للاستخدام المنتظم.
+  icons: الرموز المخزنة مؤقتا
+  install_folder: مجلد التثبيت
+  load: تحميل
+  settings_file: ملف الإعدادات
+  shared_components: المكونات القياسية SLU
+  simulate_dialog:
+    label: محاكاة الحوار
+    trigger: مشغل
+  simulate_perm:
+    label: محاكاة طلب إذن القطعة
+    result_allowed: ✓ تم منح الإذن
+    result_denied: ✗ تم رفض الإذن
+    trigger: محاكاة
+    widget_id_placeholder: '@author/اسم القطعة'
+  tools: أدوات
+  unlock_shortcuts: فتح اختصارات القراءة فقط
+  unlock_shortcuts_description: السماح بتحرير الاختصارات التي تكون عادةً للقراءة فقط (مثل تجاوزات النظام).
+  unstable_optimizations: تحسينات غير مستقرة
+  unstable_optimizations_description: >-
+    تمكين علامات Chromium التجريبية التي تقلل من استخدام ذاكرة الوصول العشوائي.
+
+    تحذير: إذا تعطلت إحدى الأدوات، فسوف تتعطل جميع الأدوات التي تشترك في نفس
+    المُحمل معًا.
+  widgets_debug:
+    actions: الإجراءات
+    empty: لم يتم تحميل أية أدوات. انقر فوق تحديث.
+    instance_id: معرف المثيل
+    monitor_id: معرف المراقبة
+    open_devtools: أدوات التطوير
+    refresh: ينعش
+    status: حالة
+    tab: الحاجيات
+    widget_id: معرف القطعة
+discord_banner:
+  message: >-
+    تواصل مع مستخدمي Seelen UI الآخرين، واحصل على المساعدة، وشارك السمات، وابق
+    على اطلاع على آخر الأخبار.
+  title: انضم إلى مجتمعنا
+extras:
+  backup_group: النسخ الاحتياطي السحابي
+  backup_last_sync: آخر مزامنة
+  backup_never_synced: لم تتم مزامنتها مطلقًا
+  backup_sync: إعدادات المزامنة مع السحابة
+  backup_sync_description: النسخ الاحتياطي واستعادة إعداداتك تلقائيًا عبر السحابة.
+  clear_icons: مسح ذاكرة التخزين المؤقت لأيقونات النظام
+  clear_icons_tooltip: قد تكون إعادة التشغيل مطلوبة لتدخل جميع الأدوات حيز التنفيذ بالكامل
+  discord_rpc: حضور غني بالخلاف
+  discord_rpc_description: أظهر للجميع أن لديك أسلوبًا!
+  exit: إنهاء/خروج
+  relaunch: إعادة التشغيل
+  streaming_mode: وضع الدفق
+  streaming_mode_description: >-
+    يستبدل المعلومات الحساسة (مثل رسائل البريد الإلكتروني) بعناصر نائبة لحماية
+    الخصوصية أثناء التسجيلات أو لقطات الشاشة.
+  version: الإصدار
+  version_fixed: >-
+    تم إصلاح إصدارات التطبيق وWebView2 Runtime. وهذا يعني أن التطبيق لن يتلقى
+    التحديثات ولن يتم تحديث WebView2 Runtime تلقائيًا بتحديثات Windows.
+general:
+  accent_color: اللون الثانوي
+  date_format: تنسيق التاريخ
+  date_format_how_to: كيفية كتابة تنسيق التاريخ؟
+  hardware_acceleration: تسريع الأجهزة
+  hardware_acceleration_description: >-
+    سيؤدي تعطيل تسريع الأجهزة إلى تقليل استخدام الذاكرة. يعد التعطيل آمنًا إذا
+    كنت لا تستخدم رسومًا متحركة ثقيلة، على الرغم من أن الأدوات الفردية قد تستمر
+    في فرض استخدام وحدة معالجة الرسومات بغض النظر عن هذا الإعداد.
+  icon_pack:
+    available: حزم الأيقونات المتوفرة
+    selected: حزم الأيقونات النشطة
+  language: اللغات
+  monday: الاثنين
+  performance_mode:
+    label: التحسينات
+    on_battery: على البطارية
+    on_energy_saver: على توفير الطاقة
+    options:
+      disabled: عاجز
+      extreme: أقصى
+      minimal: الحد الأدنى
+    plugged: توصيل أو شحن
+  polling_interval: الفاصل الزمني لاستقصاء النظام
+  polling_interval_description: >-
+    كم مرة (بالثواني) تقوم Seelen UI بفحص موارد النظام مثل وحدة المعالجة
+    المركزية وذاكرة الوصول العشوائي والشبكة ونشاط القرص. الرقم الأصغر يعني
+    تحديثات أكثر تكرارًا، ولكن استخدامًا أعلى قليلاً للموارد.
+  saturday: السبت
+  start_of_week: بداية الأسبوع
+  startup: تفعيل عند تشغيل الكمبيوتر؟
+  sunday: الأحد
+  suspend_on_game_mode: تعليق الأدوات في وضع اللعبة
+  suspend_on_game_mode_description: >-
+    عندما يكون Windows Game Mode نشطًا، يتم تدمير جميع عروض الويب لعناصر واجهة
+    المستخدم لتحرير وحدة المعالجة المركزية والذاكرة للعبة. تتم استعادة الأدوات
+    تلقائيًا عند انتهاء وضع اللعبة.
+  theme:
+    available: السمات المتاحة
+    selected: المواضيع النشطة
+global: عالمي
+header:
+  labels:
+    config: التكوينات
+    developer: للمطورين
+    extras: الإضافات
+    general: عام
+    home: المنزل
+    iconpack: حزم الأيقونات
+    monitors: الشاشات
+    plugin: المكونات الإضافية
+    resources: الموارد
+    session: حساب
+    shortcuts: الاختصارات
+    soundpack: حزم الصوت
+    specific_apps: الإعدادات حسب التطبيق
+    theme: الموضوعات
+    virtual_desk: أجهزة الكمبيوتر المكتبية الافتراضية
+    wallpaper: خلفيات
+    widget: الأدوات
+home:
+  new_resources: الموارد الجديدة
+inherit: ورث
+inProgress: قيد التنفيذ...
+insert: أدخل
+join_us: انضم إلينا!
+loading: جاري التحميل...
+miscellaneous: متنوع
+monitors_configurations:
+  label: شاشة {{index}}
+more: أكثر
+'no': لا
+open: فتح
+quit: الخروج
+remove: الحذف
+reset_all_to_default: إعادة تعيين الكل إلى القيم الافتراضية
+reset_configurations: إعادة ضبط التكوينات
+reset_to_default: إعادة التعيين إلى القيمة الافتراضية
+resources:
+  affected_widgets: الحاجيات المتضررة
+  app_outdated: يتطلب هذا المورد إصدارًا أحدث من Seelen UI ليعمل بشكل صحيح.
+  coming_soon: قريباً
+  corrupted_wallpaper: فشل استخراج الصورة المصغرة - تنسيق الفيديو تالف أو غير مدعوم
+  delete: حذف المورد
+  discover: اكتشف المزيد من الموارد
+  has_update: تحديث متاح
+  high_impact: تأثير كبير على الأداء
+  import_wallpapers: استيراد الخلفيات المحلية
+  included_plugins: وشملت الإضافات
+  modified: معدّل
+  open_folder: فتح مجلد الموارد
+  outdated: تم تصميم هذا المورد لإصدار أقدم من Seelen UI وقد لا يعمل بشكل صحيح.
+  see_on_website: انظر على الموقع
+  update_now: تحديث
+  updates_available: التحديثات متاحة
+  updates_available_description: الموارد التالية لديها تحديثات متاحة.
+review_request:
+  not_now: ليس الآن
+  sure: بالتأكيد!
+  title: هل تستمتع بواجهة Seelen؟
+save: حفظ
+save_and_restart: حفظ وإعد التشغيل
+search: يبحث
+see_more: شاهد المزيد
+session:
+  logout: تسجيل الخروج
+  plan: يخطط
+  sign_in: تسجيل الدخول
+  sign_in_hint: سيتم فتح المتصفح الخاص بك حتى تتمكن من تسجيل الدخول بشكل آمن.
+  upgrade_to: الترقية إلى
+shortcuts:
+  disabled_tooltip: تم تعطيل الأداة واختصاراتها
+  duplicate_error: تم اكتشاف اختصارات متعارضة
+  duplicate_error_hint: >-
+    يتم تعيين بعض الاختصارات لإجراءات متعددة. قم بتعطيل إحدى الأدوات المتعارضة
+    أو قم بإعادة تعيين ربط المفتاح المكرر لحلها.
+  enable: تمكين نظام الاختصارات المدمجة
+  enable_tooltip: تعطيل إذا كنت ستنفذ نظام الاختصارات الخاص بك باستخدام عميل Seelen UI
+  labels:
+    create_new_workspace: إنشاء مساحة عمل جديدة
+    create_new_workspace_row: إنشاء صف مساحة عمل جديد
+    destroy_current_workspace: تدمير مساحة العمل الحالية
+    misc_force_quit: استقال
+    misc_force_restart: فرض إعادة التشغيل
+    move_to_workspace: انتقل إلى مساحة العمل {{0}}
+    pause_toggle: إيقاف مؤقت/استئناف الاختصارات
+    send_to_next_workspace: إرسال نافذة إلى مساحة العمل التالية
+    send_to_previous_workspace: إرسال النافذة إلى مساحة العمل السابقة
+    send_to_workspace: أرسل إلى مساحة العمل {{0}}
+    send_to_workspace_down: إرسال نافذة إلى مساحة العمل أدناه
+    send_to_workspace_up: إرسال نافذة إلى مساحة العمل أعلاه
+    switch_to_next_workspace: التبديل إلى مساحة العمل التالية
+    switch_to_previous_workspace: التبديل إلى مساحة العمل السابقة
+    switch_to_workspace_down: قم بالتبديل إلى مساحة العمل أدناه
+    switch_to_workspace_up: قم بالتبديل إلى مساحة العمل أعلاه
+    switch_workspace: التبديل إلى مساحة العمل {{0}}
+  readonly_tooltip: هذا اختصار للقراءة فقط
+  reset: إعادة ضبط على الافتراضات
+sides:
+  bottom: تحت
+  left: يسار
+  right: يمين
+  top: فوق
+toolbar:
+  auto_hide: الأخفاء التلقائي
+  auto_hide_touch_disabled: الإخفاء التلقائي غير متاح على الأجهزة التي تعمل باللمس
+  delay_to_hide: تأخير الأخفاء
+  delay_to_show: تأخير الظهور
+  dock_side: المنصب
+  enable: فعل شريط الأدوات الفاخر
+  hide_mode:
+    always: دائماً
+    never: أبداً
+    on_overlap: على التداخل
+  item_size: حجم السلعة
+  label: شريط الأدوات
+  margin: حجم الهامش
+  padding: حجم الحشو
+  placeholder: {}
+update:
+  available: تحديث متاح!
+  channel: تحديث قناة
+  downloading: تنزيل ...
+wall:
+  blur: الضبابية
+  cancel: يلغي
+  close: يغلق
+  collection_name: اسم المجموعة
+  collections: المجموعات
+  contrast: التباين
+  corrupted_wallpapers_message: 'الخلفيات التالفة، فكر في حذفها:'
+  coverage_pause_threshold: عتبة الإيقاف المؤقت (تغطية النافذة)
+  create: يخلق
+  create_collection: إنشاء مجموعة
+  default_collection: الخلفية الافتراضية أو المجموعة
+  default_collection_description: >-
+    يتم تطبيقه على كافة الشاشات ومساحات العمل التي لا تحتوي على مجموعة تجاوز
+    محددة.
+  delete_collection: حذف المجموعة
+  edit_collection: تحرير المجموعة
+  extend: تمديد الابتدائية
+  fit:
+    contain: احتواء
+    cover: الغلاف
+    fill: تعبئة
+  flipHorizontal: قلب أفقي
+  flipVertical: قلب عمودي
+  generating_thumbnails: توليد الصور المصغرة للجدران
+  hours: ساعات
+  interval: تغيير الخلفية كل
+  minutes: دقائق
+  monitor_collection: مجموعة المراقبة
+  multimonitor_behaviour: سلوك الشاشات المتعددة
+  muted: كتم صوت الفيديو
+  no_background: بدون خلفية
+  no_collections: لم يتم إنشاء أي مجموعات حتى الآن. انقر فوق الزر + لإنشاء واحدة.
+  objectFit: الخلفية الملائمة
+  objectPosition: موقف الخلفية
+  overlayColor: لون التراكب
+  overlayMixBlendMode: وضع مزج مزيج التراكب
+  per_monitor: لكل شاشة
+  per_monitor_config: التكوين لكل شاشة
+  playback: سرعة التشغيل
+  position:
+    bottom: القاع
+    center: المركز
+    left: يسار
+    right: صحيح
+    top: أعلى
+  processing_video: معالجة الفيديو
+  random: عرض عشوائي للشرائح
+  saturation: التشبع
+  seconds: ثوان
+  select_collection: حدد المجموعة
+  thumbnail_generation_complete: اكتمل إنشاء الصورة المصغرة
+  thumbnail_generation_finished: تم الانتهاء من إنشاء الصور المصغرة بنجاح
+  use_accent_color: استخدام لون لهجة ورق الحائط
+  wallpaper_collection: مجموعة خلفيات
+  wallpaper_settings: إعدادات ورق الحائط
+  wallpapers: خلفيات
+  wallpapers_and_collections: خلفيات ومجموعات
+  withOverlay: مع تراكب
+  workspace_collections: مجموعات مساحة العمل
+weg:
+  auto_hide: الأخفاء التلقائي
+  auto_hide_touch_disabled: الإخفاء التلقائي غير متاح على الأجهزة التي تعمل باللمس
+  delay_to_hide: تأخير الأخفاء
+  delay_to_show: تأخير الظهور
+  dock_side: المكان
+  filtering: تصفية العناصر
+  gap: الفراغ
+  hide_mode:
+    always: دائماً
+    never: أبداً
+    on_overlap: على التداخل
+  import_error: فشل استيراد عناصر شريط المهام
+  import_from_taskbar:
+    button: الاستيراد من شريط مهام Windows
+    label: استيراد العناصر المثبتة
+  import_no_items: لم يتم العثور على أي عناصر مثبتة في شريط مهام Windows
+  import_success: تم بنجاح استيراد {{count}} عنصر (عناصر) من شريط مهام Windows
+  items:
+    gap: الفراغ بين العناصر
+    label: العناصر
+    middle_click_action:
+      close_app: إغلاق التطبيق
+      label: إجراء النقر الأوسط
+      open_new_instance: افتح مثيلًا جديدًا
+    pinned_visibility:
+      always: دائماً
+      label: رؤية العناصر المثبتة
+      when_primary: عندما تكون الشاشة أساسية
+    show_instance_counter: إظهار عداد النوافذ المفتوحة
+    show_window_title: إظهار عنوان النافذة المفتوحة (أفقيًا فقط)
+    size: حجم العنصر
+    split_windows: تقسيم النوافذ (عنصر واحد لكل نافذة)
+    temporal_visibility:
+      all: الجميع
+      label: رؤية العناصر غير المثبتة
+      on_monitor: على الشاشة
+  label: قفص الاتهام / شريط المهام
+  margin: الهامش
+  mode:
+    full_width: عرض كامل الشاشة
+    min_content: صغيرة كما يمكن أن تكون
+  padding: المساحه
+  show_end_task: إظهار مهمة النهاية في شريط المهام
+  width: العرض
+welcome:
+  give_a_review: إعطاء مراجعة
+  message: >-
+    Seelen UI هي بيئة سطح مكتب مجانية ومفتوحة المصدر لنظام التشغيل Windows. هنا
+    يمكنك التحكم بشكل كامل في شكل سطح المكتب الخاص بك وسلوكه، مما يسمح لك بتخصيص
+    كل التفاصيل لتتناسب مع سير عملك وأسلوبك.
+  ok: لنبدأ!
+  review: >-
+    إذا كنت تستمتع باستخدام Seelen UI، ففكر في ترك تعليق على المتجر - فتعليقاتك
+    تساعد المشروع على النمو والتحسن.
+  title: مرحبًا بك في واجهة مستخدم Seelen!
+widget:
+  default_instance: المثيل الافتراضي
+  default_instance_hint: نشط دائمًا، ويستخدم تكوين عنصر واجهة المستخدم الجذر
+  enable: تمكين هذه الأداة
+  enable_for_monitor: التمكين على هذه الشاشة
+  extra_instances: مثيلات إضافية
+  instance: مثال
+  instances: المثيلات
+wm:
+  animations:
+    duration: مدة الرسوم المتحركة (MS)
+    ease_function: وظيفة تسهيل الرسوم المتحركة
+    enable: تمكين الرسوم المتحركة للنافذة
+  author: المؤلف
+  auto_stack: المكدس التلقائي حسب فئة التطبيق
+  border:
+    enable: تفعيل حدود النافذة
+    offset: إزاحة الحدود
+    width: عرض الحدود
+  description: الوصف
+  drag_behavior: سلوك السحب
+  drag_behavior_options:
+    sort: فرز (إعادة ترتيب النوافذ أثناء السحب)
+    swap: مبادلة (تبديل النوافذ عند نهاية السحب)
+  floating:
+    height: ارتفاع النوافذ العائمة
+    title: حجم النوافذ العائمة
+    width: عرض النوافذ العائمة
+  layout: التخطيط
+  resize_delta: غير حجم دلتا (%)
+  space_between_containers: المساحه بين الحاويات
+  stack_bar_visibility: رؤية شريط المكدس
+  stack_bar_visibility_options:
+    always: دائماً
+    as_needed: حسب الحاجة
+  workspace_offset: المساحه حول مساحات العمل
+  workspace_padding: المساحه بين مساحات العمل
+'yes': نعم

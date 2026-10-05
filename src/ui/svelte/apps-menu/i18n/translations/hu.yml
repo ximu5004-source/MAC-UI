@@ -1,0 +1,22 @@
+all: Minden alkalmazás
+app_settings: Alkalmazásbeállítások
+applications: Alkalmazások
+back: Vissza
+disband: Mappa feloldása
+edit_icon: Szerkesztés ikon
+folder: Mappa
+no_matching_items: Nem található a keresésnek megfelelő elem
+open_file_location: Nyissa meg a Fájl helye lehetőséget
+pin: Pin
+pin_to_dock: Rögzítés a dokkolóhoz
+power_menu: Tápellátás menü
+query:
+  all: Minden
+  apps: Alkalmazások elemre
+  files: Fájlok
+  web: Web
+run_as_admin: Futtassa rendszergazdaként
+unpin: Kibont
+web_search: Az interneten való kereséshez nyomja meg az Enter billentyűt
+welcome_message: Üdvözöljük a Seelen UI alkalmazás menüjében.
+welcome_message2: Ezen a lapon rögzítheti kedvenc alkalmazásait.

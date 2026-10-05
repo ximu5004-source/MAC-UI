@@ -1,0 +1,475 @@
+action:
+  confirm: Weet je het zeker?
+  confirm_body: Deze actie kan niet ongedaan worden gemaakt.
+apps_configurations:
+  app:
+    bindings: Binding (beide opties zijn vereist)
+    category: Categorie
+    category_placeholder: Geen
+    monitor: Monitor
+    monitor_placeholder: Geen
+    name: Naam
+    ok_create: Creëren
+    ok_edit: Update
+    ok_readonly: Bewerken als nieuw
+    options:
+      NoInteractive: Geen interactief
+      VdPinned: Toon in alle werkruimten
+      WmFloat: Twm - Begin met zweven
+      WmForce: Twm - Forceer beheer
+      WmUnmanage: Twm - Niet beheren
+    options_label: Extra opties
+    title_create: Het maken van {{name}}
+    title_edit: Bewerken {{name}}
+    title_readonly: '{{{Name}} bekijken'
+    weg_options_label: Dock/taakbalkopties
+    wm_options_label: Opties voor vensterbeheerder
+    workspace: Werkruimte
+    workspace_placeholder: Geen
+  bundled_msg: >-
+    Deze gebundelde configuraties zijn niet bewerkbaar en zijn ontworpen om u de
+    beste ervaring zonder aanpassing te bieden. Ze configureren automatisch de
+    meest voorkomende toepassingen voor u.
+  bundled_title: App -configuratie gebundeld met Seelen
+  confirm_delete: Weet u zeker dat u deze configuratie(s) wilt verwijderen?
+  confirm_delete_title: Bevestig verwijderen
+  delete: Verwijderen
+  export: Exporteren
+  export_full: Instellingen exporteren per toepassing
+  extra_info: >-
+    Seelen UI gebruikt slechts één ID per app (eerste gevonden match), dus de
+    volgorde waarin ze worden gespecificeerd is belangrijk. De laatst
+    toegevoegde krijgt prioriteit, aangezien de tabel standaard wordt gesorteerd
+    van nieuwste naar oude.
+  identifier:
+    add_block: Block toevoegen
+    and: EN
+    id: Identificatie
+    kind: Identificeren door
+    matching_strategy: Matching -strategie
+    matching_strategy_option:
+      contains: Bevat
+      ends_with: Eindigt met
+      equals: Gelijk aan
+      regex: Reguliere expressie
+      starts_with: Begint met
+    negation: Ontkennen matching
+    or: OF
+    remove: Verwijder blok
+    type:
+      class: Klas
+      exe: Ex
+      path: Pad
+      title: Titel
+  import: Importeren
+  import_full: Instellingen importeren per toepassing
+  new: Nieuw
+  search: Zoekopdracht
+  swap: Ruilen
+cancel: Annuleren
+close: Sluiten
+delete: Verwijderen
+devtools:
+  app_folders: App -mappen
+  color_palette: Kleurenpalet
+  color_palette_note: >-
+    Deze kleuren passen zich automatisch aan de licht/donker-modus aan: elke
+    tint is contrastrijk ten opzichte van de huidige achtergrond en heeft geen
+    vaste waarde. Gebruik ze in plaats van hardgecodeerde kleuren om
+    automatische thema-ondersteuning te krijgen.
+  custom_config_file: Laad het aangepaste configuratiebestand
+  data_folder: Gegevensmap
+  enable: Schakel ontwikkelaarstools in
+  enable_description: >-
+    Ontgrendelt geavanceerde tools voor het inspecteren en debuggen van Seelen
+    UI-internals. Niet bedoeld voor regelmatig gebruik.
+  icons: Gecachte pictogrammen
+  install_folder: Installatiemap
+  load: Laden
+  settings_file: Instellingenbestand
+  shared_components: SLU-standaardcomponenten
+  simulate_dialog:
+    label: Simuleer dialoog
+    trigger: Trekker
+  simulate_perm:
+    label: Simuleer het verzoek om widgettoestemming
+    result_allowed: ✓ Toestemming verleend
+    result_denied: ✗ Toestemming geweigerd
+    trigger: Simuleren
+    widget_id_placeholder: '@auteur/widgetnaam'
+  tools: Hulpmiddelen
+  unlock_shortcuts: Ontgrendel alleen-lezen snelkoppelingen
+  unlock_shortcuts_description: >-
+    Sta bewerkingssnelkoppelingen toe die normaal gesproken alleen-lezen zijn
+    (bijvoorbeeld systeemoverschrijvingen).
+  unstable_optimizations: Onstabiele optimalisaties
+  unstable_optimizations_description: >-
+    Schakel experimentele Chromium-vlaggen in die het RAM-gebruik verminderen.
+
+    Waarschuwing: als een widget crasht, zullen alle widgets die dezelfde lader
+    delen samen crashen.
+  widgets_debug:
+    actions: Acties
+    empty: Geen widgets geladen. Klik op Vernieuwen.
+    instance_id: Instantie-ID
+    monitor_id: Monitor-ID
+    open_devtools: Ontwikkelaars
+    refresh: Vernieuwen
+    status: Status
+    tab: Widgets
+    widget_id: Widget-ID
+discord_banner:
+  message: >-
+    Maak contact met andere Seelen UI-gebruikers, krijg hulp, deel thema's en
+    blijf op de hoogte van het laatste nieuws.
+  title: Word lid van onze gemeenschap
+extras:
+  backup_group: Cloud-back-up
+  backup_last_sync: Laatste synchronisatie
+  backup_never_synced: Nooit gesynchroniseerd
+  backup_sync: Synchroniseer instellingen naar de cloud
+  backup_sync_description: Maak automatisch een back-up van uw instellingen en herstel ze via de cloud.
+  clear_icons: Systeempictogrammen cache wissen
+  clear_icons_tooltip: Er kan een herstart nodig zijn om volledig effect te hebben op alle widgets
+  discord_rpc: Onenigheid rijke aanwezigheid
+  discord_rpc_description: Laat iedereen zien dat je stijl hebt!
+  exit: Stop/exit
+  relaunch: Opnieuw starten
+  streaming_mode: Streaming-modus
+  streaming_mode_description: >-
+    Vervangt gevoelige informatie (bijvoorbeeld e-mails) door tijdelijke
+    aanduidingen om de privacy te beschermen tijdens opnames of
+    schermafbeeldingen.
+  version: Versie
+  version_fixed: >-
+    De applicatie- en WebView2 Runtime-versies staan ​​vast. Dit betekent dat de
+    applicatie geen updates ontvangt en dat de WebView2 Runtime niet automatisch
+    wordt bijgewerkt met Windows-updates.
+general:
+  accent_color: Accent kleur
+  date_format: Datumformaat
+  date_format_how_to: Hoe schrijf je een datumformaat?
+  hardware_acceleration: Hardwareversnelling
+  hardware_acceleration_description: >-
+    Als u hardwareversnelling uitschakelt, wordt het geheugengebruik verminderd.
+    Het is veilig om dit uit te schakelen als u geen zware animaties gebruikt,
+    hoewel individuele widgets ongeacht deze instelling nog steeds GPU-gebruik
+    kunnen afdwingen.
+  icon_pack:
+    available: Beschikbare pictogrampakketten
+    selected: Actieve pictogrampakketten
+  language: Taal
+  monday: Maandag
+  performance_mode:
+    label: Optimalisaties
+    on_battery: Op de batterij
+    on_energy_saver: Op energiebespaarder
+    options:
+      disabled: Gehandicapt
+      extreme: Extreem
+      minimal: Minimaal
+    plugged: Aangesloten of opladen
+  polling_interval: Systeem polling-interval
+  polling_interval_description: >-
+    Hoe vaak (in seconden) Seelen UI systeembronnen zoals CPU, RAM, netwerk en
+    schijfactiviteit controleert. Een kleiner aantal betekent frequentere
+    updates, maar een iets hoger bronnengebruik.
+  saturday: Zaterdag
+  start_of_week: Begin van de week
+  startup: Uitvoeren bij het starten?
+  sunday: Zondag
+  suspend_on_game_mode: Widgets onderbreken in de Spelmodus
+  suspend_on_game_mode_description: >-
+    Wanneer de Windows Game-modus actief is, worden alle widgetwebweergaven
+    vernietigd om CPU en geheugen vrij te maken voor de game. Widgets worden
+    automatisch hersteld wanneer de Spelmodus eindigt.
+  theme:
+    available: Beschikbare thema's
+    selected: Actieve thema's
+global: Globaal
+header:
+  labels:
+    config: Configuraties
+    developer: Voor ontwikkelaars
+    extras: Extra's
+    general: Algemeen
+    home: Thuis
+    iconpack: Pictogrammenpakketten
+    monitors: Monitors
+    plugin: Plugins
+    resources: Bronnen
+    session: Rekening
+    shortcuts: Snelkoppelingen
+    soundpack: Geluidspakketten
+    specific_apps: Instellingen per toepassing
+    theme: Thema's
+    virtual_desk: Virtuele desktops
+    wallpaper: Behang
+    widget: Widgets
+home:
+  new_resources: Nieuwe bronnen
+inherit: Erven
+inProgress: Bezig...
+insert: Invoegen
+join_us: Sluit je bij ons aan!
+loading: Bezig met laden...
+miscellaneous: Gemengd
+monitors_configurations:
+  label: Monitor {{index}}
+more: Meer
+'no': Nee
+open: Open
+quit: Afsluiten
+remove: Verwijderen
+reset_all_to_default: Alles resetten naar standaardwaarden
+reset_configurations: Configuraties resetten
+reset_to_default: Terugzetten naar standaardwaarde
+resources:
+  affected_widgets: Betrokken widgets
+  app_outdated: Deze bron vereist een nieuwere versie van Seelen UI om goed te werken.
+  coming_soon: Binnenkort beschikbaar
+  corrupted_wallpaper: Kan miniatuur niet extraheren - beschadigd of niet-ondersteund videoformaat
+  delete: Verwijder resource
+  discover: Ontdek meer bronnen
+  has_update: Er is een update beschikbaar
+  high_impact: Grote impact op de prestaties
+  import_wallpapers: Lokale achtergronden importeren
+  included_plugins: Inclusief plug-ins
+  modified: Gewijzigd
+  open_folder: Map met bronnen openen
+  outdated: >-
+    Deze bron is ontworpen voor een oudere versie van Seelen UI en werkt
+    mogelijk niet goed.
+  see_on_website: Zie op website
+  update_now: Update
+  updates_available: Updates beschikbaar
+  updates_available_description: Voor de volgende bronnen zijn updates beschikbaar.
+review_request:
+  not_now: Niet nu
+  sure: Zeker!
+  title: Geniet je van de Seelen-gebruikersinterface?
+save: Opslaan
+save_and_restart: Opslaan en opnieuw opstarten
+search: Zoekopdracht
+see_more: Meer zien
+session:
+  logout: Uitloggen
+  plan: Plan
+  sign_in: Inloggen
+  sign_in_hint: Uw browser wordt geopend zodat u veilig kunt inloggen.
+  upgrade_to: Upgrade naar
+shortcuts:
+  disabled_tooltip: De widget en de snelkoppelingen zijn uitgeschakeld
+  duplicate_error: Conflicterende snelkoppelingen gedetecteerd
+  duplicate_error_hint: >-
+    Sommige snelkoppelingen zijn aan meerdere acties toegewezen. Schakel een van
+    de conflicterende widgets uit of wijs de dubbele sleutelbinding opnieuw toe
+    om het probleem op te lossen.
+  enable: Schakel ingebouwd snelkoppelsysteem in
+  enable_tooltip: >-
+    Schakel uit of u uw eigen snelkoppelsysteem implementeert met behulp van de
+    Selen UI -client
+  labels:
+    create_new_workspace: Maak een nieuwe werkruimte
+    create_new_workspace_row: Maak een nieuwe werkruimterij
+    destroy_current_workspace: Vernietig de huidige werkruimte
+    misc_force_quit: Force stoppen
+    misc_force_restart: Opnieuw opstarten forceren
+    move_to_workspace: Ga naar de werkruimte {{0}}
+    pause_toggle: Snelkoppelingen pauzeren/hervatten
+    send_to_next_workspace: Venster naar volgende werkruimte verzenden
+    send_to_previous_workspace: Venster naar vorige werkruimte verzenden
+    send_to_workspace: Verzenden naar werkruimte {{0}}
+    send_to_workspace_down: Stuur venster naar onderstaande werkruimte
+    send_to_workspace_up: Stuur venster naar werkruimte hierboven
+    switch_to_next_workspace: Schakel over naar de volgende werkruimte
+    switch_to_previous_workspace: Schakel over naar vorige werkruimte
+    switch_to_workspace_down: Schakel hieronder over naar de werkruimte
+    switch_to_workspace_up: Schakel over naar Werkruimte hierboven
+    switch_workspace: Schakel over naar werkruimte {{0}}
+  readonly_tooltip: Dit is een alleen-lezen snelkoppeling
+  reset: Reset naar standaardwaarden
+sides:
+  bottom: Onderkant
+  left: Links
+  right: Rechts
+  top: Bovenkant
+toolbar:
+  auto_hide: Automatisch verbergen
+  auto_hide_touch_disabled: Automatisch verbergen is niet beschikbaar op apparaten met aanraakscherm
+  delay_to_hide: Vertraging om te verbergen
+  delay_to_show: Vertraging om te tonen
+  dock_side: Positie
+  enable: Schakel fancy werkbalk in
+  hide_mode:
+    always: Altijd
+    never: Nooit
+    on_overlap: Op overlap
+  item_size: Artikelgrootte
+  label: Werkbalk
+  margin: Margegrootte
+  padding: Maat vulling
+  placeholder: {}
+update:
+  available: Update beschikbaar!
+  channel: Updatekanaal
+  downloading: Downloaden ...
+wall:
+  blur: Vervagen
+  cancel: Annuleren
+  close: Dichtbij
+  collection_name: Collectienaam
+  collections: Collecties
+  contrast: Contrast
+  corrupted_wallpapers_message: 'Beschadigde achtergronden, overweeg deze te verwijderen:'
+  coverage_pause_threshold: Pauzedrempel (vensterdekking)
+  create: Creëren
+  create_collection: Verzameling maken
+  default_collection: Standaard wallpaper of collectie
+  default_collection_description: >-
+    Toegepast op alle monitoren en werkruimten waarvoor geen specifieke
+    override-set is ingesteld.
+  delete_collection: Verzameling verwijderen
+  edit_collection: Verzameling bewerken
+  extend: Primair uitbreiden
+  fit:
+    contain: Bevat
+    cover: Omslag
+    fill: Vullen
+  flipHorizontal: Flip Horizontaal
+  flipVertical: Verticaal klappen
+  generating_thumbnails: Achtergrondminiaturen genereren
+  hours: uren
+  interval: Verander wallpaper elke
+  minutes: notulen
+  monitor_collection: Monitor-collectie
+  multimonitor_behaviour: Multimonitor-gedrag
+  muted: Video-audio dempen
+  no_background: >-
+    Lege diavoorstelling, gebruikt in plaats daarvan de achtergrond van het
+    thema.
+  no_collections: >-
+    Er zijn nog geen collecties aangemaakt. Klik op de knop + om er een te
+    maken.
+  objectFit: Achtergrond
+  objectPosition: Achtergrond Positie
+  overlayColor: Overlay Kleur
+  overlayMixBlendMode: Overlay Mix Mengmodus
+  per_monitor: Per monitor
+  per_monitor_config: Configuratie per monitor
+  playback: Afspeelsnelheid
+  position:
+    bottom: Bodem
+    center: Midden
+    left: Links
+    right: Rechts
+    top: Top
+  processing_video: Video verwerken
+  random: Randomize diavoorstelling
+  saturation: Verzadiging
+  seconds: seconden
+  select_collection: Selecteer Verzameling
+  thumbnail_generation_complete: Het genereren van miniaturen is voltooid
+  thumbnail_generation_finished: Het genereren van miniaturen is met succes voltooid
+  use_accent_color: Gebruik de accentkleur van het behang
+  wallpaper_collection: Behangcollectie
+  wallpaper_settings: Achtergrondinstellingen
+  wallpapers: Achtergronden
+  wallpapers_and_collections: Achtergronden en collecties
+  withOverlay: Met overlay
+  workspace_collections: Werkruimtecollecties
+weg:
+  auto_hide: Automatisch Verbergen
+  auto_hide_touch_disabled: Automatisch verbergen is niet beschikbaar op apparaten met aanraakscherm
+  delay_to_hide: Vertraging om te verbergen
+  delay_to_show: Vertraging om te tonen
+  dock_side: Positie
+  filtering: Item filteren
+  gap: Gat
+  hide_mode:
+    always: Altijd
+    never: Nooit
+    on_overlap: Op overlap
+  import_error: Kan taakbalkitems niet importeren
+  import_from_taskbar:
+    button: Importeren vanuit de Windows-taakbalk
+    label: Vastgezette items importeren
+  import_no_items: Geen vastgezette items gevonden in de Windows-taakbalk
+  import_success: Met succes {{count}} item(s) geïmporteerd uit de Windows-taakbalk
+  items:
+    gap: Ruimte tussen items
+    label: Items
+    middle_click_action:
+      close_app: App sluiten
+      label: Middelste klikactie
+      open_new_instance: Open een nieuw exemplaar
+    pinned_visibility:
+      always: Altijd
+      label: Zichtbaarheid van vastgezette items
+      when_primary: Wanneer de monitor primair is
+    show_instance_counter: Toon open vensters teller
+    show_window_title: Titel van geopend venster tonen (alleen horizontaal)
+    size: Item grootte
+    split_windows: Vensters splitsen (één item per venster)
+    temporal_visibility:
+      all: Alle
+      label: Zichtbaarheid van losgemaakte items
+      on_monitor: Op monitor
+  label: Dock/taakbalk
+  margin: Marge
+  mode:
+    full_width: Volledige schermbreedte
+    min_content: Klein als het maar kan zijn
+  padding: Vulling
+  show_end_task: Taak beëindigen in taakbalk weergeven
+  width: Breedte
+welcome:
+  give_a_review: Geef een recensie
+  message: >-
+    Seelen UI is een gratis en open source desktopomgeving voor Windows. Hier
+    heeft u volledige controle over hoe uw bureaublad eruitziet en zich
+    gedraagt, zodat u elk detail kunt aanpassen aan uw workflow en stijl.
+  ok: Laten we beginnen!
+  review: >-
+    Als u de Seelen UI graag gebruikt, overweeg dan om een ​​recensie achter te
+    laten in de winkel. Uw feedback helpt het project te groeien en te
+    verbeteren.
+  title: Welkom bij de Seelen-gebruikersinterface!
+widget:
+  default_instance: Standaardinstantie
+  default_instance_hint: Altijd actief, gebruikt de rootwidgetconfiguratie
+  enable: Deze widget inschakelen
+  enable_for_monitor: Inschakelen op deze monitor
+  extra_instances: Extra exemplaren
+  instance: Aanleg
+  instances: Instanties
+wm:
+  animations:
+    duration: Animatieduur (MS)
+    ease_function: Animatie -versoepelingsfunctie
+    enable: Schakel Window's animaties in
+  author: Auteur
+  auto_stack: Automatische stapeling per app-categorie
+  border:
+    enable: Schakel Window's Border in
+    offset: Grens offset
+    width: Grensbreedte
+  description: Beschrijving
+  drag_behavior: Sleepgedrag
+  drag_behavior_options:
+    sort: Sorteren (vensters opnieuw ordenen tijdens slepen)
+    swap: Wisselen (vensters verwisselen aan het einde van het slepen)
+  floating:
+    height: Zwevende vensterhoogte
+    title: Zwevende Windows-grootte
+    width: Zwevende vensterbreedte
+  layout: Lay -out
+  resize_delta: Wijzig de wijzers van delta (%)
+  space_between_containers: Ruimte tussen containers
+  stack_bar_visibility: Zichtbaarheid stapelbalk
+  stack_bar_visibility_options:
+    always: Altijd
+    as_needed: Indien nodig
+  workspace_offset: Workspaces Offset (marges)
+  workspace_padding: Workspaces -vulling
+'yes': Ja

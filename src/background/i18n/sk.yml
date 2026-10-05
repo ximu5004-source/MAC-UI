@@ -1,0 +1,84 @@
+auth:
+  login_failed_body: >-
+    Počas prihlasovania sa niečo pokazilo. Ak to pretrváva, skontrolujte, či je
+    povolená a spustená služba Windows 'Credential Manager' (VaultSvc), potom
+    skúste znova.
+  login_failed_title: Prihlásenie zlyhalo
+cancel: Zrušiť
+done: Vykonaný
+elevated:
+  description: >-
+    Používateľské rozhranie Seelen je spustené s oprávneniami správcu.
+
+    Toto nepridáva ani nevylepšuje žiadne funkcie a môže predstavovať
+    bezpečnostné riziko.
+
+    Pre lepšiu bezpečnosť ho reštartujte bez oprávnení správcu.
+  title: Beží ako správca
+file_explorer: Prieskumník súborov
+resource:
+  added: Bol pridaný nový zdroj
+  download_failed_body: >-
+    Pri sťahovaní zdroja sa niečo pokazilo, nahláste to prosím vývojárskemu tímu
+    Seelen.
+  download_failed_title: Stiahnutie zdroja sa nepodarilo
+  downloading: Sťahovanie aktív...
+  downloading_body: Môže to trvať niekoľko sekúnd, nezatvárajte okno.
+  enable: Povolenie stránky
+  login_required_action: Prihlásiť sa
+  login_required_body: Na stiahnutie tohto zdroja sa musíte prihlásiť.
+  login_required_title: Vyžaduje sa prihlásenie
+runtime:
+  corrupted_data: Poškodené údaje
+  corrupted_file: >-
+    Konfiguračný súbor je poškodený a namiesto neho sa používajú predvolené
+    hodnoty.
+  corrupted_file_path: Poškodená cesta k súboru
+  download: Prejdite na stránku sťahovania
+  files_integrity: >-
+    Nepodarilo sa nám overiť integritu súborov aplikácie.
+
+    To sa môže stať, ak boli súbory upravené, poškodené alebo inštalácia nie je
+    dokončená.
+
+    Z bezpečnostných dôvodov nemôže používateľské rozhranie Seelen pokračovať.
+
+    Preinštalujte ho z oficiálnej webovej stránky.
+  files_integrity_title: Bezpečnostné upozornenie – kontrola integrity súborov zlyhala
+  not_found: WebView2 Runtime sa nenašlo
+  not_found_description: >-
+    Používateľské rozhranie Seelen vyžaduje Webview2 Runtime. Nainštalujte si
+    ho.
+  outdated: WebView2 Runtime je zastarané
+  outdated_description: >-
+    Používateľské rozhranie Seelen vyžaduje Webview2 Runtime %{min_version}
+    alebo vyššie. Aktualizujte ho.
+service:
+  not_running: Služba používateľského rozhrania Seelen nie je spustená
+  not_running_description: >-
+    Seelen UI Service (slu-service) je závislosť/pomocník pre správne fungovanie
+    aplikácie.
+  not_running_ok: Spustite službu
+shortcut:
+  conflicts:
+    body: Niektoré skratky sú priradené k viacerým akciám, zmeňte ich priradenie.
+    dismiss: Odmietnuť
+    review: recenzia
+    title: Zistené konflikty skratiek
+  register:
+    placeholder: Stlačte ľubovoľnú kombináciu klávesov
+    title: Registrácia novej skratky
+widget_liveness:
+  failed_description: |-
+    Miniaplikácia '%{widget_name}' prestala reagovať príliš veľakrát.
+
+    Môžete skúsiť reštartovať aplikáciu.
+  failed_title: Chyba miniaplikácie
+widget_permissions:
+  perm_open_file: otvorené súbory
+  perm_run: spúšťať programy
+  request_description: |-
+    Miniaplikácia '%{widget_name}' požaduje povolenie pre %{command}.
+
+    Chcete to povoliť?
+  request_title: Žiadosť o povolenie miniaplikácie

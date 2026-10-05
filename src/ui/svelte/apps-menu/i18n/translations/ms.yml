@@ -1,0 +1,22 @@
+all: Semua Apl
+app_settings: Tetapan Apl
+applications: Aplikasi
+back: belakang
+disband: Bubarkan Folder
+edit_icon: Edit Ikon
+folder: Folder
+no_matching_items: Tiada item ditemui sepadan dengan carian anda
+open_file_location: Buka Lokasi Fail
+pin: Pin
+pin_to_dock: Sematkan pada Dok
+power_menu: Menu Kuasa
+query:
+  all: Semua
+  apps: Apl
+  files: Fail
+  web: Web
+run_as_admin: Jalankan sebagai Pentadbir
+unpin: Nyahsemat
+web_search: Tekan Enter untuk mencari di web
+welcome_message: Selamat datang ke menu apl UI Seelen.
+welcome_message2: Pada tab ini, anda boleh menyematkan apl kegemaran anda.

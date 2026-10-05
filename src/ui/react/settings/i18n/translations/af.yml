@@ -1,0 +1,470 @@
+action:
+  confirm: Is jy seker?
+  confirm_body: Hierdie aksie kan nie ongedaan gemaak word nie.
+apps_configurations:
+  app:
+    bindings: Binding (let op albei opsies is nodig)
+    category: Kategorie
+    category_placeholder: Geen
+    monitor: Monitor
+    monitor_placeholder: Geen
+    name: Naam
+    ok_create: Skep
+    ok_edit: Opdateer
+    ok_readonly: Wysig as nuut
+    options:
+      NoInteractive: Geen interaktief nie
+      VdPinned: Wys in alle werkruimtes
+      WmFloat: Twm - Begin dryf
+      WmForce: Twm - Force Bestuur
+      WmUnmanage: Twm - Onbestuur
+    options_label: Ekstra opsies
+    title_create: Skep {{name}}
+    title_edit: Redigering {{name}}
+    title_readonly: Besigtig {{name}}
+    weg_options_label: Dock/taakbalkopsies
+    wm_options_label: Vensterbestuurderopsies
+    workspace: Werkruimte
+    workspace_placeholder: Geen
+  bundled_msg: >-
+    Hierdie saamgevoegde konfigurasies is nie bewerkbaar nie en is ontwerp om u
+    die beste ervaring sonder aanpassing te bied. Hulle stel outomaties die
+    algemeenste toepassings vir u op.
+  bundled_title: App -konfigurasie saam met Seelen
+  confirm_delete: Is u seker dat u hierdie konfigurasie/s wil uitvee?
+  confirm_delete_title: Bevestig delete
+  delete: Verwyder
+  export: Uitvoer
+  export_full: Uitvoerinstellings volgens aansoek
+  extra_info: >-
+    Seelen UI gebruik slegs een identifiseerder per app (eerste wedstryd
+    gevind), dus die volgorde in hoe dit gespesifiseer is, is belangrik, die
+    nuutste bygevoeg sal geprioritiseer word, aangesien die tabel standaard van
+    die nuutste na oud gesorteer is.
+  identifier:
+    add_block: Voeg blok by
+    and: En
+    id: Identifiseerder
+    kind: Identifiseer deur
+    matching_strategy: Bypassende strategie
+    matching_strategy_option:
+      contains: Bevat
+      ends_with: Eindig met
+      equals: Gelyk
+      regex: Gereelde uitdrukking
+      starts_with: Begin met
+    negation: Ontken ooreenstemming
+    or: Of
+    remove: Vee blok uit
+    type:
+      class: Klas
+      exe: Exe
+      path: Pad
+      title: Titel
+  import: Invoerproduk
+  import_full: Voer instellings volgens aansoek in
+  new: Nuut
+  search: Soek
+  swap: Ruil
+cancel: Kanselleer
+close: Dig
+delete: Verwyder
+devtools:
+  app_folders: APP -vouers
+  color_palette: Kleurpalet
+  color_palette_note: >-
+    Hierdie kleure pas outomaties aan by die lig/donker-modus - elke skakering
+    is kontras-relatief tot die huidige agtergrond, nie 'n vaste waarde nie.
+    Gebruik dit in plaas van hardgekodeerde kleure om outomatiese
+    temaondersteuning te kry.
+  custom_config_file: Laai Custom Config -lêer
+  data_folder: Datapap
+  enable: Aktiveer ontwikkelaarsgereedskap
+  enable_description: >-
+    Ontsluit gevorderde nutsgoed vir die inspeksie en ontfouting van Seelen
+    UI-interne. Nie bedoel vir gereelde gebruik nie.
+  icons: Gekas ikone
+  install_folder: Installasie -lêergids
+  load: Vrag
+  settings_file: Instellingslêer
+  shared_components: SLU Standaardkomponente
+  simulate_dialog:
+    label: Simuleer dialoog
+    trigger: Sneller
+  simulate_perm:
+    label: Simuleer Widget Toestemming Versoek
+    result_allowed: ✓ Toestemming verleen
+    result_denied: ✗ Toestemming geweier
+    trigger: Simuleer
+    widget_id_placeholder: '@outeur/legstuknaam'
+  tools: Gereedskap
+  unlock_shortcuts: Ontsluit leesalleenkortpaaie
+  unlock_shortcuts_description: >-
+    Laat redigeerkortpaaie toe wat normaalweg leesalleen is (bv.
+    stelselverwydering).
+  unstable_optimizations: Onstabiele optimalisering
+  unstable_optimizations_description: >-
+    Aktiveer eksperimentele Chromium-vlae wat RAM-gebruik verminder.
+
+    Waarskuwing: as 'n legstuk ineenstort, sal alle legstukke wat dieselfde
+    laaier deel saam neerstort.
+  widgets_debug:
+    actions: Aksies
+    empty: Geen legstukke gelaai nie. Klik op Verfris.
+    instance_id: Geval ID
+    monitor_id: Monitor ID
+    open_devtools: DevTools
+    refresh: Verfris
+    status: Status
+    tab: Widgets
+    widget_id: Widget ID
+discord_banner:
+  message: >-
+    Maak kontak met ander Seelen UI-gebruikers, kry hulp, deel temas en bly op
+    hoogte van die jongste nuus.
+  title: Sluit aan by ons gemeenskap
+extras:
+  backup_group: Wolk-rugsteun
+  backup_last_sync: Laaste sinkronisering
+  backup_never_synced: Nooit gesinkroniseer nie
+  backup_sync: Sinkroniseer instellings met wolk
+  backup_sync_description: Rugsteun outomaties en herstel jou instellings via die wolk.
+  clear_icons: Maak stelselikone kas uit
+  clear_icons_tooltip: '''N Herbegin kan nodig wees om alle widgets ten volle in werking te stel'
+  discord_rpc: Onenigheid ryke teenwoordigheid
+  discord_rpc_description: Wys vir almal jy het styl!
+  exit: Hou op/uitgang
+  relaunch: Herlaai
+  streaming_mode: Stroommodus
+  streaming_mode_description: >-
+    Vervang sensitiewe inligting (bv. e-posse) met plekhouers om privaatheid
+    tydens opnames of skermkiekies te beskerm.
+  version: Weergawe
+  version_fixed: >-
+    Die toepassing en WebView2 Runtime-weergawes is reggestel. Dit beteken dat
+    die toepassing nie opdaterings sal ontvang nie en die WebView2 Runtime sal
+    nie outomaties opgedateer word met Windows-opdaterings nie.
+general:
+  accent_color: Aksentkleur
+  date_format: Datumformaat
+  date_format_how_to: Hoe om 'n datumformaat te skryf?
+  hardware_acceleration: Hardeware versnelling
+  hardware_acceleration_description: >-
+    Deaktiveer hardewareversnelling sal geheuegebruik verminder. Dit is veilig
+    om te deaktiveer as jy nie swaar animasies gebruik nie, alhoewel individuele
+    legstukke steeds GPU-gebruik kan afdwing, ongeag hierdie instelling.
+  icon_pack:
+    available: Beskikbare ikoonpakkette
+    selected: Aktiewe ikoonpakkette
+  language: Taal
+  monday: Maandag
+  performance_mode:
+    label: Optimalisasies
+    on_battery: Op battery
+    on_energy_saver: Op energiebesparing
+    options:
+      disabled: Gebreklik
+      extreme: Uiterste
+      minimal: Minimaal
+    plugged: Ingeprop of laai
+  polling_interval: Stelselpeilingsinterval
+  polling_interval_description: >-
+    Hoe gereeld (in sekondes) Seelen UI stelselhulpbronne soos SVE, RAM, netwerk
+    en skyfaktiwiteit nagaan. 'n Kleiner getal beteken meer gereelde
+    opdaterings, maar effens hoër hulpbrongebruik.
+  saturday: Saterdag
+  start_of_week: Begin van week
+  startup: Hardloop met opstart?
+  sunday: Sondag
+  suspend_on_game_mode: Skors widgets op Game Mode
+  suspend_on_game_mode_description: >-
+    Wanneer Windows-speletjiemodus aktief is, word alle widget-webaansigte
+    vernietig om SVE en geheue vir die speletjie vry te maak. Legstukke word
+    outomaties herstel wanneer Spelmodus eindig.
+  theme:
+    available: Beskikbare temas
+    selected: Aktiewe temas
+global: Wêreldwyd
+header:
+  labels:
+    config: Konfigurasies
+    developer: Vir ontwikkelaars
+    extras: Ekstra's
+    general: Generaal
+    home: Tuiste
+    iconpack: Ikoonpakkies
+    monitors: Monitors
+    plugin: Plugins
+    resources: Hulpbronne
+    session: Rekening
+    shortcuts: Kortpaaie
+    soundpack: Klankpakkies
+    specific_apps: Instellings volgens aansoek
+    theme: Temas
+    virtual_desk: Virtuele tafelrekenaars
+    wallpaper: Agtergronde
+    widget: Widgets
+home:
+  new_resources: Nuwe hulpbronne
+inherit: Erf
+inProgress: Aan die gang ...
+insert: Invoeg
+join_us: Sluit by ons aan!
+loading: Laai ...
+miscellaneous: Verskillend
+monitors_configurations:
+  label: Monitor {{index}}
+more: Meer
+'no': Nee
+open: Oopmaak
+quit: Laat vaar
+remove: Verwyder
+reset_all_to_default: Stel alles terug na standaardwaardes
+reset_configurations: Stel konfigurasies terug
+reset_to_default: Stel weer in standaardwaarde
+resources:
+  affected_widgets: Geaffekteerde widgets
+  app_outdated: >-
+    Hierdie hulpbron vereis dat 'n nuwer weergawe van Seelen UI behoorlik moet
+    werk.
+  coming_soon: Binnekort
+  corrupted_wallpaper: Kon nie kleinkiekie onttrek nie - korrupte of ongesteunde videoformaat
+  delete: Vee hulpbron uit
+  discover: Ontdek meer bronne
+  has_update: '''N Opdatering is beskikbaar'
+  high_impact: Hoë impak op prestasie
+  import_wallpapers: Voer plaaslike agtergronde in
+  included_plugins: Ingesluit plugins
+  modified: Gewysig
+  open_folder: Open Resource Folder
+  outdated: >-
+    Hierdie hulpbron is ontwerp vir 'n ouer weergawe van Seelen UI en werk
+    moontlik nie behoorlik nie.
+  see_on_website: Sien op webwerf
+  update_now: Dateer op
+  updates_available: Opdaterings beskikbaar
+  updates_available_description: Die volgende hulpbronne het opdaterings beskikbaar.
+review_request:
+  not_now: Nie nou nie
+  sure: Sekerlik!
+  title: Geniet jy van Seelen UI?
+save: Red
+save_and_restart: Stoor en herbegin
+search: Soek
+see_more: Sien meer
+session:
+  logout: Teken uit
+  plan: Beplan
+  sign_in: Meld aan
+  sign_in_hint: Jou blaaier sal oopmaak sodat jy veilig kan aanmeld.
+  upgrade_to: Gradeer op na
+shortcuts:
+  disabled_tooltip: Die legstuk en sy kortpaaie is gedeaktiveer
+  duplicate_error: Botsende kortpaaie is bespeur
+  duplicate_error_hint: >-
+    Sommige kortpaaie word aan veelvuldige handelinge toegewys. Deaktiveer een
+    van die botsende legstukke of herken die duplikaatsleutelbinding om op te
+    los.
+  enable: Aktiveer ingeboude kortpadstelsel
+  enable_tooltip: >-
+    Deaktiveer as u u eie kortpadstelsel met behulp van die Seelen UI -kliënt
+    implementeer
+  labels:
+    create_new_workspace: Skep nuwe werkruimte
+    create_new_workspace_row: Skep nuwe werkruimtery
+    destroy_current_workspace: Vernietig die huidige werkruimte
+    misc_force_quit: Force Quit
+    misc_force_restart: Force herbegin
+    move_to_workspace: Beweeg na WorkSpace {{0}}
+    pause_toggle: Onderbreek/Hervat kortpaaie
+    send_to_next_workspace: Stuur venster na volgende werkspasie
+    send_to_previous_workspace: Stuur Venster na Vorige Werkspasie
+    send_to_workspace: Stuur na WorkSpace {{0}}
+    send_to_workspace_down: Stuur Venster na Werkspasie hieronder
+    send_to_workspace_up: Stuur venster na werkspasie hierbo
+    switch_to_next_workspace: Skakel oor na die volgende werkruimte
+    switch_to_previous_workspace: Skakel oor na vorige werkruimte
+    switch_to_workspace_down: Skakel oor na Werkspasie hieronder
+    switch_to_workspace_up: Skakel oor na Werkspasie hierbo
+    switch_workspace: Skakel oor na WorkSpace {{0}}
+  readonly_tooltip: Dit is 'n leesalleen kortpad
+  reset: Stel weer in standaard
+sides:
+  bottom: Bodem
+  left: Links
+  right: Regs
+  top: Top
+toolbar:
+  auto_hide: Outomatiese vel
+  auto_hide_touch_disabled: Outo-versteek is nie op raakskermtoestelle beskikbaar nie
+  delay_to_hide: Vertraag om weg te steek
+  delay_to_show: Vertraag om te wys
+  dock_side: Posisie
+  enable: Aktiveer Fancy Toolbar
+  hide_mode:
+    always: Altyd
+    never: Nooit nie
+    on_overlap: Op oorvleueling
+  item_size: Item Grootte
+  label: Werkbalk
+  margin: Marge Grootte
+  padding: Opvulling Grootte
+  placeholder: {}
+update:
+  available: Opdatering beskikbaar!
+  channel: Update Channel
+  downloading: Aflaai ...
+wall:
+  blur: Vervaag
+  cancel: Kanselleer
+  close: Maak toe
+  collection_name: Versameling Naam
+  collections: Versamelings
+  contrast: Kontras
+  corrupted_wallpapers_message: 'Korrupte agtergronde, oorweeg dit om hierdie uit te vee:'
+  coverage_pause_threshold: Pouse drempel (venster dekking)
+  create: Skep
+  create_collection: Skep versameling
+  default_collection: Standaard plakpapier of versameling
+  default_collection_description: >-
+    Toegepas op alle monitors en werkruimtes wat nie 'n spesifieke
+    vervangingstel het nie.
+  delete_collection: Vee versameling uit
+  edit_collection: Wysig versameling
+  extend: Verleng primêre
+  fit:
+    contain: Bedwing
+    cover: Bedekking
+    fill: Vul
+  flipHorizontal: Flip horisontaal
+  flipVertical: Flip vertikaal
+  generating_thumbnails: Genereer plakpapier-kleinkiekies
+  hours: ure
+  interval: Verander die muurpapier elke
+  minutes: minute
+  monitor_collection: Monitor versameling
+  multimonitor_behaviour: Multimonitor Gedrag
+  muted: Demp video-oudio
+  no_background: Leë skyfievertoning en gebruik die agtergrond van die tema eerder.
+  no_collections: Geen versamelings is nog geskep nie. Klik op die +-knoppie om een ​​te skep.
+  objectFit: Agtergrond pas
+  objectPosition: Agtergrondposisie
+  overlayColor: Oorlegkleur
+  overlayMixBlendMode: Overlay Mix mengmodus
+  per_monitor: Per monitor
+  per_monitor_config: Per-monitor konfigurasie
+  playback: Playback Speed
+  position:
+    bottom: Bodem
+    center: Middel
+    left: Links
+    right: Regs
+    top: Kruin
+  processing_video: Verwerk video
+  random: Randomize skyfievertoning
+  saturation: Versadiging
+  seconds: sekondes
+  select_collection: Kies Versameling
+  thumbnail_generation_complete: Kleinkiekie-generasie voltooi
+  thumbnail_generation_finished: Kleinkiekiegenerering is suksesvol voltooi
+  use_accent_color: Gebruik plakpapier aksentkleur
+  wallpaper_collection: Muurpapierversameling
+  wallpaper_settings: Muurpapier instellings
+  wallpapers: Wallpapers
+  wallpapers_and_collections: Agtergronde en versamelings
+  withOverlay: Met oorleg
+  workspace_collections: Werkspasie Versamelings
+weg:
+  auto_hide: Outo -vel
+  auto_hide_touch_disabled: Outo-versteek is nie op raakskermtoestelle beskikbaar nie
+  delay_to_hide: Vertraag om weg te steek
+  delay_to_show: Vertraag om te wys
+  dock_side: Posisie
+  filtering: Itemfiltering
+  gap: Gat
+  hide_mode:
+    always: Altyd
+    never: Nooit nie
+    on_overlap: Op oorvleueling
+  import_error: Kon nie taakbalkitems invoer nie
+  import_from_taskbar:
+    button: Voer in vanaf Windows-taakbalk
+    label: Voer vasgespelde items in
+  import_no_items: Geen vasgespelde items in Windows-taakbalk gevind nie
+  import_success: Het {{count}} item(s) suksesvol vanaf Windows-taakbalk ingevoer
+  items:
+    gap: Ruimte tussen items
+    label: Voorwerpe
+    middle_click_action:
+      close_app: Maak App toe
+      label: Middelklik-aksie
+      open_new_instance: Maak nuwe instansie oop
+    pinned_visibility:
+      always: Altyd
+      label: Vasgespelde items sigbaarheid
+      when_primary: Wanneer die monitor primêr is
+    show_instance_counter: Wys oop Windows -toonbank
+    show_window_title: Toon oop venstertitel (slegs horisontaal)
+    size: Itemgrootte
+    split_windows: Verdeelde vensters (een item per venster)
+    temporal_visibility:
+      all: Almal
+      label: Sigbaarheid van ontspelde items
+      on_monitor: Op Monitor
+  label: Dock/Taakbalk
+  margin: Marge
+  mode:
+    full_width: Volle skerm breedte
+    min_content: Klein soos kan wees
+  padding: Opvulling
+  show_end_task: Toon eindtaak in die taakbalk
+  width: Wydte
+welcome:
+  give_a_review: Gee 'n resensie
+  message: >-
+    Seelen UI is 'n gratis en oopbron lessenaaromgewing vir Windows. Hier het jy
+    volle beheer oor hoe jou lessenaar lyk en optree, sodat jy elke detail kan
+    aanpas om by jou werkvloei en styl te pas.
+  ok: Kom ons begin!
+  review: >-
+    As jy daarvan hou om Seelen UI te gebruik, oorweeg dit om 'n resensie in die
+    winkel te gee - jou terugvoer help die projek om te groei en te verbeter.
+  title: Welkom by Seelen UI!
+widget:
+  default_instance: Verstek instansie
+  default_instance_hint: Altyd aktief, gebruik die wortellegstukopstelling
+  enable: Aktiveer hierdie widget
+  enable_for_monitor: Aktiveer op hierdie monitor
+  extra_instances: Ekstra gevalle
+  instance: Geval
+  instances: Instansies
+wm:
+  animations:
+    duration: Animasie -duur (MS)
+    ease_function: Animasie -verligingsfunksie
+    enable: Aktiveer venster se animasies
+  author: Outeur
+  auto_stack: Outomatiese stapel volgens toepassingkategorie
+  border:
+    enable: Aktiveer venster se grens
+    offset: Grens offset
+    width: Grenswydte
+  description: Beskrywing
+  drag_behavior: Sleepgedrag
+  drag_behavior_options:
+    sort: Sorteer (herrangskik vensters terwyl jy sleep)
+    swap: Ruil (ruil vensters op sleepkant)
+  floating:
+    height: Swaaiende vensterhoogte
+    title: Swaai venstergrootte
+    width: Swaai vensterbreedte
+  layout: Uitleg
+  resize_delta: Verander die grootte delta (%)
+  space_between_containers: Ruimte tussen houers
+  stack_bar_visibility: Stapelbalksigbaarheid
+  stack_bar_visibility_options:
+    always: Altyd
+    as_needed: Soos nodig
+  workspace_offset: Werkruimtes offset (marges)
+  workspace_padding: Werkruimtes opvulling
+'yes': Ja

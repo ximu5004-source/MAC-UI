@@ -1,0 +1,26 @@
+.wallpaper-container {
+  display: none;
+  overflow: hidden;
+  will-change: transform, opacity;
+
+  &.rendering {
+    display: block;
+    animation: Enter 400ms ease-out forwards;
+  }
+
+  &.will-unrender {
+    /* this resets the animation, to allow running it again on the next wallpaper change */
+    animation: none;
+  }
+}
+
+@keyframes Enter {
+  0% {
+    transform: scale(1.08);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

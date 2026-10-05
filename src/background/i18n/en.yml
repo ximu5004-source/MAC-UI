@@ -1,0 +1,77 @@
+auth:
+  login_failed_body: >-
+    Something went wrong during login. If this persists, make sure the Windows
+    'Credential Manager' service (VaultSvc) is enabled and running, then try
+    again.
+  login_failed_title: Login failed
+cancel: Cancel
+done: Done
+elevated:
+  description: |-
+    MAC UI is running with administrator privileges.
+    This does not add or improve any features, and it may pose a security risk.
+    For better security, please restart it without administrator permissions.
+  title: Running as Administrator
+file_explorer: File Explorer
+resource:
+  added: A new resource has been added
+  download_failed_body: >-
+    Something went wrong while downloading the resource, please report it to the
+    Seelen developer team.
+  download_failed_title: Resource download failed
+  downloading: Downloading assets...
+  downloading_body: This might take a few seconds, please don't close the window.
+  enable: Enable
+  login_required_action: Sign In
+  login_required_body: You need to sign in to download this resource.
+  login_required_title: Sign in Required
+runtime:
+  corrupted_data: Corrupted data
+  corrupted_file: A configuration file is corrupted, using default values instead.
+  corrupted_file_path: Corrupted file path
+  download: Go to download page
+  files_integrity: >-
+    We couldn't verify the integrity of the application files.
+
+    This can happen if files were modified, corrupted, or the installation is
+    incomplete.
+
+    For security reasons, MAC UI cannot continue.
+
+    Please reinstall it from the official website.
+  files_integrity_title: Security Alert - Files Integrity Check Failed
+  not_found: WebView2 Runtime not found
+  not_found_description: MAC UI requires Webview2 Runtime. Please install it.
+  outdated: WebView2 Runtime outdated
+  outdated_description: >-
+    MAC UI requires Webview2 Runtime %{min_version} or higher. Please update
+    it.
+service:
+  not_running: MAC UI Service not running
+  not_running_description: >-
+    MAC UI Service (slu-service) is a dependency/helper for the app to work
+    properly.
+  not_running_ok: Start service
+shortcut:
+  conflicts:
+    body: Some shortcuts are assigned to multiple actions, please reassign them.
+    dismiss: Dismiss
+    review: Review
+    title: Shortcut Conflicts Detected
+  register:
+    placeholder: Press any key combination
+    title: Registering new shortcut
+widget_liveness:
+  failed_description: |-
+    The widget '%{widget_name}' stopped responding too many times.
+
+    You can try restarting the app.
+  failed_title: Widget Error
+widget_permissions:
+  perm_open_file: open files
+  perm_run: run programs
+  request_description: |-
+    The widget '%{widget_name}' is requesting permission to %{command}.
+
+    Do you want to allow this?
+  request_title: Widget Permission Request

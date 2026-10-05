@@ -1,0 +1,78 @@
+:root {
+  // Neutral material: color comes from the live scene, never the system accent.
+  --mac-glass-surface: rgb(255 255 255 / 0.1);
+  --mac-glass-blur: blur(18px) saturate(1);
+  --liquid-glass-surface: var(--mac-glass-surface);
+  --liquid-glass-border: transparent;
+  --liquid-glass-shadow: 0 4px 12px rgb(0 0 0 / 0.16);
+}
+
+.slu-icon-outer[data-appearance="liquid-glass"],
+.missing-icon[data-appearance="liquid-glass"] {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  border-radius: 24%;
+  background: var(--liquid-glass-surface);
+  box-shadow: none;
+  filter: none;
+  backdrop-filter: var(--mac-glass-blur);
+  transition:
+    transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    filter 180ms ease;
+}
+
+.slu-icon-outer[data-appearance="liquid-glass"]::before,
+.missing-icon[data-appearance="liquid-glass"]::before {
+  content: none;
+  position: absolute;
+  z-index: 0;
+  inset: 1px 10% 48%;
+  border-radius: 999px 999px 45% 45%;
+  background: none;
+  filter: blur(0.3px);
+  pointer-events: none;
+}
+
+.slu-icon-outer[data-appearance="liquid-glass"]::after,
+.missing-icon[data-appearance="liquid-glass"]::after {
+  content: none;
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  border-radius: inherit;
+  background: none;
+  pointer-events: none;
+}
+
+.slu-icon-outer[data-appearance="liquid-glass"] > img {
+  z-index: 1;
+  width: 72%;
+  height: 72%;
+  object-fit: contain;
+  filter: none;
+}
+
+.slu-icon-outer[data-appearance="liquid-glass"][data-shape="square"] > img {
+  width: 78%;
+  height: 78%;
+}
+
+.slu-icon-outer[data-appearance="liquid-glass"] > .slu-icon-mask {
+  z-index: 2;
+  inset: 14%;
+  width: auto;
+  height: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slu-icon-outer[data-appearance="liquid-glass"],
+  .missing-icon[data-appearance="liquid-glass"] {
+    transition: none;
+  }
+}

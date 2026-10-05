@@ -1,0 +1,24 @@
+app_settings: App Settings
+title: Control Center
+appearance: Appearance
+output_volume: Output volume
+input_volume: Input volume
+output_mute: Mute output
+input_mute: Mute microphone
+brightness: Brightness
+dark_mode: Dark Mode
+default_multimedia_volume: Default Multimedia Volume
+disabled: Disabled
+enabled: Enabled
+eye_care: Eye Care
+fm_radio: FM Radio
+hdr: High Dynamic Range
+hotspot: Hotspot
+light_mode: Light Mode
+mobile_broadband: Mobile Broadband
+night_light: Night Light
+power: Power
+unknown: Unknown
+open_details: Open {{name}} settings
+updating: Updating…
+action_failed: Could not change; retry

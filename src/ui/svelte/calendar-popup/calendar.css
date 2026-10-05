@@ -1,0 +1,176 @@
+/* The calendar opts into the same neutral material as the control panels.
+ * Root-qualified selectors also outrank the legacy theme injected afterwards. */
+html, body, #root {
+  background: transparent;
+}
+
+:is(#root, #app) .slu-std-popover.mac-panel.calendar-popup {
+  width: 320px;
+  border-radius: 28px;
+  padding: 12px;
+  gap: 12px;
+  color-scheme: light dark;
+  --mac-ink: light-dark(#202020, #f4f4f4);
+  --mac-secondary: light-dark(#3c3c3c, #ddd);
+  text-shadow: none;
+}
+
+:is(#root, #app) .calendar-popup .calendar {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  user-select: none;
+}
+
+:is(#root, #app) .calendar-popup .calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  margin-bottom: 8px;
+}
+
+:is(#root, #app) .calendar-popup :is(.calendar-date, .calendar-navigator, .calendar-cell, .calendar-month-cell) {
+  appearance: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--mac-ink);
+  box-shadow: none;
+  text-shadow: none;
+  filter: none;
+  cursor: pointer;
+  transition: background-color 140ms ease, color 140ms ease;
+}
+
+:is(#root, #app) .calendar-popup :is(.calendar-date, .calendar-navigator, .calendar-cell, .calendar-month-cell):hover {
+  background: var(--mac-hover);
+}
+
+:is(#root, #app) .calendar-popup :is(.calendar-date, .calendar-navigator, .calendar-cell, .calendar-month-cell):active {
+  background: var(--mac-selected);
+}
+
+:is(#root, #app) .calendar-popup :is(.calendar-date, .calendar-navigator, .calendar-cell, .calendar-month-cell):focus-visible {
+  outline: 2px solid var(--mac-accent);
+  outline-offset: -2px;
+}
+
+:is(#root, #app) .calendar-popup .calendar-date {
+  min-height: 36px;
+  padding: 4px 6px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 650;
+  text-align: start;
+}
+
+:is(#root, #app) .calendar-popup .calendar-actions {
+  display: flex;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+:is(#root, #app) .calendar-popup .calendar-navigator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  min-height: 32px;
+  padding: 6px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+:is(#root, #app) .calendar-popup .calendar-month-view,
+:is(#root, #app) .calendar-popup .calendar-days {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+:is(#root, #app) .calendar-popup :is(.calendar-weekdays, .calendar-week) {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 4px;
+}
+
+:is(#root, #app) .calendar-popup .calendar-weekdays {
+  margin-bottom: 4px;
+}
+
+:is(#root, #app) .calendar-popup .calendar-weekday {
+  padding: 4px 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--mac-secondary);
+  opacity: 1;
+  text-align: center;
+}
+
+:is(#root, #app) .calendar-popup .calendar-cell {
+  aspect-ratio: 1;
+  min-width: 0;
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+:is(#root, #app) .calendar-popup .calendar-cell.calendar-cell-off-month {
+  color: var(--mac-secondary);
+  opacity: .65;
+}
+
+:is(#root, #app) .calendar-popup .calendar-cell.calendar-cell-today {
+  color: var(--mac-accent);
+  font-weight: 700;
+}
+
+:is(#root, #app) .calendar-popup .calendar-cell.calendar-cell-selected,
+:is(#root, #app) .calendar-popup .calendar-cell.calendar-cell-selected:hover {
+  background: #086bdc;
+  color: white;
+  opacity: 1;
+  font-weight: 650;
+}
+
+:is(#root, #app) .calendar-popup .calendar-year-view {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  padding: 0;
+}
+
+:is(#root, #app) .calendar-popup .calendar-month-cell {
+  min-width: 0;
+  min-height: 48px;
+  padding: 8px 4px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+:is(#root, #app) .calendar-popup .calendar-month-cell.calendar-month-cell-current {
+  color: var(--mac-accent);
+  font-weight: 700;
+}
+
+@media (forced-colors: active) {
+  :is(#root, #app) .calendar-popup .calendar-cell.calendar-cell-selected {
+    background: Highlight;
+    color: HighlightText;
+    outline: 1px solid Highlight;
+  }
+  :is(#root, #app) .calendar-popup :is(.calendar-cell-today, .calendar-month-cell-current) {
+    color: LinkText;
+  }
+}

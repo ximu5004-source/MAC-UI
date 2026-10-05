@@ -1,0 +1,151 @@
+use std::sync::{
+    LazyLock,
+    atomic::{AtomicBool, Ordering},
+};
+
+use seelen_core::{
+    resource::WidgetId,
+    state::{WidgetLoader, WidgetStatus},
+};
+
+use crate::{
+    error::{Result, ResultLogExt},
+    modules::monitors::{MonitorManager, MonitorManagerEvent},
+    resources::RESOURCES,
+    state::application::FULL_STATE,
+    utils::lock_free::SyncHashMap,
+    widgets::{WidgetWebviewLabel, loader::WidgetDeployment},
+};
+
+pub static WIDGET_MANAGER: LazyLock<WidgetManager> = LazyLock::new(WidgetManager::create);
+pub static GAME_MODE_ACTIVE: AtomicBool = AtomicBool::new(false);
+static RECONCILE_RUNNING: AtomicBool = AtomicBool::new(false);
+static RECONCILE_REQUESTED: AtomicBool = AtomicBool::new(false);
+
+pub struct WidgetManager {
+    /// group of widgets instances by widget resource id
+    pub deployments: SyncHashMap<WidgetId, WidgetDeployment>,
+}
+
+impl WidgetManager {
+    fn create() -> Self {
+        let sub_id = MonitorManager::subscribe(|event| {
+            if matches!(event, MonitorManagerEvent::ViewsChanged) {
+                WIDGET_MANAGER.reconcile().log_error();
+            }
+        });
+        MonitorManager::set_event_handler_priority(&sub_id, 1);
+        Self {
+            deployments: SyncHashMap::new(),
+        }
+    }
+
+    pub fn is_ready(&self, label: &WidgetWebviewLabel) -> bool {
+        self.deployments
+            .get(&label.widget_id, |deploy| {
+                deploy.pods.any(|(key, pod)| key == label && pod.is_ready())
+            })
+            .unwrap_or(false)
+    }
+
+    pub fn report_status(
+        &self,
+        label: &WidgetWebviewLabel,
+        sender_hwnd: isize,
+        status: WidgetStatus,
+    ) -> bool {
+        self.deployments
+            .get(&label.widget_id, |deploy| {
+                deploy
+                    .pods
+                    .get(label, |instance| {
+                        instance.report_status(sender_hwnd, status)
+                    })
+                    .unwrap_or(false)
+            })
+            .unwrap_or(false)
+    }
+
+    pub fn suspend_all(&self) {
+        GAME_MODE_ACTIVE.store(true, Ordering::Release);
+        self.deployments.for_each(|(_, deploy)| {
+            deploy.pods.clear();
+        });
+    }
+
+    pub fn resume_all(&self) -> Result<()> {
+        GAME_MODE_ACTIVE.store(false, Ordering::Release);
+        self.reconcile()
+    }
+
+    pub fn reconcile(&self) -> Result<()> {
+        RECONCILE_REQUESTED.store(true, Ordering::Release);
+        if RECONCILE_RUNNING.swap(true, Ordering::AcqRel) {
+            return Ok(());
+        }
+        std::thread::spawn(|| {
+            loop {
+                RECONCILE_REQUESTED.store(false, Ordering::Release);
+                WIDGET_MANAGER.reconcile_once();
+                RECONCILE_RUNNING.store(false, Ordering::Release);
+                if !RECONCILE_REQUESTED.load(Ordering::Acquire)
+                    || RECONCILE_RUNNING.swap(true, Ordering::AcqRel)
+                {
+                    break;
+                }
+            }
+        });
+        Ok(())
+    }
+
+    fn reconcile_once(&self) {
+        // remove deleted resources
+        self.deployments
+            .retain(|(key, _)| RESOURCES.widgets.contains_sync(key));
+
+        let mut filtered = Vec::new();
+        RESOURCES.widgets.iter_sync(|k, w| {
+            if w.loader != WidgetLoader::Legacy {
+                filtered.push((k.clone(), w.clone()));
+            }
+            true
+        });
+
+        let state = FULL_STATE.load();
+        for (id, widget) in filtered {
+            if !state.is_widget_enabled(&id) {
+                self.deployments.remove(&id);
+                continue;
+            }
+
+            self.deployments
+                .get_or_insert(id, || WidgetDeployment::new(widget), |_| {});
+        }
+
+        // Each pod dispatches native creation outside these short-lived map locks.
+        {
+            fn reconcile(deployment: &WidgetDeployment) {
+                deployment.reconcile();
+                if !deployment.definition.lazy && !GAME_MODE_ACTIVE.load(Ordering::Acquire) {
+                    deployment.start_all_webviews();
+                }
+            }
+
+            // More visual widgets load first
+            for priority in [
+                WidgetId::known_wall(),
+                WidgetId::known_toolbar(),
+                WidgetId::known_weg(),
+            ] {
+                WIDGET_MANAGER.deployments.get(&priority, |deployment| {
+                    reconcile(deployment);
+                });
+            }
+
+            // All other widgets
+            WIDGET_MANAGER.deployments.for_each(|(_, deployment)| {
+                reconcile(deployment);
+            });
+        }
+    }
+}

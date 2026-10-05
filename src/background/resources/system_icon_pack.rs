@@ -1,0 +1,357 @@
+use std::{
+    path::{Path, PathBuf},
+    sync::LazyLock,
+};
+
+use seelen_core::chrono::{DateTime, Utc};
+use seelen_core::{
+    resource::{ResourceText, SluResource},
+    state::{
+        CustomIconPackEntry, Icon, IconPack, IconPackEntry, SharedIconPackEntry,
+        UniqueIconPackEntry,
+    },
+};
+
+use crate::{
+    error::{Result, ResultLogExt},
+    resources::{RESOURCES, ResourceManager},
+    utils::constants::SEELEN_COMMON,
+};
+
+static SAVE_SYSTEM_ICON_PACK: LazyLock<slu_utils::Throttle<()>> = LazyLock::new(|| {
+    slu_utils::throttle(
+        |()| {
+            let pack = RESOURCES.system_icon_pack.lock().clone();
+            if let Some(pack) = pack {
+                crate::get_tokio_handle().spawn(async move {
+                    pack.save().await.log_error();
+                });
+            }
+        },
+        std::time::Duration::from_secs(1),
+    )
+});
+
+impl ResourceManager {
+    fn with_system_pack<F, T>(&self, cb: F) -> T
+    where
+        F: FnOnce(&mut IconPack) -> T,
+    {
+        let mut guard = self.system_icon_pack.lock();
+        cb(guard
+            .as_mut()
+            .expect("System icon pack should always exist."))
+    }
+
+    fn request_save_system_icon_pack(&self) {
+        SAVE_SYSTEM_ICON_PACK.call(());
+    }
+
+    /// Ensures default icons exist in the system icon pack directory.
+    /// When `override_icons` is true, bundled icons always replace existing files
+    /// (used on app start so updated bundled assets aren't left stale); otherwise
+    /// files are only written if missing, to avoid redundant disk writes on the
+    /// frequent icon-pack-changed reloads.
+    fn sanitize_default_icons(sys_icons_path: &Path, override_icons: bool) -> Result<()> {
+        std::fs::create_dir_all(sys_icons_path)?;
+
+        let ensure_icon = |filename: &str| {
+            let icon_path = sys_icons_path.join(filename);
+            if override_icons || !icon_path.exists() {
+                std::fs::copy(
+                    SEELEN_COMMON
+                        .app_resource_dir()
+                        .join("static/icons")
+                        .join(filename),
+                    icon_path,
+                )?;
+            }
+            Result::Ok(())
+        };
+
+        ensure_icon("missing.png")?;
+        ensure_icon("url.png")?;
+        ensure_icon("folder.svg")?;
+        ensure_icon("desktop.svg")?;
+
+        ensure_icon("start_menu.svg")?;
+        ensure_icon("start_menu_dark.svg")?;
+        ensure_icon("start_menu_mask.svg")?;
+        ensure_icon("launchpad.svg")?;
+
+        ensure_icon("music_thumbnail.svg")?;
+        ensure_icon("music_thumbnail_mask.svg")?;
+
+        ensure_icon("trash_bin_empty.png")?;
+        ensure_icon("trash_bin_full.png")?;
+        ensure_icon("trash_bin_mask.png")?;
+        Ok(())
+    }
+
+    /// Ensures default icon entries exist in the icon pack
+    fn sanitize_default_entries(system_pack: &mut IconPack) {
+        // Ensure missing icon is set
+        system_pack.missing = Some(Icon {
+            base: Some("missing.png".to_owned()),
+            ..Default::default()
+        });
+
+        // add_entry will override if exists, or create if not
+        system_pack.add_entry(IconPackEntry::Shared(SharedIconPackEntry {
+            extension: "url".to_string(),
+            icon: Icon {
+                base: Some("url.png".to_owned()),
+                ..Default::default()
+            },
+        }));
+
+        system_pack.add_entry(IconPackEntry::Custom(CustomIconPackEntry {
+            key: "@seelen/weg::start-menu".to_owned(),
+            icon: Icon {
+                base: Some("launchpad.svg".to_owned()),
+                is_aproximately_square: true,
+                ..Default::default()
+            },
+        }));
+
+        system_pack.add_entry(IconPackEntry::Custom(CustomIconPackEntry {
+            key: "@seelen/weg::folder".to_owned(),
+            icon: Icon {
+                base: Some("folder.svg".to_owned()),
+                mask: Some("folder.svg".to_owned()),
+                ..Default::default()
+            },
+        }));
+
+        system_pack.add_entry(IconPackEntry::Custom(CustomIconPackEntry {
+            key: "@seelen/weg::show-desktop".to_owned(),
+            icon: Icon {
+                base: Some("desktop.svg".to_owned()),
+                is_aproximately_square: true,
+                ..Default::default()
+            },
+        }));
+
+        system_pack.add_entry(IconPackEntry::Custom(CustomIconPackEntry {
+            key: "defaultPlayerThumbnail".to_owned(),
+            icon: Icon {
+                base: Some("music_thumbnail.svg".to_owned()),
+                mask: Some("music_thumbnail_mask.svg".to_owned()),
+                is_aproximately_square: true,
+                ..Default::default()
+            },
+        }));
+
+        system_pack.add_entry(IconPackEntry::Custom(CustomIconPackEntry {
+            key: "bin::empty".to_owned(),
+            icon: Icon {
+                base: Some("trash_bin_empty.png".to_owned()),
+                mask: Some("trash_bin_mask.png".to_owned()),
+                ..Default::default()
+            },
+        }));
+
+        system_pack.add_entry(IconPackEntry::Custom(CustomIconPackEntry {
+            key: "bin::full".to_owned(),
+            icon: Icon {
+                base: Some("trash_bin_full.png".to_owned()),
+                mask: Some("trash_bin_mask.png".to_owned()),
+                ..Default::default()
+            },
+        }));
+    }
+
+    pub fn ensure_system_icon_pack(&self, override_icons: bool) -> Result<()> {
+        let mut guard = self.system_icon_pack.lock();
+        let sys_icons_path = SEELEN_COMMON.system_icon_pack_path();
+
+        // Create new pack if it doesn't exist
+        if guard.is_none() {
+            let mut system_pack = IconPack {
+                id: "@system/icon-pack".into(),
+                ..Default::default()
+            };
+            system_pack.metadata.display_name = ResourceText::En("System".to_string());
+            system_pack.metadata.description =
+                ResourceText::En("Icons from Windows and Program Files".to_string());
+            system_pack.metadata.internal.path = sys_icons_path.to_path_buf();
+
+            *guard = Some(system_pack);
+        }
+
+        // Always sanitize default icon entries and files
+        let system_pack = guard.as_mut().expect("System icon pack should exist");
+        Self::sanitize_default_entries(system_pack);
+        Self::sanitize_default_icons(sys_icons_path, override_icons)?;
+
+        self.request_save_system_icon_pack();
+        Ok(())
+    }
+
+    pub fn add_system_app_icon(&self, umid: Option<&str>, path: Option<&Path>, icon: Icon) {
+        if umid.is_none() && path.is_none() {
+            return;
+        }
+
+        // Strip any `path,index` suffix before stat-ing the file so mtime is always valid.
+        let source_mtime = path.map(strip_icon_index).as_deref().and_then(last_edit_at);
+        self.with_system_pack(|system_pack| {
+            system_pack.add_entry(IconPackEntry::Unique(UniqueIconPackEntry {
+                umid: umid.map(|s| s.to_string()),
+                path: path.map(|p| p.to_path_buf()),
+                redirect: None,
+                icon: Some(icon),
+                source_mtime,
+            }));
+        });
+        self.request_save_system_icon_pack();
+        self.emit_icon_packs();
+    }
+
+    pub fn add_system_icon_redirect(&self, umid: Option<String>, origin: &Path, redirect: &Path) {
+        let source_mtime = last_edit_at(origin);
+        self.with_system_pack(|system_pack| {
+            system_pack.add_entry(IconPackEntry::Unique(UniqueIconPackEntry {
+                umid,
+                path: Some(origin.to_path_buf()),
+                redirect: Some(redirect.to_path_buf()),
+                icon: None,
+                source_mtime,
+            }));
+        });
+        self.request_save_system_icon_pack();
+        self.emit_icon_packs();
+    }
+
+    pub fn add_system_file_icon(&self, origin_extension: &str, icon: Icon) {
+        self.with_system_pack(|system_pack| {
+            system_pack.add_entry(IconPackEntry::Shared(SharedIconPackEntry {
+                extension: origin_extension.to_string(),
+                icon,
+            }));
+        });
+        self.request_save_system_icon_pack();
+        self.emit_icon_packs();
+    }
+
+    fn icon_exists(icon: &Icon) -> bool {
+        let root_path = SEELEN_COMMON.system_icon_pack_path();
+        icon.base
+            .as_ref()
+            .is_some_and(|sub| root_path.join(sub).exists())
+            || (icon
+                .light
+                .as_ref()
+                .is_some_and(|sub| root_path.join(sub).exists())
+                && icon
+                    .dark
+                    .as_ref()
+                    .is_some_and(|sub| root_path.join(sub).exists()))
+    }
+
+    /// Internal recursive function that checks for app icon without acquiring locks
+    fn _has_app_icon(system_pack: &IconPack, umid: Option<&str>, path: Option<&Path>) -> bool {
+        let lower_path = path.map(|p| p.to_string_lossy().to_lowercase());
+
+        for entry in &system_pack.entries {
+            let IconPackEntry::Unique(entry) = entry else {
+                continue;
+            };
+
+            let mut found = None;
+            if let (Some(entry_umid), Some(umid)) = (&entry.umid, umid)
+                && entry_umid == umid
+            {
+                found = Some(entry);
+            }
+
+            if found.is_none()
+                && lower_path.is_some()
+                && entry
+                    .path
+                    .as_ref()
+                    .map(|p| p.to_string_lossy().to_lowercase())
+                    == lower_path
+            {
+                found = Some(entry);
+            }
+
+            if let Some(entry) = found {
+                // Check if the entry's own source file was modified since the icon was cached.
+                // We always compare against entry.path (not the caller-provided path) because an
+                // entry can be found by UMID even when its stored path differs from the provided
+                // path (e.g. the exe entry is found by UMID but the caller passes the lnk path).
+                //
+                // Use `continue` instead of `return false` so that a stale entry (e.g. a
+                // leftover from a previous app version whose path has since changed) does not
+                // short-circuit the search and prevent a later, valid entry for the same UMID
+                // from being found.
+                let entry_current_mtime = entry
+                    .path
+                    .as_deref()
+                    .map(strip_icon_index)
+                    .as_deref()
+                    .and_then(last_edit_at);
+                if let (Some(cached), Some(current)) = (entry.source_mtime, entry_current_mtime)
+                    && cached != current
+                {
+                    continue;
+                }
+
+                if let Some(redirect) = &entry.redirect {
+                    return Self::_has_app_icon(system_pack, None, Some(redirect))
+                        || Self::_has_shared_file_icon(system_pack, redirect);
+                }
+
+                if let Some(icon) = &entry.icon
+                    && Self::icon_exists(icon)
+                {
+                    return true;
+                }
+            };
+        }
+
+        false
+    }
+
+    fn _has_shared_file_icon(system_pack: &IconPack, path: &Path) -> bool {
+        let Some(ext) = path.extension() else {
+            return false;
+        };
+        let extension = ext.to_string_lossy().to_lowercase();
+        system_pack.entries.iter().any(|e| match e {
+            IconPackEntry::Shared(s) => {
+                s.extension.to_lowercase() == extension && Self::icon_exists(&s.icon)
+            }
+            _ => false,
+        })
+    }
+
+    /// Get icon pack by app user model id, filename or path
+    pub fn has_app_icon(&self, umid: Option<&str>, path: Option<&Path>) -> bool {
+        self.with_system_pack(|system_pack| Self::_has_app_icon(system_pack, umid, path))
+    }
+
+    pub fn has_shared_file_icon(&self, path: &Path) -> bool {
+        self.with_system_pack(|system_pack| Self::_has_shared_file_icon(system_pack, path))
+    }
+}
+
+fn last_edit_at(path: &Path) -> Option<DateTime<Utc>> {
+    let meta = std::fs::metadata(path).ok()?;
+    let date = meta.modified().ok()?;
+    Some(date.into())
+}
+
+/// Strips the Windows `path,index` icon notation suffix if present, returning the real file path.
+/// For example `"C:\foo\bar.ico,0"` → `PathBuf("C:\foo\bar.ico")`.
+/// Paths without a `,<integer>` suffix are returned as-is.
+fn strip_icon_index(path: &Path) -> std::borrow::Cow<'_, Path> {
+    if let Some(s) = path.to_str()
+        && let Some(comma) = s.rfind(',')
+        && s[comma + 1..].trim().parse::<i32>().is_ok()
+    {
+        return std::borrow::Cow::Owned(PathBuf::from(&s[..comma]));
+    }
+    std::borrow::Cow::Borrowed(path)
+}

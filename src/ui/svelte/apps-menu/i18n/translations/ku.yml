@@ -1,0 +1,22 @@
+all: Hemû Apps
+app_settings: Settings App
+applications: Applications
+back: Paş
+disband: Peldanka hilweşînin
+edit_icon: Biguherîne Icon
+folder: Peldank
+no_matching_items: Tiştek li gorî lêgerîna we nehat dîtin
+open_file_location: Cihê Pelê vekin
+pin: Derzî
+pin_to_dock: Pin to Dock
+power_menu: Menu Power
+query:
+  all: Gişt
+  apps: Apps
+  files: Pelên
+  web: Tevn
+run_as_admin: Wekî Rêveber bimeşîne
+unpin: Rakin
+web_search: Enter bikirtînin da ku li tevneyê bigerin
+welcome_message: Hûn bi xêr hatin menuya sepana Seelen UI.
+welcome_message2: Li ser vê tabê, hûn dikarin sepanên xweyên bijare pîne bikin.

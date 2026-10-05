@@ -1,0 +1,69 @@
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  font-family: "Segoe UI Variable", "Segoe UI", "Microsoft YaHei UI", sans-serif;
+  color: var(--mac-text);
+  font-size: 13px;
+}
+#root {
+  width: 100%;
+  height: 100%;
+}
+* {
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: light-dark(#a5afbb, #626c7c) transparent;
+}
+:focus-visible {
+  outline: 2px solid light-dark(#0869da, #6bb0ff);
+  outline-offset: 3px;
+}
+button,
+a,
+input,
+select {
+  -webkit-app-region: no-drag;
+}
+b {
+  font-weight: 600;
+}
+hr {
+  border-color: var(--mac-divider);
+  margin: 8px 0;
+}
+.ant-modal-body {
+  max-height: 65vh;
+  overflow-y: auto;
+}
+.ant-modal-content,
+.ant-popover-inner,
+.ant-dropdown-menu {
+  border: 1px solid var(--mac-divider);
+}
+.ant-modal-content {
+  border-radius: 20px;
+}
+.ant-tabs-nav {
+  padding: 0 8px;
+}
+.ant-color-picker-trigger {
+  min-width: 90px;
+}
+.ant-tooltip:has(.ant-tooltip-inner:empty) {
+  display: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@media (prefers-contrast: more) {
+  :root {
+    --mac-divider: light-dark(#707b8b, #8996ac);
+  }
+}

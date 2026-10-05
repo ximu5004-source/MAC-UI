@@ -1,0 +1,22 @@
+id: "@seelen/user-menu"
+icon: PiFolderUser
+metadata:
+  displayName: !extend i18n/display_name.yml
+  description: !extend i18n/description.yml
+instances: Single
+loader: Internal
+preset: Popup
+hidden: true
+lazy: true
+settings:
+  - type: select
+    key: displayNameSource
+    label: !extend i18n/settings/display-name-source.yml
+    options:
+      - label: !extend i18n/settings/display-name-source-profile-name.yml
+        value: profileName
+      - label: !extend i18n/settings/display-name-source-xbox-gamertag.yml
+        value: xboxGamertag
+    defaultValue: profileName
+plugins:
+  - !extend ./toolbar-plugin.yml

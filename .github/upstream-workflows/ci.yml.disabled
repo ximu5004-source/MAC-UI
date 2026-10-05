@@ -1,0 +1,53 @@
+name: Continuous Integration
+
+on:
+  pull_request:
+    branches:
+      - master
+  workflow_call:
+
+jobs:
+  js-test-and-linter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+        with:
+          rust-components: rustfmt
+
+      - run: npm install
+      - run: deno fmt --check
+      - run: deno lint
+      - run: npm run type-check
+      - run: npm run test
+
+  rust-linter:
+    runs-on: windows-2025
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+        with:
+          node: false
+          deno: false
+
+      - name: Format
+        run: |-
+          rustup component add rustfmt
+          cargo fmt -- --check
+
+      - name: Linter
+        run: |-
+          rustup component add clippy
+          cargo clippy --locked --all-targets -- -D warnings
+
+  rust-test:
+    runs-on: windows-2025
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+        with:
+          node: false
+          deno: false
+          cache-key-prefix: rust-test
+
+      - run: cargo test --locked --verbose

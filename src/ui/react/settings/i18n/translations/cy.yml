@@ -1,0 +1,470 @@
+action:
+  confirm: Ydych chi'n sicr?
+  confirm_body: Ni ellir dadwneud y weithred hon.
+apps_configurations:
+  app:
+    bindings: Rhwymo (nodwch fod angen y ddau opsiwn)
+    category: Categori
+    category_placeholder: Neb
+    monitor: Monitrest
+    monitor_placeholder: Neb
+    name: Alwai
+    ok_create: Chrëid
+    ok_edit: Diweddara ’
+    ok_readonly: Golygu fel NEWYDD
+    options:
+      NoInteractive: Dim Rhyngweithiol
+      VdPinned: Dangoswch ym mhob man gwaith
+      WmFloat: Twm - Dechrau arnofio
+      WmForce: Twm - Rheolwr yr Heddlu
+      WmUnmanage: Twm - Unmanage
+    options_label: Opsiynau ychwanegol
+    title_create: Creu {{enw}}
+    title_edit: Golygu {{enw}}
+    title_readonly: Gweld {{enw}}
+    weg_options_label: Opsiynau doc/bar tasgau
+    wm_options_label: Opsiynau Rheolwr Ffenestr
+    workspace: Gweithle
+    workspace_placeholder: Neb
+  bundled_msg: >-
+    Nid oes modd golygu'r cyfluniadau bwndelu hyn ac fe'u cynlluniwyd i roi'r
+    profiad gorau i chi heb addasu. Maent yn ffurfweddu'r cymwysiadau mwyaf
+    cyffredin ar eich cyfer yn awtomatig.
+  bundled_title: App Config wedi'i bwndelu â Seelen
+  confirm_delete: Ydych chi'n siŵr eich bod chi am ddileu'r cyfluniad/au hwn?
+  confirm_delete_title: Cadarnhau Dileu
+  delete: Croeswn
+  export: Allforiff
+  export_full: Gosodiadau Allforio yn ôl Cais
+  extra_info: >-
+    Mae Seelen UI yn defnyddio dim ond un dynodwr i bob app (y gêm gyntaf a
+    ddarganfuwyd) felly mae'r gorchymyn yn sut yn cael ei nodi yn bwysig, bydd
+    yr ychwanegiad diweddaraf yn cael ei flaenoriaethu, fel nodyn mae'r tabl yn
+    cael ei ddidoli yn ddiofyn o'r diweddaraf i'r hen.
+  identifier:
+    add_block: Ychwanegu bloc
+    and: A
+    id: Dynodwr
+    kind: Adnabod gan
+    matching_strategy: Strategaeth gyfatebol
+    matching_strategy_option:
+      contains: Yn cynnwys
+      ends_with: Yn gorffen gyda
+      equals: Yn gyfartal
+      regex: Mynegiant rheolaidd
+      starts_with: Yn dechrau gyda
+    negation: Negate paru
+    or: Neu
+    remove: Dileu bloc
+    type:
+      class: Dosbarth
+      exe: Exe
+      path: Llwybr
+      title: Teitl
+  import: Mewnforied
+  import_full: Gosodiadau mewnforio yn ôl cais
+  new: Newydd
+  search: Chwiloon
+  swap: Trwciff
+cancel: Chansliff
+close: Chaewch
+delete: Croeswn
+devtools:
+  app_folders: Ffolderau app
+  color_palette: Palet Lliw
+  color_palette_note: >-
+    Mae'r lliwiau hyn yn addasu'n awtomatig i'r modd golau/tywyll - mae pob
+    arlliw yn gyferbyniol i'r cefndir presennol, nid gwerth sefydlog.
+    Defnyddiwch nhw yn lle lliwiau cod caled i gael cefnogaeth thema awtomatig.
+  custom_config_file: Llwythwch ffeil ffurfweddu arfer
+  data_folder: Ffolder data
+  enable: Galluogi Offer Datblygwr
+  enable_description: >-
+    Yn datgloi offer datblygedig ar gyfer archwilio a dadfygio mewnolwyr Seelen
+    UI. Heb ei fwriadu ar gyfer defnydd rheolaidd.
+  icons: Eiconau Cached
+  install_folder: Ffolder gosod
+  load: Lwythet
+  settings_file: Ffeil Gosodiadau
+  shared_components: Cydrannau Safonol SLU
+  simulate_dialog:
+    label: Efelychu Dialog
+    trigger: Sbardun
+  simulate_perm:
+    label: Efelychu Cais Caniatâd Widget
+    result_allowed: ✓ Rhoddwyd caniatâd
+    result_denied: ✗ Gwrthodwyd caniatâd
+    trigger: Efelychu
+    widget_id_placeholder: '@author/widget-name'
+  tools: Offer
+  unlock_shortcuts: Datgloi Llwybrau Byr Darllen yn Unig
+  unlock_shortcuts_description: >-
+    Caniatáu golygu llwybrau byr sydd fel arfer yn ddarllenadwy yn unig (e.e.
+    diystyru system).
+  unstable_optimizations: Optimizations Ansefydlog
+  unstable_optimizations_description: >-
+    Galluogi fflagiau Chromium arbrofol sy'n lleihau'r defnydd o RAM.
+
+    Rhybudd: os bydd teclyn yn chwalu, bydd pob teclyn sy'n rhannu'r un llwythwr
+    yn chwalu gyda'i gilydd.
+  widgets_debug:
+    actions: Gweithredoedd
+    empty: Dim teclynnau wedi'u llwytho. Cliciwch ar Adnewyddu.
+    instance_id: ID Enghreifftiol
+    monitor_id: Monitro ID
+    open_devtools: DevTools
+    refresh: Adnewyddu
+    status: Statws
+    tab: Teclynnau
+    widget_id: ID teclyn
+discord_banner:
+  message: >-
+    Cysylltwch â defnyddwyr Seelen UI eraill, cael help, rhannu themâu, a chael
+    y newyddion diweddaraf.
+  title: Ymunwch â'n Cymuned
+extras:
+  backup_group: Cloud Backup
+  backup_last_sync: Cysoni diwethaf
+  backup_never_synced: Erioed wedi synced
+  backup_sync: Cysoni gosodiadau i'r cwmwl
+  backup_sync_description: Gwneud copi wrth gefn yn awtomatig ac adfer eich gosodiadau trwy'r cwmwl.
+  clear_icons: Storfa eiconau system glir
+  clear_icons_tooltip: Gellid bod yn ofynnol i ailgychwyn ddod i rym yn llawn ar bob teclyn
+  discord_rpc: Presenoldeb cyfoethog anghytgord
+  discord_rpc_description: Dangoswch i bawb fod gennych chi steil!
+  exit: Rhoi'r gorau iddi/allanfa
+  relaunch: Hail -deirion
+  streaming_mode: Modd Ffrydio
+  streaming_mode_description: >-
+    Yn disodli gwybodaeth sensitif (e.e. e-byst) gyda dalfannau i ddiogelu
+    preifatrwydd yn ystod recordiadau neu sgrinluniau.
+  version: Fersiwn
+  version_fixed: >-
+    Mae'r cymhwysiad a fersiynau WebView2 Runtime yn sefydlog. Mae hyn yn golygu
+    na fydd y rhaglen yn derbyn diweddariadau ac ni fydd WebView2 Runtime yn
+    cael ei ddiweddaru'n awtomatig gyda diweddariadau Windows.
+general:
+  accent_color: Lliw acen
+  date_format: Fformat dyddiad
+  date_format_how_to: Sut i ysgrifennu fformat dyddiad?
+  hardware_acceleration: Cyflymiad Caledwedd
+  hardware_acceleration_description: >-
+    Bydd analluogi cyflymiad caledwedd yn lleihau'r defnydd o gof. Mae'n ddiogel
+    analluogi os nad ydych chi'n defnyddio animeiddiadau trwm, er y gall
+    teclynnau unigol orfodi defnydd GPU o hyd waeth beth fo'r gosodiad hwn.
+  icon_pack:
+    available: Pecynnau Eicon Ar Gael
+    selected: Pecynnau Eicon Actif
+  language: Iaith
+  monday: Dydd Llun
+  performance_mode:
+    label: Optimeiddiadau
+    on_battery: Ar fatri
+    on_energy_saver: Ar arbed ynni
+    options:
+      disabled: Anabl
+      extreme: Eithafol
+      minimal: Lleiaf posibl
+    plugged: Plygio neu wefru
+  polling_interval: Cyfwng pleidleisio system
+  polling_interval_description: >-
+    Pa mor aml (mewn eiliadau) mae Seelen UI yn gwirio adnoddau system fel CPU,
+    RAM, rhwydwaith, a gweithgaredd disg. Mae nifer llai yn golygu diweddariadau
+    amlach, ond defnydd adnoddau ychydig yn uwch.
+  saturday: dydd Sadwrn
+  start_of_week: Dechrau'r Wythnos
+  startup: Rhedeg ar gychwyn?
+  sunday: Sul
+  suspend_on_game_mode: Atal teclynnau ar Modd Gêm
+  suspend_on_game_mode_description: >-
+    Pan fydd Windows Game Mode yn weithredol, mae holl weviews teclyn yn cael eu
+    dinistrio i CPU rhad ac am ddim a chof ar gyfer y gêm. Mae teclynnau'n cael
+    eu hadfer yn awtomatig pan ddaw Modd Gêm i ben.
+  theme:
+    available: Themâu sydd ar Gael
+    selected: Themâu Gweithredol
+global: Byd-eang
+header:
+  labels:
+    config: Cyfluniadau
+    developer: Ar gyfer datblygwyr
+    extras: Hetiau
+    general: Gyffredinol
+    home: Nghartrefi
+    iconpack: Pecynnau eicon
+    monitors: Monitorau
+    plugin: Ategion
+    resources: Adnoddau
+    session: Cyfrif
+    shortcuts: Llwybrau byr
+    soundpack: Pecynnau sain
+    specific_apps: Gosodiadau yn ôl cais
+    theme: Themâu
+    virtual_desk: Penbyrddau Rhithwir
+    wallpaper: Papurau Wal
+    widget: Widgets
+home:
+  new_resources: Adnoddau Newydd
+inherit: Hetifedd
+inProgress: Ar y gweill...
+insert: Mewnosodem
+join_us: Ymunwch â ni!
+loading: Llwytho ...
+miscellaneous: Hamddenol
+monitors_configurations:
+  label: Monitro {{mynegai}}
+more: Mwy
+'no': Na
+open: Ymagorant
+quit: Gadawen
+remove: Godon
+reset_all_to_default: Ailosod popeth i werthoedd diofyn
+reset_configurations: Ailosod ffurfweddau
+reset_to_default: Ailosod i werth diofyn
+resources:
+  affected_widgets: Widgets yr Effeithir arnynt
+  app_outdated: >-
+    Mae'r adnodd hwn yn gofyn am fersiwn mwy newydd o Seelen UI i weithio'n
+    iawn.
+  coming_soon: Yn Dod yn Fuan
+  corrupted_wallpaper: Wedi methu echdynnu mân-lun - fformat fideo llygredig neu heb ei gefnogi
+  delete: Dileu Adnodd
+  discover: Darganfyddwch fwy o adnoddau
+  has_update: Mae diweddariad ar gael
+  high_impact: Effaith uchel ar berfformiad
+  import_wallpapers: Mewnforio papurau wal lleol
+  included_plugins: Ategion yn gynwysedig
+  modified: Addaswyd
+  open_folder: Ffolder Adnoddau Agored
+  outdated: >-
+    Dyluniwyd yr adnodd hwn ar gyfer fersiwn hŷn o Seelen UI ac efallai na
+    fyddai'n gweithio'n iawn.
+  see_on_website: Gweler ar y wefan
+  update_now: Diweddariad
+  updates_available: Diweddariadau ar Gael
+  updates_available_description: Mae diweddariadau ar gael yn yr adnoddau canlynol.
+review_request:
+  not_now: Ddim nawr
+  sure: Cadarn!
+  title: Yn mwynhau Seelen UI?
+save: Hiachasit
+save_and_restart: Cadw ac Ailgychwyn
+search: Chwiliwch
+see_more: Gweld mwy
+session:
+  logout: Arwyddo Allan
+  plan: Cynllun
+  sign_in: Mewngofnodwch
+  sign_in_hint: Bydd eich porwr yn agor er mwyn i chi allu mewngofnodi'n ddiogel.
+  upgrade_to: Uwchraddio i
+shortcuts:
+  disabled_tooltip: Mae'r teclyn a'i lwybrau byr wedi'u hanalluogi
+  duplicate_error: Wedi canfod llwybrau byr gwrthgyferbyniol
+  duplicate_error_hint: >-
+    Mae rhai llwybrau byr yn cael eu neilltuo i gamau gweithredu lluosog.
+    Analluoga un o'r teclynnau sy'n gwrthdaro neu ailbennu'r rhwymiad allwedd
+    dyblyg i'w ddatrys.
+  enable: Galluogi system llwybrau byr adeiledig
+  enable_tooltip: >-
+    Analluoga os byddwch chi'n gweithredu'ch system llwybrau byr eich hun gan
+    ddefnyddio cleient Seelen UI
+  labels:
+    create_new_workspace: Creu man gwaith newydd
+    create_new_workspace_row: Creu Rhes Gweithle Newydd
+    destroy_current_workspace: Dinistrio man gwaith cyfredol
+    misc_force_quit: Rhoi'r gorau iddi
+    misc_force_restart: Ailgychwyn grym
+    move_to_workspace: Symud i Workpace {{0}}
+    pause_toggle: Saib/Ail-ddechrau Llwybrau Byr
+    send_to_next_workspace: Anfon Ffenestr i Next Workspace
+    send_to_previous_workspace: Anfon Ffenestr i Weithfan Blaenorol
+    send_to_workspace: Anfonwch i Workpace {{0}}
+    send_to_workspace_down: Anfon Ffenestr i Weithfan Isod
+    send_to_workspace_up: Anfon Ffenestr i Weithfan Uchod
+    switch_to_next_workspace: Newid i ofod gwaith nesaf
+    switch_to_previous_workspace: Newid i Workpace Blaenorol
+    switch_to_workspace_down: Newid i Weithfan Isod
+    switch_to_workspace_up: Newid i Weithfan Uchod
+    switch_workspace: Newid i Workpace {{0}}
+  readonly_tooltip: Llwybr byr darllen yn unig yw hwn
+  reset: Ailosod i ddiffygion
+sides:
+  bottom: Waelod
+  left: Chwith
+  right: Dde
+  top: Brigant
+toolbar:
+  auto_hide: Cuddio awto
+  auto_hide_touch_disabled: Nid yw cuddfan ceir ar gael ar ddyfeisiau sgrin gyffwrdd
+  delay_to_hide: Oedi i guddio
+  delay_to_show: Oedi i ddangos
+  dock_side: Safle
+  enable: Galluogi bar offer ffansi
+  hide_mode:
+    always: Bob amser
+    never: Byth
+    on_overlap: Ar gorgyffwrdd
+  item_size: Maint yr Eitem
+  label: Bariau
+  margin: Maint Ymyl
+  padding: Maint Padin
+  placeholder: {}
+update:
+  available: Diweddariad ar gael!
+  channel: Diweddaru Sianel
+  downloading: Lawrlwytho ...
+wall:
+  blur: Aneglur
+  cancel: Canslo
+  close: Cau
+  collection_name: Enw Casgliad
+  collections: Casgliadau
+  contrast: Gyferbynnwch
+  corrupted_wallpapers_message: 'Papurau wal llygredig, ystyriwch ddileu''r rhain:'
+  coverage_pause_threshold: Trothwy seibio (gorchudd ffenestr)
+  create: Creu
+  create_collection: Creu Casgliad
+  default_collection: Papur wal neu gasgliad diofyn
+  default_collection_description: >-
+    Wedi'i gymhwyso i bob monitor a man gwaith nad oes ganddynt set gwrthwneud
+    penodol.
+  delete_collection: Dileu Casgliad
+  edit_collection: Casgliad Golygu
+  extend: Ymestyn cynradd
+  fit:
+    contain: Gynhwysaf
+    cover: Orchuddia ’
+    fill: Lanwem
+  flipHorizontal: Fflip llorweddol
+  flipVertical: Fflip fertigol
+  generating_thumbnails: Cynhyrchu Mân-luniau Papur Wal
+  hours: oriau
+  interval: Newid papur wal bob
+  minutes: munudau
+  monitor_collection: Casgliad Monitro
+  multimonitor_behaviour: Ymddygiad Amlfonitro
+  muted: Tewi sain fideo
+  no_background: Sioe sleidiau gwag, gan ddefnyddio cefndir thema yn lle.
+  no_collections: Dim casgliadau wedi eu creu eto. Cliciwch ar y botwm + i greu un.
+  objectFit: Ffit Cefndir
+  objectPosition: Safle cefndir
+  overlayColor: Lliw Troshaen
+  overlayMixBlendMode: Modd cyfuniad cymysgedd troshaen
+  per_monitor: Fesul monitor
+  per_monitor_config: Cyfluniad Per-Monitor
+  playback: Cyflymder chwarae
+  position:
+    bottom: Waelod
+    center: Nghanolfan
+    left: Gadawaf
+    right: Dde
+    top: Brigant
+  processing_video: Prosesu fideo
+  random: Sioe sleidiau ar hap
+  saturation: Dirlawnder
+  seconds: eiliadau
+  select_collection: Dewiswch Casgliad
+  thumbnail_generation_complete: Cynhyrchu Mân-luniau Wedi'i Gyflawni
+  thumbnail_generation_finished: Mae cynhyrchu mân-luniau wedi gorffen yn llwyddiannus
+  use_accent_color: Defnyddiwch liw acen papur wal
+  wallpaper_collection: Casgliad Papur Wal
+  wallpaper_settings: Gosodiadau Papur Wal
+  wallpapers: Papur wal
+  wallpapers_and_collections: Papur Wal a Chasgliadau
+  withOverlay: Gyda throshaen
+  workspace_collections: Casgliadau Gweithle
+weg:
+  auto_hide: Cuddio awto
+  auto_hide_touch_disabled: Nid yw cuddfan ceir ar gael ar ddyfeisiau sgrin gyffwrdd
+  delay_to_hide: Oedi i guddio
+  delay_to_show: Oedi i ddangos
+  dock_side: Safle
+  filtering: Hidlo Eitem
+  gap: Bwlch
+  hide_mode:
+    always: Bob amser
+    never: Byth
+    on_overlap: Ar gorgyffwrdd
+  import_error: Wedi methu mewnforio eitemau bar tasgau
+  import_from_taskbar:
+    button: Mewnforio o Windows Taskbar
+    label: Mewnforio Eitemau wedi'u Pinio
+  import_no_items: Ni chanfuwyd unrhyw eitemau wedi'u pinio ym mar tasgau Windows
+  import_success: Wedi mewngludo {{count}} eitem(au) o far tasgau Windows yn llwyddiannus
+  items:
+    gap: Lle rhwng eitemau
+    label: Eitemau
+    middle_click_action:
+      close_app: Cau Ap
+      label: Gweithred Clic Canol
+      open_new_instance: Agor Enghraifft Newydd
+    pinned_visibility:
+      always: Bob amser
+      label: Eitemau wedi'u Pinio Gwelededd
+      when_primary: Pan fydd y monitor yn gynradd
+    show_instance_counter: Dangos cownter ffenestri agored
+    show_window_title: Dangos teitl ffenestr agored (dim ond llorweddol)
+    size: Maint eitem
+    split_windows: Hollti Windows (un eitem fesul ffenestr)
+    temporal_visibility:
+      all: Pawb
+      label: Eitemau heb eu Pinio Gwelededd
+      on_monitor: Ar Fonitor
+  label: Doc/bar tasgau
+  margin: Ngherlong
+  mode:
+    full_width: Lled sgrin lawn
+    min_content: Bach ag y gall fod
+  padding: Padin
+  show_end_task: Dangos tasg diwedd yn y bar tasgau
+  width: Lled
+welcome:
+  give_a_review: Rhowch Adolygiad
+  message: >-
+    Mae Seelen UI yn amgylchedd bwrdd gwaith ffynhonnell agored am ddim ar gyfer
+    Windows. Yma mae gennych reolaeth lawn dros sut mae'ch bwrdd gwaith yn
+    edrych ac yn ymddwyn, sy'n eich galluogi i addasu pob manylyn i gyd-fynd
+    â'ch llif gwaith a'ch steil.
+  ok: Gadewch i ni ddechrau!
+  review: >-
+    Os ydych chi'n mwynhau defnyddio Seelen UI, ystyriwch adael adolygiad ar y
+    siop - mae eich adborth yn helpu'r prosiect i dyfu a gwella.
+  title: Croeso i UI Seelen!
+widget:
+  default_instance: Enghraifft ddiofyn
+  default_instance_hint: Bob amser yn weithredol, yn defnyddio'r config widget gwraidd
+  enable: Galluogi'r teclyn hwn
+  enable_for_monitor: Galluogi ar y monitor hwn
+  extra_instances: Enghreifftiau Ychwanegol
+  instance: Er enghraifft
+  instances: Achosion
+wm:
+  animations:
+    duration: Hyd animeiddio (MS)
+    ease_function: Swyddogaeth lleddfu animeiddiad
+    enable: Galluogi animeiddiadau ffenestr
+  author: Awduron
+  auto_stack: Pentwr awtomatig yn ôl categori ap
+  border:
+    enable: Galluogi ffin ffenestr
+    offset: Gwrthbwyso ar y ffin
+    width: Lled
+  description: Disgrifiadau
+  drag_behavior: Ymddygiad Llusgo
+  drag_behavior_options:
+    sort: Trefnu (ail-archebu ffenestri wrth lusgo)
+    swap: Cyfnewid (cyfnewid ffenestri ar y pen llusgo)
+  floating:
+    height: Uchder Windows fel y bo'r angen
+    title: Maint Windows fel y bo'r angen
+    width: Lled Windows fel y bo'r angen
+  layout: Gynllun
+  resize_delta: Newid maint Delta (%)
+  space_between_containers: Lle rhwng cynwysyddion
+  stack_bar_visibility: Gwelededd Stack Bar
+  stack_bar_visibility_options:
+    always: Bob amser
+    as_needed: Yn ôl yr angen
+  workspace_offset: Gwrthbwyso lleoedd gwaith (ymylon)
+  workspace_padding: Padin lleoedd gwaith
+'yes': Ie

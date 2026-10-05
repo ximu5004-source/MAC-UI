@@ -1,0 +1,82 @@
+auth:
+  login_failed_body: >-
+    Beim Login ass eppes falsch gaangen. Wann dëst bestoe bleift, gitt sécher
+    datt de Windows 'Credential Manager' Service (VaultSvc) aktivéiert ass a
+    leeft, probéiert dann nach eng Kéier.
+  login_failed_title: Login gescheitert
+cancel: Ofbriechen
+done: Verdataktioun
+elevated:
+  description: >-
+    Seelen UI leeft mat Administrator Privilegien.
+
+    Dëst addt oder verbessert keng Features, an et kann e Sécherheetsrisiko
+    duerstellen.
+
+    Fir besser Sécherheet, w.e.g. nei starten ouni Administrator Permissiounen.
+  title: Lafen als Administrateur
+file_explorer: Datei Explorer
+resource:
+  added: Eng nei Ressource gouf bäigefüügt
+  download_failed_body: >-
+    Eppes ass falsch gaang wärend Dir d'Ressource eroflueden, mellt Iech w.e.g.
+    an de Seeper Entwéckler Team.
+  download_failed_title: Ressource Download ass net gescheitert
+  downloading: Eruppes-Opstellung erofgeluedenen ...
+  downloading_body: Dëst kann e puer Sekonnen da daach, wann ech net zou d'Found sinn.
+  enable: Erméiglecher zréck
+  login_required_action: Umellen
+  login_required_body: Dir musst Iech umellen fir dës Ressource erofzelueden.
+  login_required_title: Umellen erfuerderlech
+runtime:
+  corrupted_data: Korrupt Daten
+  corrupted_file: Eng Konfiguratiounsdatei ass beschiedegt, déi Standard Wäerter amplaz.
+  corrupted_file_path: Korrupt Dateiwee
+  download: Gitt op d'Download Säit
+  files_integrity: >-
+    Mir konnten d'Integritéit vun den Applikatiounsdateien net verifizéieren.
+
+    Dëst ka geschéien wann Dateien geännert goufen, korrupt sinn oder
+    d'Installatioun onkomplett ass.
+
+    Aus Sécherheetsgrënn kann Seelen UI net weidergoen.
+
+    Installéiert w.e.g. et vun der offizieller Websäit.
+  files_integrity_title: Sécherheetsalarm - Dateien Integritéitscheck ausgefall
+  not_found: WebView2 Runtime net fonnt
+  not_found_description: Seelen UI erfuerdert Webview2 Runtime. Weg installéieren et.
+  outdated: WebView2 Runtime veroudert
+  outdated_description: >-
+    Seelen UI erfuerdert Webview2 Runtime %{min_version} oder méi héich. Weg
+    update et.
+service:
+  not_running: Seelen UI Service net lafen
+  not_running_description: >-
+    Seelen UI Service (slu-Service) ass eng Ofhängegkeet / Helfer fir d'App
+    richteg ze schaffen.
+  not_running_ok: Start Service
+shortcut:
+  conflicts:
+    body: >-
+      E puer Ofkierzungen gi fir verschidde Aktiounen zougewisen, w.e.g.
+      neizeweisen.
+    dismiss: Entlooss
+    review: Iwwerpréiwung
+    title: Ofkierzung Konflikter entdeckt
+  register:
+    placeholder: Press all Tastekombinatioun
+    title: Registréiert nei Ofkiirzung
+widget_liveness:
+  failed_description: |-
+    De Widget '%{widget_name}' huet opgehalen ze oft ze reagéieren.
+
+    Dir kënnt probéieren d'App nei ze starten.
+  failed_title: Widget Feeler
+widget_permissions:
+  perm_open_file: opmaachen Dateien
+  perm_run: lafen Programmer
+  request_description: |-
+    De Widget '%{widget_name}' freet d'Erlaabnes fir %{command}.
+
+    Wëllt Dir dëst erlaben?
+  request_title: Widget Erlaabnis Ufro

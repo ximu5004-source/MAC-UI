@@ -1,0 +1,195 @@
+.navigation {
+  grid-row: 1 / 3;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 0 12px 14px;
+  border-right: 1px solid var(--mac-divider);
+  background: var(--mac-sidebar);
+  backdrop-filter: var(--mac-glass-blur);
+}
+.windowBar {
+  height: 52px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+  app-region: drag;
+}
+.trafficLights {
+  display: flex;
+  gap: 2px;
+  app-region: no-drag;
+}
+.trafficLights button {
+  width: 24px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  position: relative;
+}
+.trafficLights button::before {
+  content: "";
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--light);
+  border: 1px solid rgb(0 0 0 / .12);
+  position: absolute;
+}
+.trafficLights span {
+  position: relative;
+  font-size: 12px;
+  line-height: 13px;
+  color: #392319;
+  opacity: 0;
+}
+.trafficLights:hover span,
+.trafficLights button:focus-visible span {
+  opacity: 1;
+}
+.close {
+  --light: #ff6058;
+}
+.minimize {
+  --light: #ffbd2e;
+}
+.maximize {
+  --light: #28c840;
+}
+.identity {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin: 6px 8px 20px;
+  color: var(--mac-text);
+}
+.identity span {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+  flex: 1;
+}
+.identity img {
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  max-width: 44px;
+  object-fit: contain;
+}
+.identity strong {
+  font-size: 19px;
+  letter-spacing: -.5px;
+  white-space: nowrap;
+}
+.identity small {
+  font-size: 12px;
+  color: var(--mac-secondary);
+}
+.search {
+  margin: 0 4px 10px;
+}
+.search :global(.ant-input-affix-wrapper) {
+  background: var(--mac-search);
+  border-color: var(--mac-divider);
+  border-radius: 10px;
+}
+.body {
+  min-height: 0;
+  overflow: auto;
+  padding: 0 2px 12px;
+  scrollbar-width: thin;
+  flex: 1;
+}
+.group {
+  margin: 8px 0 18px;
+}
+.group h2 {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--mac-secondary);
+  padding: 0 10px;
+  margin: 0 0 6px;
+}
+.item,
+.about {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 36px;
+  padding: 5px 9px;
+  border-radius: 10px;
+  color: var(--mac-text);
+  transition: background-color 160ms ease;
+}
+.item + .item {
+  margin-top: 2px;
+}
+.item:hover,
+.about:hover {
+  background: var(--mac-hover);
+}
+.item.active,
+.about.active {
+  background: var(--mac-selection);
+  color: white;
+  box-shadow: inset 0 1px rgb(255 255 255 / .24), 0 2px 6px rgb(0 84 220 / .15);
+}
+.label {
+  font-size: 13px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.iconWrapper {
+  flex-shrink: 0;
+  width: 23px;
+  height: 23px;
+  border-radius: 6px;
+  display: grid;
+  place-items: center;
+  color: white;
+  background: linear-gradient(#8b949f, #626d7a);
+  box-shadow: inset 0 1px rgb(255 255 255 / .26), 0 1px 2px rgb(0 0 0 / .08);
+}
+.iconWrapper[data-tone="1"] {
+  background: linear-gradient(#5fa1ff, #2471e4);
+}
+.iconWrapper[data-tone="2"] {
+  background: linear-gradient(#b98cf0, #8b50d1);
+}
+.iconWrapper[data-tone="3"] {
+  background: linear-gradient(#56a98e, #28856e);
+}
+.iconWrapper :global(.slu-icon) {
+  width: 15px;
+  height: 15px;
+}
+.badge {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #e07800;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.about {
+  border-top: 1px solid var(--mac-divider);
+  margin-top: 8px;
+  font-size: 13px;
+}
+.empty {
+  font-size: 13px;
+  padding: 12px;
+  color: var(--mac-secondary);
+}
+@media (prefers-reduced-transparency: reduce) {
+  .navigation {
+    backdrop-filter: none;
+    background: var(--mac-window);
+  }
+}

@@ -1,0 +1,41 @@
+app_menu:
+  close: 关闭
+  close_multiple: 关闭全部
+  copy_handles: 复制句柄
+  edit_app_icon: 编辑应用程序图标
+  kill: 结束进程
+  kill_multiple: 结束所有进程
+  open_file_location: 打开文件位置
+  pin: 固定
+  pin_to_center: 固定到中心
+  pin_to_left: 固定到左侧
+  pin_to_right: 固定到右侧
+  run_as: 以管理员身份运行
+  unpin: 取消固定
+context_menu:
+  edit_icon: 编辑图标
+  remove_module: 移除模块
+  remove_separator: 删除分隔符
+  reorder_disable: 锁定任务栏
+  reorder_enable: 解锁任务栏
+media:
+  label: 媒体播放器
+  not_playing: 当前无播放内容
+show_desktop:
+  label: 显示桌面
+start:
+  label: 开始菜单
+taskbar_menu:
+  add_file: 固定自定义文件
+  add_separator: 添加分隔符
+  media: 媒体播放器
+  modules: 模块
+  settings: 设置
+  task_manager: 任务管理器
+trash_bin:
+  empty_bin: 清空回收站
+  item_count: '{{0}} 项'
+  label: 回收站
+weg:
+  activation_failed: 未能唤回后台应用，请从系统托盘打开；未重复启动新实例。
+  empty: 暂无内容显示

@@ -1,0 +1,84 @@
+auth:
+  login_failed_body: >-
+    Prisijungimo metu kažkas nutiko. Jei tai išlieka, įsitikinkite, kad
+    „Windows“ kredencialų tvarkyklės paslauga (VaultSvc) įjungta ir veikia, tada
+    bandykite dar kartą.
+  login_failed_title: Prisijungti nepavyko
+cancel: Atšaukti
+done: Padaryta
+elevated:
+  description: >-
+    Seelen vartotojo sąsaja veikia su administratoriaus teisėmis.
+
+    Tai neprideda ir nepatobulina jokių funkcijų ir gali kelti pavojų saugumui.
+
+    Norėdami užtikrinti didesnį saugumą, paleiskite jį iš naujo be
+    administratoriaus leidimo.
+  title: Veikia kaip administratorius
+file_explorer: Failų naršyklė
+resource:
+  added: Pridėtas naujas išteklius
+  download_failed_body: >-
+    Atsisiunčiant išteklių kažkas nepavyko, praneškite apie tai "Seelen" kūrėjų
+    komandai.
+  download_failed_title: Išteklių atsisiuntimas nepavyko
+  downloading: Turto atsisiuntimas...
+  downloading_body: Tai gali užtrukti kelias sekundes, todėl neuždarykite lango.
+  enable: Įjungti
+  login_required_action: Prisijunkite
+  login_required_body: Norėdami atsisiųsti šį šaltinį, turite prisijungti.
+  login_required_title: Reikalingas prisijungimas
+runtime:
+  corrupted_data: Sugadinti duomenys
+  corrupted_file: >-
+    Konfigūracijos failas sugadintas, vietoj jo naudojamos numatytojo nustatymo
+    reikšmės.
+  corrupted_file_path: Sugadintas failo kelias
+  download: Eikite į atsisiuntimo puslapį
+  files_integrity: >-
+    Nepavyko patikrinti programos failų vientisumo.
+
+    Taip gali nutikti, jei failai buvo modifikuoti, sugadinti arba diegimas
+    nebaigtas.
+
+    Saugumo sumetimais Seelen vartotojo sąsaja negali tęstis.
+
+    Įdiekite jį iš naujo iš oficialios svetainės.
+  files_integrity_title: Saugos įspėjimas – nepavyko patikrinti failų vientisumo
+  not_found: WebView2 vykdymo laikas nerastas
+  not_found_description: „Seelen“ vartotojo sąsajai reikalinga „Webview2 Runtime“. Įdiekite jį.
+  outdated: „WebView2“ vykdymo laikas pasenęs
+  outdated_description: >-
+    „Seelen“ vartotojo sąsajai reikalinga „Webview2 Runtime“ %{min_version} arba
+    naujesnė versija. Prašome atnaujinti.
+service:
+  not_running: Seelen UI paslauga neveikia
+  not_running_description: >-
+    Seelen UI paslauga (slu-service) yra priklausomybė / pagalbininkas, kad
+    programa tinkamai veiktų.
+  not_running_ok: Pradėti paslaugą
+shortcut:
+  conflicts:
+    body: >-
+      Kai kurie spartieji klavišai priskirti keliems veiksmams, priskirkite juos
+      iš naujo.
+    dismiss: Atsisakyti
+    review: Apžvalga
+    title: Aptikti nuorodų konfliktai
+  register:
+    placeholder: Paspauskite bet kurį raktų derinį
+    title: Registruojant naują nuorodą
+widget_liveness:
+  failed_description: |-
+    Valdiklis '%{widget_name}' nustojo reaguoti per daug kartų.
+
+    Galite pabandyti iš naujo paleisti programą.
+  failed_title: Valdiklio klaida
+widget_permissions:
+  perm_open_file: atidaryti failus
+  perm_run: paleisti programas
+  request_description: |-
+    Valdiklis '%{widget_name}' prašo leidimo %{command}.
+
+    Ar norite tai leisti?
+  request_title: Valdiklio leidimo užklausa

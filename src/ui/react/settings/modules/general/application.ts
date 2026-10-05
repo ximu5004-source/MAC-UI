@@ -1,0 +1,135 @@
+import { needRestart, settings } from "../../state/mod";
+import type { PerformanceModeSettings, StartOfWeek } from "@seelen-ui/lib/types";
+
+/**
+ * Gets the current language setting
+ */
+export function getLanguage(): string {
+  return settings.value.language;
+}
+
+/**
+ * Sets the language
+ */
+export function setLanguage(language: string) {
+  settings.value = {
+    ...settings.value,
+    language,
+  };
+}
+
+/**
+ * Gets the date format
+ */
+export function getDateFormat(): string {
+  return settings.value.dateFormat;
+}
+
+/**
+ * Sets the date format
+ */
+export function setDateFormat(dateFormat: string) {
+  settings.value = {
+    ...settings.value,
+    dateFormat,
+  };
+}
+
+/**
+ * Gets the start of week setting
+ */
+export function getStartOfWeek(): StartOfWeek {
+  return settings.value.startOfWeek;
+}
+
+/**
+ * Sets the start of week
+ */
+export function setStartOfWeek(startOfWeek: StartOfWeek) {
+  settings.value = {
+    ...settings.value,
+    startOfWeek,
+  };
+}
+
+/**
+ * Gets the performance mode settings
+ */
+export function getPerformanceMode(): PerformanceModeSettings {
+  return settings.value.performanceMode;
+}
+
+/**
+ * Sets the performance mode settings
+ */
+export function setPerformanceMode(performanceMode: PerformanceModeSettings) {
+  settings.value = {
+    ...settings.value,
+    performanceMode,
+  };
+}
+
+/**
+ * Gets the polling interval (seconds)
+ */
+export function getPollingInterval(): number {
+  return settings.value.pollingInterval;
+}
+
+/**
+ * Sets the polling interval (seconds, minimum 1)
+ */
+export function setPollingInterval(pollingInterval: number) {
+  settings.value = {
+    ...settings.value,
+    pollingInterval: Math.max(1, Math.floor(pollingInterval)),
+  };
+}
+
+/**
+ * Gets the hardware acceleration setting
+ */
+export function getHardwareAcceleration(): boolean {
+  return settings.value.hardwareAcceleration;
+}
+
+/**
+ * Sets the hardware acceleration setting
+ */
+export function setHardwareAcceleration(hardwareAcceleration: boolean) {
+  needRestart.value = true;
+  settings.value = {
+    ...settings.value,
+    hardwareAcceleration,
+  };
+}
+
+/**
+ * Gets the suspend on game mode setting
+ */
+export function getSuspendOnGameMode(): boolean {
+  return settings.value.suspendOnGameMode;
+}
+
+/**
+ * Sets the suspend on game mode setting
+ */
+export function setSuspendOnGameMode(suspendOnGameMode: boolean) {
+  settings.value = {
+    ...settings.value,
+    suspendOnGameMode,
+  };
+}
+
+/**
+ * Patches the performance mode settings with partial updates
+ */
+export function patchPerformanceMode(patch: Partial<PerformanceModeSettings>) {
+  settings.value = {
+    ...settings.value,
+    performanceMode: {
+      ...settings.value.performanceMode,
+      ...patch,
+    },
+  };
+}

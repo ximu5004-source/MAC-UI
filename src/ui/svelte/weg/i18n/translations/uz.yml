@@ -1,0 +1,40 @@
+app_menu:
+  close: Yaqin
+  close_multiple: Hammasini yaqin
+  copy_handles: Nusxalash vositasi
+  edit_app_icon: Ilova belgisini tahrirlash
+  kill: O'ldirish jarayoni
+  kill_multiple: Barcha jarayonlarni o'ldiring
+  open_file_location: Fayl joylashuvi
+  pin: Pin
+  pin_to_center: Markazga PIN
+  pin_to_left: Chapga o'ting
+  pin_to_right: O'ngga pin
+  run_as: Administrator sifatida yugurish
+  unpin: Chetlashmoq
+context_menu:
+  edit_icon: Tahrirlash belgisi
+  remove_module: Modulni olib tashlash
+  remove_separator: Separatorni olib tashlang
+  reorder_disable: Qulf vazifasi paneli
+  reorder_enable: Vazifalar panelini oching
+media:
+  label: Media pleer
+  not_playing: Hech narsa o'ynamaydi
+show_desktop:
+  label: Ish stolini ko'rsatish
+start:
+  label: Boshlash menyusi
+taskbar_menu:
+  add_file: PIN-kod
+  add_separator: Ajratuvchi qo'shing
+  media: Media pleer
+  modules: Modullar
+  settings: Sozlamalar
+  task_manager: Vazifa menejeri
+trash_bin:
+  empty_bin: Chiqindi qutisini bo'sh
+  item_count: '{{0}} ta element'
+  label: Chiqindi qutisi
+weg:
+  empty: Ko‘rsatiladigan elementlar yo‘q

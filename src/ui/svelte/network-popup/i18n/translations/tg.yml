@@ -1,0 +1,23 @@
+available: Шабакаҳои дастрас
+connect: Пайваст кунед
+connected: Ба
+connecting: Пайвастшавӣ...
+disconnect: Қатъ кунед
+forget: Фаромӯш
+hidden: Шабакаи пинҳонӣ
+hotspot:
+  band: Банд
+  'off': Хомӯш
+  'on': Дар
+  open_network: Шабакаи кушода
+  password: Рамз
+  settings: Танзимоти бештари нуқтаи дастрас
+  ssid: Номи шабака
+  title: Нуқтаи дастрас
+more: Танзимоти бештари шабака
+no_adapter: Ягон адаптери Wi-Fi ёфт нашуд
+not_found: Ягон шабакаҳои Wi-Fi ёфт нашуд
+password: Рамз
+saved: Шабакаҳои захирашуда
+scanning: Сканкунии шабакаҳо
+secured: Шабакаи рамзгузорӣ

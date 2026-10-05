@@ -1,0 +1,21 @@
+- name: Pinetry
+  identifier:
+    id: pinentry.exe
+    kind: Exe
+    matchingStrategy: Equals
+  options:
+    - unmanage
+- name: TaskManagerWindow
+  identifier:
+    id: TaskManagerWindow
+    kind: Class
+    matchingStrategy: Equals
+  options:
+    - float
+- name: AutoHotkeyUX.exe
+  identifier:
+    id: AutoHotkeyUX.exe
+    kind: Exe
+    matchingStrategy: Equals
+  options:
+    - unmanage

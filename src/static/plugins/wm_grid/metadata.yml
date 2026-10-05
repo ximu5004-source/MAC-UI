@@ -1,0 +1,62 @@
+id: "@default/wm-grid"
+target: "@seelen/window-manager"
+metadata:
+  displayName: !extend i18n/display_name.yml
+  description: !extend i18n/description.yml
+plugin:
+  structure:
+    type: Horizontal
+    children:
+      - type: Vertical
+        priority: 3
+        condition:
+          compare:
+            left: tiling-windows
+            op: ge
+            right: 4
+        children:
+          - type: Leaf
+            priority: 3
+            condition:
+              compare:
+                left: tiling-windows
+                op: ge
+                right: 7
+          - type: Leaf
+          - type: Leaf
+      - type: Vertical
+        priority: 1
+        children:
+          - type: Leaf
+            priority: 3
+            condition:
+              compare:
+                left: tiling-windows
+                op: eq
+                right: 8
+          - type: Leaf
+            priority: 1
+          - type: Leaf
+            priority: 2
+            condition:
+              or:
+                - compare:
+                    left: tiling-windows
+                    op: eq
+                    right: 3
+                - compare:
+                    left: tiling-windows
+                    op: ge
+                    right: 5
+      - type: Vertical
+        priority: 2
+        children:
+          - type: Leaf
+            priority: 3
+            condition:
+              compare:
+                left: tiling-windows
+                op: ge
+                right: 6
+          - type: Leaf
+          - type: Leaf

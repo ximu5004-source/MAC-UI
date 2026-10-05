@@ -1,0 +1,28 @@
+available: Eskuragarri dauden gailuak
+cancel: Utzi
+confirm: Berretsi
+confirm_only: Berretsi parekatzea
+confirm_pin: Ziurtatu PINa bat datorrela
+connect: Konektatu
+connected: Konektatuta
+connecting: Konektatzen...
+disconnect: Deskonektatu
+disconnecting: Deskonektatzen...
+display_pin: Sartu PIN hau gailuan
+lowenergy: Energia baxua
+more: Bluetooth ezarpen gehiago
+no_adapter: Ez da Bluetooth egokitzailerik aurkitu
+not_found: Ez da gailurik aurkitu
+pair: Bikoteka
+paired: Parekatuta
+pairing: Parekatzea...
+pairing_failed: Parekatzeak huts egin du
+password: Pasahitza
+provide_address: Sartu helbidea
+provide_password: Sartu erabiltzaile-izena eta pasahitza
+provide_pin: Sartu PINa
+scanning: Gailuak bilatzen...
+unpair: Desparekatu
+unpair_failed: Ezin izan da desparekatzean
+unpairing: Desparekatzen...
+username: Erabiltzaile izena

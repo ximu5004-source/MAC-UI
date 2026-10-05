@@ -1,0 +1,50 @@
+.header {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 28px;
+  app-region: drag;
+}
+.title {
+  font-size: 20px;
+  font-weight: 650;
+  letter-spacing: -.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.part {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.actions {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 8px;
+  app-region: no-drag;
+}
+.status {
+  font-size: 11px;
+  color: var(--mac-secondary);
+  margin-right: 4px;
+}
+.header a,
+.header button {
+  app-region: no-drag;
+}
+@media (max-width: 920px) {
+  .status {
+    display: none;
+  }
+  .header {
+    padding-inline: 16px;
+  }
+  .title {
+    font-size: 17px;
+  }
+}

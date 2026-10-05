@@ -1,0 +1,14 @@
+- name: Base
+  identifier:
+    id: (?i)((install)|(setup)|(complete)|(menu)|(notification))
+    kind: Title
+    matchingStrategy: Regex
+  options:
+    - unmanage
+- name: MAC UI
+  identifier:
+    id: (?i)^(mac-ui|seelen-ui)\.exe$
+    kind: Exe
+    matchingStrategy: Regex
+  options:
+    - unmanage

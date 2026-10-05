@@ -1,0 +1,22 @@
+all: Barcha ilovalar
+app_settings: Ilova sozlamalari
+applications: Ilovalar
+back: Orqaga
+disband: Jildni tarqatish
+edit_icon: Tahrirlash belgisi
+folder: Papka
+no_matching_items: Qidiruvingizga mos narsa topilmadi
+open_file_location: Fayl joylashuvini oching
+pin: Pin
+pin_to_dock: Dockga mahkamlang
+power_menu: Quvvat menyusi
+query:
+  all: Hammasi
+  apps: Ilovalar
+  files: Fayllar
+  web: Veb
+run_as_admin: Administrator sifatida ishga tushirish
+unpin: Yechish
+web_search: Internetda qidirish uchun Enter tugmasini bosing
+welcome_message: Seelen UI ilovasi menyusiga xush kelibsiz.
+welcome_message2: Ushbu yorliqda siz sevimli ilovalaringizni mahkamlashingiz mumkin.

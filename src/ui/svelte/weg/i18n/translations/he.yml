@@ -1,0 +1,40 @@
+app_menu:
+  close: סגור
+  close_multiple: סגור הכל
+  copy_handles: העתק ידיות
+  edit_app_icon: ערוך את סמל האפליקציה
+  kill: הרוג תהליך
+  kill_multiple: הרוג את כל התהליכים
+  open_file_location: פתח את מיקום הקובץ
+  pin: הצמד
+  pin_to_center: הצמד למרכז
+  pin_to_left: הצמד לשמאל
+  pin_to_right: הצמד לימין
+  run_as: הפעל כמנהל
+  unpin: בטל הצמדה
+context_menu:
+  edit_icon: ערוך סמל
+  remove_module: הסר מודול
+  remove_separator: הסר את המפריד
+  reorder_disable: נעל את שורת המשימות
+  reorder_enable: ביטול נעילת שורת המשימות
+media:
+  label: נגן מדיה
+  not_playing: שום דבר לא משחק
+show_desktop:
+  label: הצג את שולחן העבודה
+start:
+  label: תפריט התחל
+taskbar_menu:
+  add_file: הצמד קובץ מותאם אישית
+  add_separator: הוסף מפריד
+  media: נגן מדיה
+  modules: מודולים
+  settings: הגדרות
+  task_manager: מנהל משימות
+trash_bin:
+  empty_bin: ריק סל המיחזור
+  item_count: '{{0}} פריטים'
+  label: סל המיחזור
+weg:
+  empty: אין פריטים להצגה

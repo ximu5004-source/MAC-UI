@@ -1,0 +1,23 @@
+default_multimedia_volume: Multimedia Volume
+device:
+  channel:
+    system: System sounds
+  comunications: Communications
+  missing: Missing Device
+  mixer: Volume Mixer
+  multimedia: Multimedia
+  settings: More Device Settings
+  volume: Device Volume
+input_devices: Input devices
+output_devices: Output devices
+players: Media Players
+title: Sound & Media
+back: Back
+playback_position: Playback position
+output_volume: Output volume
+input_volume: Input volume
+toggle_mute: Toggle mute
+previous: Previous track
+next: Next track
+play: Play
+pause: Pause

@@ -1,0 +1,16 @@
+id: "@seelen/workspaces-viewer"
+metadata:
+  displayName: !extend i18n/display_name.yml
+  description: !extend i18n/description.yml
+instances: Single
+loader: Internal
+preset: Overlay
+hidden: true
+lazy: true
+shortcuts:
+  - id: vd-toggle-view
+    command: ["widget", "trigger", "${self.id}"]
+    label: !extend i18n/shortcuts/vd-toggle-view.yml
+    defaultKeys: ["Win", "Tab"]
+    readonly: true
+    system: true

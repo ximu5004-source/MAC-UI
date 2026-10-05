@@ -1,0 +1,89 @@
+import { useComputed } from "@preact/signals";
+import { Icon } from "libs/ui/react/components/Icon/index.tsx";
+import { Button, Modal } from "antd";
+import { type ReactNode, useState } from "react";
+import { useTranslation } from "react-i18next";
+
+import { $virtual_desktops } from "../../shared/signals";
+import {
+  setMonitorWallpaperCollection,
+  setWorkspaceWallpaperCollection,
+} from "../../resources/Widget/Wall/application.ts";
+import { WallpaperCollectionSelector } from "../../resources/Widget/Wall/WallpaperCollectionSelector.tsx";
+import { settings } from "../../../state/mod.ts";
+import { SettingsGroup, SettingsOption } from "../../../components/SettingsBox/index.tsx";
+
+interface Props {
+  monitorId: string;
+  title: ReactNode;
+}
+
+export function WallpaperSettingsModal({ monitorId, title }: Props) {
+  const [open, setOpen] = useState(false);
+  const monitorsV3 = settings.value.monitorsV3;
+  const { t } = useTranslation();
+
+  const monitorConfig = monitorsV3[monitorId];
+  const selectedCollection = monitorConfig?.wallpaperCollection ?? null;
+
+  // Get workspaces for this monitor from virtual desktops signal
+  const monitorWorkspaces = useComputed(() => {
+    return $virtual_desktops.value?.monitors[monitorId]?.workspaces || [];
+  });
+
+  return (
+    <>
+      <Modal
+        open={open}
+        onCancel={() => setOpen(false)}
+        title={title}
+        footer={null}
+        centered
+        width={600}
+      >
+        <SettingsGroup>
+          <SettingsOption>
+            <b>{t("wall.monitor_collection")}</b>
+            <WallpaperCollectionSelector
+              style={{ width: 300 }}
+              value={selectedCollection}
+              onChange={(value) => setMonitorWallpaperCollection(monitorId, value)}
+              placeholder={t("inherit")}
+            />
+          </SettingsOption>
+        </SettingsGroup>
+
+        {monitorWorkspaces.value.length > 0 && (
+          <SettingsGroup>
+            <div style={{ marginBottom: 12 }}>
+              <b>{t("wall.workspace_collections")}</b>
+            </div>
+            {monitorWorkspaces.value
+              .map((row, rowIdx) => {
+                return row.map((workspace, idx) => {
+                  const workspaceConfig = monitorConfig?.byWorkspace?.[workspace.id];
+                  const workspaceCollection = workspaceConfig?.wallpaperCollection ?? null;
+
+                  return (
+                    <SettingsOption key={workspace.id}>
+                      <span>{workspace.name || `Workspace ${rowIdx + 1}.${idx + 1}`}</span>
+                      <WallpaperCollectionSelector
+                        style={{ width: 300 }}
+                        value={workspaceCollection}
+                        onChange={(value) => setWorkspaceWallpaperCollection(monitorId, workspace.id, value)}
+                        placeholder={t("inherit")}
+                      />
+                    </SettingsOption>
+                  );
+                });
+              })
+              .flat()}
+          </SettingsGroup>
+        )}
+      </Modal>
+      <Button type="default" onClick={() => setOpen(true)}>
+        <Icon iconName="RiSettings4Fill" />
+      </Button>
+    </>
+  );
+}

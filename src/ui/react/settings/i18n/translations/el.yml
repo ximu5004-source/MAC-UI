@@ -1,0 +1,486 @@
+action:
+  confirm: Είστε σίγουροι;
+  confirm_body: Αυτή η ενέργεια δεν μπορεί να ανατραπεί.
+apps_configurations:
+  app:
+    bindings: Σύνδεση (σημειώστε ότι και οι δύο επιλογές απαιτούνται)
+    category: Κατηγορία
+    category_placeholder: Κανένας
+    monitor: Οθόνη
+    monitor_placeholder: Κανένας
+    name: Ονομα
+    ok_create: Δημιουργώ
+    ok_edit: Εκσυγχρονίζω
+    ok_readonly: Επεξεργαστείτε ως νέο
+    options:
+      NoInteractive: Χωρίς διαδραστικό
+      VdPinned: Εμφάνιση σε όλους τους χώρους εργασίας
+      WmFloat: Twm - Ξεκινήστε να επιπλέετε
+      WmForce: Twm - Διαχείριση δύναμης
+      WmUnmanage: Twm - Κατάργηση διαχείρισης
+    options_label: Επιπλέον επιλογές
+    title_create: Δημιουργία {{name}}
+    title_edit: Επεξεργασία {{όνομα}}
+    title_readonly: Προβολή {{όνομα}}
+    weg_options_label: Επιλογές της γραμμής αποβάθρας/εργασιών
+    wm_options_label: Επιλογές διαχείρισης παραθύρων
+    workspace: Χώρος εργασίας
+    workspace_placeholder: Κανένας
+  bundled_msg: >-
+    Αυτές οι συνδεδεμένες διαμορφώσεις δεν είναι επεξεργάσιμες και έχουν
+    σχεδιαστεί για να σας παρέχουν την καλύτερη εμπειρία χωρίς προσαρμογή.
+    Διαμορφώνουν αυτόματα τις πιο συνηθισμένες εφαρμογές για εσάς.
+  bundled_title: App config που συνδέεται με Seelen
+  confirm_delete: Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτήν τη διαμόρφωση/s;
+  confirm_delete_title: Επιβεβαιώστε τη διαγραφή
+  delete: Διαγράφω
+  export: Εξαγωγή
+  export_full: Εξαγωγή ρυθμίσεων ανά εφαρμογή
+  extra_info: >-
+    Η διεπαφή χρήστη Seelen χρησιμοποιεί μόνο ένα αναγνωριστικό ανά εφαρμογή
+    (βρέθηκε η πρώτη αντιστοίχιση), επομένως η σειρά στον τρόπο καθορισμού είναι
+    σημαντική, τα πιο πρόσφατα που προστέθηκαν θα τεθούν σε προτεραιότητα, καθώς
+    σημειώστε ότι ο πίνακας ταξινομείται από προεπιλογή από το πιο πρόσφατο στο
+    παλαιό.
+  identifier:
+    add_block: Προσθέστε μπλοκ
+    and: ΚΑΙ
+    id: Αναγνωριστικό
+    kind: Προσδιορίζω
+    matching_strategy: Στρατηγική αντιστοίχισης
+    matching_strategy_option:
+      contains: Περιέχει
+      ends_with: Τελειώνει με
+      equals: Ίσο
+      regex: Τακτική έκφραση
+      starts_with: Ξεκινά με
+    negation: Αρνείστε την αντιστοίχιση
+    or: Ή
+    remove: Διαγραφή μπλοκ
+    type:
+      class: Τάξη
+      exe: Exe
+      path: Μονοπάτι
+      title: Τίτλος
+  import: Εισαγωγή
+  import_full: Εισαγωγή ρυθμίσεων ανά εφαρμογή
+  new: Νέος
+  search: Αναζήτηση
+  swap: Ανταλαγή
+cancel: Ματαίωση
+close: Κοντά
+delete: Διαγράφω
+devtools:
+  app_folders: Φακέλους εφαρμογών
+  color_palette: Παλέτα χρωμάτων
+  color_palette_note: >-
+    Αυτά τα χρώματα προσαρμόζονται αυτόματα στη λειτουργία φωτός/σκούρου — κάθε
+    απόχρωση έχει αντίθεση με το τρέχον φόντο και όχι σταθερή τιμή.
+    Χρησιμοποιήστε τα αντί για χρώματα με σκληρό κώδικα για να λάβετε αυτόματη
+    υποστήριξη θεμάτων.
+  custom_config_file: Φόρτωση προσαρμοσμένου αρχείου ρυθμίσεων
+  data_folder: Φάκελος δεδομένων
+  enable: Ενεργοποίηση εργαλείων προγραμματιστή
+  enable_description: >-
+    Ξεκλειδώνει προηγμένα εργαλεία για επιθεώρηση και εντοπισμό σφαλμάτων
+    εσωτερικών στοιχείων διεπαφής χρήστη Seelen. Δεν προορίζεται για τακτική
+    χρήση.
+  icons: Αποθηκευμένα εικονίδια
+  install_folder: Φάκελος εγκατάστασης
+  load: Φορτώνω
+  settings_file: Αρχείο ρυθμίσεων
+  shared_components: Πρότυπα εξαρτήματα SLU
+  simulate_dialog:
+    label: Προσομοίωση διαλόγου
+    trigger: Σκανδάλη
+  simulate_perm:
+    label: Προσομοίωση αιτήματος άδειας γραφικού στοιχείου
+    result_allowed: ✓ Χορηγήθηκε άδεια
+    result_denied: ✗ Δεν επιτρέπεται η άδεια
+    trigger: Προσποιούμαι
+    widget_id_placeholder: '@συγγραφέας/όνομα γραφικού στοιχείου'
+  tools: Εργαλεία
+  unlock_shortcuts: Ξεκλειδώστε τις συντομεύσεις μόνο για ανάγνωση
+  unlock_shortcuts_description: >-
+    Να επιτρέπεται η επεξεργασία συντομεύσεων που συνήθως είναι μόνο για
+    ανάγνωση (π.χ. παρακάμψεις συστήματος).
+  unstable_optimizations: Ασταθή Βελτιστοποιήσεις
+  unstable_optimizations_description: >-
+    Ενεργοποιήστε πειραματικές σημαίες Chromium που μειώνουν τη χρήση RAM.
+
+    Προειδοποίηση: εάν ένα γραφικό στοιχείο διακοπεί, όλα τα γραφικά στοιχεία
+    που μοιράζονται τον ίδιο φορτωτή θα διακοπούν μαζί.
+  widgets_debug:
+    actions: Δράσεις
+    empty: Δεν έχουν φορτωθεί γραφικά στοιχεία. Κάντε κλικ στην Ανανέωση.
+    instance_id: Αναγνωριστικό παράδειγμα
+    monitor_id: Αναγνωριστικό οθόνης
+    open_devtools: DevTools
+    refresh: Φρεσκάρω
+    status: Κατάσταση
+    tab: Widgets
+    widget_id: Αναγνωριστικό γραφικού στοιχείου
+discord_banner:
+  message: >-
+    Συνδεθείτε με άλλους χρήστες του Seelen UI, λάβετε βοήθεια, μοιραστείτε
+    θέματα και μείνετε ενημερωμένοι με τα τελευταία νέα.
+  title: Εγγραφείτε στην Κοινότητά μας
+extras:
+  backup_group: Cloud Backup
+  backup_last_sync: Τελευταίος συγχρονισμός
+  backup_never_synced: Δεν συγχρονίστηκε ποτέ
+  backup_sync: Συγχρονισμός ρυθμίσεων στο cloud
+  backup_sync_description: >-
+    Δημιουργήστε αυτόματα αντίγραφα ασφαλείας και επαναφέρετε τις ρυθμίσεις σας
+    μέσω του cloud.
+  clear_icons: Εκκαθάριση προσωρινής μνήμης εικονιδίων συστήματος
+  clear_icons_tooltip: Μπορεί να απαιτηθεί επανεκκίνηση για να ισχύσει πλήρως σε όλα τα widgets
+  discord_rpc: Διχόνοια πλούσια παρουσία
+  discord_rpc_description: Δείξτε σε όλους ότι έχετε στυλ!
+  exit: Εγκατάλειψη/έξοδο
+  relaunch: Ξεκίνησα ξανά
+  streaming_mode: Λειτουργία ροής
+  streaming_mode_description: >-
+    Αντικαθιστά ευαίσθητες πληροφορίες (π.χ. email) με σύμβολα κράτησης θέσης
+    για την προστασία του απορρήτου κατά τις εγγραφές ή τα στιγμιότυπα οθόνης.
+  version: Εκδοχή
+  version_fixed: >-
+    Η εφαρμογή και η έκδοση WebView2 Runtime έχουν επιδιορθωθεί. Αυτό σημαίνει
+    ότι η εφαρμογή δεν θα λαμβάνει ενημερώσεις και ο χρόνος εκτέλεσης WebView2
+    δεν θα ενημερώνεται αυτόματα με ενημερώσεις των Windows.
+general:
+  accent_color: Έμφαση στο χρώμα
+  date_format: Μορφή ημερομηνίας
+  date_format_how_to: Πώς να γράψετε μια μορφή ημερομηνίας;
+  hardware_acceleration: Επιτάχυνση υλικού
+  hardware_acceleration_description: >-
+    Η απενεργοποίηση της επιτάχυνσης υλικού θα μειώσει τη χρήση της μνήμης.
+    Είναι ασφαλές να απενεργοποιήσετε εάν δεν χρησιμοποιείτε βαριά κινούμενα
+    σχέδια, αν και μεμονωμένα γραφικά στοιχεία ενδέχεται να εξακολουθούν να
+    επιβάλλουν τη χρήση GPU ανεξάρτητα από αυτήν τη ρύθμιση.
+  icon_pack:
+    available: Διαθέσιμα πακέτα εικονιδίων
+    selected: Ενεργά πακέτα εικονιδίων
+  language: Γλώσσα
+  monday: Δευτέρα
+  performance_mode:
+    label: Βελτιστοποιήσεις
+    on_battery: Σε μπαταρία
+    on_energy_saver: Σχετικά με την εξοικονόμηση ενέργειας
+    options:
+      disabled: Ανάπηρος
+      extreme: Ακρο
+      minimal: Ελάχιστος
+    plugged: Συνδεδεμένος ή φόρτιση
+  polling_interval: Διάστημα ψηφοφορίας συστήματος
+  polling_interval_description: >-
+    Πόσο συχνά (σε δευτερόλεπτα) το Seelen UI ελέγχει τους πόρους του συστήματος
+    όπως η CPU, η RAM, το δίκτυο και η δραστηριότητα του δίσκου. Ένας μικρότερος
+    αριθμός σημαίνει πιο συχνές ενημερώσεις, αλλά ελαφρώς υψηλότερη χρήση πόρων.
+  saturday: Σάββατο
+  start_of_week: Έναρξη Εβδομάδας
+  startup: Εκτέλεση κατά την εκκίνηση;
+  sunday: Κυριακή
+  suspend_on_game_mode: Αναστολή γραφικών στοιχείων στη λειτουργία παιχνιδιού
+  suspend_on_game_mode_description: >-
+    Όταν η λειτουργία παιχνιδιού των Windows είναι ενεργή, όλες οι προβολές
+    ιστού του widget καταστρέφονται για να ελευθερωθεί η CPU και η μνήμη για το
+    παιχνίδι. Τα γραφικά στοιχεία αποκαθίστανται αυτόματα όταν τελειώνει η
+    λειτουργία παιχνιδιού.
+  theme:
+    available: Διαθέσιμα θέματα
+    selected: Ενεργά θέματα
+global: Καθολικός
+header:
+  labels:
+    config: Διαμορφώσεις
+    developer: Για προγραμματιστές
+    extras: Πρόσθετα
+    general: Γενικός
+    home: Σπίτι
+    iconpack: Πακέτα εικονιδίων
+    monitors: Παρακολουθεί
+    plugin: Plugins
+    resources: Πόροι
+    session: Λογαριασμός
+    shortcuts: Συντομεύσεις
+    soundpack: Πακέτα ήχου
+    specific_apps: Ρυθμίσεις ανά εφαρμογή
+    theme: Θέματα
+    virtual_desk: Εικονικοί υπολογιστές γραφείου
+    wallpaper: Ταπετσαρίες
+    widget: Widgets
+home:
+  new_resources: Νέοι πόροι
+inherit: Κληρονομώ
+inProgress: Σε εξέλιξη...
+insert: Εισάγω
+join_us: Ελάτε μαζί μας!
+loading: Φόρτωση...
+miscellaneous: Ανάμικτος
+monitors_configurations:
+  label: Monitor {{index}}
+more: Περισσότερο
+'no': Οχι
+open: Ανοιξε
+quit: Εγκαταλείπω
+remove: Αφαιρώ
+reset_all_to_default: Επαναφορά όλων στις προεπιλεγμένες τιμές
+reset_configurations: Επαναφορά διαμορφώσεων
+reset_to_default: Επαναφορά στην προεπιλεγμένη τιμή
+resources:
+  affected_widgets: Επηρεασμένα γραφικά στοιχεία
+  app_outdated: >-
+    Αυτός ο πόρος απαιτεί μια νεότερη έκδοση του Seelen UI για να λειτουργήσει
+    σωστά.
+  coming_soon: Προσεχώς
+  corrupted_wallpaper: >-
+    Αποτυχία εξαγωγής μικρογραφίας - κατεστραμμένη ή μη υποστηριζόμενη μορφή
+    βίντεο
+  delete: Διαγραφή πόρου
+  discover: Ανακαλύψτε περισσότερους πόρους
+  has_update: Μια ενημέρωση είναι διαθέσιμη
+  high_impact: Υψηλό αντίκτυπο στην απόδοση
+  import_wallpapers: Εισαγωγή τοπικών ταπετσαριών
+  included_plugins: Συμπεριλαμβανόμενα πρόσθετα
+  modified: Τροποποιήθηκε
+  open_folder: Άνοιγμα φακέλου πόρων
+  outdated: >-
+    Αυτός ο πόρος σχεδιάστηκε για μια παλαιότερη έκδοση του Seelen UI και
+    ενδέχεται να μην λειτουργεί σωστά.
+  see_on_website: Δείτε στην ιστοσελίδα
+  update_now: Εκσυγχρονίζω
+  updates_available: Διαθέσιμες ενημερώσεις
+  updates_available_description: Οι παρακάτω πόροι έχουν διαθέσιμες ενημερώσεις.
+review_request:
+  not_now: Όχι τώρα
+  sure: Σίγουρος!
+  title: Σας αρέσει το Seelen UI;
+save: Αποθηκεύσετε
+save_and_restart: Αποθήκευση & επανεκκίνηση
+search: Ερευνα
+see_more: Δείτε περισσότερα
+session:
+  logout: Αποσύνδεση
+  plan: Σχέδιο
+  sign_in: Είσοδος
+  sign_in_hint: >-
+    Το πρόγραμμα περιήγησής σας θα ανοίξει για να μπορείτε να συνδεθείτε με
+    ασφάλεια.
+  upgrade_to: Αναβάθμιση σε
+shortcuts:
+  disabled_tooltip: Το γραφικό στοιχείο και οι συντομεύσεις του είναι απενεργοποιημένα
+  duplicate_error: Εντοπίστηκαν συντομεύσεις σε διένεξη
+  duplicate_error_hint: >-
+    Ορισμένες συντομεύσεις αντιστοιχίζονται σε πολλαπλές ενέργειες.
+    Απενεργοποιήστε ένα από τα γραφικά στοιχεία που βρίσκονται σε διένεξη ή
+    εκχωρήστε εκ νέου τη δέσμευση διπλού κλειδιού για επίλυση.
+  enable: Ενεργοποίηση ενσωματωμένου συστήματος συντομεύσεων
+  enable_tooltip: >-
+    Απενεργοποιήστε εάν θα εφαρμόσετε το δικό σας σύστημα συντομεύσεων
+    χρησιμοποιώντας τον πελάτη SEELEN UI
+  labels:
+    create_new_workspace: Δημιουργήστε νέο χώρο εργασίας
+    create_new_workspace_row: Δημιουργία νέας σειράς χώρου εργασίας
+    destroy_current_workspace: Καταστρέψτε τον τρέχοντα χώρο εργασίας
+    misc_force_quit: Φρικιασμένη δύναμη
+    misc_force_restart: Αναγκαστική επανεκκίνηση
+    move_to_workspace: Μετακίνηση στο χώρο εργασίας {{0}}
+    pause_toggle: Συντομεύσεις παύσης/συνέχισης
+    send_to_next_workspace: Αποστολή παραθύρου στον επόμενο χώρο εργασίας
+    send_to_previous_workspace: Αποστολή παραθύρου στον προηγούμενο χώρο εργασίας
+    send_to_workspace: Αποστολή στο χώρο εργασίας {{0}}
+    send_to_workspace_down: Αποστολή παραθύρου στον παρακάτω χώρο εργασίας
+    send_to_workspace_up: Αποστολή παραθύρου στον χώρο εργασίας παραπάνω
+    switch_to_next_workspace: Μεταβείτε στον επόμενο χώρο εργασίας
+    switch_to_previous_workspace: Μεταβείτε σε προηγούμενο χώρο εργασίας
+    switch_to_workspace_down: Μετάβαση στον χώρο εργασίας παρακάτω
+    switch_to_workspace_up: Μεταβείτε στον Χώρο Εργασίας παραπάνω
+    switch_workspace: Μεταβείτε στο χώρο εργασίας {{0}}
+  readonly_tooltip: Αυτή είναι μια συντόμευση μόνο για ανάγνωση
+  reset: Επαναφορά σε προεπιλογές
+sides:
+  bottom: Κάτω μέρος
+  left: Αριστερά
+  right: σωστά
+  top: Μπλουζα
+toolbar:
+  auto_hide: Αυτόματη απόκρυψη
+  auto_hide_touch_disabled: Η αυτόματη απόκρυψη δεν είναι διαθέσιμη σε συσκευές με οθόνη αφής
+  delay_to_hide: Καθυστέρηση για απόκρυψη
+  delay_to_show: Καθυστέρηση εμφάνισης
+  dock_side: Θέση
+  enable: Ενεργοποίηση φανταχτερά εργαλεία εργαλείων
+  hide_mode:
+    always: Πάντοτε
+    never: Ποτέ
+    on_overlap: Σε επικάλυψη
+  item_size: Μέγεθος αντικειμένου
+  label: Γραμμή εργαλείων
+  margin: Μέγεθος περιθωρίου
+  padding: Μέγεθος padding
+  placeholder: {}
+update:
+  available: Διαθέσιμη ενημέρωση!
+  channel: Κανάλι ενημέρωσης
+  downloading: Λήψη ...
+wall:
+  blur: Θολούρα
+  cancel: Ματαίωση
+  close: Κοντά
+  collection_name: Όνομα συλλογής
+  collections: Συλλογές
+  contrast: Αντίθεση
+  corrupted_wallpapers_message: 'Κατεστραμμένες ταπετσαρίες, σκεφτείτε να τις διαγράψετε:'
+  coverage_pause_threshold: Όριο παύσης (κάλυψη παραθύρου)
+  create: Δημιουργώ
+  create_collection: Δημιουργία συλλογής
+  default_collection: Προεπιλεγμένη ταπετσαρία ή συλλογή
+  default_collection_description: >-
+    Εφαρμόζεται σε όλες τις οθόνες και τους χώρους εργασίας που δεν έχουν
+    συγκεκριμένο σύνολο παράκαμψης.
+  delete_collection: Διαγραφή συλλογής
+  edit_collection: Επεξεργασία συλλογής
+  extend: Επέκταση πρωτοβάθμιας
+  fit:
+    contain: Περιέχει
+    cover: Εξώφυλλο
+    fill: Συμπλήρωση
+  flipHorizontal: Αναδίπλωση οριζόντια
+  flipVertical: Flip κάθετα
+  generating_thumbnails: Δημιουργία μικρογραφιών ταπετσαρίας
+  hours: ώρες
+  interval: Αλλάξτε ταπετσαρία κάθε
+  minutes: πρακτικά
+  monitor_collection: Συλλογή οθονών
+  multimonitor_behaviour: Συμπεριφορά πολλαπλών οθονών
+  muted: Σίγαση ήχου βίντεο
+  no_background: Άδειο slideshow, χρησιμοποιώντας το φόντο του θέματος αντ 'αυτού.
+  no_collections: >-
+    Δεν έχουν δημιουργηθεί ακόμη συλλογές. Κάντε κλικ στο κουμπί + για να
+    δημιουργήσετε ένα.
+  objectFit: Φόντο Fit
+  objectPosition: Ιστορικό Θέση
+  overlayColor: Χρώμα επικάλυψης
+  overlayMixBlendMode: Λειτουργία ανάμειξης μίξης επικάλυψης
+  per_monitor: Ανά οθόνη
+  per_monitor_config: Διαμόρφωση ανά οθόνη
+  playback: Ταχύτητα αναπαραγωγής
+  position:
+    bottom: Κάτω μέρος
+    center: Κέντρο
+    left: Αριστερά
+    right: Δεξιά
+    top: Κορυφή
+  processing_video: Επεξεργασία βίντεο
+  random: Τυχαία παρουσίαση
+  saturation: Κορεσμός
+  seconds: δευτερόλεπτα
+  select_collection: Επιλέξτε Συλλογή
+  thumbnail_generation_complete: Ολοκληρώθηκε η δημιουργία μικρογραφιών
+  thumbnail_generation_finished: Η δημιουργία μικρογραφιών ολοκληρώθηκε με επιτυχία
+  use_accent_color: Χρησιμοποιήστε χρώμα έμφασης ταπετσαρίας
+  wallpaper_collection: Συλλογή ταπετσαριών
+  wallpaper_settings: Ρυθμίσεις ταπετσαρίας
+  wallpapers: Ταπετσαρίες
+  wallpapers_and_collections: Ταπετσαρίες & Συλλογές
+  withOverlay: Με επικάλυψη
+  workspace_collections: Συλλογές χώρου εργασίας
+weg:
+  auto_hide: Αυτόματη απόκρυψη
+  auto_hide_touch_disabled: Η αυτόματη απόκρυψη δεν είναι διαθέσιμη σε συσκευές με οθόνη αφής
+  delay_to_hide: Καθυστέρηση για απόκρυψη
+  delay_to_show: Καθυστέρηση εμφάνισης
+  dock_side: Θέση
+  filtering: Φιλτράρισμα στοιχείων
+  gap: Χάσμα
+  hide_mode:
+    always: Πάντοτε
+    never: Ποτέ
+    on_overlap: Σε επικάλυψη
+  import_error: Αποτυχία εισαγωγής στοιχείων της γραμμής εργασιών
+  import_from_taskbar:
+    button: Εισαγωγή από τη γραμμή εργασιών των Windows
+    label: Εισαγωγή καρφιτσωμένων αντικειμένων
+  import_no_items: Δεν βρέθηκαν καρφιτσωμένα στοιχεία στη γραμμή εργασιών των Windows
+  import_success: >-
+    Έγινε επιτυχής εισαγωγή {{count}} στοιχείων από τη γραμμή εργασιών των
+    Windows
+  items:
+    gap: Χώρος μεταξύ αντικειμένων
+    label: Αντικείμενα
+    middle_click_action:
+      close_app: Κλείσιμο εφαρμογής
+      label: Ενέργεια μεσαίου κλικ
+      open_new_instance: Ανοίξτε το νέο παράδειγμα
+    pinned_visibility:
+      always: Πάντοτε
+      label: Ορατότητα καρφιτσωμένων αντικειμένων
+      when_primary: Όταν η οθόνη είναι κύρια
+    show_instance_counter: Εμφάνιση μετρητή ανοιχτών παραθύρων
+    show_window_title: Εμφάνιση τίτλου ανοιχτού παραθύρου (μόνο οριζόντια)
+    size: Μέγεθος αντικειμένου
+    split_windows: Διαχωρισμός Windows (ένα στοιχείο ανά παράθυρο)
+    temporal_visibility:
+      all: Ολοι
+      label: Ορατότητα ξεκαρφιτσωμένων αντικειμένων
+      on_monitor: Στην οθόνη
+  label: Λέσχη εργασιών
+  margin: Περιθώριο
+  mode:
+    full_width: Πλάτος πλήρους οθόνης
+    min_content: Όσο μικρό μπορεί να είναι
+  padding: Υλικό παραγεμίσματος
+  show_end_task: Εμφάνιση της εργασίας τέλους στη γραμμή εργασιών
+  width: Πλάτος
+welcome:
+  give_a_review: Δώστε μια κριτική
+  message: >-
+    Το Seelen UI είναι ένα δωρεάν και ανοιχτού κώδικα περιβάλλον επιφάνειας
+    εργασίας για Windows. Εδώ έχετε τον πλήρη έλεγχο της εμφάνισης και της
+    συμπεριφοράς της επιφάνειας εργασίας σας, επιτρέποντάς σας να προσαρμόσετε
+    κάθε λεπτομέρεια ώστε να ταιριάζει με τη ροή εργασίας και το στυλ σας.
+  ok: Ας ξεκινήσουμε!
+  review: >-
+    Εάν σας αρέσει να χρησιμοποιείτε το Seelen UI, σκεφτείτε να αφήσετε μια
+    κριτική στο κατάστημα — τα σχόλιά σας βοηθούν το έργο να αναπτυχθεί και να
+    βελτιωθεί.
+  title: Καλώς ήρθατε στο Seelen UI!
+widget:
+  default_instance: Προεπιλεγμένη περίπτωση
+  default_instance_hint: Πάντα ενεργό, χρησιμοποιεί τη διαμόρφωση του γραφικού στοιχείου ρίζας
+  enable: Ενεργοποιήστε αυτό το widget
+  enable_for_monitor: Ενεργοποίηση σε αυτή την οθόνη
+  extra_instances: Επιπλέον περιπτώσεις
+  instance: Παράδειγμα
+  instances: Περιπτώσεις
+wm:
+  animations:
+    duration: Διάρκεια κινούμενων σχεδίων (MS)
+    ease_function: Λειτουργία χαλάρωσης κινούμενων σχεδίων
+    enable: Ενεργοποιήστε τα κινούμενα σχέδια του παραθύρου
+  author: Συγγραφέας
+  auto_stack: Αυτόματη στοίβα ανά κατηγορία εφαρμογής
+  border:
+    enable: Ενεργοποιήστε τα σύνορα του παραθύρου
+    offset: Μετατόπιση των συνόρων
+    width: Πλάτος συνόρων
+  description: Περιγραφή
+  drag_behavior: Σύρετε τη συμπεριφορά
+  drag_behavior_options:
+    sort: Ταξινόμηση (αναδιάταξη των παραθύρων κατά τη μεταφορά)
+    swap: Εναλλαγή (εναλλαγή παραθύρων στο τέλος μεταφοράς)
+  floating:
+    height: Ύψος αιωρούμενου παραθύρου
+    title: Πλωτό μέγεθος παραθύρων
+    width: Πλωτό πλάτος παραθύρων
+  layout: Διάταξη
+  resize_delta: Αλλαγή μεγέθους Delta (%)
+  space_between_containers: Χώρος μεταξύ των εμπορευματοκιβωτίων
+  stack_bar_visibility: Ορατότητα γραμμής στοίβας
+  stack_bar_visibility_options:
+    always: Πάντοτε
+    as_needed: Όσο χρειάζεται
+  workspace_offset: Μετατόπιση χώρων εργασίας (περιθώρια)
+  workspace_padding: Πλατύφυλλα
+'yes': Ναί

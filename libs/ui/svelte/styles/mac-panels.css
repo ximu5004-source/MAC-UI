@@ -1,0 +1,708 @@
+@import "../../styles/frosted-material.css";
+
+/* Shared MAC UI popovers. Scoped opt-in keeps third-party widgets unchanged.
+ * Utility popovers use readable, near-opaque neutral surfaces. They deliberately
+ * do not inherit the desktop/Launchpad's transparent glass material.
+ * Never size against vh: these native windows resize to their content.
+ * The root anchor intentionally outranks the legacy theme injected after the bundle. */
+:is(#root, #app) .slu-std-popover.mac-panel {
+  --mac-ink: light-dark(#202020, #f4f4f4);
+  --mac-secondary: light-dark(#555, #c4c4c4);
+  --mac-surface: light-dark(rgb(245 245 245 / 97%), rgb(36 36 36 / 97%));
+  --mac-card: light-dark(rgb(255 255 255 / 80%), rgb(255 255 255 / 7%));
+  --mac-hover: light-dark(#fff, rgb(255 255 255 / 13%));
+  --mac-line: light-dark(rgb(0 0 0 / 13%), rgb(255 255 255 / 16%));
+  --mac-highlight: light-dark(rgb(255 255 255 / 95%), rgb(255 255 255 / 20%));
+  --mac-accent: light-dark(#086bdc, #79b8ff);
+  --mac-selected: light-dark(rgb(25 113 227 / 12%), rgb(96 167 255 / 19%));
+  --mac-track: light-dark(#d3d3d3, #666);
+  --slu-std-fg-color: var(--mac-ink);
+  --slu-std-fg-secondary-color: var(--mac-secondary);
+  --slu-std-fg-muted-color: var(--mac-secondary);
+  --slu-std-ui-color: var(--mac-accent);
+  --slu-std-ui-hover-overlay: var(--mac-selected);
+  --slu-std-ui-pressed-overlay: var(--mac-selected);
+
+  box-sizing: border-box;
+  width: 340px;
+  min-width: 0;
+  max-width: var(--mac-panel-max-width, 400px);
+  max-height: var(--mac-panel-max-height, 680px);
+  margin: 10px;
+  padding: 12px;
+  gap: 12px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  color: var(--mac-ink);
+  background: var(--mac-surface);
+  border: 1px solid var(--mac-line);
+  border-radius: 24px;
+  box-shadow: 0 8px 20px -10px #0005;
+  backdrop-filter: none;
+  font-family: "Segoe UI Variable Text", "Segoe UI", "Microsoft YaHei UI", sans-serif;
+  font-size: 13px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  scrollbar-width: thin;
+  scrollbar-color: var(--mac-track) transparent;
+}
+
+:is(#root, #app) .slu-std-popover.mac-panel :is(button, input, select) {
+  font: inherit;
+}
+:is(#root, #app) .slu-std-popover.mac-panel input::placeholder {
+  color: var(--mac-secondary);
+  opacity: 1;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .svg-icon {
+  flex-shrink: 0;
+}
+:is(#root, #app) .slu-std-popover.mac-panel button[data-skin] {
+  min-height: 32px;
+  border-radius: 10px;
+  transition: background-color 140ms ease, transform 140ms ease;
+}
+:is(#root, #app) .slu-std-popover.mac-panel button[data-skin="default"] {
+  background: var(--mac-card);
+  color: var(--mac-ink);
+  box-shadow: inset 0 0 0 1px var(--mac-line);
+}
+:is(#root, #app) .slu-std-popover.mac-panel button[data-skin="solid"] {
+  background: #086bdc;
+  color: #fff;
+  box-shadow: inset 0 1px 0 #ffffff33, 0 1px 3px #123e7330;
+}
+:is(#root, #app) .slu-std-popover.mac-panel button[data-skin="transparent"] {
+  color: inherit;
+}
+:is(#root, #app) .slu-std-popover.mac-panel button[data-skin]:hover:enabled {
+  background: var(--mac-hover);
+  color: var(--mac-ink);
+}
+:is(#root, #app) .slu-std-popover.mac-panel button[data-skin="solid"]:hover:enabled {
+  background: #075fca;
+  color: #fff;
+}
+:is(#root, #app) .slu-std-popover.mac-panel button[data-skin]:active:enabled {
+  transform: scale(.98);
+}
+:is(#root, #app) .slu-std-popover.mac-panel :is(button, input, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--mac-accent);
+  outline-offset: -2px;
+}
+:is(#root, #app) .slu-std-popover.mac-panel :is(input:not([type="range"]):not([type="checkbox"]), select)[data-skin] {
+  min-width: 0;
+  min-height: 34px;
+  padding: 6px 10px;
+  border: 1px solid var(--mac-line);
+  border-radius: 10px;
+  background: var(--mac-card);
+  color: var(--mac-ink);
+}
+:is(#root, #app) .slu-std-popover.mac-panel input[type="checkbox"][data-skin="switch"] {
+  flex-shrink: 0;
+  width: 38px;
+  height: 24px;
+  border-radius: 20px;
+  background: var(--mac-track);
+  box-shadow: inset 0 0 0 1px var(--mac-line);
+}
+:is(#root, #app) .slu-std-popover.mac-panel input[type="checkbox"][data-skin="switch"]::before {
+  width: 20px;
+  height: 20px;
+  top: 2px;
+  left: 2px;
+  background: #fff;
+  box-shadow: 0 1px 4px #0003;
+}
+:is(#root, #app) .slu-std-popover.mac-panel input[type="checkbox"][data-skin="switch"]:checked {
+  background: #086bdc;
+}
+:is(#root, #app) .slu-std-popover.mac-panel input[type="checkbox"][data-skin="switch"]:checked::before {
+  transform: translateX(14px);
+}
+:is(#root, #app) .slu-std-popover.mac-panel input[type="range"][data-skin="flat"] {
+  appearance: none;
+  flex: 1;
+  min-width: 0;
+  height: 26px;
+  padding: 3px;
+  border-radius: 20px;
+  overflow: visible;
+  background: linear-gradient(to right, var(--mac-accent) var(--mac-level, 0%), var(--mac-track) var(--mac-level, 0%));
+  box-shadow: inset 0 1px 2px #00000012;
+}
+:is(#root, #app) .slu-std-popover.mac-panel input[type="range"][data-skin="flat"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #0000000d;
+  box-shadow: 0 1px 4px #0004;
+}
+:is(#root, #app) .slu-std-popover.mac-panel :is(.mac-panel-heading, .keyboard-selector-header, .tray-header h1, .notifications-popup-header > span) {
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: -.2px;
+  margin: 0;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .mac-panel-heading {
+  padding: 4px 6px 0;
+}
+:is(#root, #app) .slu-std-popover.mac-panel :is(.user-label, .bt-list-title, .network-section-title, .quick-settings-label, .media-control-label) {
+  padding: 2px 6px;
+  margin: 0 0 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--mac-secondary);
+  text-transform: none;
+  letter-spacing: 0;
+}
+:is(#root, #app) .slu-std-popover.mac-panel :is(.bluetooth-footer, .network-footer, .keyboard-selector-footer, .notifications-popup-footer, .quick-settings-footer, .hotspot-footer) {
+  border-top: 1px solid var(--mac-line);
+  padding-top: 8px;
+  flex-shrink: 0;
+}
+:is(#root, #app) .slu-std-popover.mac-panel :is(.bluetooth-footer, .network-footer, .keyboard-selector-footer, .notifications-popup-footer, .hotspot-footer) > button {
+  width: 100%;
+  justify-content: space-between;
+  padding: 8px 10px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Account card and Finder-like directory rows. */
+:is(#root, #app) .slu-std-popover.mac-panel.user-popup {
+  width: 368px;
+  gap: 4px;
+}
+:is(#root, #app) .slu-std-popover.mac-panel.user-popup hr {
+  border: 0;
+  border-top: 1px solid var(--mac-line);
+  margin: 8px 4px;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .user-profile-container {
+  padding: 10px;
+  margin-bottom: 8px;
+  gap: 14px;
+  background: var(--mac-card);
+  border-radius: 16px;
+  box-shadow: inset 0 1px 0 var(--mac-highlight);
+}
+:is(#root, #app) .slu-std-popover.mac-panel .user-profile-picture-container {
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .user-profile-picture {
+  width: 58px;
+  height: 58px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .user-profile-information {
+  min-width: 0;
+  gap: 5px;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .user-profile-name {
+  font-size: 15px;
+  min-width: 0;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .user-profile-name > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .user-profile-actions {
+  display: flex;
+  gap: 6px;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .user-profile-actions button {
+  padding: 3px 10px;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .user-directory-summary {
+  min-height: 42px;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .user-directory-icon {
+  color: var(--mac-accent);
+}
+:is(#root, #app) .slu-std-popover.mac-panel .user-directory-summary:hover {
+  background: var(--mac-hover);
+}
+:is(#root, #app) .slu-std-popover.mac-panel .file-list {
+  margin: 0 4px 6px;
+  padding: 4px;
+  border-radius: 12px;
+  background: var(--mac-card);
+}
+:is(#root, #app) .slu-std-popover.mac-panel .user-seelen-option-item {
+  justify-content: flex-start;
+  padding: 8px 10px;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .user-seelen-option-item-title {
+  text-align: left;
+  font-size: 13px;
+}
+
+/* Native tray: keep every entry and its Windows click / context-menu mapping. */
+:is(#root, #app) .slu-std-popover.mac-panel.system-tray {
+  width: var(--tray-width, 360px);
+  max-height: min(var(--tray-max-height, 600px), var(--mac-panel-max-height, 680px));
+  overflow: hidden;
+  gap: 8px;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .tray-count {
+  border-radius: 20px;
+  background: var(--mac-card);
+  padding: 3px 8px;
+  color: var(--mac-secondary);
+}
+:is(#root, #app) .slu-std-popover.mac-panel .tray-description {
+  color: var(--mac-secondary);
+  font-size: 11px;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .system-tray-item {
+  min-height: 48px;
+  border-radius: 13px;
+  gap: 12px;
+  padding: 7px 10px;
+  justify-content: flex-start;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .system-tray-item.communication-app {
+  background: var(--mac-card);
+  border-color: var(--mac-line);
+}
+:is(#root, #app) .slu-std-popover.mac-panel .system-tray-item-icon-box {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: var(--mac-card);
+}
+:is(#root, #app) .slu-std-popover.mac-panel .system-tray-item-label small {
+  font-size: 11px;
+  color: var(--mac-secondary);
+}
+:is(#root, #app) .slu-std-popover.mac-panel .system-tray-item-label small.has-notification {
+  color: light-dark(#b3283d, #ff9baa);
+}
+
+/* Keyboard, Bluetooth and Wi-Fi share compact inset lists. */
+:is(#root, #app) .slu-std-popover.mac-panel .keyboard-selector-header {
+  padding: 4px 8px;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .layout {
+  grid-template-columns: 32px minmax(0, 1fr) 18px;
+  min-height: 58px;
+  width: 100%;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 14px;
+  color: var(--mac-ink);
+}
+:is(#root, #app) .slu-std-popover.mac-panel .layout.layout-active {
+  background: var(--mac-selected);
+}
+:is(#root, #app) .slu-std-popover.mac-panel .layout .layout-info {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .layout .layout-lang {
+  font-size: 13px;
+  font-weight: 600;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .layout .layout-keyboard {
+  color: var(--mac-secondary);
+  font-size: 12px;
+  font-weight: 400;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .layout .layout-icon {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: var(--mac-card);
+}
+:is(#root, #app) .slu-std-popover.mac-panel .layout-check {
+  color: var(--mac-accent);
+}
+:is(#root, #app) .slu-std-popover.mac-panel :is(.bluetooth-radio-control, .network-radio-control) {
+  padding: 8px;
+  border-radius: 16px;
+  background: var(--mac-card);
+  box-shadow: inset 0 1px 0 var(--mac-highlight);
+}
+:is(#root, #app) .slu-std-popover.mac-panel :is(.bluetooth-radio-label, .network-radio-label) {
+  gap: 10px;
+  font-size: 15px;
+}
+:is(#root, #app) .slu-std-popover.mac-panel :is(.bluetooth-radio-label, .network-radio-label) > .svg-icon {
+  box-sizing: content-box;
+  padding: 9px;
+  height: 18px;
+  width: 18px;
+  background: #086bdc;
+  color: white;
+  border-radius: 50%;
+}
+:is(#root, #app) .slu-std-popover.mac-panel :is(.bt-list, .network-section) {
+  border: 0;
+  padding: 0;
+}
+:is(#root, #app) .slu-std-popover.mac-panel :is(.bt-list-devices, .network-section-entries) {
+  gap: 2px;
+  padding: 3px;
+  border-radius: 16px;
+  background: var(--mac-card);
+}
+:is(#root, #app) .slu-std-popover.mac-panel :is(.bt-list-devices .bt-device, .network-section-entries .wlan-entry, .hotspot-entry) {
+  border-radius: 12px;
+  padding: 10px;
+  min-height: 42px;
+}
+:is(#root, #app) .slu-std-popover.mac-panel :is(.bt-device-info, .wlan-entry-info) {
+  min-height: 24px;
+}
+:is(#root, #app) .slu-std-popover.mac-panel :is(.bt-device-info, .wlan-entry-info) > .svg-icon:first-child {
+  color: var(--mac-accent);
+}
+:is(#root, #app) .slu-std-popover.mac-panel :is(.bt-device-selected, .wlan-entry-selected) {
+  background: var(--mac-selected);
+}
+:is(#root, #app) .slu-std-popover.mac-panel :is(.bluetooth-empty, .network-empty, .bluetooth-no-adapter, .network-no-adapter, .notifications-popup-empty) {
+  font-style: normal;
+  color: var(--mac-secondary);
+  min-height: 100px;
+  font-size: 13px;
+}
+:is(#root, #app) .slu-std-popover.mac-panel :is(.bt-device-actions, .wlan-entry-actions) {
+  flex-wrap: wrap;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .hotspot-info {
+  border-radius: 16px;
+  padding: 12px;
+  background: var(--mac-card);
+}
+
+/* Control Center: quiet tiles, round active glyphs, consistently sized sliders. */
+:is(#root, #app) .slu-std-popover.mac-panel.quick-settings {
+  width: 356px;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .radio-buttons-container {
+  gap: 8px;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .radio-button[data-skin] {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  align-content: center;
+  column-gap: 9px;
+  row-gap: 2px;
+  min-height: 80px;
+  padding: 12px 10px;
+  border: 1px solid var(--mac-line);
+  border-radius: 16px;
+  background: var(--mac-card);
+  color: var(--mac-ink);
+  box-shadow: inset 0 1px 0 var(--mac-highlight);
+  text-align: left;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .radio-button[data-skin]:hover:enabled {
+  background: var(--mac-hover);
+  color: var(--mac-ink);
+}
+:is(#root, #app) .slu-std-popover.mac-panel.quick-settings .radio-button > .svg-icon {
+  grid-row: 1 / 3;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  padding: 8px;
+  box-sizing: content-box;
+  border-radius: 50%;
+  background: var(--mac-line);
+}
+:is(#root, #app) .slu-std-popover.mac-panel .radio-button[data-skin="solid"] > .svg-icon {
+  background: #086bdc;
+  color: #fff;
+  box-shadow: 0 2px 5px #086bdc30;
+}
+:is(#root, #app) .slu-std-popover.mac-panel.quick-settings .radio-button-label {
+  min-width: 0;
+  text-align: left;
+  align-self: end;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .radio-button-status {
+  align-self: start;
+  color: var(--mac-secondary);
+  font-size: 11px;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .quick-settings-item {
+  grid-template-columns: 28px minmax(0, 1fr) 36px;
+  gap: 8px;
+  padding: 7px 8px;
+  border-radius: 14px;
+  background: var(--mac-card);
+}
+:is(#root, #app) .slu-std-popover.mac-panel .quick-settings-item > .svg-icon {
+  justify-self: center;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .quick-settings-percentage {
+  font-size: 11px;
+  color: var(--mac-secondary);
+  font-variant-numeric: tabular-nums;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .quick-settings-footer {
+  gap: 8px;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .quick-settings-footer > button {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--mac-card);
+}
+
+/* Sound, device roles and media. Device-role buttons remain individually usable. */
+:is(#root, #app) .slu-std-popover.mac-panel.media-popup {
+  width: 376px;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .media-main-view {
+  gap: 10px;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .media-control-volume {
+  gap: 8px;
+  padding: 8px;
+  border-radius: 14px;
+  background: var(--mac-card);
+}
+:is(#root, #app) .slu-std-popover.mac-panel .media-control-volume > button {
+  flex-shrink: 0;
+  width: 28px;
+  padding: 0;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .media-device-group {
+  gap: 3px;
+  padding: 3px;
+  border-radius: 16px;
+  background: var(--mac-card);
+}
+:is(#root, #app) .slu-std-popover.mac-panel .media-device {
+  min-height: 44px;
+  padding: 5px;
+  border-radius: 12px;
+  gap: 8px;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .media-device[data-active="true"] {
+  background: var(--mac-selected);
+}
+:is(#root, #app) .slu-std-popover.mac-panel .media-device [data-behavior="group"] {
+  flex-shrink: 0;
+  box-shadow: none;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .media-device [data-behavior="group"] > button {
+  width: 28px;
+  padding: 0;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .media-device-name {
+  font-size: 12px;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .media-control-session-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .media-session {
+  padding: 14px;
+  border-radius: 18px;
+  gap: 10px;
+  box-shadow: inset 0 0 0 1px var(--mac-line);
+}
+:is(#root, #app) .slu-std-popover.mac-panel .media-session-blurred-thumbnail {
+  opacity: .28;
+  filter: blur(24px);
+}
+:is(#root, #app) .slu-std-popover.mac-panel .media-session-thumbnail {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .media-session-info {
+  min-width: 0;
+  text-align: left;
+  align-items: flex-start;
+  justify-content: center;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .media-session-title {
+  text-shadow: none;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .media-session-author {
+  text-shadow: none;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .media-session-actions {
+  gap: 18px;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .media-session-actions button {
+  width: 34px;
+  border-radius: 50%;
+}
+
+/* Notification content is intentionally more opaque than decorative controls. */
+:is(#root, #app) .slu-std-popover.mac-panel.notifications-popup {
+  width: 380px;
+  overflow: hidden;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .notifications-popup-header {
+  gap: 6px;
+  padding: 0 4px;
+  flex-shrink: 0;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .notifications-popup-header > span {
+  flex: 1;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .notifications-popup-header > button {
+  padding: 4px 10px;
+  font-size: 11px;
+  border-radius: 18px;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .notifications-popup-body {
+  min-height: 0;
+  margin: 0 -4px;
+  padding: 2px 4px;
+  gap: 10px;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .notification {
+  padding: 12px;
+  border: 1px solid var(--mac-highlight);
+  border-radius: 18px;
+  background: var(--mac-card);
+  box-shadow: 0 2px 5px #00000008;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .notification:hover {
+  background: var(--mac-hover);
+}
+:is(#root, #app) .slu-std-popover.mac-panel .notification:active {
+  transform: none;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .notification-header {
+  border: 0;
+  padding: 0;
+  margin-bottom: 8px;
+  gap: 8px;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .notification-header-info {
+  min-width: 0;
+  flex: 1;
+  gap: 8px;
+  font-size: 12px;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .notification-app-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .notification-time {
+  margin-left: auto;
+  color: var(--mac-secondary);
+  font-size: 11px;
+  font-weight: 400;
+  flex-shrink: 0;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .notification-header > button {
+  width: 28px;
+  min-height: 28px;
+  padding: 4px;
+  border-radius: 50%;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .notification-body-content {
+  min-width: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .notification-body-content p + p {
+  margin-top: 5px;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .notification-actions {
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .notification-actions :is(input, select) {
+  flex: 1 1 150px;
+  width: 0;
+  min-width: 0;
+}
+:is(#root, #app) .slu-std-popover.mac-panel .notification-actions button {
+  font-size: 12px;
+}
+
+/* Explicitly opted-in system panels use live neutral frost, including the
+ * calendar and account menu. Unrelated and third-party popovers are unchanged. */
+:is(#root, #app) .slu-std-popover.mac-panel.mac-frosted-surface {
+  --mac-card: light-dark(rgb(255 255 255 / 14%), rgb(0 0 0 / 12%));
+  --mac-hover: light-dark(rgb(255 255 255 / 24%), rgb(255 255 255 / 18%));
+  --mac-line: light-dark(rgb(0 0 0 / 18%), rgb(255 255 255 / 25%));
+  background: var(--mac-glass-surface);
+  border: 0;
+  box-shadow: none;
+  backdrop-filter: var(--mac-glass-blur);
+}
+html[data-native-frosted="true"] :is(#root, #app) .slu-std-popover.mac-panel.mac-frosted-surface {
+  backdrop-filter: none;
+}
+
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  :is(#root, #app) .slu-std-popover.mac-panel,
+  :is(#root, #app) .slu-std-popover.mac-panel.mac-frosted-surface {
+    --mac-surface: light-dark(#f0f0f0, #242424);
+    --mac-card: light-dark(#fff, #333);
+    --mac-hover: light-dark(#e3e3e3, #444);
+    backdrop-filter: none;
+    background: var(--mac-surface);
+  }
+  :is(#root, #app) .slu-std-popover.mac-panel .notification {
+    background: var(--mac-card);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  :is(#root, #app) .slu-std-popover.mac-panel *,
+  :is(#root, #app) .slu-std-popover.mac-panel *::before {
+    transition: none !important;
+    animation: none !important;
+  }
+  :is(#root, #app) .slu-std-popover.mac-panel button:active:enabled {
+    transform: none;
+  }
+}
+@media (forced-colors: active) {
+  :is(#root, #app) .slu-std-popover.mac-panel,
+  :is(#root, #app) .slu-std-popover.mac-panel.mac-frosted-surface {
+    border: 1px solid CanvasText;
+    background: Canvas;
+    color: CanvasText;
+    backdrop-filter: none;
+  }
+  :is(#root, #app) .slu-std-popover.mac-panel :is(button, input, .notification) {
+    border: 1px solid ButtonText;
+  }
+  :is(#root, #app) .slu-std-popover.mac-panel input[type="range"][data-skin="flat"] {
+    appearance: auto;
+    padding: 0;
+  }
+  :is(#root, #app) .slu-std-popover.mac-panel input[type="checkbox"][data-skin="switch"] {
+    appearance: auto;
+  }
+  :is(#root, #app) .slu-std-popover.mac-panel input[type="checkbox"][data-skin="switch"]::before {
+    display: none;
+  }
+  :is(#root, #app) .slu-std-popover.mac-panel [aria-pressed="true"] {
+    outline: 2px solid Highlight;
+  }
+}

@@ -1,0 +1,469 @@
+action:
+  confirm: Una uhakika?
+  confirm_body: Kitendo hiki hakiwezi kufutwa.
+apps_configurations:
+  app:
+    bindings: Kufunga (kumbuka chaguzi zote mbili zinahitajika)
+    category: Jamii
+    category_placeholder: Hakuna
+    monitor: Kufuatilia
+    monitor_placeholder: Hakuna
+    name: Jina
+    ok_create: Unda
+    ok_edit: Sasisha
+    ok_readonly: Hariri kama mpya
+    options:
+      NoInteractive: Hakuna maingiliano
+      VdPinned: Onyesha katika nafasi zote za kazi
+      WmFloat: TWM - anza kuelea
+      WmForce: TWM - Nguvu Kusimamia
+      WmUnmanage: TWM - UnManage
+    options_label: Chaguzi za ziada
+    title_create: Kuunda {{jina}}
+    title_edit: Kuhariri {{jina}}
+    title_readonly: Kuangalia {{jina}}
+    weg_options_label: Chaguzi za Dock/Taskbar
+    wm_options_label: Chaguzi za Meneja wa Dirisha
+    workspace: Nafasi ya kazi
+    workspace_placeholder: Hakuna
+  bundled_msg: >-
+    Usanidi huu uliowekwa wazi hauwezi kuhaririwa na umeundwa kukupa uzoefu bora
+    bila ubinafsishaji. Wao husanidi moja kwa moja programu za kawaida kwako.
+  bundled_title: Programu ya kusanidi na Seelen
+  confirm_delete: Je! Una uhakika unataka kufuta usanidi huu/s?
+  confirm_delete_title: Thibitisha Futa
+  delete: Futa
+  export: Kuuza nje
+  export_full: Mipangilio ya kuuza nje na Maombi
+  extra_info: >-
+    Seelen UI hutumia kitambulisho kimoja tu kwa kila programu (kwanza
+    kupatikana) kwa hivyo mpangilio wa jinsi ulivyobainishwa ni muhimu, ya hivi
+    punde zaidi yatapewa kipaumbele, kwani kumbuka jedwali hupangwa kwa
+    chaguo-msingi kutoka kwa hivi karibuni hadi vya zamani.
+  identifier:
+    add_block: Ongeza block
+    and: Na
+    id: Kitambulisho
+    kind: Tambua na
+    matching_strategy: Mkakati wa kulinganisha
+    matching_strategy_option:
+      contains: Ina
+      ends_with: Inaisha na
+      equals: Sawa
+      regex: Kujieleza mara kwa mara
+      starts_with: Huanza na
+    negation: Negate kulinganisha
+    or: Au
+    remove: Futa block
+    type:
+      class: Darasa
+      exe: Mfano
+      path: Njia
+      title: Kichwa
+  import: Kuagiza
+  import_full: Ingiza Mipangilio na Maombi
+  new: Mpya
+  search: Tafuta
+  swap: Kubadilishana
+cancel: Ghairi
+close: Karibu
+delete: Futa
+devtools:
+  app_folders: Folda za programu
+  color_palette: Palette ya rangi
+  color_palette_note: >-
+    Rangi hizi hubadilika kiotomatiki kwa modi ya mwanga/giza — kila kivuli
+    kinalinganishwa na mandharinyuma ya sasa, si thamani isiyobadilika. Zitumie
+    badala ya rangi zenye msimbo ngumu ili kupata usaidizi wa mandhari
+    kiotomatiki.
+  custom_config_file: Pakia faili ya usanidi wa kawaida
+  data_folder: Folda ya data
+  enable: Wezesha zana za msanidi programu
+  enable_description: >-
+    Hufungua zana za kina za kukagua na kutatua vifaa vya ndani vya Seelen UI.
+    Haikusudiwa kwa matumizi ya kawaida.
+  icons: Aikoni Zilizohifadhiwa
+  install_folder: Folda ya usanikishaji
+  load: Mzigo
+  settings_file: Faili ya mipangilio
+  shared_components: Vipengele vya kawaida vya SLU
+  simulate_dialog:
+    label: Maongezi ya Kuiga
+    trigger: Anzisha
+  simulate_perm:
+    label: Iga Ombi la Ruhusa ya Wijeti
+    result_allowed: ✓ Ruhusa imetolewa
+    result_denied: ✗ Ruhusa imekataliwa
+    trigger: Iga
+    widget_id_placeholder: '@mwandishi/wijeti-jina'
+  tools: Zana
+  unlock_shortcuts: Fungua Njia za Mkato za Kusoma Pekee
+  unlock_shortcuts_description: >-
+    Ruhusu njia za mkato za kuhariri ambazo kwa kawaida ni za kusoma pekee (k.m.
+    kubatilisha mfumo).
+  unstable_optimizations: Uboreshaji Usio thabiti
+  unstable_optimizations_description: >-
+    Washa alama za majaribio za Chromium ambazo hupunguza matumizi ya RAM. 
+
+    Onyo: wijeti ikiacha kufanya kazi, wijeti zote zinazoshiriki kipakiaji sawa
+    zitaanguka pamoja.
+  widgets_debug:
+    actions: Vitendo
+    empty: Hakuna wijeti zilizopakiwa. Bofya Onyesha upya.
+    instance_id: Kitambulisho cha Mfano
+    monitor_id: Kitambulisho cha kufuatilia
+    open_devtools: DevTools
+    refresh: Onyesha upya
+    status: Hali
+    tab: Wijeti
+    widget_id: Kitambulisho cha Wijeti
+discord_banner:
+  message: >-
+    Ungana na watumiaji wengine wa Seelen UI, pata usaidizi, shiriki mandhari na
+    usasishe habari za hivi punde.
+  title: Jiunge na Jumuiya yetu
+extras:
+  backup_group: Hifadhi Nakala ya Wingu
+  backup_last_sync: Usawazishaji wa mwisho
+  backup_never_synced: Haijasawazishwa kamwe
+  backup_sync: Sawazisha mipangilio kwenye wingu
+  backup_sync_description: Hifadhi nakala kiotomatiki na urejeshe mipangilio yako kupitia wingu.
+  clear_icons: Kashe ya icons za mfumo wazi
+  clear_icons_tooltip: Kuanza tena kunaweza kuhitajika kuchukua kikamilifu kwa vilivyoandikwa vyote
+  discord_rpc: Tofautisha uwepo wa tajiri
+  discord_rpc_description: Onyesha kila mtu ambaye una mtindo!
+  exit: Acha/exit
+  relaunch: Kuzindua tena
+  streaming_mode: Hali ya Kutiririsha
+  streaming_mode_description: >-
+    Hubadilisha maelezo nyeti (k.m. barua pepe) na vishikilia nafasi ili kulinda
+    faragha wakati wa kurekodi au kupiga picha za skrini.
+  version: Toleo
+  version_fixed: >-
+    Programu na matoleo ya WebView2 Runtime yamerekebishwa. Hii ina maana kwamba
+    programu haitapokea masasisho na Muda wa Uendeshaji wa WebView2
+    hautasasishwa kiotomatiki na masasisho ya Windows.
+general:
+  accent_color: Rangi ya lafudhi
+  date_format: Muundo wa tarehe
+  date_format_how_to: Jinsi ya kuandika muundo wa tarehe?
+  hardware_acceleration: Kuongeza kasi ya vifaa
+  hardware_acceleration_description: >-
+    Kuzima uongezaji kasi wa maunzi kutapunguza matumizi ya kumbukumbu. Ni
+    salama kuzima ikiwa hutumii uhuishaji mzito, ingawa wijeti mahususi bado
+    zinaweza kulazimisha matumizi ya GPU bila kujali mpangilio huu.
+  icon_pack:
+    available: Vifurushi vya ikoni vinavyopatikana
+    selected: Vifurushi vya ikoni zinazotumika
+  language: Lugha
+  monday: Jumatatu
+  performance_mode:
+    label: Uboreshaji
+    on_battery: Kwenye betri
+    on_energy_saver: Kwenye Saver ya Nishati
+    options:
+      disabled: Walemavu
+      extreme: Uliokithiri
+      minimal: Ndogo
+    plugged: Kuziba au kuchaji
+  polling_interval: Muda wa upigaji kura wa mfumo
+  polling_interval_description: >-
+    Ni mara ngapi (kwa sekunde) Seelen UI hukagua rasilimali za mfumo kama vile
+    CPU, RAM, mtandao na shughuli za diski. Nambari ndogo inamaanisha masasisho
+    ya mara kwa mara, lakini matumizi ya juu kidogo ya rasilimali.
+  saturday: Jumamosi
+  start_of_week: Mwanzo wa Wiki
+  startup: Kuendesha kuanza?
+  sunday: Jumapili
+  suspend_on_game_mode: Sitisha wijeti kwenye Modi ya Mchezo
+  suspend_on_game_mode_description: >-
+    Wakati Windows Game Mode inatumika, mionekano yote ya wavuti kwenye wijeti
+    inaharibiwa ili bure CPU na kumbukumbu ya mchezo. Wijeti hurejeshwa
+    kiotomatiki Modi ya Mchezo inapoisha.
+  theme:
+    available: Mandhari Zinazopatikana
+    selected: Mandhari Inayotumika
+global: Ulimwenguni
+header:
+  labels:
+    config: Usanidi
+    developer: Kwa watengenezaji
+    extras: Ziada
+    general: Mkuu
+    home: Nyumbani
+    iconpack: Pakiti za ikoni
+    monitors: Wachunguzi
+    plugin: Programu -jalizi
+    resources: Rasilimali
+    session: Akaunti
+    shortcuts: Njia za mkato
+    soundpack: Pakiti za sauti
+    specific_apps: Mipangilio na Maombi
+    theme: Mada
+    virtual_desk: Dawati za kweli
+    wallpaper: Wallpapers
+    widget: Vilivyoandikwa
+home:
+  new_resources: Rasilimali mpya
+inherit: Urithi
+inProgress: Inaendelea...
+insert: Ingiza
+join_us: Jiunge nasi!
+loading: Inapakia ...
+miscellaneous: Miscellaneous
+monitors_configurations:
+  label: Monitor {{index}}
+more: Zaidi
+'no': Hapana
+open: Wazi
+quit: Acha
+remove: Ondoa
+reset_all_to_default: Rudisha yote kwa maadili ya msingi
+reset_configurations: Weka upya mipangilio
+reset_to_default: Rudisha kwa thamani ya msingi
+resources:
+  affected_widgets: Wijeti Zilizoathiriwa
+  app_outdated: Rasilimali hii inahitaji toleo jipya la Seelen UI kufanya kazi vizuri.
+  coming_soon: Inakuja Hivi Karibuni
+  corrupted_wallpaper: Imeshindwa kutoa kijipicha - umbizo la video mbovu au ambalo halitumiki
+  delete: Futa rasilimali
+  discover: Gundua rasilimali zaidi
+  has_update: Sasisho linapatikana
+  high_impact: Athari kubwa juu ya utendaji
+  import_wallpapers: Ingiza wallpapers za mitaa
+  included_plugins: Pamoja na Plugins
+  modified: Imebadilishwa
+  open_folder: Fungua folda ya rasilimali
+  outdated: >-
+    Rasilimali hii ilibuniwa kwa toleo la zamani la Seelen UI na linaweza
+    kufanya kazi vizuri.
+  see_on_website: Tazama kwenye tovuti
+  update_now: Sasisha
+  updates_available: Sasisho Zinapatikana
+  updates_available_description: Nyenzo zifuatazo zina sasisho zinazopatikana.
+review_request:
+  not_now: Si sasa
+  sure: Hakika!
+  title: Je, unafurahia UI ya Seelen?
+save: Kuokoa
+save_and_restart: Okoa na uanze tena
+search: Tafuta
+see_more: Tazama zaidi
+session:
+  logout: Ondoka
+  plan: Mpango
+  sign_in: Ingia
+  sign_in_hint: Kivinjari chako kitafunguka ili uweze kuingia kwa usalama.
+  upgrade_to: Boresha hadi
+shortcuts:
+  disabled_tooltip: Wijeti na njia zake za mkato zimezimwa
+  duplicate_error: Njia za mkato zinazokinzana zimegunduliwa
+  duplicate_error_hint: >-
+    Baadhi ya njia za mkato zimekabidhiwa kwa vitendo vingi. Zima mojawapo ya
+    wijeti zinazokinzana au kabidhi upya ufunguo unaorudiwa ili kutatua.
+  enable: Wezesha mfumo wa mkato uliojengwa ndani
+  enable_tooltip: >-
+    Lemaza ikiwa utatumia mfumo wako wa njia za mkato kwa kutumia mteja wa
+    Seelen UI
+  labels:
+    create_new_workspace: Unda nafasi mpya ya kazi
+    create_new_workspace_row: Unda Safu Mpya ya Nafasi ya Kazi
+    destroy_current_workspace: Kuharibu nafasi ya kazi ya sasa
+    misc_force_quit: Nguvu kuacha
+    misc_force_restart: Nguvu Anzisha tena
+    move_to_workspace: Hoja kwa nafasi ya kazi {{0}}
+    pause_toggle: Sitisha/Rejesha Njia za mkato
+    send_to_next_workspace: Tuma Dirisha kwa Nafasi ya Kazi Inayofuata
+    send_to_previous_workspace: Tuma Dirisha kwa Nafasi ya Kazi Iliyotangulia
+    send_to_workspace: Tuma kwa nafasi ya kazi {{0}}
+    send_to_workspace_down: Tuma Dirisha kwa Nafasi ya Kazi Hapa Chini
+    send_to_workspace_up: Tuma Dirisha kwa Nafasi ya Kazi Hapo Juu
+    switch_to_next_workspace: Badilisha kwenye nafasi ya kazi inayofuata
+    switch_to_previous_workspace: Badilisha kwenye nafasi ya kazi ya hapo awali
+    switch_to_workspace_down: Badili hadi Nafasi ya Kazi Hapa chini
+    switch_to_workspace_up: Badili hadi Nafasi ya Kazi Hapo Juu
+    switch_workspace: Badilika kwa nafasi ya kazi {{0}}
+  readonly_tooltip: Hii ni njia ya mkato ya kusoma tu
+  reset: Rudisha kwa defaults
+sides:
+  bottom: Chini
+  left: Kushoto
+  right: Haki
+  top: Juu
+toolbar:
+  auto_hide: Kujificha kiotomatiki
+  auto_hide_touch_disabled: Ficha otomatiki haipatikani kwenye vifaa vya skrini ya kugusa
+  delay_to_hide: Kuchelewa kujificha
+  delay_to_show: Kuchelewa kuonyesha
+  dock_side: Msimamo
+  enable: Wezesha zana ya dhana
+  hide_mode:
+    always: Daima
+    never: Kamwe
+    on_overlap: Juu ya mwingiliano
+  item_size: Ukubwa wa Kipengee
+  label: Zana
+  margin: Ukubwa wa Pambizo
+  padding: Ukubwa wa Padding
+  placeholder: {}
+update:
+  available: Sasisha inapatikana!
+  channel: Sasisha kituo
+  downloading: Kupakua ...
+wall:
+  blur: Blur
+  cancel: Ghairi
+  close: Funga
+  collection_name: Jina la Mkusanyiko
+  collections: Mikusanyiko
+  contrast: Tofauti
+  corrupted_wallpapers_message: 'Mandhari zilizoharibika, zingatia kufuta hizi:'
+  coverage_pause_threshold: Sitisha kiwango cha juu (ufunikaji wa dirisha)
+  create: Unda
+  create_collection: Unda Mkusanyiko
+  default_collection: Mandhari chaguomsingi au mkusanyiko
+  default_collection_description: >-
+    Inatumika kwa vichunguzi vyote na nafasi za kazi ambazo hazina seti mahususi
+    ya kubatilisha.
+  delete_collection: Futa Mkusanyiko
+  edit_collection: Hariri Mkusanyiko
+  extend: Ongeza msingi
+  fit:
+    contain: Kuwa na
+    cover: Funika
+    fill: Jaza
+  flipHorizontal: Flip usawa
+  flipVertical: Flip wima
+  generating_thumbnails: Inazalisha Vijipicha vya Mandhari
+  hours: masaa
+  interval: Badilisha Ukuta kila
+  minutes: dakika
+  monitor_collection: Fuatilia Mkusanyiko
+  multimonitor_behaviour: Tabia ya Multimonitor
+  muted: Sauti ya Video ya Bubu
+  no_background: Slideshow tupu, kwa kutumia mandharinyuma ya mandhari badala yake.
+  no_collections: Bado hakuna mikusanyiko iliyoundwa. Bofya kitufe cha + ili kuunda moja.
+  objectFit: Msingi wa kifafa
+  objectPosition: Msimamo wa nyuma
+  overlayColor: Rangi ya juu
+  overlayMixBlendMode: Njia ya mchanganyiko wa mchanganyiko
+  per_monitor: Kwa mfuatiliaji
+  per_monitor_config: Usanidi wa Per-Monitor
+  playback: Kasi ya kucheza
+  position:
+    bottom: Chini
+    center: Kituo
+    left: Kushoto
+    right: Kulia
+    top: Juu
+  processing_video: Inachakata video
+  random: Sisitiza slideshow
+  saturation: Kueneza
+  seconds: sekunde
+  select_collection: Chagua Mkusanyiko
+  thumbnail_generation_complete: Uzalishaji wa Kijipicha Umekamilika
+  thumbnail_generation_finished: Uzalishaji wa kijipicha umekamilika
+  use_accent_color: Tumia rangi ya lafudhi ya mandhari
+  wallpaper_collection: Ukusanyaji wa Mandhari
+  wallpaper_settings: Mipangilio ya Mandhari
+  wallpapers: Mandhari
+  wallpapers_and_collections: Mandhari na Mikusanyiko
+  withOverlay: Na overlay
+  workspace_collections: Mikusanyiko ya Nafasi ya Kazi
+weg:
+  auto_hide: Kujificha kiotomatiki
+  auto_hide_touch_disabled: Ficha otomatiki haipatikani kwenye vifaa vya skrini ya kugusa
+  delay_to_hide: Kuchelewa kujificha
+  delay_to_show: Kuchelewa kuonyesha
+  dock_side: Msimamo
+  filtering: Kuchuja kwa bidhaa
+  gap: Pengo
+  hide_mode:
+    always: Daima
+    never: Kamwe
+    on_overlap: Juu ya mwingiliano
+  import_error: Imeshindwa kuleta vipengee vya upau wa kazi
+  import_from_taskbar:
+    button: Ingiza kutoka kwa Upau wa Kazi wa Windows
+    label: Ingiza Vipengee Vilivyobandikwa
+  import_no_items: >-
+    Hakuna vipengee vilivyobandikwa vilivyopatikana kwenye upau wa kazi wa
+    Windows
+  import_success: Imefaulu kuleta bidhaa {{count}} kutoka kwa upau wa kazi wa Windows
+  items:
+    gap: Nafasi kati ya vitu
+    label: Vitu
+    middle_click_action:
+      close_app: Funga Programu
+      label: Kitendo cha Bonyeza Kati
+      open_new_instance: Fungua Mfano Mpya
+    pinned_visibility:
+      always: Daima
+      label: Mwonekano wa Vipengee Vilivyobandikwa
+      when_primary: Wakati kufuatilia ni msingi
+    show_instance_counter: Onyesha wazi Windows Counter
+    show_window_title: Onyesha kichwa wazi cha windows (usawa tu)
+    size: Saizi ya bidhaa
+    split_windows: Gawanya Windows (kipengee kimoja kwa kila dirisha)
+    temporal_visibility:
+      all: Wote
+      label: Mwonekano wa Vipengee Vilivyobanduliwa
+      on_monitor: Kwenye Monitor
+  label: Dock/Taskbar
+  margin: Margin
+  mode:
+    full_width: Upana kamili wa skrini
+    min_content: Ndogo kama inaweza kuwa
+  padding: Padding
+  show_end_task: Onyesha kazi ya mwisho katika Taskbar
+  width: Upana
+welcome:
+  give_a_review: Toa Uhakiki
+  message: >-
+    Seelen UI ni mazingira ya bure na ya wazi ya eneo-kazi kwa Windows. Hapa una
+    udhibiti kamili wa jinsi eneo-kazi lako linavyoonekana na kufanya kazi,
+    hivyo kukuruhusu kubinafsisha kila undani ili kuendana na utendakazi na
+    mtindo wako.
+  ok: Hebu tuanze!
+  review: >-
+    Ikiwa unafurahia kutumia Seelen UI, zingatia kuacha ukaguzi kwenye duka -
+    maoni yako husaidia mradi kukua na kuboreka.
+  title: Karibu kwenye Seelen UI!
+widget:
+  default_instance: Tukio Chaguomsingi
+  default_instance_hint: Inatumika kila wakati, hutumia usanidi wa wijeti ya mizizi
+  enable: Wezesha widget hii
+  enable_for_monitor: Wezesha kwenye mfuatiliaji huu
+  extra_instances: Matukio ya Ziada
+  instance: Mfano
+  instances: Matukio
+wm:
+  animations:
+    duration: Muda wa Uhuishaji (MS)
+    ease_function: Uhuishaji wa Kuongeza Uhuishaji
+    enable: Wezesha michoro za Window
+  author: Mwandishi
+  auto_stack: Rafu kiotomatiki kulingana na kitengo cha programu
+  border:
+    enable: Wezesha mpaka wa dirisha
+    offset: Kukabiliana na mpaka
+    width: Upana wa mpaka
+  description: Maelezo
+  drag_behavior: Tabia ya Kuburuta
+  drag_behavior_options:
+    sort: Panga (panga upya madirisha huku ukiburuta)
+    swap: Badili (badilisha madirisha kwenye mwisho wa buruta)
+  floating:
+    height: Urefu wa Windows unaoelea
+    title: Ukubwa wa Windows unaoelea
+    width: Upana wa Windows unaoelea
+  layout: Mpangilio
+  resize_delta: Rudisha Delta (%)
+  space_between_containers: Nafasi kati ya vyombo
+  stack_bar_visibility: Mwonekano wa Upau wa Rafu
+  stack_bar_visibility_options:
+    always: Daima
+    as_needed: Kama inahitajika
+  workspace_offset: Nafasi za kazi za kukabiliana (pembezoni)
+  workspace_padding: Nafasi za kazi
+'yes': Ndio

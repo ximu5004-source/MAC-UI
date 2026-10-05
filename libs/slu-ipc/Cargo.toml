@@ -1,0 +1,22 @@
+[package]
+name = "slu-ipc"
+version = "3.0.1"
+edition = "2024"
+
+[lints]
+workspace = true
+
+[dependencies]
+clap = { workspace = true, features = ["derive"] }
+tokio = { workspace = true, features = ["rt", "time"] }
+thiserror = { workspace = true }
+log = { workspace = true }
+interprocess = { workspace = true, features = ["tokio"] }
+seelen-core = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+serde_json = { workspace = true }
+uuid = { workspace = true, features = ["serde"] }
+windows = { workspace = true, features = [
+    "Win32_System_RemoteDesktop",
+    "Win32_System_Pipes",
+] }

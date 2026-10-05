@@ -1,0 +1,83 @@
+auth:
+  login_failed_body: >-
+    Arazoren bat izan da saioa hastean. Honek jarraitzen badu, ziurtatu Windows
+    'Credential Manager' zerbitzua (VaultSvc) gaituta eta martxan dagoela, eta
+    saiatu berriro.
+  login_failed_title: Ezin izan da saioa hasi
+cancel: Indargabetu
+done: Egin
+elevated:
+  description: >-
+    Seelen UI administratzaile-pribilegioekin exekutatzen ari da.
+
+    Honek ez du ezaugarririk gehitzen edo hobetzen, eta segurtasun arriskua sor
+    dezake.
+
+    Segurtasun hobea lortzeko, mesedez berrabiarazi administratzaile baimenik
+    gabe.
+  title: Administratzaile gisa exekutatzen
+file_explorer: Fitxategien arakatzailea
+resource:
+  added: Baliabide berri bat gehitu da
+  download_failed_body: >-
+    Zerbait gaizki joan da baliabidea deskargatzean, jakinarazi Seelen
+    garatzaileen taldeari.
+  download_failed_title: Baliabideen deskargak huts egin du
+  downloading: Aktiboak deskargatzen ...
+  downloading_body: Honek segundo batzuk iraun ditzake, mesedez, ez itxi leihoa.
+  enable: Ahalbidetu
+  login_required_action: Hasi saioa
+  login_required_body: Baliabide hau deskargatzeko saioa hasi behar duzu.
+  login_required_title: Saioa hasi behar da
+runtime:
+  corrupted_data: Hondatutako datuak
+  corrupted_file: >-
+    Konfigurazio fitxategia hondatuta dago, horren ordez balio lehenetsiak
+    erabiliz.
+  corrupted_file_path: Fitxategiaren bide hondatua
+  download: Joan deskarga orrira
+  files_integrity: >-
+    Ezin izan dugu egiaztatu aplikazioaren fitxategien osotasuna.
+
+    Hau gerta daiteke fitxategiak aldatu, hondatuta edo instalazioa osatu gabe
+    badago.
+
+    Segurtasun arrazoiengatik, Seelen UI ezin da jarraitu.
+
+    Mesedez, berriro instalatu webgune ofizialetik.
+  files_integrity_title: Segurtasun alerta - Huts egin du fitxategien osotasuna egiaztatzea
+  not_found: WebView2 Runtime ez da aurkitu
+  not_found_description: Seelen UI-k Webview2 Runtime behar du. Mesedez, instala ezazu.
+  outdated: WebView2 Exekuzio-denbora zaharkituta dago
+  outdated_description: >-
+    Seelen UI-k Webview2 Runtime %{min_version} edo handiagoa behar du. Mesedez,
+    eguneratu.
+service:
+  not_running: Seelen UI Zerbitzua ez dago martxan
+  not_running_description: >-
+    Seelen UI Zerbitzua (slu-zerbitzua) menpekotasun/laguntzailea da aplikazioak
+    behar bezala funtziona dezan.
+  not_running_ok: Hasi zerbitzua
+shortcut:
+  conflicts:
+    body: Lasterbide batzuk hainbat ekintzari esleitzen zaizkie, esleitu berriro.
+    dismiss: Baztertu
+    review: Berrikuspena
+    title: Lasterbideen gatazkak hauteman dira
+  register:
+    placeholder: Sakatu edozein tekla konbinazio
+    title: Lasterbide berria erregistratzea
+widget_liveness:
+  failed_description: |-
+    '%{widget_name}' widgetak gehiegitan erantzuteari utzi zion.
+
+    Aplikazioa berrabiarazten saia zaitezke.
+  failed_title: Widgetaren errorea
+widget_permissions:
+  perm_open_file: ireki fitxategiak
+  perm_run: exekutatu programak
+  request_description: |-
+    '%{widget_name}' widget-ak %{command}-i baimena eskatzen dio.
+
+    Hau onartu nahi duzu?
+  request_title: Widget-en baimen-eskaera

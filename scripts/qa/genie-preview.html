@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>经典 Genie · 合成几何验收</title>
+<style>
+  :root { color-scheme: dark; font-family: 'Segoe UI', sans-serif; background: #161d27; color: #eef4fa; }
+  body { max-width: 1120px; margin: 24px auto; padding: 0 20px; }
+  h1 { font-size: 22px; margin-bottom: 8px; }
+  p { color: #b8c8da; line-height: 1.6; }
+  .notice { padding: 12px 16px; border-left: 3px solid #80bfff; background: #253449; }
+  .controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 18px 0; }
+  button, select { font: inherit; color: inherit; background: #293a50; padding: 9px 14px; border: 1px solid #5e7593; border-radius: 9px; }
+  button { cursor: pointer; min-height: 40px; }
+  button:hover { background: #385373; }
+  :focus-visible { outline: 3px solid #b5dcff; outline-offset: 3px; }
+  input[type=range] { flex: 1; min-width: 160px; accent-color: #8ec5ff; }
+  canvas { width: 100%; max-width: 960px; height: auto; background: #29374b; border: 1px solid #58728c; border-radius: 12px; }
+  output { display: block; padding: 10px 0; min-height: 24px; font-variant-numeric: tabular-nums; }
+  .phase-labels { display: flex; max-width: 960px; margin-top: 8px; color: #b8c8da; font-size: 13px; }
+  .phase-labels span:first-child { width: 42%; }
+  code { color: #c7e4ff; }
+</style>
+<h1>经典 Genie：先拉伸成漏斗，再吸入 Dock</h1>
+<p class="notice">仅验收变形算法：画面全部为程序自绘，不捕获真实窗口、不最小化任何应用。此预览通过不代表 Windows 原生动画去重或恢复行为已经通过。</p>
+<p>条带坐标直接来自 <code>geometry.rs</code>；42% 时尖端到达图标，之后尖端保持锚定，远端逐步吞入。</p>
+<div class="controls">
+  <label>方向 <select id="direction" aria-label="Dock 方向"><option value="bottom">下</option><option value="top">上</option><option value="left">左</option><option value="right">右</option></select></label>
+  <button id="play">播放 420 ms</button><button id="stop">停止</button><button id="reset">回到起点</button>
+  <label><input type="checkbox" id="slow"> 慢速验收（4 倍时长）</label>
+</div>
+<div class="controls">
+  <label for="progress">进度</label><input id="progress" type="range" min="0" max="100" value="0">
+  <button id="neck">漏斗阶段 42%</button><button id="swallow">吞入阶段 71%</button><button id="end">终点 100%</button>
+</div>
+<output id="status" aria-live="polite">正在载入合成几何…</output>
+<canvas id="preview" width="960" height="760" aria-label="自绘窗口沿非仿射网格进入 Dock 的静态或动画预览"></canvas>
+<div class="phase-labels"><span>0–42%：远端固定，拉伸漏斗</span><span>42–100%：尖端固定，吞入窗口</span></div>
+<script type="module">
+  const fixture = await fetch('/fixture.json').then(response => { if (!response.ok) throw new Error('Geometry fixture missing'); return response.json(); });
+  const canvas = document.querySelector('#preview');
+  const ctx = canvas.getContext('2d');
+  const range = document.querySelector('#progress');
+  const direction = document.querySelector('#direction');
+  const status = document.querySelector('#status');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const snapshot = document.createElement('canvas');
+  snapshot.width = fixture.source[2]; snapshot.height = fixture.source[3];
+  const art = snapshot.getContext('2d');
+  art.fillStyle = '#eff6fb'; art.fillRect(0, 0, snapshot.width, snapshot.height);
+  art.fillStyle = '#33465f'; art.fillRect(0, 0, snapshot.width, 44);
+  art.font = '600 17px Segoe UI'; art.fillStyle = '#edf6ff'; art.fillText('MAC UI · Synthetic window', 84, 29);
+  ['#ff6a63', '#ffc454', '#50cf77'].forEach((color, i) => { art.fillStyle = color; art.beginPath(); art.arc(19 + 21*i, 22, 6, 0, Math.PI*2); art.fill(); });
+  art.font = '600 27px Segoe UI'; art.fillStyle = '#26394e'; art.fillText('CLASSIC GENIE', 30, 89);
+  art.font = '15px Segoe UI'; art.fillStyle = '#526477'; art.fillText('Only program-drawn pixels — no app capture', 30, 117);
+  const colors = ['#1077b4', '#268bb7', '#42aba6', '#719aac', '#467496', '#91bdb6'];
+  colors.forEach((color, i) => { art.fillStyle = color; art.fillRect(32+i*83, 146, 66, 90); art.fillStyle = '#ffffff'; art.font='600 19px Segoe UI'; art.fillText(String(i+1), 54+i*83, 198); });
+  art.strokeStyle = '#658fa6'; art.lineWidth = 3; art.beginPath(); art.moveTo(32, 294); art.bezierCurveTo(140, 252, 228, 335, 310, 270); art.bezierCurveTo(390, 211, 447, 299, 527, 261); art.stroke();
+  let frameId = 0, progress = 0;
+  const stop = () => { cancelAnimationFrame(frameId); frameId = 0; };
+  function draw(value, quiet = false) {
+    progress = Math.min(100, Math.max(0, Math.round(value))); range.value = String(progress);
+    const current = fixture.cases.find(entry => entry.name === direction.value);
+    ctx.fillStyle = '#29374b'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = '#40556e'; ctx.lineWidth = 1;
+    for (let x=0; x<canvas.width; x+=40) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,canvas.height); ctx.stroke(); }
+    for (let y=0; y<canvas.height; y+=40) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(canvas.width,y); ctx.stroke(); }
+    const [tx,ty,tw,th] = current.target;
+    ctx.fillStyle = '#91caff'; ctx.beginPath(); ctx.roundRect(tx,ty,tw,th,12); ctx.fill();
+    ctx.strokeStyle = '#d9eeff'; ctx.lineWidth = 2; ctx.stroke();
+    ctx.fillStyle='#203a56'; ctx.font='600 22px Segoe UI'; ctx.fillText('M',tx+15,ty+34);
+    ctx.fillStyle='#c7e4ff'; ctx.font='13px Segoe UI'; ctx.fillText('Dock',tx,ty+th+17);
+    ctx.imageSmoothingEnabled = true;
+    for (const strip of current.frames[progress].strips) ctx.drawImage(snapshot, ...strip);
+    if (!quiet) status.textContent = `${progress}% · ${progress <= 42 ? '拉伸漏斗：远端固定' : '吸入窗口：尖端锚定 Dock'}${reduced.matches ? ' · 减少动画已启用，播放会直接到终点' : ''}`;
+  }
+  function seek(value) { stop(); draw(value); }
+  document.querySelector('#play').onclick = () => {
+    stop();
+    if (reduced.matches) { draw(100); return; }
+    draw(0); const start = performance.now();
+    const duration = fixture.durationMs * (document.querySelector('#slow').checked ? 4 : 1);
+    const tick = (now) => { const t = Math.min(100, (now-start)/duration*100); draw(t, true); if (t < 100) frameId=requestAnimationFrame(tick); else { frameId=0; draw(100); } };
+    frameId=requestAnimationFrame(tick);
+  };
+  document.querySelector('#stop').onclick = () => seek(progress);
+  document.querySelector('#reset').onclick = () => seek(0);
+  document.querySelector('#neck').onclick = () => seek(42);
+  document.querySelector('#swallow').onclick = () => seek(71);
+  document.querySelector('#end').onclick = () => seek(100);
+  range.oninput = () => seek(Number(range.value)); direction.onchange = () => seek(0);
+  reduced.addEventListener('change', () => seek(reduced.matches ? 100 : progress));
+  addEventListener('pagehide', stop);
+  Object.defineProperty(window, '__geniePreviewInspection', { get: () => ({ scope:fixture.scope, generator:fixture.generator, direction:direction.value, progress, stripCount:256, reducedMotion:reduced.matches, animating:frameId!==0 }) });
+  draw(0);
+</script>
+</html>

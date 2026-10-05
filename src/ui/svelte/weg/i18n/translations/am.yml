@@ -1,0 +1,40 @@
+app_menu:
+  close: ገጠመ
+  close_multiple: ሁሉንም ዝጋ
+  copy_handles: መያዣዎች
+  edit_app_icon: የመተግበሪያ አዶን ያርትዑ
+  kill: የመግደል ሂደት
+  kill_multiple: ሁሉንም ሂደቶች ይገድሉ
+  open_file_location: የፋይል ቦታ ይክፈቱ
+  pin: ፒን
+  pin_to_center: ፒን እስከ ማእከል
+  pin_to_left: ፒን ወደ ግራ
+  pin_to_right: በቀኝ በኩል ፒን
+  run_as: እንደ አስተዳዳሪ ይሮጡ
+  unpin: እየቀነሰ ይሄዳል
+context_menu:
+  edit_icon: አዶ አርትዕ
+  remove_module: ሞጁሉን አስወግድ
+  remove_separator: መለያን ያስወግዱ
+  reorder_disable: የተግባር አሞሌ
+  reorder_enable: የተካሄደውን ሥራ ይክፈቱ
+media:
+  label: የሚዲያ ማጫወቻ
+  not_playing: ምንም የሚጫወት የለም
+show_desktop:
+  label: ዴስክቶፕን አሳይ
+start:
+  label: የጀምር ምናሌ
+taskbar_menu:
+  add_file: የፒን ብጁ ፋይል
+  add_separator: መለያ ጨምር
+  media: የሚዲያ ማጫወቻ
+  modules: ሞጁሎች
+  settings: ቅንብሮች
+  task_manager: ተግባር አስተዳዳሪ
+trash_bin:
+  empty_bin: ባዶ ሪሳይክል ቢን
+  item_count: '{{0}} ንጥሎች'
+  label: ሪሳይክል ቢን
+weg:
+  empty: ምንም የሚታዩ ንጥሎች የሉም

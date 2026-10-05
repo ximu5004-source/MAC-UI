@@ -1,0 +1,83 @@
+auth:
+  login_failed_body: >-
+    Xi ħaġa marret ħażin waqt il-login. Jekk dan jippersisti, kun żgur li
+    s-servizz tal-'Credential Manager' tal-Windows (VaultSvc) huwa attivat u qed
+    jaħdem, imbagħad erġa' pprova.
+  login_failed_title: Il-login falla
+cancel: Ikkanċella
+done: Magħmul
+elevated:
+  description: >-
+    Seelen UI qed taħdem bi privileġġi ta' amministratur.
+
+    Dan ma jżid jew itejjeb l-ebda karatteristika, u jista' joħloq riskju
+    għas-sigurtà.
+
+    Għal sigurtà aħjar, jekk jogħġbok ibda mill-ġdid mingħajr permessi ta'
+    amministratur.
+  title: Tmexxi bħala Amministratur
+file_explorer: File Explorer
+resource:
+  added: Ġiet miżjuda riżorsa ġdida
+  download_failed_body: >-
+    Xi ħaġa marret ħażin waqt li tniżżel ir-riżorsa, jekk jogħġbok irrapportaha
+    lit-tim tal-iżviluppatur Seelen.
+  download_failed_title: It-tniżżil tar-riżorsi falla
+  downloading: Tniżżil ta 'assi ...
+  downloading_body: Dan jista 'jieħu ftit sekondi, jekk jogħġbok ma tagħlaqx it-tieqa.
+  enable: Jippermetti
+  login_required_action: Idħol
+  login_required_body: Għandek bżonn tidħol biex tniżżel din ir-riżorsa.
+  login_required_title: Sign in Meħtieġa
+runtime:
+  corrupted_data: Dejta korrotta
+  corrupted_file: Fajl ta 'konfigurazzjoni huwa korrotta, billi tuża valuri default minflok.
+  corrupted_file_path: Triq tal-fajl korrotta
+  download: Mur fil-paġna tat-tniżżil
+  files_integrity: >-
+    Ma stajniex nivverifikaw l-integrità tal-fajls tal-applikazzjoni.
+
+    Dan jista 'jiġri jekk il-fajls ġew modifikati, korrotta, jew
+    l-installazzjoni ma tkunx kompluta.
+
+    Għal raġunijiet ta' sigurtà, Seelen UI ma tistax tkompli.
+
+    Jekk jogħġbok installa mill-ġdid mill-websajt uffiċjali.
+  files_integrity_title: Twissija tas-Sigurtà - Iċċekkjar tal-Integrità tal-Fajls Fallit
+  not_found: WebView2 Runtime ma nstabx
+  not_found_description: Seelen UI teħtieġ Webview2 Runtime. Jekk jogħġbok installah.
+  outdated: WebView2 Runtime skadut
+  outdated_description: >-
+    Seelen UI teħtieġ Webview2 Runtime %{min_version} jew ogħla. Jekk jogħġbok
+    aġġornaha.
+service:
+  not_running: Is-Servizz ta' Seelen UI mhux qed jaħdem
+  not_running_description: >-
+    Seelen UI Service (slu-service) huwa dipendenza/helper biex l-app taħdem
+    sew.
+  not_running_ok: Ibda s-servizz
+shortcut:
+  conflicts:
+    body: >-
+      Xi shortcuts huma assenjati għal azzjonijiet multipli, jekk jogħġbok
+      assenjahom mill-ġdid.
+    dismiss: Tkeċċi
+    review: Reviżjoni
+    title: Kunflitti ta' Shortcut Individwati
+  register:
+    placeholder: Agħfas kwalunkwe kombinazzjoni taċ-ċavetta
+    title: Tirreġistra shortcut ġdid
+widget_liveness:
+  failed_description: |-
+    Il-widget '%{widget_name}' waqaf jirrispondi wisq drabi.
+
+    Tista 'tipprova terġa' tibda l-app.
+  failed_title: Widget Żball
+widget_permissions:
+  perm_open_file: fajls miftuħa
+  perm_run: imexxu programmi
+  request_description: |-
+    Il-widget '%{widget_name}' qed jitlob permess lil %{kmand}.
+
+    Trid tippermetti dan?
+  request_title: Talba ta' Permess għal Widget

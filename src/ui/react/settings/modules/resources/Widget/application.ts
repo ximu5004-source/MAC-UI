@@ -1,0 +1,164 @@
+import { DEFAULT_SETTINGS, settings } from "../../../state/mod";
+import type { WidgetId } from "@seelen-ui/lib/types";
+import { widgets } from "../../../state/resources";
+
+/**
+ * Gets the configuration for a specific widget
+ */
+export function getWidgetConfig(widgetId: WidgetId) {
+  return settings.value.byWidget[widgetId];
+}
+
+export function isWidgetEnabled(widgetId: WidgetId) {
+  const widget = widgets.value.find((t) => t.id === widgetId);
+  const config = settings.value.byWidget[widgetId];
+  if (config) {
+    return config.enabled;
+  }
+  return !["@seelen/desktop-shell", "@seelen/apps-menu"].includes(widgetId) && !!widget?.metadata.bundled;
+}
+
+/**
+ * Patches the configuration for a specific widget
+ */
+export function patchWidgetConfig(widgetId: WidgetId, config: Record<string, unknown>) {
+  const currentWidget = settings.value.byWidget[widgetId] || { enabled: isWidgetEnabled(widgetId) };
+
+  settings.value = {
+    ...settings.value,
+    byWidget: {
+      ...settings.value.byWidget,
+      [widgetId]: {
+        ...currentWidget,
+        ...config,
+      },
+    },
+  };
+}
+
+/**
+ * Gets the configuration for a specific widget instance
+ */
+export function getWidgetInstanceConfig(widgetId: WidgetId, instanceId: string) {
+  return settings.value.byWidget[widgetId]?.$instances?.[instanceId];
+}
+
+/**
+ * Patches the configuration for a specific widget instance
+ */
+export function patchWidgetInstanceConfig(
+  widgetId: WidgetId,
+  instanceId: string,
+  config: Record<string, any>,
+) {
+  const currentWidget = settings.value.byWidget[widgetId] || { enabled: isWidgetEnabled(widgetId) };
+  const instances = currentWidget.$instances || {};
+  const currentInstance = instances[instanceId] || {};
+
+  settings.value = {
+    ...settings.value,
+    byWidget: {
+      ...settings.value.byWidget,
+      [widgetId]: {
+        ...currentWidget,
+        $instances: {
+          ...instances,
+          [instanceId]: {
+            ...currentInstance,
+            ...config,
+          },
+        },
+      },
+    },
+  };
+}
+
+/**
+ * Removes a widget instance
+ */
+export function removeWidgetInstance(widgetId: WidgetId, instanceId: string) {
+  const currentWidget = settings.value.byWidget[widgetId];
+  if (!currentWidget) {
+    return;
+  }
+
+  const instances = currentWidget.$instances || {};
+  const { [instanceId]: _, ...remainingInstances } = instances;
+
+  const newWidget = { ...currentWidget };
+  if (Object.keys(remainingInstances).length === 0) {
+    delete newWidget.$instances;
+  } else {
+    newWidget.$instances = remainingInstances;
+  }
+
+  settings.value = {
+    ...settings.value,
+    byWidget: {
+      ...settings.value.byWidget,
+      [widgetId]: newWidget,
+    },
+  };
+}
+
+/**
+ * Resets all user-set config values for a widget, preserving only `enabled` and `$instances`.
+ */
+export function resetWidgetConfig(widgetId: WidgetId) {
+  const config = settings.value.byWidget[widgetId];
+  if (!config) {
+    return;
+  }
+
+  settings.value = {
+    ...settings.value,
+    byWidget: {
+      ...settings.value.byWidget,
+      [widgetId]: {
+        ...(DEFAULT_SETTINGS.byWidget[widgetId] ?? {}),
+        // Keep enabled state
+        enabled: config.enabled,
+      },
+    },
+  };
+}
+
+/**
+ * Gets the monitor-specific configuration for a widget
+ */
+export function getMonitorWidgetConfig(monitorId: string, widgetId: WidgetId) {
+  return settings.value.monitorsV3[monitorId]?.byWidget[widgetId];
+}
+
+/**
+ * Patches the monitor-specific configuration for a widget
+ */
+export function patchWidgetMonitorConfig(
+  monitorId: string,
+  widgetId: WidgetId,
+  config: Record<string, any>,
+) {
+  const monitor = settings.value.monitorsV3[monitorId];
+  if (!monitor) {
+    return;
+  }
+
+  const currentWidgetConfig = monitor.byWidget[widgetId] || { enabled: true };
+
+  settings.value = {
+    ...settings.value,
+    monitorsV3: {
+      ...settings.value.monitorsV3,
+      [monitorId]: {
+        ...monitor,
+        byWidget: {
+          ...monitor.byWidget,
+          [widgetId]: {
+            ...currentWidgetConfig,
+            ...config,
+          },
+        },
+      },
+    },
+  };
+}

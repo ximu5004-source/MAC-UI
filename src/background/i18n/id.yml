@@ -1,0 +1,80 @@
+auth:
+  login_failed_body: >-
+    Ada yang tidak beres saat login. Jika masalah ini terus berlanjut, pastikan
+    layanan 'Credential Manager' Windows (VaultSvc) diaktifkan dan berjalan,
+    lalu coba lagi.
+  login_failed_title: Gagal masuk
+cancel: Membatalkan
+done: Selesai
+elevated:
+  description: >-
+    Seelen UI berjalan dengan hak administrator.
+
+    Ini tidak menambah atau meningkatkan fitur apa pun, dan mungkin menimbulkan
+    risiko keamanan.
+
+    Untuk keamanan yang lebih baik, silakan restart tanpa izin administrator.
+  title: Berjalan sebagai Administrator
+file_explorer: Penjelajah Berkas
+resource:
+  added: Sumber daya baru telah ditambahkan
+  download_failed_body: >-
+    Terjadi kesalahan saat mengunduh sumber daya, silakan laporkan ke tim
+    pengembang Seelen.
+  download_failed_title: Pengunduhan sumber daya gagal
+  downloading: Mengunduh aset...
+  downloading_body: Ini mungkin memerlukan waktu beberapa detik, mohon jangan menutup jendela.
+  enable: Aktifkan
+  login_required_action: Masuk
+  login_required_body: Anda harus masuk untuk mengunduh sumber daya ini.
+  login_required_title: Diperlukan Masuk
+runtime:
+  corrupted_data: Data yang rusak
+  corrupted_file: File konfigurasi rusak, menggunakan nilai default sebagai gantinya.
+  corrupted_file_path: Jalur file yang rusak
+  download: Buka halaman unduh
+  files_integrity: >-
+    Kami tidak dapat memverifikasi integritas file aplikasi.
+
+    Hal ini dapat terjadi jika file telah diubah, rusak, atau instalasi tidak
+    lengkap.
+
+    Demi alasan keamanan, Seelen UI tidak dapat melanjutkan.
+
+    Silakan instal ulang dari situs resminya.
+  files_integrity_title: Peringatan Keamanan - Pemeriksaan Integritas File Gagal
+  not_found: Waktu Proses WebView2 tidak ditemukan
+  not_found_description: Seelen UI memerlukan Runtime Webview2. Silakan menginstalnya.
+  outdated: Waktu Proses WebView2 sudah ketinggalan jaman
+  outdated_description: >-
+    Seelen UI memerlukan Webview2 Runtime %{min_version} atau lebih tinggi.
+    Harap perbarui.
+service:
+  not_running: Layanan Seelen UI tidak berjalan
+  not_running_description: >-
+    Seelen UI Service (slu-service) adalah ketergantungan/pembantu agar aplikasi
+    berfungsi dengan baik.
+  not_running_ok: Mulai layanan
+shortcut:
+  conflicts:
+    body: Beberapa pintasan ditetapkan ke beberapa tindakan, harap tetapkan ulang.
+    dismiss: Membubarkan
+    review: Tinjauan
+    title: Konflik Pintasan Terdeteksi
+  register:
+    placeholder: Tekan Kombinasi Kunci apa pun
+    title: Mendaftarkan jalan pintas baru
+widget_liveness:
+  failed_description: |-
+    Widget '%{widget_name}' terlalu sering berhenti merespons.
+
+    Anda dapat mencoba memulai ulang aplikasi.
+  failed_title: Kesalahan Widget
+widget_permissions:
+  perm_open_file: membuka file
+  perm_run: menjalankan program
+  request_description: |-
+    Widget '%{widget_name}' meminta izin ke %{command}.
+
+    Apakah Anda ingin mengizinkan ini?
+  request_title: Permintaan Izin Widget

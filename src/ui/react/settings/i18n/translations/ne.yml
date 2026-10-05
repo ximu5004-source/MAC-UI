@@ -1,0 +1,475 @@
+action:
+  confirm: के तपाइँ निश्चित हुनुहुन्छ?
+  confirm_body: यो कार्य पूर्ववत गर्न सकिदैन।
+apps_configurations:
+  app:
+    bindings: बाध्यकारी (नोटहरू दुबै विकल्पहरू आवश्यक छन्)
+    category: श्रेणी
+    category_placeholder: केहि पनि होइन
+    monitor: मुल्यांकन गर्नु
+    monitor_placeholder: केहि पनि होइन
+    name: नाम
+    ok_create: सृष्टि गर्नु्
+    ok_edit: अद्यावधिक गर्नुहोस्
+    ok_readonly: नयाँ जस्तै सम्पादन गर्नुहोस्
+    options:
+      NoInteractive: कुनै अन्तरक्रियात्मक छैन
+      VdPinned: सबै कार्यस्थानहरूमा देखाउनुहोस्
+      WmFloat: Twm - फ्लोटिंग सुरु गर्नुहोस्
+      WmForce: Twm - बल व्यवस्थापन
+      WmUnmanage: Twm - अप्रबन्ध गर्नुहोस्
+    options_label: अतिरिक्त विकल्पहरू
+    title_create: '{{Neame नाम} सिर्जना गर्दै}'
+    title_edit: '{{{{नाम} ..'
+    title_readonly: '{{Name N}} अवलोकन}}'
+    weg_options_label: डक / टास्कबार विकल्पहरू विकल्पहरू
+    wm_options_label: विन्डो प्रबन्धक विकल्पहरू
+    workspace: कार्यक्षेत्र
+    workspace_placeholder: केहि पनि होइन
+  bundled_msg: >-
+    यी बन्डल कन्फिगरेसनहरू सम्पादन हुँदैन र तपाईंलाई अनुकूलन बिना उत्तम अनुभव
+    प्रदान गर्न डिजाइन गरिएको हो। तिनीहरू स्वचालित रूपमा तपाइँको लागि सबैभन्दा
+    सामान्य अनुप्रयोगहरू कन्फिगर गर्छन्।
+  bundled_title: अनुप्रयोग कन्फिगलेेनले भावनाको साथ बन्डल
+  confirm_delete: के तपाईं पक्का यो कन्फिगरेसन / एस मेटाउन चाहनुहुन्छ?
+  confirm_delete_title: पुष्टि गर्नुहोस्
+  delete: मेटाउन
+  export: निर्यात गर्नु
+  export_full: आवेदन द्वारा सेटिंग्स निर्यात गर्नुहोस्
+  extra_info: >-
+    Seelen UI ले प्रति एप एक मात्र पहिचानकर्ता प्रयोग गर्दछ (पहिलो मिल्दो फेला
+    पर्यो) त्यसैले कसरी निर्दिष्ट गरिएको छ भन्ने क्रम महत्त्वपूर्ण छ, पछिल्लो
+    थपिएकोलाई प्राथमिकता दिइनेछ, नोट गर्नुहोस् कि तालिकालाई पछिल्लोदेखि पुरानोमा
+    पूर्वनिर्धारित रूपमा क्रमबद्ध गरिएको छ।
+  identifier:
+    add_block: ब्लक थप्नुहोस्
+    and: र
+    id: पहिचानकर्ता
+    kind: द्वारा पहिचान
+    matching_strategy: मिलान रणनीति
+    matching_strategy_option:
+      contains: समावेश गर्दछ
+      ends_with: संग समाप्त हुन्छ
+      equals: बराबर हुन्छ
+      regex: नियमित अभिव्यक्ति
+      starts_with: बाट सुरु हुन्छ
+    negation: मिल्दो मिल्दो
+    or: अथवा
+    remove: ब्लक मेट्नुहोस्
+    type:
+      class: कक्षा
+      exe: Exe
+      path: बाटो
+      title: शीर्षक
+  import: आयात
+  import_full: अनुप्रयोग द्वारा सेटिंग्स आयात गर्नुहोस्
+  new: नंया
+  search: खोजी
+  swap: स्वप गर्नु
+cancel: रद्द गर्नु
+close: घनिष्ट
+delete: मेटाउन
+devtools:
+  app_folders: निल्डर
+  color_palette: रङ प्यालेट
+  color_palette_note: >-
+    यी रङहरू प्रकाश/गाढा मोडमा स्वतः अनुकूल हुन्छन् — प्रत्येक छाया हालको
+    पृष्ठभूमिसँग कन्ट्रास्ट-सापेक्ष हुन्छ, निश्चित मान होइन। स्वचालित विषयवस्तु
+    समर्थन प्राप्त गर्न हार्डकोड गरिएका रङहरूको सट्टा तिनीहरूलाई प्रयोग
+    गर्नुहोस्।
+  custom_config_file: कस्टम कन्फिगरि फाईल लोड गर्नुहोस्
+  data_folder: डेटा फोल्डर
+  enable: विकासकर्ता उपकरणहरू सक्षम गर्नुहोस्
+  enable_description: >-
+    Seelen UI आन्तरिकहरू निरीक्षण र डिबग गर्नको लागि उन्नत उपकरणहरू अनलक गर्दछ।
+    नियमित प्रयोगको लागि इरादा छैन।
+  icons: क्यास गरिएका आइकनहरू
+  install_folder: स्थापना फोल्डर
+  load: बोभ्क
+  settings_file: सेटिंग्स फाइल
+  shared_components: SLU मानक कम्पोनेन्टहरू
+  simulate_dialog:
+    label: संवाद सिमुलेट गर्नुहोस्
+    trigger: ट्रिगर
+  simulate_perm:
+    label: विजेट अनुमति अनुरोध सिमुलेट
+    result_allowed: ✓ अनुमति दिइएको छ
+    result_denied: ✗ अनुमति अस्वीकार गरियो
+    trigger: अनुकरण गर्नुहोस्
+    widget_id_placeholder: '@author/widget-name'
+  tools: उपकरणहरू
+  unlock_shortcuts: पढ्ने मात्र सर्टकटहरू अनलक गर्नुहोस्
+  unlock_shortcuts_description: >-
+    सर्टकटहरू सम्पादन गर्न अनुमति दिनुहोस् जुन सामान्यतया पढ्ने मात्र हुन्छ
+    (जस्तै प्रणाली ओभरराइडहरू)।
+  unstable_optimizations: अस्थिर अप्टिमाइजेसनहरू
+  unstable_optimizations_description: >-
+    प्रयोगात्मक क्रोमियम फ्ल्यागहरू सक्षम गर्नुहोस् जसले RAM को प्रयोग घटाउँछ।
+
+    चेतावनी: यदि विजेट क्र्यास भयो भने, एउटै लोडर साझेदारी गर्ने सबै विजेटहरू
+    सँगै क्र्यास हुनेछन्।
+  widgets_debug:
+    actions: कार्यहरू
+    empty: कुनै विजेट लोड गरिएको छैन। रिफ्रेस क्लिक गर्नुहोस्।
+    instance_id: उदाहरण आईडी
+    monitor_id: मोनिटर आईडी
+    open_devtools: DevTools
+    refresh: रिफ्रेस गर्नुहोस्
+    status: स्थिति
+    tab: विजेटहरू
+    widget_id: विजेट आईडी
+discord_banner:
+  message: >-
+    अन्य Seelen UI प्रयोगकर्ताहरूसँग जडान गर्नुहोस्, मद्दत प्राप्त गर्नुहोस्,
+    विषयवस्तुहरू साझा गर्नुहोस्, र नवीनतम समाचारहरूको साथ अद्यावधिक रहनुहोस्।
+  title: हाम्रो समुदायमा सामेल हुनुहोस्
+extras:
+  backup_group: क्लाउड ब्याकअप
+  backup_last_sync: पछिल्लो सिंक
+  backup_never_synced: कहिल्यै सिंक गरिएको छैन
+  backup_sync: क्लाउडमा सेटिङहरू सिंक गर्नुहोस्
+  backup_sync_description: >-
+    क्लाउड मार्फत स्वचालित रूपमा ब्याकअप र आफ्नो सेटिङहरू पुनर्स्थापना
+    गर्नुहोस्।
+  clear_icons: स्पष्ट प्रणाली आइकनहरू क्यास
+  clear_icons_tooltip: 'सबै विजेटहरूमा पूर्ण रूपमा प्रभाव लिनको लागि एक पुन: सुरू गर्न आवश्यक पर्दछ'
+  discord_rpc: धनी उपस्थितिको विरोध गर्नुहोस्
+  discord_rpc_description: तपाइँसँग शैली छ सबैलाई देखाउनुहोस्!
+  exit: छोड्नुहोस् / बाहिर निस्कनुहोस्
+  relaunch: पुनःस्था
+  streaming_mode: स्ट्रिमिङ मोड
+  streaming_mode_description: >-
+    रेकर्डिङ वा स्क्रिनसटको समयमा गोपनीयता सुरक्षित गर्न प्लेसहोल्डरहरूसँग
+    संवेदनशील जानकारी (जस्तै इमेलहरू) प्रतिस्थापन गर्दछ।
+  version: रुपान्तर
+  version_fixed: >-
+    अनुप्रयोग र WebView2 रनटाइम संस्करणहरू निश्चित छन्। यसको मतलब यो हो कि
+    अनुप्रयोगले अद्यावधिकहरू प्राप्त गर्दैन र WebView2 रनटाइम स्वचालित रूपमा
+    Windows अद्यावधिकहरूसँग अद्यावधिक हुनेछैन।
+general:
+  accent_color: हिम्मता रंग
+  date_format: मिति ढाँचा
+  date_format_how_to: मिति ढाँचा कसरी लेख्ने?
+  hardware_acceleration: हार्डवेयर एक्सेलेरेशन
+  hardware_acceleration_description: >-
+    हार्डवेयर एक्सेलेरेसन असक्षम गर्नाले मेमोरीको प्रयोग कम हुनेछ। यदि तपाईले
+    भारी एनिमेसनहरू प्रयोग गरिरहनु भएको छैन भने यो असक्षम गर्न सुरक्षित छ,
+    यद्यपि व्यक्तिगत विजेटहरूले अझै पनि यो सेटिङलाई ध्यान नदिई GPU प्रयोग गर्न
+    बाध्य पार्न सक्छ।
+  icon_pack:
+    available: उपलब्ध आइकन प्याकहरू
+    selected: सक्रिय आइकन प्याकहरू
+  language: भाषा
+  monday: सोमबार
+  performance_mode:
+    label: अप्टिमाइजेसनहरू
+    on_battery: ब्याट्री मा
+    on_energy_saver: ऊर्जा सेभरमा
+    options:
+      disabled: पंगु
+      extreme: अत्यधिक
+      minimal: न्यूनतम
+    plugged: प्लग वा चार्ज गर्दै
+  polling_interval: प्रणाली मतदान अन्तराल
+  polling_interval_description: >-
+    कति पटक (सेकेन्डमा) Seelen UI ले CPU, RAM, नेटवर्क, र डिस्क गतिविधि जस्ता
+    प्रणाली स्रोतहरू जाँच गर्दछ। सानो संख्याको अर्थ धेरै बारम्बार अद्यावधिकहरू,
+    तर थोरै उच्च स्रोत उपयोग।
+  saturday: शनिबार
+  start_of_week: हप्ताको सुरुवात
+  startup: स्टार्टअपमा भाग्नुहोस्?
+  sunday: आइतबार
+  suspend_on_game_mode: खेल मोडमा विजेटहरू निलम्बन गर्नुहोस्
+  suspend_on_game_mode_description: >-
+    जब विन्डोज गेम मोड सक्रिय हुन्छ, सबै विजेट वेबभ्यूहरू खेलको लागि CPU र
+    मेमोरी खाली गर्न नष्ट हुन्छन्। खेल मोड समाप्त हुँदा विजेटहरू स्वचालित रूपमा
+    पुनर्स्थापित हुन्छन्।
+  theme:
+    available: उपलब्ध विषयवस्तुहरू
+    selected: सक्रिय विषयवस्तुहरू
+global: विश्वव्यापी
+header:
+  labels:
+    config: कन्फिगरेसनहरू
+    developer: विकासकर्ताहरूको लागि
+    extras: अतिरिक्त
+    general: जर्नेल
+    home: घर
+    iconpack: आइकन प्याक
+    monitors: मोनिटरहरू
+    plugin: निशम्न
+    resources: वस्तुजार
+    session: खाता
+    shortcuts: सर्टकटहरू
+    soundpack: ध्वनि प्याक
+    specific_apps: अनुप्रयोग द्वारा सेटिंग्स
+    theme: विषयवस्तु
+    virtual_desk: भर्चुअल डेस्कटपहरू
+    wallpaper: वालपेपरहरू
+    widget: विजेटहरू
+home:
+  new_resources: नयाँ स्रोतहरू
+inherit: बाबु बाजेबाट पाउनु
+inProgress: प्रगति हुदैछ...
+insert: घुसाउनु
+join_us: हामीसँग सामेल हुनुहोस्!
+loading: लोड गर्दै ...
+miscellaneous: विविघ
+monitors_configurations:
+  label: मोनिटर \ inchtax}}
+more: अरु
+'no': छैन
+open: खोल्नु
+quit: छोड्नु
+remove: हटाउनु
+reset_all_to_default: सबै पूर्वनिर्धारित मानहरूमा रिसेट गर्नुहोस्
+reset_configurations: कन्फिगरेसनहरू रिसेट गर्नुहोस्
+reset_to_default: पूर्वनिर्धारित मानमा रिसेट गर्नुहोस्
+resources:
+  affected_widgets: प्रभावित विजेटहरू
+  app_outdated: >-
+    यो स्रोतको आवश्यकता छ हेर्नुहोस् UI लाई राम्रोसँग काम गर्नको लागि नयाँ
+    संस्करण आवश्यक छ।
+  coming_soon: चाँडै आउँदैछ
+  corrupted_wallpaper: थम्बनेल निकाल्न असफल भयो - भ्रष्ट वा असमर्थित भिडियो ढाँचा
+  delete: स्रोत मेट्नुहोस्
+  discover: अधिक स्रोतहरू पत्ता लगाउनुहोस्
+  has_update: एक अपडेट उपलब्ध छ
+  high_impact: प्रदर्शन मा उच्च प्रभाव
+  import_wallpapers: स्थानीय वालपेपर आयात गर्नुहोस्
+  included_plugins: समावेश प्लगइनहरू
+  modified: परिमार्जित
+  open_folder: ओपन स्रोत फोल्डर
+  outdated: >-
+    यो स्रोत देख्न नहुने ज्ञात संस्करणको लागि डिजाइन गरिएको हो र राम्रोसँग काम
+    नगर्न सक्छ।
+  see_on_website: वेबसाइटमा हेर्नुहोस्
+  update_now: अपडेट गर्नुहोस्
+  updates_available: अपडेटहरू उपलब्ध छन्
+  updates_available_description: निम्न स्रोतहरूमा अद्यावधिकहरू उपलब्ध छन्।
+review_request:
+  not_now: अहिले होइन
+  sure: पक्का!
+  title: Seelen UI को मजा लिदै हुनुहुन्छ?
+save: बचाउनु
+save_and_restart: 'बचत गर्नुहोस् र पुन: सुरु गर्नुहोस्'
+search: खोज्नुहोस्
+see_more: अझ हेर्नुहोस्
+session:
+  logout: साइन आउट गर्नुहोस्
+  plan: योजना
+  sign_in: साइन इन गर्नुहोस्
+  sign_in_hint: तपाईंको ब्राउजर खुल्नेछ ताकि तपाईं सुरक्षित रूपमा साइन इन गर्न सक्नुहुन्छ।
+  upgrade_to: मा अपग्रेड गर्नुहोस्
+shortcuts:
+  disabled_tooltip: विजेट र यसको सर्टकटहरू असक्षम छन्
+  duplicate_error: विरोधाभासी सर्टकटहरू पत्ता लाग्यो
+  duplicate_error_hint: >-
+    केही सर्टकटहरू धेरै कार्यहरूमा तोकिएका छन्। विवादित विजेटहरू मध्ये एउटा
+    असक्षम गर्नुहोस् वा समाधान गर्न दोहोरिएको कुञ्जी बाइन्डिङ पुन: असाइन
+    गर्नुहोस्।
+  enable: निर्मित सर्टकट प्रणाली सक्षम गर्नुहोस्
+  enable_tooltip: >-
+    यदि तपाईं देखिने UI ग्राहक प्रयोग गरेर तपाईंको आफ्नै सर्टकट प्रणाली लागू
+    गर्नुहुन्छ भने असक्षम गर्नुहोस्
+  labels:
+    create_new_workspace: नयाँ कार्यस्थान सिर्जना गर्नुहोस्
+    create_new_workspace_row: नयाँ कार्यस्थान पङ्क्ति सिर्जना गर्नुहोस्
+    destroy_current_workspace: वर्तमान कार्यक्षेत्र नष्ट गर्नुहोस्
+    misc_force_quit: बल छोडियो
+    misc_force_restart: साउसाट
+    move_to_workspace: कार्यक्षेत्रमा जानुहोस् {0}}
+    pause_toggle: सर्टकटहरू पज/सुरु गर्नुहोस्
+    send_to_next_workspace: विन्डोलाई अर्को कार्यस्थानमा पठाउनुहोस्
+    send_to_previous_workspace: विन्डोलाई अघिल्लो कार्यस्थानमा पठाउनुहोस्
+    send_to_workspace: कार्यक्षेत्रमा पठाउनुहोस् {0}}}
+    send_to_workspace_down: तलको कार्यस्थानमा विन्डो पठाउनुहोस्
+    send_to_workspace_up: माथिको कार्यस्थानमा विन्डो पठाउनुहोस्
+    switch_to_next_workspace: अर्को कार्यक्षेत्रमा स्विच गर्नुहोस्
+    switch_to_previous_workspace: अघिल्लो कार्यक्षेत्रमा स्विच गर्नुहोस्
+    switch_to_workspace_down: तलको कार्यस्थानमा स्विच गर्नुहोस्
+    switch_to_workspace_up: माथिको कार्यस्थानमा स्विच गर्नुहोस्
+    switch_workspace: कार्यक्षेत्रमा स्विच {0}}
+  readonly_tooltip: यो एक पढ्न-मात्र सर्टकट हो
+  reset: पूर्वनिर्धारित गर्न रिसेट गर्नुहोस्
+sides:
+  bottom: पिंध
+  left: देब्रे
+  right: ठिक
+  top: टुप्पो
+toolbar:
+  auto_hide: 'स्वत: लुकाउने'
+  auto_hide_touch_disabled: टच स्क्रिन उपकरणहरूमा स्वतः लुकाउने सुविधा उपलब्ध छैन
+  delay_to_hide: लुकाउन ढिलाइ
+  delay_to_show: देखाउन ढिलाइ
+  dock_side: स्थिति
+  enable: फैन्सी उपकरणपट्टी सक्षम गर्नुहोस्
+  hide_mode:
+    always: सधैं
+    never: कहिल्यै
+    on_overlap: ओभरल्यापमा
+  item_size: वस्तु आकार
+  label: औजारपरो
+  margin: मार्जिन साइज
+  padding: प्याडिङ साइज
+  placeholder: {}
+update:
+  available: अपडेट उपलब्ध!
+  channel: अद्यावधिक च्यानल
+  downloading: डाउनलोड गर्दै ...
+wall:
+  blur: स्वरर्नु
+  cancel: रद्द गर्नुहोस्
+  close: बन्द गर्नुहोस्
+  collection_name: संग्रहको नाम
+  collections: सङ्ग्रहहरू
+  contrast: विषमता
+  corrupted_wallpapers_message: 'भ्रष्ट वालपेपरहरू, यी मेटाउने विचार गर्नुहोस्:'
+  coverage_pause_threshold: पज थ्रेसहोल्ड (विन्डो कभरेज)
+  create: सिर्जना गर्नुहोस्
+  create_collection: संग्रह सिर्जना गर्नुहोस्
+  default_collection: पूर्वनिर्धारित वालपेपर वा संग्रह
+  default_collection_description: सबै मोनिटरहरू र कार्यस्थानहरूमा लागू हुन्छ जसमा निश्चित ओभरराइड सेट छैन।
+  delete_collection: संग्रह मेटाउनुहोस्
+  edit_collection: सङ्ग्रह सम्पादन गर्नुहोस्
+  extend: प्राथमिक विस्तार गर्नुहोस्
+  fit:
+    contain: भित्र हुनु
+    cover: आवरण
+    fill: भर्नु
+  flipHorizontal: फ्लिप तेर्सो
+  flipVertical: फ्लिप ठाडो
+  generating_thumbnails: वालपेपर थम्बनेलहरू उत्पन्न गर्दै
+  hours: घण्टा
+  interval: वालपेपर परिवर्तन गर्नुहोस्
+  minutes: मिनेट
+  monitor_collection: मोनिटर संग्रह
+  multimonitor_behaviour: मल्टिमोनिटर व्यवहार
+  muted: भिडियो अडियो म्युट गर्नुहोस्
+  no_background: खाली स्लाइडजेशन, यसको सट्टा थिमको पृष्ठभूमि प्रयोग गर्दै।
+  no_collections: >-
+    अहिलेसम्म कुनै सङ्ग्रहहरू सिर्जना गरिएको छैन। एउटा सिर्जना गर्न + बटन क्लिक
+    गर्नुहोस्।
+  objectFit: पृष्ठभूमि फिट
+  objectPosition: पृष्ठभूमि स्थिति
+  overlayColor: ओभरलाइ रंग
+  overlayMixBlendMode: ओभरले मिक्स मिश्रण मोड
+  per_monitor: प्रति मोनिटर
+  per_monitor_config: प्रति-मोनिटर कन्फिगरेसन
+  playback: प्लेब्याक गति
+  position:
+    bottom: पिंध
+    center: केन्द्र
+    left: देब्रे
+    right: ठिक
+    top: टुप्पो
+  processing_video: भिडियो प्रशोधन गर्दै
+  random: अनियमित रूपमा स्लाइड्स स्लाइड
+  saturation: संतृप्ति
+  seconds: सेकेन्ड
+  select_collection: संग्रह चयन गर्नुहोस्
+  thumbnail_generation_complete: थम्बनेल जेनेरेसन पूरा भयो
+  thumbnail_generation_finished: थम्बनेल उत्पादन सफलतापूर्वक समाप्त भयो
+  use_accent_color: वालपेपर उच्चारण रंग प्रयोग गर्नुहोस्
+  wallpaper_collection: वालपेपर संग्रह
+  wallpaper_settings: वालपेपर सेटिङहरू
+  wallpapers: वालपेपर
+  wallpapers_and_collections: वालपेपर र संग्रह
+  withOverlay: ओभरले साथ
+  workspace_collections: कार्यक्षेत्र संग्रहहरू
+weg:
+  auto_hide: 'स्वत: लुकाउने'
+  auto_hide_touch_disabled: टच स्क्रिन उपकरणहरूमा स्वतः लुकाउने सुविधा उपलब्ध छैन
+  delay_to_hide: लुकाउन ढिलाइ
+  delay_to_show: देखाउन ढिलाइ
+  dock_side: स्थिति
+  filtering: वस्तु फिल्टरिंग
+  gap: अन्तराल
+  hide_mode:
+    always: सधैं
+    never: कहिल्यै
+    on_overlap: ओभरल्यापमा
+  import_error: कार्यपट्टी वस्तुहरू आयात गर्न असफल भयो
+  import_from_taskbar:
+    button: विन्डोज टास्कबारबाट आयात गर्नुहोस्
+    label: पिन गरिएका वस्तुहरू आयात गर्नुहोस्
+  import_no_items: विन्डोज टास्कबारमा पिन गरिएका वस्तुहरू फेला परेनन्
+  import_success: Windows टास्कबारबाट सफलतापूर्वक {{count}} वस्तु(हरू) आयात गरियो
+  items:
+    gap: वस्तुहरू बीचको ठाउँ
+    label: वस्तुहरू
+    middle_click_action:
+      close_app: एप बन्द गर्नुहोस्
+      label: मध्य क्लिक कार्य
+      open_new_instance: नयाँ उदाहरण खोल्नुहोस्
+    pinned_visibility:
+      always: सधैं
+      label: पिन गरिएका वस्तुहरू दृश्यता
+      when_primary: जब मनिटर प्राथमिक छ
+    show_instance_counter: खुला विन्डोज काउन्टर देखाउनुहोस्
+    show_window_title: खुला विन्डो शीर्षक देखाउनुहोस् (केवल क्षैतिज)
+    size: वस्तुको आकार
+    split_windows: विभाजन विन्डोज (प्रति विन्डो एक वस्तु)
+    temporal_visibility:
+      all: सबै
+      label: अनपिन गरिएका वस्तुहरूको दृश्यता
+      on_monitor: मोनिटरमा
+  label: डक / टास्कबार
+  margin: स्पानलिन
+  mode:
+    full_width: पूर्ण स्क्रिन चौडाइ
+    min_content: हुनसक्ने सानो
+  padding: प्याडडि .्वन
+  show_end_task: कार्यबारमा अन्त कार्य देखाउनुहोस्
+  width: चौडाई
+welcome:
+  give_a_review: एक समीक्षा दिनुहोस्
+  message: >-
+    Seelen UI Windows को लागी एक नि: शुल्क र खुला स्रोत डेस्कटप वातावरण हो। यहाँ
+    तपाइँ तपाइँको डेस्कटप कस्तो देखिन्छ र व्यवहार गर्छ भन्ने मा पूर्ण नियन्त्रण
+    छ, तपाइँ तपाइँको कार्यप्रवाह र शैली संग मेल खाने हरेक विवरण लाई अनुकूलित
+    गर्न अनुमति दिदै।
+  ok: सुरु गरौं!
+  review: >-
+    यदि तपाइँ Seelen UI प्रयोग गरेर रमाइलो गर्नुहुन्छ भने, स्टोरमा समीक्षा
+    छोड्ने विचार गर्नुहोस् — तपाइँको प्रतिक्रियाले परियोजनालाई बढ्न र सुधार गर्न
+    मद्दत गर्दछ।
+  title: Seelen UI मा स्वागत छ!
+widget:
+  default_instance: पूर्वनिर्धारित उदाहरण
+  default_instance_hint: सँधै सक्रिय, रूट विजेट कन्फिगरेसन प्रयोग गर्दछ
+  enable: यो विजेट सक्षम गर्नुहोस्
+  enable_for_monitor: यस मोनिटरमा सक्षम गर्नुहोस्
+  extra_instances: अतिरिक्त उदाहरणहरू
+  instance: उदाहरण
+  instances: संकेतहरू
+wm:
+  animations:
+    duration: एनिमेसन अवधि (एमएस)
+    ease_function: एनिमेसन स्टाइनिंग प्रकार्य
+    enable: विन्डोको एनिमेसन सक्षम गर्नुहोस्
+  author: लेखिका
+  auto_stack: 'एप श्रेणी द्वारा स्वत: स्ट्याक'
+  border:
+    enable: विन्डोको सीमा सक्षम गर्नुहोस्
+    offset: सीमा अफसेट
+    width: सीमा चौडाई
+  description: वर्णन
+  drag_behavior: तान्नुहोस् व्यवहार
+  drag_behavior_options:
+    sort: 'क्रमबद्ध गर्नुहोस् (तान्दा विन्डोहरू पुन: क्रमबद्ध गर्नुहोस्)'
+    swap: स्वैप (ड्र्याग एन्डमा विन्डोज स्वैप)
+  floating:
+    height: फ्लोटिंग विन्डोज उचाइ
+    title: फ्लोटिंग विन्डोज आकार
+    width: फ्लोटिंग विन्डोज चौडाई
+  layout: नक्शा
+  resize_delta: रिसाइज डेल्टा (%)
+  space_between_containers: कन्टेनर बीचको ठाउँ
+  stack_bar_visibility: स्ट्याक बार दृश्यता
+  stack_bar_visibility_options:
+    always: सधैं
+    as_needed: आवश्यकता अनुसार
+  workspace_offset: कार्यस्पेस अफसेट (मार्जिन)
+  workspace_padding: कार्यक्षेत्र प्याडिंग
+'yes': हुन्छ

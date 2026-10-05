@@ -1,0 +1,22 @@
+all: Kaikki sovellukset
+app_settings: Sovellusasetukset
+applications: Sovellukset
+back: Takaisin
+disband: Pura kansio
+edit_icon: Muokkaa kuvaketta
+folder: Kansio
+no_matching_items: Hakuasi vastaavia kohteita ei löytynyt
+open_file_location: Avaa Tiedoston sijainti
+pin: Pin
+pin_to_dock: Kiinnitä Dockiin
+power_menu: Virta-valikko
+query:
+  all: Kaikki
+  apps: Sovellukset
+  files: Tiedostot
+  web: Web
+run_as_admin: Suorita järjestelmänvalvojana
+unpin: Irrota kiinnitys
+web_search: Hae verkosta painamalla Enter
+welcome_message: Tervetuloa Seelen UI -sovellusvalikkoon.
+welcome_message2: Tällä välilehdellä voit kiinnittää suosikkisovelluksesi.

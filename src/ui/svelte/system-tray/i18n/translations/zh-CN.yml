@@ -1,0 +1,19 @@
+tray:
+  title: 系统托盘
+  count: "{{count}} 个图标"
+  all_apps: 全部托盘应用
+  description: 包含隐藏托盘图标。单击或双击打开，右键使用应用原生菜单。
+  refresh: 刷新托盘
+  loading: 正在读取托盘应用…
+  empty: 暂未读取到托盘图标，可点击右上角刷新。
+  load_failed: 托盘读取失败，请点击右上角刷新重试。
+  retry_hint: 可重新读取托盘，无需重新启动桌面。
+  action_failed: "无法操作 {{name}}，请刷新托盘后重试。"
+  hidden_icon: 系统隐藏图标
+  unnamed: 未命名托盘应用
+communication:
+  label: 通讯与后台托盘
+  description: 通讯软件常驻顶部；红点表示新通知，橙点表示托盘有动态。单击打开，右键使用应用原生菜单。
+  notification: 有新通知
+  activity: 托盘图标有动态
+  running: 后台运行中

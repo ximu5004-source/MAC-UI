@@ -1,0 +1,96 @@
+.group {
+  background: var(--mac-surface);
+  border: 1px solid var(--mac-divider);
+  border-radius: var(--config-border-radius);
+  padding: 6px 16px;
+  box-shadow: 0 2px 6px rgb(0 0 0 / .025);
+  min-width: 0;
+}
+.group:not(:last-child) {
+  margin-bottom: 20px;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.setting {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 20px;
+  align-items: center;
+  min-height: 56px;
+  padding: 12px 0;
+}
+.setting + .setting {
+  border-top: 1px solid var(--mac-divider);
+}
+.disabled {
+  opacity: .6;
+}
+.info {
+  min-width: 0;
+}
+.label {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.description {
+  color: var(--mac-secondary);
+  font-size: 12px;
+  line-height: 1.55;
+  margin-top: 4px;
+  overflow-wrap: anywhere;
+}
+.description a {
+  color: light-dark(#075dc5, #81bcff);
+}
+.action {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+  min-width: 130px;
+  max-width: 300px;
+}
+.action :global(.ant-select) {
+  min-width: 130px;
+  max-width: 100%;
+}
+.action :global(.ant-input) {
+  max-width: 180px;
+}
+.action :global(.ant-slider) {
+  min-width: 130px;
+  margin: 4px 0;
+}
+.subgroup {
+  padding-block: 10px 4px;
+}
+.subgroup + .subgroup {
+  border-top: 1px solid var(--mac-divider);
+}
+.subtitle {
+  font-size: 14px;
+  font-weight: 650;
+  padding: 6px 0;
+}
+.subgroup .content {
+  padding: 0;
+}
+@media (max-width: 820px) {
+  .setting {
+    gap: 12px;
+  }
+  .action {
+    min-width: 100px;
+    max-width: 180px;
+  }
+  .action :global(.ant-select) {
+    min-width: 100px;
+  }
+}

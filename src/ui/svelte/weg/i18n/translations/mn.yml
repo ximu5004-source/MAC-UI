@@ -1,0 +1,40 @@
+app_menu:
+  close: Ойр дөхөм
+  close_multiple: Бүгдийг хаах
+  copy_handles: Хуулбарлах
+  edit_app_icon: Програмын дүрсийг засах
+  kill: Алах үйл явц
+  kill_multiple: Бүх процессыг устгах
+  open_file_location: Нээлттэй файлын байршлыг нээнэ үү
+  pin: Сулбээр зүү
+  pin_to_center: Төв рүү зүү
+  pin_to_left: Зүүн тийш зүү
+  pin_to_right: Баруун тийш зүү
+  run_as: Администратороор ажиллуулах
+  unpin: Нууц
+context_menu:
+  edit_icon: Засварлах дүрс
+  remove_module: Модуль устгах
+  remove_separator: Тусгаарлагчийг арилгах
+  reorder_disable: Түгжих ажлын самбар
+  reorder_enable: Taskbar түгжээг тайл
+media:
+  label: Медиа тоглуулагч
+  not_playing: Юу ч тоглоогүй байна
+show_desktop:
+  label: Ширээний компьютерийг харуулах
+start:
+  label: Эхлэх цэс
+taskbar_menu:
+  add_file: PIN захиалгын файл
+  add_separator: Тусгаарлагч нэмэх
+  media: Медиа тоглуулагч
+  modules: Модулиуд
+  settings: Тохиргоо
+  task_manager: Ажлын менежер
+trash_bin:
+  empty_bin: Хогийн савыг хоосон
+  item_count: '{{0}} зүйл'
+  label: Хогийн сав
+weg:
+  empty: Үзүүлэх зүйл алга

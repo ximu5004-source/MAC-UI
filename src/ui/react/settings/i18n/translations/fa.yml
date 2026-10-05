@@ -1,0 +1,466 @@
+action:
+  confirm: مطمئن هستید؟
+  confirm_body: این عمل نمی تواند خنثی شود.
+apps_configurations:
+  app:
+    bindings: اتصال (توجه داشته باشید هر دو گزینه مورد نیاز است)
+    category: دسته بندی
+    category_placeholder: هیچ یک
+    monitor: نظارت
+    monitor_placeholder: هیچ یک
+    name: نام
+    ok_create: ايجاد كردن
+    ok_edit: به روز رسانی
+    ok_readonly: ویرایش به عنوان جدید
+    options:
+      NoInteractive: بدون تعامل
+      VdPinned: نمایش در همه فضاهای کاری
+      WmFloat: Twm - شناور را شروع کنید
+      WmForce: Twm - مدیریت نیرو
+      WmUnmanage: Twm - مدیریت کنید
+    options_label: گزینه های اضافی
+    title_create: ایجاد {{name}}
+    title_edit: ویرایش {{نام}}
+    title_readonly: مشاهده {{نام}}
+    weg_options_label: گزینه های Dock/TaskBar
+    wm_options_label: گزینه های مدیر پنجره
+    workspace: فضای کاری
+    workspace_placeholder: هیچ یک
+  bundled_msg: >-
+    این تنظیمات بسته بندی شده قابل ویرایش نیستند و به گونه ای طراحی شده اند که
+    بدون شخصی سازی بهترین تجربه را برای شما فراهم می کنند. آنها به طور خودکار
+    متداول ترین برنامه ها را برای شما پیکربندی می کنند.
+  bundled_title: پیکربندی برنامه همراه با Seelen
+  confirm_delete: آیا مطمئن هستید که می خواهید این پیکربندی/s را حذف کنید؟
+  confirm_delete_title: تایید حذف
+  delete: حذف
+  export: صادر کردن
+  export_full: تنظیمات صادرات توسط برنامه
+  extra_info: >-
+    رابط کاربری Seelen تنها از یک شناسه برای هر برنامه استفاده می کند (اولین
+    تطابق پیدا شد) بنابراین ترتیب نحوه مشخص شدن مهم است، آخرین موارد اضافه شده
+    در اولویت قرار می گیرند، زیرا توجه داشته باشید جدول به طور پیش فرض از
+    جدیدترین به قدیمی مرتب شده است.
+  identifier:
+    add_block: اضافه کردن
+    and: وت
+    id: مشخص کننده
+    kind: شناسایی توسط
+    matching_strategy: استراتژی تطبیق
+    matching_strategy_option:
+      contains: حاوی
+      ends_with: به پایان می رسد با
+      equals: برابر است
+      regex: بیان منظم
+      starts_with: شروع می شود
+    negation: نفی تطبیق
+    or: یا
+    remove: حذف بلوک
+    type:
+      class: کلاس
+      exe: Exe
+      path: مسیر
+      title: عنوان
+  import: وارد كردن
+  import_full: وارد کردن تنظیمات توسط برنامه
+  new: جدید
+  search: جستجو کردن
+  swap: مبادله کردن
+cancel: لغو کردن
+close: نزدیک
+delete: حذف
+devtools:
+  app_folders: پوشه های برنامه
+  color_palette: پالت رنگ
+  color_palette_note: >-
+    این رنگ‌ها به‌طور خودکار با حالت روشن/تاریک سازگار می‌شوند - هر سایه نسبت به
+    پس‌زمینه فعلی کنتراست دارد، نه یک مقدار ثابت. از آنها به جای رنگ های کدگذاری
+    شده برای دریافت پشتیبانی خودکار تم استفاده کنید.
+  custom_config_file: بارگیری پرونده پیکربندی سفارشی
+  data_folder: پوشه داده ها
+  enable: ابزارهای توسعه دهنده را فعال کنید
+  enable_description: >-
+    ابزارهای پیشرفته را برای بازرسی و رفع اشکال داخلی UI Seelen باز می کند. برای
+    استفاده منظم در نظر گرفته نشده است.
+  icons: نمادهای ذخیره شده در حافظه پنهان
+  install_folder: پوشه نصب
+  load: بار
+  settings_file: پرونده تنظیمات
+  shared_components: اجزای استاندارد SLU
+  simulate_dialog:
+    label: شبیه سازی دیالوگ
+    trigger: ماشه
+  simulate_perm:
+    label: درخواست مجوز ویجت را شبیه سازی کنید
+    result_allowed: ✓ مجوز داده شده است
+    result_denied: ✗ اجازه داده نشد
+    trigger: شبیه سازی کنید
+    widget_id_placeholder: '@author/widget-name'
+  tools: ابزار
+  unlock_shortcuts: قفل میانبرهای فقط خواندنی را باز کنید
+  unlock_shortcuts_description: اجازه ویرایش میانبرهایی که معمولاً فقط خواندنی هستند (مثلاً لغو سیستم).
+  unstable_optimizations: بهینه سازی های ناپایدار
+  unstable_optimizations_description: >-
+    پرچم‌های آزمایشی Chromium را فعال کنید که مصرف RAM را کاهش می‌دهد.
+
+    هشدار: اگر یک ویجت از کار بیفتد، همه ویجت‌هایی که لودر یکسانی دارند با هم
+    خراب می‌شوند.
+  widgets_debug:
+    actions: اقدامات
+    empty: هیچ ویجتی بارگیری نشده است. روی Refresh کلیک کنید.
+    instance_id: شناسه نمونه
+    monitor_id: شناسه مانیتور
+    open_devtools: DevTools
+    refresh: تازه کردن
+    status: وضعیت
+    tab: ابزارک ها
+    widget_id: شناسه ویجت
+discord_banner:
+  message: >-
+    با سایر کاربران رابط کاربری Seelen ارتباط برقرار کنید، راهنمایی دریافت کنید،
+    تم ها را به اشتراک بگذارید و از آخرین اخبار به روز بمانید.
+  title: به انجمن ما بپیوندید
+extras:
+  backup_group: پشتیبان گیری ابری
+  backup_last_sync: آخرین همگام سازی
+  backup_never_synced: هرگز همگام سازی نشد
+  backup_sync: تنظیمات را با ابر همگام کنید
+  backup_sync_description: به طور خودکار از تنظیمات خود از طریق ابر نسخه پشتیبان تهیه و بازیابی کنید.
+  clear_icons: حافظه نهان سیستم را پاک کنید
+  clear_icons_tooltip: >-
+    یک راه اندازی مجدد می تواند مورد نیاز باشد تا به طور کامل در همه ویجت ها
+    تأثیر بگذارد
+  discord_rpc: اختلاف حضور غنی
+  discord_rpc_description: به همه نشان دهید که سبک دارید!
+  exit: ترک/خروج
+  relaunch: مجدداً
+  streaming_mode: حالت جریان
+  streaming_mode_description: >-
+    برای محافظت از حریم خصوصی در هنگام ضبط یا اسکرین شات، اطلاعات حساس (مانند
+    ایمیل ها) را با متغیرهایی جایگزین می کند.
+  version: نسخه
+  version_fixed: >-
+    نسخه برنامه و WebView2 Runtime رفع شده است. این بدان معنی است که برنامه به
+    روز رسانی دریافت نمی کند و WebView2 Runtime به طور خودکار با به روز رسانی
+    ویندوز به روز نمی شود.
+general:
+  accent_color: رنگ لهجه
+  date_format: قالب تاریخ
+  date_format_how_to: چگونه فرمت تاریخ بنویسیم؟
+  hardware_acceleration: شتاب سخت افزاری
+  hardware_acceleration_description: >-
+    غیرفعال کردن شتاب سخت افزاری باعث کاهش مصرف حافظه می شود. اگر از انیمیشن‌های
+    سنگین استفاده نمی‌کنید، غیرفعال کردن آن بی‌خطر است، اگرچه ویجت‌های جداگانه
+    ممکن است صرف‌نظر از این تنظیم همچنان استفاده از GPU را مجبور کنند.
+  icon_pack:
+    available: بسته‌های آیکون موجود
+    selected: بسته های آیکون فعال
+  language: زبان
+  monday: دوشنبه
+  performance_mode:
+    label: بهینه سازی ها
+    on_battery: در باتری
+    on_energy_saver: در مورد صرفه جویی در انرژی
+    options:
+      disabled: معلول
+      extreme: شدید
+      minimal: حداقل
+    plugged: وصل شده یا شارژ
+  polling_interval: فاصله نظرسنجی سیستم
+  polling_interval_description: >-
+    هر چند وقت یک‌بار (در چند ثانیه) UI Seelen منابع سیستم مانند CPU، RAM، شبکه
+    و فعالیت دیسک را بررسی می‌کند. تعداد کمتر به معنای به‌روزرسانی‌های مکرر است،
+    اما استفاده از منابع کمی بیشتر است.
+  saturday: شنبه
+  start_of_week: شروع هفته
+  startup: در راه اندازی اجرا می شود؟
+  sunday: یکشنبه
+  suspend_on_game_mode: ویجت ها را در حالت بازی به حالت تعلیق درآورید
+  suspend_on_game_mode_description: >-
+    وقتی حالت بازی ویندوز فعال است، تمام نمایش های وب ویجت از بین می روند تا CPU
+    و حافظه بازی آزاد شود. هنگامی که حالت بازی به پایان می رسد، ابزارک ها به طور
+    خودکار بازیابی می شوند.
+  theme:
+    available: تم های موجود
+    selected: تم های فعال
+global: جهانی
+header:
+  labels:
+    config: تنظیمات
+    developer: برای توسعه دهندگان
+    extras: اضافی
+    general: عمومی
+    home: خانه
+    iconpack: بسته های نماد
+    monitors: مانیتور
+    plugin: پلاگین
+    resources: منابع
+    session: حساب
+    shortcuts: میانبرها
+    soundpack: بسته های صدا
+    specific_apps: تنظیمات توسط برنامه
+    theme: مضامین
+    virtual_desk: دسک تاپ مجازی
+    wallpaper: تصاویر پس زمینه
+    widget: ویراچه
+home:
+  new_resources: منابع جدید
+inherit: ارث
+inProgress: در حال پیش رفت...
+insert: درج کردن
+join_us: به ما بپیوندید
+loading: بارگذاری...
+miscellaneous: متفاوتی
+monitors_configurations:
+  label: مانیتور {{فهرست}}
+more: بیشتر
+'no': هیچ
+open: باز کن
+quit: ترک
+remove: برداشتن
+reset_all_to_default: تنظیم مجدد همه به مقادیر پیش فرض
+reset_configurations: تنظیمات را بازنشانی کنید
+reset_to_default: تنظیم مجدد به مقدار پیش فرض
+resources:
+  affected_widgets: ابزارک های تحت تأثیر
+  app_outdated: این منبع به نسخه جدیدتر Seelen UI نیاز دارد تا به درستی کار کند.
+  coming_soon: به زودی
+  corrupted_wallpaper: استخراج تصویر کوچک انجام نشد - فرمت ویدیو خراب یا پشتیبانی نشده است
+  delete: منبع را حذف کنید
+  discover: منابع بیشتری را کشف کنید
+  has_update: به روزرسانی در دسترس است
+  high_impact: تاثیر زیاد بر عملکرد
+  import_wallpapers: تصاویر پس زمینه محلی را وارد کنید
+  included_plugins: پلاگین های گنجانده شده
+  modified: اصلاح شده
+  open_folder: پوشه منبع باز
+  outdated: >-
+    این منبع برای نسخه قدیمی تر Seelen UI طراحی شده است و ممکن است به درستی کار
+    نکند.
+  see_on_website: در وب سایت ببینید
+  update_now: به روز رسانی
+  updates_available: به روز رسانی های موجود
+  updates_available_description: منابع زیر دارای به‌روزرسانی‌هایی هستند.
+review_request:
+  not_now: الان نه
+  sure: مطمئنا!
+  title: از رابط کاربری Seelen لذت می برید؟
+save: صرفه جویی
+save_and_restart: ذخیره و راه اندازی مجدد
+search: جستجو کنید
+see_more: بیشتر ببینید
+session:
+  logout: از سیستم خارج شوید
+  plan: برنامه ریزی کنید
+  sign_in: وارد شوید
+  sign_in_hint: مرورگر شما باز می شود تا بتوانید به صورت ایمن وارد سیستم شوید.
+  upgrade_to: ارتقاء به
+shortcuts:
+  disabled_tooltip: ویجت و میانبرهای آن غیرفعال هستند
+  duplicate_error: میانبرهای متناقض شناسایی شد
+  duplicate_error_hint: >-
+    برخی از میانبرها به چندین عملکرد اختصاص داده شده اند. یکی از ویجت‌های متناقض
+    را غیرفعال کنید یا اتصال کلید تکراری را مجدداً برای حل کردن اختصاص دهید.
+  enable: سیستم میانبر داخلی را فعال کنید
+  enable_tooltip: >-
+    اگر سیستم میانبر خود را با استفاده از مشتری Seelen UI پیاده سازی خواهید کرد
+    ، غیرفعال کنید
+  labels:
+    create_new_workspace: فضای کاری جدید ایجاد کنید
+    create_new_workspace_row: ردیف فضای کاری جدید ایجاد کنید
+    destroy_current_workspace: فضای کاری فعلی را نابود کنید
+    misc_force_quit: نیرو ترک
+    misc_force_restart: مجدداً نیرو
+    move_to_workspace: حرکت به فضای کاری {{0}}
+    pause_toggle: میانبرهای مکث/ازسرگیری
+    send_to_next_workspace: پنجره را به فضای کاری بعدی ارسال کنید
+    send_to_previous_workspace: ارسال پنجره به فضای کاری قبلی
+    send_to_workspace: ارسال به فضای کاری {{0}}
+    send_to_workspace_down: پنجره را به فضای کاری زیر ارسال کنید
+    send_to_workspace_up: پنجره را به فضای کاری بالا ارسال کنید
+    switch_to_next_workspace: به فضای کاری بعدی بروید
+    switch_to_previous_workspace: به فضای کاری قبلی بروید
+    switch_to_workspace_down: به فضای کاری زیر بروید
+    switch_to_workspace_up: به فضای کاری بالا بروید
+    switch_workspace: تغییر به فضای کاری {{0}}
+  readonly_tooltip: این یک میانبر فقط خواندنی است
+  reset: تنظیم مجدد به پیش فرض
+sides:
+  bottom: پایین
+  left: ترک کرد
+  right: درست
+  top: بالا
+toolbar:
+  auto_hide: پنهان خودکار
+  auto_hide_touch_disabled: پنهان کردن خودکار در دستگاه های صفحه لمسی در دسترس نیست
+  delay_to_hide: تاخیر برای پنهان شدن
+  delay_to_show: تاخیر برای نمایش
+  dock_side: موقعیت
+  enable: نوار ابزار فانتزی را فعال کنید
+  hide_mode:
+    always: همیشه
+    never: هرگز
+    on_overlap: روی همپوشانی
+  item_size: اندازه مورد
+  label: نوار ابزار
+  margin: اندازه حاشیه
+  padding: اندازه بالشتک
+  placeholder: {}
+update:
+  available: بروزرسانی موجود!
+  channel: کانال
+  downloading: بارگیری ...
+wall:
+  blur: مبهم
+  cancel: لغو کنید
+  close: بستن
+  collection_name: نام مجموعه
+  collections: مجموعه ها
+  contrast: کنتراست
+  corrupted_wallpapers_message: 'والپیپرهای خراب، این موارد را حذف کنید:'
+  coverage_pause_threshold: آستانه مکث (پوشش پنجره)
+  create: ایجاد کنید
+  create_collection: ایجاد مجموعه
+  default_collection: تصویر زمینه یا مجموعه پیش فرض
+  default_collection_description: >-
+    برای همه مانیتورها و فضاهای کاری که مجموعه ای از حذف خاصی ندارند اعمال می
+    شود.
+  delete_collection: حذف مجموعه
+  edit_collection: ویرایش مجموعه
+  extend: اولیه را گسترش دهید
+  fit:
+    contain: حاوی بودن
+    cover: پوشش
+    fill: پر کردن
+  flipHorizontal: تلنگر افقی
+  flipVertical: به صورت عمودی
+  generating_thumbnails: ایجاد تصاویر ریز کاغذ دیواری
+  hours: ساعت
+  interval: کاغذ دیواری را تغییر دهید
+  minutes: دقایقی
+  monitor_collection: مجموعه مانیتور
+  multimonitor_behaviour: رفتار چند مانیتور
+  muted: صدای ویدیو را بی صدا کنید
+  no_background: نمایش اسلاید خالی ، به جای آن با استفاده از پس زمینه تم.
+  no_collections: هنوز هیچ مجموعه ای ایجاد نشده است. برای ایجاد یک دکمه + را کلیک کنید.
+  objectFit: متناسب با پس زمینه
+  objectPosition: موقعیت پس زمینه
+  overlayColor: رنگ روکش
+  overlayMixBlendMode: حالت مخلوط مخلوط روکش
+  per_monitor: در هر مانیتور
+  per_monitor_config: پیکربندی هر مانیتور
+  playback: سرعت پخش
+  position:
+    bottom: پایین
+    center: مرکز
+    left: چپ
+    right: حق
+    top: بالا
+  processing_video: در حال پردازش ویدیو
+  random: نمایش پرده ای تصادفی
+  saturation: اشباع
+  seconds: ثانیه
+  select_collection: مجموعه را انتخاب کنید
+  thumbnail_generation_complete: تولید ریز عکسها کامل شد
+  thumbnail_generation_finished: تولید تصویر بند انگشتی با موفقیت به پایان رسید
+  use_accent_color: از رنگ تاکیدی کاغذ دیواری استفاده کنید
+  wallpaper_collection: مجموعه کاغذ دیواری
+  wallpaper_settings: تنظیمات کاغذ دیواری
+  wallpapers: تصاویر پس زمینه
+  wallpapers_and_collections: تصاویر پس زمینه و مجموعه ها
+  withOverlay: با روکش
+  workspace_collections: مجموعه های فضای کاری
+weg:
+  auto_hide: پنهان خودکار
+  auto_hide_touch_disabled: پنهان کردن خودکار در دستگاه های صفحه لمسی در دسترس نیست
+  delay_to_hide: تاخیر برای پنهان شدن
+  delay_to_show: تاخیر برای نمایش
+  dock_side: موقعیت
+  filtering: فیلتر کردن مورد
+  gap: شکاف
+  hide_mode:
+    always: همیشه
+    never: هرگز
+    on_overlap: روی همپوشانی
+  import_error: وارد کردن موارد نوار وظیفه انجام نشد
+  import_from_taskbar:
+    button: وارد کردن از نوار وظیفه ویندوز
+    label: موارد پین شده را وارد کنید
+  import_no_items: هیچ مورد پین شده ای در نوار وظیفه ویندوز یافت نشد
+  import_success: '{{count}} مورد از نوار وظیفه ویندوز با موفقیت وارد شد'
+  items:
+    gap: فضای بین موارد
+    label: موارد
+    middle_click_action:
+      close_app: برنامه را ببندید
+      label: اقدام کلیک میانی
+      open_new_instance: نمونه جدید را باز کنید
+    pinned_visibility:
+      always: همیشه
+      label: قابلیت مشاهده موارد پین شده
+      when_primary: وقتی مانیتور اولیه است
+    show_instance_counter: پیشخوان ویندوز باز را نشان دهید
+    show_window_title: عنوان پنجره باز (فقط افقی)
+    size: اندازه مورد
+    split_windows: تقسیم ویندوز (یک مورد در هر پنجره)
+    temporal_visibility:
+      all: همه
+      label: قابلیت مشاهده موارد پین نشده
+      on_monitor: روی مانیتور
+  label: اسکله/نوار وظیفه
+  margin: لبه
+  mode:
+    full_width: عرض تمام صفحه
+    min_content: کوچک که می تواند باشد
+  padding: لایه گذاری
+  show_end_task: نمایش پایان کار در نوار وظیفه
+  width: عرض
+welcome:
+  give_a_review: نظر بدهید
+  message: >-
+    Seelen UI یک محیط دسکتاپ رایگان و متن باز برای ویندوز است. در اینجا شما
+    کنترل کاملی بر نحوه ظاهر و رفتار دسکتاپ خود دارید و به شما این امکان را می
+    دهد که هر جزئیات را مطابق با جریان کار و سبک خود سفارشی کنید.
+  ok: بیایید شروع کنیم!
+  review: >-
+    اگر از استفاده از رابط کاربری Seelen لذت می برید، نظر خود را در فروشگاه
+    بگذارید - بازخورد شما به رشد و بهبود پروژه کمک می کند.
+  title: به UI Seelen خوش آمدید!
+widget:
+  default_instance: نمونه پیش فرض
+  default_instance_hint: همیشه فعال است، از پیکربندی ویجت ریشه استفاده می کند
+  enable: این ویجت را فعال کنید
+  enable_for_monitor: این مانیتور را فعال کنید
+  extra_instances: موارد اضافی
+  instance: نمونه
+  instances: نمونه
+wm:
+  animations:
+    duration: مدت زمان انیمیشن (MS)
+    ease_function: عملکرد تسکین انیمیشن
+    enable: انیمیشن های پنجره را فعال کنید
+  author: نویسنده
+  auto_stack: پشته خودکار بر اساس دسته برنامه
+  border:
+    enable: مرز پنجره را فعال کنید
+    offset: جبران مرز
+    width: عرض مرز
+  description: شرح
+  drag_behavior: Drag Behavior
+  drag_behavior_options:
+    sort: مرتب سازی (ترتیب مجدد پنجره ها در حین کشیدن)
+    swap: تعویض (تعویض پنجره ها در انتهای کشیدن)
+  floating:
+    height: ارتفاع پنجره شناور
+    title: اندازه ویندوز شناور
+    width: پهنای ویندوز شناور
+  layout: چیدمان
+  resize_delta: تغییر اندازه دلتا (٪)
+  space_between_containers: فضای بین ظروف
+  stack_bar_visibility: قابلیت مشاهده نوار پشته
+  stack_bar_visibility_options:
+    always: همیشه
+    as_needed: در حد نیاز
+  workspace_offset: مکانهای کار افست (حاشیه)
+  workspace_padding: قسمتهای کاری PADING
+'yes': بله

@@ -1,0 +1,8 @@
+* { box-sizing: border-box; }
+body { margin: 0; font: 13px "Segoe UI", "Microsoft YaHei UI", sans-serif; background: #e4e7ec; }
+main { margin: auto; max-width: 800px; padding: 28px; background: var(--mac-window); color: var(--mac-text); }
+header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+h1 { font-size: 22px; margin: 0; }
+button { font: inherit; min-height: 32px; border: 1px solid var(--mac-divider); border-radius: 8px; background: var(--mac-search); color: inherit; cursor: pointer; }
+header > div { display: flex; gap: 8px; flex-wrap: wrap; }
+p[role="status"] { color: var(--mac-secondary); }

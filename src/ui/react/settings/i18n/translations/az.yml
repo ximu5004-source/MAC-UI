@@ -1,0 +1,469 @@
+action:
+  confirm: Əminsən?
+  confirm_body: Bu hərəkət geri qaytarıla bilməz.
+apps_configurations:
+  app:
+    bindings: Bağlama (hər iki variant tələb olunur)
+    category: Kateqoriya
+    category_placeholder: Heç kim
+    monitor: Ekran
+    monitor_placeholder: Heç kim
+    name: Ad
+    ok_create: Yaratmaq
+    ok_edit: Aktuallaşdırmaq
+    ok_readonly: Yeni kimi redaktə edin
+    options:
+      NoInteractive: İnteraktiv yoxdur
+      VdPinned: Bütün iş yerlərində göstərin
+      WmFloat: TWM - üzənlərə başlayın
+      WmForce: TWM - Güc idarə edin
+      WmUnmanage: TWM - Unmanage
+    options_label: Əlavə seçimlər
+    title_create: Yaratmaq {{ad}}
+    title_edit: Redaktə {{ad}}
+    title_readonly: Bax {{ad}}
+    weg_options_label: Dock / tapşırıq çubuğu seçimləri
+    wm_options_label: Pəncərə meneceri variantları
+    workspace: İş sahəsi
+    workspace_placeholder: Heç kim
+  bundled_msg: >-
+    Bu paketlənmiş konfiqurasiya düzəliş deyil və özelleştirme olmadan ən yaxşı
+    təcrübəni təmin etmək üçün hazırlanmışdır. Avtomatik olaraq sizin üçün ən
+    çox yayılmış tətbiqləri konfiqurasiya edirlər.
+  bundled_title: App Config Seelen ilə birləşdirilmişdir
+  confirm_delete: Bu konfiqurasiya / s silmək istədiyinizə əminsiniz?
+  confirm_delete_title: Silmək təsdiqləyin
+  delete: Silmək
+  export: İxrac etmək
+  export_full: Tətbiq tərəfindən parametrləri ixrac edin
+  extra_info: >-
+    Seelen UI, bir tətbiq başına yalnız bir identifikatordan istifadə edir (ilk
+    matç tapıldı), buna görə əmiklər necə vacibdir, ən son əlavə olaraq,
+    cədvəlin ən sondan köhnəyə görə sıralandığı üçün prioritetləşdiriləcəkdir.
+  identifier:
+    add_block: Blok əlavə edin
+    and: Və
+    id: Eyniləşdirici
+    kind: Tərəfindən müəyyənləşdirmək
+    matching_strategy: Uyğun strategiya
+    matching_strategy_option:
+      contains: ehtiva edir
+      ends_with: ilə bitir
+      equals: Bərabərdir
+      regex: Daimi ifadə
+      starts_with: ilə başlayır
+    negation: Uyğunlaşmanı rədd edin
+    or: Və ya
+    remove: Bloku silmək
+    type:
+      class: Sinif
+      exe: Exe
+      path: Yol
+      title: Başlıq
+  import: İdxal etmək
+  import_full: Tətbiqlə Parametrləri İdxal edin
+  new: Yeni
+  search: Axtarış
+  swap: Dəyişdirmək
+cancel: Ləğv etmək
+close: Yaxın
+delete: Silmək
+devtools:
+  app_folders: Tətbiq qovluqları
+  color_palette: Rəng Palitrası
+  color_palette_note: >-
+    Bu rənglər avtomatik olaraq işıq/qaranlıq rejiminə uyğunlaşır — hər bir
+    kölgə sabit dəyər deyil, cari fonla kontrast-nisbidir. Avtomatik mövzu
+    dəstəyi əldə etmək üçün sərt kodlu rənglər əvəzinə onlardan istifadə edin.
+  custom_config_file: Xüsusi konfiqurasiya faylını yükləyin
+  data_folder: Məlumat qovluğu
+  enable: Developer alətlərini aktivləşdirin
+  enable_description: >-
+    Seelen UI daxili hissələrini yoxlamaq və sazlamaq üçün qabaqcıl alətləri
+    açır. Daimi istifadə üçün nəzərdə tutulmayıb.
+  icons: Keşlənmiş Nişanlar
+  install_folder: Quraşdırma qovluğu
+  load: Yükləmək
+  settings_file: Parametrlər faylı
+  shared_components: SLU Standart Komponentləri
+  simulate_dialog:
+    label: Dialoqu Simulyasiya edin
+    trigger: Tətik
+  simulate_perm:
+    label: Widget İcazə Sorğunu simulyasiya edin
+    result_allowed: ✓ İcazə verildi
+    result_denied: ✗ İcazə rədd edildi
+    trigger: Simulyasiya edin
+    widget_id_placeholder: '@author/widget-name'
+  tools: Alətlər
+  unlock_shortcuts: Yalnız oxumaq üçün qısayolları kiliddən çıxarın
+  unlock_shortcuts_description: >-
+    Normalda yalnız oxumaq üçün olan qısayolları redaktə etməyə icazə verin
+    (məsələn, sistem ləğvi).
+  unstable_optimizations: Qeyri-sabit optimallaşdırmalar
+  unstable_optimizations_description: >-
+    RAM istifadəsini azaldan eksperimental Chromium bayraqlarını aktiv edin.
+
+    Xəbərdarlıq: əgər vidcet qəzaya uğrayarsa, eyni yükləyicini paylaşan bütün
+    vidjetlər birlikdə çökəcək.
+  widgets_debug:
+    actions: Fəaliyyətlər
+    empty: Heç bir vidcet yüklənməmişdir. Yenilə klikləyin.
+    instance_id: Nümunə ID
+    monitor_id: Monitor ID
+    open_devtools: DevTools
+    refresh: Yeniləyin
+    status: Vəziyyət
+    tab: Vidjetlər
+    widget_id: Widget ID
+discord_banner:
+  message: >-
+    Digər Seelen UI istifadəçiləri ilə əlaqə saxlayın, kömək alın, mövzuları
+    paylaşın və ən son xəbərlərdən xəbərdar olun.
+  title: İcmamıza qoşulun
+extras:
+  backup_group: Bulud Yedəkləmə
+  backup_last_sync: Son sinxronizasiya
+  backup_never_synced: Heç vaxt sinxronlaşdırılmayıb
+  backup_sync: Parametrləri buludla sinxronlaşdırın
+  backup_sync_description: Bulud vasitəsilə parametrlərinizi avtomatik olaraq yedəkləyin və bərpa edin.
+  clear_icons: Sistem nişanlar önbelleği təmizləyin
+  clear_icons_tooltip: Bütün vidjetlərə tam təsir göstərmək üçün yenidən başlama tələb oluna bilər
+  discord_rpc: Zəngin varlığı ayırın
+  discord_rpc_description: Stiliniz olan hər kəsə göstərin!
+  exit: Çıxmaq / çıxmaq
+  relaunch: Başsız
+  streaming_mode: Yayım rejimi
+  streaming_mode_description: >-
+    Qeydlər və ya skrinşotlar zamanı məxfiliyi qorumaq üçün həssas məlumatları
+    (məsələn, e-poçtlar) yer tutucularla əvəz edir.
+  version: Versiya
+  version_fixed: >-
+    Proqram və WebView2 Runtime versiyaları sabitdir. Bu o deməkdir ki, proqram
+    yeniləmələri qəbul etməyəcək və WebView2 Runtime avtomatik olaraq Windows
+    yeniləmələri ilə yenilənməyəcək.
+general:
+  accent_color: Vurğu
+  date_format: Tarix formatı
+  date_format_how_to: Tarix formatını necə yazmaq olar?
+  hardware_acceleration: Avadanlıq sürətləndirilməsi
+  hardware_acceleration_description: >-
+    Aparat sürətləndirilməsinin söndürülməsi yaddaş istifadəsini azaldacaq. Ağır
+    animasiyalardan istifadə etmirsinizsə, onu söndürmək təhlükəsizdir,
+    baxmayaraq ki, fərdi vidjetlər bu parametrdən asılı olmayaraq GPU
+    istifadəsini hələ də məcbur edə bilər.
+  icon_pack:
+    available: Mövcud İkon Paketləri
+    selected: Aktiv İkon Paketləri
+  language: Dil
+  monday: bazar ertəsi
+  performance_mode:
+    label: Optimallaşdırmalar
+    on_battery: Batareyada
+    on_energy_saver: Enerji qənaətçisi haqqında
+    options:
+      disabled: Əlil
+      extreme: Ekstremal
+      minimal: Minimal
+    plugged: Qoşuldu və ya şarj
+  polling_interval: Sistem sorğu intervalı
+  polling_interval_description: >-
+    Seelen UI CPU, RAM, şəbəkə və disk fəaliyyəti kimi sistem resurslarını nə
+    qədər tez-tez (saniyələrlə) yoxlayır. Daha kiçik rəqəm daha tez-tez
+    yeniləmələr, lakin bir qədər yüksək resurs istifadəsi deməkdir.
+  saturday: şənbə
+  start_of_week: Həftənin başlanğıcı
+  startup: Başlanğıcda qaçırsınız?
+  sunday: bazar günü
+  suspend_on_game_mode: Oyun rejimində vidjetləri dayandırın
+  suspend_on_game_mode_description: >-
+    Windows Oyun Rejimi aktiv olduqda, oyun üçün CPU və yaddaşı boşaltmaq üçün
+    bütün vidjet veb görünüşləri məhv edilir. Oyun Rejimi bitdikdə vidjetlər
+    avtomatik bərpa olunur.
+  theme:
+    available: Mövcud Mövzular
+    selected: Aktiv Mövzular
+global: Qlobal
+header:
+  labels:
+    config: Konfiqurasiya
+    developer: Yaradıcılar üçün
+    extras: Əlavələr
+    general: General
+    home: Evdə
+    iconpack: Icon paketləri
+    monitors: Monitorlar
+    plugin: Plaginlər
+    resources: Resurslar
+    session: Hesab
+    shortcuts: Qısaylıq
+    soundpack: Səs paketləri
+    specific_apps: Tətbiq tərəfindən parametrlər
+    theme: Mövzular
+    virtual_desk: Virtual masaüstü
+    wallpaper: Divar kağızları
+    widget: Vidjetlər
+home:
+  new_resources: Yeni mənbələr
+inherit: Varis olmaq
+inProgress: Davam edir ...
+insert: Daxil etmək
+join_us: Bizə qoşulun!
+loading: Yükləmə ...
+miscellaneous: Müxtəlif
+monitors_configurations:
+  label: Monitor {{index}}
+more: Daha çox
+'no': Yox
+open: Açıq-saçıq
+quit: Çıxmaq
+remove: Çıxarmaq
+reset_all_to_default: Hamısını standart dəyərlərə yenidən qurun
+reset_configurations: Konfiqurasiyaları sıfırlayın
+reset_to_default: Defolt dəyərinə yenidən qurun
+resources:
+  affected_widgets: Təsirə məruz qalan vidjetlər
+  app_outdated: >-
+    Bu qaynaq, Seelen UI-nin düzgün işləməsi üçün daha yeni bir versiyasını
+    tələb edir.
+  coming_soon: Tezliklə
+  corrupted_wallpaper: Miniatürü çıxarmaq alınmadı - zədələnmiş və ya dəstəklənməyən video formatı
+  delete: Resurs silmək
+  discover: Daha çox mənbəyi kəşf edin
+  has_update: Bir yeniləmə mövcuddur
+  high_impact: Performansa yüksək təsir
+  import_wallpapers: Yerli divar kağızları idxal edin
+  included_plugins: Daxil Pluginlər
+  modified: Dəyişdirilib
+  open_folder: Açıq Resurs qovluğu
+  outdated: >-
+    Bu qaynaq Seelen UI-nin köhnə bir versiyası üçün hazırlanmış və düzgün
+    işləməyə bilər.
+  see_on_website: Veb saytında baxın
+  update_now: Yeniləyin
+  updates_available: Yeniləmələr mövcuddur
+  updates_available_description: Aşağıdakı resurslarda yeniləmələr mövcuddur.
+review_request:
+  not_now: İndi yox
+  sure: Əlbəttə!
+  title: Seelen UI-dən zövq alırsınız?
+save: Yadda saxla
+save_and_restart: Saxla və yenidən başladın
+search: Axtar
+see_more: Daha çoxuna baxın
+session:
+  logout: Çıxış
+  plan: Plan
+  sign_in: Daxil ol
+  sign_in_hint: Brauzeriniz açılacaq ki, təhlükəsiz daxil ola biləsiniz.
+  upgrade_to: '-ə yüksəldin'
+shortcuts:
+  disabled_tooltip: Vidcet və onun qısa yolları deaktiv edilib
+  duplicate_error: Ziddiyyətli qısayollar aşkar edildi
+  duplicate_error_hint: >-
+    Bəzi qısayollar çoxlu hərəkətlərə təyin edilir. Ziddiyyətli vidcetlərdən
+    birini söndürün və ya həll etmək üçün dublikat açar bağlamasını yenidən
+    təyin edin.
+  enable: Quraşdırılmış qısa yol sistemini aktivləşdirin
+  enable_tooltip: >-
+    Seelen UI müştərisindən istifadə edərək öz qısa yol sisteminizi həyata
+    keçirəcəksənsə deaktiv edin
+  labels:
+    create_new_workspace: Yeni iş sahəsi yaradın
+    create_new_workspace_row: Yeni İş sahəsi cərgəsi yaradın
+    destroy_current_workspace: Cari iş sahəsini məhv edin
+    misc_force_quit: Çıxmaq
+    misc_force_restart: Güc yenidən başladın
+    move_to_workspace: İş sahəsinə keçin {{0}}
+    pause_toggle: Qısayolları dayandırın/davam edin
+    send_to_next_workspace: Pəncərəni Növbəti İş sahəsinə göndərin
+    send_to_previous_workspace: Pəncərəni Əvvəlki İş sahəsinə göndərin
+    send_to_workspace: İş sahəsinə göndərin {{0}}
+    send_to_workspace_down: Pəncərəni Aşağıdakı İş sahəsinə göndərin
+    send_to_workspace_up: Pəncərəni yuxarıdakı iş sahəsinə göndərin
+    switch_to_next_workspace: Növbəti iş sahəsinə keçin
+    switch_to_previous_workspace: Əvvəlki iş sahəsinə keçin
+    switch_to_workspace_down: Aşağıdakı İş sahəsinə keçin
+    switch_to_workspace_up: Yuxarıdakı İş sahəsinə keçin
+    switch_workspace: İş sahəsinə keçin {{0}}
+  readonly_tooltip: Bu yalnız bir oxu qısa yoldur
+  reset: Defoltlara yenidən qurun
+sides:
+  bottom: Dibli
+  left: Sol
+  right: Haqlı
+  top: Üst
+toolbar:
+  auto_hide: Avtomatik gizlətmək
+  auto_hide_touch_disabled: Avtomatik gizlətmə sensor ekranlı cihazlarda mövcud deyil
+  delay_to_hide: Gizlətmək üçün gecikmə
+  delay_to_show: Göstərmək üçün gecikmə
+  dock_side: Mövqe
+  enable: Zərif alət çubuğunu aktivləşdirin
+  hide_mode:
+    always: Həmişə
+    never: Heç vaxt
+    on_overlap: Üst-üstə düşür
+  item_size: Element Ölçüsü
+  label: Alət çubuğu
+  margin: Marja Ölçüsü
+  padding: Doldurma Ölçüsü
+  placeholder: {}
+update:
+  available: YENİLƏNİB!
+  channel: Kanal yeniləmə
+  downloading: Yükləmə ...
+wall:
+  blur: Sönük
+  cancel: Ləğv et
+  close: Bağlayın
+  collection_name: Kolleksiya Adı
+  collections: Kolleksiyalar
+  contrast: Əksinə
+  corrupted_wallpapers_message: 'Zədələnmiş divar kağızları, bunları silməyi düşünün:'
+  coverage_pause_threshold: Pauza həddi (pəncərə əhatəsi)
+  create: Yaradın
+  create_collection: Kolleksiya yaradın
+  default_collection: Defolt divar kağızı və ya kolleksiya
+  default_collection_description: >-
+    Xüsusi ləğvetmə dəsti olmayan bütün monitorlara və iş sahələrinə tətbiq
+    edilir.
+  delete_collection: Kolleksiyanı silin
+  edit_collection: Kolleksiyaya düzəliş edin
+  extend: Əsası genişləndirin
+  fit:
+    contain: Ehtiva etmək
+    cover: Örtük
+    fill: Doldurmaq
+  flipHorizontal: Üfüqi flip
+  flipVertical: Şaquli sürüşmək
+  generating_thumbnails: Divar kağızı miniatürlərinin yaradılması
+  hours: sair
+  interval: Divar kağızı hər birini dəyişdirin
+  minutes: dəqiqəlik
+  monitor_collection: Monitor kolleksiyası
+  multimonitor_behaviour: Multimonitor Davranışı
+  muted: Səssiz video audio
+  no_background: Bunun əvəzinə mövzunun fonundan istifadə edərək boş slayd şousu.
+  no_collections: Hələ kolleksiya yaradılmayıb. Yaratmaq üçün + düyməsini basın.
+  objectFit: Arxa plan
+  objectPosition: Fon mövqeyi
+  overlayColor: Örtük rəngi
+  overlayMixBlendMode: Qarışıq qarışığı rejimi
+  per_monitor: Monitor başına
+  per_monitor_config: Monitor başına konfiqurasiya
+  playback: Sürətini çalın
+  position:
+    bottom: Dibli
+    center: Mərkəzi
+    left: Sol
+    right: Haqlı
+    top: Üst
+  processing_video: Video işlənir
+  random: Slayd şousu
+  saturation: Doydurma
+  seconds: saniyə
+  select_collection: Kolleksiya seçin
+  thumbnail_generation_complete: Miniatürlərin yaradılması tamamlandı
+  thumbnail_generation_finished: Miniatür yaradılması uğurla tamamlandı
+  use_accent_color: Divar kağızı vurğu rəngindən istifadə edin
+  wallpaper_collection: Divar kağızı Kolleksiyası
+  wallpaper_settings: Divar kağızı Parametrləri
+  wallpapers: Divar kağızları
+  wallpapers_and_collections: Divar kağızları və kolleksiyalar
+  withOverlay: Örtülü ilə
+  workspace_collections: İş sahəsi kolleksiyaları
+weg:
+  auto_hide: Avtomatik gizlətmək
+  auto_hide_touch_disabled: Avtomatik gizlətmə sensor ekranlı cihazlarda mövcud deyil
+  delay_to_hide: Gizlətmək üçün gecikmə
+  delay_to_show: Göstərmək üçün gecikmə
+  dock_side: Mövqe
+  filtering: Element süzgəci
+  gap: Gap
+  hide_mode:
+    always: Həmişə
+    never: Heç vaxt
+    on_overlap: Üst-üstə düşür
+  import_error: Tapşırıq paneli elementlərini idxal etmək alınmadı
+  import_from_taskbar:
+    button: Windows tapşırıq çubuğundan idxal edin
+    label: Saxlanmış elementləri idxal edin
+  import_no_items: Windows tapşırıqlar panelində bərkidilmiş element tapılmadı
+  import_success: Windows tapşırıqlar panelindən {{count}} element (lər) uğurla import edildi
+  items:
+    gap: Əşyalar arasındakı boşluq
+    label: Maddələr
+    middle_click_action:
+      close_app: Proqramı bağlayın
+      label: Orta Klik Fəaliyyəti
+      open_new_instance: Yeni Nümunəni açın
+    pinned_visibility:
+      always: Həmişə
+      label: Saxlanmış Elementlərin Görünüşü
+      when_primary: Monitor əsas olduqda
+    show_instance_counter: Açıq pəncərələrin sayğacını göstərin
+    show_window_title: Açıq pəncərə başlığını göstər (yalnız üfüqi)
+    size: Maddə ölçüsü
+    split_windows: Pəncərələri bölün (hər pəncərədə bir element)
+    temporal_visibility:
+      all: Hamısı
+      label: Saxlanmamış Elementlərin Görünüşü
+      on_monitor: Monitorda
+  label: Dock / tapşırıq çubuğu
+  margin: Kənarə
+  mode:
+    full_width: Tam ekran eni
+    min_content: Ola bildiyi qədər kiçik
+  padding: Paddend
+  show_end_task: Tapşırıq çubuğunda son tapşırığı göstərin
+  width: Geniştəhər
+welcome:
+  give_a_review: Rəy verin
+  message: >-
+    Seelen UI Windows üçün pulsuz və açıq mənbəli iş masası mühitidir. Burada iş
+    masanızın necə göründüyünə və davranışına tam nəzarət edirsiniz, bu da sizə
+    hər bir detalı iş axınınıza və üslubunuza uyğunlaşdırmağa imkan verir.
+  ok: Başlayaq!
+  review: >-
+    Seelen UI-dən istifadə etməkdən zövq alırsınızsa, mağazada rəy yazmağı
+    düşünün – rəyiniz layihənin böyüməsinə və təkmilləşdirilməsinə kömək edir.
+  title: Seelen UI-ə xoş gəlmisiniz!
+widget:
+  default_instance: Defolt Nümunə
+  default_instance_hint: Həmişə aktivdir, kök vidcet konfiqurasiyasından istifadə edir
+  enable: Bu widgetı aktivləşdirin
+  enable_for_monitor: Bu monitorda aktivləşdirin
+  extra_instances: Əlavə Nümunələr
+  instance: Nümunə
+  instances: Hal
+wm:
+  animations:
+    duration: Animasiya müddəti (MS)
+    ease_function: Animasiya asanlaşdırma funksiyası
+    enable: Pəncərənin animasiyalarını aktivləşdirin
+  author: Müəllif
+  auto_stack: Proqram kateqoriyasına görə avtomatik yığın
+  border:
+    enable: Pəncərənin sərhədini aktivləşdirin
+    offset: Sərhəd əvəzinə
+    width: Sərhəd eni
+  description: Təsvir
+  drag_behavior: Sürükləmə Davranışı
+  drag_behavior_options:
+    sort: Sırala (sürükləyərkən pəncərələri yenidən sırala)
+    swap: Swap (sürük sonunda pəncərələri dəyişdirin)
+  floating:
+    height: Üzən Windows Hündürlüyü
+    title: Üzən Windows Ölçüsü
+    width: Üzən Windows Genişliyi
+  layout: Sxem
+  resize_delta: Delta'nın ölçüsünü (%)
+  space_between_containers: Konteynerlər arasındakı boşluq
+  stack_bar_visibility: Stack Bar Görünüşü
+  stack_bar_visibility_options:
+    always: Həmişə
+    as_needed: Lazım olduğu kimi
+  workspace_offset: İş yerləri ofset (kənarları)
+  workspace_padding: İş sahələri padding
+'yes': Bəli

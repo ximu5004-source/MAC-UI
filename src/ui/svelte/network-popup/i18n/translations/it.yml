@@ -1,0 +1,23 @@
+available: Reti disponibili
+connect: Collegare
+connected: Connesso a
+connecting: Connessione...
+disconnect: Disconnetti
+forget: Dimenticare
+hidden: Rete nascosta
+hotspot:
+  band: Banda
+  'off': Spento
+  'on': SU
+  open_network: Rete aperta
+  password: Password
+  settings: Altre impostazioni dell'hotspot
+  ssid: Nome della rete
+  title: Punto caldo
+more: Altre impostazioni di rete
+no_adapter: Nessun adattatore Wi-Fi trovato
+not_found: Nessuna rete Wi-Fi trovata
+password: Password
+saved: Reti salvate
+scanning: Scansione delle reti
+secured: Rete crittografata

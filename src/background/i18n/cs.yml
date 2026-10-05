@@ -1,0 +1,80 @@
+auth:
+  login_failed_body: >-
+    Při přihlašování se něco pokazilo. Pokud to přetrvává, ujistěte se, že je
+    služba Windows 'Credential Manager' (VaultSvc) povolena a spuštěna, a zkuste
+    to znovu.
+  login_failed_title: Přihlášení se nezdařilo
+cancel: Zrušit
+done: Hotovo
+elevated:
+  description: >-
+    Seelen UI běží s oprávněními správce.
+
+    To nepřidává ani nevylepšuje žádné funkce a může představovat bezpečnostní
+    riziko.
+
+    Pro lepší zabezpečení jej restartujte bez oprávnění správce.
+  title: Spuštění jako správce
+file_explorer: Průzkumník souborů
+resource:
+  added: Byl přidán nový zdroj
+  download_failed_body: >-
+    Při stahování zdroje se něco pokazilo, nahlaste to prosím týmu vývojářů
+    Seelenu.
+  download_failed_title: Stažení prostředků se nezdařilo
+  downloading: Stahování aktiv...
+  downloading_body: To může trvat několik sekund, nezavírejte proto okno.
+  enable: Povolit
+  login_required_action: Přihlaste se
+  login_required_body: Chcete-li stáhnout tento zdroj, musíte se přihlásit.
+  login_required_title: Je vyžadováno přihlášení
+runtime:
+  corrupted_data: Poškozená data
+  corrupted_file: Konfigurační soubor je poškozen a místo něj se používají výchozí hodnoty.
+  corrupted_file_path: Poškozená cesta k souboru
+  download: Přejděte na stránku stahování
+  files_integrity: >-
+    Nepodařilo se nám ověřit integritu souborů aplikace.
+
+    K tomu může dojít, pokud byly soubory změněny, poškozeny nebo instalace není
+    úplná.
+
+    Z bezpečnostních důvodů nemůže Seelen UI pokračovat.
+
+    Nainstalujte jej znovu z oficiálních stránek.
+  files_integrity_title: Výstraha zabezpečení – Kontrola integrity souborů se nezdařila
+  not_found: WebView2 Runtime nebyl nalezen
+  not_found_description: Seelen UI vyžaduje Webview2 Runtime. Nainstalujte jej prosím.
+  outdated: WebView2 Runtime je zastaralé
+  outdated_description: >-
+    Seelen UI vyžaduje Webview2 Runtime %{min_version} nebo vyšší. Aktualizujte
+    jej.
+service:
+  not_running: Služba Seelen UI neběží
+  not_running_description: >-
+    Seelen UI Service (slu-service) je závislost/pomocník pro správné fungování
+    aplikace.
+  not_running_ok: Spusťte službu
+shortcut:
+  conflicts:
+    body: Některé zkratky jsou přiřazeny více akcím, změňte jejich přiřazení.
+    dismiss: Propustit
+    review: Recenze
+    title: Zjištěny konflikty zkratek
+  register:
+    placeholder: Stiskněte libovolnou kombinaci klíčů
+    title: Registrace nové zkratky
+widget_liveness:
+  failed_description: |-
+    Widget '%{widget_name}' přestal reagovat příliš mnohokrát.
+
+    Můžete zkusit restartovat aplikaci.
+  failed_title: Chyba widgetu
+widget_permissions:
+  perm_open_file: otevřít soubory
+  perm_run: spouštět programy
+  request_description: |-
+    Widget '%{widget_name}' požaduje oprávnění k %{command}.
+
+    Chcete to povolit?
+  request_title: Žádost o povolení k widgetu

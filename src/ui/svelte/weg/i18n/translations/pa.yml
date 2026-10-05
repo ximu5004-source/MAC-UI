@@ -1,0 +1,40 @@
+app_menu:
+  close: ਨੇੜੇ
+  close_multiple: ਸਾਰੇ ਬੰਦ ਕਰੋ
+  copy_handles: ਕਾੱਪੀ ਹੈਂਡਲ
+  edit_app_icon: ਐਪ ਆਈਕਨ ਦਾ ਸੰਪਾਦਨ ਕਰੋ
+  kill: ਪ੍ਰਕਿਰਿਆ ਨੂੰ ਮਾਰੋ
+  kill_multiple: ਸਾਰੀਆਂ ਪ੍ਰਕਿਰਿਆਵਾਂ ਨੂੰ ਮਾਰੋ
+  open_file_location: ਓਪਨ ਫਾਈਲ ਟਿਕਾਣਾ
+  pin: ਪਿੰਨ
+  pin_to_center: ਕੇਂਦਰ ਨੂੰ ਪਿੰਨ
+  pin_to_left: ਪਿੰਨ ਛੱਡ ਕੇ
+  pin_to_right: ਪਿੰਨ ਕਰਨ ਲਈ
+  run_as: ਪ੍ਰਬੰਧਕ ਦੇ ਤੌਰ ਤੇ ਚਲਾਓ
+  unpin: Unpin
+context_menu:
+  edit_icon: ਆਈਕਨ ਦਾ ਸੰਪਾਦਨ ਕਰੋ
+  remove_module: ਮੋਡੀਊਲ ਹਟਾਓ
+  remove_separator: ਵੱਖਰਾ ਹਟਾਓ
+  reorder_disable: ਟਾਸਕਬਾਰ ਨੂੰ ਲਾਕ ਕਰੋ
+  reorder_enable: ਟਾਸਕਬਾਰ ਨੂੰ ਅਨਲੌਕ ਕਰੋ
+media:
+  label: ਮੀਡੀਆ ਪਲੇਅਰ
+  not_playing: ਕੁਝ ਨਹੀਂ ਖੇਡ ਰਿਹਾ
+show_desktop:
+  label: ਡੈਸਕਟਾਪ ਦਿਖਾਓ
+start:
+  label: ਸਟਾਰਟ ਮੀਨੂ
+taskbar_menu:
+  add_file: ਪਿੰਨ ਕਸਟਮ ਫਾਈਲ
+  add_separator: ਵੱਖਰਾ ਜੋੜੋ
+  media: ਮੀਡੀਆ ਪਲੇਅਰ
+  modules: ਮੋਡੀਊਲ
+  settings: ਸੈਟਿੰਗਾਂ
+  task_manager: ਟਾਸਕ ਮੈਨੇਜਰ
+trash_bin:
+  empty_bin: ਖਾਲੀ ਰੀਸਾਈਕਲ ਬਿਨ
+  item_count: '{{0}} ਆਈਟਮਾਂ'
+  label: ਰੀਸਾਈਕਲ ਬਿਨ
+weg:
+  empty: ਦਿਖਾਉਣ ਲਈ ਕੋਈ ਆਈਟਮਾਂ ਨਹੀਂ ਹਨ

@@ -1,0 +1,244 @@
+<script lang="ts">
+  import { invoke, SeelenCommand, Widget } from "@seelen-ui/lib";
+  import {
+    Alignment,
+    FancyToolbarSide,
+    type ContextMenu,
+    type ToolbarItem,
+    type WidgetId,
+  } from "@seelen-ui/lib/types";
+  import type { createSortable } from "@dnd-kit/svelte/sortable";
+  import { t } from "../i18n/index.ts";
+  import { evalActionSanboxed, triggerWidget } from "../actionEvaluator.ts";
+  import { evalComponentSandboxed } from "../evaluatedComponents.ts";
+  import { toolbarActions } from "../state/items.svelte.ts";
+  import { settingsState } from "../state/settings.svelte.ts";
+  import { styleToString } from "../utils.ts";
+  import EvaluatedComponents from "../EvaluatedComponents.svelte";
+  import { createRemoteDataResolver } from "../remoteData.svelte.ts";
+  import { resolveScopes } from "libs/ui/svelte/utils/scopes.svelte.ts";
+  import {
+    compileSandboxed,
+    createCanvasSandbox,
+    evalSanboxed,
+    evalToStr,
+    getSystemTokens,
+    getThemeTokens,
+  } from "libs/ui/svelte/utils/sandbox.ts";
+  import { prefersDarkColorScheme } from "libs/ui/svelte/runes/DarkMode.svelte.ts";
+  import { CssHandled } from "libs/ui/svelte/utils/animations.ts";
+  import CommunicationTray from "./CommunicationTray.svelte";
+  import { isPrimaryToolbarClick, isToolbarActivationKey } from "../activation.ts";
+
+  interface Props {
+    module: ToolbarItem;
+    sortable?: ReturnType<typeof createSortable> | null;
+    pluginId?: string;
+  }
+
+  let { module: self, sortable = null, pluginId }: Props = $props();
+
+  const noopAttach = () => {};
+
+  // ── Context menu listener ────────────────────────────────────────────────
+
+  const menuIdentifier = crypto.randomUUID();
+  const callbackEvent = $derived(`context-menu::${self.id.replace("@", "")}`);
+
+  $effect(() => {
+    let unlistenContextMenu: (() => void) | undefined;
+
+    Widget.self.webview
+      .listen(callbackEvent, ({ payload }) => {
+        const { key } = payload as any;
+        if (key === "remove") {
+          toolbarActions.removeItem(self.id);
+        }
+      })
+      .then((fn) => {
+        unlistenContextMenu = fn;
+      });
+
+    return () => {
+      unlistenContextMenu?.();
+    };
+  });
+
+  // ── Scope computation ────────────────────────────────────────────────────
+
+  let userSourceName = $derived.by(() => {
+    const allByWidget = settingsState.allByWidget;
+    const userMenuConfig = allByWidget["@seelen/user-menu" as WidgetId];
+    return userMenuConfig?.displayNameSource as string;
+  });
+
+  let fetchedData = createRemoteDataResolver(() => self.remoteData ?? {});
+
+  const _scopeResult = $derived(resolveScopes(self.scopes, { userSourceName }));
+  const fetching = $derived(_scopeResult.fetching);
+  const scope = $derived.by(() => ({
+    ..._scopeResult.data,
+    ...fetchedData,
+    position: settingsState.position,
+    t: (...args: [string, Record<string, string>]) => $t(...args),
+  }));
+
+  // ── Sandboxed code evaluation ────────────────────────────────────────────
+
+  const sandbox = createCanvasSandbox();
+  let canvas = $state<HTMLCanvasElement | null>(null);
+
+  const contentExec = $derived(compileSandboxed(sandbox, self.template));
+  const renderExec = $derived(compileSandboxed(sandbox, self.render));
+  const tooltipExec = $derived(compileSandboxed(sandbox, self.tooltip));
+  const badgeExec = $derived(compileSandboxed(sandbox, self.badge));
+
+  const onClickExec = $derived(compileSandboxed(sandbox, self.onClick));
+  const onWheelUpExec = $derived(compileSandboxed(sandbox, self.onWheelUp));
+  const onWheelDownExec = $derived(compileSandboxed(sandbox, self.onWheelDown));
+
+  const content = $derived(self.render ? null : evalComponentSandboxed(contentExec, scope));
+  const tooltip = $derived(evalToStr(evalComponentSandboxed(tooltipExec, scope)));
+  const badge = $derived(evalToStr(evalComponentSandboxed(badgeExec, scope)));
+
+  const canvasWidth = $derived(
+    self.canvasSize ? `${self.canvasSize}px` : "var(--config-item-size)",
+  );
+
+  // ── Others derives ───────────────────────────────────────────────────────
+
+  const tooltipY = $derived(
+    settingsState.position === FancyToolbarSide.Bottom
+      ? settingsState.widgetRect.top
+      : settingsState.widgetRect.bottom,
+  );
+  const alignY = $derived(
+    settingsState.position === FancyToolbarSide.Bottom ? Alignment.End : Alignment.Start,
+  );
+
+  const itemStyle = $derived(
+    styleToString({
+      ...self.style,
+      ...(sortable?.isDragging ? { opacity: 0.2 } : {}),
+    }),
+  );
+
+  // ── Event handlers ───────────────────────────────────────────────────────
+
+  function activate() {
+    evalActionSanboxed(onClickExec, {
+      ...scope,
+      trigger: (widgetId: WidgetId) => triggerWidget(widgetId, self.id),
+    });
+  }
+
+  function handleClick(event: MouseEvent) {
+    if (isPrimaryToolbarClick(event, sortable?.isDragging)) activate();
+  }
+
+  function handleKeyDown(event: KeyboardEvent) {
+    if (event.target !== event.currentTarget || !isToolbarActivationKey(event)) return;
+    event.preventDefault();
+    event.stopPropagation();
+    if (!sortable?.isDragging) activate();
+  }
+
+  function handleContextMenu(e: MouseEvent) {
+    e.preventDefault();
+    e.stopPropagation();
+    const menu: ContextMenu = {
+      identifier: menuIdentifier,
+      items: [
+        {
+          type: "Item",
+          key: "remove",
+          label: $t("context_menu.remove"),
+          icon: "CgExtensionRemove",
+          callbackEvent,
+        },
+      ],
+    };
+    invoke(SeelenCommand.TriggerContextMenu, {
+      menu: { ...menu, alignX: Alignment.Center, alignY: alignY },
+      forwardTo: null,
+    });
+  }
+
+  function handleWheel(e: WheelEvent) {
+    evalActionSanboxed(e.deltaY < 0 ? onWheelUpExec : onWheelDownExec, {
+      ...scope,
+      trigger: (widgetId: WidgetId) => triggerWidget(widgetId, self.id),
+    });
+  }
+
+  $effect(() => {
+    if (!self.render || !renderExec || !canvas) return;
+
+    canvas.width = canvas.clientWidth * window.devicePixelRatio;
+    canvas.height = canvas.clientHeight * window.devicePixelRatio;
+
+    const computed = getComputedStyle(canvas);
+    evalSanboxed(renderExec, {
+      ...scope,
+      isDarkMode: prefersDarkColorScheme.value,
+      systemTokens: getSystemTokens(computed),
+      themeTokens: getThemeTokens(computed),
+      canvas: {
+        getContext: (contextId: string) => canvas!.getContext(contextId),
+        width: canvas.width,
+        height: canvas.height,
+      },
+    });
+  });
+</script>
+
+{#if !fetching && (content || self.render)}
+  {#if self.id === "@seelen/tb-system-tray"}<CommunicationTray />{/if}
+  {#if self.id.startsWith("hardcoded-separator")}
+    <div {@attach sortable?.attach ?? noopAttach} class="ft-bar-separator"></div>
+  {:else}
+    <div
+      id={self.id}
+      {@attach sortable?.attach ?? noopAttach}
+      role="button"
+      tabindex="0"
+      data-plugin-id={pluginId}
+      data-dragging={sortable?.isDragging}
+      data-tooltip={tooltip}
+      data-tooltip-align-x="Center"
+      data-tooltip-align-y={alignY}
+      data-tooltip-origin-y={tooltipY}
+      style={itemStyle}
+      class="ft-bar-item"
+      class:ft-bar-item-clickable={!!self.onClick}
+      onclick={handleClick}
+      onwheel={self.onWheelUp || self.onWheelDown ? handleWheel : undefined}
+      oncontextmenu={handleContextMenu}
+      onkeydown={handleKeyDown}
+      transition:CssHandled|global={{
+        enabled() {
+          return !!sortable && !sortable.isDragging;
+        },
+      }}
+    >
+      <div class="ft-bar-item-content">
+        {#if self.render}
+          <canvas bind:this={canvas} class="ft-bar-item-canvas" style:width={canvasWidth}></canvas>
+        {:else}
+          <EvaluatedComponents {content} />
+        {/if}
+      </div>
+
+      {#if badge}
+        <div class="ft-bar-item-badge" transition:CssHandled>{badge}</div>
+      {/if}
+    </div>
+  {/if}
+{/if}
+
+<style>
+  .ft-bar-item-canvas {
+    display: block;
+    height: var(--config-item-size);
+  }
+</style>

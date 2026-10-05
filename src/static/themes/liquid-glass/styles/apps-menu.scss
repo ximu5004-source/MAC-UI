@@ -1,0 +1,9 @@
+.app .app-icon[data-appearance="liquid-glass"] {
+  flex: 0 0 auto;
+}
+
+.app:hover .app-icon[data-appearance="liquid-glass"],
+.app[aria-selected="true"] .app-icon[data-appearance="liquid-glass"] {
+  transform: translateY(-1px) scale(1.04);
+  filter: brightness(1.04);
+}

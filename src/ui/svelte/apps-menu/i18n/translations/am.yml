@@ -1,0 +1,22 @@
+all: ሁሉም መተግበሪያዎች
+app_settings: የመተግበሪያ ቅንብሮች
+applications: መተግበሪያዎች
+back: ተመለስ
+disband: አቃፊን አሰናብት
+edit_icon: አዶ አርትዕ
+folder: አቃፊ
+no_matching_items: ከእርስዎ ፍለጋ ጋር የሚዛመዱ ምንም ንጥሎች አልተገኙም።
+open_file_location: የፋይል ቦታን ክፈት
+pin: ፒን
+pin_to_dock: ወደ መትከያ ይሰኩት
+power_menu: የኃይል ምናሌ
+query:
+  all: ሁሉም
+  apps: መተግበሪያዎች
+  files: ፋይሎች
+  web: ድር
+run_as_admin: እንደ አስተዳዳሪ ያሂዱ
+unpin: ንቀል
+web_search: ድሩን ለመፈለግ አስገባን ይጫኑ
+welcome_message: እንኳን ወደ Seelen UI መተግበሪያ ምናሌ በደህና መጡ።
+welcome_message2: በዚህ ትር ላይ የሚወዷቸውን መተግበሪያዎች መሰካት ይችላሉ።

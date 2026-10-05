@@ -1,0 +1,23 @@
+available: دستیاب نیٹ ورک
+connect: جڑیں
+connected: سے منسلک
+connecting: منسلک ہو رہا ہے...
+disconnect: منقطع
+forget: بھول جاؤ
+hidden: پوشیدہ نیٹ ورک
+hotspot:
+  band: بینڈ
+  'off': آف
+  'on': پر
+  open_network: نیٹ ورک کھولیں۔
+  password: پاس ورڈ
+  settings: مزید ہاٹ سپاٹ کی ترتیبات
+  ssid: نیٹ ورک کا نام
+  title: ہاٹ سپاٹ
+more: نیٹ ورک کی مزید ترتیبات
+no_adapter: کوئی وائی فائی اڈاپٹر نہیں ملا
+not_found: کوئی وائی فائی نیٹ ورک نہیں ملا
+password: پاس ورڈ
+saved: محفوظ کردہ نیٹ ورکس
+scanning: نیٹ ورکس کے لئے اسکیننگ
+secured: خفیہ کردہ نیٹ ورک

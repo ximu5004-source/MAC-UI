@@ -1,0 +1,475 @@
+action:
+  confirm: Int żgur?
+  confirm_body: Din l-azzjoni ma tistax titneħħa.
+apps_configurations:
+  app:
+    bindings: Torbot (innota ż-żewġ għażliet huma meħtieġa)
+    category: Kategorija
+    category_placeholder: Xejn
+    monitor: Tissorvelja
+    monitor_placeholder: Xejn
+    name: Isem
+    ok_create: Oħloq
+    ok_edit: Aġġornament
+    ok_readonly: Editja bħala ġdida
+    options:
+      NoInteractive: Nru Interattiv
+      VdPinned: Uri fl-ispazji tax-xogħol kollha
+      WmFloat: Twm - Ibda f'wiċċ l-ilma
+      WmForce: Twm - Force Manage
+      WmUnmanage: Twm - Unmanage
+    options_label: Għażliet żejda
+    title_create: Ħolqien ta '{{isem}}
+    title_edit: Editjar {{isem}}
+    title_readonly: Wiri {{isem}}
+    weg_options_label: Għażliet tal-baċir / taskbar
+    wm_options_label: Għażliet tal-Maniġer tat-Tieqa
+    workspace: Spazju ta 'xogħol
+    workspace_placeholder: Xejn
+  bundled_msg: >-
+    Dawn il-konfigurazzjonijiet miġbura mhumiex editabbli u huma mfassla biex
+    jipprovdulek l-aħjar esperjenza mingħajr personalizzazzjoni. Huma
+    awtomatikament jikkonfiguraw l-aktar applikazzjonijiet komuni għalik.
+  bundled_title: App konfigurazzjoni miġbura ma 'seelen
+  confirm_delete: Int żgur li trid tħassar din il-konfigurazzjoni / i?
+  confirm_delete_title: Ikkonferma Ħassar
+  delete: Ħassar
+  export: Esportazzjoni
+  export_full: Settings tal-Esportazzjoni skont l-Applikazzjoni
+  extra_info: >-
+    Seelen UI tuża identifikatur wieħed biss għal kull app (l-ewwel tqabbil
+    misjub) sabiex l-ordni ta 'kif huma speċifikati hija importanti, l-aħħar
+    miżjuda se tkun prijoritizzata, peress li nnota li t-tabella hija magħżula
+    b'mod awtomatiku mill-aktar tard għall-qadim.
+  identifier:
+    add_block: Żid blokka
+    and: U
+    id: Identifikatur
+    kind: Identifika minn
+    matching_strategy: Strateġija ta 'tqabbil
+    matching_strategy_option:
+      contains: Fih
+      ends_with: Tispiċċa bi
+      equals: Indaqs
+      regex: Espressjoni regolari
+      starts_with: Jibda bi
+    negation: Iċħad it-tqabbil
+    or: Jew
+    remove: Ħassar il-blokka
+    type:
+      class: Klassi
+      exe: Exe
+      path: Mogħdija
+      title: Titolu
+  import: Importa
+  import_full: Settings tal-importazzjoni skont l-applikazzjoni
+  new: Ġdid
+  search: Tfittxija
+  swap: Tpartit
+cancel: Ikkanċella
+close: Viċin
+delete: Ħassar
+devtools:
+  app_folders: Folders tal-app
+  color_palette: Paletta tal-Kulur
+  color_palette_note: >-
+    Dawn il-kuluri jadattaw awtomatikament għall-modalità tad-dawl/dlam — kull
+    dell huwa kuntrast relattiv għall-isfond kurrenti, mhux valur fiss. Użahom
+    minflok kuluri hardcoded biex tikseb appoġġ awtomatiku tat-tema.
+  custom_config_file: Tagħbija Fajl tal-Konfigurazzjoni Custom
+  data_folder: Folder tad-dejta
+  enable: Ippermetti għodod għall-iżviluppaturi
+  enable_description: >-
+    Jiżblokka għodod avvanzati għall-ispezzjoni u l-iddibaggjar tal-interns
+    tal-UI Seelen. Mhux maħsub għal użu regolari.
+  icons: Ikoni Cached
+  install_folder: Folder tal-installazzjoni
+  load: Tagħbija
+  settings_file: Settings Fajl
+  shared_components: Komponenti Standard SLU
+  simulate_dialog:
+    label: Issimula Djalogu
+    trigger: Trigger
+  simulate_perm:
+    label: Issimula Talba ta' Permess għal Widget
+    result_allowed: ✓ Permess mogħti
+    result_denied: ✗ Permess miċħud
+    trigger: Issimula
+    widget_id_placeholder: '@ awtur/widget-isem'
+  tools: Għodda
+  unlock_shortcuts: Nisfruttaw Shortcuts tal-Qari biss
+  unlock_shortcuts_description: >-
+    Ippermetti shortcuts tal-editjar li normalment jinqraw biss (eż. overrides
+    tas-sistema).
+  unstable_optimizations: Ottimizzazzjonijiet instabbli
+  unstable_optimizations_description: >-
+    Ippermetti bnadar sperimentali tal-Kromju li jnaqqsu l-użu tar-RAM.
+
+    Twissija: jekk widget jiġġarraf, il-widgets kollha li jaqsmu l-istess loader
+    jiġġarraf flimkien.
+  widgets_debug:
+    actions: Azzjonijiet
+    empty: Ebda widgets mgħobbija. Ikklikkja Aġġorna.
+    instance_id: ID tal-istanza
+    monitor_id: Monitor ID
+    open_devtools: DevTools
+    refresh: Aġġorna
+    status: Status
+    tab: Widgets
+    widget_id: ID tal-widget
+discord_banner:
+  message: >-
+    Ikkonnettja ma' utenti oħra ta' Seelen UI, ikseb għajnuna, taqsam it-temi, u
+    żomm ruħek aġġornat bl-aħħar aħbarijiet.
+  title: Ingħaqad fil-Komunità tagħna
+extras:
+  backup_group: Cloud Backup
+  backup_last_sync: L-aħħar sinkronizzazzjoni
+  backup_never_synced: Qatt issinkronizzat
+  backup_sync: Issinkronizza s-settings mal-cloud
+  backup_sync_description: >-
+    Awtomatikament tagħmel backup u restawra s-settings tiegħek permezz
+    tas-sħab.
+  clear_icons: Ikoni tas-sistema ċara cache
+  clear_icons_tooltip: >-
+    Jista 'jkun meħtieġ li jerġa' jkun meħtieġ biex jidħol fis-seħħ fuq
+    il-widgets kollha
+  discord_rpc: Discord preżenza rikka
+  discord_rpc_description: Uri lil kulħadd li għandek stil!
+  exit: Nieqaf / ħruġ
+  relaunch: Tnedija mill-ġdid
+  streaming_mode: Modalità Streaming
+  streaming_mode_description: >-
+    Tissostitwixxi informazzjoni sensittiva (eż. emails) b'placeholders biex
+    tipproteġi l-privatezza waqt reġistrazzjonijiet jew screenshots.
+  version: Verżjoni
+  version_fixed: >-
+    L-applikazzjoni u l-verżjonijiet tal-WebView2 Runtime huma ffissati. Dan
+    ifisser li l-applikazzjoni mhux se tirċievi aġġornamenti u l-WebView2
+    Runtime mhux se jiġi aġġornat awtomatikament bl-aġġornamenti tal-Windows.
+general:
+  accent_color: Kulur tal-aċċent
+  date_format: Format tad-data
+  date_format_how_to: Kif tikteb format tad-data?
+  hardware_acceleration: Aċċelerazzjoni tal-Hardware
+  hardware_acceleration_description: >-
+    Id-diżattivazzjoni tal-aċċelerazzjoni tal-ħardwer tnaqqas l-użu tal-memorja.
+    Huwa sikur li tiddiżattiva jekk ma tkunx qed tuża animazzjonijiet tqal,
+    għalkemm widgets individwali xorta jistgħu jġiegħlu l-użu tal-GPU
+    irrispettivament minn dan is-setting.
+  icon_pack:
+    available: Pakketti ta' Ikoni Disponibbli
+    selected: Pakketti tal-Ikoni Attivi
+  language: Lingwa
+  monday: it-Tnejn
+  performance_mode:
+    label: Ottimizzazzjonijiet
+    on_battery: Fuq batterija
+    on_energy_saver: Fuq l-enerġija li tiffranka
+    options:
+      disabled: B'diżabilità
+      extreme: Estrem
+      minimal: Minimu
+    plugged: Imqabbad jew iċċarġjar
+  polling_interval: Intervall tal-votazzjoni tas-sistema
+  polling_interval_description: >-
+    Kemm-il darba (f'sekondi) Seelen UI tiċċekkja r-riżorsi tas-sistema bħal
+    CPU, RAM, netwerk, u attività tad-disk. Numru iżgħar ifisser aġġornamenti
+    aktar frekwenti, iżda użu tar-riżorsi kemmxejn ogħla.
+  saturday: is-Sibt
+  start_of_week: Bidu tal-Ġimgħa
+  startup: Mexxi fuq l-istartjar?
+  sunday: il-Ħadd
+  suspend_on_game_mode: Issospendi l-widgets fuq il-Modalità tal-Logħba
+  suspend_on_game_mode_description: >-
+    Meta l-Modalità tal-Logħba tal-Windows tkun attiva, il-webviews kollha
+    tal-widget jinqerdu biex jinħelsu CPU u memorja għal-logħba. Widgets jiġu
+    restawrati awtomatikament meta jintemm il-Modalità tal-Logħba.
+  theme:
+    available: Temi Disponibbli
+    selected: Temi Attivi
+global: Globali
+header:
+  labels:
+    config: Konfigurazzjonijiet
+    developer: Għall-iżviluppaturi
+    extras: Ekstras
+    general: Ġenerali
+    home: Id-dar
+    iconpack: Pakketti tal-ikona
+    monitors: Monitors
+    plugin: Plugins
+    resources: Riżorsi
+    session: Kont
+    shortcuts: Shortcuts
+    soundpack: Pakketti tal-ħoss
+    specific_apps: Settings skont l-applikazzjoni
+    theme: Temi
+    virtual_desk: Desktops virtwali
+    wallpaper: Wallpapers
+    widget: Widgets
+home:
+  new_resources: Riżorsi ġodda
+inherit: Jirtu
+inProgress: Fil-progress...
+insert: Daħħal
+join_us: Ingħaqad magħna!
+loading: Tagħbija...
+miscellaneous: Varji
+monitors_configurations:
+  label: Monitor {{indiċi}}
+more: Aktar
+'no': LE
+open: Miftuħa
+quit: Nieqaf
+remove: Neħħi
+reset_all_to_default: Irrisettja l-valuri kollha tal-inadempjenza
+reset_configurations: Irrisettja l-konfigurazzjonijiet
+reset_to_default: Irrisettja għall-valur awtomatiku
+resources:
+  affected_widgets: Widgets Affettwati
+  app_outdated: Din ir-riżorsa teħtieġ verżjoni aktar ġdida ta 'Seelen UI biex taħdem sew.
+  coming_soon: Dalwaqt
+  corrupted_wallpaper: >-
+    Naqas milli jiġi estratt thumbnail - format tal-vidjo korrotta jew mhux
+    appoġġjata
+  delete: Ħassar ir-riżorsa
+  discover: Skopri aktar riżorsi
+  has_update: Aġġornament huwa disponibbli
+  high_impact: Impatt għoli fuq il-prestazzjoni
+  import_wallpapers: Importa wallpapers lokali
+  included_plugins: Plugins Inklużi
+  modified: Modifikat
+  open_folder: Folder tar-Riżorsi Miftuħa
+  outdated: >-
+    Din ir-riżorsa kienet iddisinjata għal verżjoni aktar antika ta 'Seelen UI u
+    tista' ma taħdimx sew.
+  see_on_website: Ara fuq il-websajt
+  update_now: Aġġornament
+  updates_available: Aġġornamenti Disponibbli
+  updates_available_description: Ir-riżorsi li ġejjin għandhom aġġornamenti disponibbli.
+review_request:
+  not_now: Mhux issa
+  sure: Żgur!
+  title: Tgawdi Seelen UI?
+save: Ħlief
+save_and_restart: Issejvja u terġa 'tibda
+search: Fittex
+see_more: Ara aktar
+session:
+  logout: Sign Out
+  plan: Pjan
+  sign_in: Idħol
+  sign_in_hint: Il-browser tiegħek se jiftaħ sabiex tkun tista' tidħol b'mod sigur.
+  upgrade_to: Taġġorna għal
+shortcuts:
+  disabled_tooltip: Il-widget u s-shortcuts tiegħu huma diżattivati
+  duplicate_error: Instabu shortcuts konfliġġenti
+  duplicate_error_hint: >-
+    Xi shortcuts huma assenjati għal azzjonijiet multipli. Itfi wieħed
+    mill-widgets konfliġġenti jew tassenja mill-ġdid l-irbit taċ-ċavetta
+    duplikat biex issolvi.
+  enable: Ippermetti s-sistema shortcuts inkorporati
+  enable_tooltip: >-
+    Itfi jekk timplimentax is-sistema shortcuts tiegħek stess billi tuża
+    l-klijent Seelen UI
+  labels:
+    create_new_workspace: Oħloq spazju ta 'xogħol ġdid
+    create_new_workspace_row: Oħloq Ringiela ta' Spazju tax-Xogħol Ġdid
+    destroy_current_workspace: Jeqirdu l-ispazju ta 'xogħol attwali
+    misc_force_quit: Forza nieqaf
+    misc_force_restart: Startjar mill-ġdid tal-forza
+    move_to_workspace: Mexxi għal Workspace {{0}}
+    pause_toggle: Waqfa/Ibda Shortcuts
+    send_to_next_workspace: Ibgħat Tieqa lill-Ispazju tax-Xogħol Li jmiss
+    send_to_previous_workspace: Ibgħat Tieqa lill-Ispazju tax-Xogħol Preċedenti
+    send_to_workspace: Ibgħat lil Workspace {{0}}
+    send_to_workspace_down: Ibgħat Tieqa għall-Ispazju tax-Xogħol Hawn taħt
+    send_to_workspace_up: Ibgħat Tieqa lill-Ispazju tax-Xogħol Fuq
+    switch_to_next_workspace: Aqleb għall-Ispazju tax-Xogħol li jmiss
+    switch_to_previous_workspace: Aqleb għall-ispazju ta 'xogħol preċedenti
+    switch_to_workspace_down: Aqleb għall-Ispazju tax-Xogħol Hawn taħt
+    switch_to_workspace_up: Aqleb għall-Ispazju tax-Xogħol Fuq
+    switch_workspace: Aqleb għal Workspace {{0}}
+  readonly_tooltip: Din hija shortcut li jinqara biss
+  reset: Irrisettja għal nuqqasijiet
+sides:
+  bottom: Qiegħ
+  left: Xellug
+  right: Dritt
+  top: Quċċata
+toolbar:
+  auto_hide: Auto Hide
+  auto_hide_touch_disabled: Auto hide mhix disponibbli fuq apparati touch screen
+  delay_to_hide: Dewmien biex jinħbew
+  delay_to_show: Dewmien biex juri
+  dock_side: Pożizzjoni
+  enable: Jippermetti toolbar tal-fancy
+  hide_mode:
+    always: Dejjem
+    never: Qatt
+    on_overlap: Fuq koinċidenza
+  item_size: Daqs tal-Oġġett
+  label: Toolbar
+  margin: Daqs tal-Marġini
+  padding: Daqs tal-ikkuttunar
+  placeholder: {}
+update:
+  available: Aġġornament disponibbli!
+  channel: Aġġorna l-kanal
+  downloading: Tniżżil ...
+wall:
+  blur: Ċċajpar
+  cancel: Ikkanċella
+  close: Agħlaq
+  collection_name: Isem tal-Ġbir
+  collections: Kollezzjonijiet
+  contrast: Kuntrast
+  corrupted_wallpapers_message: 'Wallpapers korrotta, ikkunsidra li tħassar dawn:'
+  coverage_pause_threshold: Pawża limitu (kopertura tat-tieqa)
+  create: Oħloq
+  create_collection: Oħloq Ġbir
+  default_collection: Wallpaper default jew ġbir
+  default_collection_description: >-
+    Applikata għall-monitors u l-ispazji tax-xogħol kollha li m'għandhomx sett
+    ta' override speċifiku.
+  delete_collection: Ħassar Ġbir
+  edit_collection: Edit Ġbir
+  extend: Estendi primarja
+  fit:
+    contain: Fihom
+    cover: Għata
+    fill: Imla
+  flipHorizontal: Flip orizzontali
+  flipVertical: Flip vertikali
+  generating_thumbnails: Ġenerazzjoni tal-Minjaturi tal-Wallpaper
+  hours: sigħat
+  interval: Ibdel il-wallpaper kull
+  minutes: minuti
+  monitor_collection: Ġbir Monitor
+  multimonitor_behaviour: Multimonitor Imġieba
+  muted: Mute video awdjo
+  no_background: Slideshow vojta, billi tuża l-isfond tat-tema minflok.
+  no_collections: S'issa ma nħolqotx kollezzjonijiet. Ikklikkja l-buttuna + biex toħloq waħda.
+  objectFit: L-isfond jaqbel
+  objectPosition: Pożizzjoni ta 'sfond
+  overlayColor: Kulur overlay
+  overlayMixBlendMode: Modalità ta 'taħlita ta' taħlita overlay
+  per_monitor: Għal kull monitor
+  per_monitor_config: Konfigurazzjoni Per-Monitor
+  playback: Veloċità tad-daqq
+  position:
+    bottom: Qiegħ
+    center: Ċentru
+    left: Xellug
+    right: Dritt
+    top: Quċċata
+  processing_video: Ipproċessar tal-vidjo
+  random: Randomize slideshow
+  saturation: Saturazzjoni
+  seconds: sekondi
+  select_collection: Agħżel Ġbir
+  thumbnail_generation_complete: Ġenerazzjoni Thumbnail Tlesti
+  thumbnail_generation_finished: Il-ġenerazzjoni ta' miniatures spiċċat b'suċċess
+  use_accent_color: Uża l-kulur tal-aċċent tal-wallpaper
+  wallpaper_collection: Ġbir tal-wallpaper
+  wallpaper_settings: Settings tal-wallpaper
+  wallpapers: Wallpapers
+  wallpapers_and_collections: Wallpapers u Kollezzjonijiet
+  withOverlay: Bil-overlay
+  workspace_collections: Kollezzjonijiet tal-Ispazji tax-Xogħol
+weg:
+  auto_hide: Auto Hide
+  auto_hide_touch_disabled: Auto hide mhix disponibbli fuq apparati touch screen
+  delay_to_hide: Dewmien biex jinħbew
+  delay_to_show: Dewmien biex juri
+  dock_side: Pożizzjoni
+  filtering: Iffiltrar tal-Oġġett
+  gap: Vojt
+  hide_mode:
+    always: Dejjem
+    never: Qatt
+    on_overlap: Fuq koinċidenza
+  import_error: Naqas milli jimporta oġġetti tal-bar tat-task
+  import_from_taskbar:
+    button: Importa mill-Windows Taskbar
+    label: Importa Oġġetti Pinnjati
+  import_no_items: L-ebda oġġett ippinjat misjub fit-taskbar tal-Windows
+  import_success: Importati b'suċċess {{count}} oġġett(i) mit-taskbar tal-Windows
+  items:
+    gap: Spazju bejn l-oġġetti
+    label: Oġġetti
+    middle_click_action:
+      close_app: Agħlaq l-App
+      label: Azzjoni Ikklikkja Nofsani
+      open_new_instance: Iftaħ Istanza Ġdida
+    pinned_visibility:
+      always: Dejjem
+      label: Oġġetti Pinnjati Viżibilità
+      when_primary: Meta l-monitor huwa primarju
+    show_instance_counter: Uri Open Windows Counter
+    show_window_title: Uri t-titlu tat-tieqa miftuħa (orizzontali biss)
+    size: Daqs tal-oġġett
+    split_windows: Twieqi maqsuma (oġġett wieħed għal kull tieqa)
+    temporal_visibility:
+      all: Kollha
+      label: Oġġetti Unpinned Viżibilità
+      on_monitor: Fuq Monitor
+  label: Dock / Taskbar
+  margin: Marġni
+  mode:
+    full_width: Wisa 'tal-iskrin sħiħ
+    min_content: Żgħir kemm jista’ jkun
+  padding: Ikkuttunar
+  show_end_task: Uri l-kompitu finali fit-taskbar
+  width: Wisa '
+welcome:
+  give_a_review: Agħti Reviżjoni
+  message: >-
+    Seelen UI huwa ambjent desktop b'xejn u open source għall-Windows. Hawnhekk
+    għandek kontroll sħiħ fuq kif id-desktop tiegħek jidher u jaġixxi, li
+    jippermettilek tippersonalizza kull dettall biex jaqbel mal-fluss tax-xogħol
+    u l-istil tiegħek.
+  ok: Nibdew!
+  review: >-
+    Jekk tieħu pjaċir tuża Seelen UI, ikkunsidra li tħalli reviżjoni fuq
+    il-maħżen — ir-rispons tiegħek jgħin lill-proġett jikber u jitjieb.
+  title: Merħba għal Seelen UI!
+widget:
+  default_instance: Istanza Default
+  default_instance_hint: Dejjem attiv, juża l-konfigurazzjoni tal-widget tal-għeruq
+  enable: Ippermetti dan il-widget
+  enable_for_monitor: Jippermetti fuq dan il-monitor
+  extra_instances: Każijiet Extra
+  instance: Istanza
+  instances: Każijiet
+wm:
+  animations:
+    duration: Tul tal-Animazzjoni (MS)
+    ease_function: Funzjoni li tittaffa l-animazzjoni
+    enable: Ippermetti l-animazzjonijiet tat-tieqa
+  author: Awtur
+  auto_stack: Munzell awtomatiku skont il-kategorija tal-app
+  border:
+    enable: Ippermetti l-fruntiera tat-tieqa
+    offset: Offset tal-fruntiera
+    width: Wisa 'tal-fruntiera
+  description: Deskrizzjoni
+  drag_behavior: Drag Imġieba
+  drag_behavior_options:
+    sort: Issortja (ordna mill-ġdid it-twieqi waqt li tkaxkar)
+    swap: Ibdel (tbiddel it-twieqi fit-tarf tat-tkaxkir)
+  floating:
+    height: Għoli tal-Windows f'wiċċ l-ilma
+    title: Daqs tal-Windows f'wiċċ l-ilma
+    width: Wisa' tal-Windows f'wiċċ l-ilma
+  layout: Tqassim
+  resize_delta: Daqs mill-ġdid Delta (%)
+  space_between_containers: Spazju bejn il-kontenituri
+  stack_bar_visibility: Munzell Bar Viżibilità
+  stack_bar_visibility_options:
+    always: Dejjem
+    as_needed: Kif meħtieġ
+  workspace_offset: Spazji tax-Xogħol Offset (Marġini)
+  workspace_padding: Padding tal-ispazji tax-xogħol
+'yes': IVA

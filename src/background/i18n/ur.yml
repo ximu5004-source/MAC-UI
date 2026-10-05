@@ -1,0 +1,80 @@
+auth:
+  login_failed_body: >-
+    لاگ ان کے دوران کچھ غلط ہو گیا۔ اگر یہ برقرار رہتا ہے، تو یقینی بنائیں کہ
+    Windows 'Credential Manager' سروس (VaultSvc) فعال اور چل رہی ہے، پھر دوبارہ
+    کوشش کریں۔
+  login_failed_title: لاگ ان ناکام ہو گیا۔
+cancel: منسوخ کریں
+done: کیا
+elevated:
+  description: >-
+    Seelen UI منتظم کے استحقاق کے ساتھ چل رہا ہے۔
+
+    یہ کسی بھی خصوصیت کو شامل یا بہتر نہیں کرتا ہے، اور یہ سیکورٹی کے خطرے کا
+    باعث بن سکتا ہے۔
+
+    بہتر سیکیورٹی کے لیے، براہ کرم اسے منتظم کی اجازت کے بغیر دوبارہ شروع کریں۔
+  title: ایڈمنسٹریٹر کے طور پر چل رہا ہے۔
+file_explorer: فائل ایکسپلورر
+resource:
+  added: ایک نیا وسیلہ شامل کیا گیا ہے
+  download_failed_body: >-
+    وسائل کو ڈاؤن لوڈ کرتے وقت کچھ غلط ہو گیا ، براہ کرم اسے سیلن ڈویلپر ٹیم کو
+    رپورٹ کریں۔
+  download_failed_title: وسائل ڈاؤن لوڈ ناکام
+  downloading: اثاثوں کو ڈاؤن لوڈ کرنا ...
+  downloading_body: اس میں کچھ سیکنڈ لگ سکتے ہیں ، براہ کرم ونڈو کو بند نہ کریں۔
+  enable: قابل بنائیں
+  login_required_action: سائن ان کریں۔
+  login_required_body: اس وسائل کو ڈاؤن لوڈ کرنے کے لیے آپ کو سائن ان کرنے کی ضرورت ہے۔
+  login_required_title: سائن ان کی ضرورت ہے۔
+runtime:
+  corrupted_data: خراب ڈیٹا
+  corrupted_file: >-
+    اس کے بجائے پہلے سے طے شدہ اقدار کا استعمال کرتے ہوئے ، کنفیگریشن فائل خراب
+    ہوگئی ہے۔
+  corrupted_file_path: خراب فائل کا راستہ
+  download: ڈاؤن لوڈ صفحہ پر جائیں۔
+  files_integrity: |-
+    ہم درخواست فائلوں کی سالمیت کی تصدیق نہیں کرسکتے ہیں۔
+    یہ ہوسکتا ہے اگر فائلوں میں ترمیم کی گئی ، خراب ہو ، یا تنصیب نامکمل ہے۔
+    سیکیورٹی وجوہات کی بناء پر ، سیلین UI جاری نہیں رکھ سکتا۔
+    براہ کرم اسے سرکاری ویب سائٹ سے دوبارہ انسٹال کریں۔
+  files_integrity_title: سیکیورٹی الرٹ - فائلوں کی سالمیت چیک ناکام ہوگئی
+  not_found: WebView2 رن ٹائم نہیں ملا
+  not_found_description: Seelen UI کو Webview2 رن ٹائم کی ضرورت ہے۔ براہ کرم اسے انسٹال کریں۔
+  outdated: WebView2 رن ٹائم پرانا ہے۔
+  outdated_description: >-
+    Seelen UI کو Webview2 رن ٹائم %{min_version} یا اس سے زیادہ درکار ہے۔ براہ
+    کرم اسے اپ ڈیٹ کریں۔
+service:
+  not_running: Seelen UI سروس نہیں چل رہی ہے۔
+  not_running_description: >-
+    Seelen UI سروس (slu-service) ایپ کے صحیح طریقے سے کام کرنے کے لیے ایک
+    انحصار/مددگار ہے۔
+  not_running_ok: سروس شروع کریں۔
+shortcut:
+  conflicts:
+    body: >-
+      کچھ شارٹ کٹ متعدد کارروائیوں کے لیے تفویض کیے گئے ہیں، براہ کرم انہیں
+      دوبارہ تفویض کریں۔
+    dismiss: برطرف کرنا
+    review: جائزہ لیں
+    title: شارٹ کٹ تنازعات کا پتہ چلا
+  register:
+    placeholder: کوئی بھی کلیدی مجموعہ دبائیں
+    title: نیا شارٹ کٹ رجسٹر کرنا
+widget_liveness:
+  failed_description: |-
+    ویجیٹ '%{widget_name}' نے کئی بار جواب دینا بند کر دیا۔
+
+    آپ ایپ کو دوبارہ شروع کرنے کی کوشش کر سکتے ہیں۔
+  failed_title: ویجیٹ کی خرابی۔
+widget_permissions:
+  perm_open_file: فائلیں کھولیں
+  perm_run: پروگرام چلائیں
+  request_description: |-
+    ویجیٹ '%{widget_name}' %{command} سے اجازت طلب کر رہا ہے۔
+
+    کیا آپ اس کی اجازت دینا چاہتے ہیں؟
+  request_title: ویجیٹ کی اجازت کی درخواست

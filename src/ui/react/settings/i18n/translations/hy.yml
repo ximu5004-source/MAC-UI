@@ -1,0 +1,473 @@
+action:
+  confirm: Վստահ եք
+  confirm_body: 'Այս գործողությունը չի կարող վերացնել:'
+apps_configurations:
+  app:
+    bindings: Պարտադիր (նշում է, որ երկու տարբերակները պարտադիր են)
+    category: Կատեգորիա
+    category_placeholder: Ոչ ոք
+    monitor: Մոնիտոր
+    monitor_placeholder: Ոչ ոք
+    name: Անուն
+    ok_create: Ստեղծել
+    ok_edit: Թարմացում
+    ok_readonly: Խմբագրել որպես նոր
+    options:
+      NoInteractive: Ինտերակտիվ չկա
+      VdPinned: Ցուցադրել բոլոր աշխատանքային տարածքներում
+      WmFloat: Twm - Սկսեք լողալ
+      WmForce: Twm - ուժի կառավարում
+      WmUnmanage: Twm - Չկառավարել
+    options_label: Լրացուցիչ ընտրանքներ
+    title_create: Ստեղծելով {{name}
+    title_edit: Խմբագրում {{name}
+    title_readonly: Դիտում է {{Անունը}
+    weg_options_label: Dock / Taskbar Ընտրանքներ
+    wm_options_label: Պատուհանների մենեջեր Ընտրանքներ
+    workspace: Աշխատատեղ
+    workspace_placeholder: Ոչ ոք
+  bundled_msg: >-
+    Այս փաթեթավորված կազմաձեւերը խմբագրելի չեն եւ նախագծված են `առանց
+    հարմարեցման լավագույն փորձը տրամադրելու: Նրանք ինքնաբերաբար կարգավորում են
+    ձեզ համար ամենատարածված դիմումները:
+  bundled_title: Ծրագրի կազմաձեւումը փաթեթավորված է Seelen- ի հետ
+  confirm_delete: 'Համոզված եք, որ ցանկանում եք ջնջել այս կազմաձեւը:'
+  confirm_delete_title: Հաստատեք ջնջել
+  delete: Ջնջել
+  export: Արտահանում
+  export_full: Արտահանման պարամետրերը ըստ դիմումի
+  extra_info: >-
+    Seelen UI-ն օգտագործում է միայն մեկ նույնացուցիչ յուրաքանչյուր հավելվածի
+    համար (գտնվել է առաջին համընկնումը), այնպես որ կարևոր է ճշգրտման կարգը,
+    առաջնահերթությունը կտրվի վերջին ավելացվածներին, քանի որ աղյուսակը ըստ
+    կանխադրման դասավորված է վերջինից հին:
+  identifier:
+    add_block: Ավելացնել բլոկ
+    and: Մի քանազոր
+    id: Նույնացնող
+    kind: Նույնացնել ըստ
+    matching_strategy: Համապատասխան ռազմավարություն
+    matching_strategy_option:
+      contains: Պարունակում է
+      ends_with: Ավարտվում է
+      equals: Հավասար է
+      regex: Կանոնավոր արտահայտություն
+      starts_with: Սկսվում է
+    negation: Ժխտել համապատասխանությունը
+    or: ԿԱՄ
+    remove: Delete նջել բլոկը
+    type:
+      class: Դասարան
+      exe: Exe
+      path: Ճանապարհ
+      title: Վերնագիր
+  import: Ներմուծում
+  import_full: Ներմուծման պարամետրերը ըստ դիմումի
+  new: Նոր
+  search: Որոնել
+  swap: Փոխանակել
+cancel: Չեղարկել
+close: Սերտ
+delete: Ջնջել
+devtools:
+  app_folders: Ծրագրի թղթապանակներ
+  color_palette: Գունավոր գունապնակ
+  color_palette_note: >-
+    Այս գույներն ավտոմատ կերպով հարմարվում են բաց/մութ ռեժիմին. յուրաքանչյուր
+    երանգ հակադրություն է ընթացիկ ֆոնին, այլ ոչ թե ֆիքսված արժեք: Օգտագործեք
+    դրանք կոշտ կոդավորված գույների փոխարեն՝ թեմայի ավտոմատ աջակցություն ստանալու
+    համար:
+  custom_config_file: Բեռնեք պատվերով կազմաձեւման ֆայլը
+  data_folder: Տվյալների պանակ
+  enable: Միացնել մշակողի գործիքները
+  enable_description: >-
+    Ապակողպում է առաջադեմ գործիքներ Seelen UI-ի ներքին մասերը ստուգելու և
+    վրիպազերծելու համար: Նախատեսված չէ կանոնավոր օգտագործման համար:
+  icons: Քեշավորված Սրբապատկերներ
+  install_folder: Տեղադրման պանակ
+  load: Բեռ
+  settings_file: Կարգավորումներ ֆայլ
+  shared_components: SLU ստանդարտ բաղադրիչներ
+  simulate_dialog:
+    label: Երկխոսության մոդելավորում
+    trigger: ձգան
+  simulate_perm:
+    label: Վիդջեթի թույլտվության հայտի նմանակում
+    result_allowed: ✓ Տրված է թույլտվություն
+    result_denied: ✗ Թույլտվությունը մերժված է
+    trigger: Մոդելավորել
+    widget_id_placeholder: '@author/widget-name'
+  tools: Գործիքներ
+  unlock_shortcuts: Բացել միայն կարդալու դյուրանցումները
+  unlock_shortcuts_description: >-
+    Թույլատրել խմբագրել դյուրանցումները, որոնք սովորաբար միայն կարդալու են
+    (օրինակ՝ համակարգի անտեսումները):
+  unstable_optimizations: Անկայուն օպտիմիզացումներ
+  unstable_optimizations_description: >-
+    Միացնել փորձնական Chromium դրոշները, որոնք նվազեցնում են RAM-ի օգտագործումը:
+
+    Զգուշացում. եթե վիջեթը խափանվի, բոլոր վիջեթները, որոնք կիսում են նույն
+    բեռնիչը, միասին կխափանվեն:
+  widgets_debug:
+    actions: Գործողություններ
+    empty: 'Չկան բեռնված վիդջեթներ: Սեղմեք Թարմացնել:'
+    instance_id: Օրինակի ID
+    monitor_id: Մոնիտորի ID
+    open_devtools: DevTools
+    refresh: Թարմացնել
+    status: Կարգավիճակ
+    tab: Վիդջեթներ
+    widget_id: Վիջեթի ID
+discord_banner:
+  message: >-
+    Կապվեք Seelen UI-ի այլ օգտատերերի հետ, ստացեք օգնություն, կիսվեք թեմաներով և
+    տեղեկացեք վերջին նորություններին:
+  title: Միացե՛ք մեր համայնքին
+extras:
+  backup_group: Ամպային կրկնօրինակում
+  backup_last_sync: Վերջին համաժամացումը
+  backup_never_synced: Երբեք չի համաժամացվել
+  backup_sync: Համաժամացրեք կարգավորումները ամպի հետ
+  backup_sync_description: 'Ավտոմատ կրկնօրինակեք և վերականգնեք ձեր կարգավորումները ամպի միջոցով:'
+  clear_icons: Մաքրել համակարգի սրբապատկերների քեշը
+  clear_icons_tooltip: >-
+    Վերագործարկումը կարող է պահանջվել բոլոր վիդջեթների վրա լիարժեք ուժի մեջ
+    մտնելու համար
+  discord_rpc: Տարաձայնություններ հարուստ ներկայություն
+  discord_rpc_description: 'Ցույց տուր բոլորին, որ ոճ ունես:'
+  exit: Հանգստացեք / Ելք
+  relaunch: Վերակառուցվել
+  streaming_mode: Հոսքային ռեժիմ
+  streaming_mode_description: >-
+    Փոխարինում է զգայուն տեղեկատվությունը (օրինակ՝ էլ. նամակները) տեղապահներով՝
+    ձայնագրությունների կամ սքրինշոթների ժամանակ գաղտնիությունը պաշտպանելու
+    համար:
+  version: Տարբերակ
+  version_fixed: >-
+    Հավելվածը և WebView2 Runtime տարբերակները ամրագրված են: Սա նշանակում է, որ
+    հավելվածը թարմացումներ չի ստանա, և WebView2 Runtime-ն ավտոմատ կերպով չի
+    թարմացվի Windows-ի թարմացումներով:
+general:
+  accent_color: Շեշտադրիչ գույն
+  date_format: Ամսաթիվ ձեւաչափ
+  date_format_how_to: 'Ինչպե՞ս գրել ամսաթվի ձևաչափ:'
+  hardware_acceleration: Սարքավորումների արագացում
+  hardware_acceleration_description: >-
+    Սարքավորման արագացումն անջատելը կնվազեցնի հիշողության օգտագործումը: Անվտանգ
+    է անջատել, եթե դուք չեք օգտագործում ծանր անիմացիաներ, թեև առանձին վիդջեթները
+    կարող են ստիպել GPU-ի օգտագործումը՝ անկախ այս կարգավորումից:
+  icon_pack:
+    available: Հասանելի պատկերակների փաթեթներ
+    selected: Ակտիվ պատկերակների փաթեթներ
+  language: Լեզու
+  monday: Երկուշաբթի
+  performance_mode:
+    label: Օպտիմալացումներ
+    on_battery: Մարտկոցի վրա
+    on_energy_saver: Էներգախնայողաբար
+    options:
+      disabled: Հաշմանդամացած
+      extreme: Ծայրահեղություն
+      minimal: Նվազագույն
+    plugged: Միացված կամ լիցքավորող
+  polling_interval: Համակարգի հարցումների ընդմիջում
+  polling_interval_description: >-
+    Որքա՞ն հաճախ (վայրկյանների ընթացքում) Seelen UI-ն ստուգում է համակարգի
+    ռեսուրսները, ինչպիսիք են CPU-ն, RAM-ը, ցանցը և սկավառակի ակտիվությունը:
+    Ավելի փոքր թիվը նշանակում է ավելի հաճախակի թարմացումներ, բայց մի փոքր ավելի
+    մեծ ռեսուրսների օգտագործում:
+  saturday: շաբաթ օրը
+  start_of_week: Շաբաթվա սկիզբ
+  startup: 'Գործարկման վրա գործարկեք:'
+  sunday: Կիրակի
+  suspend_on_game_mode: Կասեցրեք վիջեթները Խաղի ռեժիմում
+  suspend_on_game_mode_description: >-
+    Երբ Windows Game Mode-ն ակտիվ է, բոլոր վիջեթների վեբ դիտումները ոչնչացվում
+    են՝ խաղի համար CPU-ն և հիշողությունը ազատելու համար: Վիջեթներն ավտոմատ
+    կերպով վերականգնվում են, երբ ավարտվում է Խաղի ռեժիմը:
+  theme:
+    available: Հասանելի թեմաներ
+    selected: Ակտիվ թեմաներ
+global: Համաշխարհային
+header:
+  labels:
+    config: Կազմաձեւեր
+    developer: Մշակողների համար
+    extras: Լրացուցիչ նյութեր
+    general: Ընդհանուր
+    home: Տուն
+    iconpack: Սրբապատկերներ
+    monitors: Մոնիտորներ
+    plugin: Plugins
+    resources: Ռեսուրսներ
+    session: Հաշիվ
+    shortcuts: Դյուրանցումներ
+    soundpack: Ձայնային փաթեթներ
+    specific_apps: Կարգավորումներ ըստ դիմումի
+    theme: Թեմաներ
+    virtual_desk: Վիրտուալ աշխատասեղաններ
+    wallpaper: Պաստառներ
+    widget: Widgets
+home:
+  new_resources: Նոր ռեսուրսներ
+inherit: Ժառանգել
+inProgress: Ընթացքի մեջ է...
+insert: Տեղադրել
+join_us: 'Միացե՛ք մեզ:'
+loading: Բեռնում ...
+miscellaneous: Զանազան
+monitors_configurations:
+  label: Մոնիտոր {{ինդեքս}
+more: Ավելի շատ
+'no': Ոչ
+open: Բաց անել
+quit: Թողնել
+remove: Հեռացնել
+reset_all_to_default: Վերագործարկեք բոլորին լռելյայն արժեքները
+reset_configurations: Վերականգնել կոնֆիգուրացիաները
+reset_to_default: Վերագործարկեք կանխադրված արժեքը
+resources:
+  affected_widgets: Ազդեցված վիդջեթներ
+  app_outdated: 'Այս ռեսուրսը պահանջում է Seelen UI- ի նոր տարբերակը `ճիշտ աշխատելու համար:'
+  coming_soon: Շուտով
+  corrupted_wallpaper: Չհաջողվեց հանել մանրապատկերը՝ վնասված կամ չաջակցվող տեսանյութի ձևաչափ
+  delete: Delete նջել ռեսուրսը
+  discover: Բացահայտեք ավելի շատ ռեսուրսներ
+  has_update: Թարմացումն առկա է
+  high_impact: Բարձր ազդեցություն կատարման վրա
+  import_wallpapers: Ներմուծեք տեղական պաստառներ
+  included_plugins: Ներառված պլագիններ
+  modified: Փոփոխված
+  open_folder: Բացեք ռեսուրսների թղթապանակ
+  outdated: >-
+    Այս ռեսուրսը նախատեսված էր Seelen UI- ի ավելի հին տարբերակի համար եւ կարող է
+    պատշաճ կերպով չաշխատել:
+  see_on_website: Տես կայքում
+  update_now: Թարմացնել
+  updates_available: Թարմացումները մատչելի են
+  updates_available_description: 'Հետևյալ ռեսուրսներն ունեն թարմացումներ:'
+review_request:
+  not_now: Ոչ հիմա
+  sure: Իհարկե!
+  title: 'Վայելո՞ւմ եք Seelen UI-ը:'
+save: Խնայել
+save_and_restart: Պահել եւ վերագործարկել
+search: Որոնում
+see_more: Տեսնել ավելին
+session:
+  logout: Դուրս գալ
+  plan: Պլանավորել
+  sign_in: Մուտք գործեք
+  sign_in_hint: 'Ձեր դիտարկիչը կբացվի, որպեսզի կարողանաք ապահով մուտք գործել:'
+  upgrade_to: Թարմացնել դեպի
+shortcuts:
+  disabled_tooltip: Վիջեթը և դրա դյուրանցումները անջատված են
+  duplicate_error: Հայտնաբերվել են հակասական դյուրանցումներ
+  duplicate_error_hint: >-
+    Որոշ դյուրանցումներ նշանակված են մի քանի գործողությունների համար: Անջատեք
+    հակասող վիջեթներից մեկը կամ վերահանձնարարեք կրկնօրինակ բանալիների կապը՝
+    լուծելու համար:
+  enable: Միացնել ներկառուցված դյուրանցումների համակարգը
+  enable_tooltip: >-
+    Անջատեք, եթե դուք կիրականացնեք ձեր սեփական դյուրանցումների համակարգը
+    `օգտագործելով Seelen UI հաճախորդը
+  labels:
+    create_new_workspace: Ստեղծեք նոր աշխատանքային տարածք
+    create_new_workspace_row: Ստեղծեք աշխատանքային տարածքի նոր տող
+    destroy_current_workspace: Քանդել ընթացիկ աշխատանքային տարածքը
+    misc_force_quit: Ուժը թողնել
+    misc_force_restart: FORCE REARTART
+    move_to_workspace: Տեղափոխվել դեպի Workspace {0}
+    pause_toggle: Դադարեցնել/Վերսկսել դյուրանցումներ
+    send_to_next_workspace: Ուղարկեք պատուհանը հաջորդ աշխատանքային տարածք
+    send_to_previous_workspace: Ուղարկեք պատուհանը նախորդ աշխատանքային տարածք
+    send_to_workspace: Ուղարկել Workspace- ին {0}
+    send_to_workspace_down: Պատուհանն ուղարկեք ստորև բերված աշխատանքային տարածք
+    send_to_workspace_up: Ուղարկեք պատուհանը վերևում գտնվող աշխատանքային տարածք
+    switch_to_next_workspace: Անցեք հաջորդ աշխատանքային տարածքին
+    switch_to_previous_workspace: Անցեք նախորդ աշխատանքային տարածքին
+    switch_to_workspace_down: Անցեք ներքևում գտնվող աշխատանքային տարածքին
+    switch_to_workspace_up: Անցեք վերևում գտնվող աշխատանքային տարածքին
+    switch_workspace: Անցեք Workspace- ին {{0}}
+  readonly_tooltip: Սա ընթերցված դյուրանցում է
+  reset: Վերականգնել կանխադրված
+sides:
+  bottom: Հատակից
+  left: Ձախ
+  right: Ճիշտ
+  top: Գագաթ
+toolbar:
+  auto_hide: Ավտոմատ թաքցնել
+  auto_hide_touch_disabled: Ավտոմատ թաքցնելը հասանելի չէ սենսորային էկրանով սարքերում
+  delay_to_hide: Հետաձգել թաքցնելը
+  delay_to_show: Ցուցադրման ուշացում
+  dock_side: Դիրք
+  enable: Միացնել Fancy Toolbar- ը
+  hide_mode:
+    always: Միշտ
+    never: Երբեք
+    on_overlap: Համընկնման վրա
+  item_size: Նյութի չափը
+  label: Գործիքագոտու
+  margin: Լուսանցքի չափը
+  padding: Լցոնման չափը
+  placeholder: {}
+update:
+  available: 'Թարմացրեք մատչելի:'
+  channel: Թարմացրեք ալիքը
+  downloading: Ներբեռնում ...
+wall:
+  blur: Բութ
+  cancel: Չեղարկել
+  close: Փակել
+  collection_name: Հավաքածուի անվանումը
+  collections: Հավաքածուներ
+  contrast: Հակադրություն
+  corrupted_wallpapers_message: Կոռումպացված պաստառներ, մտածեք ջնջել դրանք.
+  coverage_pause_threshold: Դադարի շեմ (պատուհանի ծածկույթ)
+  create: Ստեղծել
+  create_collection: Ստեղծել Հավաքածու
+  default_collection: Կանխադրված պաստառ կամ հավաքածու
+  default_collection_description: >-
+    Կիրառվում է բոլոր մոնիտորների և աշխատատեղերի վրա, որոնք չունեն հատուկ
+    անտեսման հավաքածու:
+  delete_collection: Ջնջել հավաքածուն
+  edit_collection: Խմբագրել հավաքածուն
+  extend: Ընդլայնել առաջնային
+  fit:
+    contain: Պարունակել
+    cover: Ծածկոց
+    fill: Լցնել
+  flipHorizontal: Ծխնելույզ հորիզոնական
+  flipVertical: Մատով ուղղահայաց
+  generating_thumbnails: Պաստառի մանրապատկերների ստեղծում
+  hours: ժամ
+  interval: Ամեն ինչ փոխեք պաստառ
+  minutes: րոպե
+  monitor_collection: Մոնիտորների հավաքածու
+  multimonitor_behaviour: Մուլտիմոնիտորի վարքագիծ
+  muted: Անջատել վիդեո ձայնը
+  no_background: 'Դատարկ սլայդերի ցուցադրություն, փոխարենը օգտագործելով թեմայի ֆոնը:'
+  no_collections: 'Դեռևս ոչ մի հավաքածու չի ստեղծվել: Մեկը ստեղծելու համար սեղմեք + կոճակը:'
+  objectFit: Ֆոնային տեղավորումը
+  objectPosition: Ֆոնային դիրքը
+  overlayColor: Ծածկույթի գույն
+  overlayMixBlendMode: Ծածկույթի խառնուրդի խառնուրդի ռեժիմ
+  per_monitor: Մեկ մոնիտորի համար
+  per_monitor_config: Մեկ մոնիտորի կոնֆիգուրացիա
+  playback: Նվագարկման արագություն
+  position:
+    bottom: Հատակից
+    center: Կենտրոն
+    left: Ձախ
+    right: Իրավունք
+    top: Գագաթ
+  processing_video: Տեսանյութի մշակում
+  random: Պատահականացրեք սլայդերի ցուցադրումը
+  saturation: Հագեցում
+  seconds: վայրկյան
+  select_collection: Ընտրեք Հավաքածու
+  thumbnail_generation_complete: Մանրապատկերների ստեղծումն ավարտված է
+  thumbnail_generation_finished: Մանրապատկերների ստեղծումը հաջողությամբ ավարտվեց
+  use_accent_color: Օգտագործեք պաստառի շեշտադրման գույնը
+  wallpaper_collection: Պաստառների հավաքածու
+  wallpaper_settings: Պաստառի կարգավորումներ
+  wallpapers: Պաստառներ
+  wallpapers_and_collections: Պաստառներ և հավաքածուներ
+  withOverlay: Ծածկով
+  workspace_collections: Աշխատանքային տարածքների հավաքածուներ
+weg:
+  auto_hide: Ավտոմատ թաքցնել
+  auto_hide_touch_disabled: Ավտոմատ թաքցնելը հասանելի չէ սենսորային էկրանով սարքերում
+  delay_to_hide: Հետաձգել թաքցնելը
+  delay_to_show: Ցուցադրման ուշացում
+  dock_side: Դիրք
+  filtering: Նյութի զտիչ
+  gap: Բացվածք
+  hide_mode:
+    always: Միշտ
+    never: Երբեք
+    on_overlap: Համընկնման վրա
+  import_error: Չհաջողվեց ներմուծել առաջադրանքների տողի տարրերը
+  import_from_taskbar:
+    button: Ներմուծում Windows Taskbar-ից
+    label: Ներմուծեք ամրացված տարրեր
+  import_no_items: Windows-ի առաջադրանքների տողում ամրացված տարրեր չեն գտնվել
+  import_success: Windows-ի առաջադրանքների տողից հաջողությամբ ներմուծվեց {{count}} տարր
+  items:
+    gap: Տարածություն իրերի միջեւ
+    label: Իրերը
+    middle_click_action:
+      close_app: Փակել հավելվածը
+      label: Միջին սեղմման գործողություն
+      open_new_instance: Բացեք նոր օրինակ
+    pinned_visibility:
+      always: Միշտ
+      label: Ամրացված տարրերի տեսանելիություն
+      when_primary: Երբ մոնիտորը առաջնային է
+    show_instance_counter: Show ույց տալ բաց պատուհանների հաշվիչ
+    show_window_title: Show ույց տալ բաց պատուհանի վերնագիրը (միայն հորիզոնական)
+    size: Ապրանքի չափը
+    split_windows: Split Windows (մեկ տարր յուրաքանչյուր պատուհանի համար)
+    temporal_visibility:
+      all: Բոլորը
+      label: Չամրացված տարրերի տեսանելիություն
+      on_monitor: Մոնիտորի վրա
+  label: Dock / Taskbar
+  margin: Լուսանցք
+  mode:
+    full_width: Ամբողջ էկրանի լայնությունը
+    min_content: Փոքր, որքան կարող է լինել
+  padding: Լիցք
+  show_end_task: Show ույց տալ ավարտի առաջադրանքը առաջադրանքի մեջ
+  width: Լայնություն
+welcome:
+  give_a_review: Վերանայեք
+  message: >-
+    Seelen UI-ն անվճար և բաց կոդով աշխատասեղանի միջավայր է Windows-ի համար:
+    Այստեղ դուք լիովին վերահսկում եք ձեր աշխատասեղանի տեսքը և վարքագիծը, ինչը
+    թույլ է տալիս հարմարեցնել յուրաքանչյուր մանրուք՝ ձեր աշխատանքի ընթացքին և
+    ոճին համապատասխանելու համար:
+  ok: Սկսենք։
+  review: >-
+    Եթե ​​ձեզ դուր է գալիս Seelen UI-ի օգտագործումը, մտածեք խանութում ակնարկ
+    թողնելու մասին. ձեր կարծիքն օգնում է նախագծի զարգացմանն ու կատարելագործմանը:
+  title: 'Բարի գալուստ Seelen UI:'
+widget:
+  default_instance: Կանխադրված օրինակ
+  default_instance_hint: Միշտ ակտիվ է, օգտագործում է արմատային վիջեթի կազմաձևը
+  enable: Միացրեք այս հարմարանքը
+  enable_for_monitor: Միացնել այս մոնիտորի վրա
+  extra_instances: Լրացուցիչ դեպքեր
+  instance: Օրինակ
+  instances: Դեպքեր
+wm:
+  animations:
+    duration: Անիմացիայի տեւողությունը (MS)
+    ease_function: Անիմացիայի թեթեւացման գործառույթը
+    enable: Միացնել պատուհանի անիմացիաները
+  author: Հեղինակ
+  auto_stack: Ավտոմատ կուտակում ըստ հավելվածի կատեգորիայի
+  border:
+    enable: Միացնել պատուհանի սահմանը
+    offset: Սահմանի օֆսեթ
+    width: Սահմանի լայնությունը
+  description: Նկարագրություն
+  drag_behavior: Քաշել վարքագիծը
+  drag_behavior_options:
+    sort: Տեսակավորել (վերադասավորել պատուհանները քաշելիս)
+    swap: Փոխանակում (փոխանակեք պատուհանները՝ քաշելու վերջում)
+  floating:
+    height: Լողացող պատուհանների բարձրությունը
+    title: Լողացող պատուհանների չափը
+    width: Լողացող պատուհանների լայնությունը
+  layout: Դասավորություն
+  resize_delta: Չափափոխել դելտան (%)
+  space_between_containers: Տիեզերք բեռնարկղերի միջեւ
+  stack_bar_visibility: Stack Bar-ի տեսանելիություն
+  stack_bar_visibility_options:
+    always: Միշտ
+    as_needed: Ըստ անհրաժեշտության
+  workspace_offset: Աշխատանքային տարածքների օֆսեթ (լուսանցքներ)
+  workspace_padding: Աշխատանքային տարածքների լիցքավորում
+'yes': Այո

@@ -1,0 +1,40 @@
+app_menu:
+  close: Nêzîkî
+  close_multiple: Her tiştî bigire
+  copy_handles: Destên kopî bikin
+  edit_app_icon: Biguherîne Icon App
+  kill: Pêvajoya Kuştinê
+  kill_multiple: Hemî Pêvajoyan Bikujin
+  open_file_location: Cihê pelê vekirî
+  pin: Derzî
+  pin_to_center: Pin to navenda
+  pin_to_left: Pin çepê
+  pin_to_right: Pin berbi rast
+  run_as: Wek Rêvebir bisekinin
+  unpin: Unpin
+context_menu:
+  edit_icon: Biguherîne Icon
+  remove_module: Modulê jêbirin
+  remove_separator: Separatorê rakin
+  reorder_disable: Taskbar Lock
+  reorder_enable: Taskbar Unlock
+media:
+  label: Media Player
+  not_playing: Tiştek nayê lîstin
+show_desktop:
+  label: Sermaseyê nîşan bide
+start:
+  label: Pêşeka Destpêkê
+taskbar_menu:
+  add_file: Pelê Custom Pel
+  add_separator: Veqetandinê lê zêde bike
+  media: Media Player
+  modules: Modules
+  settings: Settings
+  task_manager: Gerînendetiya Peywiran
+trash_bin:
+  empty_bin: Vala Recycle Bin
+  item_count: '{{0}} hêman'
+  label: Recycle Bin
+weg:
+  empty: Tiştek tune ku nîşan bide

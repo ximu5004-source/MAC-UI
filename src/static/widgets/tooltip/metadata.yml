@@ -1,0 +1,10 @@
+id: "@seelen/tooltip"
+icon: BsChatSquareText
+metadata:
+  displayName: !extend i18n/display_name.yml
+  description: !extend i18n/description.yml
+instances: Single
+loader: Internal
+preset: Overlay
+lazy: true
+hidden: true

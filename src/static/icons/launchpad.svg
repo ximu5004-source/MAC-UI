@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <!-- Original MAC UI Launchpad artwork, JONA. -->
+  <defs>
+    <linearGradient id="panel" x2="0" y2="1"><stop stop-color="#f8fbff"/><stop offset="1" stop-color="#dce6f0"/></linearGradient>
+    <linearGradient id="blue" x2="0" y2="1"><stop stop-color="#67c9ff"/><stop offset="1" stop-color="#277eea"/></linearGradient>
+  </defs>
+  <rect x="3" y="3" width="122" height="122" rx="28" fill="url(#panel)"/>
+  <g stroke="#fff" stroke-opacity=".3" stroke-width="1">
+    <rect x="23" y="23" width="22" height="22" rx="6" fill="url(#blue)"/>
+    <rect x="53" y="23" width="22" height="22" rx="6" fill="#ba7ce8"/>
+    <rect x="83" y="23" width="22" height="22" rx="6" fill="#f87891"/>
+    <rect x="23" y="53" width="22" height="22" rx="6" fill="#ffb859"/>
+    <rect x="53" y="53" width="22" height="22" rx="6" fill="#70cba3"/>
+    <rect x="83" y="53" width="22" height="22" rx="6" fill="url(#blue)"/>
+    <rect x="23" y="83" width="22" height="22" rx="6" fill="#849cf0"/>
+    <rect x="53" y="83" width="22" height="22" rx="6" fill="#f38874"/>
+    <rect x="83" y="83" width="22" height="22" rx="6" fill="#8fb7c8"/>
+  </g>
+</svg>

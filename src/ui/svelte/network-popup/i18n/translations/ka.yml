@@ -1,0 +1,23 @@
+available: ხელმისაწვდომი ქსელები
+connect: დაკავშირება
+connected: დაკავშირებულია
+connecting: მიმდინარეობს დაკავშირება...
+disconnect: გათიშვა
+forget: დაივიწყე
+hidden: დამალული ქსელი
+hotspot:
+  band: ბენდი
+  'off': გამორთულია
+  'on': ჩართულია
+  open_network: გახსენით ქსელი
+  password: პაროლი
+  settings: Hotspot-ის სხვა პარამეტრები
+  ssid: ქსელის სახელი
+  title: ცხელი წერტილი
+more: მეტი ქსელის პარამეტრები
+no_adapter: Wi-Fi ადაპტერი ვერ მოიძებნა
+not_found: Wi-Fi ქსელები ვერ მოიძებნა
+password: პაროლი
+saved: შენახული ქსელები
+scanning: ქსელების სკანირება
+secured: დაშიფრული ქსელი

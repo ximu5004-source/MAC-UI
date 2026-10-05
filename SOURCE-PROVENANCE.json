@@ -1,0 +1,8 @@
+{
+  "product": "MAC UI",
+  "version": "3.0.1",
+  "maintainer": "JONA",
+  "upstream": "https://github.com/eythaann/Seelen-UI",
+  "upstreamBase": "3907ad68c08a49f71a6649c7d5dc3e61e74623f8",
+  "note": "Source snapshot of MAC UI modifications. Upstream CI recipes are preserved as inert references; certificates, private signing keys, build outputs and local installer copies are excluded."
+}

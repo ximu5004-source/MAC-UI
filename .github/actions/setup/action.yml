@@ -1,0 +1,69 @@
+name: Setup Development Environment
+description: Sets up Node.js, Deno, and Rust toolchain with caching
+
+inputs:
+  node:
+    description: Whether to set up Node.js
+    required: false
+    default: "true"
+  deno:
+    description: Whether to set up Deno
+    required: false
+    default: "true"
+  rust-components:
+    description: Additional Rust components to install (comma-separated)
+    required: false
+    default: ""
+  rust-targets:
+    description: Additional Rust targets to install (comma-separated)
+    required: false
+    default: ""
+  cache-key-prefix:
+    description: Prefix for cache keys
+    required: false
+    default: "rust"
+
+runs:
+  using: composite
+  steps:
+    - name: Setup Node.js
+      if: inputs.node == 'true'
+      uses: actions/setup-node@v4
+      with:
+        node-version: 24
+        cache: npm
+
+    - name: Setup Deno
+      if: inputs.deno == 'true'
+      uses: denoland/setup-deno@v2
+      with:
+        deno-version: v2.x
+
+    - name: Setup Rust
+      uses: dtolnay/rust-toolchain@master
+      with:
+        toolchain: nightly-2026-05-22
+        components: ${{ inputs.rust-components }}
+        targets: ${{ inputs.rust-targets }}
+
+    - name: Add Rust targets
+      if: inputs.rust-targets != ''
+      shell: bash
+      run: |
+        IFS=',' read -ra TARGETS <<< "${{ inputs.rust-targets }}"
+        for target in "${TARGETS[@]}"; do
+          rustup target add "$target"
+        done
+
+    - name: Cache Rust dependencies
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.cargo/bin/
+          ~/.cargo/registry/index/
+          ~/.cargo/registry/cache/
+          ~/.cargo/git/db/
+          target/
+        key: ${{ inputs.cache-key-prefix }}-${{ runner.os }}-${{ hashFiles('Cargo.lock') }}
+        restore-keys: |
+          ${{ inputs.cache-key-prefix }}-${{ runner.os }}-

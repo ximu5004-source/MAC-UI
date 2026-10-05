@@ -1,0 +1,7 @@
+:root {
+  --shadow-color: 0 0 0;
+
+  --shadow-s: 1px 1px 2px hsl(var(--shadow-color) / 0.08);
+  --shadow-m: 2px 2px 8px hsl(var(--shadow-color) / 0.16);
+  --shadow-l: 8px 8px 24px hsl(var(--shadow-color) / 0.24);
+}

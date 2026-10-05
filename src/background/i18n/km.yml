@@ -1,0 +1,72 @@
+auth:
+  login_failed_body: >-
+    មានអ្វីមួយខុសប្រក្រតីអំឡុងពេលចូល។ ប្រសិនបើវានៅតែកើតមាន ត្រូវប្រាកដថាសេវាកម្ម
+    Windows 'Creddential Manager' (VaultSvc) ត្រូវបានបើក និងដំណើរការ
+    បន្ទាប់មកព្យាយាមម្តងទៀត។
+  login_failed_title: ការចូលបានបរាជ័យ
+cancel: លប់ចោល
+done: រ្យេឱដេនោ
+elevated:
+  description: >-
+    Seelen UI កំពុងដំណើរការដោយមានសិទ្ធិជាអ្នកគ្រប់គ្រង។
+
+    នេះមិនបន្ថែម ឬកែលម្អមុខងារណាមួយឡើយ ហើយវាអាចបង្កហានិភ័យសុវត្ថិភាព។
+
+    ដើម្បីសុវត្ថិភាពកាន់តែប្រសើរ
+    សូមចាប់ផ្តើមវាឡើងវិញដោយគ្មានការអនុញ្ញាតពីអ្នកគ្រប់គ្រង។
+  title: ដំណើរការជាអ្នកគ្រប់គ្រង
+file_explorer: កម្មវិធីរុករកឯកសារ
+resource:
+  added: ធនធានថ្មីត្រូវបានបន្ថែម
+  download_failed_body: មានអ្វីមួយមិនប្រក្រតីនៅពេលទាញយកធនធានសូមរាយការណ៍ទៅក្រុមអ្នកអភិវឌ្ឍន៍ Seeen ។
+  download_failed_title: ការទាញយកធនធានបានបរាជ័យ
+  downloading: ទាញយកទ្រព្យសម្បត្តិ ...
+  downloading_body: វាអាចចំណាយពេលពីរបីវិនាទីសូមកុំបិទបង្អួច។
+  enable: បើកដៃ
+  login_required_action: ចូល
+  login_required_body: អ្នកត្រូវចូលដើម្បីទាញយកធនធាននេះ។
+  login_required_title: តម្រូវឱ្យចូល
+runtime:
+  corrupted_data: ទិន្នន័យខូច
+  corrupted_file: ឯកសារកំណត់រចនាសម្ព័ន្ធត្រូវបានខូចដោយប្រើតម្លៃលំនាំដើមជំនួសវិញ។
+  corrupted_file_path: ផ្លូវឯកសារខូចខូច
+  download: ចូលទៅកាន់ទំព័រទាញយក
+  files_integrity: |-
+    យើងមិនអាចផ្ទៀងផ្ទាត់ភាពត្រឹមត្រូវនៃឯកសារកម្មវិធីបានទេ។
+    វាអាចកើតឡើងប្រសិនបើឯកសារត្រូវបានកែប្រែ ខូច ឬការដំឡើងមិនពេញលេញ។
+    សម្រាប់ហេតុផលសុវត្ថិភាព Seelen UI មិនអាចបន្តបានទេ។
+    សូមដំឡើងវាឡើងវិញពីគេហទំព័រផ្លូវការ។
+  files_integrity_title: ការដាស់តឿនសុវត្ថិភាព - ការត្រួតពិនិត្យភាពត្រឹមត្រូវនៃឯកសារបានបរាជ័យ
+  not_found: WebView2 Runtime រកមិនឃើញទេ។
+  not_found_description: Seelen UI ទាមទារ Webview2 Runtime ។ សូមដំឡើងវា។
+  outdated: WebView2 Runtime ហួសសម័យ
+  outdated_description: Seelen UI ទាមទារ Webview2 Runtime %{min_version} ឬខ្ពស់ជាងនេះ។ សូមអាប់ដេតវា។
+service:
+  not_running: សេវា Seelen UI មិនដំណើរការទេ។
+  not_running_description: >-
+    Seelen UI Service (slu-service)
+    គឺជាការពឹងផ្អែក/ជំនួយសម្រាប់កម្មវិធីឱ្យដំណើរការបានត្រឹមត្រូវ។
+  not_running_ok: ចាប់ផ្តើមសេវាកម្ម
+shortcut:
+  conflicts:
+    body: ផ្លូវកាត់មួយចំនួនត្រូវបានចាត់ចែងទៅសកម្មភាពច្រើន សូមចាត់ចែងវាឡើងវិញ។
+    dismiss: ច្រានចោល
+    review: ពិនិត្យឡើងវិញ
+    title: ការប៉ះទង្គិចផ្លូវកាត់ត្រូវបានរកឃើញ
+  register:
+    placeholder: ចុចបន្សំគ្រាប់ចុចណាមួយ
+    title: ការចុះឈ្មោះផ្លូវកាត់ថ្មី
+widget_liveness:
+  failed_description: |-
+    ធាតុក្រាហ្វិក '%{widget_name}' បានឈប់ឆ្លើយតបច្រើនដងពេកហើយ។
+
+    អ្នកអាចព្យាយាមចាប់ផ្តើមកម្មវិធីឡើងវិញ។
+  failed_title: កំហុសធាតុក្រាហ្វិក
+widget_permissions:
+  perm_open_file: បើកឯកសារ
+  perm_run: ដំណើរការកម្មវិធី
+  request_description: |-
+    ធាតុក្រាហ្វិក '%{widget_name}' កំពុងស្នើសុំការអនុញ្ញាតទៅ %{command} ។
+
+    តើអ្នកចង់អនុញ្ញាតវាទេ?
+  request_title: សំណើការអនុញ្ញាតធាតុក្រាហ្វិក

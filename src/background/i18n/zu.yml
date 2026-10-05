@@ -1,0 +1,83 @@
+auth:
+  login_failed_body: >-
+    Kukhona okungahambanga kahle ngesikhathi sokungena ngemvume. Uma lokhu
+    kuqhubeka, qiniseka ukuthi isevisi ye-Windows 'Credential Manager'
+    (VaultSvc) ivuliwe futhi iyasebenza, bese uyazama futhi.
+  login_failed_title: ukungena kokuyimfihlo ayiphumelelanga
+cancel: Hlikihla
+done: Usulile
+elevated:
+  description: >-
+    I-Seelen UI isebenza ngamalungelo omlawuli.
+
+    Lokhu akungezi noma akuthuthukisi noma yiziphi izici, futhi kungase kudale
+    ingcuphe yezokuphepha.
+
+    Ukuze uthole ukuphepha okungcono, sicela uyiqale kabusha ngaphandle
+    kwezimvume zomlawuli.
+  title: Isebenza njengomlawuli
+file_explorer: I-File Explorer
+resource:
+  added: Kufakwe insiza entsha
+  download_failed_body: >-
+    Kukhona okungahambanga kahle ngenkathi elanda insiza, sicela ubike kwiqembu
+    le-Seelen Developer.
+  download_failed_title: Ukulanda izinsiza kwehlulekile
+  downloading: Ukulanda Amafa ...
+  downloading_body: Lokhu kungathatha imizuzwana embalwa, ngicela ungavali iwindi.
+  enable: Nika amandla
+  login_required_action: Ngena ngemvume
+  login_required_body: Udinga ukungena ngemvume ukuze ulande lesi sisetshenziswa.
+  login_required_title: Kudingeka ukungena ngemvume
+runtime:
+  corrupted_data: Idatha eyonakalisiwe
+  corrupted_file: >-
+    Ifayela lokucushwa lonakalisiwe, kusetshenziswa amanani azenzakalelayo
+    esikhundleni salokho.
+  corrupted_file_path: Indlela yefayela eyonakele
+  download: Iya ekhasini lokulanda
+  files_integrity: >-
+    Asikwazanga ukuqinisekisa ubuqotho bamafayela ohlelo lokusebenza.
+
+    Lokhu kungenzeka uma amafayela aye ashintshwa, wonakala, noma ukufakwa
+    kungaphelele.
+
+    Ngenxa yezizathu zokuphepha, i-Seelen UI ayikwazi ukuqhubeka.
+
+    Sicela uyifake kabusha kusuka kuwebhusayithi esemthethweni.
+  files_integrity_title: Isexwayiso Sokuphepha - Ukuhlola Ubuqotho Kwamafayela Kwehlulekile
+  not_found: Isikhathi sokusebenza se-WebView2 asitholakali
+  not_found_description: I-Seelen UI idinga isikhathi sokusebenza se-Webview2. Sicela uyifake.
+  outdated: I-WebView2 Runtime isiphelelwe yisikhathi
+  outdated_description: >-
+    I-Seelen UI idinga isikhathi sokusebenza se-Webview2 %{min_version} noma
+    ngaphezulu. Sicela uyibuyekeze.
+service:
+  not_running: Isevisi ye-Seelen UI ayisebenzi
+  not_running_description: >-
+    Isevisi ye-Seelen UI (slu-service) incike/umsizi ukuze uhlelo lokusebenza
+    lusebenze kahle.
+  not_running_ok: Qala isevisi
+shortcut:
+  conflicts:
+    body: Ezinye izinqamuleli zinikezwe izenzo eziningi, sicela uzinikeze kabusha.
+    dismiss: Cashisa
+    review: Buyekeza
+    title: Kutholwe Ukungqubuzana Kwesinqamuleli
+  register:
+    placeholder: Cindezela noma iyiphi inhlanganisela yokhiye
+    title: Ukubhalisa isinqamuleli esisha
+widget_liveness:
+  failed_description: |-
+    Iwijethi '%{widget_name}' iyeke ukuphendula izikhathi eziningi kakhulu.
+
+    Ungazama ukuqala kabusha uhlelo lokusebenza.
+  failed_title: Iphutha Lewijethi
+widget_permissions:
+  perm_open_file: vula amafayela
+  perm_run: sebenzisa izinhlelo
+  request_description: |-
+    Iwijethi '%{widget_name}' icela imvume ku-%{command}.
+
+    Uyafuna ukuvumela lokhu?
+  request_title: Isicelo Semvume Yewijethi

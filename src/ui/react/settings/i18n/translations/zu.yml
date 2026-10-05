@@ -1,0 +1,482 @@
+action:
+  confirm: Uqinisekile?
+  confirm_body: Lesi senzo asinakungcola.
+apps_configurations:
+  app:
+    bindings: Ukubopha (inothi zombili izinketho ziyadingeka)
+    category: Uhlobo
+    category_placeholder: Namunye
+    monitor: Qapha
+    monitor_placeholder: Namunye
+    name: Ibizo
+    ok_create: Dala
+    ok_edit: Buyekeza
+    ok_readonly: Hlela njengomusha
+    options:
+      NoInteractive: Akukho okusebenzayo
+      VdPinned: Khombisa kuzo zonke izindawo zokusebenza
+      WmFloat: I-TWM - Qala ukuntanta
+      WmForce: I-TWM - Force Phatha
+      WmUnmanage: I-TWM - UNANMARAGE
+    options_label: Izinketho Ezengeziwe
+    title_create: Ukudala {{igama}}
+    title_edit: Ukuhlela {{igama}}
+    title_readonly: Ukubuka {{igama}}
+    weg_options_label: Izinketho ze-Dock / Taskbar
+    wm_options_label: Izinketho ze-Window Manager
+    workspace: Indawo
+    workspace_placeholder: Namunye
+  bundled_msg: >-
+    Lokhu kulungiswa okuhlanganisiwe akuhlelekile futhi kuklanyelwe ukukunikeza
+    okuhlangenwe nakho okuhle kakhulu ngaphandle kokwenza ngokwezifiso.
+    Balungiselela ngokuzenzakalelayo izicelo ezivame kakhulu kuwe.
+  bundled_title: I-App Config ehlanganiswe ne-Seleen
+  confirm_delete: Uqinisekile ukuthi ufuna ukususa lolu hlelo / s?
+  confirm_delete_title: Qinisekisa ukususa
+  delete: Cisha
+  export: Thumela kwamanye amazwe
+  export_full: Thumela Amasethingi okuthumela ngaphandle ngesicelo
+  extra_info: >-
+    I-Seelen UI isebenzisa kuphela isikhombi esisodwa sohlelo lokusebenza
+    ngalunye (umdlalo wokuqala otholakala) ngakho-ke i-oda lokuthi libalulekile
+    kanjani, njengoba itafula lakamuva lizobekwa phambili, njengoba inothi
+    lihlelwe ngokuzenzakalela kusuka kwakamuva kuya kwakamuva kuya kwakamuva.
+  identifier:
+    add_block: Faka ibhlokhi
+    and: Na-
+    id: Isithombe esithi
+    kind: Khomba ngu
+    matching_strategy: Isu lokuqondanisa
+    matching_strategy_option:
+      contains: Iqukethe
+      ends_with: Iphetha ngokuthi
+      equals: Kuyalingana
+      regex: Inkulumo evamile
+      starts_with: Iqala ngokuthi
+    negation: Hlukana nokufanisa
+    or: Noma
+    remove: Susa ibhulokhi
+    type:
+      class: Ikilasi
+      exe: Exe
+      path: Indlela
+      title: Isihloko
+  import: Ngenisa ezweni
+  import_full: Ngenisa amasethingi ngohlelo lokusebenza
+  new: '-Kwanamuhla'
+  search: Sesha
+  swap: Shintshela
+cancel: Hlikihla
+close: Ngokuminyanisa
+delete: Cisha
+devtools:
+  app_folders: Amafolda wohlelo lokusebenza
+  color_palette: Iphalethi yombala
+  color_palette_note: >-
+    Le mibala ijwayela ngokuzenzakalelayo kumodi yokukhanya/emnyama — umthunzi
+    ngamunye uhlukile-uhlobene nengemuva lamanje, hhayi inani elingashintshi.
+    Wasebenzise esikhundleni semibala enekhodi eqinile ukuze uthole ukusekelwa
+    kwetimu okuzenzakalelayo.
+  custom_config_file: Layisha ifayela le-config yangokwezifiso
+  data_folder: Ifolda yedatha
+  enable: Nika amandla amathuluzi onjiniyela
+  enable_description: >-
+    Ivula amathuluzi athuthukile okuhlola nokulungisa amaphutha abangaphakathi
+    kwe-Seelen UI. Ayihloselwe ukusetshenziswa njalo.
+  icons: Izithonjana Ezigciniwe
+  install_folder: Ifolda yokufaka
+  load: Thwala
+  settings_file: Ifayela lezilungiselelo
+  shared_components: Izingxenye Ezijwayelekile ze-SLU
+  simulate_dialog:
+    label: Lingisa Ibhokisi
+    trigger: Qalisa
+  simulate_perm:
+    label: Lingisa Isicelo Semvume Yewijethi
+    result_allowed: ✓ Imvume inikiwe
+    result_denied: ✗ Imvume inqatshiwe
+    trigger: Lingisa
+    widget_id_placeholder: '@author/widget-name'
+  tools: Amathuluzi
+  unlock_shortcuts: Vula Izinqamuleli Zokufunda Kuphela
+  unlock_shortcuts_description: >-
+    Vumela izinqamuleli zokuhlela ezivame ukufunda kuphela (isb. ukukhishwa
+    kwesistimu).
+  unstable_optimizations: Ukulungiselelwa Okungazinzile
+  unstable_optimizations_description: >-
+    Nika amandla amafulegi e-Chromium okuhlola anciphisa ukusetshenziswa
+    kwe-RAM. 
+
+    Isexwayiso: uma iwijethi iphahlazeka, wonke amawijethi abelana ngesilayishi
+    esifanayo azophahlazeka ndawonye.
+  widgets_debug:
+    actions: Izenzo
+    empty: Awekho amawijethi alayishiwe. Chofoza okuthi Vuselela.
+    instance_id: I-ID yesimo
+    monitor_id: I-ID yokuqapha
+    open_devtools: I-DevTools
+    refresh: Vuselela
+    status: Isimo
+    tab: Amawijethi
+    widget_id: I-ID Yewijethi
+discord_banner:
+  message: >-
+    Xhumana nabanye abasebenzisi be-Seelen UI, thola usizo, yabelana
+    ngezindikimba, futhi uhlale unolwazi lwakamuva ngezindaba zakamuva.
+  title: Joyina umphakathi wethu
+extras:
+  backup_group: I-Cloud Backup
+  backup_last_sync: Ukuvumelanisa kokugcina
+  backup_never_synced: Ayikaze ivumelaniswe
+  backup_sync: Vumelanisa izilungiselelo kumafu
+  backup_sync_description: Yenza isipele ngokuzenzakalelayo futhi ubuyisele izilungiselelo zakho ngefu.
+  clear_icons: Sula i-Cold yesistimu ye-System
+  clear_icons_tooltip: >-
+    Ukuqalisa kabusha kungadingeka ukuthi kusebenze ngokuphelele kuwo wonke
+    amawijethi
+  discord_rpc: Hlukanisa ubukhona obucebile
+  discord_rpc_description: Bonisa wonke umuntu onesitayela!
+  exit: Quit / Phuma
+  relaunch: Qondisa amandla ehlehliseyo
+  streaming_mode: Imodi yokusakaza
+  streaming_mode_description: >-
+    Ishintsha ulwazi olubucayi (isb. ama-imeyili) ngezibambi-ndawo ukuze
+    kuvikelwe ubumfihlo ngesikhathi sokurekhoda noma izithombe-skrini.
+  version: Ukuhumushela
+  version_fixed: >-
+    Uhlelo lokusebenza kanye nezinguqulo ze-WebView2 Runtime zilungisiwe. Lokhu
+    kusho ukuthi uhlelo lokusebenza ngeke luthole ukubuyekezwa futhi Isikhathi
+    sokusebenza seWebView2 ngeke sibuyekezwe ngokuzenzakalelayo ngezibuyekezo
+    ze-Windows.
+general:
+  accent_color: Umbala we-Accent
+  date_format: Ifomethi yosuku
+  date_format_how_to: Ibhalwa kanjani ifomethi yedethi?
+  hardware_acceleration: I-Hardware Acceleration
+  hardware_acceleration_description: >-
+    Ukukhubaza ukusheshisa kwehadiwe kuzonciphisa ukusetshenziswa kwememori.
+    Kuphephile ukukhubaza uma ungasebenzisi ukugqwayiza okusindayo, noma
+    amawijethi angawodwana asengaphoqa ukusetshenziswa kwe-GPU ngaphandle
+    kwalokhu kulungiselelwa.
+  icon_pack:
+    available: Amaphekhi esithonjana atholakalayo
+    selected: Amaphekhi Wesithonjana Asebenzayo
+  language: Ulimi
+  monday: UMsombuluko
+  performance_mode:
+    label: Ukuthuthukisa
+    on_battery: Ebhethri
+    on_energy_saver: Ku-Sergy Saver
+    options:
+      disabled: '-Gogekile'
+      extreme: '-Dlulele'
+      minimal: '-Ncilula'
+    plugged: Ixhunyiwe noma ishaja
+  polling_interval: Isikhathi sokuvota sesistimu
+  polling_interval_description: >-
+    Kukangaki (ngemizuzwana) i-Seelen UI ihlola izinsiza zesistimu njenge-CPU,
+    i-RAM, inethiwekhi, nomsebenzi wediski. Inombolo encane isho izibuyekezo
+    ezivame kakhulu, kodwa ukusetshenziswa kwensiza ephakeme kancane.
+  saturday: NgoMgqibelo
+  start_of_week: Ukuqala Kweviki
+  startup: Gijima ekuqaleni?
+  sunday: NgeSonto
+  suspend_on_game_mode: Misa amawijethi kumodi yegeyimu
+  suspend_on_game_mode_description: >-
+    Uma i-Windows Game Mode isebenza, wonke ama-webview ewijethi ayachithwa
+    ukuze akhulule i-CPU nenkumbulo yomdlalo. Amawijethi abuyiselwa
+    ngokuzenzakalela uma i-Game Mode iphela.
+  theme:
+    available: Izingqikithi Ezitholakalayo
+    selected: Izindikimba ezisebenzayo
+global: Umhlaba jikelele
+header:
+  labels:
+    config: Ukulungiswa
+    developer: Obathuthukisi
+    extras: Okungatha
+    general: Jwayelekile
+    home: Ikhaya
+    iconpack: I-Icon Packs
+    monitors: Ukuqapha
+    plugin: Amaplithi
+    resources: Izinsizakusebenza
+    session: I-akhawunti
+    shortcuts: Amashoshothi
+    soundpack: Amaphakethe omsindo
+    specific_apps: Izilungiselelo ngesicelo
+    theme: Izingqizi
+    virtual_desk: Ama-Virtual Desktops
+    wallpaper: Ama-Wallpaper
+    widget: Amawijethi
+home:
+  new_resources: Izinsizakusebenza ezintsha
+inherit: Dla ifa
+inProgress: Kuyaqhubeka...
+insert: Faka
+join_us: Sijoyine!
+loading: Iyalayisha ...
+miscellaneous: '-Nhlobonhlobo'
+monitors_configurations:
+  label: Qapha {{inkomba}}
+more: Okuningi
+'no': '-Nokuba'
+open: Vula
+quit: Yeka
+remove: Susa
+reset_all_to_default: Setha kabusha konke kumanani azenzakalelayo
+reset_configurations: Setha kabusha ukucupha
+reset_to_default: Setha kabusha ngenani elizenzakalelayo
+resources:
+  affected_widgets: Amawijethi Athintekile
+  app_outdated: Lesi sisetshenziswa sidinga uhlobo olusha lweSeelen UI ukusebenza kahle.
+  coming_soon: Kuyeza maduze
+  corrupted_wallpaper: >-
+    Yehlulekile ukukhipha isithonjana - ifomethi yevidiyo eyonakele noma
+    engasekelwe
+  delete: Susa insiza
+  discover: Thola izinsiza ezengeziwe
+  has_update: Isibuyekezo siyatholakala
+  high_impact: Umthelela ophezulu ekusebenzeni
+  import_wallpapers: Ngenisa amaphephadonga endawo
+  included_plugins: Kufakwe ama-plugin
+  modified: Kushintshiwe
+  open_folder: Ifolda Yezisetshenziswa
+  outdated: >-
+    Lo mthombo wenzelwe inguqulo endala yeSeelen UI futhi ingahle isebenze
+    kahle.
+  see_on_website: Bona kuwebhusayithi
+  update_now: Buyekeza
+  updates_available: Izibuyekezo Ziyatholakala
+  updates_available_description: Izinsiza ezilandelayo zinezibuyekezo ezitholakalayo.
+review_request:
+  not_now: Hhayi manje
+  sure: Impela!
+  title: Ujabulela i-Seelen UI?
+save: Hlenga
+save_and_restart: Gcina futhi Qalisa kabusha
+search: Sesha
+see_more: Buka Okuningi
+session:
+  logout: Phuma ngemvume
+  plan: Hlela
+  sign_in: Ngena ngemvume
+  sign_in_hint: Isiphequluli sakho sizovuleka ukuze ungene ngemvume ngokuphephile.
+  upgrade_to: Thuthukela ku
+shortcuts:
+  disabled_tooltip: Iwijethi kanye nezinqamuleli zayo kukhutshaziwe
+  duplicate_error: Kutholwe izinqamuleli ezishayisanayo
+  duplicate_error_hint: >-
+    Ezinye izinqamuleli zabelwe izenzo eziningi. Khubaza eyodwa yamawijethi
+    angqubuzanayo noma yabela kabusha ukhiye oyimpinda obophezelayo ukuze
+    uxazulule.
+  enable: Nika amandla uhlelo lwezinqamuleli ezakhelwe ngaphakathi
+  enable_tooltip: >-
+    Khubaza uma uzosebenzisa uhlelo lwakho lwezinqamuleli usebenzisa iklayenti
+    le-Seelen UI
+  labels:
+    create_new_workspace: Dala indawo yokusebenza entsha
+    create_new_workspace_row: Dala Umugqa Wendawo Yokusebenzela Entsha
+    destroy_current_workspace: Ukubhubhisa indawo yokusebenza yamanje
+    misc_force_quit: Amandla ayeke
+    misc_force_restart: Force Qala kabusha
+    move_to_workspace: Hambisa ku-Workpace {{0}}
+    pause_toggle: Misa isikhashana/Qalisa kabusha Izinqamuleli
+    send_to_next_workspace: Thumela Iwindi Endaweni Yokusebenzela Elandelayo
+    send_to_previous_workspace: Thumela Iwindi Endaweni Yokusebenzela Yangaphambilini
+    send_to_workspace: Thumela kwi-Workpace {{0}}
+    send_to_workspace_down: Thumela Iwindi Endaweni Yokusebenzela Ngezansi
+    send_to_workspace_up: Thumela Iwindi Endaweni Yokusebenzela Ngenhla
+    switch_to_next_workspace: Shintshela endaweni yokusebenzela elandelayo
+    switch_to_previous_workspace: Shintshela endaweni yokusebenza edlule
+    switch_to_workspace_down: Shintshela Endaweni Yokusebenzela Ngezansi
+    switch_to_workspace_up: Shintshela Endaweni Yokusebenzela Ngenhla
+    switch_workspace: Shintshela endaweni yokusebenza {{0}}
+  readonly_tooltip: Lesi isinqamuleli esifundwayo kuphela
+  reset: Setha kabusha okuzenzakalelayo
+sides:
+  bottom: Esinqeni
+  left: '-Bunxele'
+  right: Ngakwesokudla
+  top: Isihloko
+toolbar:
+  auto_hide: Fihla okuzenzakalelayo
+  auto_hide_touch_disabled: Ukufihla ngokuzenzakalela akutholakali kumadivayisi wesikrini esithintwayo
+  delay_to_hide: Libazise ukucasha
+  delay_to_show: Libazisa ukubonisa
+  dock_side: Ukuma
+  enable: Nika amandla amathuluzi e-fancy
+  hide_mode:
+    always: Njalo
+    never: Ungalokothi
+    on_overlap: Ngokugqagqana
+  item_size: Usayizi Wento
+  label: Indawo yamathuluzi
+  margin: Usayizi Wemajini
+  padding: Usayizi wePadding
+  placeholder: {}
+update:
+  available: Ukuvuselelwa Kuyatholakala!
+  channel: Isiteshi sokuvuselela
+  downloading: Ukulanda ...
+wall:
+  blur: Impumpula
+  cancel: Khansela
+  close: Vala
+  collection_name: Igama Leqoqo
+  collections: Amaqoqo
+  contrast: Ukuqhathanisa
+  corrupted_wallpapers_message: 'Izithombe zangemuva ezonakele, cabanga ukususa lezi:'
+  coverage_pause_threshold: Misa isikhashana umkhawulo (ukufakwa kwewindi)
+  create: Dala
+  create_collection: Dala Iqoqo
+  default_collection: Iphephadonga elizenzakalelayo noma iqoqo
+  default_collection_description: >-
+    Kusetshenziswa kuwo wonke amamonitha nezindawo zokusebenza ezingenayo isethi
+    ethile yokukhipha.
+  delete_collection: Susa Iqoqo
+  edit_collection: Hlela Iqoqo
+  extend: Nweba okuyinhloko
+  fit:
+    contain: Qukethe
+    cover: Mbathisa
+    fill: Gcwalisa
+  flipHorizontal: Flip ovundlile
+  flipVertical: Flip mpo
+  generating_thumbnails: Ikhiqiza Izithonjana zangemuva
+  hours: amahora
+  interval: Shintsha iphepha lokunamathisela odongeni
+  minutes: imizuzu
+  monitor_collection: Gada Iqoqo
+  multimonitor_behaviour: Ukuziphatha kwe-Multimonitor
+  muted: Thulisa Video Audio
+  no_background: >-
+    Umbukiso wesilayidi esingenalutho, usebenzisa ingemuva le-theme
+    esikhundleni.
+  no_collections: >-
+    Awekho amaqoqo adaliwe okwamanje. Chofoza inkinobho ethi + ukuze udale
+    eyodwa.
+  objectFit: Isendlalelo semuva
+  objectPosition: Isikhundla sangemuva
+  overlayColor: Umbala obheke phambili
+  overlayMixBlendMode: Hlanganisa imodi ehlanganisiwe
+  per_monitor: Ngemonitha ngayinye
+  per_monitor_config: Ukucushwa kwe-Monitor ngayinye
+  playback: Ijubane lokudlala
+  position:
+    bottom: Esinqeni
+    center: Indawo yangaphakathi impela
+    left: '-Bunxele'
+    right: Ngakwesokudla
+    top: Isihloko
+  processing_video: Icubungula ividiyo
+  random: Nge-slideshow engahleliwe
+  saturation: Ukutacwaba
+  seconds: imisa
+  select_collection: Khetha Iqoqo
+  thumbnail_generation_complete: Ukukhiqizwa Kwesithonjana Kuqediwe
+  thumbnail_generation_finished: Ukwenziwa kwezithonjana kuqede ngempumelelo
+  use_accent_color: Sebenzisa umbala wokugcizelela isithombe sangemuva
+  wallpaper_collection: Ukuqoqwa kwamaphephadonga
+  wallpaper_settings: Izilungiselelo zangemuva
+  wallpapers: Izithombe zangemuva
+  wallpapers_and_collections: Izithombe zangemuva namaqoqo
+  withOverlay: Ngokumbondelana
+  workspace_collections: Amaqoqo wendawo yokusebenza
+weg:
+  auto_hide: Fihla okuzenzakalelayo
+  auto_hide_touch_disabled: Ukufihla ngokuzenzakalela akutholakali kumadivayisi wesikrini esithintwayo
+  delay_to_hide: Libazise ukucasha
+  delay_to_show: Libazisa ukubonisa
+  dock_side: Ukuma
+  filtering: Ukuhlunga kwento
+  gap: Insungubezi
+  hide_mode:
+    always: Njalo
+    never: Ungalokothi
+    on_overlap: Ngokugqagqana
+  import_error: Yehlulekile ukungenisa izinto zebha yomsebenzi
+  import_from_taskbar:
+    button: Ngenisa usuka kubha yomsebenzi weWindows
+    label: Ngenisa Izinto Eziphiniwe
+  import_no_items: Azikho izinto eziphiniwe ezitholakele kubha yomsebenzi ye-Windows
+  import_success: >-
+    Ingenise ngempumelelo izinto ezingu-{{count}} ukusuka kubha yomsebenzi
+    ye-Windows
+  items:
+    gap: Isikhala phakathi kwezinto
+    label: Into
+    middle_click_action:
+      close_app: Vala Uhlelo Lokusebenza
+      label: Isenzo Sokuchofoza Phakathi
+      open_new_instance: Vula Isimo Esisha
+    pinned_visibility:
+      always: Njalo
+      label: Ukubonakala Kwezinto Eziphiniwe
+      when_primary: Lapho imonitha iyinhloko
+    show_instance_counter: Khombisa i-Windows Counter
+    show_window_title: Khombisa isihloko esivulekile sewindi (okuvundlile)
+    size: Usayizi wento
+    split_windows: Hlukanisa iWindows (into eyodwa ngewindi ngalinye)
+    temporal_visibility:
+      all: Konke
+      label: Ukubonakala Kwezinto Ezingaphiniwe
+      on_monitor: Ku-Monitor
+  label: Dock / taskbar
+  margin: Image
+  mode:
+    full_width: Ububanzi besikrini esigcwele
+    min_content: Kuncane njengoba kungaba
+  padding: Idilidi
+  show_end_task: Khombisa umsebenzi wokugcina kubha yomsebenzi
+  width: Ububanzi
+welcome:
+  give_a_review: Nikeza Isibuyekezo
+  message: >-
+    I-Seelen UI iyindawo yamahhala nevulekile yedeskithophu yeWindows. Lapha
+    unokulawula okugcwele kokuthi ideskithophu yakho ibukeka futhi iziphatha
+    kanjani, okukuvumela ukuthi wenze ngendlela oyifisayo yonke imininingwane
+    ukuze ihambisane nokuhamba komsebenzi wakho nesitayela.
+  ok: Ake siqale!
+  review: >-
+    Uma uthanda ukusebenzisa i-Seelen UI, cabanga ukushiya isibuyekezo esitolo —
+    impendulo yakho isiza iphrojekthi ukuthi ikhule futhi ithuthuke.
+  title: Siyakwamukela ku-Seelen UI!
+widget:
+  default_instance: Isimo Esizenzakalelayo
+  default_instance_hint: Ihlala isebenza, isebenzisa ukulungiselelwa kwewijethi yempande
+  enable: Nika amandla lewijethi
+  enable_for_monitor: Nika amandla kulo mqaphi
+  extra_instances: Izimo Ezengeziwe
+  instance: Isibonelo
+  instances: Izimo
+wm:
+  animations:
+    duration: Isikhathi se-animation (MS)
+    ease_function: Ukugqwayiza kwe-animation function
+    enable: Nika amandla izithombe zewindi
+  author: Umlobi
+  auto_stack: Isitaki esizenzakalelayo ngesigaba sohlelo lokusebenza
+  border:
+    enable: Nika amandla umngcele wewindi
+    offset: Umngcele we-Offset
+    width: Ububanzi bomngcele
+  description: Ukufanisa
+  drag_behavior: Hudula Ukuziphatha
+  drag_behavior_options:
+    sort: Hlunga (hlela kabusha amawindi ngenkathi uhudula)
+    swap: Shintsha (shintshanisa amawindi ekugcineni kokuhudula)
+  floating:
+    height: Ukuphakama kweWindows okuntantayo
+    title: Usayizi WeWindows Ontantayo
+    width: Ububanzi beWindows obuntantayo
+  layout: Isakhiwo
+  resize_delta: Shintsha usayizi DEDTA (%)
+  space_between_containers: Isikhala phakathi kweziqukathi
+  stack_bar_visibility: Ukubonakala Kwebha Yesitaki
+  stack_bar_visibility_options:
+    always: Njalo
+    as_needed: Njengoba kudingeka
+  workspace_offset: Izindawo zokusebenzela (Margins)
+  workspace_padding: I-Workespashe Padding
+'yes': Yebo

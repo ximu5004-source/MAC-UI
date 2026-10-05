@@ -1,0 +1,25 @@
+goodbye: 再见 {{0}}
+hibernate: 休眠
+lock: 锁定会话
+log_out: 注销
+reboot: 重启
+shutdown: 关机
+suspend: 睡眠
+uptime: 运行时间
+title: 电源与会话
+description: 选择这台电脑的下一步操作。
+cancel: 取消
+escape_hint: Esc 返回或关闭
+working: 正在执行…
+operation_failed: 操作失败，请重试
+hints:
+  lock: 保留当前工作
+  log_out: 结束当前会话
+  shutdown: 关闭这台电脑
+  reboot: 重新启动系统
+  suspend: 稍后继续工作
+  hibernate: 保存状态并休眠
+confirm_description:
+  shutdown: 确定要关闭这台电脑吗？请先保存所有尚未保存的工作。
+  reboot: 确定要重新启动这台电脑吗？请先保存所有尚未保存的工作。
+  log_out: 确定要注销当前会话吗？未保存的工作可能会丢失。

@@ -1,0 +1,62 @@
+all: 所有应用程序
+app_settings: 应用程序设置
+applications: 应用程序
+back: 后退
+disband: 解散文件夹
+edit_icon: 编辑图标
+folder: 文件夹
+no_matching_items: 没有找到匹配的应用或文件
+open_file_location: 打开文件位置
+pin: 添加到启动台
+pin_to_dock: 固定到底座
+power_menu: 电源菜单
+query:
+  all: 全部
+  apps: 应用程序
+  files: 文件
+  web: 网络
+run_as_admin: 以管理员身份运行
+unpin: 从启动台移除
+web_search: 按 Enter 键搜索网络
+welcome_message: 启动台已准备就绪。
+welcome_message2: 导入 Windows 开始菜单，或从“所有应用程序”添加应用。
+launchpad:
+  quick_access: 快捷访问
+  quick_access_hint: 常用文件夹与文件搜索
+  desktop: 桌面
+  downloads: 下载
+  documents: 文档
+  file_search: 搜索文件
+  title: 启动台
+  search: 搜索应用、文件和网页
+  search_scope: 搜索范围
+  clear_search: 清除搜索
+  close: 关闭启动台
+  view: 应用视图
+  import: 导入开始菜单
+  import_hint: 读取当前用户与公共开始菜单的快捷方式，保留你已有的排列和分组。
+  importing: 正在导入…
+  import_done: "新增 {{apps}} 个应用、{{folders}} 个文件夹，原有排列已保留。"
+  new_folder: 新建文件夹
+  folder_name: 文件夹名称
+  rename_folder: 打开／重命名文件夹
+  close_folder: 关闭文件夹
+  empty_folder: 右键应用选择“移入文件夹”，或将应用拖到此文件夹上。
+  app_count: "{{count}} 个应用"
+  pages: 启动台分页
+  previous_page: 上一页
+  next_page: 下一页
+  go_to_page: "转到第 {{page}} 页"
+  page_status: "第 {{page}} 页，共 {{count}} 页"
+  move_to_folder: 移入文件夹
+  move_out: 移出文件夹
+  move_previous_page: 移到上一页
+  move_next_page: 移到下一页
+  user_menu: 用户菜单
+  fullscreen: 全屏启动台
+  windowed: 窗口模式
+  hint: 拖动调整顺序 · 将应用叠放到另一个应用上即可创建文件夹
+  keyboard_hint: 滚轮 / 触控板或 Ctrl + ← / → 翻页 · Esc 返回
+  saving: 正在保存排列…
+  save_error: 导入或保存失败。当前排列仍保留在界面上，请重试。
+  retry: 重试

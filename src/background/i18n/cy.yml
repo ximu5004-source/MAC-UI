@@ -1,0 +1,82 @@
+auth:
+  login_failed_body: >-
+    Aeth rhywbeth o'i le wrth fewngofnodi. Os bydd hyn yn parhau, gwnewch yn
+    siŵr bod gwasanaeth 'Rheolwr Credadwy' Windows (VaultSvc) wedi'i alluogi ac
+    yn rhedeg, yna ceisiwch eto.
+  login_failed_title: Methodd mewngofnodi
+cancel: Chansliff
+done: Wedi gwneud
+elevated:
+  description: >-
+    Mae Seelen UI yn rhedeg gyda breintiau gweinyddwr.
+
+    Nid yw hyn yn ychwanegu nac yn gwella unrhyw nodweddion, a gall achosi risg
+    diogelwch.
+
+    Er mwyn gwella diogelwch, ailgychwynnwch ef heb ganiatâd gweinyddwr.
+  title: Rhedeg fel Gweinyddwr
+file_explorer: Archwiliwr Ffeil
+resource:
+  added: Ychwanegwyd adnodd newydd
+  download_failed_body: >-
+    Aeth rhywbeth o'i le wrth lawrlwytho'r adnodd, rhowch wybod iddo i dîm
+    datblygwyr Seelen.
+  download_failed_title: Methodd Lawrlwytho Adnoddau
+  downloading: Lawrlwytho asedau ...
+  downloading_body: Efallai y bydd hyn yn cymryd ychydig eiliadau, peidiwch â chau'r ffenestr.
+  enable: Galluoga
+  login_required_action: Mewngofnodwch
+  login_required_body: Mae angen i chi fewngofnodi i lawrlwytho'r adnodd hwn.
+  login_required_title: Angen Mewngofnodi
+runtime:
+  corrupted_data: Data llygredig
+  corrupted_file: Mae ffeil ffurfweddu yn llygredig, gan ddefnyddio gwerthoedd diofyn yn lle.
+  corrupted_file_path: Llwybr Ffeil Llygredig
+  download: Ewch i'r dudalen lawrlwytho
+  files_integrity: >-
+    Ni allem wirio cywirdeb y ffeiliau cais.
+
+    Gall hyn ddigwydd os cafodd ffeiliau eu haddasu, eu llygru, neu os yw'r
+    gosodiad yn anghyflawn.
+
+    Am resymau diogelwch, ni all Seelen UI barhau.
+
+    Ailosodwch ef o'r wefan swyddogol.
+  files_integrity_title: Rhybudd Diogelwch - Methwyd Gwirio Cywirdeb Ffeiliau
+  not_found: WebView2 Runtime heb ei ganfod
+  not_found_description: Mae Seelen UI angen Amser Rhedeg Webview2. Os gwelwch yn dda gosod.
+  outdated: WebView2 Runtime wedi dyddio
+  outdated_description: >-
+    Mae Seelen UI angen amser rhedeg Webview2 %{ min_version} neu uwch.
+    Diweddarwch ef.
+service:
+  not_running: Gwasanaeth UI Seelen ddim yn rhedeg
+  not_running_description: >-
+    Mae Seelen UI Service (slu-service) yn ddibyniaeth / cynorthwyydd i'r ap
+    weithio'n iawn.
+  not_running_ok: Dechrau gwasanaeth
+shortcut:
+  conflicts:
+    body: >-
+      Mae rhai llwybrau byr wedi'u neilltuo i gamau gweithredu lluosog, a
+      fyddech cystal â'u hailbennu.
+    dismiss: Diystyru
+    review: Adolygu
+    title: Wedi Canfod Gwrthdaro Llwybr Byr
+  register:
+    placeholder: Pwyswch unrhyw gyfuniad allweddol
+    title: Cofrestru llwybr byr newydd
+widget_liveness:
+  failed_description: |-
+    Mae'r teclyn '%{widget_name}' wedi stopio ymateb gormod o weithiau.
+
+    Gallwch geisio ailgychwyn yr app.
+  failed_title: Gwall Teclyn
+widget_permissions:
+  perm_open_file: agor ffeiliau
+  perm_run: rhedeg rhaglenni
+  request_description: |-
+    Mae'r teclyn '%{widget_name}' yn gofyn am ganiatâd i %{command}.
+
+    Ydych chi am ganiatáu hyn?
+  request_title: Cais am Ganiatâd Widget

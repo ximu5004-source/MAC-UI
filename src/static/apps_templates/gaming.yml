@@ -1,0 +1,20 @@
+- name: Steam
+  identifier:
+    id: (steamwebhelper.exe)|(steam.exe)
+    kind: Exe
+    matchingStrategy: Regex
+    and:
+      - id: Steam
+        kind: Title
+        matchingStrategy: Equals
+        negation: true
+  options:
+    - unmanage
+
+- name: Steam Apps/Games
+  identifier:
+    id: steamapps
+    kind: Path
+    matchingStrategy: Contains
+  options:
+    - unmanage

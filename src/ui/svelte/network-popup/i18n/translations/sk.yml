@@ -1,0 +1,23 @@
+available: Dostupné siete
+connect: Pripojte sa
+connected: Pripojené k
+connecting: Pripája sa...
+disconnect: Odpojiť
+forget: Zabudni
+hidden: Skrytá sieť
+hotspot:
+  band: kapela
+  'off': Vypnuté
+  'on': Zapnuté
+  open_network: Otvorená sieť
+  password: heslo
+  settings: Ďalšie nastavenia hotspotu
+  ssid: Názov siete
+  title: Hotspot
+more: Ďalšie nastavenia siete
+no_adapter: Nenašiel sa žiadny adaptér Wi-Fi
+not_found: Nenašli sa žiadne siete Wi-Fi
+password: heslo
+saved: Uložené siete
+scanning: Skenovanie sietí
+secured: Šifrovaná sieť

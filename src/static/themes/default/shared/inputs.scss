@@ -1,0 +1,303 @@
+%input-common {
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+input[type="range"][data-skin="flat"] {
+  @extend %input-common;
+
+  appearance: none;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  height: 1.5rem;
+  border-radius: 8px;
+  background: oklch(from var(--slu-std-ui-hover-color) l c h / 0.2);
+
+  &::-webkit-slider-runnable-track {
+    appearance: none;
+  }
+
+  &::-webkit-slider-thumb {
+    appearance: none;
+    width: 0;
+    height: 0;
+    box-shadow: -100vw 0 0 100vw var(--slu-std-ui-color);
+  }
+
+  &[data-orientation="vertical"] {
+    width: 1.5rem;
+    height: 100%;
+    writing-mode: vertical-lr;
+    direction: rtl;
+
+    &::-webkit-slider-thumb {
+      box-shadow: 0 100vh 0 100vh var(--slu-std-ui-color);
+    }
+  }
+}
+
+input[type="text"][data-skin="default"],
+input[type="search"][data-skin="default"],
+input[type="password"][data-skin="default"],
+input[type="email"][data-skin="default"],
+input[type="number"][data-skin="default"],
+input[type="tel"][data-skin="default"],
+input[type="url"][data-skin="default"],
+input[type="color"][data-skin="default"],
+input[type="file"][data-skin="default"],
+select[data-skin="default"] {
+  @extend %input-common;
+  width: 100%;
+  padding: 0.25em 0.5em;
+
+  background-color: var(--slu-std-bg-light-color);
+  border: 1px solid var(--slu-std-bg-dark-color);
+  border-radius: 6px;
+
+  font-size: inherit;
+
+  &:hover:enabled {
+    border-color: var(--slu-std-ui-hover-color);
+  }
+
+  &[data-error="true"] {
+    border-color: var(--color-red-600);
+  }
+
+  &:read-only {
+    background-color: var(--slu-std-bg-color);
+    color: var(--slu-std-fg-muted-color);
+    cursor: default;
+  }
+}
+
+input[type="text"][data-skin="transparent"],
+input[type="search"][data-skin="transparent"],
+input[type="password"][data-skin="transparent"],
+input[type="email"][data-skin="transparent"],
+input[type="number"][data-skin="transparent"],
+input[type="tel"][data-skin="transparent"],
+input[type="url"][data-skin="transparent"],
+input[type="color"][data-skin="transparent"],
+input[type="file"][data-skin="transparent"],
+select[data-skin="transparent"] {
+  @extend %input-common;
+  width: 100%;
+  padding: 4px 8px;
+
+  background-color: transparent;
+  color: inherit;
+  border: 1px solid transparent;
+  border-radius: 6px;
+
+  font-size: inherit;
+
+  &:focus {
+    /* background-color: var(--color-gray-50);
+    border-color: var(--slu-std-ui-hover-color); */
+    outline: none;
+  }
+
+  &[data-error="true"] {
+    border-color: var(--color-red-600);
+  }
+
+  &:read-only {
+    background-color: transparent;
+    cursor: default;
+  }
+}
+
+input[type="radio"][data-skin="default"] {
+  @extend %input-common;
+  $size: 16px;
+
+  appearance: none;
+  position: relative;
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  border: 2px solid var(--color-gray-400);
+  background-color: transparent;
+  flex-shrink: 0;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border-radius: 50%;
+    background-color: var(--color-gray-50);
+    transform: scale(0);
+    transition: transform 0.2s ease;
+  }
+
+  &:checked {
+    border-color: var(--slu-std-ui-color);
+    background-color: var(--slu-std-ui-color);
+
+    &::before {
+      transform: scale(1);
+    }
+  }
+
+  &:hover:enabled {
+    &:not(:checked) {
+      border-color: var(--slu-std-ui-hover-color);
+    }
+    &:checked {
+      background-color: var(--slu-std-ui-hover-color);
+    }
+  }
+}
+
+input[type="checkbox"][data-skin="default"] {
+  @extend %input-common;
+  $size: 16px;
+
+  appearance: none;
+  position: relative;
+  width: $size;
+  height: $size;
+  border-radius: 4px;
+  border: 2px solid var(--color-gray-400);
+  background-color: transparent;
+  flex-shrink: 0;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-gray-50);
+    clip-path: polygon(0% 55%, 15% 40%, 40% 60%, 85% 10%, 100% 25%, 40% 90%);
+    transform: scale(0);
+    transition: transform 0.15s ease;
+  }
+
+  &:checked {
+    border-color: var(--slu-std-ui-color);
+    background-color: var(--slu-std-ui-color);
+
+    &::before {
+      transform: scale(0.7);
+    }
+  }
+
+  &:hover:enabled {
+    &:not(:checked) {
+      border-color: var(--slu-std-ui-hover-color);
+    }
+    &:checked {
+      background-color: var(--slu-std-ui-hover-color);
+    }
+  }
+}
+
+input[type="checkbox"][data-skin="switch"] {
+  @extend %input-common;
+  $width: 36px;
+  $height: 18px;
+
+  appearance: none;
+  position: relative;
+  width: $width;
+  height: $height;
+  background-color: var(--color-gray-400);
+  border-radius: $height / 2;
+  transition: background-color 0.3s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: $height - 4;
+    height: $height - 4;
+    border-radius: 50%;
+    background-color: var(--color-gray-50);
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s ease;
+  }
+
+  &:checked {
+    background-color: var(--slu-std-ui-color);
+
+    &::before {
+      transform: translateX($width / 2);
+    }
+  }
+
+  &:hover:enabled {
+    background-color: var(--color-gray-500);
+    &:checked {
+      background-color: var(--slu-std-ui-hover-color);
+    }
+  }
+}
+
+::picker(select) {
+  appearance: base-select;
+  border: none;
+  box-shadow: var(--shadow-s);
+  border-radius: 10px;
+  background-color: var(--slu-std-bg-light-color);
+  padding: 0.25em;
+}
+
+select[data-skin="default"],
+select[data-skin="transparent"] {
+  @extend %input-common;
+  display: flex;
+  align-items: center;
+  appearance: base-select;
+
+  &::picker-icon {
+    color: var(--slu-std-fg-muted-color);
+    width: min-content;
+    height: min-content;
+    transition: transform 0.4s ease;
+  }
+
+  &:open::picker-icon {
+    transform: rotate(180deg);
+  }
+
+  option {
+    font-size: 0.95rem;
+    padding: 0.25em 0.5em;
+    border-radius: 8px;
+    margin-bottom: 0.5em;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      background-color: oklch(from var(--slu-std-ui-color) l c h / 0.2);
+    }
+
+    &:checked {
+      background-color: var(--slu-std-ui-hover-color);
+      color: var(--color-gray-100);
+      font-weight: 600;
+    }
+  }
+}
+
+select[data-skin="transparent"] {
+  &:hover:enabled {
+    background-color: var(--slu-std-ui-hover-overlay);
+  }
+  &:active:enabled {
+    background-color: var(--slu-std-ui-pressed-overlay);
+  }
+}

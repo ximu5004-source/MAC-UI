@@ -1,0 +1,51 @@
+@layer basic-widget-reset {
+  :root {
+    font-size: 100%; /* determines the size of the rem unit */
+    color-scheme: light dark;
+    interpolate-size: allow-keywords;
+  }
+
+  *,
+  *:after,
+  *:before {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    box-sizing: border-box;
+    vertical-align: baseline;
+    user-select: none;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="search"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="url"],
+  textarea {
+    user-select: text;
+
+    &::after,
+    &::before {
+      user-select: text;
+    }
+  }
+
+  body {
+    font-family: system-ui;
+  }
+
+  img,
+  image,
+  picture,
+  video,
+  iframe,
+  figure {
+    max-height: 100%;
+    max-width: 100%;
+    width: 100%;
+    display: block;
+  }
+}

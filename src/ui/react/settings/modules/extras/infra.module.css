@@ -1,0 +1,27 @@
+.info {
+  a {
+    color: var(--color-blue-500);
+    &:hover {
+      color: var(--color-blue-700);
+    }
+  }
+
+  .sessionContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--spacing-s);
+  }
+
+  .version {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-black);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .info .logo > img {
+    filter: invert(1);
+  }
+}

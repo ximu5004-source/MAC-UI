@@ -1,0 +1,128 @@
+@layer reset {
+  :root {
+    color-scheme: light dark; /* enables light and dark mode as well light-dark() function */
+
+    interpolate-size: allow-keywords; /* This enables animations between keywords (auto, min-content, etc) */
+    transition-behavior: allow-discrete; /* allow transitions between discrete values (display, content-visibility) */
+
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+
+    font-size: 100%; /* determines the size of the rem unit */
+    line-height: 1.4;
+
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  *,
+  *:after,
+  *:before {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    box-sizing: border-box;
+    vertical-align: baseline;
+  }
+
+  /* Avoid selection of text on desktop, mobile apps */
+  :not(input):not(textarea),
+  :not(input):not(textarea)::after,
+  :not(input):not(textarea)::before {
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  /* Show normal cursor on desktop, mobile apps except links and inputs */
+  :not(a):not(a *):not(input):not(textarea) {
+    cursor: default !important;
+  }
+
+  img,
+  image,
+  picture,
+  video,
+  iframe,
+  figure {
+    max-height: 100%;
+    max-width: 100%;
+    width: 100%;
+    display: block;
+  }
+
+  a {
+    display: block;
+  }
+
+  p a {
+    display: inline;
+  }
+
+  li {
+    list-style-type: none;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  a,
+  strong,
+  blockquote,
+  i,
+  b,
+  em,
+  pre {
+    font-size: 1em;
+    line-height: inherit;
+    font-weight: inherit;
+    font-style: inherit;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  form,
+  input,
+  textarea,
+  select,
+  button,
+  label,
+  dialog {
+    font-family: inherit;
+    font-size: inherit;
+    hyphens: auto;
+    background-color: transparent;
+    display: block;
+    color: inherit;
+  }
+
+  table,
+  tr,
+  td {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  svg {
+    width: 100%;
+    display: block;
+  }
+
+  body {
+    font-family: system-ui;
+    color: var(--color-gray-900, #121212);
+    background-color: var(--color-gray-50, #fefefe);
+    hyphens: auto;
+  }
+
+  hr {
+    border-top: 1px solid currentColor;
+    opacity: 0.3;
+  }
+}

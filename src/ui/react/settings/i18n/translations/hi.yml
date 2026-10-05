@@ -1,0 +1,477 @@
+action:
+  confirm: क्या आपको यकीन है?
+  confirm_body: इस एक्शन को वापस नहीं किया जा सकता।
+apps_configurations:
+  app:
+    bindings: बाइंडिंग (ध्यान दें कि दोनों विकल्पों की आवश्यकता है)
+    category: वर्ग
+    category_placeholder: कोई नहीं
+    monitor: निगरानी करना
+    monitor_placeholder: कोई नहीं
+    name: नाम
+    ok_create: बनाएं
+    ok_edit: अद्यतन
+    ok_readonly: नए के रूप में संपादित करें
+    options:
+      NoInteractive: कोई इंटरैक्टिव नहीं
+      VdPinned: सभी कार्यस्थानों में दिखाएं
+      WmFloat: Twm - तैरना प्रारंभ करें
+      WmForce: Twm - फोर्स मैनेज
+      WmUnmanage: Twm - अनमैनेज
+    options_label: अतिरिक्त विकल्प
+    title_create: '{{नाम}} बनाना'
+    title_edit: संपादन {{नाम}}
+    title_readonly: '{{नाम}} देखना'
+    weg_options_label: डॉक/टास्कबार विकल्प
+    wm_options_label: विंडो मैनेजर विकल्प
+    workspace: कार्यस्थान
+    workspace_placeholder: कोई नहीं
+  bundled_msg: >-
+    ये बंडल किए गए कॉन्फ़िगरेशन संपादन योग्य नहीं हैं और आपको अनुकूलन के बिना
+    सबसे अच्छा अनुभव प्रदान करने के लिए डिज़ाइन किए गए हैं। वे स्वचालित रूप से
+    आपके लिए सबसे आम अनुप्रयोगों को कॉन्फ़िगर करते हैं।
+  bundled_title: ऐप कॉन्फ़िगरेशन सेलेन के साथ बंडल किया गया
+  confirm_delete: क्या आप सुनिश्चित हैं कि आप इस कॉन्फ़िगरेशन/एस को हटाना चाहते हैं?
+  confirm_delete_title: हटाने की पुष्टि करें
+  delete: मिटाना
+  export: निर्यात
+  export_full: आवेदन द्वारा निर्यात सेटिंग्स
+  extra_info: >-
+    Seelen UI प्रति ऐप केवल एक पहचानकर्ता का उपयोग करता है (पहला मैच मिला) इसलिए
+    कि कैसे विशिष्ट है, इसका क्रम महत्वपूर्ण है, नवीनतम जोड़ा को प्राथमिकता दी
+    जाएगी, क्योंकि ध्यान दें कि तालिका को डिफ़ॉल्ट रूप से नवीनतम से पुराने तक
+    सॉर्ट किया गया है।
+  identifier:
+    add_block: ब्लॉक जोड़ें
+    and: और
+    id: पहचानकर्ता
+    kind: से पहचानना
+    matching_strategy: मिलान रणनीति
+    matching_strategy_option:
+      contains: रोकना
+      ends_with: इसी के साथ समाप्त होता है
+      equals: बराबर
+      regex: नियमित अभिव्यक्ति
+      starts_with: इसके साथ आरंभ होता है
+    negation: नकारात्मक मिलान
+    or: या
+    remove: ब्लॉक हटाएं
+    type:
+      class: कक्षा
+      exe: प्रोग्राम फ़ाइल
+      path: पथ
+      title: शीर्षक
+  import: आयात
+  import_full: आवेदन द्वारा आयात सेटिंग्स
+  new: नया
+  search: खोज
+  swap: बदलना
+cancel: रद्द करना
+close: बंद करना
+delete: मिटाना
+devtools:
+  app_folders: ऐप फ़ोल्डर्स
+  color_palette: रंगो की पटिया
+  color_palette_note: >-
+    ये रंग स्वचालित रूप से प्रकाश/अंधेरे मोड के अनुकूल हो जाते हैं - प्रत्येक
+    शेड वर्तमान पृष्ठभूमि के विपरीत-सापेक्ष होता है, कोई निश्चित मान नहीं।
+    स्वचालित थीम समर्थन प्राप्त करने के लिए हार्डकोडेड रंगों के बजाय उनका उपयोग
+    करें।
+  custom_config_file: कस्टम कॉन्फ़िगर फ़ाइल लोड करें
+  data_folder: डेटा फ़ोल्डर
+  enable: डेवलपर टूल सक्षम करें
+  enable_description: >-
+    सेलेन यूआई आंतरिकों के निरीक्षण और डिबगिंग के लिए उन्नत टूल को अनलॉक करता
+    है। नियमित उपयोग के लिए अभिप्रेत नहीं है.
+  icons: कैश्ड चिह्न
+  install_folder: स्थापना फ़ोल्डर
+  load: भार
+  settings_file: सेटिंग संचिका
+  shared_components: एसएलयू मानक घटक
+  simulate_dialog:
+    label: संवाद का अनुकरण करें
+    trigger: चालू कर देना
+  simulate_perm:
+    label: विजेट अनुमति अनुरोध का अनुकरण करें
+    result_allowed: ✓ अनुमति दी गई
+    result_denied: ✗ अनुमति अस्वीकृत
+    trigger: अनुकरण
+    widget_id_placeholder: '@लेखक/विजेट-नाम'
+  tools: औजार
+  unlock_shortcuts: केवल पढ़ने योग्य शॉर्टकट अनलॉक करें
+  unlock_shortcuts_description: >-
+    ऐसे शॉर्टकट संपादित करने की अनुमति दें जो सामान्य रूप से केवल-पढ़ने के लिए
+    होते हैं (उदाहरण के लिए सिस्टम ओवरराइड)।
+  unstable_optimizations: अस्थिर अनुकूलन
+  unstable_optimizations_description: >-
+    प्रयोगात्मक क्रोमियम फ़्लैग सक्षम करें जो RAM उपयोग को कम करते हैं।
+
+    चेतावनी: यदि कोई विजेट क्रैश हो जाता है, तो समान लोडर साझा करने वाले सभी
+    विजेट एक साथ क्रैश हो जाएंगे।
+  widgets_debug:
+    actions: कार्रवाई
+    empty: कोई विजेट लोड नहीं हुआ. ताज़ा करें पर क्लिक करें.
+    instance_id: उदाहरण आईडी
+    monitor_id: मॉनिटर आईडी
+    open_devtools: देवटूल्स
+    refresh: ताज़ा करना
+    status: स्थिति
+    tab: विजेट
+    widget_id: विजेट आईडी
+discord_banner:
+  message: >-
+    अन्य सीलेन यूआई उपयोगकर्ताओं से जुड़ें, सहायता प्राप्त करें, थीम साझा करें
+    और नवीनतम समाचारों से अपडेट रहें।
+  title: हमारे समुदाय में शामिल हों
+extras:
+  backup_group: मेघ बैकअप
+  backup_last_sync: अंतिम समन्वयन
+  backup_never_synced: कभी समन्वयित नहीं किया गया
+  backup_sync: सेटिंग्स को क्लाउड में सिंक करें
+  backup_sync_description: >-
+    क्लाउड के माध्यम से अपनी सेटिंग्स का स्वचालित रूप से बैकअप लें और
+    पुनर्स्थापित करें।
+  clear_icons: स्पष्ट प्रणाली आइकन कैश
+  clear_icons_tooltip: >-
+    सभी विजेट पर पूरी तरह से प्रभावी होने के लिए एक पुनरारंभ की आवश्यकता हो सकती
+    है
+  discord_rpc: कलह समृद्ध उपस्थिति
+  discord_rpc_description: हर किसी को दिखाएँ कि आपके पास स्टाइल है!
+  exit: छोड़ देना/बाहर निकलना
+  relaunch: 'पुन: लॉन्च'
+  streaming_mode: स्ट्रीमिंग मोड
+  streaming_mode_description: >-
+    रिकॉर्डिंग या स्क्रीनशॉट के दौरान गोपनीयता की सुरक्षा के लिए संवेदनशील
+    जानकारी (जैसे ईमेल) को प्लेसहोल्डर से बदल देता है।
+  version: संस्करण
+  version_fixed: >-
+    एप्लिकेशन और WebView2 रनटाइम संस्करण ठीक हो गए हैं। इसका मतलब यह है कि
+    एप्लिकेशन को अपडेट प्राप्त नहीं होंगे और WebView2 रनटाइम स्वचालित रूप से
+    विंडोज अपडेट के साथ अपडेट नहीं होगा।
+general:
+  accent_color: स्वरोंका रंग
+  date_format: तारिख का प्रारूप
+  date_format_how_to: दिनांक प्रारूप कैसे लिखें?
+  hardware_acceleration: हार्डवेयर एक्सिलरेशन
+  hardware_acceleration_description: >-
+    हार्डवेयर एक्सेलेरेशन को अक्षम करने से मेमोरी का उपयोग कम हो जाएगा। यदि आप
+    भारी एनिमेशन का उपयोग नहीं कर रहे हैं तो इसे अक्षम करना सुरक्षित है, हालांकि
+    व्यक्तिगत विजेट इस सेटिंग की परवाह किए बिना अभी भी GPU उपयोग को बाध्य कर
+    सकते हैं।
+  icon_pack:
+    available: उपलब्ध चिह्न पैक
+    selected: सक्रिय चिह्न पैक
+  language: भाषा
+  monday: सोमवार
+  performance_mode:
+    label: अनुकूलन
+    on_battery: बैटरी पर
+    on_energy_saver: ऊर्जा सेवर पर
+    options:
+      disabled: अक्षम
+      extreme: चरम
+      minimal: न्यूनतम
+    plugged: प्लग या चार्जिंग
+  polling_interval: सिस्टम मतदान अंतराल
+  polling_interval_description: >-
+    सीलेन यूआई कितनी बार (सेकंड में) सीपीयू, रैम, नेटवर्क और डिस्क गतिविधि जैसे
+    सिस्टम संसाधनों की जांच करता है। छोटी संख्या का अर्थ है अधिक लगातार अपडेट,
+    लेकिन थोड़ा अधिक संसाधन उपयोग।
+  saturday: शनिवार
+  start_of_week: सप्ताह की शुरुआत
+  startup: स्टार्टअप पर चलाएं?
+  sunday: रविवार
+  suspend_on_game_mode: गेम मोड पर विजेट निलंबित करें
+  suspend_on_game_mode_description: >-
+    जब विंडोज़ गेम मोड सक्रिय होता है, तो गेम के लिए सीपीयू और मेमोरी खाली करने
+    के लिए सभी विजेट वेबव्यू नष्ट हो जाते हैं। गेम मोड समाप्त होने पर विजेट
+    स्वचालित रूप से पुनर्स्थापित हो जाते हैं।
+  theme:
+    available: उपलब्ध थीम्स
+    selected: सक्रिय विषय-वस्तु
+global: वैश्विक
+header:
+  labels:
+    config: विन्यास
+    developer: डेवलपर्स के लिए
+    extras: अतिरिक्त
+    general: सामान्य
+    home: घर
+    iconpack: आइकन पैक
+    monitors: पर नज़र रखता है
+    plugin: प्लग-इन
+    resources: संसाधन
+    session: खाता
+    shortcuts: शॉर्टकट
+    soundpack: साउंड पैक
+    specific_apps: आवेदन द्वारा सेटिंग्स
+    theme: विषय-वस्तु
+    virtual_desk: आभासी डेस्कटॉप्स
+    wallpaper: वॉलपेपर
+    widget: विजेट
+home:
+  new_resources: नए संसाधन
+inherit: इनहेरिट
+inProgress: प्रगति पर है...
+insert: डालना
+join_us: हमसे जुड़ें!
+loading: लोड हो रहा है...
+miscellaneous: मिश्रित
+monitors_configurations:
+  label: मॉनिटर {{इंडेक्स}}
+more: अधिक
+'no': नहीं
+open: खुला
+quit: छोड़ना
+remove: निकालना
+reset_all_to_default: सभी को डिफ़ॉल्ट मानों पर रीसेट करें
+reset_configurations: कॉन्फ़िगरेशन रीसेट करें
+reset_to_default: डिफ़ॉल्ट मान पर रीसेट करें
+resources:
+  affected_widgets: प्रभावित विजेट
+  app_outdated: >-
+    इस संसाधन को ठीक से काम करने के लिए सेलेन यूआई के एक नए संस्करण की आवश्यकता
+    होती है।
+  coming_soon: जल्द आ रहा है
+  corrupted_wallpaper: थंबनेल निकालने में विफल - दूषित या असमर्थित वीडियो प्रारूप
+  delete: संसाधन हटाएं
+  discover: अधिक संसाधनों की खोज करें
+  has_update: एक अपडेट उपलब्ध है
+  high_impact: प्रदर्शन पर उच्च प्रभाव
+  import_wallpapers: स्थानीय वॉलपेपर आयात करें
+  included_plugins: प्लगइन्स शामिल हैं
+  modified: संशोधित
+  open_folder: संसाधन फ़ोल्डर खोलें
+  outdated: >-
+    यह संसाधन सीलेन यूआई के पुराने संस्करण के लिए डिज़ाइन किया गया था और ठीक से
+    काम नहीं कर सकता है।
+  see_on_website: वेबसाइट पर देखें
+  update_now: अद्यतन
+  updates_available: अद्यतन उपलब्ध
+  updates_available_description: निम्नलिखित संसाधनों में अपडेट उपलब्ध हैं।
+review_request:
+  not_now: अभी नहीं
+  sure: ज़रूर!
+  title: सेलेन यूआई का आनंद ले रहे हैं?
+save: बचाना
+save_and_restart: सहेजें और पुनरारंभ करें
+search: खोज
+see_more: और देखें
+session:
+  logout: साइन आउट
+  plan: योजना
+  sign_in: दाखिल करना
+  sign_in_hint: आपका ब्राउज़र खुल जाएगा ताकि आप सुरक्षित रूप से साइन इन कर सकें।
+  upgrade_to: में अपग्रेड
+shortcuts:
+  disabled_tooltip: विजेट और उसके शॉर्टकट अक्षम हैं
+  duplicate_error: परस्पर विरोधी शॉर्टकट का पता चला
+  duplicate_error_hint: >-
+    कुछ शॉर्टकट एकाधिक क्रियाओं के लिए निर्दिष्ट किए गए हैं। परस्पर विरोधी
+    विजेट्स में से किसी एक को अक्षम करें या समाधान के लिए डुप्लिकेट कुंजी
+    बाइंडिंग को पुन: असाइन करें।
+  enable: अंतर्निहित शॉर्टकट सिस्टम सक्षम करें
+  enable_tooltip: >-
+    अक्षम करें यदि आप सेलेन यूआई क्लाइंट का उपयोग करके अपने स्वयं के शॉर्टकट
+    सिस्टम को लागू करेंगे
+  labels:
+    create_new_workspace: नया कार्यक्षेत्र बनाएं
+    create_new_workspace_row: नई कार्यस्थान पंक्ति बनाएँ
+    destroy_current_workspace: वर्तमान कार्यक्षेत्र को नष्ट करें
+    misc_force_quit: जबरन छोड़ना
+    misc_force_restart: बल फिर से शुरू करना
+    move_to_workspace: कार्यक्षेत्र {{0}} पर जाएं
+    pause_toggle: शॉर्टकट रोकें/फिर से शुरू करें
+    send_to_next_workspace: विंडो को अगले कार्यस्थान पर भेजें
+    send_to_previous_workspace: पिछले कार्यस्थान पर विंडो भेजें
+    send_to_workspace: कार्यक्षेत्र {{0}} को भेजें
+    send_to_workspace_down: नीचे कार्यस्थान पर विंडो भेजें
+    send_to_workspace_up: उपरोक्त कार्यस्थान पर विंडो भेजें
+    switch_to_next_workspace: अगले कार्यक्षेत्र पर स्विच करें
+    switch_to_previous_workspace: पिछले कार्यक्षेत्र पर स्विच करें
+    switch_to_workspace_down: नीचे कार्यस्थान पर स्विच करें
+    switch_to_workspace_up: ऊपर कार्यस्थान पर स्विच करें
+    switch_workspace: कार्यक्षेत्र {{0}} पर स्विच करें
+  readonly_tooltip: यह केवल एक रीड-शॉर्टकट है
+  reset: डिफ़ॉल्ट पर पुनः सेट करें
+sides:
+  bottom: तल
+  left: बाएं
+  right: सही
+  top: शीर्ष
+toolbar:
+  auto_hide: खुद से छिपना
+  auto_hide_touch_disabled: टच स्क्रीन डिवाइस पर ऑटो हाइड उपलब्ध नहीं है
+  delay_to_hide: छिपाने में देरी
+  delay_to_show: दिखाने में देरी
+  dock_side: पद
+  enable: फैंसी टूलबार सक्षम करें
+  hide_mode:
+    always: हमेशा
+    never: कभी नहीं
+    on_overlap: ओवरलैप पर
+  item_size: आइटम का आकार
+  label: उपकरण पट्टी
+  margin: मार्जिन आकार
+  padding: गद्दी का आकार
+  placeholder: {}
+update:
+  available: उपलब्ध अद्यतन!
+  channel: अद्यतन चैनल
+  downloading: डाउनलोड करना ...
+wall:
+  blur: कलंक
+  cancel: रद्द करना
+  close: बंद करना
+  collection_name: संग्रह का नाम
+  collections: संग्रह
+  contrast: अंतर
+  corrupted_wallpapers_message: 'दूषित वॉलपेपर, इन्हें हटाने पर विचार करें:'
+  coverage_pause_threshold: सीमा रोकें (विंडो कवरेज)
+  create: बनाएं
+  create_collection: संग्रह बनाएँ
+  default_collection: डिफ़ॉल्ट वॉलपेपर या संग्रह
+  default_collection_description: >-
+    यह उन सभी मॉनिटरों और कार्यस्थानों पर लागू होता है जिनमें कोई विशिष्ट
+    ओवरराइड सेट नहीं होता है।
+  delete_collection: संग्रह हटाएँ
+  edit_collection: संग्रह संपादित करें
+  extend: प्राथमिक बढ़ाएँ
+  fit:
+    contain: रोकना
+    cover: ढकना
+    fill: भरना
+  flipHorizontal: क्षैतिज
+  flipVertical: तलवाड़ा
+  generating_thumbnails: वॉलपेपर थंबनेल उत्पन्न करना
+  hours: घंटे
+  interval: वॉलपेपर हर बदलें
+  minutes: मिनट
+  monitor_collection: मॉनिटर संग्रह
+  multimonitor_behaviour: मल्टीमॉनिटर व्यवहार
+  muted: वीडियो ऑडियो म्यूट करें
+  no_background: खाली स्लाइड शो, इसके बजाय थीम की पृष्ठभूमि का उपयोग करके।
+  no_collections: अभी तक कोई संग्रह नहीं बनाया गया. एक बनाने के लिए + बटन पर क्लिक करें।
+  objectFit: पृष्ठभूमि फिट
+  objectPosition: पृष्ठभूमि स्थिति
+  overlayColor: ओवरले रंग
+  overlayMixBlendMode: ओवरले मिश्रण मिश्रण मोड
+  per_monitor: प्रति मॉनिटर
+  per_monitor_config: प्रति-मॉनिटर कॉन्फ़िगरेशन
+  playback: प्लेबैक गति
+  position:
+    bottom: तल
+    center: केंद्र
+    left: बाएं
+    right: सही
+    top: शीर्ष
+  processing_video: वीडियो संसाधित किया जा रहा है
+  random: यादृच्छिक स्लाइड शो
+  saturation: परिपूर्णता
+  seconds: सेकंड
+  select_collection: संग्रह का चयन करें
+  thumbnail_generation_complete: थंबनेल जनरेशन पूर्ण
+  thumbnail_generation_finished: थंबनेल पीढ़ी सफलतापूर्वक समाप्त हो गई है
+  use_accent_color: वॉलपेपर एक्सेंट रंग का प्रयोग करें
+  wallpaper_collection: वॉलपेपर संग्रह
+  wallpaper_settings: वॉलपेपर सेटिंग्स
+  wallpapers: वॉलपेपर
+  wallpapers_and_collections: वॉलपेपर और संग्रह
+  withOverlay: ओवरले के साथ
+  workspace_collections: कार्यक्षेत्र संग्रह
+weg:
+  auto_hide: खुद से छिपना
+  auto_hide_touch_disabled: टच स्क्रीन डिवाइस पर ऑटो हाइड उपलब्ध नहीं है
+  delay_to_hide: छिपाने में देरी
+  delay_to_show: दिखाने में देरी
+  dock_side: पद
+  filtering: आइटम फ़िल्टरिंग
+  gap: अंतर
+  hide_mode:
+    always: हमेशा
+    never: कभी नहीं
+    on_overlap: ओवरलैप पर
+  import_error: टास्कबार आइटम आयात करने में विफल
+  import_from_taskbar:
+    button: विंडोज़ टास्कबार से आयात करें
+    label: पिन किए गए आइटम आयात करें
+  import_no_items: विंडोज़ टास्कबार में कोई पिन किया हुआ आइटम नहीं मिला
+  import_success: विंडोज़ टास्कबार से {{गिनती}} आइटम सफलतापूर्वक आयात किया गया
+  items:
+    gap: वस्तुओं के बीच का स्थान
+    label: सामान
+    middle_click_action:
+      close_app: ऐप बंद करें
+      label: मध्य क्लिक क्रिया
+      open_new_instance: नया उदाहरण खोलें
+    pinned_visibility:
+      always: हमेशा
+      label: पिन किए गए आइटम दृश्यता
+      when_primary: जब मॉनिटर प्राइमरी हो
+    show_instance_counter: ओपन विंडोज काउंटर दिखाएं
+    show_window_title: ओपन विंडो शीर्षक दिखाएं (केवल क्षैतिज)
+    size: आइटम आकार
+    split_windows: विभाजित विंडोज़ (प्रति विंडो एक आइटम)
+    temporal_visibility:
+      all: सभी
+      label: अनपिन किए गए आइटम दृश्यता
+      on_monitor: मॉनिटर पर
+  label: डॉक/टास्टरबार
+  margin: अंतर
+  mode:
+    full_width: पूर्ण स्क्रीन चौड़ाई
+    min_content: जितना छोटा हो सकता है
+  padding: गद्दी
+  show_end_task: टास्कबार में अंतिम कार्य दिखाएं
+  width: चौड़ाई
+welcome:
+  give_a_review: एक समीक्षा दें
+  message: >-
+    सीलेन यूआई विंडोज़ के लिए एक मुफ़्त और खुला स्रोत डेस्कटॉप वातावरण है। यहां
+    आपका डेस्कटॉप कैसा दिखता है और कैसे व्यवहार करता है, इस पर आपका पूरा
+    नियंत्रण होता है, जिससे आप अपने वर्कफ़्लो और शैली से मेल खाने के लिए हर
+    विवरण को अनुकूलित कर सकते हैं।
+  ok: चलो शुरू करो!
+  review: >-
+    यदि आप सेलेन यूआई का उपयोग करना पसंद करते हैं, तो स्टोर पर एक समीक्षा छोड़ने
+    पर विचार करें - आपकी प्रतिक्रिया परियोजना को बढ़ने और बेहतर बनाने में मदद
+    करती है।
+  title: सीलेन यूआई में आपका स्वागत है!
+widget:
+  default_instance: डिफ़ॉल्ट उदाहरण
+  default_instance_hint: हमेशा सक्रिय, रूट विजेट कॉन्फ़िगरेशन का उपयोग करता है
+  enable: इस विजेट को सक्षम करें
+  enable_for_monitor: इस मॉनिटर पर सक्षम करें
+  extra_instances: अतिरिक्त उदाहरण
+  instance: उदाहरण
+  instances: उदाहरण
+wm:
+  animations:
+    duration: एनीमेशन अवधि (एमएस)
+    ease_function: एनीमेशन सहजता समारोह
+    enable: विंडो के एनिमेशन सक्षम करें
+  author: लेखक
+  auto_stack: ऐप श्रेणी के अनुसार ऑटो स्टैक
+  border:
+    enable: विंडो की सीमा सक्षम करें
+    offset: सीमावर्ती ऑफसेट
+    width: सीमा चौड़ाई
+  description: विवरण
+  drag_behavior: खींचें व्यवहार
+  drag_behavior_options:
+    sort: क्रमबद्ध करें (खींचते समय विंडोज़ को पुनः व्यवस्थित करें)
+    swap: स्वैप (ड्रैग एंड पर विंडोज़ स्वैप करें)
+  floating:
+    height: फ्लोटिंग विंडोज़ ऊँचाई
+    title: फ़्लोटिंग विंडोज़ आकार
+    width: फ़्लोटिंग विंडोज़ चौड़ाई
+  layout: लेआउट
+  resize_delta: डेल्टा का आकार बदलें (%)
+  space_between_containers: कंटेनरों के बीच की जगह
+  stack_bar_visibility: स्टैक बार दृश्यता
+  stack_bar_visibility_options:
+    always: हमेशा
+    as_needed: जरुरत के अनुसार
+  workspace_offset: कार्यक्षेत्र ऑफसेट (मार्जिन)
+  workspace_padding: कार्यक्षेत्र पैडिंग
+'yes': हाँ

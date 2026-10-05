@@ -1,0 +1,64 @@
+auth:
+  login_failed_body: 登入期間出現問題。如果這種情況仍然存在，請確保 Windows「憑證管理員」服務 (VaultSvc) 已啟用並正在執行，然後重試。
+  login_failed_title: 登入失敗
+cancel: 取消
+done: 完成
+elevated:
+  description: |-
+    Seelen UI 正在以管理員權限執行。
+    這不會增加或改進任何功能，並且可能會帶來安全風險。
+    為了更好的安全性，請在沒有管理員權限的情況下重新啟動它。
+  title: 以管理員身份執行
+file_explorer: 文件瀏覽器
+resource:
+  added: 添加了一個新資源
+  download_failed_body: 下載資源時出現問題，請向Seelen開發人員團隊報告。
+  download_failed_title: 資源下載失敗
+  downloading: 下載資源中……
+  downloading_body: 這可能需要幾秒鐘，請不要關閉視窗。
+  enable: 啟用
+  login_required_action: 登入
+  login_required_body: 您需要登入才能下載此資源。
+  login_required_title: 需要登入
+runtime:
+  corrupted_data: 數據損壞
+  corrupted_file: 設定文件已損壞，正在使用默認設定。
+  corrupted_file_path: 損壞的文件路徑
+  download: 轉到下載頁面
+  files_integrity: |-
+    我們無法驗證應用程序文件的完整性。
+    如果文件被修改、損壞或安裝不完整，則可能會發生這種情況。
+    出於安全原因，Seelen UI 無法繼續。
+    請從官方網站重新安裝。
+  files_integrity_title: 安全警報 - 文件完整性檢查失敗
+  not_found: 找不到 WebView2 runtime
+  not_found_description: Seelen UI 需要 WebView2 runtime。請安裝。
+  outdated: WebView2 runtime 版本過舊
+  outdated_description: Seelen UI 需要 WebView2 runtime ％{min_version} 或更高的版本。請更新。
+service:
+  not_running: 服務尚未執行
+  not_running_description: SEELEN UI服務（SLU服務）是該是應用程式正常運作所需的必要元件。
+  not_running_ok: 開始服務
+shortcut:
+  conflicts:
+    body: 某些快捷鍵已指派給多個操作，請重新指派它們。
+    dismiss: 解僱
+    review: 審查
+    title: 偵測到快捷鍵衝突
+  register:
+    placeholder: 按下任意快捷鍵組合
+    title: 註冊新的快捷鍵
+widget_liveness:
+  failed_description: |-
+    小工具「%{widget_name}」停止回應的次數過多。
+
+    您可以嘗試重新啟動應用程式。
+  failed_title: 小工具錯誤
+widget_permissions:
+  perm_open_file: 開啟文件
+  perm_run: 運行程式
+  request_description: |-
+    小工具「%{widget_name}」正在請求 %{command} 的權限。
+
+    您想允許這樣做嗎？
+  request_title: 小工具權限請求

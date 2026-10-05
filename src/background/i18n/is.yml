@@ -1,0 +1,80 @@
+auth:
+  login_failed_body: >-
+    Eitthvað fór úrskeiðis við innskráningu. Ef þetta er viðvarandi skaltu ganga
+    úr skugga um að Windows 'Credential Manager' þjónustan (VaultSvc) sé virkjuð
+    og í gangi, reyndu svo aftur.
+  login_failed_title: Innskráning mistókst
+cancel: Hætta við
+done: Gert
+elevated:
+  description: >-
+    Seelen UI er í gangi með stjórnandaréttindi.
+
+    Þetta bætir ekki við eða bætir neina eiginleika og það getur valdið
+    öryggisáhættu.
+
+    Til að bæta öryggi, vinsamlegast endurræstu það án leyfis stjórnanda.
+  title: Keyrir sem stjórnandi
+file_explorer: Skráarkönnuður
+resource:
+  added: Nýjum auðlind hefur verið bætt við
+  download_failed_body: >-
+    Eitthvað fór úrskeiðis þegar hún halaði niður auðlindinni, vinsamlegast
+    tilkynntu það til Seelen Developer teymisins.
+  download_failed_title: Auðlind niðurhal mistókst
+  downloading: Að hlaða niður eignum ...
+  downloading_body: Þetta gæti tekið nokkrar sekúndur, vinsamlegast ekki loka glugganum.
+  enable: Virkja
+  login_required_action: Skráðu þig inn
+  login_required_body: Þú þarft að skrá þig inn til að hlaða niður þessu tilfangi.
+  login_required_title: Innskráning krafist
+runtime:
+  corrupted_data: Skemmd gögn
+  corrupted_file: Stillingarskrá er skemmd og notar sjálfgefin gildi í staðinn.
+  corrupted_file_path: Skemmd skráarleið
+  download: Farðu á niðurhalssíðuna
+  files_integrity: >-
+    Við gátum ekki staðfest heilleika forritaskránna.
+
+    Þetta getur gerst ef skrár voru breyttar, skemmdar eða uppsetningunni er
+    ófullnægjandi.
+
+    Af öryggisástæðum getur Seelen UI ekki haldið áfram.
+
+    Vinsamlegast settu það upp aftur frá opinberu vefsíðunni.
+  files_integrity_title: Öryggisviðvörun - Athugun á heiðarleika skráa mistókst
+  not_found: WebView2 Runtime fannst ekki
+  not_found_description: Seelen UI krefst Webview2 Runtime. Vinsamlegast settu það upp.
+  outdated: WebView2 Runtime úreltur
+  outdated_description: >-
+    Seelen notendaviðmót krefst Webview2 Runtime %{min_version} eða hærri.
+    Vinsamlegast uppfærðu það.
+service:
+  not_running: Seelen UI þjónusta er ekki í gangi
+  not_running_description: Seelen UI Service (slu-þjónusta) er háð/hjálp til að appið virki rétt.
+  not_running_ok: Byrjaðu þjónustu
+shortcut:
+  conflicts:
+    body: >-
+      Sumum flýtileiðum er úthlutað mörgum aðgerðum, vinsamlegast endurúthlutaðu
+      þeim.
+    dismiss: Segja frá
+    review: Upprifjun
+    title: Flýtileiðarárekstrar fundust
+  register:
+    placeholder: Ýttu á hvaða lykilsamsetningu sem er
+    title: Að skrá nýja flýtileið
+widget_liveness:
+  failed_description: |-
+    Græjan '%{widget_name}' hætti að svara of oft.
+
+    Þú getur prófað að endurræsa forritið.
+  failed_title: Búnaður Villa
+widget_permissions:
+  perm_open_file: opna skrár
+  perm_run: keyra forrit
+  request_description: |-
+    Græjan '%{widget_name}' biður um leyfi til að %{command}.
+
+    Viltu leyfa þetta?
+  request_title: Beiðni um leyfi fyrir græju

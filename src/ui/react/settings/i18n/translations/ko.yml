@@ -1,0 +1,437 @@
+action:
+  confirm: 확실합니까?
+  confirm_body: 이 조치는 취소 할 수 없습니다.
+apps_configurations:
+  app:
+    bindings: 바인딩 (두 옵션 모두 필요)
+    category: 카테고리
+    category_placeholder: 없음
+    monitor: 모니터
+    monitor_placeholder: 없음
+    name: 이름
+    ok_create: 만들기
+    ok_edit: 수정하기
+    ok_readonly: 복사본으로 편집
+    options:
+      NoInteractive: 대화형 없음
+      VdPinned: 모든 작업공간에 표시
+      WmFloat: Twm - 부동 시작
+      WmForce: Twm - 강제 관리
+      WmUnmanage: Twm - 관리 해제
+    options_label: 추가 옵션
+    title_create: '{{name}} 만들기'
+    title_edit: 편집 {{name}}
+    title_readonly: '{{name}} 보기'
+    weg_options_label: 독/작업 표시줄 옵션
+    wm_options_label: 윈도우 관리자 옵션
+    workspace: 작업 공간
+    workspace_placeholder: 없음
+  bundled_msg: >-
+    이러한 미리 구성된 설정은 편집할 수 없으며, 수정하지 않고 최상의 경험을 제공하도록 설계되었습니다. 자주 사용되는 프로그램을 자동으로
+    구성합니다.
+  bundled_title: Seelen에서 제공한 설정
+  confirm_delete: 정말로 이 설정을 삭제하시겠습니까?
+  confirm_delete_title: 삭제하시겠습니까?
+  delete: 삭제
+  export: 내보내기
+  export_full: 애플리케이션별 설정 내보내기
+  extra_info: >-
+    Seelen UI는 앱당 (가장 먼저 일치한) 하나의 식별자만 사용하므로 식별된 순서는 중요합니다. 가장 최근에 추가된 항목이 우선순위를
+    정합니다. 참고로 테이블은 기본적으로 최신순 부터 오래된 순서로 정렬됩니다.
+  identifier:
+    add_block: 블록 추가
+    and: 그리고
+    id: 식별자
+    kind: 식별 기준
+    matching_strategy: 식별 방법
+    matching_strategy_option:
+      contains: 포함
+      ends_with: 다음으로 끝남
+      equals: 같음
+      regex: 정규식
+      starts_with: 다음으로 시작
+    negation: 조건이 반대일때 식별하기
+    or: 또는
+    remove: 블록 삭제
+    type:
+      class: 수업
+      exe: exe
+      path: 길
+      title: 제목
+  import: 가져오기
+  import_full: 애플리케이션별 설정 가져오기
+  new: 신규
+  search: 검색
+  swap: 교체
+cancel: 취소
+close: 닫기
+delete: 삭제
+devtools:
+  app_folders: 앱 폴더
+  color_palette: 컬러 팔레트
+  color_palette_note: >-
+    이러한 색상은 밝은/어두운 모드에 자동으로 적용됩니다. 각 음영은 고정된 값이 아니라 현재 배경을 기준으로 대비됩니다. 자동 테마 지원을
+    받으려면 하드코딩된 색상 대신 이를 사용하십시오.
+  custom_config_file: 사용자 정의 구성 파일 로드
+  data_folder: 데이터 폴더
+  enable: 개발자 도구 활성화
+  enable_description: Seelen UI 내부를 검사하고 디버깅하기 위한 고급 도구를 잠금 해제합니다. 정기적인 사용을 위한 것이 아닙니다.
+  icons: 캐시된 아이콘
+  install_folder: 설치 폴더
+  load: 로드
+  settings_file: 설정 파일
+  shared_components: SLU 표준 구성요소
+  simulate_dialog:
+    label: 대화 상자 시뮬레이션
+    trigger: 방아쇠
+  simulate_perm:
+    label: 위젯 권한 요청 시뮬레이션
+    result_allowed: ✓ 권한이 부여되었습니다
+    result_denied: ✗ 권한이 거부되었습니다
+    trigger: 시뮬레이션
+    widget_id_placeholder: '@작성자/위젯 이름'
+  tools: 도구
+  unlock_shortcuts: 읽기 전용 바로가기 잠금 해제
+  unlock_shortcuts_description: '일반적으로 읽기 전용인 편집 단축키를 허용합니다(예: 시스템 재정의).'
+  unstable_optimizations: 불안정한 최적화
+  unstable_optimizations_description: |-
+    RAM 사용량을 줄이는 실험적인 Chromium 플래그를 활성화합니다.
+    경고: 위젯이 충돌하면 동일한 로더를 공유하는 모든 위젯이 함께 충돌합니다.
+  widgets_debug:
+    actions: 행위
+    empty: 로드된 위젯이 없습니다. 새로 고침을 클릭합니다.
+    instance_id: 인스턴스 ID
+    monitor_id: 모니터 ID
+    open_devtools: 개발자 도구
+    refresh: 새로 고치다
+    status: 상태
+    tab: 위젯
+    widget_id: 위젯 ID
+discord_banner:
+  message: 다른 Seelen UI 사용자와 연결하고, 도움을 받고, 테마를 공유하고, 최신 뉴스를 받아보세요.
+  title: 우리 커뮤니티에 가입하세요
+extras:
+  backup_group: 클라우드 백업
+  backup_last_sync: 마지막 동기화
+  backup_never_synced: 동기화되지 않음
+  backup_sync: 클라우드에 설정 동기화
+  backup_sync_description: 클라우드를 통해 설정을 자동으로 백업하고 복원합니다.
+  clear_icons: 시스템 아이콘 캐시 지우기
+  clear_icons_tooltip: 모든 위젯에 완전히 적용하려면 다시 시작해야 할 수 있습니다.
+  discord_rpc: 디스코드의 풍부한 존재감
+  discord_rpc_description: 당신의 스타일을 모두에게 보여주세요!
+  exit: 종료/나가기
+  relaunch: 다시 시작
+  streaming_mode: 스트리밍 모드
+  streaming_mode_description: '녹화 또는 스크린샷 중에 개인 정보를 보호하기 위해 중요한 정보(예: 이메일)를 자리 표시자로 대체합니다.'
+  version: 버전
+  version_fixed: >-
+    애플리케이션 및 WebView2 런타임 버전이 수정되었습니다. 이는 애플리케이션이 업데이트를 받지 않고 WebView2 Runtime이
+    Windows 업데이트로 자동 업데이트되지 않음을 의미합니다.
+general:
+  accent_color: 강조 색상
+  date_format: 날짜 형식
+  date_format_how_to: 날짜 형식을 작성하는 방법은 무엇입니까?
+  hardware_acceleration: 하드웨어 가속
+  hardware_acceleration_description: >-
+    하드웨어 가속을 비활성화하면 메모리 사용량이 줄어듭니다. 무거운 애니메이션을 사용하지 않는 경우 비활성화하는 것이 안전하지만, 개별
+    위젯은 이 설정에 관계없이 여전히 GPU 사용을 강제할 수 있습니다.
+  icon_pack:
+    available: 사용 가능한 아이콘 팩
+    selected: 현재 아이콘 팩
+  language: 언어
+  monday: 월요일
+  performance_mode:
+    label: 최적화
+    on_battery: 배터리에
+    on_energy_saver: 에너지 세이버에서
+    options:
+      disabled: 장애가 있는
+      extreme: 극심한
+      minimal: 최소
+    plugged: 플러그 또는 충전
+  polling_interval: 시스템 폴링 간격
+  polling_interval_description: >-
+    Seelen UI가 CPU, RAM, 네트워크 및 디스크 활동과 같은 시스템 리소스를 확인하는 빈도(초)입니다. 숫자가 작을수록 업데이트
+    빈도가 높아지지만 리소스 사용량이 약간 높아집니다.
+  saturday: 토요일
+  start_of_week: 주의 시작
+  startup: 시작 시 실행
+  sunday: 일요일
+  suspend_on_game_mode: 게임 모드에서 위젯 일시 중지
+  suspend_on_game_mode_description: >-
+    Windows 게임 모드가 활성화되면 게임에 대한 CPU 및 메모리를 확보하기 위해 모든 위젯 웹뷰가 삭제됩니다. 게임 모드가 종료되면
+    위젯이 자동으로 복원됩니다.
+  theme:
+    available: 사용 가능한 테마
+    selected: 현재 테마
+global: 글로벌
+header:
+  labels:
+    config: 구성
+    developer: 개발자용
+    extras: 추가 정보
+    general: 일반
+    home: 홈
+    iconpack: 아이콘 팩
+    monitors: 모니터
+    plugin: 플러그인
+    resources: 리소스
+    session: 계정
+    shortcuts: 단축키
+    soundpack: 사운드 팩
+    specific_apps: 애플리케이션별 설정
+    theme: 테마
+    virtual_desk: 가상 데스크톱
+    wallpaper: 배경 화면
+    widget: 위젯
+home:
+  new_resources: 새로운 리소스
+inherit: 상속
+inProgress: 진행 중...
+insert: 추가
+join_us: 우리와 함께하세요!
+loading: 로딩 중...
+miscellaneous: 기타
+monitors_configurations:
+  label: 모니터 {{index}}
+more: 더보기
+'no': 아니요
+open: 열기
+quit: 종료
+remove: 제거
+reset_all_to_default: 모두 기본값으로 초기화
+reset_configurations: 구성 재설정
+reset_to_default: 기본값으로 재설정
+resources:
+  affected_widgets: 영향을 받는 위젯
+  app_outdated: 이 리소스가 제대로 작동하려면 최신 버전의 Seelen UI가 필요합니다.
+  coming_soon: 출시 예정
+  corrupted_wallpaper: 썸네일 추출 실패 - 손상되었거나 지원되지 않는 비디오 형식
+  delete: 리소스 삭제
+  discover: 더 많은 리소스 살펴보기
+  has_update: 업데이트를 사용할 수 있습니다
+  high_impact: 성능에 큰 영향
+  import_wallpapers: 로컬 배경화면 가져오기
+  included_plugins: 포함된 플러그인
+  modified: 수정됨
+  open_folder: 리소스 폴더 열기
+  outdated: 이 리소스는 이전 버전의 Seelen UI용으로 설계되었으며 제대로 작동하지 않을 수 있습니다.
+  see_on_website: 웹사이트에서 확인하세요
+  update_now: 업데이트
+  updates_available: 업데이트 가능
+  updates_available_description: 다음 리소스에는 사용 가능한 업데이트가 있습니다.
+review_request:
+  not_now: 지금은 아님
+  sure: 확신하는!
+  title: Seelen UI를 즐기고 계시나요?
+save: 저장
+save_and_restart: 저장 및 재시작
+search: 찾다
+see_more: 자세히 보기
+session:
+  logout: 로그아웃
+  plan: 계획
+  sign_in: 로그인
+  sign_in_hint: 안전하게 로그인할 수 있도록 브라우저가 열립니다.
+  upgrade_to: 업그레이드
+shortcuts:
+  disabled_tooltip: 위젯과 해당 바로가기가 비활성화되었습니다.
+  duplicate_error: 충돌하는 바로가기가 감지되었습니다.
+  duplicate_error_hint: 일부 단축키는 여러 작업에 할당됩니다. 충돌하는 위젯 중 하나를 비활성화하거나 중복 키 바인딩을 다시 할당하여 문제를 해결하세요.
+  enable: 내장 단축키 시스템을 활성화하십시오
+  enable_tooltip: Seelen UI 클라이언트를 사용하여 자신의 바로 가기 시스템을 구현하는 경우 비활성화하십시오.
+  labels:
+    create_new_workspace: 새 작업 공간을 만듭니다
+    create_new_workspace_row: 새 작업공간 행 생성
+    destroy_current_workspace: 현재 작업 공간을 파괴하십시오
+    misc_force_quit: 힘을 끊으십시오
+    misc_force_restart: 강제 재시작
+    move_to_workspace: 작업 공간으로 이동 {{0}}
+    pause_toggle: 일시중지/재개 바로가기
+    send_to_next_workspace: 창을 다음 작업 공간으로 보내기
+    send_to_previous_workspace: 이전 작업 공간으로 창 보내기
+    send_to_workspace: 작업 공간으로 보내 {{0}}
+    send_to_workspace_down: 창을 아래 작업 공간으로 보내기
+    send_to_workspace_up: 창을 위의 작업 공간으로 보내기
+    switch_to_next_workspace: 다음 작업 공간으로 전환하십시오
+    switch_to_previous_workspace: 이전 작업 공간으로 전환하십시오
+    switch_to_workspace_down: 아래 작업공간으로 전환
+    switch_to_workspace_up: 위 작업공간으로 전환
+    switch_workspace: 작업 공간으로 전환 {{0}}
+  readonly_tooltip: 이것은 읽기 전용 단축키입니다
+  reset: 기본값으로 재설정하십시오
+sides:
+  bottom: 아래
+  left: 왼쪽
+  right: 오른쪽
+  top: 위
+toolbar:
+  auto_hide: 자동 숨기기
+  auto_hide_touch_disabled: 터치 스크린 장치에서는 자동 숨기기를 사용할 수 없습니다.
+  delay_to_hide: 숨기기 지연
+  delay_to_show: 표시 지연
+  dock_side: 위치
+  enable: 툴바 활성화
+  hide_mode:
+    always: 항상
+    never: 안 함
+    on_overlap: 오버랩 시
+  item_size: 품목 크기
+  label: 도구 모음
+  margin: 여백 크기
+  padding: 패딩 크기
+  placeholder: {}
+update:
+  available: 사용 가능한 업데이트가 존재합니다!
+  channel: 업데이트 채널
+  downloading: 다운로드 중...
+wall:
+  blur: 블러
+  cancel: 취소
+  close: 닫다
+  collection_name: 컬렉션 이름
+  collections: 컬렉션
+  contrast: 대비
+  corrupted_wallpapers_message: '손상된 배경화면은 삭제하는 것이 좋습니다:'
+  coverage_pause_threshold: 일시중지 임계값(창 적용 범위)
+  create: 만들다
+  create_collection: 컬렉션 만들기
+  default_collection: 기본 배경화면 또는 컬렉션
+  default_collection_description: 특정 재정의가 설정되지 않은 모든 모니터 및 작업 공간에 적용됩니다.
+  delete_collection: 컬렉션 삭제
+  edit_collection: 컬렉션 편집
+  extend: 기본 확장
+  fit:
+    contain: 포함
+    cover: 커버
+    fill: 채우기
+  flipHorizontal: 가로로 뒤집기
+  flipVertical: 세로로 뒤집기
+  generating_thumbnails: 배경화면 썸네일 생성
+  hours: 시간
+  interval: 배경화면 변경 주기
+  minutes: 분
+  monitor_collection: 모니터 컬렉션
+  multimonitor_behaviour: 다중 모니터 동작
+  muted: 비디오 오디오 음소거
+  no_background: 배경화면이 없으면, 테마에 내장된 배경화면을 대신 사용합니다.
+  no_collections: 아직 생성된 컬렉션이 없습니다. + 버튼을 클릭하여 생성하세요.
+  objectFit: 배경 맞춤
+  objectPosition: 배경 위치
+  overlayColor: 오버레이 색상
+  overlayMixBlendMode: 오버레이 믹스 블렌드 모드
+  per_monitor: 모니터당
+  per_monitor_config: 모니터별 구성
+  playback: 재생 속도
+  position:
+    bottom: 하단
+    center: 센터
+    left: 왼쪽
+    right: 오른쪽
+    top: Top
+  processing_video: 비디오 처리 중
+  random: 슬라이드 쇼 무작위
+  saturation: 채도
+  seconds: 초
+  select_collection: 컬렉션 선택
+  thumbnail_generation_complete: 썸네일 생성 완료
+  thumbnail_generation_finished: 썸네일 생성이 성공적으로 완료되었습니다.
+  use_accent_color: 벽지 강조 색상 사용
+  wallpaper_collection: 배경화면 모음
+  wallpaper_settings: 배경화면 설정
+  wallpapers: 배경화면
+  wallpapers_and_collections: 배경화면 및 컬렉션
+  withOverlay: 오버레이 사용
+  workspace_collections: 작업공간 컬렉션
+weg:
+  auto_hide: 자동 숨기기
+  auto_hide_touch_disabled: 터치 스크린 장치에서는 자동 숨기기를 사용할 수 없습니다.
+  delay_to_hide: 숨기기 지연
+  delay_to_show: 표시 지연
+  dock_side: 위치
+  filtering: 항목 필터링
+  gap: 간격
+  hide_mode:
+    always: 항상
+    never: 안 함
+    on_overlap: 오버랩 시
+  import_error: 작업 표시줄 항목을 가져오지 못했습니다.
+  import_from_taskbar:
+    button: Windows 작업 표시줄에서 가져오기
+    label: 고정된 항목 가져오기
+  import_no_items: Windows 작업 표시줄에 고정된 항목이 없습니다.
+  import_success: Windows 작업 표시줄에서 {{count}}개 항목을 성공적으로 가져왔습니다.
+  items:
+    gap: 항목 간 간격
+    label: 항목
+    middle_click_action:
+      close_app: 앱 닫기
+      label: 중간 클릭 동작
+      open_new_instance: 새 인스턴스 열기
+    pinned_visibility:
+      always: 항상
+      label: 고정된 항목 가시성
+      when_primary: 모니터가 기본인 경우
+    show_instance_counter: 열린 창 카운터 표시
+    show_window_title: 열린 창 제목 표시(가로만)
+    size: 항목 크기
+    split_windows: 창 분할(창당 하나의 항목)
+    temporal_visibility:
+      all: 모두
+      label: 고정 해제된 항목 가시성
+      on_monitor: 모니터에서
+  label: 독/작업 표시줄
+  margin: 바깥 여백
+  mode:
+    full_width: 전체 화면 너비
+    min_content: 최대한 작게
+  padding: 안쪽 여백
+  show_end_task: 작업 표시줄에 종료 작업 표시
+  width: 너비
+welcome:
+  give_a_review: 리뷰를 남겨주세요
+  message: >-
+    Seelen UI는 Windows용 무료 오픈 소스 데스크톱 환경입니다. 여기에서 데스크탑의 모양과 동작을 완전히 제어할 수 있으므로
+    작업 흐름과 스타일에 맞게 모든 세부 사항을 사용자 정의할 수 있습니다.
+  ok: 시작하자!
+  review: Seelen UI를 즐겨 사용하신다면 스토어에 리뷰를 남겨보세요. 여러분의 피드백은 프로젝트 성장과 개선에 도움이 됩니다.
+  title: Seelen UI에 오신 것을 환영합니다!
+widget:
+  default_instance: 기본 인스턴스
+  default_instance_hint: 항상 활성 상태이며 루트 위젯 구성을 사용합니다.
+  enable: 이 위젯 활성화
+  enable_for_monitor: 이 모니터에서 활성화
+  extra_instances: 추가 인스턴스
+  instance: 사례
+  instances: 인스턴스
+wm:
+  animations:
+    duration: 애니메이션 지속 시간 (MS)
+    ease_function: 애니메이션 완화 기능
+    enable: 창의 애니메이션을 활성화합니다
+  author: 작성자
+  auto_stack: 앱 카테고리별 자동 스택
+  border:
+    enable: 창 테두리 활성화
+    offset: 테두리 여백
+    width: 테두리 너비
+  description: 설명
+  drag_behavior: 드래그 동작
+  drag_behavior_options:
+    sort: 정렬(드래그하는 동안 창 재정렬)
+    swap: 교환(드래그 끝에서 창 교환)
+  floating:
+    height: 부동 창 높이
+    title: 부동 창 크기
+    width: 부동 창 너비
+  layout: 레이아웃
+  resize_delta: 크기 조정 수치 (%)
+  space_between_containers: 컨테이너 간 간격
+  stack_bar_visibility: 스택 막대 가시성
+  stack_bar_visibility_options:
+    always: 언제나
+    as_needed: 필요에 따라
+  workspace_offset: 작업 공간 바깥 여백
+  workspace_padding: 작업 공간 안쪽 여백
+'yes': 예

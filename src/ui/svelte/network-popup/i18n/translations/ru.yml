@@ -1,0 +1,23 @@
+available: Доступные сети
+connect: Соединять
+connected: Подключено к
+connecting: Подключение...
+disconnect: Отключить
+forget: Забывать
+hidden: Скрытая сеть
+hotspot:
+  band: Группа
+  'off': Выключенный
+  'on': На
+  open_network: Открытая сеть
+  password: Пароль
+  settings: Дополнительные настройки точки доступа
+  ssid: Имя сети
+  title: Точка доступа
+more: Дополнительные настройки сети
+no_adapter: Адаптер Wi-Fi не найден
+not_found: Сети Wi-Fi не найдены
+password: Пароль
+saved: Сохраненные сети
+scanning: Сканирование сетей
+secured: Зашифрованная сеть

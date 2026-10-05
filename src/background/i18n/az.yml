@@ -1,0 +1,87 @@
+auth:
+  login_failed_body: >-
+    Giriş zamanı xəta baş verdi. Bu davam edərsə, Windows 'Etibarnamə Meneceri'
+    xidmətinin (VaultSvc) aktiv və işlək olduğundan əmin olun, sonra yenidən
+    cəhd edin.
+  login_failed_title: Giriş uğursuz oldu
+cancel: Ləğv etmək
+done: Tamamlandı
+elevated:
+  description: >-
+    Seelen UI administrator imtiyazları ilə işləyir.
+
+    Bu, heç bir xüsusiyyət əlavə etmir və ya təkmilləşdirmir və təhlükəsizlik
+    riski yarada bilər.
+
+    Daha yaxşı təhlükəsizlik üçün administrator icazəsi olmadan onu yenidən
+    başladın.
+  title: Administrator olaraq çalışır
+file_explorer: Fayl Explorer
+resource:
+  added: Yeni bir qaynaq əlavə edildi
+  download_failed_body: >-
+    Resursu yükləyərkən bir şey səhv oldu, xahiş edirəm Seelen geliştirici
+    komandasına bildirin.
+  download_failed_title: Resurs yükləmə uğursuz oldu
+  downloading: Aktivləri yükləmək ...
+  downloading_body: Bu bir neçə saniyə çəkə bilər, xahiş edirəm pəncərəni bağlamayın.
+  enable: Aktivləşdirmək
+  login_required_action: Daxil ol
+  login_required_body: Bu resursu yükləmək üçün daxil olmalısınız.
+  login_required_title: Giriş Tələb olunur
+runtime:
+  corrupted_data: Zərərli məlumatlar
+  corrupted_file: >-
+    Bunun əvəzinə standart dəyərlərdən istifadə edərək bir konfiqurasiya faylı
+    pozulur.
+  corrupted_file_path: Pozulmuş fayl yolu
+  download: Yükləmə səhifəsinə keçin
+  files_integrity: >-
+    Tətbiq fayllarının bütövlüyünü yoxlaya bilmədik.
+
+    Bu, fayllar dəyişdirildikdə, zədələndikdə və ya quraşdırma tamamlanmadıqda
+    baş verə bilər.
+
+    Təhlükəsizlik səbəbləri ilə Seelen UI davam edə bilməz.
+
+    Lütfən, onu rəsmi saytdan yenidən quraşdırın.
+  files_integrity_title: >-
+    Təhlükəsizlik Xəbərdarlığı - Faylların bütövlüyünün yoxlanılması uğursuz
+    oldu
+  not_found: WebView2 İcra vaxtı tapılmadı
+  not_found_description: Seelen UI Webview2 Runtime tələb edir. Zəhmət olmasa quraşdırın.
+  outdated: WebView2 İcra vaxtı köhnəlmişdir
+  outdated_description: >-
+    Seelen UI Webview2 Runtime %{min_version} və ya daha yüksək tələb edir.
+    Zəhmət olmasa yeniləyin.
+service:
+  not_running: Seelen UI Xidməti işləmir
+  not_running_description: >-
+    Seelen UI Xidməti (slu-xidmət) tətbiqin düzgün işləməsi üçün
+    asılılıq/köməkçidir.
+  not_running_ok: Xidmətə başlayın
+shortcut:
+  conflicts:
+    body: >-
+      Bəzi qısayollar çoxlu əməliyyatlara təyin edilib, lütfən, onları yenidən
+      təyin edin.
+    dismiss: Rədd et
+    review: Baxış
+    title: Qısayol Münaqişələri Aşkarlandı
+  register:
+    placeholder: Hər hansı bir açar birləşməsini basın
+    title: Yeni qısa yol qeydiyyatı
+widget_liveness:
+  failed_description: |-
+    '%{widget_name}' vidceti çox dəfə cavab vermədi.
+
+    Proqramı yenidən başlatmağa cəhd edə bilərsiniz.
+  failed_title: Vidcet xətası
+widget_permissions:
+  perm_open_file: faylları açın
+  perm_run: proqramları işlədin
+  request_description: |-
+    '%{widget_name}' vidceti %{command} üçün icazə tələb edir.
+
+    Buna icazə vermək istəyirsiniz?
+  request_title: Widget İcazə Sorğusu

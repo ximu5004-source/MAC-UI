@@ -1,0 +1,459 @@
+action:
+  confirm: ທ່ານແນ່ໃຈບໍ່?
+  confirm_body: ການກະທໍານີ້ບໍ່ສາມາດເຮັດໄດ້.
+apps_configurations:
+  app:
+    bindings: ການຜູກມັດ (ຫມາຍເຫດທັງສອງທາງເລືອກແມ່ນຈໍາເປັນ)
+    category: ປະເພດ
+    category_placeholder: ບໍ່ມີ
+    monitor: ຕິດຕາມກວດກາ
+    monitor_placeholder: ບໍ່ມີ
+    name: ຊື່
+    ok_create: ສ້າງ
+    ok_edit: ອັບເດດ
+    ok_readonly: ແກ້ໄຂເປັນໃໝ່
+    options:
+      NoInteractive: ບໍ່ມີການໂຕ້ຕອບກັນ
+      VdPinned: ສະແດງໃນທຸກບ່ອນເຮັດວຽກ
+      WmFloat: twm - ເລີ່ມຕົ້ນລອຍ
+      WmForce: twm - ກໍາລັງແຮງງານຄຸ້ມຄອງ
+      WmUnmanage: twm - unmanage
+    options_label: ທາງເລືອກພິເສດ
+    title_create: ການສ້າງ {{name}}
+    title_edit: ການແກ້ໄຂ {{ne name}}}
+    title_readonly: ກຳລັງເບິ່ງ {{name}}
+    weg_options_label: ທາງເລືອກ Dock / Taskasbar
+    wm_options_label: ຕົວເລືອກຜູ້ຈັດການ window Manager
+    workspace: ພື້ນທີ່ເຮັດວຽກ
+    workspace_placeholder: ບໍ່ມີ
+  bundled_msg: >-
+    ການຕັ້ງຄ່າຊຸດເຫຼົ່ານີ້ບໍ່ສາມາດແກ້ໄຂໄດ້
+    ແລະຖືກອອກແບບມາເພື່ອໃຫ້ປະສົບການທີ່ດີທີ່ສຸດແກ່ເຈົ້າໂດຍບໍ່ມີການປັບແຕ່ງ.
+    ພວກເຂົາຕັ້ງຄ່າແອັບພລິເຄຊັນທົ່ວໄປທີ່ສຸດສໍາລັບທ່ານໂດຍອັດຕະໂນມັດ.
+  bundled_title: App Config Bundled ກັບ Seelen
+  confirm_delete: ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບການຕັ້ງຄ່ານີ້?
+  confirm_delete_title: ຢືນຢັນການລຶບ
+  delete: ລຶບ
+  export: ສົ່ງອອກ
+  export_full: ການຕັ້ງຄ່າການສົ່ງອອກໂດຍສະຫມັກ
+  extra_info: >-
+    SEVENEN UI ໃຊ້ພຽງແຕ່ຕົວລະບຸຕົວລະບຸ 1 (ທີ່ພົບໃນລະດັບທໍາອິດ)
+    ສະນັ້ນຄໍາສັ່ງທີ່ມີຄວາມສໍາຄັນ, ເຊັ່ນວ່າຕາຕະລາງຖືກຈັດຮຽງຕາມລໍາດັບເດີມ
+  identifier:
+    add_block: ເພີ່ມ Block
+    and: ແລະ
+    id: ຕົວລະບຸ
+    kind: ກໍານົດໂດຍ
+    matching_strategy: ຍຸດທະສາດການຈັບຄູ່
+    matching_strategy_option:
+      contains: ປະກອບດ້ວຍ
+      ends_with: ສິ້ນສຸດດ້ວຍ
+      equals: ເທົ່າກັບ
+      regex: ການສະແດງອອກເປັນປົກກະຕິ
+      starts_with: ເລີ່ມຕົ້ນດ້ວຍ
+    negation: Negate ການຈັບຄູ່
+    or: ຫຼື
+    remove: ລຶບ Block
+    type:
+      class: ຫ້ອງຮຽນ
+      exe: exe
+      path: ເສັ້ນທາງ
+      title: ຫົວຂໍ້
+  import: ນໍາເຂົ້າ
+  import_full: ການຕັ້ງຄ່ານໍາເຂົ້າໂດຍການສະຫມັກ
+  new: ໃຫມ່
+  search: ຊອກຫາ
+  swap: ແລກປ່ຽນ
+cancel: ຍົກເລີກ
+close: ປິດ
+delete: ລຶບ
+devtools:
+  app_folders: ໂຟນເດີ App
+  color_palette: ສີ Palette
+  color_palette_note: >-
+    ສີເຫຼົ່ານີ້ປັບຕົວເຂົ້າກັບໂໝດແສງສະຫວ່າງ/ມືດໂດຍອັດຕະໂນມັດ —
+    ແຕ່ລະຮົ່ມແມ່ນກົງກັນຂ້າມກັບພື້ນຫຼັງປັດຈຸບັນ, ບໍ່ແມ່ນຄ່າຄົງທີ່. ໃຊ້ພວກມັນແທນສີ
+    hardcoded ເພື່ອໄດ້ຮັບການສະຫນັບສະຫນູນຮູບແບບອັດຕະໂນມັດ.
+  custom_config_file: ໂຫຼດໄຟລ໌ການຕັ້ງຄ່າແບບກຳນົດເອງ
+  data_folder: ແຟ້ມຂໍ້ມູນ
+  enable: ເປີດໃຊ້ເຄື່ອງມືນັກພັດທະນາ
+  enable_description: >-
+    ປົດລັອກເຄື່ອງມືຂັ້ນສູງສຳລັບການກວດສອບ ແລະແກ້ໄຂຂໍ້ມູນພາຍໃນ Seelen UI.
+    ບໍ່ໄດ້ມີຈຸດປະສົງສໍາລັບການນໍາໃຊ້ປົກກະຕິ.
+  icons: ໄອຄອນທີ່ຈັດເກັບໄວ້
+  install_folder: ໂຟນເດີການຕິດຕັ້ງ
+  load: ໂຫຼດ
+  settings_file: ໄຟລ໌ການຕັ້ງຄ່າ
+  shared_components: ອົງປະກອບມາດຕະຖານ SLU
+  simulate_dialog:
+    label: ຈຳລອງກ່ອງໂຕ້ຕອບ
+    trigger: ກະຕຸ້ນ
+  simulate_perm:
+    label: ຈໍາລອງການຮ້ອງຂໍການອະນຸຍາດ Widget
+    result_allowed: ✓​ການ​ອະ​ນຸ​ຍາດ​ໃຫ້​
+    result_denied: ✗ ການ​ອະ​ນຸ​ຍາດ​ຖືກ​ປະ​ຕິ​ເສດ​
+    trigger: ຈຳລອງ
+    widget_id_placeholder: '@author/widget-name'
+  tools: ເຄື່ອງມື
+  unlock_shortcuts: ປົດລັອກທາງລັດອ່ານເທົ່ານັ້ນ
+  unlock_shortcuts_description: 'ອະນຸຍາດໃຫ້ແກ້ໄຂທາງລັດທີ່ປົກກະຕິອ່ານເທົ່ານັ້ນ (ເຊັ່ນ: ການລົບລ້າງລະບົບ).'
+  unstable_optimizations: ການເພີ່ມປະສິດທິພາບທີ່ບໍ່ສະຖຽນ
+  unstable_optimizations_description: >-
+    ເປີດໃຊ້ທຸງ Chromium ທົດລອງທີ່ຫຼຸດການໃຊ້ RAM.
+
+    ຄໍາເຕືອນ: ຖ້າ widget ຂັດຂ້ອງ, widget ທັງຫມົດທີ່ແບ່ງປັນ loader ດຽວກັນຈະ crash
+    ຮ່ວມກັນ.
+  widgets_debug:
+    actions: ການກະທໍາ
+    empty: ບໍ່ມີວິດເຈັດທີ່ໂຫລດ. ຄລິກ ໂຫຼດຫນ້າຈໍຄືນ.
+    instance_id: ID ຕົວຢ່າງ
+    monitor_id: ID ຈໍພາບ
+    open_devtools: DevTools
+    refresh: ໂຫຼດຂໍ້ມູນຄືນໃໝ່
+    status: ສະຖານະ
+    tab: ວິດເຈັດ
+    widget_id: ໄອດີວິດເຈັດ
+discord_banner:
+  message: >-
+    ເຊື່ອມ​ຕໍ່​ກັບ​ຜູ້​ໃຊ້ Seelen UI ຄົນ​ອື່ນ, ຂໍ​ຄວາມ​ຊ່ວຍ​ເຫຼືອ,
+    ແບ່ງ​ປັນ​ຮູບ​ແບບ, ແລະ​ຕິດ​ຕໍ່​ກັບ​ຂ່າວ​ຫລ້າ​ສຸດ.
+  title: ເຂົ້າຮ່ວມຊຸມຊົນຂອງພວກເຮົາ
+extras:
+  backup_group: Cloud Backup
+  backup_last_sync: ຊິງຄ໌ຄັ້ງສຸດທ້າຍ
+  backup_never_synced: ບໍ່ເຄີຍຊິ້ງ
+  backup_sync: ຕັ້ງຄ່າການຊິງຄ໌ກັບຄລາວ
+  backup_sync_description: ສຳຮອງຂໍ້ມູນອັດຕະໂນມັດ ແລະຟື້ນຟູການຕັ້ງຄ່າຂອງທ່ານຜ່ານຄລາວ.
+  clear_icons: ລະບົບໄອຄອນລະບົບໄອຄອນ
+  clear_icons_tooltip: ການເລີ່ມຕົ້ນໃຫມ່ອາດຈະມີຜົນບັງຄັບໃຊ້ຢ່າງເຕັມສ່ວນໃນທຸກໆ widget
+  discord_rpc: ຄວາມຂັດແຍ້ງທີ່ອຸດົມສົມບູນ
+  discord_rpc_description: ສະແດງໃຫ້ທຸກຄົນມີສະໄຕລ໌!
+  exit: ອອກ/ອອກ
+  relaunch: ເປີດຄືນໃໝ່
+  streaming_mode: ໂໝດສະຕຣີມ
+  streaming_mode_description: >-
+    ແທນທີ່ຂໍ້ມູນລະອຽດອ່ອນ (ເຊັ່ນ: ອີເມວ)
+    ດ້ວຍຕົວຍຶດບ່ອນເພື່ອປົກປ້ອງຄວາມເປັນສ່ວນຕົວໃນລະຫວ່າງການບັນທຶກ ຫຼືພາບໜ້າຈໍ.
+  version: ຮຸ່ນ
+  version_fixed: >-
+    ແອັບພລິເຄຊັນ ແລະ WebView2 Runtime ເວີຊັ່ນຖືກແກ້ໄຂແລ້ວ.
+    ນີ້ຫມາຍຄວາມວ່າແອັບພລິເຄຊັນຈະບໍ່ໄດ້ຮັບການປັບປຸງແລະ WebView2 Runtime
+    ຈະບໍ່ຖືກປັບປຸງໂດຍອັດຕະໂນມັດກັບການປັບປຸງ Windows.
+general:
+  accent_color: ສີສໍານຽງ
+  date_format: ຮູບແບບວັນທີ
+  date_format_how_to: ວິທີການຂຽນຮູບແບບວັນທີ?
+  hardware_acceleration: ການເລັ່ງຮາດແວ
+  hardware_acceleration_description: >-
+    ການປິດການນຳໃຊ້ການເລັ່ງຮາດແວຈະຫຼຸດການນຳໃຊ້ໜ່ວຍຄວາມຈຳ.
+    ມັນປອດໄພທີ່ຈະປິດການໃຊ້ງານຖ້າທ່ານບໍ່ໄດ້ໃຊ້ພາບເຄື່ອນໄຫວທີ່ຮຸນແຮງ, ເຖິງແມ່ນວ່າ
+    widget ແຕ່ລະອັນອາດຈະຍັງບັງຄັບໃຊ້ GPU ໂດຍບໍ່ຄໍານຶງເຖິງການຕັ້ງຄ່ານີ້.
+  icon_pack:
+    available: ໄອຄອນຊອງທີ່ມີໃຫ້
+    selected: ຊຸດໄອຄອນທີ່ໃຊ້ໄດ້
+  language: ພາສາ
+  monday: ວັນຈັນ
+  performance_mode:
+    label: ການເພີ່ມປະສິດທິພາບ
+    on_battery: ສຸດແບັດເຕີຣີ
+    on_energy_saver: ກ່ຽວກັບປະຫຍັດພະລັງງານ
+    options:
+      disabled: ພິການ
+      extreme: ທີ່ຮ້າຍ
+      minimal: ຫນ້ອຍ
+    plugged: ສຽບຫລືສາກໄຟ
+  polling_interval: ໄລຍະການສຳຫຼວດລະບົບ
+  polling_interval_description: >-
+    ເລື້ອຍປານໃດ (ເປັນວິນາທີ) Seelen UI ກວດເບິ່ງຊັບພະຍາກອນລະບົບເຊັ່ນ CPU, RAM,
+    ເຄືອຂ່າຍ ແລະການເຄື່ອນໄຫວຂອງແຜ່ນ. ຕົວເລກທີ່ນ້ອຍກວ່າຫມາຍເຖິງການອັບເດດເລື້ອຍໆ,
+    ແຕ່ການໃຊ້ຊັບພະຍາກອນສູງກວ່າເລັກນ້ອຍ.
+  saturday: ວັນເສົາ
+  start_of_week: ເລີ່ມຕົ້ນອາທິດ
+  startup: ດໍາເນີນການກ່ຽວກັບການເລີ່ມຕົ້ນ?
+  sunday: ວັນອາທິດ
+  suspend_on_game_mode: ໂຈະວິດເຈັດຢູ່ໃນໂໝດເກມ
+  suspend_on_game_mode_description: >-
+    ເມື່ອໂຫມດເກມ Windows ເຮັດວຽກ, widget webviews ທັງໝົດຈະຖືກທໍາລາຍ CPU
+    ແລະຫນ່ວຍຄວາມຈໍາຟຣີສໍາລັບເກມ.
+    ວິດເຈັດຈະຖືກຟື້ນຟູໂດຍອັດຕະໂນມັດເມື່ອໂໝດເກມສິ້ນສຸດ.
+  theme:
+    available: ຮູບແບບສີສັນທີ່ມີຢູ່
+    selected: ຮູບແບບການເຄື່ອນໄຫວ
+global: ທົ່ວໂລກ
+header:
+  labels:
+    config: ການຕັ້ງຄ່າການຕັ້ງຄ່າ
+    developer: ສໍາລັບນັກພັດທະນາ
+    extras: ພິເສດ
+    general: ທົ່ວໄປ
+    home: ບ້ານ
+    iconpack: icon ຊອງ
+    monitors: ຈໍພາບ
+    plugin: Plugins
+    resources: ຊັບພະຍາກອນ
+    session: ບັນຊີ
+    shortcuts: ທາງລັດ
+    soundpack: ຊອງສຽງ
+    specific_apps: ການຕັ້ງຄ່າໂດຍການສະຫມັກ
+    theme: ຫົວຂໍ້
+    virtual_desk: virtual desktops
+    wallpaper: ຮູບວໍເປເປີ
+    widget: widgets
+home:
+  new_resources: ຊັບພະຍາກອນໃຫມ່
+inherit: ມູນມໍລະດົກ
+inProgress: ຢູ່ໃນຄວາມຄືບໜ້າ...
+insert: ຊອນເຂົ້າ
+join_us: ເຂົ້າຮ່ວມກັບພວກເຮົາ!
+loading: ກຳລັງໂຫລດ...
+miscellaneous: ຫຼາຢ
+monitors_configurations:
+  label: Monitor {{{{ດັດສະນີ}}
+more: ຫຼາຍ
+'no': ບໍ່
+open: ເປີດ
+quit: ເຊົາ
+remove: ເອົາອອກ
+reset_all_to_default: ປັບຄ່າທັງຫມົດໃຫ້ກັບຄ່າເລີ່ມຕົ້ນ
+reset_configurations: ຕັ້ງຄ່າການຕັ້ງຄ່າຄືນໃໝ່
+reset_to_default: ຕັ້ງຄ່າໃຫມ່ໃຫ້ກັບຄ່າເລີ່ມຕົ້ນ
+resources:
+  affected_widgets: Widgets ໄດ້ຮັບຜົນກະທົບ
+  app_outdated: ຊັບພະຍາກອນນີ້ຮຽກຮ້ອງໃຫ້ມີ Searen ລຸ້ນໃຫມ່ UI ໃຫ້ເຮັດວຽກຢ່າງຖືກຕ້ອງ.
+  coming_soon: ໄວໆນີ້
+  corrupted_wallpaper: ລົ້ມເຫລວໃນການສະກັດຮູບຫຍໍ້ - ຮູບແບບວິດີໂອເສຍຫາຍ ຫຼືບໍ່ຮອງຮັບ
+  delete: ລົບລ້າງຊັບພະຍາກອນ
+  discover: ຄົ້ນພົບຊັບພະຍາກອນເພີ່ມເຕີມ
+  has_update: ມີການປັບປຸງໃຫມ່
+  high_impact: ຜົນກະທົບສູງຕໍ່ການປະຕິບັດ
+  import_wallpapers: ນໍາເຂົ້າຮູບວໍເປເປີທ້ອງຖິ່ນ
+  included_plugins: ລວມມີປລັກອິນ
+  modified: ດັດແກ້ແລ້ວ
+  open_folder: Open Opence Folder
+  outdated: >-
+    ຊັບພະຍາກອນນີ້ໄດ້ຖືກອອກແບບມາສໍາລັບ Apen ຂອງ Searen UI
+    ແລະອາດຈະບໍ່ເຮັດວຽກຢ່າງຖືກຕ້ອງ.
+  see_on_website: ເບິ່ງຢູ່ໃນເວັບໄຊທ໌
+  update_now: ອັບເດດ
+  updates_available: ມີການອັບເດດ
+  updates_available_description: ຊັບພະຍາກອນຕໍ່ໄປນີ້ມີການອັບເດດ.
+review_request:
+  not_now: ບໍ່ແມ່ນດຽວນີ້
+  sure: ແນ່ນອນ!
+  title: ເພີດເພີນໄປກັບ Seelen UI ບໍ?
+save: ບັນທຶກ
+save_and_restart: ບັນທຶກແລະ Restart
+search: ຊອກຫາ
+see_more: ເບິ່ງເພີ່ມເຕີມ
+session:
+  logout: ອອກຈາກລະບົບ
+  plan: ແຜນການ
+  sign_in: ເຂົ້າສູ່ລະບົບ
+  sign_in_hint: ຕົວທ່ອງເວັບຂອງທ່ານຈະເປີດຂຶ້ນເພື່ອໃຫ້ທ່ານສາມາດເຂົ້າສູ່ລະບົບໄດ້ຢ່າງປອດໄພ.
+  upgrade_to: ອັບເກຣດເປັນ
+shortcuts:
+  disabled_tooltip: ວິດເຈັດ ແລະທາງລັດຂອງມັນຖືກປິດໃຊ້ງານ
+  duplicate_error: ກວດພົບທາງລັດທີ່ຂັດກັນ
+  duplicate_error_hint: >-
+    ທາງລັດບາງອັນຖືກມອບໝາຍໃຫ້ກັບຫຼາຍຄຳສັ່ງ. ປິດໃຊ້ງານໜຶ່ງໃນວິດເຈັດທີ່ຂັດແຍ້ງກັນ
+    ຫຼືມອບໝາຍການຜູກມັດຄີທີ່ຊ້ຳກັນຄືນໃໝ່ເພື່ອແກ້ໄຂ.
+  enable: ເປີດໃຊ້ລະບົບທາງລັດທີ່ມີຢູ່
+  enable_tooltip: ປິດການໃຊ້ງານຖ້າທ່ານຈະປະຕິບັດລະບົບທາງລັດຂອງທ່ານເອງໂດຍໃຊ້ລູກຄ້າ Setelen Ui
+  labels:
+    create_new_workspace: ສ້າງພື້ນທີ່ເຮັດວຽກໃຫມ່
+    create_new_workspace_row: ສ້າງແຖວບ່ອນເຮັດວຽກໃໝ່
+    destroy_current_workspace: ທໍາລາຍພື້ນທີ່ເຮັດວຽກໃນປະຈຸບັນ
+    misc_force_quit: ບັງຄັບໃຫ້ເຊົາ
+    misc_force_restart: ບັງຄັບໃຫ້ Restart
+    move_to_workspace: ຍ້າຍໄປເຮັດວຽກ {{0}}
+    pause_toggle: ຢຸດຊົ່ວຄາວ/ສືບຕໍ່ທາງລັດ
+    send_to_next_workspace: ສົ່ງປ່ອງຢ້ຽມໄປຫາບ່ອນເຮັດວຽກຕໍ່ໄປ
+    send_to_previous_workspace: ສົ່ງປ່ອງຢ້ຽມໄປຫາພື້ນທີ່ເຮັດວຽກທີ່ຜ່ານມາ
+    send_to_workspace: ສົ່ງໄປທີ່ Workspace {{0}}
+    send_to_workspace_down: ສົ່ງປ່ອງຢ້ຽມໄປຫາພື້ນທີ່ເຮັດວຽກຂ້າງລຸ່ມນີ້
+    send_to_workspace_up: ສົ່ງປ່ອງຢ້ຽມໄປຫາບ່ອນເຮັດວຽກຂ້າງເທິງ
+    switch_to_next_workspace: ປ່ຽນໄປເຮັດວຽກຢູ່ຫນ້າທໍາອິດ
+    switch_to_previous_workspace: ປ່ຽນເປັນບ່ອນເຮັດວຽກທີ່ຜ່ານມາ
+    switch_to_workspace_down: ສະຫຼັບໄປບ່ອນເຮັດວຽກດ້ານລຸ່ມ
+    switch_to_workspace_up: ສະຫຼັບໄປບ່ອນເຮັດວຽກຂ້າງເທິງ
+    switch_workspace: ປ່ຽນໄປເຮັດວຽກຢູ່ Workspace {{0}}
+  readonly_tooltip: ນີ້ແມ່ນທາງລັດທີ່ອ່ານເທົ່ານັ້ນ
+  reset: ຕັ້ງຄ່າຄືນໃຫມ່
+sides:
+  bottom: ລຸ່ມ
+  left: ຊ້າຍ
+  right: ສິດ
+  top: ເທິງ
+toolbar:
+  auto_hide: ຊ່ອນອັດຕະໂນມັດ
+  auto_hide_touch_disabled: ການເຊື່ອງອັດຕະໂນມັດບໍ່ສາມາດໃຊ້ໄດ້ໃນອຸປະກອນໜ້າຈໍສໍາຜັດ
+  delay_to_hide: ຊັກຊ້າເພື່ອຊ່ອນ
+  delay_to_show: ຊັກຊ້າໃນການສະແດງ
+  dock_side: ຕໍາແຫນ່ງ
+  enable: ເປີດໃຊ້ແຖບເຄື່ອງມື Fancy
+  hide_mode:
+    always: ສະເໝີ
+    never: ບໍ່ເຄີຍ
+    on_overlap: ທັບຊ້ອນກັນ
+  item_size: ຂະໜາດລາຍການ
+  label: ແຖບເຄື່ອງມື
+  margin: ຂະໜາດຂອບ
+  padding: ຂະໜາດແຜ່ນ
+  placeholder: {}
+update:
+  available: ປັບປຸງໃຫ້ທັນສະໄຫມ!
+  channel: ຊ່ອງທາງການປັບປຸງ
+  downloading: ການດາວໂຫລດ ...
+wall:
+  blur: ມົວ
+  cancel: ຍົກເລີກ
+  close: ປິດ
+  collection_name: ຊື່ຄໍເລັກຊັນ
+  collections: ຄໍເລັກຊັນ
+  contrast: ຄວາມແຕກຕ່າງ
+  corrupted_wallpapers_message: 'ຮູບວໍເປເປີທີ່ເສຍຫາຍ, ພິຈາລະນາການລຶບສິ່ງເຫຼົ່ານີ້:'
+  coverage_pause_threshold: ຢຸດເກນຊົ່ວຄາວ (ການປົກຫຸ້ມຂອງປ່ອງຢ້ຽມ)
+  create: ສ້າງ
+  create_collection: ສ້າງຄໍເລັກຊັນ
+  default_collection: ຮູບພື້ນຫຼັງ ຫຼືຄໍເລັກຊັນເລີ່ມຕົ້ນ
+  default_collection_description: ນຳໃຊ້ກັບຈໍພາບ ແລະພື້ນທີ່ເຮັດວຽກທັງໝົດທີ່ບໍ່ມີຊຸດການລົບລ້າງສະເພາະ.
+  delete_collection: ລຶບຄໍເລັກຊັນ
+  edit_collection: ແກ້ໄຂຄໍເລັກຊັນ
+  extend: ຂະຫຍາຍຂັ້ນຕົ້ນ
+  fit:
+    contain: ບັນຈຸ
+    cover: ຝາປິດ
+    fill: ຕື່ມຂໍ້ມູນ
+  flipHorizontal: flip ອອກຕາມລວງນອນ
+  flipVertical: ພິກແນວຕັ້ງ
+  generating_thumbnails: ກຳລັງສ້າງຮູບຫຍໍ້ຂອງວໍເປເປີ
+  hours: ຊົ່ວໂມງ
+  interval: ປ່ຽນຮູບວໍເປເປີທຸກ
+  minutes: ນາທີ
+  monitor_collection: ຕິດຕາມການເກັບກໍາ
+  multimonitor_behaviour: ພຶດຕິກຳ Multimonitor
+  muted: ສຽງ mute ສຽງສຽງ
+  no_background: ການສະໄລ້ທີ່ເປົ່າ, ໂດຍໃຊ້ພື້ນຫລັງຂອງຫົວຂໍ້ແທນ.
+  no_collections: ຍັງບໍ່ມີການສ້າງຄໍເລັກຊັນເທື່ອ. ຄລິກປຸ່ມ + ເພື່ອສ້າງອັນ.
+  objectFit: ປະຫວັດຄວາມເປັນມາ
+  objectPosition: ຕໍາແຫນ່ງພື້ນຫລັງ
+  overlayColor: ສີ Overlay
+  overlayMixBlendMode: ຮູບແບບການຜະສົມຜະສານແບບປະສົມ
+  per_monitor: ຕໍ່ຈໍພາບ
+  per_monitor_config: ການຕັ້ງຄ່າຕໍ່ Monitor
+  playback: ຄວາມໄວ PlaySback
+  position:
+    bottom: ດ້ານລຸ່ມ
+    center: ສູນກາງ
+    left: ກ່ໍາ
+    right: ຖືກຕ້ອງ
+    top: ທາງເທີງ
+  processing_video: ກຳລັງປະມວນຜົນວິດີໂອ
+  random: ແບບສະໄລດູນແບບສຸ່ມ
+  saturation: ອີ່ມຕົວ
+  seconds: ວິນາທີ
+  select_collection: ເລືອກຄໍເລັກຊັນ
+  thumbnail_generation_complete: ການສ້າງຮູບຕົວຢ່າງສໍາເລັດ
+  thumbnail_generation_finished: ການສ້າງຮູບຕົວຢ່າງສຳເລັດແລ້ວ
+  use_accent_color: ໃຊ້ສີທີ່ເນັ້ນໃສ່ຮູບພື້ນຫຼັງ
+  wallpaper_collection: ການເກັບພາບພື້ນຫຼັງ
+  wallpaper_settings: ການຕັ້ງຄ່າຮູບວໍເປເປີ
+  wallpapers: ພາບພື້ນຫຼັງ
+  wallpapers_and_collections: ພາບພື້ນຫຼັງ & ຄໍເລັກຊັນ
+  withOverlay: ດ້ວຍການຊ້ອນກັນ
+  workspace_collections: ການເກັບພື້ນທີ່ເຮັດວຽກ
+weg:
+  auto_hide: ເຊື່ອງອັດຕະໂນມັດ
+  auto_hide_touch_disabled: ການເຊື່ອງອັດຕະໂນມັດບໍ່ສາມາດໃຊ້ໄດ້ໃນອຸປະກອນໜ້າຈໍສໍາຜັດ
+  delay_to_hide: ຊັກຊ້າເພື່ອຊ່ອນ
+  delay_to_show: ຊັກຊ້າໃນການສະແດງ
+  dock_side: ຕໍາແຫນ່ງ
+  filtering: ການກັ່ນຕອງລາຍການ
+  gap: ຊ່ອງຫວ່າງ
+  hide_mode:
+    always: ສະເໝີ
+    never: ບໍ່ເຄີຍ
+    on_overlap: ທັບຊ້ອນກັນ
+  import_error: ລົ້ມເຫລວໃນການນໍາເຂົ້າລາຍການແຖບຫນ້າວຽກ
+  import_from_taskbar:
+    button: ນຳເຂົ້າຈາກແຖບໜ້າວຽກຂອງ Windows
+    label: ນຳເຂົ້າລາຍການທີ່ປັກໝຸດ
+  import_no_items: ບໍ່ພົບລາຍການທີ່ປັກໝຸດຢູ່ໃນແຖບໜ້າວຽກຂອງ Windows
+  import_success: ນຳເຂົ້າ {{count}} ລາຍການສຳເລັດແລ້ວຈາກແຖບໜ້າວຽກຂອງ Windows
+  items:
+    gap: ຊ່ອງຫວ່າງລະຫວ່າງລາຍການ
+    label: ລາຍການ
+    middle_click_action:
+      close_app: ປິດແອັບ
+      label: ການປະຕິບັດການຄລິກກາງ
+      open_new_instance: ເປີດຕົວຢ່າງໃໝ່
+    pinned_visibility:
+      always: ສະເໝີ
+      label: ການເບິ່ງເຫັນລາຍການທີ່ປັກໝຸດໄວ້
+      when_primary: ເມື່ອຈໍພາບແມ່ນປະຖົມ
+    show_instance_counter: ສະແດງວຽກງານຕ້ານການເປີດ
+    show_window_title: ສະແດງຫົວຂໍ້ເປີດປ່ອງຢ້ຽມ (ພຽງແຕ່ແນວນອນ)
+    size: ຂະໜາດລາຍການ
+    split_windows: ແຍກ Windows (ຫນຶ່ງລາຍການຕໍ່ປ່ອງຢ້ຽມ)
+    temporal_visibility:
+      all: ທັງໝົດ
+      label: ການເບິ່ງເຫັນລາຍການທີ່ບໍ່ໄດ້ປັກໝຸດ
+      on_monitor: ໃນ Monitor
+  label: Dock/Taskbar
+  margin: ຂອບ
+  mode:
+    full_width: ຄວາມກວ້າງເຕັມຈໍ
+    min_content: ຂະຫນາດນ້ອຍເທົ່າທີ່ສາມາດເຮັດໄດ້
+  padding: padding
+  show_end_task: ສະແດງວຽກທີ່ສຸດໃນຫນ້າວຽກ
+  width: ກວ້າງ
+welcome:
+  give_a_review: ໃຫ້ການທົບທວນຄືນ
+  message: >-
+    Seelen UI ແມ່ນສະພາບແວດລ້ອມເດັສທັອບທີ່ບໍ່ເສຍຄ່າ ແລະເປີດສໍາລັບ Windows.
+    ໃນທີ່ນີ້ທ່ານມີການຄວບຄຸມຢ່າງເຕັມທີ່ກ່ຽວກັບວິທີການ desktop
+    ຂອງທ່ານເບິ່ງແລະປະຕິບັດຕົວ,
+    ຊ່ວຍໃຫ້ທ່ານສາມາດປັບແຕ່ງທຸກລາຍລະອຽດເພື່ອໃຫ້ກົງກັບຂະບວນການເຮັດວຽກແລະຮູບແບບຂອງທ່ານ.
+  ok: ມາເລີ່ມກັນເລີຍ!
+  review: >-
+    ຖ້າທ່ານມັກໃຊ້ Seelen UI, ພິຈາລະນາອອກການທົບທວນຄືນໃນຮ້ານ —
+    ຄໍາຄິດເຫັນຂອງທ່ານຊ່ວຍໃຫ້ໂຄງການຂະຫຍາຍຕົວແລະປັບປຸງ.
+  title: ຍິນດີຕ້ອນຮັບສູ່ Seelen UI!
+widget:
+  default_instance: ຕົວຢ່າງເລີ່ມຕົ້ນ
+  default_instance_hint: ເຄື່ອນໄຫວຢູ່ສະເໝີ, ໃຊ້ການຕັ້ງຄ່າ widget ຮາກ
+  enable: ເປີດໃຊ້ widget ນີ້
+  enable_for_monitor: ເປີດໃຊ້ງານຕິດຕາມກວດການີ້
+  extra_instances: ກໍລະນີພິເສດ
+  instance: ຕົວຢ່າງ
+  instances: ຖານະ
+wm:
+  animations:
+    duration: ໄລຍະເວລາທີ່ມີຊີວິດຊີວາ (MS)
+    ease_function: ຫນ້າທີ່ການທ່ອງທ່ຽວແບບເຄື່ອນໄຫວ
+    enable: ເປີດໃຊ້ພາບເຄື່ອນໄຫວຂອງ window
+  author: ຜູ້ຂຽນ
+  auto_stack: stack ອັດຕະໂນມັດຕາມປະເພດ app
+  border:
+    enable: ເປີດໃຊ້ຂອບຂອງປ່ອງຢ້ຽມ
+    offset: Border Offset
+    width: ຄວາມກວ້າງຊາຍແດນ
+  description: ລາຍລະອຽດ
+  drag_behavior: ພຶດຕິກໍາການລາກ
+  drag_behavior_options:
+    sort: ຈັດຮຽງ (ຈັດຮຽງໜ້າຕ່າງໃໝ່ໃນຂະນະທີ່ລາກ)
+    swap: Swap (ສະຫຼັບປ່ອງຢ້ຽມຢູ່ປາຍລາກ)
+  floating:
+    height: ຄວາມສູງຂອງ Windows ທີ່ເລື່ອນໄດ້
+    title: ຂະໜາດ Windows ທີ່ເລື່ອນໄດ້
+    width: ຄວາມກວ້າງຂອງ Windows ທີ່ເລື່ອນໄດ້
+  layout: ແຜນຜັງ
+  resize_delta: ປັບຂະໜາດ Delta (%)
+  space_between_containers: ຊ່ອງຫວ່າງລະຫວ່າງບັນຈຸ
+  stack_bar_visibility: ການເບິ່ງເຫັນແຖບ stack
+  stack_bar_visibility_options:
+    always: ສະເໝີ
+    as_needed: ຕາມຄວາມຕ້ອງການ
+  workspace_offset: ພື້ນທີ່ເຮັດວຽກຊົດເຊີຍ (ຂອບ)
+  workspace_padding: ພື້ນທີ່ເຮັດວຽກ Padding
+'yes': ແລ້ວ

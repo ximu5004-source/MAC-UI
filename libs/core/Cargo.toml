@@ -1,0 +1,40 @@
+[package]
+name = "seelen-core"
+version = "3.0.1"
+edition = "2024"
+rust-version = "1.89"
+
+[lints]
+workspace = true
+
+[dependencies]
+slu-macros = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+serde_json = { workspace = true }
+serde_path_to_error = { workspace = true }
+serde_yaml = { workspace = true }
+serde_alias = "0.0.2"
+schemars = { version = "1.2.1", features = ["url2", "uuid1", "chrono04"] }
+regex = { workspace = true }
+sys-locale = "0.3.2"
+uuid = { workspace = true, features = ["v4", "serde"] }
+ts-rs = { version = "12.0.0", optional = true, features = [
+  "no-serde-warnings",
+  "serde-json-impl",
+  "url-impl",
+  "uuid-impl",
+  "chrono-impl",
+] }
+base64 = { workspace = true }
+url = { workspace = true, features = ["serde"] }
+grass = { version = "0.13.4", default-features = false, features = ['random'] }
+tokio = { workspace = true, features = ["fs", "io-util", "rt", "macros"] }
+futures = { workspace = true }
+num_enum = "0.7.6"
+chrono = { version = "0.4.43", features = ["serde"] }
+paste = "1.0.15"
+salvo = { workspace = true, features = ["oapi"], optional = true }
+
+[features]
+gen-binds = ["dep:ts-rs"]
+salvo = ["dep:salvo"]

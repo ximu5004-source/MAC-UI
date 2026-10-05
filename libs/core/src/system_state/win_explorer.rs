@@ -1,0 +1,59 @@
+use std::path::PathBuf;
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), derive(ts_rs::TS))]
+#[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), ts(export))]
+pub struct StartMenuItem {
+    pub path: PathBuf,
+    pub umid: Option<String>,
+    pub toast_activator: Option<String>,
+    /// Will be present if the item is a shortcut
+    pub target: Option<PathBuf>,
+    /// Display name for the item
+    pub display_name: String,
+    /// Directory relative to Windows' Programs known folder. Empty for root/package apps.
+    #[serde(default)]
+    pub start_menu_folder: Vec<String>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), derive(ts_rs::TS))]
+#[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), ts(export))]
+#[serde(rename_all = "camelCase")]
+pub struct StartMenuLayout {
+    pub pinned_list: Vec<StartMenuLayoutItem>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), derive(ts_rs::TS))]
+#[serde(rename_all = "camelCase")]
+pub enum StartMenuLayoutItem {
+    DestopAppId(String),
+    PackagedAppId(String),
+    DesktopAppLink(String),
+    SecondaryTile(String),
+}
+
+#[derive(Debug, Clone, Serialize)]
+#[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), derive(ts_rs::TS))]
+#[serde(rename_all = "camelCase")]
+pub struct TrayIcon {
+    pub label: String,
+    pub registry: RegistryNotifyIcon,
+}
+
+#[derive(Debug, Clone, Serialize)]
+#[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), derive(ts_rs::TS))]
+#[serde(rename_all = "camelCase")]
+pub struct RegistryNotifyIcon {
+    /// can be used as a unique identifier of the registered tray icon
+    pub key: String,
+    pub executable_path: PathBuf,
+    pub initial_tooltip: Option<String>,
+    /// PNG image of the cached icon
+    pub icon_snapshot: Option<Vec<u8>>,
+    pub icon_guid: Option<String>,
+    pub icon_uid: Option<u32>,
+    pub is_promoted: bool,
+    pub is_running: bool,
+}

@@ -1,0 +1,40 @@
+import { invoke, SeelenCommand } from "@seelen-ui/lib";
+import { settings } from "../../../../state/mod";
+import type { SeelenWegSettings } from "@seelen-ui/lib/types";
+import { normalizeDockSize } from "libs/ui/utils/dockSize";
+
+/**
+ * Patches the SeelenWeg configuration with partial updates.
+ * This helper function simplifies updating the weg settings by handling
+ * the nested structure automatically.
+ *
+ * @example
+ * patchWegConfig({ enabled: true, margin: 10 });
+ */
+export function patchWegConfig(patch: Partial<SeelenWegSettings>) {
+  settings.value = {
+    ...settings.value,
+    byWidget: {
+      ...settings.value.byWidget,
+      "@seelen/weg": {
+        ...settings.value.byWidget["@seelen/weg"],
+        ...patch,
+        ...(patch.size !== undefined ? { size: normalizeDockSize(patch.size) } : {}),
+      },
+    },
+  };
+}
+
+/**
+ * Gets the current SeelenWeg configuration
+ */
+export function getWegConfig(): SeelenWegSettings {
+  return settings.value.byWidget["@seelen/weg"];
+}
+
+/**
+ * Imports pinned items from Windows taskbar
+ */
+export async function importFromWindowsTaskbar(): Promise<number> {
+  return await invoke(SeelenCommand.WegImportPinnedTaskbarItems);
+}

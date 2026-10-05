@@ -1,0 +1,27 @@
+id: "@default/wm-ultrawide"
+target: "@seelen/window-manager"
+metadata:
+  displayName: !extend i18n/display_name.yml
+  description: !extend i18n/description.yml
+plugin:
+  structure:
+    type: Horizontal
+    children:
+      - type: Vertical
+        priority: 3
+        children:
+          - type: Leaf
+          - type: Leaf
+      - type: Leaf
+        priority: 1
+        growFactor: 1.5
+      - type: Vertical
+        priority: 2
+        children:
+          - type: Leaf
+          - type: Leaf
+            condition:
+              compare:
+                left: tiling-windows
+                op: ge
+                right: 3

@@ -1,0 +1,83 @@
+auth:
+  login_failed_body: >-
+    Iets het verkeerd geloop tydens aanmelding. As dit voortduur, maak seker dat
+    die Windows 'Credential Manager'-diens (VaultSvc) geaktiveer is en aan die
+    gang is, en probeer dan weer.
+  login_failed_title: Kon nie aanmeld nie
+cancel: Kanselleer
+done: Gedoen
+elevated:
+  description: >-
+    Seelen UI loop met administrateur regte.
+
+    Dit voeg geen kenmerke by of verbeter dit nie, en dit kan 'n
+    sekuriteitsrisiko inhou.
+
+    Vir beter sekuriteit, herbegin dit asseblief sonder
+    administrateurtoestemmings.
+  title: Loop as administrateur
+file_explorer: Lêerverkenner
+resource:
+  added: '''N Nuwe hulpbron is bygevoeg'
+  download_failed_body: >-
+    Iets het verkeerd geloop tydens die aflaai van die bron, meld dit asseblief
+    aan die Seelen -ontwikkelaarspan.
+  download_failed_title: Aflaai van hulpbronne misluk
+  downloading: Aflaai bates ...
+  downloading_body: Dit kan 'n paar sekondes duur, moenie die venster toemaak nie.
+  enable: In staat stel
+  login_required_action: Meld aan
+  login_required_body: Jy moet aanmeld om hierdie hulpbron af te laai.
+  login_required_title: Aanmelding vereis
+runtime:
+  corrupted_data: Korrupte data
+  corrupted_file: '''N Konfigurasielêer word beskadig, met behulp van standaardwaardes.'
+  corrupted_file_path: Korrupte lêerpad
+  download: Gaan na die aflaai bladsy
+  files_integrity: >-
+    Ons kon nie die integriteit van die toepassinglêers verifieer nie.
+
+    Dit kan gebeur as lêers gewysig, korrupteer is of die installasie onvolledig
+    is.
+
+    Om sekuriteitsredes kan Seelen UI nie voortgaan nie.
+
+    Herinstalleer dit asseblief vanaf die amptelike webwerf.
+  files_integrity_title: Sekuriteitwaarskuwing - Lêersintegriteitkontrole het misluk
+  not_found: WebView2 Looptyd nie gevind nie
+  not_found_description: Seelen UI vereis Webview2 Runtime. Installeer dit asseblief.
+  outdated: WebView2 Looptyd verouderd
+  outdated_description: >-
+    Seelen UI vereis Webview2 Runtime %{min_version} of hoër. Dateer dit
+    asseblief op.
+service:
+  not_running: Seelen UI-diens loop nie
+  not_running_description: >-
+    Seelen UI Service (slu-diens) is 'n afhanklikheid/helper vir die toepassing
+    om behoorlik te werk.
+  not_running_ok: Begin diens
+shortcut:
+  conflicts:
+    body: >-
+      Sommige kortpaaie word aan veelvuldige handelinge toegewys, herken hulle
+      asseblief.
+    dismiss: Verwerp
+    review: Hersien
+    title: Kortpadkonflikte bespeur
+  register:
+    placeholder: Druk op enige sleutelkombinasie
+    title: Nuwe kortpad registreer
+widget_liveness:
+  failed_description: |-
+    Die legstuk '%{widget_name}' het te veel keer opgehou reageer.
+
+    Jy kan probeer om die toepassing te herbegin.
+  failed_title: Legstukfout
+widget_permissions:
+  perm_open_file: maak lêers oop
+  perm_run: programme uit te voer
+  request_description: |-
+    Die legstuk '%{widget_name}' versoek toestemming om %{command}.
+
+    Wil jy dit toelaat?
+  request_title: Widget Toestemming Versoek

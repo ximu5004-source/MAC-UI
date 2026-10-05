@@ -1,0 +1,88 @@
+.task-switcher-window {
+  width: 100vw;
+  height: 100vh;
+}
+
+.task-switcher-monitor {
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  padding: 2rem;
+}
+
+.task-switcher {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  max-width: 100%;
+  max-height: 100%;
+
+  background-color: var(--slu-std-bg-color);
+  box-shadow: var(--shadow-l);
+  border-radius: 1rem;
+  padding: 1rem;
+  gap: 1rem;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  .task {
+    position: relative;
+    flex-shrink: 0;
+    overflow: hidden;
+    width: fit-content;
+    border-radius: 10px;
+    width: 260px;
+    background-color: var(--slu-std-bg-light-color);
+    box-shadow: var(--shadow-s);
+
+    &:focus {
+      outline: 3px solid var(--system-accent-color) !important;
+    }
+
+    &:active {
+      transform: scale(0.92);
+    }
+
+    .task-header {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 20px 1fr min-content;
+      align-items: center;
+
+      gap: 0.5rem;
+      padding: 0.5rem;
+
+      .task-title {
+        font-weight: 600;
+        font-size: 0.9rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+
+    .task-preview-container {
+      width: 100%;
+      height: 150px;
+      border-radius: 0 0 10px 10px;
+      overflow: hidden;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .task-preview {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+      }
+
+      .task-no-preview {
+        width: 30px;
+      }
+    }
+  }
+}

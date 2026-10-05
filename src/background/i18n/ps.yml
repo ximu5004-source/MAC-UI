@@ -1,0 +1,75 @@
+auth:
+  login_failed_body: >-
+    د ننوتلو پرمهال یو څه غلط شو. که دا دوام ومومي، ډاډ ترلاسه کړئ چې د وینډوز
+    'کریډنشل مینیجر' خدمت (VaultSvc) فعال شوی او روان دی، بیا هڅه وکړئ.
+  login_failed_title: ننوتل ناکام شول
+cancel: لغوه کول
+done: شوی
+elevated:
+  description: >-
+    سیلین UI د مدیر امتیازاتو سره پرمخ ځي.
+
+    دا هیڅ ځانګړتیاوې نه اضافه کوي یا وده نه کوي، او دا ممکن امنیتي خطر رامنځته
+    کړي.
+
+    د ښه امنیت لپاره، مهرباني وکړئ دا د مدیر اجازې پرته بیا پیل کړئ.
+  title: د مدیر په توګه چلول
+file_explorer: د فایل سپړونکی
+resource:
+  added: یو نوی سرچینه اضافه شوې
+  download_failed_body: >-
+    یو څه د سرچینې ډاونلوډ پر مهال غلط شوي، مهرباني وکړئ دا د اصلي پراختیا کونکي
+    ټیم ته راپور کړئ.
+  download_failed_title: د سرچینې ډاونلوډ ونشو
+  downloading: د شتمنیو ډاونلوډ کول ...
+  downloading_body: دا ممکن یو څو ثانیې ونیسي، مهرباني وکړئ کړکۍ بند کړئ.
+  enable: وړ
+  login_required_action: ننوتل
+  login_required_body: تاسو اړتیا لرئ د دې سرچینې ډاونلوډ کولو لپاره لاسلیک وکړئ.
+  login_required_title: ننوتل اړین دي
+runtime:
+  corrupted_data: فاسد ډاټا
+  corrupted_file: د سازونې فایل فاسد شوی، پرځای یې د ډیفالټ ارزښتونو په کارولو سره.
+  corrupted_file_path: فاسد فایل لاره
+  download: د ډاونلوډ پاڼې ته لاړ شئ
+  files_integrity: |-
+    موږ نشو کولی د غوښتنلیک فایلونو بشپړتیا تایید کړو.
+    دا واقع کیدی شي که فایلونه تعدیل شوي، فاسد شوي، یا نصب کول نیمګړي وي.
+    د امنیت دلایلو لپاره ، سیلین UI نشي دوام کولی.
+    مهرباني وکړئ دا د رسمي ویب پاڼې څخه بیا نصب کړئ.
+  files_integrity_title: د امنیت خبرتیا - د فایلونو بشپړتیا چک ناکام شو
+  not_found: WebView2 د چلولو وخت ونه موندل شو
+  not_found_description: Seelen UI د Webview2 Runtime ته اړتیا لري. مهرباني وکړئ دا نصب کړئ.
+  outdated: WebView2 د چلولو وخت زوړ شوی
+  outdated_description: >-
+    Seelen UI د Webview2 Runtime %{min_version} یا لوړ ته اړتیا لري. مهرباني
+    وکړئ تازه یې کړئ.
+service:
+  not_running: د سیلین UI خدمت نه روان دی
+  not_running_description: >-
+    د سیلین UI خدمت (slu-service) د ایپ لپاره د سم کار کولو لپاره انحصار / مرسته
+    کونکی دی.
+  not_running_ok: خدمت پیل کړئ
+shortcut:
+  conflicts:
+    body: ځینې ​​شارټ کټونه د ډیرو کړنو لپاره ټاکل شوي، مهرباني وکړئ دوی بیا وټاکئ.
+    dismiss: ګوښه کول
+    review: بیاکتنه
+    title: شارټ کټ شخړې کشف شوې
+  register:
+    placeholder: په هر کلي ترکیب فشار ورکړئ
+    title: د نوي لنډلارې ثبت کول
+widget_liveness:
+  failed_description: |-
+    ویجیټ '%{widget_name}' ډیر ځله ځواب ورکول بند کړل.
+
+    تاسو کولی شئ د اپلیکیشن بیا پیلولو هڅه وکړئ.
+  failed_title: د ویجټ تېروتنه
+widget_permissions:
+  perm_open_file: فایلونه خلاص کړئ
+  perm_run: پروګرامونه چلوي
+  request_description: |-
+    ویجټ '%{widget_name}' %{command} ته د اجازې غوښتنه کوي.
+
+    ایا تاسو غواړئ دا اجازه ورکړئ؟
+  request_title: د ویجټ اجازې غوښتنه

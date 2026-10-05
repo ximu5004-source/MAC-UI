@@ -1,0 +1,82 @@
+.ft-bar {
+  isolation: isolate;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+
+  &[data-has-margin="true"] {
+    border-radius: 0;
+  }
+
+  &::before {
+    content: none;
+  }
+}
+
+.ft-bar > * {
+  position: relative;
+  z-index: 1;
+}
+
+.ft-bar-item.ft-bar-item-clickable,
+.ft-corner-button {
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition:
+    background 120ms ease;
+
+  &:hover,
+  &:focus-visible {
+    background: oklch(from var(--slu-std-fg-color) l c h / 0.12);
+    box-shadow: none;
+  }
+
+  &:active {
+    background: oklch(from var(--slu-std-fg-color) l c h / 0.2);
+  }
+}
+
+.ft-bar-item-content img {
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.ft-bar-item-badge {
+  border: 0;
+  background: var(--system-accent-color);
+  box-shadow: none;
+}
+
+.ft-bar > .bg-layers { display: none; }
+.ft-bar-left { --toolbar-fg: var(--toolbar-left-fg, #fff); --toolbar-shadow: var(--toolbar-left-shadow, 0 1px 3px #0009); }
+.ft-bar-center { --toolbar-fg: var(--toolbar-center-fg, #fff); --toolbar-shadow: var(--toolbar-center-shadow, 0 1px 3px #0009); }
+.ft-bar-right { --toolbar-fg: var(--toolbar-right-fg, #fff); --toolbar-shadow: var(--toolbar-right-shadow, 0 1px 3px #0009); }
+.ft-bar-container {
+  --slu-std-fg-color: var(--toolbar-fg);
+  color: var(--toolbar-fg);
+  text-shadow: var(--toolbar-shadow);
+}
+.ft-bar-container .ft-bar-item { color: inherit; }
+.ft-bar-item.ft-bar-item-clickable:focus-visible,
+.ft-corner-button:focus-visible { outline: 2px solid var(--system-accent-color); outline-offset: -2px; }
+
+@media (prefers-reduced-transparency: reduce) {
+  .ft-bar { background: var(--slu-std-bg-color); backdrop-filter: none; }
+  .ft-bar-container { --toolbar-fg: light-dark(#000, #fff); text-shadow: none; }
+}
+@media (forced-colors: active) {
+  .ft-bar { background: Canvas; }
+  .ft-bar-container { --toolbar-fg: CanvasText; text-shadow: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ft-bar-item.ft-bar-item-clickable,
+  .ft-corner-button {
+    transition: none;
+  }
+}

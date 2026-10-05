@@ -1,0 +1,29 @@
+node_modules
+
+.vscode
+.env
+.env.*
+.cert/
+*.pfx
+*.p12
+*.key
+*.pem
+
+# Local installers, private test captures and publication staging are not source.
+/release/
+
+dist
+target
+gen
+src/runtime
+
+# Submission Files
+/scripts/SBTemp
+
+# rust-analyzer
+rustc-ice-*.txt
+
+.codegraph
+CLAUDE.md
+GEMINI.md
+.claude

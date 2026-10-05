@@ -1,0 +1,83 @@
+auth:
+  login_failed_body: >-
+    Tizimga kirishda nimadir xato ketdi. Agar bu davom etsa, Windows “Credential
+    Manager” xizmati (VaultSvc) yoqilgan va ishlayotganligiga ishonch hosil
+    qiling, keyin qayta urinib koʻring.
+  login_failed_title: tizimga kirishda xatolik yuz berdi
+cancel: Bekor qilmoq
+done: Bajarildi
+elevated:
+  description: >-
+    Seelen UI administrator imtiyozlari bilan ishlaydi.
+
+    Bu hech qanday xususiyatni qo'shmaydi yoki yaxshilamaydi va xavfsizlikka
+    xavf tug'dirishi mumkin.
+
+    Yaxshiroq xavfsizlik uchun administrator ruxsatisiz uni qayta ishga
+    tushiring.
+  title: Administrator sifatida ishga tushirish
+file_explorer: Fayl Explorer
+resource:
+  added: Yangi manba qo'shildi
+  download_failed_body: >-
+    Resursni yuklayotganda biron bir narsa noto'g'ri ketdi, iltimos, Seelen
+    ishlab chiqaruvchi jamoasiga xabar bering.
+  download_failed_title: Resurslarni yuklab olish amalga oshmadi
+  downloading: Aktivlarni yuklab olish ...
+  downloading_body: Bu bir necha soniya davom etishi mumkin, iltimos derazani yopmang.
+  enable: Yoqib yubormoq
+  login_required_action: Tizimga kirish
+  login_required_body: Ushbu resursni yuklab olish uchun tizimga kirishingiz kerak.
+  login_required_title: Kirish shart
+runtime:
+  corrupted_data: Buzilgan ma'lumotlar
+  corrupted_file: >-
+    Buning o'rniga standart qiymatlardan foydalangan holda konfiguratsiya fayli
+    buzilgan.
+  corrupted_file_path: Buzilgan fayl yo'li
+  download: Yuklab olish sahifasiga o'ting
+  files_integrity: >-
+    Ilova fayllari yaxlitligini tekshira olmadik.
+
+    Bu fayllar o'zgartirilgan, buzilgan yoki o'rnatish tugallanmagan bo'lsa
+    sodir bo'lishi mumkin.
+
+    Xavfsizlik nuqtai nazaridan Seelen UI davom eta olmaydi.
+
+    Iltimos, uni rasmiy veb-saytdan qayta o'rnating.
+  files_integrity_title: Xavfsizlik ogohlantirishi - Fayllar yaxlitligini tekshirish amalga oshmadi
+  not_found: WebView2 ish vaqti topilmadi
+  not_found_description: Seelen UI uchun Webview2 Runtime kerak. Iltimos, uni oʻrnating.
+  outdated: WebView2 ish vaqti eskirgan
+  outdated_description: >-
+    Seelen UI uchun Webview2 Runtime %{min_version} yoki undan yuqoriroq talab
+    qilinadi. Iltimos, uni yangilang.
+service:
+  not_running: Seelen UI xizmati ishlamayapti
+  not_running_description: >-
+    Seelen UI xizmati (slu-xizmati) ilovaning to'g'ri ishlashi uchun
+    qaramlik/yordamchi hisoblanadi.
+  not_running_ok: Xizmatni ishga tushirish
+shortcut:
+  conflicts:
+    body: Ayrim yorliqlar bir nechta amallarga tayinlangan, ularni qayta tayinlang.
+    dismiss: Rad etish
+    review: Ko‘rib chiqish
+    title: Yorliq ziddiyati aniqlandi
+  register:
+    placeholder: Har qanday tugmachani bosing
+    title: Yangi yorliqni ro'yxatdan o'tkazish
+widget_liveness:
+  failed_description: |-
+    “%{widget_name}” vidjeti juda ko‘p marta javob berishni to‘xtatdi.
+
+    Ilovani qayta ishga tushirishga urinib ko'rishingiz mumkin.
+  failed_title: Vidjet xatosi
+widget_permissions:
+  perm_open_file: fayllarni oching
+  perm_run: dasturlarni ishga tushirish
+  request_description: |-
+    “%{widget_name}” vidjeti %{command} uchun ruxsat so‘ramoqda.
+
+    Bunga ruxsat bermoqchimisiz?
+  request_title: Vidjetga ruxsat soʻrovi

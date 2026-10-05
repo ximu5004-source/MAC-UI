@@ -1,0 +1,20 @@
+angle: Angle
+approximately_square: Approximately square
+background: Background
+brush_size: Brush size
+clear_draw: Clear drawing
+delete: Delete custom icon
+draw_color: Draw color
+draw_mode_off: Draw
+draw_mode_on: Drawing
+gradient: Gradient
+none: None (transparent)
+pick_image: Pick image
+position_x: Position X
+position_y: Position Y
+reset: Reset
+save: Save
+saving: Saving...
+scale: Scale
+solid: Solid color
+title: Custom Icon Editor

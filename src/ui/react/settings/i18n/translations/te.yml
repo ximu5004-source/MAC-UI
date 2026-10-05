@@ -1,0 +1,475 @@
+action:
+  confirm: మీకు ఖచ్చితంగా తెలుసా?
+  confirm_body: ఈ చర్యను రద్దు చేయలేము.
+apps_configurations:
+  app:
+    bindings: బైండింగ్ (రెండు ఎంపికలు అవసరమని గమనించండి)
+    category: వర్గం
+    category_placeholder: ఏదీ లేదు
+    monitor: మానిటర్
+    monitor_placeholder: ఏదీ లేదు
+    name: పేరు
+    ok_create: సృష్టించు
+    ok_edit: నవీకరించు
+    ok_readonly: కొత్తదిగా సవరించండి
+    options:
+      NoInteractive: ఇంటరాక్టివ్ లేదు
+      VdPinned: అన్ని వర్క్‌స్పేస్‌లలో చూపించు
+      WmFloat: Twm - ఫ్లోటింగ్ ప్రారంభించండి
+      WmForce: Twm - బలవంతంగా నిర్వహించండి
+      WmUnmanage: Twm - నిర్వహించవద్దు
+    options_label: అదనపు ఎంపికలు
+    title_create: '{{name}}ని సృష్టిస్తోంది'
+    title_edit: సవరణ {{పేరు}}
+    title_readonly: '{{name}} వీక్షిస్తోంది'
+    weg_options_label: డాక్/టాస్క్‌బార్ ఎంపికలు
+    wm_options_label: విండో మేనేజర్ ఎంపికలు
+    workspace: కార్యస్థలం
+    workspace_placeholder: ఏదీ లేదు
+  bundled_msg: >-
+    ఈ బండిల్ కాన్ఫిగరేషన్‌లు సవరించదగినవి కావు మరియు అనుకూలీకరణ లేకుండా మీకు
+    ఉత్తమ అనుభవాన్ని అందించడానికి రూపొందించబడ్డాయి. వారు మీ కోసం అత్యంత సాధారణ
+    అప్లికేషన్‌లను స్వయంచాలకంగా కాన్ఫిగర్ చేస్తారు.
+  bundled_title: యాప్ కాన్ఫిగర్ సీలెన్‌తో బండిల్ చేయబడింది
+  confirm_delete: మీరు ఈ కాన్ఫిగరేషన్/లని ఖచ్చితంగా తొలగించాలనుకుంటున్నారా?
+  confirm_delete_title: తొలగించడాన్ని నిర్ధారించండి
+  delete: తొలగించు
+  export: ఎగుమతి చేయండి
+  export_full: అప్లికేషన్ ద్వారా సెట్టింగులు ఎగుమతి
+  extra_info: >-
+    సీలెన్ UI ఒక అనువర్తనానికి ఒక ఐడెంటిఫైయర్‌ను మాత్రమే ఉపయోగిస్తుంది (మొదటి
+    మ్యాచ్ కనుగొనబడింది) కాబట్టి ఎలా పేర్కొనబడింది అనే క్రమం ముఖ్యమైనది, తాజా
+    జోడించిన వాటికి ప్రాధాన్యత ఇవ్వబడుతుంది, ఎందుకంటే పట్టిక డిఫాల్ట్‌గా తాజా
+    నుండి పాత వరకు క్రమబద్ధీకరించబడుతుంది.
+  identifier:
+    add_block: బ్లాక్ జోడించండి
+    and: మరియు
+    id: ఐడెంటిఫైయర్
+    kind: ద్వారా గుర్తించండి
+    matching_strategy: మ్యాచింగ్ స్ట్రాటజీ
+    matching_strategy_option:
+      contains: కలిగి ఉంది
+      ends_with: తో ముగుస్తుంది
+      equals: సమానం
+      regex: రెగ్యులర్ వ్యక్తీకరణ
+      starts_with: తో మొదలవుతుంది
+    negation: సరిపోలికను తిరస్కరించండి
+    or: లేదా
+    remove: బ్లాక్‌ని తొలగించండి
+    type:
+      class: తరగతి
+      exe: Exe
+      path: మార్గం
+      title: శీర్షిక
+  import: దిగుమతి
+  import_full: అప్లికేషన్ ద్వారా సెట్టింగ్‌లను దిగుమతి చేయండి
+  new: కొత్తది
+  search: వెతకండి
+  swap: మార్పిడి
+cancel: రద్దు చేయండి
+close: దగ్గరగా
+delete: తొలగించు
+devtools:
+  app_folders: యాప్ ఫోల్డర్‌లు
+  color_palette: రంగుల పాలెట్
+  color_palette_note: >-
+    ఈ రంగులు స్వయంచాలకంగా కాంతి/డార్క్ మోడ్‌కు అనుగుణంగా ఉంటాయి - ప్రతి షేడ్
+    ప్రస్తుత నేపథ్యానికి విరుద్ధంగా ఉంటుంది, స్థిర విలువ కాదు. స్వయంచాలక థీమ్
+    మద్దతు పొందడానికి హార్డ్‌కోడెడ్ రంగులకు బదులుగా వాటిని ఉపయోగించండి.
+  custom_config_file: కస్టమ్ కాన్ఫిగర్ ఫైల్‌ను లోడ్ చేయండి
+  data_folder: డేటా ఫోల్డర్
+  enable: డెవలపర్ సాధనాలను ప్రారంభించండి
+  enable_description: >-
+    సీలెన్ UI ఇంటర్నల్‌లను తనిఖీ చేయడం మరియు డీబగ్ చేయడం కోసం అధునాతన సాధనాలను
+    అన్‌లాక్ చేస్తుంది. సాధారణ ఉపయోగం కోసం ఉద్దేశించబడలేదు.
+  icons: కాష్ చేసిన చిహ్నాలు
+  install_folder: ఇన్‌స్టాలేషన్ ఫోల్డర్
+  load: లోడ్ చేయండి
+  settings_file: సెట్టింగుల ఫైల్
+  shared_components: SLU ప్రామాణిక భాగాలు
+  simulate_dialog:
+    label: డైలాగ్‌ని అనుకరించండి
+    trigger: ట్రిగ్గర్
+  simulate_perm:
+    label: విడ్జెట్ అనుమతి అభ్యర్థనను అనుకరించండి
+    result_allowed: ✓ అనుమతి మంజూరు చేయబడింది
+    result_denied: ✗ అనుమతి నిరాకరించబడింది
+    trigger: అనుకరించు
+    widget_id_placeholder: '@రచయిత/విడ్జెట్-పేరు'
+  tools: ఉపకరణాలు
+  unlock_shortcuts: చదవడానికి మాత్రమే షార్ట్‌కట్‌లను అన్‌లాక్ చేయండి
+  unlock_shortcuts_description: >-
+    సాధారణంగా చదవడానికి మాత్రమే ఉండే సత్వరమార్గాలను సవరించడాన్ని అనుమతించండి
+    (ఉదా. సిస్టమ్ ఓవర్‌రైడ్‌లు).
+  unstable_optimizations: అస్థిర ఆప్టిమైజేషన్లు
+  unstable_optimizations_description: >-
+    RAM వినియోగాన్ని తగ్గించే ప్రయోగాత్మక Chromium ఫ్లాగ్‌లను ప్రారంభించండి. 
+
+    హెచ్చరిక: విడ్జెట్ క్రాష్ అయినట్లయితే, ఒకే లోడర్‌ను షేర్ చేసే అన్ని
+    విడ్జెట్‌లు కలిసి క్రాష్ అవుతాయి.
+  widgets_debug:
+    actions: చర్యలు
+    empty: విడ్జెట్‌లు ఏవీ లోడ్ చేయబడలేదు. రిఫ్రెష్ క్లిక్ చేయండి.
+    instance_id: ఉదాహరణ ID
+    monitor_id: మానిటర్ ID
+    open_devtools: DevTools
+    refresh: రిఫ్రెష్ చేయండి
+    status: స్థితి
+    tab: విడ్జెట్‌లు
+    widget_id: విడ్జెట్ ID
+discord_banner:
+  message: >-
+    ఇతర సీలెన్ UI వినియోగదారులతో కనెక్ట్ అవ్వండి, సహాయం పొందండి, థీమ్‌లను షేర్
+    చేయండి మరియు తాజా వార్తలతో తాజాగా ఉండండి.
+  title: మా సంఘంలో చేరండి
+extras:
+  backup_group: క్లౌడ్ బ్యాకప్
+  backup_last_sync: చివరి సమకాలీకరణ
+  backup_never_synced: ఎప్పుడూ సమకాలీకరించబడలేదు
+  backup_sync: సెట్టింగ్‌లను క్లౌడ్‌కు సమకాలీకరించండి
+  backup_sync_description: >-
+    క్లౌడ్ ద్వారా మీ సెట్టింగ్‌లను స్వయంచాలకంగా బ్యాకప్ చేయండి మరియు
+    పునరుద్ధరించండి.
+  clear_icons: క్లియర్ సిస్టమ్ చిహ్నాలు కాష్
+  clear_icons_tooltip: అన్ని విడ్జెట్లపై పూర్తిగా అమలులోకి రావడానికి పున art ప్రారంభం అవసరం
+  discord_rpc: అసమ్మతి రిచ్ ఉనికి
+  discord_rpc_description: మీరు కలిగి ఉన్న శైలిని అందరికీ చూపించండి!
+  exit: నిష్క్రమించు/నిష్క్రమించు
+  relaunch: పునఃప్రారంభించండి
+  streaming_mode: స్ట్రీమింగ్ మోడ్
+  streaming_mode_description: >-
+    రికార్డింగ్‌లు లేదా స్క్రీన్‌షాట్‌ల సమయంలో గోప్యతను రక్షించడానికి సున్నితమైన
+    సమాచారాన్ని (ఉదా. ఇమెయిల్‌లు) ప్లేస్‌హోల్డర్‌లతో భర్తీ చేస్తుంది.
+  version: 'సంస్కరణ: Telugu'
+  version_fixed: >-
+    అప్లికేషన్ మరియు WebView2 రన్‌టైమ్ వెర్షన్‌లు పరిష్కరించబడ్డాయి. దీని అర్థం
+    అప్లికేషన్ నవీకరణలను స్వీకరించదు మరియు Windows నవీకరణలతో WebView2 రన్‌టైమ్
+    స్వయంచాలకంగా నవీకరించబడదు.
+general:
+  accent_color: యాస రంగు
+  date_format: తేదీ ఆకృతి
+  date_format_how_to: తేదీ ఆకృతిని ఎలా వ్రాయాలి?
+  hardware_acceleration: హార్డ్‌వేర్ త్వరణం
+  hardware_acceleration_description: >-
+    హార్డ్‌వేర్ త్వరణాన్ని నిలిపివేయడం వలన మెమరీ వినియోగం తగ్గుతుంది. మీరు భారీ
+    యానిమేషన్‌లను ఉపయోగించకుంటే, ఈ సెట్టింగ్‌తో సంబంధం లేకుండా వ్యక్తిగత
+    విడ్జెట్‌లు ఇప్పటికీ GPU వినియోగాన్ని బలవంతం చేయవచ్చు.
+  icon_pack:
+    available: అందుబాటులో ఉన్న ఐకాన్ ప్యాక్‌లు
+    selected: సక్రియ ఐకాన్ ప్యాక్‌లు
+  language: భాష
+  monday: సోమవారం
+  performance_mode:
+    label: ఆప్టిమైజేషన్లు
+    on_battery: బ్యాటరీపై
+    on_energy_saver: ఎనర్జీ సేవర్‌పై
+    options:
+      disabled: నిలిపివేయబడింది
+      extreme: ఎక్స్‌ట్రీమ్
+      minimal: కనిష్ట
+    plugged: ప్లగ్డ్ లేదా ఛార్జింగ్
+  polling_interval: సిస్టమ్ పోలింగ్ విరామం
+  polling_interval_description: >-
+    సీలెన్ UI ఎంత తరచుగా (సెకన్లలో) CPU, RAM, నెట్‌వర్క్ మరియు డిస్క్ కార్యాచరణ
+    వంటి సిస్టమ్ వనరులను తనిఖీ చేస్తుంది. చిన్న సంఖ్య అంటే మరింత తరచుగా
+    అప్‌డేట్‌లు, కానీ కొంచెం ఎక్కువ వనరుల వినియోగం.
+  saturday: శనివారం
+  start_of_week: వారం ప్రారంభం
+  startup: స్టార్టప్‌లో అమలు చేయాలా?
+  sunday: ఆదివారం
+  suspend_on_game_mode: గేమ్ మోడ్‌లో విడ్జెట్‌లను నిలిపివేయండి
+  suspend_on_game_mode_description: >-
+    Windows గేమ్ మోడ్ సక్రియంగా ఉన్నప్పుడు, అన్ని విడ్జెట్ వెబ్ వీక్షణలు గేమ్
+    కోసం ఉచిత CPU మరియు మెమరీకి నాశనం చేయబడతాయి. గేమ్ మోడ్ ముగిసినప్పుడు
+    విడ్జెట్‌లు స్వయంచాలకంగా పునరుద్ధరించబడతాయి.
+  theme:
+    available: అందుబాటులో ఉన్న థీమ్‌లు
+    selected: క్రియాశీల థీమ్‌లు
+global: గ్లోబల్
+header:
+  labels:
+    config: ఆకృతీకరణలు
+    developer: డెవలపర్‌ల కోసం
+    extras: ఎక్స్‌ట్రాలు
+    general: జనరల్
+    home: హోమ్
+    iconpack: ఐకాన్ ప్యాక్‌లు
+    monitors: మానిటర్లు
+    plugin: ప్లగిన్లు
+    resources: వనరులు
+    session: ఖాతా
+    shortcuts: సత్వరమార్గాలు
+    soundpack: సౌండ్ ప్యాక్‌లు
+    specific_apps: అప్లికేషన్ ద్వారా సెట్టింగులు
+    theme: థీమ్స్
+    virtual_desk: వర్చువల్ డెస్క్‌టాప్‌లు
+    wallpaper: వాల్‌పేపర్లు
+    widget: విడ్జెట్లు
+home:
+  new_resources: కొత్త వనరులు
+inherit: వారసత్వంగా
+inProgress: పురోగతిలో ఉంది...
+insert: చొప్పించండి
+join_us: మాతో చేరండి!
+loading: లోడ్...
+miscellaneous: ఇతరాలు
+monitors_configurations:
+  label: మానిటర్ {{సూచిక}}
+more: మరిన్ని
+'no': లేదు
+open: తెరవండి
+quit: నిష్క్రమించు
+remove: తొలగించండి
+reset_all_to_default: అన్ని డిఫాల్ట్ విలువలకు రీసెట్ చేయండి
+reset_configurations: కాన్ఫిగరేషన్‌లను రీసెట్ చేయండి
+reset_to_default: డిఫాల్ట్ విలువకు రీసెట్ చేయండి
+resources:
+  affected_widgets: ప్రభావిత విడ్జెట్‌లు
+  app_outdated: ఈ వనరు సరిగ్గా పనిచేయడానికి సీలెన్ UI యొక్క క్రొత్త వెర్షన్ అవసరం.
+  coming_soon: త్వరలో వస్తుంది
+  corrupted_wallpaper: >-
+    సూక్ష్మచిత్రాన్ని సంగ్రహించడంలో విఫలమైంది - పాడైన లేదా మద్దతు లేని వీడియో
+    ఫార్మాట్
+  delete: వనరును తొలగించండి
+  discover: మరిన్ని వనరులను కనుగొనండి
+  has_update: నవీకరణ అందుబాటులో ఉంది
+  high_impact: పనితీరుపై అధిక ప్రభావం
+  import_wallpapers: స్థానిక వాల్‌పేపర్‌లను దిగుమతి చేయండి
+  included_plugins: ప్లగిన్‌లు చేర్చబడ్డాయి
+  modified: సవరించబడింది
+  open_folder: ఓపెన్ రిసోర్స్ ఫోల్డర్
+  outdated: >-
+    ఈ వనరు సీలెన్ UI యొక్క పాత వెర్షన్ కోసం రూపొందించబడింది మరియు సరిగ్గా
+    పనిచేయకపోవచ్చు.
+  see_on_website: వెబ్‌సైట్‌లో చూడండి
+  update_now: నవీకరించు
+  updates_available: అప్‌డేట్‌లు అందుబాటులో ఉన్నాయి
+  updates_available_description: కింది వనరులకు అప్‌డేట్‌లు అందుబాటులో ఉన్నాయి.
+review_request:
+  not_now: ఇప్పుడు కాదు
+  sure: తప్పకుండా!
+  title: సీలెన్ UIని ఆస్వాదిస్తున్నారా?
+save: సేవ్ చేయండి
+save_and_restart: సేవ్ & పున art ప్రారంభించండి
+search: శోధించండి
+see_more: మరిన్ని చూడండి
+session:
+  logout: సైన్ అవుట్ చేయండి
+  plan: ప్లాన్ చేయండి
+  sign_in: సైన్ ఇన్ చేయండి
+  sign_in_hint: మీ బ్రౌజర్ తెరవబడుతుంది కాబట్టి మీరు సురక్షితంగా సైన్ ఇన్ చేయవచ్చు.
+  upgrade_to: కు అప్‌గ్రేడ్ చేయండి
+shortcuts:
+  disabled_tooltip: విడ్జెట్ మరియు దాని సత్వరమార్గాలు నిలిపివేయబడ్డాయి
+  duplicate_error: వైరుధ్య సత్వరమార్గాలు కనుగొనబడ్డాయి
+  duplicate_error_hint: >-
+    కొన్ని సత్వరమార్గాలు బహుళ చర్యలకు కేటాయించబడ్డాయి. విరుద్ధమైన విడ్జెట్‌లలో
+    ఒకదాన్ని నిలిపివేయండి లేదా పరిష్కరించడానికి నకిలీ కీ బైండింగ్‌ని మళ్లీ
+    కేటాయించండి.
+  enable: అంతర్నిర్మిత సత్వరమార్గాల వ్యవస్థను ప్రారంభించండి
+  enable_tooltip: >-
+    మీరు సీలెన్ UI క్లయింట్ ఉపయోగించి మీ స్వంత సత్వరమార్గాల వ్యవస్థను అమలు
+    చేస్తే నిలిపివేయండి
+  labels:
+    create_new_workspace: క్రొత్త వర్క్‌స్పేస్‌ను సృష్టించండి
+    create_new_workspace_row: కొత్త కార్యస్థలం వరుసను సృష్టించండి
+    destroy_current_workspace: ప్రస్తుత వర్క్‌స్పేస్‌ను నాశనం చేయండి
+    misc_force_quit: ఫోర్స్ క్విట్
+    misc_force_restart: ఫోర్స్ పున art ప్రారంభం
+    move_to_workspace: వర్క్‌స్పేస్‌కు తరలించండి {{0}}
+    pause_toggle: సత్వరమార్గాలను పాజ్/రెస్యూమ్ చేయండి
+    send_to_next_workspace: తదుపరి కార్యస్థలానికి విండోను పంపండి
+    send_to_previous_workspace: మునుపటి కార్యస్థలానికి విండోను పంపండి
+    send_to_workspace: వర్క్‌స్పేస్‌కు పంపండి {{0}}
+    send_to_workspace_down: దిగువ కార్యస్థలానికి విండోను పంపండి
+    send_to_workspace_up: పైన ఉన్న కార్యస్థలానికి విండోను పంపండి
+    switch_to_next_workspace: తదుపరి వర్క్‌స్పేస్‌కు మారండి
+    switch_to_previous_workspace: మునుపటి వర్క్‌స్పేస్‌కు మారండి
+    switch_to_workspace_down: దిగువ వర్క్‌స్పేస్‌కి మారండి
+    switch_to_workspace_up: పైన వర్క్‌స్పేస్‌కి మారండి
+    switch_workspace: వర్క్‌స్పేస్‌కు మారండి {{0}}
+  readonly_tooltip: ఇది చదవడానికి మాత్రమే సత్వరమార్గం
+  reset: డిఫాల్ట్‌లకు రీసెట్ చేయండి
+sides:
+  bottom: దిగువన
+  left: ఎడమ
+  right: కుడి
+  top: టాప్
+toolbar:
+  auto_hide: ఆటో దాచు
+  auto_hide_touch_disabled: టచ్ స్క్రీన్ పరికరాలలో స్వీయ దాచు అందుబాటులో లేదు
+  delay_to_hide: దాచడానికి ఆలస్యం
+  delay_to_show: చూపించడానికి ఆలస్యం
+  dock_side: స్థానం
+  enable: ఫ్యాన్సీ టూల్‌బార్‌ని ప్రారంభించండి
+  hide_mode:
+    always: ఎల్లప్పుడూ
+    never: ఎప్పుడూ
+    on_overlap: అతివ్యాప్తిపై
+  item_size: అంశం పరిమాణం
+  label: టూల్‌బార్
+  margin: మార్జిన్ పరిమాణం
+  padding: పాడింగ్ పరిమాణం
+  placeholder: {}
+update:
+  available: నవీకరణ అందుబాటులో ఉంది!
+  channel: ఛానెల్‌ను నవీకరించండి
+  downloading: డౌన్‌లోడ్ ...
+wall:
+  blur: బ్లర్
+  cancel: రద్దు చేయి
+  close: మూసివేయి
+  collection_name: సేకరణ పేరు
+  collections: సేకరణలు
+  contrast: దీనికి విరుద్ధంగా
+  corrupted_wallpapers_message: 'పాడైన వాల్‌పేపర్‌లు, వీటిని తొలగించడాన్ని పరిగణించండి:'
+  coverage_pause_threshold: పాజ్ థ్రెషోల్డ్ (విండో కవరేజ్)
+  create: సృష్టించు
+  create_collection: సేకరణను సృష్టించండి
+  default_collection: డిఫాల్ట్ వాల్‌పేపర్ లేదా సేకరణ
+  default_collection_description: >-
+    నిర్దిష్ట ఓవర్‌రైడ్ సెట్ లేని అన్ని మానిటర్‌లు మరియు వర్క్‌స్పేస్‌లకు
+    వర్తించబడుతుంది.
+  delete_collection: సేకరణను తొలగించండి
+  edit_collection: సేకరణను సవరించండి
+  extend: ప్రాథమికంగా విస్తరించండి
+  fit:
+    contain: కలిగి
+    cover: కవర్
+    fill: పూరించండి
+  flipHorizontal: క్షితిజ సమాంతరంగా తిప్పండి
+  flipVertical: ఫ్లిప్ నిలువు
+  generating_thumbnails: వాల్‌పేపర్ థంబ్‌నెయిల్‌లను రూపొందిస్తోంది
+  hours: గంటలు
+  interval: ప్రతి వాల్‌పేపర్‌ను మార్చండి
+  minutes: నిమిషాలు
+  monitor_collection: సేకరణను పర్యవేక్షించండి
+  multimonitor_behaviour: మల్టీమోనిటర్ బిహేవియర్
+  muted: వీడియో ఆడియోను మ్యూట్ చేయండి
+  no_background: ఖాళీ స్లైడ్‌షో, బదులుగా థీమ్ యొక్క నేపథ్యాన్ని ఉపయోగించి.
+  no_collections: >-
+    ఇంకా సేకరణలు ఏవీ సృష్టించబడలేదు. ఒకదాన్ని సృష్టించడానికి + బటన్‌ను క్లిక్
+    చేయండి.
+  objectFit: నేపథ్య సరిపోతుంది
+  objectPosition: నేపథ్య స్థానం
+  overlayColor: అతివ్యాప్తి రంగు
+  overlayMixBlendMode: అతివ్యాప్తి మిక్స్ బ్లెండ్ మోడ్
+  per_monitor: ప్రతి మానిటర్
+  per_monitor_config: ప్రతి-మానిటర్ కాన్ఫిగరేషన్
+  playback: ప్లేబ్యాక్ వేగం
+  position:
+    bottom: దిగువ
+    center: కేంద్రం
+    left: ఎడమ
+    right: కుడి
+    top: టాప్
+  processing_video: వీడియోను ప్రాసెస్ చేస్తోంది
+  random: రాండమైజ్ స్లైడ్‌షో
+  saturation: సంతృప్తత
+  seconds: సెకన్లు
+  select_collection: సేకరణను ఎంచుకోండి
+  thumbnail_generation_complete: థంబ్‌నెయిల్ జనరేషన్ పూర్తయింది
+  thumbnail_generation_finished: థంబ్‌నెయిల్ ఉత్పత్తి విజయవంతంగా ముగిసింది
+  use_accent_color: వాల్‌పేపర్ యాస రంగును ఉపయోగించండి
+  wallpaper_collection: వాల్‌పేపర్ కలెక్షన్
+  wallpaper_settings: వాల్‌పేపర్ సెట్టింగ్‌లు
+  wallpapers: వాల్‌పేపర్‌లు
+  wallpapers_and_collections: వాల్‌పేపర్‌లు & సేకరణలు
+  withOverlay: అతివ్యాప్తితో
+  workspace_collections: కార్యస్థల సేకరణలు
+weg:
+  auto_hide: ఆటో దాచు
+  auto_hide_touch_disabled: టచ్ స్క్రీన్ పరికరాలలో స్వీయ దాచు అందుబాటులో లేదు
+  delay_to_hide: దాచడానికి ఆలస్యం
+  delay_to_show: చూపించడానికి ఆలస్యం
+  dock_side: స్థానం
+  filtering: అంశం వడపోత
+  gap: గ్యాప్
+  hide_mode:
+    always: ఎల్లప్పుడూ
+    never: ఎప్పుడూ
+    on_overlap: అతివ్యాప్తిపై
+  import_error: టాస్క్‌బార్ అంశాలను దిగుమతి చేయడంలో విఫలమైంది
+  import_from_taskbar:
+    button: విండోస్ టాస్క్‌బార్ నుండి దిగుమతి చేయండి
+    label: పిన్ చేసిన వస్తువులను దిగుమతి చేయండి
+  import_no_items: Windows టాస్క్‌బార్‌లో పిన్ చేసిన అంశాలు ఏవీ కనుగొనబడలేదు
+  import_success: Windows టాస్క్‌బార్ నుండి {{count}} అంశం(లు) విజయవంతంగా దిగుమతి చేయబడింది
+  items:
+    gap: వస్తువుల మధ్య ఖాళీ
+    label: వస్తువులు
+    middle_click_action:
+      close_app: యాప్‌ను మూసివేయండి
+      label: మిడిల్ క్లిక్ యాక్షన్
+      open_new_instance: కొత్త ఉదాహరణను తెరవండి
+    pinned_visibility:
+      always: ఎల్లప్పుడూ
+      label: పిన్ చేయబడిన అంశాల దృశ్యమానత
+      when_primary: మానిటర్ ప్రాథమికంగా ఉన్నప్పుడు
+    show_instance_counter: ఓపెన్ విండోస్ కౌంటర్ చూపించు
+    show_window_title: ఓపెన్ విండో శీర్షికను చూపించు (క్షితిజ సమాంతర మాత్రమే)
+    size: అంశం పరిమాణం
+    split_windows: స్ప్లిట్ విండోస్ (ఒక విండోకు ఒక అంశం)
+    temporal_visibility:
+      all: అన్నీ
+      label: అన్‌పిన్ చేయబడిన అంశాల దృశ్యమానత
+      on_monitor: మానిటర్‌లో
+  label: డాక్/టాస్క్‌బార్
+  margin: మార్జిన్
+  mode:
+    full_width: పూర్తి స్క్రీన్ వెడల్పు
+    min_content: వీలైనంత చిన్నది
+  padding: పాడింగ్
+  show_end_task: టాస్క్‌బార్‌లో ముగింపు పనిని చూపించు
+  width: వెడల్పు
+welcome:
+  give_a_review: రివ్యూ ఇవ్వండి
+  message: >-
+    సీలెన్ UI అనేది Windows కోసం ఉచిత మరియు ఓపెన్ సోర్స్ డెస్క్‌టాప్ వాతావరణం.
+    ఇక్కడ మీ డెస్క్‌టాప్ ఎలా కనిపిస్తుంది మరియు ప్రవర్తిస్తుంది అనే దానిపై మీకు
+    పూర్తి నియంత్రణ ఉంటుంది, ఇది మీ వర్క్‌ఫ్లో మరియు స్టైల్‌కు సరిపోయేలా ప్రతి
+    వివరాలను అనుకూలీకరించడానికి మిమ్మల్ని అనుమతిస్తుంది.
+  ok: ప్రారంభిద్దాం!
+  review: >-
+    మీరు సీలెన్ UIని ఉపయోగించడం ఆనందించినట్లయితే, స్టోర్‌లో సమీక్షను
+    అందించడాన్ని పరిగణించండి - మీ అభిప్రాయం ప్రాజెక్ట్ అభివృద్ధి చెందడానికి
+    మరియు మెరుగుపరచడంలో సహాయపడుతుంది.
+  title: Seelen UIకి స్వాగతం!
+widget:
+  default_instance: డిఫాల్ట్ ఉదాహరణ
+  default_instance_hint: ఎల్లప్పుడూ సక్రియంగా ఉంటుంది, రూట్ విడ్జెట్ కాన్ఫిగర్‌ని ఉపయోగిస్తుంది
+  enable: ఈ విడ్జెట్‌ను ప్రారంభించండి
+  enable_for_monitor: ఈ మానిటర్‌లో ప్రారంభించండి
+  extra_instances: అదనపు సందర్భాలు
+  instance: ఉదాహరణ
+  instances: ఉదాహరణలు
+wm:
+  animations:
+    duration: యానిమేషన్ వ్యవధి (ఎంఎస్)
+    ease_function: యానిమేషన్ సడలింపు ఫంక్షన్
+    enable: విండో యొక్క యానిమేషన్లను ప్రారంభించండి
+  author: రచయిత
+  auto_stack: యాప్ కేటగిరీ వారీగా ఆటో స్టాక్
+  border:
+    enable: విండో అంచుని ప్రారంభించండి
+    offset: సరిహద్దు ఆఫ్‌సెట్
+    width: అంచు వెడల్పు
+  description: వివరణ
+  drag_behavior: డ్రాగ్ బిహేవియర్
+  drag_behavior_options:
+    sort: క్రమబద్ధీకరించు (డ్రాగ్ చేస్తున్నప్పుడు విండోలను క్రమాన్ని మార్చండి)
+    swap: స్వాప్ (డ్రాగ్ ఎండ్‌లో విండోలను స్వాప్ చేయండి)
+  floating:
+    height: ఫ్లోటింగ్ విండోస్ ఎత్తు
+    title: ఫ్లోటింగ్ విండోస్ పరిమాణం
+    width: ఫ్లోటింగ్ విండోస్ వెడల్పు
+  layout: లేఅవుట్
+  resize_delta: డెల్టా (%) పరిమాణాన్ని మార్చండి
+  space_between_containers: కంటైనర్ల మధ్య ఖాళీ
+  stack_bar_visibility: స్టాక్ బార్ విజిబిలిటీ
+  stack_bar_visibility_options:
+    always: ఎల్లప్పుడూ
+    as_needed: అవసరం మేరకు
+  workspace_offset: వర్క్‌స్పేస్ ఆఫ్‌సెట్ (మార్జిన్‌లు)
+  workspace_padding: కార్యస్థలాల పాడింగ్
+'yes': అవును

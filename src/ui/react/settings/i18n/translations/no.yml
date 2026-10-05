@@ -1,0 +1,472 @@
+action:
+  confirm: Er du sikker?
+  confirm_body: Denne handlingen kan ikke angres.
+apps_configurations:
+  app:
+    bindings: Binding (Merk begge alternativene er påkrevd)
+    category: Kategori
+    category_placeholder: Ingen
+    monitor: Observere
+    monitor_placeholder: Ingen
+    name: Navn
+    ok_create: Skape
+    ok_edit: Oppdater
+    ok_readonly: Rediger som ny
+    options:
+      NoInteractive: Ingen interaktiv
+      VdPinned: Vis i alle arbeidsområder
+      WmFloat: Twm - Start flytende
+      WmForce: Twm - Force Manage
+      WmUnmanage: Twm - Unmanage
+    options_label: Ekstra alternativer
+    title_create: Opprette {{name}}
+    title_edit: Redigering {{name}}
+    title_readonly: Visning {{name}}
+    weg_options_label: Dock/oppgavelinjealternativer
+    wm_options_label: Vinduslederalternativer
+    workspace: Arbeidsområde
+    workspace_placeholder: Ingen
+  bundled_msg: >-
+    Disse samlede konfigurasjonene er ikke redigerbare og er designet for å gi
+    deg den beste opplevelsen uten tilpasning. De konfigurerer automatisk de
+    vanligste applikasjonene for deg.
+  bundled_title: App Config samlet med Seelen
+  confirm_delete: Er du sikker på at du vil slette denne konfigurasjonen/S?
+  confirm_delete_title: Bekreft slett
+  delete: Slett
+  export: Eksport
+  export_full: Eksportinnstillinger etter søknad
+  extra_info: >-
+    Seelen-brukergrensesnittet bruker kun én identifikator per app (første treff
+    funnet), så rekkefølgen i hvordan spesifikasjonene er viktig, det siste lagt
+    til vil bli prioritert, da merk at tabellen er sortert som standard fra
+    nyeste til gammel.
+  identifier:
+    add_block: Legg til blokkering
+    and: OG
+    id: Identifikator
+    kind: Identifisere av
+    matching_strategy: Matchende strategi
+    matching_strategy_option:
+      contains: Inneholder
+      ends_with: Ender med
+      equals: Er lik
+      regex: Regelmessig uttrykk
+      starts_with: Starter med
+    negation: Negere matching
+    or: ELLER
+    remove: Slett blokkering
+    type:
+      class: Klasse
+      exe: Exe
+      path: Sti
+      title: Tittel
+  import: Import
+  import_full: Importer innstillinger etter søknad
+  new: Ny
+  search: Søk
+  swap: Bytte
+cancel: Avbryt
+close: Lukke
+delete: Slett
+devtools:
+  app_folders: App -mapper
+  color_palette: Fargepalett
+  color_palette_note: >-
+    Disse fargene tilpasser seg automatisk til lys/mørke-modus - hver nyanse er
+    kontrast-relativt til gjeldende bakgrunn, ikke en fast verdi. Bruk dem i
+    stedet for hardkodede farger for å få automatisk temastøtte.
+  custom_config_file: Last inn tilpasset konfigurasjonsfil
+  data_folder: Datamappen
+  enable: Aktiver utviklerverktøy
+  enable_description: >-
+    Låser opp avanserte verktøy for å inspisere og feilsøke Seelen UI-internal.
+    Ikke beregnet for vanlig bruk.
+  icons: Bufret ikoner
+  install_folder: Installasjonsmappe
+  load: Laste
+  settings_file: Innstillingsfilen
+  shared_components: SLU standardkomponenter
+  simulate_dialog:
+    label: Simuler dialog
+    trigger: Avtrekker
+  simulate_perm:
+    label: Simuler forespørsel om widgettillatelse
+    result_allowed: ✓ Tillatelse gitt
+    result_denied: ✗ Tillatelse nektet
+    trigger: Simuler
+    widget_id_placeholder: '@forfatter/widgetnavn'
+  tools: Verktøy
+  unlock_shortcuts: Lås opp skrivebeskyttede snarveier
+  unlock_shortcuts_description: >-
+    Tillat redigeringssnarveier som vanligvis er skrivebeskyttet (f.eks.
+    systemoverstyringer).
+  unstable_optimizations: Ustabile optimaliseringer
+  unstable_optimizations_description: >-
+    Aktiver eksperimentelle Chromium-flagg som reduserer RAM-bruken.
+
+    Advarsel: hvis en widget krasjer, vil alle widgeter som deler samme laster
+    krasje sammen.
+  widgets_debug:
+    actions: Handlinger
+    empty: Ingen widgets er lastet inn. Klikk på Oppdater.
+    instance_id: Forekomst-ID
+    monitor_id: Monitor ID
+    open_devtools: DevTools
+    refresh: Forfriske
+    status: Status
+    tab: Widgets
+    widget_id: Widget-ID
+discord_banner:
+  message: >-
+    Koble til andre Seelen UI-brukere, få hjelp, del temaer og hold deg
+    oppdatert med de siste nyhetene.
+  title: Bli med i fellesskapet vårt
+extras:
+  backup_group: Cloud Backup
+  backup_last_sync: Siste synkronisering
+  backup_never_synced: Aldri synkronisert
+  backup_sync: Synkroniser innstillinger til skyen
+  backup_sync_description: Sikkerhetskopier og gjenopprett innstillingene dine automatisk via skyen.
+  clear_icons: Klare systemikoner cache
+  clear_icons_tooltip: Det kan kreves en omstart for å tre i kraft alle widgeter
+  discord_rpc: Discord rik tilstedeværelse
+  discord_rpc_description: Vis alle at du har stil!
+  exit: Avslutt/avslutte
+  relaunch: Relanseres
+  streaming_mode: Strømmemodus
+  streaming_mode_description: >-
+    Erstatter sensitiv informasjon (f.eks. e-poster) med plassholdere for å
+    beskytte personvernet under opptak eller skjermbilder.
+  version: Versjon
+  version_fixed: >-
+    Applikasjonen og WebView2 Runtime-versjonene er fikset. Dette betyr at
+    applikasjonen ikke vil motta oppdateringer og WebView2 Runtime vil ikke
+    automatisk oppdateres med Windows-oppdateringer.
+general:
+  accent_color: Aksentfarge
+  date_format: Datoformat
+  date_format_how_to: Hvordan skrive et datoformat?
+  hardware_acceleration: Maskinvareakselerasjon
+  hardware_acceleration_description: >-
+    Deaktivering av maskinvareakselerasjon vil redusere minnebruken. Det er
+    trygt å deaktivere hvis du ikke bruker tunge animasjoner, selv om
+    individuelle widgets fortsatt kan tvinge GPU-bruk uavhengig av denne
+    innstillingen.
+  icon_pack:
+    available: Tilgjengelige ikonpakker
+    selected: Aktive ikonpakker
+  language: Språk
+  monday: mandag
+  performance_mode:
+    label: Optimaliseringer
+    on_battery: På batteri
+    on_energy_saver: På energisparer
+    options:
+      disabled: Funksjonshemmet
+      extreme: Ekstrem
+      minimal: Minimal
+    plugged: Plugget eller lading
+  polling_interval: Systemavstemningsintervall
+  polling_interval_description: >-
+    Hvor ofte (i sekunder) Seelen UI sjekker systemressurser som CPU, RAM,
+    nettverk og diskaktivitet. Et mindre antall betyr hyppigere oppdateringer,
+    men litt høyere ressursbruk.
+  saturday: lørdag
+  start_of_week: Ukestart
+  startup: Kjør ved oppstart?
+  sunday: søndag
+  suspend_on_game_mode: Suspender widgets i spillmodus
+  suspend_on_game_mode_description: >-
+    Når Windows-spillmodus er aktiv, blir alle widget-nettvisninger ødelagt for
+    å frigjøre CPU og minne for spillet. Widgets gjenopprettes automatisk når
+    spillmodus avsluttes.
+  theme:
+    available: Tilgjengelige temaer
+    selected: Aktive temaer
+global: Global
+header:
+  labels:
+    config: Konfigurasjoner
+    developer: For utviklere
+    extras: Ekstrautstyr
+    general: Generell
+    home: Hjem
+    iconpack: Ikonpakker
+    monitors: Skjermer
+    plugin: Plugins
+    resources: Ressurser
+    session: Konto
+    shortcuts: Snarveier
+    soundpack: Lydpakker
+    specific_apps: Innstillinger etter søknad
+    theme: Temaer
+    virtual_desk: Virtuelle stasjonære maskiner
+    wallpaper: Bakgrunnsbilder
+    widget: Widgets
+home:
+  new_resources: Nye ressurser
+inherit: Arve
+inProgress: I prosess...
+insert: Sett inn
+join_us: Bli med oss!
+loading: Laster ...
+miscellaneous: Diverse
+monitors_configurations:
+  label: Overvåke {{indeks}}
+more: Flere
+'no': Ingen
+open: Åpen
+quit: Slutte
+remove: Fjerne
+reset_all_to_default: Tilbakestill alt til standardverdier
+reset_configurations: Tilbakestill konfigurasjoner
+reset_to_default: Tilbakestill til standardverdi
+resources:
+  affected_widgets: Berørte widgeter
+  app_outdated: >-
+    Denne ressursen krever en nyere versjon av Seelen UI for å fungere
+    ordentlig.
+  coming_soon: Kommer snart
+  corrupted_wallpaper: Kunne ikke pakke ut miniatyrbildet – ødelagt eller ikke støttet videoformat
+  delete: Slett ressurs
+  discover: Oppdag flere ressurser
+  has_update: En oppdatering er tilgjengelig
+  high_impact: Høy innvirkning på ytelsen
+  import_wallpapers: Importer lokale bakgrunnsbilder
+  included_plugins: Inkludert plugins
+  modified: Endret
+  open_folder: Åpne ressursmappe
+  outdated: >-
+    Denne ressursen ble designet for en eldre versjon av Seelen UI og fungerer
+    kanskje ikke ordentlig.
+  see_on_website: Se på nettsiden
+  update_now: Oppdater
+  updates_available: Oppdateringer tilgjengelig
+  updates_available_description: Følgende ressurser har oppdateringer tilgjengelig.
+review_request:
+  not_now: Ikke nå
+  sure: Sikker!
+  title: Liker du Seelen UI?
+save: Lagre
+save_and_restart: Lagre og start på nytt
+search: Søk
+see_more: Se mer
+session:
+  logout: Logg ut
+  plan: Plan
+  sign_in: Logg på
+  sign_in_hint: Nettleseren din åpnes slik at du kan logge på sikkert.
+  upgrade_to: Oppgrader til
+shortcuts:
+  disabled_tooltip: Widgeten og dens snarveier er deaktivert
+  duplicate_error: Motstridende snarveier oppdaget
+  duplicate_error_hint: >-
+    Noen snarveier er tilordnet flere handlinger. Deaktiver en av de
+    motstridende widgetene eller tilordne duplikatnøkkelbindingen på nytt for å
+    løse.
+  enable: Aktiver innebygd snarveisystem
+  enable_tooltip: >-
+    Deaktiver om du implementerer ditt eget snarveisystem ved hjelp av Seelen UI
+    -klienten
+  labels:
+    create_new_workspace: Lag nytt arbeidsområde
+    create_new_workspace_row: Opprett ny arbeidsområderad
+    destroy_current_workspace: Ødelegg gjeldende arbeidsområde
+    misc_force_quit: Force slutter
+    misc_force_restart: Force omstart på nytt
+    move_to_workspace: Flytt til arbeidsområdet {{0}}
+    pause_toggle: Pause/Fortsett snarveier
+    send_to_next_workspace: Send vindu til neste arbeidsområde
+    send_to_previous_workspace: Send vindu til forrige arbeidsområde
+    send_to_workspace: Send til arbeidsområdet {{0}}
+    send_to_workspace_down: Send vinduet til arbeidsområdet nedenfor
+    send_to_workspace_up: Send vinduet til arbeidsområdet ovenfor
+    switch_to_next_workspace: Bytt til neste arbeidsområde
+    switch_to_previous_workspace: Bytt til tidligere arbeidsområde
+    switch_to_workspace_down: Bytt til arbeidsområdet nedenfor
+    switch_to_workspace_up: Bytt til arbeidsområde ovenfor
+    switch_workspace: Bytt til arbeidsområdet {{0}}
+  readonly_tooltip: Dette er en leselinje-snarvei
+  reset: Tilbakestill til standardverdier
+sides:
+  bottom: Bunn
+  left: Venstre
+  right: Ikke sant
+  top: Topp
+toolbar:
+  auto_hide: Auto Hide
+  auto_hide_touch_disabled: Skjul automatisk er ikke tilgjengelig på enheter med berøringsskjerm
+  delay_to_hide: Utsett å skjule
+  delay_to_show: Forsinkelse med visning
+  dock_side: Stilling
+  enable: Aktiver fancy verktøylinje
+  hide_mode:
+    always: Alltid
+    never: Aldri
+    on_overlap: På overlapping
+  item_size: Varestørrelse
+  label: Verktøylinje
+  margin: Margstørrelse
+  padding: Polstring Størrelse
+  placeholder: {}
+update:
+  available: Oppdatering tilgjengelig!
+  channel: Oppdateringskanal
+  downloading: Last ned ...
+wall:
+  blur: Uskarpe
+  cancel: Kansellere
+  close: Lukke
+  collection_name: Samlingens navn
+  collections: Samlinger
+  contrast: Kontrast
+  corrupted_wallpapers_message: 'Ødelagte bakgrunnsbilder, vurder å slette disse:'
+  coverage_pause_threshold: Pauseterskel (vindusdekning)
+  create: Skape
+  create_collection: Opprett samling
+  default_collection: Standard tapet eller samling
+  default_collection_description: >-
+    Brukes på alle skjermer og arbeidsområder som ikke har et spesifikt
+    overstyringssett.
+  delete_collection: Slett samling
+  edit_collection: Rediger samling
+  extend: Utvid primær
+  fit:
+    contain: Inneholde
+    cover: Dekke
+    fill: Fylle
+  flipHorizontal: Flip horisontalt
+  flipVertical: Flip vertikal
+  generating_thumbnails: Generer bakgrunnsminiatyrbilder
+  hours: timer
+  interval: Endre bakgrunnsbilde hver
+  minutes: minutter
+  monitor_collection: Overvåk samling
+  multimonitor_behaviour: Multimonitor-atferd
+  muted: Demp videolyd
+  no_background: Tom lysbildefremvisning, ved å bruke temaets bakgrunn i stedet.
+  no_collections: Ingen samlinger opprettet ennå. Klikk på +-knappen for å opprette en.
+  objectFit: Bakgrunns passform
+  objectPosition: Bakgrunnsposisjon
+  overlayColor: Overleggsfarge
+  overlayMixBlendMode: Overlegg blandingsmodus
+  per_monitor: Per skjerm
+  per_monitor_config: Konfigurasjon per skjerm
+  playback: Avspillingshastighet
+  position:
+    bottom: Bunn
+    center: Senter
+    left: Igjen
+    right: Høyre
+    top: Topp
+  processing_video: Behandler video
+  random: Randomiser lysbildefremvisning
+  saturation: Metning
+  seconds: sekunder
+  select_collection: Velg Samling
+  thumbnail_generation_complete: Generering av miniatyrbilder er fullført
+  thumbnail_generation_finished: Generering av miniatyrbilder er fullført
+  use_accent_color: Bruk bakgrunnsfarge
+  wallpaper_collection: Tapet samling
+  wallpaper_settings: Bakgrunnsinnstillinger
+  wallpapers: Bakgrunnsbilder
+  wallpapers_and_collections: Bakgrunnsbilder og samlinger
+  withOverlay: Med overlegg
+  workspace_collections: Arbeidsområdesamlinger
+weg:
+  auto_hide: Skjul automatisk
+  auto_hide_touch_disabled: Skjul automatisk er ikke tilgjengelig på enheter med berøringsskjerm
+  delay_to_hide: Utsett å skjule
+  delay_to_show: Forsinkelse med visning
+  dock_side: Stilling
+  filtering: Varen filtrering
+  gap: Mellomrom
+  hide_mode:
+    always: Alltid
+    never: Aldri
+    on_overlap: På overlapping
+  import_error: Kunne ikke importere elementer på oppgavelinjen
+  import_from_taskbar:
+    button: Importer fra Windows oppgavelinje
+    label: Importer festede elementer
+  import_no_items: Fant ingen festede elementer i Windows-oppgavelinjen
+  import_success: Vellykket importert {{count}} element(er) fra Windows-oppgavelinjen
+  items:
+    gap: Plass mellom varene
+    label: Gjenstander
+    middle_click_action:
+      close_app: Lukk appen
+      label: Midtklikk handling
+      open_new_instance: Åpne ny forekomst
+    pinned_visibility:
+      always: Alltid
+      label: Festede elementers synlighet
+      when_primary: Når monitoren er primær
+    show_instance_counter: Vis åpne Windows -teller
+    show_window_title: Vis Open Window Title (bare horisontalt)
+    size: Varestørrelse
+    split_windows: Delte vinduer (ett element per vindu)
+    temporal_visibility:
+      all: Alle
+      label: Synlighet for frigjorte elementer
+      on_monitor: På monitor
+  label: Dock/oppgavelinje
+  margin: Margin
+  mode:
+    full_width: Full skjermbredde
+    min_content: Liten som kan være
+  padding: Polstring
+  show_end_task: Vis sluttoppgave i oppgavelinjen
+  width: Bredde
+welcome:
+  give_a_review: Gi en anmeldelse
+  message: >-
+    Seelen UI er et gratis skrivebordsmiljø med åpen kildekode for Windows. Her
+    har du full kontroll over hvordan skrivebordet ditt ser ut og oppfører seg,
+    slik at du kan tilpasse hver detalj for å matche arbeidsflyten og stilen
+    din.
+  ok: La oss begynne!
+  review: >-
+    Hvis du liker å bruke Seelen UI, bør du vurdere å legge igjen en anmeldelse
+    i butikken – tilbakemeldingen din hjelper prosjektet med å vokse og forbedre
+    seg.
+  title: Velkommen til Seelen UI!
+widget:
+  default_instance: Standardforekomst
+  default_instance_hint: Alltid aktiv, bruker root-widget-konfigurasjonen
+  enable: Aktiver denne widgeten
+  enable_for_monitor: Aktiver på denne skjermen
+  extra_instances: Ekstra forekomster
+  instance: Forekomst
+  instances: Forekomster
+wm:
+  animations:
+    duration: Animasjonsvarighet (MS)
+    ease_function: Animasjon lettelsesfunksjon
+    enable: Aktiver vinduets animasjoner
+  author: Forfatter
+  auto_stack: Automatisk stabel etter appkategori
+  border:
+    enable: Aktiver vinduets grense
+    offset: Grenseforskyvning
+    width: Grensebredde
+  description: Beskrivelse
+  drag_behavior: Dra-atferd
+  drag_behavior_options:
+    sort: Sorter (omorganiser vinduer mens du drar)
+    swap: Bytt (bytt vinduer på dra-enden)
+  floating:
+    height: Flytende vinduer Høyde
+    title: Flytende Windows-størrelse
+    width: Flytende Windows-bredde
+  layout: Oppsett
+  resize_delta: Endre størrelse på Delta (%)
+  space_between_containers: Plass mellom containere
+  stack_bar_visibility: Stabelbar synlighet
+  stack_bar_visibility_options:
+    always: Alltid
+    as_needed: Etter behov
+  workspace_offset: Arbeidsområder forskyvning (marginer)
+  workspace_padding: Arbeidsområder polstring
+'yes': Ja

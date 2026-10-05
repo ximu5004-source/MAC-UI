@@ -1,0 +1,81 @@
+auth:
+  login_failed_body: >-
+    Đã xảy ra lỗi trong quá trình đăng nhập. Nếu tình trạng này vẫn tiếp diễn,
+    hãy đảm bảo dịch vụ 'Trình quản lý thông tin xác thực' của Windows
+    (VaultSvc) đã được bật và đang chạy, sau đó thử lại.
+  login_failed_title: Đăng nhập không thành công
+cancel: Hủy bỏ
+done: Xong
+elevated:
+  description: >-
+    Giao diện người dùng Seelen đang chạy với đặc quyền của quản trị viên.
+
+    Điều này không bổ sung hoặc cải thiện bất kỳ tính năng nào và có thể gây ra
+    rủi ro bảo mật.
+
+    Để bảo mật tốt hơn, vui lòng khởi động lại nó mà không có sự cho phép của
+    quản trị viên.
+  title: Chạy với tư cách quản trị viên
+file_explorer: Trình khám phá tệp
+resource:
+  added: Một tài nguyên mới đã được thêm vào
+  download_failed_body: >-
+    Có điều gì đó không ổn trong khi tải xuống tài nguyên, vui lòng báo cáo cho
+    nhóm Nhà phát triển Seelen.
+  download_failed_title: Tải xuống tài nguyên không thành công
+  downloading: Tải xuống tài sản ...
+  downloading_body: Điều này có thể mất vài giây, xin vui lòng không đóng cửa sổ.
+  enable: Cho phép
+  login_required_action: Đăng nhập
+  login_required_body: Bạn cần đăng nhập để tải xuống tài nguyên này.
+  login_required_title: Yêu cầu đăng nhập
+runtime:
+  corrupted_data: Dữ liệu bị hỏng
+  corrupted_file: Một tệp cấu hình bị hỏng, sử dụng các giá trị mặc định thay thế.
+  corrupted_file_path: Đường dẫn tệp bị hỏng
+  download: Đi tới trang tải xuống
+  files_integrity: >-
+    Chúng tôi không thể xác minh tính toàn vẹn của các tệp ứng dụng.
+
+    Điều này có thể xảy ra nếu tệp bị sửa đổi, bị hỏng hoặc quá trình cài đặt
+    chưa hoàn tất.
+
+    Vì lý do bảo mật, giao diện người dùng Seelen không thể tiếp tục.
+
+    Vui lòng cài đặt lại nó từ trang web chính thức.
+  files_integrity_title: Cảnh báo bảo mật - Kiểm tra tính toàn vẹn của tệp không thành công
+  not_found: Không tìm thấy thời gian chạy WebView2
+  not_found_description: Giao diện người dùng Seelen yêu cầu Thời gian chạy Webview2. Hãy cài đặt nó.
+  outdated: Thời gian chạy WebView2 đã lỗi thời
+  outdated_description: >-
+    Giao diện người dùng Seelen yêu cầu Webview2 Runtime %{min_version} trở lên.
+    Hãy cập nhật nó.
+service:
+  not_running: Dịch vụ giao diện người dùng Seelen không chạy
+  not_running_description: >-
+    Dịch vụ giao diện người dùng Seelen (slu-service) là một công cụ phụ
+    thuộc/trợ giúp để ứng dụng hoạt động bình thường.
+  not_running_ok: Bắt đầu dịch vụ
+shortcut:
+  conflicts:
+    body: Một số phím tắt được gán cho nhiều hành động, vui lòng gán lại chúng.
+    dismiss: Miễn nhiệm
+    review: Ôn tập
+    title: Đã phát hiện xung đột phím tắt
+  register:
+    placeholder: Nhấn bất kỳ kết hợp khóa nào
+    title: Đăng ký phím tắt mới
+widget_liveness:
+  failed_description: |-
+    Tiện ích '%{widget_name}' đã ngừng phản hồi quá nhiều lần.
+
+    Bạn có thể thử khởi động lại ứng dụng.
+  failed_title: Lỗi tiện ích
+widget_permissions:
+  perm_open_file: mở tập tin
+  perm_run: chạy chương trình
+  request_description: |-
+    Tiện ích '%{widget_name}' đang yêu cầu quyền đối với %{command}.
+
+    Bạn có muốn cho phép điều này?
+  request_title: Yêu cầu cấp phép tiện ích

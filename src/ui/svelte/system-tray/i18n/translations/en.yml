@@ -1,0 +1,19 @@
+tray:
+  title: System tray
+  count: "{{count}} icons"
+  all_apps: All tray apps
+  description: Includes hidden tray icons. Click or double-click to open; right-click for the native menu.
+  refresh: Refresh tray
+  loading: Loading tray apps…
+  empty: No tray icons found. Use Refresh to try again.
+  load_failed: Could not load the tray. Use Refresh to retry.
+  retry_hint: You can reload the tray without restarting the desktop.
+  action_failed: "Could not interact with {{name}}. Refresh the tray and try again."
+  hidden_icon: Hidden system icon
+  unnamed: Unnamed tray app
+communication:
+  label: Messaging and background apps
+  description: Messaging apps stay in the toolbar. Red means a notification; amber means tray activity. Click to open, right-click for the native menu.
+  notification: New notification
+  activity: Tray activity
+  running: Running in background

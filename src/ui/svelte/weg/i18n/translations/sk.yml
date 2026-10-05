@@ -1,0 +1,40 @@
+app_menu:
+  close: Zavrieť
+  close_multiple: Zavrieť
+  copy_handles: Kopírovanie rukovätí
+  edit_app_icon: Upraviť ikonu aplikácie
+  kill: Proces zabíjania
+  kill_multiple: Zabi všetky procesy
+  open_file_location: Otvorte umiestnenie súboru
+  pin: Pin
+  pin_to_center: Špendlík
+  pin_to_left: Špendlík doľava
+  pin_to_right: Špendlík
+  run_as: Spustiť ako správca
+  unpin: Zaniknúť
+context_menu:
+  edit_icon: Ikona Upraviť
+  remove_module: Odstráňte modul
+  remove_separator: Odstráňte separátor
+  reorder_disable: Uzamknutie panela úloh
+  reorder_enable: Odomknutie panela úloh
+media:
+  label: Prehrávač médií
+  not_playing: Nič nehrá
+show_desktop:
+  label: Zobraziť pracovnú plochu
+start:
+  label: Ponuka Štart
+taskbar_menu:
+  add_file: Vlastný súbor
+  add_separator: Pridať oddeľovač
+  media: Prehrávač médií
+  modules: Moduly
+  settings: Nastavenia
+  task_manager: Správca úloh
+trash_bin:
+  empty_bin: Vyprázdniť kôš
+  item_count: 'Počet položiek: {{0}}'
+  label: Kôš
+weg:
+  empty: Žiadne položky na zobrazenie

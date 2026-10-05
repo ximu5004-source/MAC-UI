@@ -1,0 +1,471 @@
+action:
+  confirm: کیا آپ کو یقین ہے؟
+  confirm_body: اس عمل کو ختم نہیں کیا جاسکتا۔
+apps_configurations:
+  app:
+    bindings: بائنڈنگ (نوٹ دونوں اختیارات کی ضرورت ہے)
+    category: قسم
+    category_placeholder: کوئی نہیں
+    monitor: مانیٹر
+    monitor_placeholder: کوئی نہیں
+    name: نام
+    ok_create: بنانا
+    ok_edit: اپ ڈیٹ
+    ok_readonly: نئے کے طور پر ترمیم کریں
+    options:
+      NoInteractive: کوئی انٹرایکٹو نہیں
+      VdPinned: تمام ورک اسپیس میں دکھائیں
+      WmFloat: TWM - تیرنا شروع کریں
+      WmForce: TWM - فورس کا انتظام کریں
+      WmUnmanage: TWM - غیر منظم
+    options_label: اضافی اختیارات
+    title_create: '{{نام}} بنانا'
+    title_edit: ترمیم {{نام}}
+    title_readonly: '{{نام}} دیکھ رہا ہے'
+    weg_options_label: گودی/ٹاسک بار کے اختیارات
+    wm_options_label: ونڈو مینیجر کے اختیارات
+    workspace: ورک اسپیس
+    workspace_placeholder: کوئی نہیں
+  bundled_msg: >-
+    یہ بنڈل تشکیلات قابل تدوین نہیں ہیں اور آپ کو حسب ضرورت کے بغیر بہترین تجربہ
+    فراہم کرنے کے لئے ڈیزائن کی گئی ہیں۔ وہ خود بخود آپ کے لئے سب سے عام ایپلی
+    کیشنز کو تشکیل دیتے ہیں۔
+  bundled_title: ایپ کنفیگ سیلن کے ساتھ بنڈل
+  confirm_delete: کیا آپ واقعی اس ترتیب کو حذف کرنا چاہتے ہیں؟
+  confirm_delete_title: حذف کرنے کی تصدیق کریں
+  delete: حذف کریں
+  export: برآمد
+  export_full: درخواست کے ذریعہ ترتیبات برآمد کریں
+  extra_info: >-
+    Seelen UI فی ایپ صرف ایک شناخت کنندہ کا استعمال کرتا ہے (پہلا میچ ملا) لہذا
+    ترتیب کس طرح مخصوص کی گئی ہے اہم ہے، تازہ ترین شامل کو ترجیح دی جائے گی،
+    کیونکہ نوٹ کریں کہ جدول کو ڈیفالٹ سے تازہ ترین سے پرانے تک ترتیب دیا جاتا
+    ہے۔
+  identifier:
+    add_block: بلاک شامل کریں
+    and: اور
+    id: شناخت کنندہ
+    kind: بذریعہ شناخت کریں
+    matching_strategy: مماثل حکمت عملی
+    matching_strategy_option:
+      contains: پر مشتمل ہے۔
+      ends_with: کے ساتھ ختم ہوتا ہے۔
+      equals: برابر ہے۔
+      regex: باقاعدہ اظہار
+      starts_with: سے شروع ہوتا ہے۔
+    negation: نفی مماثل
+    or: یا
+    remove: بلاک کو حذف کریں
+    type:
+      class: کلاس
+      exe: Exe
+      path: راستہ
+      title: عنوان
+  import: درآمد
+  import_full: درخواست کے ذریعہ ترتیبات درآمد کریں
+  new: نئی
+  search: تلاش
+  swap: تبادلہ
+cancel: منسوخ کریں
+close: بند کریں
+delete: حذف کریں
+devtools:
+  app_folders: ایپ فولڈرز
+  color_palette: کلر پیلیٹ
+  color_palette_note: >-
+    یہ رنگ خود بخود لائٹ/ڈارک موڈ میں ڈھل جاتے ہیں — ہر شیڈ موجودہ پس منظر کے
+    برعکس ہے، ایک مقررہ قدر نہیں۔ خودکار تھیم سپورٹ حاصل کرنے کے لیے ہارڈ کوڈ
+    والے رنگوں کے بجائے ان کا استعمال کریں۔
+  custom_config_file: کسٹم کنفیگ فائل لوڈ کریں
+  data_folder: ڈیٹا فولڈر
+  enable: ڈویلپر ٹولز کو فعال کریں
+  enable_description: >-
+    Seelen UI انٹرنلز کا معائنہ اور ڈیبگ کرنے کے لیے جدید ٹولز کو غیر مقفل کرتا
+    ہے۔ باقاعدہ استعمال کے لیے نہیں ہے۔
+  icons: کیشڈ آئیکنز
+  install_folder: انسٹالیشن فولڈر
+  load: لوڈ
+  settings_file: سیٹنگ فاعل
+  shared_components: SLU معیاری اجزاء
+  simulate_dialog:
+    label: ڈائیلاگ کی تقلید کریں۔
+    trigger: محرک
+  simulate_perm:
+    label: ویجیٹ کی اجازت کی درخواست کی تقلید کریں۔
+    result_allowed: ✓ اجازت دی گئی۔
+    result_denied: ✗ اجازت مسترد کر دی گئی۔
+    trigger: نقل کرنا
+    widget_id_placeholder: '@author/widget-name'
+  tools: اوزار
+  unlock_shortcuts: صرف پڑھنے کے لیے شارٹ کٹس کو غیر مقفل کریں۔
+  unlock_shortcuts_description: >-
+    شارٹ کٹس میں ترمیم کی اجازت دیں جو عام طور پر صرف پڑھنے کے لیے ہوتے ہیں
+    (جیسے سسٹم اوور رائیڈز)۔
+  unstable_optimizations: غیر مستحکم اصلاح
+  unstable_optimizations_description: >-
+    تجرباتی Chromium جھنڈوں کو فعال کریں جو RAM کے استعمال کو کم کرتے ہیں۔ 
+
+    انتباہ: اگر کوئی ویجیٹ کریش ہو جاتا ہے تو ایک ہی لوڈر کو شیئر کرنے والے تمام
+    ویجٹ ایک ساتھ کریش ہو جائیں گے۔
+  widgets_debug:
+    actions: اعمال
+    empty: کوئی ویجٹ لوڈ نہیں ہوا۔ ریفریش پر کلک کریں۔
+    instance_id: مثال کی شناخت
+    monitor_id: مانیٹر ID
+    open_devtools: ڈیو ٹولز
+    refresh: ریفریش کریں۔
+    status: حیثیت
+    tab: وجیٹس
+    widget_id: ویجیٹ ID
+discord_banner:
+  message: >-
+    دوسرے Seelen UI صارفین کے ساتھ جڑیں، مدد حاصل کریں، تھیمز کا اشتراک کریں،
+    اور تازہ ترین خبروں سے باخبر رہیں۔
+  title: ہماری کمیونٹی میں شامل ہوں۔
+extras:
+  backup_group: کلاؤڈ بیک اپ
+  backup_last_sync: آخری مطابقت پذیری۔
+  backup_never_synced: کبھی مطابقت پذیر نہیں ہوا۔
+  backup_sync: کلاؤڈ کے ساتھ مطابقت پذیری کی ترتیبات
+  backup_sync_description: خودکار طور پر بیک اپ لیں اور کلاؤڈ کے ذریعے اپنی ترتیبات کو بحال کریں۔
+  clear_icons: صاف نظام شبیہیں کیشے
+  clear_icons_tooltip: دوبارہ شروع کرنے کے لئے تمام ویجٹوں پر مکمل اثر ڈالنے کی ضرورت ہوسکتی ہے
+  discord_rpc: امیر کی موجودگی کو مسترد کریں۔
+  discord_rpc_description: ہر ایک کو دکھائیں جس کا آپ کا انداز ہے!
+  exit: چھوڑ دیں/باہر نکلیں
+  relaunch: دوبارہ لانچ
+  streaming_mode: اسٹریمنگ موڈ
+  streaming_mode_description: >-
+    ریکارڈنگ یا اسکرین شاٹس کے دوران رازداری کی حفاظت کے لیے حساس معلومات (جیسے
+    ای میلز) کو پلیس ہولڈرز سے بدل دیتا ہے۔
+  version: ورژن
+  version_fixed: >-
+    ایپلی کیشن اور ویب ویو 2 رن ٹائم ورژن طے شدہ ہیں۔ اس کا مطلب یہ ہے کہ ایپلی
+    کیشن کو اپ ڈیٹس موصول نہیں ہوں گے اور ویب ویو 2 رن ٹائم کو ونڈوز کی تازہ
+    کاریوں کے ساتھ خود بخود اپ ڈیٹ نہیں کیا جائے گا۔
+general:
+  accent_color: رنگ
+  date_format: تاریخ کی شکل
+  date_format_how_to: تاریخ کی شکل کیسے لکھیں؟
+  hardware_acceleration: ہارڈ ویئر ایکسلریشن
+  hardware_acceleration_description: >-
+    ہارڈویئر ایکسلریشن کو غیر فعال کرنے سے میموری کا استعمال کم ہو جائے گا۔ اگر
+    آپ بھاری اینیمیشنز استعمال نہیں کر رہے ہیں تو اسے غیر فعال کرنا محفوظ ہے،
+    حالانکہ انفرادی ویجٹ اس ترتیب سے قطع نظر GPU کے استعمال پر مجبور کر سکتے
+    ہیں۔
+  icon_pack:
+    available: دستیاب آئیکن پیک
+    selected: ایکٹو آئیکن پیک
+  language: زبان
+  monday: پیر
+  performance_mode:
+    label: اصلاح
+    on_battery: بیٹری پر
+    on_energy_saver: انرجی سیور پر
+    options:
+      disabled: غیر فعال
+      extreme: انتہائی
+      minimal: کم سے کم
+    plugged: پلگ ان یا چارجنگ
+  polling_interval: سسٹم پولنگ وقفہ
+  polling_interval_description: >-
+    سیلین UI کتنی بار (سیکنڈوں میں) سسٹم کے وسائل جیسے CPU، RAM، نیٹ ورک، اور
+    ڈسک کی سرگرمی کو چیک کرتا ہے۔ ایک چھوٹی تعداد کا مطلب ہے زیادہ بار بار اپ
+    ڈیٹس، لیکن وسائل کا تھوڑا سا زیادہ استعمال۔
+  saturday: ہفتہ
+  start_of_week: ہفتے کا آغاز
+  startup: اسٹارٹ اپ پر چلائیں؟
+  sunday: اتوار
+  suspend_on_game_mode: گیم موڈ پر وجیٹس کو معطل کریں۔
+  suspend_on_game_mode_description: >-
+    جب Windows گیم موڈ فعال ہوتا ہے تو، تمام ویجیٹ ویب ویوز کو مفت CPU اور گیم
+    کے لیے میموری کے لیے تباہ کر دیا جاتا ہے۔ گیم موڈ ختم ہونے پر وجیٹس خود بخود
+    بحال ہو جاتے ہیں۔
+  theme:
+    available: دستیاب تھیمز
+    selected: ایکٹو تھیمز
+global: عالمی
+header:
+  labels:
+    config: تشکیلات
+    developer: ڈویلپرز کے لئے
+    extras: ایکسٹرا
+    general: جنرل
+    home: گھر
+    iconpack: آئیکن پیک
+    monitors: مانیٹر
+    plugin: پلگ ان
+    resources: وسائل
+    session: اکاؤنٹ
+    shortcuts: شارٹ کٹ
+    soundpack: ساؤنڈ پیک
+    specific_apps: درخواست کے ذریعہ ترتیبات
+    theme: موضوعات
+    virtual_desk: ورچوئل ڈیسک ٹاپس
+    wallpaper: وال پیپر
+    widget: ویجٹ
+home:
+  new_resources: نئے وسائل
+inherit: وراثت
+inProgress: کام جاری ہے...
+insert: داخل کریں
+join_us: ہمارے ساتھ شامل ہوں!
+loading: لوڈنگ ...
+miscellaneous: متفرق
+monitors_configurations:
+  label: مانیٹر {{انڈیکس}}
+more: زیادہ
+'no': نہیں
+open: کھلا
+quit: چھوڑ دیں
+remove: ہٹا دیں
+reset_all_to_default: سب کو پہلے سے طے شدہ اقدار پر دوبارہ ترتیب دیں
+reset_configurations: کنفیگریشنز کو ری سیٹ کریں۔
+reset_to_default: ڈیفالٹ ویلیو پر دوبارہ سیٹ کریں
+resources:
+  affected_widgets: متاثرہ وجیٹس
+  app_outdated: >-
+    اس وسیلہ کے لئے مناسب طریقے سے کام کرنے کے لئے سیلین UI کا ایک نیا ورژن
+    درکار ہے۔
+  coming_soon: جلد آرہا ہے۔
+  corrupted_wallpaper: تھمب نیل نکالنے میں ناکام - خراب یا غیر تعاون یافتہ ویڈیو فارمیٹ
+  delete: وسائل کو حذف کریں
+  discover: مزید وسائل دریافت کریں
+  has_update: ایک تازہ کاری دستیاب ہے
+  high_impact: کارکردگی پر زیادہ اثر
+  import_wallpapers: مقامی وال پیپر درآمد کریں
+  included_plugins: شامل پلگ انز
+  modified: تبدیل شدہ
+  open_folder: اوپن ریسورس فولڈر
+  outdated: >-
+    یہ وسیلہ سیلین UI کے پرانے ورژن کے لئے ڈیزائن کیا گیا تھا اور ہوسکتا ہے کہ
+    وہ صحیح طریقے سے کام نہ کرے۔
+  see_on_website: ویب سائٹ پر دیکھیں
+  update_now: اپڈیٹ کریں۔
+  updates_available: اپ ڈیٹس دستیاب ہیں۔
+  updates_available_description: درج ذیل وسائل میں اپ ڈیٹس دستیاب ہیں۔
+review_request:
+  not_now: اب نہیں
+  sure: یقینا!
+  title: سیلین UI سے لطف اندوز ہو رہے ہو؟
+save: محفوظ کریں
+save_and_restart: محفوظ کریں اور دوبارہ شروع کریں
+search: تلاش کریں۔
+see_more: مزید دیکھیں
+session:
+  logout: سائن آؤٹ کریں۔
+  plan: منصوبہ
+  sign_in: سائن ان کریں۔
+  sign_in_hint: آپ کا براؤزر کھل جائے گا تاکہ آپ محفوظ طریقے سے سائن ان کر سکیں۔
+  upgrade_to: میں اپ گریڈ کریں۔
+shortcuts:
+  disabled_tooltip: ویجیٹ اور اس کے شارٹ کٹس غیر فعال ہیں۔
+  duplicate_error: متضاد شارٹ کٹس کا پتہ چلا
+  duplicate_error_hint: >-
+    کچھ شارٹ کٹ متعدد کارروائیوں کے لیے تفویض کیے گئے ہیں۔ متضاد ویجٹ میں سے ایک
+    کو غیر فعال کریں یا حل کرنے کے لیے ڈپلیکیٹ کلید بائنڈنگ کو دوبارہ تفویض
+    کریں۔
+  enable: بلٹ ان شارٹ کٹ سسٹم کو فعال کریں
+  enable_tooltip: >-
+    اگر آپ سیلین UI کلائنٹ کا استعمال کرتے ہوئے اپنے شارٹ کٹ سسٹم کو نافذ کریں
+    گے تو غیر فعال کریں
+  labels:
+    create_new_workspace: نیا ورک اسپیس بنائیں
+    create_new_workspace_row: نئی ورک اسپیس قطار بنائیں
+    destroy_current_workspace: موجودہ ورک اسپیس کو ختم کریں
+    misc_force_quit: فورس چھوڑ دیں
+    misc_force_restart: زبردستی دوبارہ شروع کریں
+    move_to_workspace: ورک اسپیس {{0}} میں منتقل کریں
+    pause_toggle: شارٹ کٹس کو موقوف/دوبارہ شروع کریں۔
+    send_to_next_workspace: ونڈو کو نیکسٹ ورک اسپیس پر بھیجیں۔
+    send_to_previous_workspace: ونڈو کو پچھلے ورک اسپیس پر بھیجیں۔
+    send_to_workspace: ورک اسپیس کو بھیجیں {{0}}
+    send_to_workspace_down: ونڈو کو نیچے ورک اسپیس پر بھیجیں۔
+    send_to_workspace_up: ونڈو کو اوپر والے ورک اسپیس پر بھیجیں۔
+    switch_to_next_workspace: اگلی ورک اسپیس پر سوئچ کریں
+    switch_to_previous_workspace: پچھلے ورک اسپیس پر سوئچ کریں
+    switch_to_workspace_down: ذیل میں ورک اسپیس پر سوئچ کریں۔
+    switch_to_workspace_up: اوپر ورک اسپیس پر سوئچ کریں۔
+    switch_workspace: ورک اسپیس {{0}} پر سوئچ کریں
+  readonly_tooltip: یہ صرف ایک پڑھنے والا شارٹ کٹ ہے
+  reset: ڈیفالٹس کو دوبارہ ترتیب دیں
+sides:
+  bottom: نیچے
+  left: بائیں
+  right: دائیں
+  top: اوپر
+toolbar:
+  auto_hide: آٹو چھپائیں
+  auto_hide_touch_disabled: ٹچ اسکرین آلات پر آٹو چھپائیں دستیاب نہیں ہے۔
+  delay_to_hide: چھپانے میں تاخیر
+  delay_to_show: دکھانے میں تاخیر
+  dock_side: پوزیشن
+  enable: فینسی ٹول بار کو فعال کریں
+  hide_mode:
+    always: ہمیشہ
+    never: کبھی نہیں
+    on_overlap: اوورلیپ پر
+  item_size: آئٹم کا سائز
+  label: ٹول بار
+  margin: مارجن سائز
+  padding: پیڈنگ سائز
+  placeholder: {}
+update:
+  available: تازہ کاری دستیاب!
+  channel: چینل کو اپ ڈیٹ کریں
+  downloading: ڈاؤن لوڈ کرنا ...
+wall:
+  blur: دھندلا
+  cancel: منسوخ کریں
+  close: بند کریں
+  collection_name: جمع کرنے کا نام
+  collections: مجموعے
+  contrast: اس کے برعکس
+  corrupted_wallpapers_message: 'خراب وال پیپرز ، ان کو حذف کرنے پر غور کریں:'
+  coverage_pause_threshold: توقف کی حد (ونڈو کوریج)
+  create: تخلیق کریں
+  create_collection: مجموعہ بنائیں
+  default_collection: پہلے سے طے شدہ وال پیپر یا مجموعہ
+  default_collection_description: >-
+    ان تمام مانیٹروں اور ورک اسپیس پر لاگو ہوتا ہے جن میں کوئی مخصوص اوور رائڈ
+    سیٹ نہیں ہوتا ہے۔
+  delete_collection: مجموعہ حذف کریں
+  edit_collection: مجموعہ میں ترمیم کریں
+  extend: پرائمری میں توسیع کریں
+  fit:
+    contain: مشتمل
+    cover: کور
+    fill: پُر کریں
+  flipHorizontal: افقی پلٹائیں
+  flipVertical: عمودی پلٹائیں
+  generating_thumbnails: وال پیپر تھمب نیل تیار کرنا
+  hours: گھنٹے
+  interval: ہر ایک وال پیپر کو تبدیل کریں
+  minutes: منٹ
+  monitor_collection: مانیٹر کلیکشن
+  multimonitor_behaviour: کثیر الجہتی سلوک
+  muted: خاموش ویڈیو آڈیو
+  no_background: اس کے بجائے تھیم کے پس منظر کا استعمال کرتے ہوئے ، خالی سلائیڈ شو۔
+  no_collections: ابھی تک کوئی مجموعہ پیدا نہیں ہوا۔ ایک بنانے کے لئے + بٹن پر کلک کریں۔
+  objectFit: پس منظر فٹ
+  objectPosition: پس منظر کی پوزیشن
+  overlayColor: اوورلے رنگ
+  overlayMixBlendMode: اوورلے مکس مرکب موڈ
+  per_monitor: فی مانیٹر
+  per_monitor_config: فی مانیٹر کنفیگریشن
+  playback: پلے بیک کی رفتار
+  position:
+    bottom: نیچے
+    center: مرکز
+    left: بائیں
+    right: دائیں
+    top: اوپر
+  processing_video: پروسیسنگ ویڈیو
+  random: سلائیڈ شو کو بے ترتیب بنائیں
+  saturation: سنترپتی
+  seconds: سیکنڈ
+  select_collection: مجموعہ منتخب کریں
+  thumbnail_generation_complete: تھمب نیل جنریشن مکمل
+  thumbnail_generation_finished: تھمب نیل جنریشن نے کامیابی کے ساتھ ختم کیا ہے
+  use_accent_color: وال پیپر کے لہجے کا رنگ استعمال کریں۔
+  wallpaper_collection: وال پیپر مجموعہ
+  wallpaper_settings: وال پیپر کی ترتیبات
+  wallpapers: وال پیپرز
+  wallpapers_and_collections: وال پیپرز اور کلیکشنز
+  withOverlay: اوورلے کے ساتھ
+  workspace_collections: ورک اسپیس کلیکشن
+weg:
+  auto_hide: خود بخود چھپ جانا
+  auto_hide_touch_disabled: ٹچ اسکرین آلات پر آٹو چھپائیں دستیاب نہیں ہے۔
+  delay_to_hide: چھپانے میں تاخیر
+  delay_to_show: دکھانے میں تاخیر
+  dock_side: پوزیشن
+  filtering: آئٹم فلٹرنگ
+  gap: گیپ
+  hide_mode:
+    always: ہمیشہ
+    never: کبھی نہیں
+    on_overlap: اوورلیپ پر
+  import_error: ٹاسک بار آئٹمز درآمد کرنے میں ناکام
+  import_from_taskbar:
+    button: ونڈوز ٹاسک بار سے درآمد کریں۔
+    label: پن کی ہوئی اشیاء درآمد کریں۔
+  import_no_items: ونڈوز ٹاسک بار میں کوئی پن شدہ آئٹم نہیں ملا
+  import_success: ونڈوز ٹاسک بار سے کامیابی کے ساتھ {{count}} آئٹمز درآمد کی گئیں۔
+  items:
+    gap: اشیاء کے درمیان جگہ
+    label: اشیاء
+    middle_click_action:
+      close_app: ایپ بند کریں۔
+      label: مڈل کلک ایکشن
+      open_new_instance: نئی مثال کھولیں۔
+    pinned_visibility:
+      always: ہمیشہ
+      label: پن کی ہوئی اشیاء کی مرئیت
+      when_primary: جب مانیٹر پرائمری ہو۔
+    show_instance_counter: کھلی ونڈوز کاؤنٹر دکھائیں
+    show_window_title: کھلی ونڈو ٹائٹل دکھائیں (صرف افقی)
+    size: آئٹم کا سائز
+    split_windows: اسپلٹ ونڈوز (ایک آئٹم فی ونڈو)
+    temporal_visibility:
+      all: تمام
+      label: ان پن کردہ آئٹمز کی مرئیت
+      on_monitor: مانیٹر پر
+  label: ٹاسک بار
+  margin: مارجن
+  mode:
+    full_width: پوری سکرین کی چوڑائی
+    min_content: جتنا چھوٹا ہو سکتا ہے۔
+  padding: بھرتی
+  show_end_task: ٹاسک بار میں اختتامی کام دکھائیں
+  width: چوڑائی
+welcome:
+  give_a_review: ایک جائزہ دیں
+  message: >-
+    سیلن UI ونڈوز کے لئے ایک مفت اور اوپن سورس ڈیسک ٹاپ ماحول ہے۔ یہاں آپ کا
+    مکمل کنٹرول ہے کہ آپ کا ڈیسک ٹاپ کس طرح نظر آتا ہے اور برتاؤ کرتا ہے ، جس سے
+    آپ اپنے ورک فلو اور انداز سے ملنے کے لئے ہر تفصیل کو اپنی مرضی کے مطابق
+    بناتے ہیں۔
+  ok: آئیے شروع کریں!
+  review: >-
+    اگر آپ سیلین UI کے استعمال سے لطف اندوز ہوتے ہیں تو ، اسٹور پر جائزہ لینے پر
+    غور کریں - آپ کی رائے منصوبے کو بڑھنے اور بہتر بنانے میں مدد دیتی ہے۔
+  title: سیلین UI میں خوش آمدید!
+widget:
+  default_instance: پہلے سے طے شدہ مثال
+  default_instance_hint: ہمیشہ فعال، روٹ ویجیٹ کی تشکیل کا استعمال کرتا ہے۔
+  enable: اس ویجیٹ کو فعال کریں
+  enable_for_monitor: اس مانیٹر کو قابل بنائیں
+  extra_instances: اضافی مثالیں۔
+  instance: مثال
+  instances: مثال کے طور پر
+wm:
+  animations:
+    duration: حرکت پذیری کا دورانیہ (ایم ایس)
+    ease_function: حرکت پذیری میں آسانی پیدا کرنا
+    enable: ونڈو کے متحرک تصاویر کو فعال کریں
+  author: مصنف
+  auto_stack: ایپ کے زمرے کے لحاظ سے آٹو اسٹیک
+  border:
+    enable: ونڈو کی بارڈر کو فعال کریں
+    offset: بارڈر آفسیٹ
+    width: بارڈر کی چوڑائی
+  description: تفصیل
+  drag_behavior: ڈریگ سلوک
+  drag_behavior_options:
+    sort: ترتیب دیں (گھسیٹتے وقت ونڈوز کو دوبارہ ترتیب دیں)
+    swap: تبادلہ (ڈریگ اینڈ پر ونڈوز تبدیل)
+  floating:
+    height: فلوٹنگ ونڈوز کی اونچائی
+    title: فلوٹنگ ونڈوز سائز
+    width: فلوٹنگ ونڈوز چوڑائی
+  layout: ترتیب
+  resize_delta: ڈیلٹا کا سائز (٪)
+  space_between_containers: کنٹینرز کے درمیان جگہ
+  stack_bar_visibility: اسٹیک بار کی مرئیت
+  stack_bar_visibility_options:
+    always: ہمیشہ
+    as_needed: ضرورت کے مطابق
+  workspace_offset: ورک اسپیس آفسیٹ (مارجن)
+  workspace_padding: ورک اسپیس پیڈنگ
+'yes': ہاں

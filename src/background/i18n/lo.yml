@@ -1,0 +1,77 @@
+auth:
+  login_failed_body: >-
+    ມີບາງຢ່າງຜິດພາດໃນລະຫວ່າງການເຂົ້າສູ່ລະບົບ. ຖ້າອັນນີ້ຍັງຄົງຢູ່,
+    ໃຫ້ແນ່ໃຈວ່າການບໍລິການ Windows 'Credential Manager' (VaultSvc) ຖືກເປີດໃຊ້
+    ແລະເຮັດວຽກຢູ່, ຈາກນັ້ນລອງອີກຄັ້ງ.
+  login_failed_title: ເຂົ້າສູ່ລະບົບລົ້ມເຫລວ
+cancel: ຍົກເລີກ
+done: ແລ້ວ? ແລ້ວ
+elevated:
+  description: >-
+    Seelen UI ກໍາລັງເຮັດວຽກດ້ວຍສິດທິຂອງຜູ້ເບິ່ງແຍງລະບົບ.
+
+    ອັນນີ້ບໍ່ໄດ້ເພີ່ມ ຫຼືປັບປຸງຄຸນສົມບັດໃດໆ,
+    ແລະມັນອາດຈະສ້າງຄວາມສ່ຽງດ້ານຄວາມປອດໄພ.
+
+    ເພື່ອຄວາມປອດໄພທີ່ດີກວ່າ,
+    ກະລຸນາປິດເປີດມັນຄືນໃໝ່ໂດຍບໍ່ມີການອະນຸຍາດຈາກຜູ້ເບິ່ງແຍງລະບົບ.
+  title: ແລ່ນເປັນ Administrator
+file_explorer: File Explorer
+resource:
+  added: ຊັບພະຍາກອນໃຫມ່ໄດ້ຖືກເພີ່ມເຂົ້າມາແລ້ວ
+  download_failed_body: >-
+    ມີບາງສິ່ງບາງຢ່າງຜິດພາດໃນຂະນະທີ່ດາວໂຫລດຊັບພະຍາກອນ,
+    ກະລຸນາລາຍງານໃຫ້ທີມງານນັກພັດທະນາຂອງນັກພັດທະນາ.
+  download_failed_title: ການດາວໂຫລດຊັບພະຍາກອນລົ້ມເຫລວ
+  downloading: ການດາວໂຫລດຊັບສິນ ...
+  downloading_body: ມັນອາດໃຊ້ເວລາສອງສາມວິນາທີ, ກະລຸນາຢ່າປິດປ່ອງຢ້ຽມ.
+  enable: ເປີດໃຊ້
+  login_required_action: ເຂົ້າສູ່ລະບົບ
+  login_required_body: ທ່ານຈໍາເປັນຕ້ອງເຂົ້າສູ່ລະບົບເພື່ອດາວໂຫລດຊັບພະຍາກອນນີ້.
+  login_required_title: ຕ້ອງການເຂົ້າສູ່ລະບົບ
+runtime:
+  corrupted_data: ຂໍ້ມູນທີ່ເສີຍຫາຍ
+  corrupted_file: ເອກະສານການຕັ້ງຄ່າແມ່ນເສຍຫາຍ, ໂດຍໃຊ້ຄຸນຄ່າເລີ່ມຕົ້ນແທນ.
+  corrupted_file_path: ເສັ້ນທາງເອກະສານທີ່ເສີຍຫາຍ
+  download: ໄປທີ່ໜ້າດາວໂຫຼດ
+  files_integrity: |-
+    ພວກເຮົາບໍ່ສາມາດຢືນຢັນຄວາມສົມບູນຂອງໄຟລ໌ແອັບພລິເຄຊັນໄດ້.
+    ອັນນີ້ສາມາດເກີດຂຶ້ນໄດ້ຖ້າໄຟລ໌ຖືກແກ້ໄຂ, ເສຍຫາຍ, ຫຼືການຕິດຕັ້ງບໍ່ສົມບູນ.
+    ສໍາລັບເຫດຜົນດ້ານຄວາມປອດໄພ, Seelen UI ບໍ່ສາມາດສືບຕໍ່ໄດ້.
+    ກະລຸນາຕິດຕັ້ງມັນຄືນໃໝ່ຈາກເວັບໄຊທ໌ທາງການ.
+  files_integrity_title: ແຈ້ງເຕືອນຄວາມປອດໄພ - ການກວດສອບຄວາມສົມບູນຂອງໄຟລ໌ລົ້ມເຫລວ
+  not_found: ບໍ່ພົບ WebView2 Runtime
+  not_found_description: Seelen UI ຕ້ອງການ Webview2 Runtime. ກະລຸນາຕິດຕັ້ງມັນ.
+  outdated: WebView2 Runtime ລ້າສະໄຫມ
+  outdated_description: >-
+    Seelen UI ຕ້ອງການ Webview2 Runtime %{min_version} ຫຼືສູງກວ່າ.
+    ກະລຸນາອັບເດດມັນ.
+service:
+  not_running: ການບໍລິການ Seelen UI ບໍ່ເຮັດວຽກ
+  not_running_description: >-
+    Seelen UI Service (slu-service)
+    ເປັນການເພິ່ງພາອາໄສ/ຜູ້ຊ່ວຍເພື່ອໃຫ້ແອັບເຮັດວຽກໄດ້ຢ່າງຖືກຕ້ອງ.
+  not_running_ok: ເລີ່ມການບໍລິການ
+shortcut:
+  conflicts:
+    body: ບາງປຸ່ມລັດຖືກມອບໝາຍໃຫ້ຫຼາຍອັນ, ກະລຸນາມອບໝາຍພວກມັນຄືນໃໝ່.
+    dismiss: ປິດ
+    review: ທົບທວນຄືນ
+    title: ກວດພົບຂໍ້ຂັດແຍ່ງທາງລັດ
+  register:
+    placeholder: ກົດປຸ່ມປະສົມປະສານໃດໆ
+    title: ລົງທະບຽນລັດໃຫມ່
+widget_liveness:
+  failed_description: |-
+    ວິດເຈັດ '%{widget_name}' ຢຸດຕອບສະໜອງຫຼາຍເທື່ອເກີນໄປ.
+
+    ທ່ານສາມາດລອງຣີສະຕາດແອັບໄດ້.
+  failed_title: Widget ຜິດພາດ
+widget_permissions:
+  perm_open_file: ເປີດໄຟລ໌
+  perm_run: ດໍາເນີນໂຄງການ
+  request_description: |-
+    ວິດເຈັດ '%{widget_name}' ກໍາລັງຮ້ອງຂໍການອະນຸຍາດ %{command}.
+
+    ທ່ານຕ້ອງການອະນຸຍາດໃຫ້ສິ່ງນີ້ບໍ?
+  request_title: ການຮ້ອງຂໍການອະນຸຍາດ Widget

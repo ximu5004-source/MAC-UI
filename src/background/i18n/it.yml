@@ -1,0 +1,84 @@
+auth:
+  login_failed_body: >-
+    Qualcosa è andato storto durante il login. Se il problema persiste,
+    assicurati che il servizio Windows "Credential Manager" (VaultSvc) sia
+    abilitato e in esecuzione, quindi riprova.
+  login_failed_title: Accesso non riuscito
+cancel: Cancellare
+done: Fatto
+elevated:
+  description: >-
+    L'interfaccia utente di Seelen è in esecuzione con privilegi di
+    amministratore.
+
+    Ciò non aggiunge né migliora alcuna funzionalità e potrebbe rappresentare un
+    rischio per la sicurezza.
+
+    Per una maggiore sicurezza, riavvialo senza autorizzazioni di
+    amministratore.
+  title: In esecuzione come amministratore
+file_explorer: Esplora file
+resource:
+  added: È stata aggiunta una nuova risorsa
+  download_failed_body: >-
+    Qualcosa è andato storto durante il download della risorsa, segnalatelo al
+    team di sviluppatori di Seelen.
+  download_failed_title: Download di risorse non riuscito
+  downloading: Scaricare le risorse...
+  downloading_body: L'operazione potrebbe richiedere alcuni secondi; non chiudere la finestra.
+  enable: Abilitazione
+  login_required_action: Registrazione
+  login_required_body: È necessario accedere per scaricare questa risorsa.
+  login_required_title: Accesso obbligatorio
+runtime:
+  corrupted_data: Dati corrotti
+  corrupted_file: Un file di configurazione è danneggiato e utilizza valori predefiniti.
+  corrupted_file_path: Percorso del file corrotto
+  download: Vai alla pagina di download
+  files_integrity: >-
+    Non è stato possibile verificare l'integrità dei file dell'applicazione.
+
+    Ciò può verificarsi se i file sono stati modificati, danneggiati o se
+    l'installazione è incompleta.
+
+    Per motivi di sicurezza, Seelen UI non può continuare.
+
+    Si prega di reinstallarlo dal sito Web ufficiale.
+  files_integrity_title: 'Avviso di sicurezza: controllo dell''integrità dei file non riuscito'
+  not_found: Runtime WebView2 non trovato
+  not_found_description: >-
+    L'interfaccia utente di Seelen richiede Webview2 Runtime. Per favore
+    installalo.
+  outdated: WebView2 Runtime obsoleto
+  outdated_description: >-
+    L'interfaccia utente di Seelen richiede Webview2 Runtime %{min_version} o
+    versione successiva. Per favore aggiornalo.
+service:
+  not_running: Il servizio UI Seelen non è in esecuzione
+  not_running_description: >-
+    Seelen UI Service (slu-service) è una dipendenza/un aiuto per il corretto
+    funzionamento dell'app.
+  not_running_ok: Avvia il servizio
+shortcut:
+  conflicts:
+    body: Alcune scorciatoie sono assegnate a più azioni, riassegnale.
+    dismiss: Congedare
+    review: Revisione
+    title: Rilevati conflitti di scorciatoie
+  register:
+    placeholder: Premere qualsiasi combinazione di tasti
+    title: Registrazione di nuovi collegamenti
+widget_liveness:
+  failed_description: |-
+    Il widget '%{widget_name}' ha smesso di rispondere troppe volte.
+
+    Puoi provare a riavviare l'app.
+  failed_title: Errore del widget
+widget_permissions:
+  perm_open_file: aprire file
+  perm_run: eseguire programmi
+  request_description: |-
+    Il widget '%{widget_name}' sta richiedendo l'autorizzazione a %{command}.
+
+    Vuoi consentire questo?
+  request_title: Richiesta di autorizzazione del widget

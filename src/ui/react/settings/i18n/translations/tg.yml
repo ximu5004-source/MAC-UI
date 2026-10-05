@@ -1,0 +1,476 @@
+action:
+  confirm: Шумо мутмаъин ҳастед?
+  confirm_body: Ин амал бекор карда намешавад.
+apps_configurations:
+  app:
+    bindings: Бодед
+    category: Категория
+    category_placeholder: Ҳеь
+    monitor: Назорат
+    monitor_placeholder: Ҳеь
+    name: Ном
+    ok_create: Сохтан
+    ok_edit: Навсозӣ
+    ok_readonly: Ҳамчун нав
+    options:
+      NoInteractive: Ягон интерактивӣ нест
+      VdPinned: Дар ҳама ҷойҳои корӣ нишон диҳед
+      WmFloat: Дугоник - Оғози шино
+      WmForce: Twr - Идоракунии қувва
+      WmUnmanage: Twrm - Noweragage
+    options_label: Имконоти иловагӣ
+    title_create: Эҷоди {{НОМИ}}
+    title_edit: Таҳрир {{НОМ}}
+    title_readonly: Дидани {{НОМ}}
+    weg_options_label: Параметрҳои Dock / Pitibar
+    wm_options_label: Имконоти мудири равзана
+    workspace: Корӣ
+    workspace_placeholder: Ҳеь
+  bundled_msg: >-
+    Ин конфигуратсияи маҷмӯӣ таҳрир карда намешавад ва барои таъмини таҷрибаи
+    беҳтарин бидуни фармоишӣ пешбинӣ шудаанд. Онҳо ба таври худкор барномаҳои
+    маъмултарини шуморо барои шумо танзим мекунанд.
+  bundled_title: App Confile бо seelen
+  confirm_delete: Шумо мутмаин ҳастед, ки мехоҳед ин конфигуратсия / S-ро нест кунед?
+  confirm_delete_title: Тасдиқро тасдиқ кунед
+  delete: Нест
+  export: Содирот
+  export_full: Танзимоти содиротиро тавассути ариза
+  extra_info: >-
+    Seelen UI дар як барнома танҳо як идентификаторро истифода мебарад (мувофиқи
+    аввал пайдо шуд), аз ин рӯ тартиби муайян кардани он муҳим аст, ба охирин
+    иловашуда авлавият дода мешавад, зеро қайд кунед, ки ҷадвал аз рӯи нобаёнӣ
+    аз охирин то кӯҳна мураттаб карда мешавад.
+  identifier:
+    add_block: Блокро илова кунед
+    and: Ва
+    id: Муайянкунанда
+    kind: Муайян мекунад
+    matching_strategy: Стратегияи мувофиқ
+    matching_strategy_option:
+      contains: Дар бар мегирад
+      ends_with: Бо
+      equals: Баробар
+      regex: Ифодаи муқаррарӣ
+      starts_with: Бо оғоз меёбад
+    negation: Мувофиқати манфӣ
+    or: Ё
+    remove: Нест кардани блок
+    type:
+      class: Синф
+      exe: Парвандаи Иҷрокунанда
+      path: Роҳ
+      title: Унвон
+  import: Воридот
+  import_full: Танзимоти воридот тавассути ариза
+  new: Нав
+  search: Кофтуков
+  swap: Своп
+cancel: Манъ кардан
+close: Наздик
+delete: Нест
+devtools:
+  app_folders: Папкаҳои барнома
+  color_palette: Палитраи ранг
+  color_palette_note: >-
+    Ин рангҳо ба таври худкор ба реҷаи рӯшноӣ/торик мутобиқ мешаванд - ҳар як
+    соя нисбат ба заминаи ҷорӣ муқоиса мекунад, на арзиши собит. Барои ба даст
+    овардани дастгирии худкори мавзӯъ, онҳоро ба ҷои рангҳои сахт кодшуда
+    истифода баред.
+  custom_config_file: Файли танзимоти танзими фармоишӣ
+  data_folder: Папкаи додаҳо
+  enable: Воситаҳои таҳиягарро фаъол кунед
+  enable_description: >-
+    Асбобҳои пешрафтаро барои тафтиш ва ислоҳи ҷузъҳои дохилии Seelen UI
+    мекушояд. Барои истифодаи мунтазам пешбинӣ нашудааст.
+  icons: Нишонаҳои кэшшуда
+  install_folder: Феҳристи насб
+  load: Сарборӣ
+  settings_file: Файлҳои танзимот
+  shared_components: Унсурҳои стандартии SLU
+  simulate_dialog:
+    label: Муколамаи симулятсия
+    trigger: Триггер
+  simulate_perm:
+    label: Дархости иҷозати виджетро тақлид кунед
+    result_allowed: ✓ Иҷозат дода шудааст
+    result_denied: ✗ Иҷозат рад карда шуд
+    trigger: Тақлид кардан
+    widget_id_placeholder: '@author/widget-name'
+  tools: Воситаҳо
+  unlock_shortcuts: Миёнабурҳои танҳо барои хонданро кушоед
+  unlock_shortcuts_description: >-
+    Ба таҳрири миёнабурҳо иҷозат диҳед, ки одатан танҳо барои хондан ҳастанд
+    (масалан, бекоркунии система).
+  unstable_optimizations: Оптимизатсияи ноустувор
+  unstable_optimizations_description: >-
+    Парчамҳои таҷрибавии Chromium-ро фаъол созед, ки истифодаи RAM-ро кам
+    мекунанд. 
+
+    Огоҳӣ: агар виджет вайрон шавад, ҳамаи виджетҳое, ки як боркунаки якхеларо
+    мубодила мекунанд, якҷоя кор мекунанд.
+  widgets_debug:
+    actions: Амалҳо
+    empty: Ягон виджет бор карда нашудааст. Навсозӣ клик кунед.
+    instance_id: ID мисол
+    monitor_id: Монитор ID
+    open_devtools: DevTools
+    refresh: Навсозӣ
+    status: Статус
+    tab: Виҷетҳо
+    widget_id: ID виджет
+discord_banner:
+  message: >-
+    Бо дигар корбарони Seelen UI пайваст шавед, ёрӣ гиред, мавзӯъҳоро мубодила
+    кунед ва аз хабарҳои охирин огоҳ бошед.
+  title: Ба ҷомеаи мо ҳамроҳ шавед
+extras:
+  backup_group: Нусхаи эҳтиётии абрӣ
+  backup_last_sync: Синхронизатсияи охирин
+  backup_never_synced: Ҳеҷ гоҳ ҳамоҳанг карда нашудааст
+  backup_sync: Танзимотҳоро ба абр ҳамоҳанг созед
+  backup_sync_description: >-
+    Танзимоти худро тавассути абр ба таври худкор нусхабардорӣ ва барқарор
+    кунед.
+  clear_icons: Нишондиҳандаи системаи тозагӣ
+  clear_icons_tooltip: Бозоғоз кардан мумкин аст, ки ба ҳама виджет пурра таъсир расонад
+  discord_rpc: Ҳузури бойро ҷудо кунед
+  discord_rpc_description: Ба ҳама нишон диҳед, ки услуб доред!
+  exit: Курат / баромадан
+  relaunch: Радкунӣ
+  streaming_mode: Ҳолати ҷараён
+  streaming_mode_description: >-
+    Маълумоти ҳассосро (масалан, почтаи электронӣ) бо ҷойнишинҳо иваз мекунад,
+    то махфият ҳангоми сабт ё скриншотҳоро муҳофизат кунад.
+  version: Версия
+  version_fixed: >-
+    Версияҳои барнома ва WebView2 Runtime собит шудаанд. Ин маънои онро дорад,
+    ки барнома навсозиҳоро қабул намекунад ва WebView2 Runtime бо навсозиҳои
+    Windows ба таври худкор нав карда намешавад.
+general:
+  accent_color: Ранги ҳисоб
+  date_format: Шакли сана
+  date_format_how_to: Формати санаро чӣ гуна бояд нависед?
+  hardware_acceleration: Шитоби сахтафзор
+  hardware_acceleration_description: >-
+    Хомӯш кардани суръатбахшии сахтафзор истифодаи хотираро кам мекунад. Агар
+    шумо аниматсияҳои вазнинро истифода набаред, хомӯш кардан бехатар аст,
+    гарчанде ки виджетҳои инфиродӣ новобаста аз ин танзимот истифодаи GPU-ро
+    маҷбур карда метавонанд.
+  icon_pack:
+    available: Бастаҳои нишонаи дастрас
+    selected: Бастаҳои нишонаи фаъол
+  language: Забон
+  monday: Душанбе
+  performance_mode:
+    label: Оптимизатсияҳо
+    on_battery: Аз рӯи батарея
+    on_energy_saver: Оид ба сарфкунандаи энергия
+    options:
+      disabled: Маъюб
+      extreme: Шадид
+      minimal: Ҳадди аққал
+    plugged: Васл кардан ё пур кардани барқ
+  polling_interval: Фосилаи овоздиҳии система
+  polling_interval_description: >-
+    Чанд маротиба (дар сонияҳо) Seelen UI захираҳои системаро ба монанди CPU,
+    RAM, шабака ва фаъолияти диск тафтиш мекунад. Шумораи камтар маънои навсозии
+    зуд-зуд дорад, аммо истифодаи каме бештари захираҳо.
+  saturday: шанбе
+  start_of_week: Оғози ҳафта
+  startup: Оғози кор?
+  sunday: Якшанбе
+  suspend_on_game_mode: Дар ҳолати бозӣ виджетҳоро боздоред
+  suspend_on_game_mode_description: >-
+    Вақте ки Ҳолати Game Windows фаъол аст, ҳама намуди веб-виджетҳо барои озод
+    кардани CPU ва хотираи бозӣ нобуд карда мешаванд. Вақте ки Реҷаи бозӣ ба
+    охир мерасад, виджетҳо ба таври худкор барқарор карда мешаванд.
+  theme:
+    available: Мавзӯъҳои дастрас
+    selected: Мавзӯъҳои фаъол
+global: Глобалӣ
+header:
+  labels:
+    config: Конфигуратсия
+    developer: Барои таҳиягарон
+    extras: Иловаҳо
+    general: Генерал
+    home: Хона
+    iconpack: ICon бастаҳои
+    monitors: Мониторҳо
+    plugin: Плагинҳо
+    resources: Захираҳо
+    session: Ҳисоб
+    shortcuts: Миёнбурҳо
+    soundpack: Пойафзолҳои садо
+    specific_apps: Танзимот тавассути барнома
+    theme: Мавзӯъҳо
+    virtual_desk: Мизи кории виртуалӣ
+    wallpaper: Обои обу
+    widget: Виджетҳо
+home:
+  new_resources: Захираҳои нав
+inherit: Мерос гирифтан
+inProgress: Дар ҷараён...
+insert: Илова кардан
+join_us: Бо мо ҳамроҳ шудан!
+loading: Боркунӣ ...
+miscellaneous: Дигар
+monitors_configurations:
+  label: Монитор {Индекс}}
+more: Бештар
+'no': Нест
+open: Кушодан
+quit: Баромадан
+remove: Дур кардан
+reset_all_to_default: Ҳама ба арзишҳои пешфарз
+reset_configurations: Аз нав танзимкунии конфигуратсияҳо
+reset_to_default: Аз нав танзимкунии арзиши пешфарз
+resources:
+  affected_widgets: Виҷетҳои зарардида
+  app_outdated: Ин манбаъ як версияи нави seelen-ро талаб мекунад, то дуруст кор кунам.
+  coming_soon: Ба зудӣ
+  corrupted_wallpaper: Истихроҷи ангораи видео - формати вайроншуда ё дастгирӣнашаванда
+  delete: Манбаъро нест мекунад
+  discover: Нахуст захираҳои бештарро кашф кунед
+  has_update: Навсозӣ дастрас аст
+  high_impact: Таъсири баланд ба иҷроиш
+  import_wallpapers: Объекти маҳаллӣ
+  included_plugins: Плагинҳои дохилшуда
+  modified: Тағйирёфта
+  open_folder: Папкаи захираҳо
+  outdated: >-
+    Ин манбаъ барои нусхаи кӯҳна аз YELEINS тарҳрезӣ шудааст ва метавонад дуруст
+    кор кунад.
+  see_on_website: Дар вебсайт нигаред
+  update_now: Навсозӣ
+  updates_available: Навсозиҳо дастрас
+  updates_available_description: Захираҳои зерин навсозиҳо доранд.
+review_request:
+  not_now: Ҳозир не
+  sure: Албатта!
+  title: Аз Seelen UI лаззат мебаред?
+save: Пул захира кардан
+save_and_restart: Наҷот ва бозоғоз
+search: Ҷустуҷӯ
+see_more: Бештар нигаред
+session:
+  logout: Баромадан
+  plan: План
+  sign_in: Даромад
+  sign_in_hint: Браузери шумо кушода мешавад, то шумо метавонед бехатар ворид шавед.
+  upgrade_to: Навсозӣ ба
+shortcuts:
+  disabled_tooltip: Виҷет ва миёнабурҳои он ғайрифаъол шудаанд
+  duplicate_error: Миёнабурҳои ихтилофӣ ошкор карда шуданд
+  duplicate_error_hint: >-
+    Баъзе миёнабурҳо ба амалҳои сершумор таъин карда мешаванд. Яке аз виджетҳои
+    ба ҳам мухолифро ғайрифаъол кунед ё барои ҳал кардани калиди такрорӣ дубора
+    таъин кунед.
+  enable: Системаи миёнабурҳои обиро фаъол созед
+  enable_tooltip: >-
+    Агар шумо системаи миёнабурҳои худро бо истифода аз мизоҷи Yoelen истифода
+    баред
+  labels:
+    create_new_workspace: Эҷоди фазои нав
+    create_new_workspace_row: Эҷоди як қатори нави фазои корӣ
+    destroy_current_workspace: Ҷоизаҳои ҷориро нест кунед
+    misc_force_quit: Қувваи корӣ
+    misc_force_restart: Бастори қувват
+    move_to_workspace: Ба кории {{0}} гузаред
+    pause_toggle: Миёнбурҳои таваққуф/идома
+    send_to_next_workspace: Равзанаро ба фазои кории оянда фиристед
+    send_to_previous_workspace: Равзанаро ба фазои кории қаблӣ фиристед
+    send_to_workspace: Ба кории rowspace {{0}}
+    send_to_workspace_down: Равзанаро ба фазои корӣ дар зер фиристед
+    send_to_workspace_up: Равзанаро ба фазои корӣ дар боло фиристед
+    switch_to_next_workspace: Гузариш ба фазои оянда
+    switch_to_previous_workspace: Ба фазои пешина гузаред
+    switch_to_workspace_down: Гузариш ба фазои корӣ дар зер
+    switch_to_workspace_up: Гузариш ба фазои кории боло
+    switch_workspace: Гузаштан ба роҳҳои корӣ {{0}}
+  readonly_tooltip: Ин як миёнабурҳои ягона аст
+  reset: Аз нав танзимкунии пешфарз
+sides:
+  bottom: Тагпо
+  left: Бесоҳибмонда
+  right: Рост
+  top: Боло
+toolbar:
+  auto_hide: Худкор Пинҳон кардани
+  auto_hide_touch_disabled: Пинҳонкунии худкор дар дастгоҳҳои экрани сенсорӣ мавҷуд нест
+  delay_to_hide: Таъхир барои пинҳон кардан
+  delay_to_show: Таъхир барои нишон додан
+  dock_side: Вазъият
+  enable: Дастрас кардани панели футболи
+  hide_mode:
+    always: Ҳамеша
+    never: Ҳеҷ гоҳ
+    on_overlap: Дар такрори
+  item_size: Андозаи ашё
+  label: Асбобу
+  margin: Андозаи маржа
+  padding: Андозаи пуркунӣ
+  placeholder: {}
+update:
+  available: Навсозӣ!
+  channel: Навсозӣ канал
+  downloading: Зеркашӣ кунед ...
+wall:
+  blur: Гул
+  cancel: Бекор кардан
+  close: Пӯшед
+  collection_name: Номи коллексия
+  collections: Маҷмӯаҳо
+  contrast: Зиддият
+  corrupted_wallpapers_message: 'Обои вайроншуда, тоза кардани инҳоро баррасӣ кунед:'
+  coverage_pause_threshold: Ҳадди таваққуф (фарогирии тиреза)
+  create: Эҷод кунед
+  create_collection: Маҷмӯа эҷод кунед
+  default_collection: Обои пешфарз ё коллексия
+  default_collection_description: >-
+    Ба ҳама мониторҳо ва ҷойҳои корӣ, ки маҷмӯи мушаххаси барҳамдиҳӣ надоранд,
+    татбиқ карда мешавад.
+  delete_collection: Маҷмӯаро нест кунед
+  edit_collection: Маҷмӯаро таҳрир кунед
+  extend: Давом додани ибтидоӣ
+  fit:
+    contain: Нигоҳубин кардан
+    cover: Пӯшидан
+    fill: Пур кардан
+  flipHorizontal: Flip уфуқ
+  flipVertical: Флип амудӣ
+  generating_thumbnails: Эҷоди ангораи обои
+  hours: соат
+  interval: Тағйироти ҳар як
+  minutes: дақиқа
+  monitor_collection: Маҷмӯаи монитор
+  multimonitor_behaviour: Рафтори мултимониторӣ
+  muted: Аудити видеоӣ
+  no_background: Слайдҳои холӣ, бо истифодаи заминаи мавзӯъҳо.
+  no_collections: >-
+    Ҳанӯз коллексия эҷод нашудааст. Барои сохтани як тугма тугмаи + -ро клик
+    кунед.
+  objectFit: Замина
+  objectPosition: Мавқеи заминавӣ
+  overlayColor: Ранги пурраи
+  overlayMixBlendMode: Реҷаи омехтаи пурраи омехта
+  per_monitor: Ба як монитор
+  per_monitor_config: Конфигуратсияи ҳар як монитор
+  playback: Суръати бозӣ
+  position:
+    bottom: Тагпо
+    center: Марказ
+    left: Бесоҳибмонда
+    right: Рост
+    top: Боло
+  processing_video: Коркарди видео
+  random: Велосипедро тасодуфан
+  saturation: Соф
+  seconds: сонияҳо
+  select_collection: Коллексияро интихоб кунед
+  thumbnail_generation_complete: Насли тасвири ангора анҷом ёфт
+  thumbnail_generation_finished: Насли эскиз бомуваффақият анҷом ёфт
+  use_accent_color: Ранги аксенти деворро истифода баред
+  wallpaper_collection: Маҷмӯаи обои
+  wallpaper_settings: Танзимоти обои
+  wallpapers: Обои обои
+  wallpapers_and_collections: Обои ва коллексияҳо
+  withOverlay: Бо overlay
+  workspace_collections: Коллексияҳои фазои корӣ
+weg:
+  auto_hide: Худкор Пинҳон кардани
+  auto_hide_touch_disabled: Пинҳонкунии худкор дар дастгоҳҳои экрани сенсорӣ мавҷуд нест
+  delay_to_hide: Таъхир барои пинҳон кардан
+  delay_to_show: Таъхир барои нишон додан
+  dock_side: Вазъият
+  filtering: Фортинги ашё
+  gap: Фосила
+  hide_mode:
+    always: Ҳамеша
+    never: Ҳеҷ гоҳ
+    on_overlap: Дар такрори
+  import_error: Воридоти ҷузъҳои панели супоришҳо муяссар нашуд
+  import_from_taskbar:
+    button: Воридот аз панели супоришҳои Windows
+    label: Воридоти ашёи басташуда
+  import_no_items: Дар панели вазифаҳои Windows ягон ҷузъе, ки басташуда ёфт нашуд
+  import_success: '{{count}} ашё(ҳо) аз панели вазифаҳои Windows бомуваффақият ворид карда шуд'
+  items:
+    gap: Фосила байни ашё
+    label: Ашё
+    middle_click_action:
+      close_app: Барномаро пӯшед
+      label: Амали клики миёна
+      open_new_instance: Нусхаи навро кушоед
+    pinned_visibility:
+      always: Ҳамеша
+      label: Намоиши ашёҳои маҳкамшуда
+      when_primary: Вақте ки монитор ибтидоӣ аст
+    show_instance_counter: Counter Counter Counter
+    show_window_title: Сарлавҳаи тирезаро нишон диҳед (танҳо уфуқӣ)
+    size: Андозаи ашё
+    split_windows: Windows-ро тақсим кунед (як адад дар як тиреза)
+    temporal_visibility:
+      all: Ҳама
+      label: Намоиши ҷузъҳои ҷудонашуда
+      on_monitor: Дар Монитор
+  label: Dock / супоришҳо
+  margin: Маржа
+  mode:
+    full_width: Паҳнои пурраи экран
+    min_content: То ҳадди имкон хурд
+  padding: Тахтача
+  show_end_task: Вазифаи хотимаро дар панели супоришҳо нишон диҳед
+  width: Васеъ
+welcome:
+  give_a_review: Барраси кунед
+  message: >-
+    Seelen UI як муҳити мизи кории ройгон ва кушодаасос барои Windows мебошад.
+    Дар ин ҷо шумо назорати пурраи намуди мизи кории шумо доред ва ба шумо имкон
+    медиҳад, ки ҳар як ҷузъиётро мувофиқи ҷараёни кор ва услуби худ танзим
+    кунед.
+  ok: Биёед оғоз кунем!
+  review: >-
+    Агар шумо аз истифодаи Seelen UI лаззат мебаред, фикр кунед, ки дар мағоза
+    шарҳ гузоред - фикру мулоҳизаҳои шумо ба рушд ва такмил додани лоиҳа кӯмак
+    мекунанд.
+  title: Хуш омадед ба Seelen UI!
+widget:
+  default_instance: Намунаи пешфарз
+  default_instance_hint: Ҳамеша фаъол, конфигуратсияи виҷети решаро истифода мебарад
+  enable: Ин виджетро фаъол кунед
+  enable_for_monitor: Дар ин монитор фаъол кунед
+  extra_instances: Ҳолатҳои иловагӣ
+  instance: Мисол
+  instances: Ҳолатҳо
+wm:
+  animations:
+    duration: Давомнокии аниматсия (MS)
+    ease_function: Имтиёзҳои осон
+    enable: Фаъолсозии аниматсияҳои тирезаро фаъол кунед
+  author: Муаллиф
+  auto_stack: Стеки худкор аз рӯи категорияи барнома
+  border:
+    enable: Сарҳади тирезаро фаъол созед
+    offset: Ҳафтаи сарҳад
+    width: Паҳнои сарҳад
+  description: Тасвирӣ
+  drag_behavior: Рафтори кашолакунӣ
+  drag_behavior_options:
+    sort: Мураттаб кардан (аз нав тартиби тирезаҳо ҳангоми кашолакунӣ)
+    swap: Своп (иваз кардани тирезаҳо дар охири кашолакунӣ)
+  floating:
+    height: Баландии шинокунандаи Windows
+    title: Андозаи Windows шинокунанда
+    width: Паҳнои Windows шинокунанда
+  layout: Тарҳ
+  resize_delta: Татбиқи Delta (%)
+  space_between_containers: Фосила байни контейнер
+  stack_bar_visibility: Намоиши Бари Stack
+  stack_bar_visibility_options:
+    always: Ҳамеша
+    as_needed: Тавре ки лозим аст
+  workspace_offset: Ҷойгиршавӣ
+  workspace_padding: Worlpaces Padding
+'yes': Ҳа

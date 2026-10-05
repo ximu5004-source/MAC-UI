@@ -1,0 +1,10 @@
+id: "@default/wm-monocle"
+target: "@seelen/window-manager"
+metadata:
+  displayName: !extend i18n/display_name.yml
+  description: !extend i18n/description.yml
+plugin:
+  structure:
+    type: Stack
+    maxStackSize: null
+    stackPolicy: Auto

@@ -1,0 +1,452 @@
+action:
+  confirm: אתה בטוח?
+  confirm_body: לא ניתן לבטל פעולה זו.
+apps_configurations:
+  app:
+    bindings: כריכה (שימו לב לשתי האפשרויות נדרשות)
+    category: קטגוריה
+    category_placeholder: אף אחד
+    monitor: צג
+    monitor_placeholder: אף אחד
+    name: שם
+    ok_create: לִיצוֹר
+    ok_edit: עדכון
+    ok_readonly: ערוך כחדש
+    options:
+      NoInteractive: אין אינטראקטיבי
+      VdPinned: הצג בכל סביבות העבודה
+      WmFloat: Twm - התחל לצוף
+      WmForce: Twm - ניהול כוח
+      WmUnmanage: Twm - בטל ניהול
+    options_label: אפשרויות נוספות
+    title_create: יצירת {{name}}
+    title_edit: עריכה {{name}}
+    title_readonly: צפייה {{name}}
+    weg_options_label: אפשרויות עגינה/שורת משימות
+    wm_options_label: אפשרויות מנהל חלונות
+    workspace: סביבת עבודה
+    workspace_placeholder: אף אחד
+  bundled_msg: >-
+    תצורות מצורפות אלה אינן ניתנות לעריכה ונועדו לספק לך את החוויה הטובה ביותר
+    ללא התאמה אישית. הם מגדירים באופן אוטומטי את היישומים הנפוצים ביותר עבורך.
+  bundled_title: תצורת אפליקציה מצורפת עם Seelen
+  confirm_delete: האם אתה בטוח שברצונך למחוק תצורה/ים אלה?
+  confirm_delete_title: אשר מחק
+  delete: לִמְחוֹק
+  export: יְצוּא
+  export_full: הגדרות ייצוא לפי יישום
+  extra_info: >-
+    ממשק המשתמש של Seelen משתמש רק במזהה אחד לכל אפליקציה (נמצאה התאמה ראשונה),
+    כך שסדר האופן שבו הם מוגדרים הוא חשוב, העדיפות האחרונה שנוספה תהיה בסדר
+    עדיפויות, שים לב שהטבלה ממוינת כברירת מחדל מהאחרון לישנה.
+  identifier:
+    add_block: הוסף בלוק
+    and: וכן
+    id: מזהה
+    kind: לזהות על ידי
+    matching_strategy: אסטרטגיה תואמת
+    matching_strategy_option:
+      contains: מכיל
+      ends_with: מסתיים ב
+      equals: שווה
+      regex: ביטוי רגולרי
+      starts_with: מתחיל עם
+    negation: שולל התאמה
+    or: או
+    remove: מחק בלוק
+    type:
+      class: מחלקה
+      exe: Exe
+      path: נָתִיב
+      title: כּוֹתֶרֶת
+  import: יְבוּא
+  import_full: ייבא הגדרות לפי יישום
+  new: חָדָשׁ
+  search: לחפש
+  swap: לְהַחלִיף
+cancel: לְבַטֵל
+close: לִסְגוֹר
+delete: לִמְחוֹק
+devtools:
+  app_folders: תיקיות אפליקציות
+  color_palette: פלטת צבעים
+  color_palette_note: >-
+    צבעים אלה מסתגלים אוטומטית למצב בהיר/כהה - כל גוון הוא ניגודיות ביחס לרקע
+    הנוכחי, לא ערך קבוע. השתמש בהם במקום בצבעים מקודדים כדי לקבל תמיכה אוטומטית
+    בנושא עיצוב.
+  custom_config_file: טען קובץ תצורה מותאם אישית
+  data_folder: תיקיית נתונים
+  enable: אפשר כלי מפתחים
+  enable_description: >-
+    פותח כלים מתקדמים לבדיקה וניפוי באגים פנימיים של ממשק המשתמש של Seelen. לא
+    מיועד לשימוש קבוע.
+  icons: סמלים מאוחסנים במטמון
+  install_folder: תיקיית התקנה
+  load: טען
+  settings_file: קובץ הגדרות
+  shared_components: רכיבים סטנדרטיים של SLU
+  simulate_dialog:
+    label: הדמיית דיאלוג
+    trigger: לְהַפְעִיל
+  simulate_perm:
+    label: הדמיית בקשת הרשאת יישומון
+    result_allowed: ✓ הרשאה ניתנה
+    result_denied: ✗ הרשאה נדחתה
+    trigger: לְחַקוֹת
+    widget_id_placeholder: '@author/widget-name'
+  tools: כְּלֵי עֲבוֹדָה
+  unlock_shortcuts: בטל את הנעילה של קיצורי דרך לקריאה בלבד
+  unlock_shortcuts_description: אפשר לערוך קיצורי דרך שהם בדרך כלל לקריאה בלבד (למשל, עקיפות מערכת).
+  unstable_optimizations: אופטימיזציות לא יציבות
+  unstable_optimizations_description: |-
+    הפעל דגלי Chromium ניסיוניים המפחיתים את השימוש ב-RAM.
+    אזהרה: אם יישומון קורס, כל הווידג'טים החולקים את אותו מטעין יקרסו יחד.
+  widgets_debug:
+    actions: פעולות
+    empty: לא נטענו ווידג'טים. לחץ על רענן.
+    instance_id: מזהה מופע
+    monitor_id: מזהה צג
+    open_devtools: DevTools
+    refresh: לְרַעֲנֵן
+    status: סטָטוּס
+    tab: ווידג'טים
+    widget_id: מזהה יישומון
+discord_banner:
+  message: >-
+    התחבר עם משתמשי ממשק משתמש אחרים של Seelen, קבל עזרה, שתף ערכות נושא והישאר
+    מעודכן בחדשות האחרונות.
+  title: הצטרף לקהילה שלנו
+extras:
+  backup_group: גיבוי בענן
+  backup_last_sync: סנכרון אחרון
+  backup_never_synced: מעולם לא סונכרן
+  backup_sync: סנכרון הגדרות לענן
+  backup_sync_description: גבה ושחזר את ההגדרות שלך באופן אוטומטי דרך הענן.
+  clear_icons: מטמון סמלי מערכת נקה
+  clear_icons_tooltip: ניתן להידרש להפעלה מחדש כדי להיכנס לתוקף באופן מלא על כל הווידג'טים
+  discord_rpc: נוכחות עשירה בדיסקורד
+  discord_rpc_description: תראה לכולם שיש לך סטייל!
+  exit: צא
+  relaunch: השקה מחדש
+  streaming_mode: מצב סטרימינג
+  streaming_mode_description: >-
+    מחליף מידע רגיש (למשל מיילים) במצייני מיקום כדי להגן על הפרטיות במהלך הקלטות
+    או צילומי מסך.
+  version: גרסה
+  version_fixed: >-
+    גרסאות היישום ו-WebView2 Runtime קבועות. המשמעות היא שהאפליקציה לא תקבל
+    עדכונים ו- WebView2 Runtime לא יעודכן אוטומטית עם עדכוני Windows.
+general:
+  accent_color: צבע הדגשה
+  date_format: פורמט תאריך
+  date_format_how_to: איך כותבים פורמט תאריך?
+  hardware_acceleration: האצת חומרה
+  hardware_acceleration_description: >-
+    השבתת האצת החומרה תפחית את השימוש בזיכרון. זה בטוח להשבית אם אינך משתמש
+    בהנפשות כבדות, אם כי ווידג'טים בודדים עדיין עשויים לאלץ שימוש ב-GPU ללא קשר
+    להגדרה זו.
+  icon_pack:
+    available: חבילות אייקונים זמינות
+    selected: ערכות אייקונים פעילות
+  language: שפה
+  monday: יוֹם שֵׁנִי
+  performance_mode:
+    label: אופטימיזציות
+    on_battery: על סוללה
+    on_energy_saver: על חוסך אנרגיה
+    options:
+      disabled: נָכֶה
+      extreme: קיצוני
+      minimal: מִינִימָלִי
+    plugged: מחובר או טעינה
+  polling_interval: מרווח סקרים של המערכת
+  polling_interval_description: >-
+    באיזו תדירות (בשניות) ממשק המשתמש של Seelen בודק משאבי מערכת כמו מעבד,
+    זיכרון RAM, רשת ודיסק פעילות. מספר קטן יותר פירושו עדכונים תכופים יותר, אך
+    שימוש מעט יותר במשאבים.
+  saturday: שַׁבָּת
+  start_of_week: תחילת השבוע
+  startup: לרוץ בהפעלה?
+  sunday: יוֹם רִאשׁוֹן
+  suspend_on_game_mode: השעיית ווידג'טים במצב משחק
+  suspend_on_game_mode_description: >-
+    כאשר מצב המשחק של Windows פעיל, כל תצוגות האינטרנט של הווידג'ט מושמדות כדי
+    לפנות מעבד וזיכרון למשחק. ווידג'טים משוחזרים אוטומטית כאשר מצב משחק מסתיים.
+  theme:
+    available: ערכות נושא זמינות
+    selected: ערכות נושא פעילות
+global: גלוֹבָּלִי
+header:
+  labels:
+    config: תצורות
+    developer: למפתחים
+    extras: תוספות
+    general: כללי
+    home: בַּיִת
+    iconpack: חבילות אייקון
+    monitors: צגים
+    plugin: תוספים
+    resources: אֶמְצָעִי
+    session: חֶשְׁבּוֹן
+    shortcuts: קיצורי דרך
+    soundpack: חבילות סאונד
+    specific_apps: הגדרות לפי יישום
+    theme: נושאים
+    virtual_desk: שולחנות עבודה וירטואליים
+    wallpaper: טפטים
+    widget: ווידג'טים
+home:
+  new_resources: משאבים חדשים
+inherit: ירושה
+inProgress: בתהליך...
+insert: הכנס
+join_us: הצטרפו אלינו!
+loading: טוען...
+miscellaneous: שונות
+monitors_configurations:
+  label: צג {{index}}
+more: יוֹתֵר
+'no': לֹא
+open: לִפְתוֹחַ
+quit: לְהַפְסִיק
+remove: לְהַסִיר
+reset_all_to_default: אפס את כל ערכי ברירת המחדל
+reset_configurations: אפס תצורות
+reset_to_default: אפס לערך ברירת המחדל
+resources:
+  affected_widgets: ווידג'טים מושפעים
+  app_outdated: משאב זה דורש גרסה חדשה יותר של ממשק המשתמש של Seelen כדי לעבוד כראוי.
+  coming_soon: בקרוב
+  corrupted_wallpaper: חילוץ התמונה הממוזערת נכשל - פורמט וידאו פגום או לא נתמך
+  delete: מחק משאב
+  discover: לגלות משאבים נוספים
+  has_update: ניתן לקבל עדכון
+  high_impact: השפעה רבה על הביצועים
+  import_wallpapers: ייבא טפטים מקומיים
+  included_plugins: תוספים כלולים
+  modified: שונה
+  open_folder: פתיחת תיקיית משאבים
+  outdated: משאב זה תוכנן לגרסה ישנה יותר של ממשק המשתמש של Seelen ואולי לא יעבוד כראוי.
+  see_on_website: ראה באתר
+  update_now: לְעַדְכֵּן
+  updates_available: עדכונים זמינים
+  updates_available_description: למשאבים הבאים יש עדכונים זמינים.
+review_request:
+  not_now: לא עכשיו
+  sure: בַּטוּחַ!
+  title: נהנה ממשק המשתמש של Seelen?
+save: להציל
+save_and_restart: שמור והפעלה מחדש
+search: לְחַפֵּשׂ
+see_more: ראה עוד
+session:
+  logout: צא
+  plan: לְתַכְנֵן
+  sign_in: היכנס
+  sign_in_hint: הדפדפן שלך ייפתח כדי שתוכל להיכנס בצורה מאובטחת.
+  upgrade_to: שדרג ל
+shortcuts:
+  disabled_tooltip: הווידג'ט וקיצורי הדרך שלו מושבתים
+  duplicate_error: זוהו קיצורי דרך מתנגשים
+  duplicate_error_hint: >-
+    מקשי קיצור מסוימים מוקצים למספר פעולות. השבת את אחד מהווידג'טים המתנגשים או
+    הקצה מחדש את כריכת המפתח הכפול לפתרון.
+  enable: אפשר מערכת קיצורי דרך מובנים
+  enable_tooltip: השבת אם תיישם מערכת קיצורי דרך משלך באמצעות לקוח ממשק המשתמש של Seelen
+  labels:
+    create_new_workspace: צור סביבת עבודה חדשה
+    create_new_workspace_row: צור שורת סביבת עבודה חדשה
+    destroy_current_workspace: להרוס את סביבת העבודה הנוכחית
+    misc_force_quit: כוח התפטר
+    misc_force_restart: הכוח להפעיל מחדש
+    move_to_workspace: עברו לסביבת עבודה {{0}}
+    pause_toggle: השהה/המשך קיצורי דרך
+    send_to_next_workspace: שלח חלון לסביבת העבודה הבאה
+    send_to_previous_workspace: שלח חלון לסביבת העבודה הקודמת
+    send_to_workspace: שלח לסביבת עבודה {{0}}
+    send_to_workspace_down: שלח חלון לסביבת העבודה למטה
+    send_to_workspace_up: שלח חלון לסביבת העבודה למעלה
+    switch_to_next_workspace: עבור לסביבת העבודה הבאה
+    switch_to_previous_workspace: עבור לסביבת העבודה הקודמת
+    switch_to_workspace_down: עבור אל סביבת העבודה למטה
+    switch_to_workspace_up: עבור אל סביבת העבודה למעלה
+    switch_workspace: עברו לסביבת עבודה {{0}}
+  readonly_tooltip: זהו קיצור דרך לקריאה בלבד
+  reset: אפס לברירות מחדל
+sides:
+  bottom: למטה
+  left: שמאל
+  right: ימין
+  top: למעלה
+toolbar:
+  auto_hide: הסתר אוטומטי
+  auto_hide_touch_disabled: הסתרה אוטומטית אינה זמינה במכשירי מסך מגע
+  delay_to_hide: השהה הסתרה
+  delay_to_show: השהה הצגה
+  dock_side: מצב
+  enable: אפשר
+  hide_mode:
+    always: תמיד
+    never: לעולם לא
+    on_overlap: על חפיפה
+  item_size: גודל פריט
+  label: סרגל כלים
+  margin: גודל השוליים
+  padding: גודל ריפוד
+  placeholder: {}
+update:
+  available: עדכון זמין!
+  channel: ערוץ עדכונים
+  downloading: מוריד ...
+wall:
+  blur: לְטַשׁטֵשׁ
+  cancel: לְבַטֵל
+  close: לִסְגוֹר
+  collection_name: שם האוסף
+  collections: אוספים
+  contrast: לְהַשְׁווֹת
+  corrupted_wallpapers_message: 'רקעים פגומים, שקול למחוק את אלה:'
+  coverage_pause_threshold: סף השהייה (כיסוי חלון)
+  create: לִיצוֹר
+  create_collection: צור אוסף
+  default_collection: טפט או אוסף ברירת מחדל
+  default_collection_description: מיושם על כל המסכים ומרחבי העבודה שאין להם ערכת עקיפה ספציפית.
+  delete_collection: מחק אוסף
+  edit_collection: ערוך אוסף
+  extend: הארך את היסוד
+  fit:
+    contain: לְהַכִיל
+    cover: לְכַסוֹת
+    fill: לְמַלֵא
+  flipHorizontal: הפוך אופקי
+  flipVertical: הפוך אנכי
+  generating_thumbnails: יצירת תמונות ממוזערות של טפטים
+  hours: שעות
+  interval: החלף טפטים כל
+  minutes: דקות
+  monitor_collection: אוסף מוניטור
+  multimonitor_behaviour: התנהגות מולטימוניטור
+  muted: השתקת אודיו של וידאו
+  no_background: מצגת שקופיות ריקה, באמצעות הרקע של הנושא במקום זאת.
+  no_collections: עדיין לא נוצרו אוספים. לחץ על הלחצן + כדי ליצור אחד.
+  objectFit: כושר רקע
+  objectPosition: מיקום רקע
+  overlayColor: צבע שכבה
+  overlayMixBlendMode: מצב תערובת תערובת שכבה
+  per_monitor: לכל מוניטור
+  per_monitor_config: תצורת פר-מוניטור
+  playback: מהירות ההפעלה
+  position:
+    bottom: תַחתִית
+    center: מֶרְכָּז
+    left: שְׁמֹאל
+    right: יָמִינָה
+    top: רֹאשׁ
+  processing_video: מעבד וידאו
+  random: מצגת שקופיות אקראית
+  saturation: רִוּוּי
+  seconds: שניות
+  select_collection: בחר אוסף
+  thumbnail_generation_complete: יצירת תמונות ממוזערות הושלמה
+  thumbnail_generation_finished: יצירת התמונות הממוזערות הסתיים בהצלחה
+  use_accent_color: השתמש בצבע מבטא טפט
+  wallpaper_collection: אוסף טפטים
+  wallpaper_settings: הגדרות טפט
+  wallpapers: טפטים
+  wallpapers_and_collections: טפטים ואוספים
+  withOverlay: עם שכבת -על
+  workspace_collections: אוספי סביבת עבודה
+weg:
+  auto_hide: הסתר אוטומטי
+  auto_hide_touch_disabled: הסתרה אוטומטית אינה זמינה במכשירי מסך מגע
+  delay_to_hide: עיכוב להסתיר
+  delay_to_show: עיכוב להצגה
+  dock_side: מַצָב
+  filtering: סינון פריטים
+  gap: פער
+  hide_mode:
+    always: תָמִיד
+    never: לעולם לא
+    on_overlap: על חפיפה
+  import_error: ייבוא ​​פריטי שורת המשימות נכשל
+  import_from_taskbar:
+    button: ייבא משורת המשימות של Windows
+    label: ייבוא ​​פריטים מוצמדים
+  import_no_items: לא נמצאו פריטים מוצמדים בשורת המשימות של Windows
+  import_success: '{{count}} פריטים יובאו בהצלחה משורת המשימות של Windows'
+  items:
+    gap: רווח בין פריטים
+    label: פריטים
+    middle_click_action:
+      close_app: סגור את האפליקציה
+      label: פעולת קליק אמצעי
+      open_new_instance: פתח מופע חדש
+    pinned_visibility:
+      always: תמיד
+      label: נראות פריטים מוצמדים
+      when_primary: כאשר המוניטור הוא ראשי
+    show_instance_counter: הצג דלפק Windows פתוח
+    show_window_title: הצג כותרת חלון פתוחה (אופקית בלבד)
+    size: גודל פריט
+    split_windows: חלונות מפוצלים (פריט אחד לכל חלון)
+    temporal_visibility:
+      all: כל
+      label: נראות פריטים לא מוצמדים
+      on_monitor: על מוניטור
+  label: שורת המזח/המשימות
+  margin: שולים
+  mode:
+    full_width: רוחב מסך מלא
+    min_content: קטן ככל שניתן
+  padding: ריפוד
+  show_end_task: הצג את משימת הסיום בשורת המשימות
+  width: רוחב
+welcome:
+  give_a_review: תן סקירה
+  message: >-
+    ממשק המשתמש של Seelen הוא סביבת שולחן עבודה חינמית וקוד פתוח עבור Windows.
+    כאן יש לך שליטה מלאה על איך שולחן העבודה שלך נראה ומתנהג, מה שמאפשר לך
+    להתאים אישית כל פרט כך שיתאים לזרימת העבודה ולסגנון שלך.
+  ok: בואו נתחיל!
+  review: >-
+    אם אתה נהנה להשתמש בממשק המשתמש של Seelen, שקול להשאיר ביקורת בחנות - המשוב
+    שלך עוזר לפרויקט לצמוח ולהשתפר.
+  title: ברוכים הבאים לממשק המשתמש של Seelen!
+widget:
+  default_instance: מופע ברירת מחדל
+  default_instance_hint: פעיל תמיד, משתמש בתצורת ה-Widget השורש
+  enable: אפשר יישומון זה
+  enable_for_monitor: אפשר בצג זה
+  extra_instances: מופעים נוספים
+  instance: דוּגמָה
+  instances: מקרים
+wm:
+  animations:
+    duration: משך אנימציה (MS)
+    ease_function: הפונקציה הקלת האנימציה
+    enable: אפשר אנימציות של חלון
+  author: מחבר
+  auto_stack: ערימה אוטומטית לפי קטגוריית אפליקציה
+  border:
+    enable: אפשר את גבול החלון
+    offset: קיזוז גבול
+    width: רוחב גבול
+  description: תיאור
+  drag_behavior: התנהגות גרירה
+  drag_behavior_options:
+    sort: מיון (סדר מחדש את החלונות תוך כדי גרירה)
+    swap: החלפה (החלפה של חלונות בקצה הגרירה)
+  floating:
+    height: גובה חלונות צף
+    title: גודל חלונות צף
+    width: רוחב חלונות צף
+  layout: מערך
+  resize_delta: שינוי גודל דלתא (%)
+  space_between_containers: רווח בין מיכלים
+  stack_bar_visibility: נראות סרגל מחסנית
+  stack_bar_visibility_options:
+    always: תָמִיד
+    as_needed: לפי הצורך
+  workspace_offset: הסטת שולי סביבת עבודה
+  workspace_padding: ריפוד סביבת עבודה
+'yes': כֵּן

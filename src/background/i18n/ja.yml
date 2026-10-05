@@ -1,0 +1,66 @@
+auth:
+  login_failed_body: >-
+    ログイン中に問題が発生しました。 この問題が解決しない場合は、Windows の「資格情報マネージャー」サービス (VaultSvc)
+    が有効で実行中であることを確認してから、再試行してください。
+  login_failed_title: ログインに失敗しました
+cancel: キャンセル
+done: 完了
+elevated:
+  description: |-
+    Seelen UI は管理者権限で実行されています。
+    これにより機能が追加または改善されることはなく、セキュリティ上のリスクが生じる可能性があります。
+    セキュリティを強化するため、管理者権限なしで再起動してください。
+  title: 管理者として実行
+file_explorer: ファイルエクスプローラー
+resource:
+  added: 新しいリソースが追加されました
+  download_failed_body: リソースのダウンロード中に問題が発生しました。
+  download_failed_title: リソースのダウンロードに失敗しました
+  downloading: アセットのダウンロード...
+  downloading_body: ウィンドウを閉じないでください。
+  enable: 有効にする
+  login_required_action: サインイン
+  login_required_body: このリソースをダウンロードするにはサインインする必要があります。
+  login_required_title: サインインが必要です
+runtime:
+  corrupted_data: データが破損しています。
+  corrupted_file: 設定ファイルが破損しているため、代わりにデフォルト値が使用されています。
+  corrupted_file_path: ファイルパスが破損しています。
+  download: ダウンロードページを開く
+  files_integrity: |-
+    アプリケーション ファイルの整合性を確認できませんでした。
+    これは、ファイルが変更されたり破損したり、インストールが不完全な場合に発生する可能性があります。
+    セキュリティ上の理由により、Seelen UI は続行できません。
+    公式サイトから再インストールしてください。
+  files_integrity_title: セキュリティ警告 - ファイルの整合性チェックに失敗しました
+  not_found: WebView2 ランタイムが見つかりません
+  not_found_description: Seelen UI には Webview2 ランタイムが必要です。インストールしてください。
+  outdated: WebView2 ランタイムが古いです
+  outdated_description: Seelen UI には、Webview2 ランタイム %{min_version} 以降が必要です。更新してください。
+service:
+  not_running: Seelen UI サービスが実行されていません
+  not_running_description: Seelen UI サービス (slu-service) は、アプリが適切に動作するための依存関係/ヘルパーです。
+  not_running_ok: サービスを開始する
+shortcut:
+  conflicts:
+    body: 一部のショートカットは複数のアクションに割り当てられています。再割り当てしてください。
+    dismiss: 却下する
+    review: レビュー
+    title: ショートカットの競合が検出されました
+  register:
+    placeholder: キーを押してください...
+    title: ショートカットキーの登録
+widget_liveness:
+  failed_description: |-
+    ウィジェット '%{widget_name}' が何度も応答を停止しました。
+
+    アプリを再起動してみてください。
+  failed_title: ウィジェットエラー
+widget_permissions:
+  perm_open_file: ファイルを開く
+  perm_run: プログラムを実行する
+  request_description: |-
+    ウィジェット '%{widget_name}' は %{command} への権限を要求しています。
+
+    これを許可しますか?
+  request_title: ウィジェットの許可リクエスト

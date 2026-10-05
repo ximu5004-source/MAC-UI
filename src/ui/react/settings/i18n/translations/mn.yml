@@ -1,0 +1,471 @@
+action:
+  confirm: Та итгэлтэй байна уу?
+  confirm_body: Энэ үйлдлийг буцаах боломжгүй.
+apps_configurations:
+  app:
+    bindings: Батлах (Анхааруулга хоёулаа сонголтыг оруулах шаардлагатай)
+    category: Зэрэглэл
+    category_placeholder: Хэн ч
+    monitor: Хянах
+    monitor_placeholder: Хэн ч
+    name: Нэр
+    ok_create: Шуүгиан дэгдээх
+    ok_edit: Шинэчлэх
+    ok_readonly: Шинэ болгон засах
+    options:
+      NoInteractive: Интерактив байхгүй
+      VdPinned: Бүх ажлын талбарт үзүүлэх
+      WmFloat: Twm - хөвөх эхлэл
+      WmForce: Twm - хүчээр удирдах
+      WmUnmanage: Twm - Нэхэвч
+    options_label: Нэмий сонголт
+    title_create: Үүсгэх {{нэр}}}
+    title_edit: Засварлах {{нэр}}}
+    title_readonly: Үзэх {{нэр}}
+    weg_options_label: Док / Taskbar сонголтууд
+    wm_options_label: Цонх менежерийн сонголтууд
+    workspace: Ауун тал
+    workspace_placeholder: Хэн ч
+  bundled_msg: >-
+    Эдгээр багцын тохиргоо нь засварлах боломжгүй бөгөөд танд тохируулга
+    хийхгүйгээр хамгийн сайн туршлага өгөх зорилготой юм. Тэд таны хувьд хамгийн
+    түгээмэл програмуудыг автоматаар тохируулдаг.
+  bundled_title: App Config Selen-тай багцлав
+  confirm_delete: Та энэ тохиргоог устгахыг хүсч байна уу?
+  confirm_delete_title: Устгахыг баталгаажуулна уу
+  delete: Эдгээх
+  export: Гадаадад гаргах
+  export_full: Програмаар экспортлох тохиргоо
+  extra_info: >-
+    Seelen ui нь App тутамд зөвхөн нэг танигчийг ашигладаг (эхний тоглолт
+    олдсон) нь хамгийн чухал нь хамгийн чухал бөгөөд хүснэгтийг хуучин
+    хувилбараас эхлээд эрэмбэлсэн байдлаар эрэмбэлэгдсэн байх ёстой.
+  identifier:
+    add_block: Нид нэмнэ
+    and: Ба
+    id: Өмнө тайлбар
+    kind: Тодорхойлох
+    matching_strategy: Тохирох стратеги
+    matching_strategy_option:
+      contains: агуулсан
+      ends_with: '-ээр төгсдөг'
+      equals: Тэнцүү
+      regex: Тогтмол илэрхийлэл
+      starts_with: '-ээр эхэлдэг'
+    negation: Тохирохыг үгүйсгэх
+    or: ЭСВЭЛ
+    remove: Блок устгах
+    type:
+      class: Анги
+      exe: Exe
+      path: Зам
+      title: Гарчиг
+  import: Импортлох
+  import_full: Програмаар тохиргоог импортлох
+  new: Шинэ
+  search: Эрэл хайгуул хийх
+  swap: Түлхэх
+cancel: Цуаах
+close: Ойр дөхөм
+delete: Эдгээх
+devtools:
+  app_folders: Апп хавтас
+  color_palette: Өнгөт палитр
+  color_palette_note: >-
+    Эдгээр өнгө нь гэрэл/харанхуй горимд автоматаар дасан зохицдог - сүүдэр бүр
+    нь тогтсон утга биш, одоогийн дэвсгэртэй харьцуулахад ялгаатай байдаг.
+    Автомат загварын дэмжлэг авахын тулд хатуу кодлогдсон өнгөний оронд
+    тэдгээрийг ашигла.
+  custom_config_file: Custom Compigh файлыг ачаалах
+  data_folder: Д код хавтас
+  enable: Хөгжүүлэгч хэрэгслийг идэвхжүүлэх
+  enable_description: >-
+    Seelen UI-ийн дотоод хэсгүүдийг шалгаж, дибаг хийх дэвшилтэт хэрэгслүүдийн
+    түгжээг нээдэг. Тогтмол хэрэглээнд зориулагдаагүй.
+  icons: Кэшлэгдсэн дүрсүүд
+  install_folder: Суулгалах хүрээ
+  load: Ачих
+  settings_file: Тохиргооын нэр
+  shared_components: SLU стандарт бүрэлдэхүүн хэсгүүд
+  simulate_dialog:
+    label: Дууриамал харилцах цонх
+    trigger: Триггер
+  simulate_perm:
+    label: Виджетийн зөвшөөрлийн хүсэлтийг дуурайлган хийх
+    result_allowed: ✓ Зөвшөөрөл олгосон
+    result_denied: ✗ Зөвшөөрөл татгалзсан
+    trigger: Дуурайх
+    widget_id_placeholder: '@зохиогч/виджетийн нэр'
+  tools: Багаж хэрэгсэл
+  unlock_shortcuts: Зөвхөн унших боломжтой товчлолуудын түгжээг тайл
+  unlock_shortcuts_description: >-
+    Ердийн үед зөвхөн унших боломжтой товчлолуудыг засварлахыг зөвшөөрөх (жишээ
+    нь, системийн хүчингүй болгох).
+  unstable_optimizations: Тогтворгүй оновчлолууд
+  unstable_optimizations_description: >-
+    RAM ашиглалтыг бууруулдаг туршилтын Chromium дарцагуудыг идэвхжүүлнэ үү.
+
+    Анхааруулга: Хэрэв виджет гацвал нэг ачаалагчийг хуваалцаж байгаа бүх
+    виджетүүд хамтдаа эвдрэх болно.
+  widgets_debug:
+    actions: Үйлдлүүд
+    empty: Ямар ч виджет ачаалагдсангүй. Refresh дээр дарна уу.
+    instance_id: Жишээ ID
+    monitor_id: Монитор ID
+    open_devtools: DevTools
+    refresh: Сэргээх
+    status: Статус
+    tab: Виджетүүд
+    widget_id: Виджет ID
+discord_banner:
+  message: >-
+    Seelen UI-ийн бусад хэрэглэгчидтэй холбогдож, тусламж авч, сэдвүүдийг
+    хуваалцаж, хамгийн сүүлийн үеийн мэдээг авч байгаарай.
+  title: Манай нийгэмлэгт нэгдээрэй
+extras:
+  backup_group: Үүлэн нөөцлөлт
+  backup_last_sync: Сүүлийн синк
+  backup_never_synced: Хэзээ ч синк хийгээгүй
+  backup_sync: Тохиргоог клоуд руу синк хийнэ үү
+  backup_sync_description: Клоуд ашиглан тохиргоогоо автоматаар нөөцөлж, сэргээнэ үү.
+  clear_icons: Системийн дүрсийг цэвэрлэх
+  clear_icons_tooltip: >-
+    Бүх виджет дээр хүчин төгөлдөр болохын тулд дахин эхлүүлэх шаардлагатай байж
+    болно
+  discord_rpc: Баян оршихуйг зөрчих
+  discord_rpc_description: Өөрийнхөө хэв маягийг хүн бүрт харуул!
+  exit: Гарах / гарах
+  relaunch: OradAUN
+  streaming_mode: Дамжуулах горим
+  streaming_mode_description: >-
+    Бичлэг хийх эсвэл дэлгэцийн агшинг авах үед нууцлалыг хамгаалах үүднээс нууц
+    мэдээллийг (жишээ нь, имэйл) орлуулагчаар солино.
+  version: Таамаглал
+  version_fixed: >-
+    Аппликешн болон WebView2 Runtime хувилбаруудыг зассан. Энэ нь програм нь
+    шинэчлэлт хүлээн авахгүй бөгөөд WebView2 Runtime нь Windows шинэчлэлтүүдээр
+    автоматаар шинэчлэгдэхгүй гэсэн үг юм.
+general:
+  accent_color: Эргүүлэг
+  date_format: Огноо формат
+  date_format_how_to: Огнооны форматыг хэрхэн бичих вэ?
+  hardware_acceleration: Техник хангамжийн хурдатгал
+  hardware_acceleration_description: >-
+    Техник хангамжийн хурдатгалыг идэвхгүй болгосноор санах ойн хэрэглээ
+    багасна. Хэрэв та хүнд анимэйшн ашиглаагүй бол идэвхгүй болгоход аюулгүй,
+    гэхдээ энэ тохиргооноос үл хамааран бие даасан виджетүүд GPU-г ашиглахыг
+    албадсаар байх болно.
+  icon_pack:
+    available: Боломжтой Icon багцууд
+    selected: Идэвхтэй дүрсний багцууд
+  language: Хэл
+  monday: Даваа гараг
+  performance_mode:
+    label: Оновчлолууд
+    on_battery: Зайтай
+    on_energy_saver: Эрчим хүч хэмнэгч дээр
+    options:
+      disabled: Эрэмдэг зэрэмдэг
+      extreme: Түйлын
+      minimal: Бага
+    plugged: Залгасан эсвэл цэнэглэж байна
+  polling_interval: Системийн санал авах интервал
+  polling_interval_description: >-
+    Seelen UI нь CPU, RAM, сүлжээ, дискний үйл ажиллагаа зэрэг системийн нөөцийг
+    хэр олон удаа (секундэд) шалгадаг. Бага тоо нь илүү олон удаа шинэчлэгдэх
+    боловч бага зэрэг өндөр нөөцийн хэрэглээ гэсэн үг юм.
+  saturday: Бямба гариг
+  start_of_week: Долоо хоногийн эхлэл
+  startup: Эхлэх үед гүйх үү?
+  sunday: Ням гараг
+  suspend_on_game_mode: Тоглоомын горим дээр виджетүүдийг түр зогсоох
+  suspend_on_game_mode_description: >-
+    Windows Тоглоомын горим идэвхжсэн үед бүх виджетийн вэб харагдац устгагдаж,
+    CPU болон санах ойг чөлөөлнө. Тоглоомын горим дуусахад виджетүүд автоматаар
+    сэргээгддэг.
+  theme:
+    available: Боломжтой загварууд
+    selected: Идэвхтэй сэдэв
+global: Глобал
+header:
+  labels:
+    config: Тохиргоо
+    developer: Хөгжүүлэгчдэд зориулсан
+    extras: Мөр өгөх
+    general: Жанжин
+    home: Гэр
+    iconpack: Icon багц
+    monitors: Хэлэлт авагч
+    plugin: Гарын үсэг
+    resources: Ажил
+    session: Данс
+    shortcuts: Хэв хаягдал
+    soundpack: Дууны багц
+    specific_apps: Програмын тохиргоо
+    theme: Сэдэвүүд
+    virtual_desk: Виржопын ширээний гутал
+    wallpaper: Ханын цаас
+    widget: Аялалын мэдээ
+home:
+  new_resources: Шинэ нөөц
+inherit: Удамших
+inProgress: Явагдаж байна ...
+insert: Оруулах
+join_us: Бидэнтэй нэгдээрэй!
+loading: Ачаалах ...
+miscellaneous: Олон төрлийн
+monitors_configurations:
+  label: Хяналт {{индекс}}
+more: Илүү / их олон
+'no': '-Гүй / -битгий'
+open: Нээлттэй
+quit: Орхих
+remove: Зөөх
+reset_all_to_default: Бүгдийг нь анхдагч утгыг дахин тохируулна уу
+reset_configurations: Тохиргоог дахин тохируулах
+reset_to_default: Үндсэн утга руу дахин тохируулна уу
+resources:
+  affected_widgets: Нөлөөлөлд өртсөн виджетүүд
+  app_outdated: Энэ нөөц нь Seelen Ui-ийн шинэ хувилбарыг зөв ажиллахыг шаарддаг.
+  coming_soon: Удахгүй
+  corrupted_wallpaper: Өнгөц зургийг задалж чадсангүй - гэмтсэн эсвэл дэмжигдээгүй видео формат
+  delete: Нөөцийг устгах
+  discover: Илүү их нөөцийг олж мэдэх
+  has_update: Шинэчлэлт хийх боломжтой
+  high_impact: Гүйцэтгэлд өндөр нөлөө үзүүлдэг
+  import_wallpapers: Орон нутгийн ханын цаас импортлох
+  included_plugins: Оруулсан залгаасууд
+  modified: Өөрчлөгдсөн
+  open_folder: Нээлттэй зөөврийн
+  outdated: >-
+    Энэ нөөц нь Seelen Ui-ийн хуучин хувилбарт зориулагдсан бөгөөд зөв
+    ажиллахгүй байж магадгүй юм.
+  see_on_website: Вэбсайтаас үзнэ үү
+  update_now: Шинэчлэх
+  updates_available: Шинэчлэлтүүд боломжтой
+  updates_available_description: Дараах эх сурвалжуудад шинэчлэлтүүд бэлэн байна.
+review_request:
+  not_now: Одоо биш
+  sure: Мэдээж!
+  title: Seelen UI таалагдаж байна уу?
+save: Аврах
+save_and_restart: Хадгалах & дахин эхлүүлнэ үү
+search: Хайх
+see_more: Дэлгэрэнгүйг үзэх
+session:
+  logout: Гарах
+  plan: Төлөвлөгөө
+  sign_in: Нэвтрэх
+  sign_in_hint: Таны хөтөч нээгдэх тул та аюулгүйгээр нэвтэрч болно.
+  upgrade_to: руу шинэчлэх
+shortcuts:
+  disabled_tooltip: Виджет болон түүний товчлолыг идэвхгүй болгосон
+  duplicate_error: Зөрчилтэй товчлолууд илэрсэн
+  duplicate_error_hint: >-
+    Зарим товчлолыг олон үйлдэлд хуваарилдаг. Зөрчилтэй виджетүүдийн аль нэгийг
+    идэвхгүй болгох эсвэл шийдвэрлэхийн тулд давхардсан түлхүүрийн холболтыг
+    дахин хуваарилна уу.
+  enable: Баригдсан товчлол системийг идэвхжүүлэх
+  enable_tooltip: >-
+    Хэрэв та Seelen UI Client ашиглан өөрийн товчлолыг ашиглан өөрийн товчлолыг
+    хэрэгжүүлэхийг идэвхгүй болго
+  labels:
+    create_new_workspace: Шинэ ажлын талбар үүсгэх
+    create_new_workspace_row: Ажлын талбайн шинэ мөр үүсгэх
+    destroy_current_workspace: Одоогийн ажлын талбарыг устгах
+    misc_force_quit: Хүчний гарах
+    misc_force_restart: Хүчийг дахин эхлүүлэх
+    move_to_workspace: Ажлын талбар руу шилжих {{0}}
+    pause_toggle: Түр зогсоох/Үргэлжлүүлэх товчлол
+    send_to_next_workspace: Дараагийн ажлын талбар руу цонх илгээх
+    send_to_previous_workspace: Өмнөх ажлын талбар руу цонх илгээх
+    send_to_workspace: Ажлын талбар руу илгээх {{0}}
+    send_to_workspace_down: Доорх ажлын талбар руу цонх илгээнэ үү
+    send_to_workspace_up: Дээрх ажлын талбар руу цонх илгээнэ үү
+    switch_to_next_workspace: Дараагийн ажлын талбар руу шилжих
+    switch_to_previous_workspace: Өмнөх ажлын талбар руу шилжих
+    switch_to_workspace_down: Доорх ажлын талбар руу шилжинэ үү
+    switch_to_workspace_up: Дээрх ажлын талбар руу шилжинэ үү
+    switch_workspace: Ажлын талбар руу шилжих {{0}}
+  readonly_tooltip: Энэ бол зөвхөн унших товчлол юм
+  reset: Үндсэндээ тохируулах
+sides:
+  bottom: Ероол
+  left: Зүүн
+  right: Зөв байх
+  top: Таг
+toolbar:
+  auto_hide: Авто гүнд
+  auto_hide_touch_disabled: Мэдрэгч дэлгэцтэй төхөөрөмжүүд дээр автоматаар нуух боломжгүй
+  delay_to_hide: Нуухыг хойшлуулах
+  delay_to_show: Үзүүлэхийг хойшлуулсан
+  dock_side: Байрлал
+  enable: Ширээний хэрэгслийн самбарыг идэвхжүүлэх
+  hide_mode:
+    always: Үргэлж
+    never: Хэзээ ч үгүй
+    on_overlap: Давхардсан дээр
+  item_size: Барааны хэмжээ
+  label: Балтсний хайрцагны хэрэгсэл
+  margin: Маржин хэмжээ
+  padding: Дотор хэмжээ
+  placeholder: {}
+update:
+  available: Шинэчлэх боломжтой!
+  channel: Суваг шинэчлэх
+  downloading: Татаж авах ...
+wall:
+  blur: Тайлбарал
+  cancel: Цуцлах
+  close: Хаах
+  collection_name: Цуглуулгын нэр
+  collections: Цуглуулга
+  contrast: Эрс ялгаа
+  corrupted_wallpapers_message: 'Гэмтсэн ханын зураг, эдгээрийг устгана уу:'
+  coverage_pause_threshold: Түр зогсоох босго (цонхны хамрах хүрээ)
+  create: Үүсгэх
+  create_collection: Цуглуулга үүсгэх
+  default_collection: Өгөгдмөл ханын цаас эсвэл цуглуулга
+  default_collection_description: >-
+    Тодорхой хүчингүй болгох багц байхгүй бүх монитор болон ажлын талбарт
+    хэрэглэнэ.
+  delete_collection: Цуглуулгыг устгах
+  edit_collection: Цуглуулга засварлах
+  extend: Үндсэн хэсгийг сунгах
+  fit:
+    contain: Агуулах
+    cover: Бутээлэг
+    fill: Дүүрэх
+  flipHorizontal: Хөндлөнгийн хэвтээ
+  flipVertical: Босоо босоо
+  generating_thumbnails: Дэлгэцийн өнгөц зураг үүсгэж байна
+  hours: цаг
+  interval: Ханын цаасыг өөрчлөх
+  minutes: хоёр хоног
+  monitor_collection: Мониторын цуглуулга
+  multimonitor_behaviour: Multimonitor Behavior
+  muted: Дуугүй видео аудио
+  no_background: Хоосон слайпешт, оронд нь.
+  no_collections: Одоогоор цуглуулгаа үүсгээгүй байна. + товчийг дарж нэгийг үүсгэнэ үү.
+  objectFit: Суурь тохирох
+  objectPosition: Арын байрлал
+  overlayColor: Давхардсан өнгө
+  overlayMixBlendMode: Холих холимог холимог горим
+  per_monitor: Монитор бүрт
+  per_monitor_config: Монитор бүрийн тохиргоо
+  playback: Тоглуулах хурд
+  position:
+    bottom: Ероол
+    center: Тов
+    left: Зүүн
+    right: Зөв байх
+    top: Таг
+  processing_video: Видеог боловсруулж байна
+  random: Санамсаргүй байдлаар Slideshes
+  saturation: Цэнгэхны бэлтгэл, төгсөг
+  seconds: хоёр цаг
+  select_collection: Цуглуулга сонгоно уу
+  thumbnail_generation_complete: Өнгөц зураг үүсгэж дууслаа
+  thumbnail_generation_finished: Өнгөц зураг үүсгэх ажиллагаа амжилттай дууслаа
+  use_accent_color: Ханын цаасны өргөлтийн өнгийг ашигла
+  wallpaper_collection: Дэлгэцийн зургийн цуглуулга
+  wallpaper_settings: Дэлгэцийн зурагны тохиргоо
+  wallpapers: Дэлгэцийн зураг
+  wallpapers_and_collections: Дэлгэцийн зураг ба цуглуулга
+  withOverlay: Давхцаж байна
+  workspace_collections: Ажлын талбарын цуглуулга
+weg:
+  auto_hide: Авто гүнд
+  auto_hide_touch_disabled: Мэдрэгч дэлгэцтэй төхөөрөмжүүд дээр автоматаар нуух боломжгүй
+  delay_to_hide: Нуухыг хойшлуулах
+  delay_to_show: Үзүүлэхийг хойшлуулсан
+  dock_side: Байрлал
+  filtering: Барааны шүүлтүүр
+  gap: Цонх
+  hide_mode:
+    always: Үргэлж
+    never: Хэзээ ч үгүй
+    on_overlap: Давхардсан дээр
+  import_error: Ажлын талбарын зүйлсийг импорт хийж чадсангүй
+  import_from_taskbar:
+    button: Windows Taskbar-аас импортлох
+    label: Хаалттай зүйлсийг импортлох
+  import_no_items: Windows taskbar-д бэхлэгдсэн зүйл олдсонгүй
+  import_success: Windows taskbar-аас {{count}} зүйлийг амжилттай импортлов
+  items:
+    gap: Зүйлийн хоорондох зай
+    label: Зүйл
+    middle_click_action:
+      close_app: Програмыг хаах
+      label: Дунд товшилтын үйлдэл
+      open_new_instance: Шинэ жишээ нээх
+    pinned_visibility:
+      always: Үргэлж
+      label: Тогтсон зүйлсийн харагдах байдал
+      when_primary: Монитор анхдагч байх үед
+    show_instance_counter: Нээлттэй Windows тоолуурыг харуул
+    show_window_title: Нээлттэй цонхны гарчигыг харуул (зөвхөн хэвтээ)
+    size: Зүйлийн хэмжээ
+    split_windows: Windows хуваах (цонх бүрт нэг зүйл)
+    temporal_visibility:
+      all: Бүгд
+      label: Тодруулаагүй зүйлсийн харагдах байдал
+      on_monitor: Монитор дээр
+  label: Док / Taskbar
+  margin: Саруулган өвс
+  mode:
+    full_width: Бүтэн дэлгэцийн өргөн
+    min_content: Аль болох жижиг
+  padding: Дэвсгэр
+  show_end_task: ТЕХНИКИЙН ТОНОГ ТӨХӨӨРӨМЖИЙН ТӨЛӨВЛӨГӨӨ
+  width: Өргөн
+welcome:
+  give_a_review: Шүүмж өгөх
+  message: >-
+    Seelen UI нь Windows-д зориулсан үнэгүй, нээлттэй эхийн ширээний орчин юм.
+    Энд та ширээний компьютерээ хэрхэн харж, ажиллахыг бүрэн хянах боломжтой
+    бөгөөд энэ нь ажлын явц, хэв маягтаа тохируулан нарийн ширийн зүйл бүрийг
+    өөрчлөх боломжийг танд олгоно.
+  ok: Эхэлцгээе!
+  review: >-
+    Хэрэв та Seelen UI ашиглах дуртай бол дэлгүүрт сэтгэгдэл үлдээгээрэй - таны
+    санал хүсэлт төслийг хөгжүүлэх, сайжруулахад тусална.
+  title: Seelen UI-д тавтай морил!
+widget:
+  default_instance: Өгөгдмөл жишээ
+  default_instance_hint: Үргэлж идэвхтэй, үндсэн виджетийн тохиргоог ашигладаг
+  enable: Энэ виджетийг идэвхжүүлэх
+  enable_for_monitor: Энэ монитор дээр идэвхжүүлэх
+  extra_instances: Нэмэлт тохиолдлууд
+  instance: Жишээ
+  instances: Саналууд
+wm:
+  animations:
+    duration: Хөдөлгөөнт давталт (MS)
+    ease_function: Хөдөлгөөнт хялбаршуулах функц
+    enable: Цонхны анимацийг идэвхжүүлэх
+  author: Зохиолч
+  auto_stack: Програмын ангиллаар автомат стек
+  border:
+    enable: Цонхны хилийг идэвхжүүлэх
+    offset: Хилийн офсет
+    width: Хилийн өргөн
+  description: Тодорхойлолт / төрөл анги
+  drag_behavior: Чирэх зан үйл
+  drag_behavior_options:
+    sort: Эрэмбэлэх (чирэх үед цонхны дарааллыг өөрчлөх)
+    swap: Солих (цонхыг чирэх төгсгөлд солих)
+  floating:
+    height: Хөвөгч цонхны өндөр
+    title: Хөвөгч цонхны хэмжээ
+    width: Хөвөгч цонхны өргөн
+  layout: Төлөвлөгөө
+  resize_delta: Дельтааг өөрчлөх (%)
+  space_between_containers: Савны хоорондох зай
+  stack_bar_visibility: Stack Bar харагдах байдал
+  stack_bar_visibility_options:
+    always: Үргэлж
+    as_needed: Шаардлагатай бол
+  workspace_offset: Ажлын талбар нь офсет (Margins)
+  workspace_padding: Ажлын талбарууд
+'yes': Мон

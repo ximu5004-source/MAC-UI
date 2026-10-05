@@ -1,0 +1,7 @@
+- name: Photoshop Dialogs
+  identifier:
+    id: PSDialogBox
+    kind: Class
+    matchingStrategy: Equals
+  options:
+    - unmanage

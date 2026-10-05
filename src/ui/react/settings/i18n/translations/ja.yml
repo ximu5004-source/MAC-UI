@@ -1,0 +1,440 @@
+action:
+  confirm: 操作を続行しますか？
+  confirm_body: このアクションを元に戻すことはできません。
+apps_configurations:
+  app:
+    bindings: バインディング（両方のオプションが必要です）
+    category: カテゴリー
+    category_placeholder: なし
+    monitor: モニター
+    monitor_placeholder: なし
+    name: 名前
+    ok_create: 作成
+    ok_edit: 適用
+    ok_readonly: 新規設定を作成
+    options:
+      NoInteractive: インタラクティブなし
+      VdPinned: すべてのワークスペースに表示
+      WmFloat: Twm - フローティングを開始
+      WmForce: Twm - 強制管理
+      WmUnmanage: Twm - 管理解除
+    options_label: 追加の設定
+    title_create: '{{name}}を作成する'
+    title_edit: 編集{{name}}
+    title_readonly: 「{{name}}」を表示しています
+    weg_options_label: ドック/タスクバーの設定
+    wm_options_label: ウィンドウマネージャーの設定
+    workspace: ワークスペース
+    workspace_placeholder: なし
+  bundled_msg: >-
+    これらのバンドルされた構成は編集可能ではなく、カスタマイズなしで最高の体験を提供するように設計されています。
+    最も一般的なアプリケーションを自動的に構成します。
+  bundled_title: Seelenにバンドルされたアプリの構成
+  confirm_delete: この構成を削除しますか？
+  confirm_delete_title: 削除の確認
+  delete: 消去
+  export: エクスポート
+  export_full: アプリケーションごとに設定をエクスポート
+  extra_info: >-
+    SeelenUIは、アプリごとに1つの識別子のみを使用します（最初に一致したものが使用されます）。そのため、識別方法の順序が重要であり、最新の追加が優先されます。
+  identifier:
+    add_block: ブロックを追加
+    and: かつ
+    id: 識別子
+    kind: 識別方法
+    matching_strategy: マッチングの方法
+    matching_strategy_option:
+      contains: 含む
+      ends_with: で終わる
+      equals: 等しい
+      regex: 正規表現
+      starts_with: で始まる
+    negation: 否定
+    or: または
+    remove: 削除
+    type:
+      class: クラス
+      exe: EXE
+      path: パス
+      title: タイトル
+  import: インポート
+  import_full: アプリケーション別設定のインポート
+  new: 新規
+  search: 検索
+  swap: 入れ替え
+cancel: キャンセル
+close: 閉じる
+delete: 消去
+devtools:
+  app_folders: アプリのフォルダー
+  color_palette: カラーパレット
+  color_palette_note: >-
+    これらの色は明/暗モードに自動的に適応します。各色合いは固定値ではなく、現在の背景とのコントラストに関係します。テーマの自動サポートを取得するには、ハードコードされた色の代わりにこれらを使用します。
+  custom_config_file: カスタム構成ファイルをロードする
+  data_folder: データのフォルダー
+  enable: 開発者ツールを有効にする
+  enable_description: Seelen UI の内部を検査およびデバッグするための高度なツールのロックを解除します。 通常の使用を目的としていません。
+  icons: キャッシュされたアイコン
+  install_folder: アプリのフォルダー
+  load: ロード
+  settings_file: 設定ファイル
+  shared_components: SLU標準コンポーネント
+  simulate_dialog:
+    label: シミュレーションダイアログ
+    trigger: トリガー
+  simulate_perm:
+    label: ウィジェットの許可リクエストをシミュレートする
+    result_allowed: ✓ 許可の付与
+    result_denied: ✗ 許可が拒否されました
+    trigger: シミュレートする
+    widget_id_placeholder: '@作成者/ウィジェット名'
+  tools: ツール
+  unlock_shortcuts: 読み取り専用ショートカットのロックを解除する
+  unlock_shortcuts_description: 通常は読み取り専用であるショートカットの編集を許可します (システム オーバーライドなど)。
+  unstable_optimizations: 不安定な最適化
+  unstable_optimizations_description: |-
+    RAM の使用量を削減する実験的な Chromium フラグを有効にします。
+    警告: ウィジェットがクラッシュすると、同じローダーを共有するすべてのウィジェットが一緒にクラッシュします。
+  widgets_debug:
+    actions: アクション
+    empty: ウィジェットがロードされていません。 「更新」をクリックします。
+    instance_id: インスタンスID
+    monitor_id: モニターID
+    open_devtools: 開発ツール
+    refresh: リフレッシュ
+    status: 状態
+    tab: ウィジェット
+    widget_id: ウィジェットID
+discord_banner:
+  message: 他の Seelen UI ユーザーとつながり、ヘルプを得たり、テーマを共有したり、最新ニュースを入手したりできます。
+  title: コミュニティに参加してください
+extras:
+  backup_group: クラウドバックアップ
+  backup_last_sync: 最終同期
+  backup_never_synced: 決して同期しない
+  backup_sync: 設定をクラウドに同期する
+  backup_sync_description: クラウド経由で設定を自動的にバックアップおよび復元します。
+  clear_icons: システムアイコンキャッシュをクリアする
+  clear_icons_tooltip: すべてのウィジェットに完全に反映させるには、再起動が必要な場合があります。
+  discord_rpc: Discordの豊かな存在感
+  discord_rpc_description: あなたのスタイルをみんなに見せましょう！
+  exit: SeelenUIを終了
+  relaunch: SeelenUIを再起動
+  streaming_mode: ストリーミングモード
+  streaming_mode_description: 機密情報 (電子メールなど) をプレースホルダーに置き換えて、録画またはスクリーンショット中のプライバシーを保護します。
+  version: バージョン
+  version_fixed: >-
+    アプリケーションとWebView2 Runtimeのバージョンは固定されています。これは、アプリケーションが更新を受信せず、WebView2
+    ランタイムが Windows 更新で自動的に更新されないことを意味します。
+general:
+  accent_color: アクセントカラー
+  date_format: 日付形式
+  date_format_how_to: 日付の形式はどうやって書くのでしょうか？
+  hardware_acceleration: ハードウェアアクセラレーション
+  hardware_acceleration_description: >-
+    ハードウェア アクセラレーションを無効にすると、メモリの使用量が削減されます。
+    負荷の高いアニメーションを使用していない場合は無効にしても安全ですが、この設定に関係なく、個々のウィジェットによって GPU
+    の使用が強制される可能性があります。
+  icon_pack:
+    available: 利用可能なアイコンパック
+    selected: アクティブなアイコンパック
+  language: 言語
+  monday: 月曜日
+  performance_mode:
+    label: 最適化
+    on_battery: バッテリー駆動時
+    on_energy_saver: 省電力モード時
+    options:
+      disabled: 無効
+      extreme: 極限
+      minimal: 最小限
+    plugged: 電源接続時
+  polling_interval: システムのポーリング間隔
+  polling_interval_description: >-
+    Seelen UI が CPU、RAM、ネットワーク、ディスク アクティビティなどのシステム リソースをチェックする頻度 (秒単位)。
+    数値が小さいほど、更新頻度は高くなりますが、リソース使用量がわずかに高くなります。
+  saturday: 土曜日
+  start_of_week: 週の始まり
+  startup: 起動時に実行する
+  sunday: 日曜日
+  suspend_on_game_mode: ゲームモードでウィジェットを一時停止する
+  suspend_on_game_mode_description: >-
+    Windows ゲーム モードがアクティブな場合、ゲーム用に CPU とメモリを解放するためにすべてのウィジェット Web
+    ビューが破棄されます。ゲームモードが終了すると、ウィジェットは自動的に復元されます。
+  theme:
+    available: 利用可能なテーマ
+    selected: アクティブなテーマ
+global: グローバル
+header:
+  labels:
+    config: 設定
+    developer: 開発者向け
+    extras: エクストラ
+    general: 全般
+    home: ホーム
+    iconpack: アイコンパック
+    monitors: モニター
+    plugin: プラグイン
+    resources: リソース
+    session: アカウント
+    shortcuts: ショートカットキー
+    soundpack: サウンドパック
+    specific_apps: アプリケーション別設定
+    theme: テーマ
+    virtual_desk: 仮想デスクトップ
+    wallpaper: 壁紙
+    widget: ウィジェット
+home:
+  new_resources: 新しいリソース
+inherit: 継承
+inProgress: 近日実装予定...
+insert: 挿入
+join_us: 参加しませんか！
+loading: 読み込み中...
+miscellaneous: その他
+monitors_configurations:
+  label: モニター{{index}}
+more: さらに表示
+'no': いいえ
+open: 開く
+quit: 終了
+remove: 取り除く
+reset_all_to_default: すべての設定をデフォルトに戻す
+reset_configurations: 設定のリセット
+reset_to_default: デフォルトに戻す
+resources:
+  affected_widgets: 影響を受けるウィジェット
+  app_outdated: このリソースが正しく動作するためには、新しいバージョンのSeelen UIが必要です。
+  coming_soon: 近日公開
+  corrupted_wallpaper: サムネイルの抽出に失敗しました - 破損したビデオ形式またはサポートされていないビデオ形式です
+  delete: リソースを削除します
+  discover: その他のリソース
+  has_update: アップデートが利用可能です
+  high_impact: パフォーマンスへの大きな影響
+  import_wallpapers: ローカル壁紙のインポート
+  included_plugins: 付属のプラグイン
+  modified: 変更済み
+  open_folder: リソースフォルダを開く
+  outdated: このリソースは古いバージョンのSeelen UI用に設計されており、正しく動作しない可能性があります。
+  see_on_website: ウェブサイトで見る
+  update_now: アップデート
+  updates_available: 利用可能なアップデート
+  updates_available_description: 次のリソースには利用可能な更新があります。
+review_request:
+  not_now: また今度
+  sure: もちろん！
+  title: Seelen UI をお楽しみですか？
+save: 保存
+save_and_restart: 保存して再起動
+search: 検索
+see_more: もっと見る
+session:
+  logout: サインアウト
+  plan: プラン
+  sign_in: サインイン
+  sign_in_hint: ブラウザが開くので、安全にサインインできます。
+  upgrade_to: にアップグレード
+shortcuts:
+  disabled_tooltip: ウィジェットとそのショートカットが無効になっています
+  duplicate_error: 競合するショートカットが検出されました
+  duplicate_error_hint: >-
+    一部のショートカットは複数のアクションに割り当てられています。競合するウィジェットの 1 つを無効にするか、重複したキー
+    バインドを再割り当てして解決します。
+  enable: ビルトインショートカットシステムを有効にします
+  enable_tooltip: Seelen UIクライアントを使用して独自のショートカットシステムを実装する場合は無効にします
+  labels:
+    create_new_workspace: 新しいワークスペースを作成
+    create_new_workspace_row: 新しいワークスペース行の作成
+    destroy_current_workspace: 現在のワークスペースを破棄
+    misc_force_quit: 強制終了する
+    misc_force_restart: 強制再起動する
+    move_to_workspace: ワークスペースに移動{{0}}
+    pause_toggle: 一時停止/再開のショートカット
+    send_to_next_workspace: ウィンドウを次のワークスペースに送信
+    send_to_previous_workspace: ウィンドウを前のワークスペースに送信
+    send_to_workspace: ワークスペース {{0}} に送信
+    send_to_workspace_down: ウィンドウを下のワークスペースに送信
+    send_to_workspace_up: ウィンドウを上のワークスペースに送信
+    switch_to_next_workspace: 次のワークスペースに切り替え
+    switch_to_previous_workspace: 前のワークスペースに切り替え
+    switch_to_workspace_down: 以下のワークスペースに切り替えます
+    switch_to_workspace_up: 上のワークスペースに切り替える
+    switch_workspace: ワークスペースに切り替え{{0}}
+  readonly_tooltip: 読み取り専用
+  reset: デフォルトにリセット
+sides:
+  bottom: 下
+  left: 左
+  right: 右
+  top: 上
+toolbar:
+  auto_hide: 自動的に隠す
+  auto_hide_touch_disabled: 自動非表示はタッチ スクリーン デバイスでは利用できません
+  delay_to_hide: 隠れるまでの時間
+  delay_to_show: 表示されるまでの時間
+  dock_side: ポジション
+  enable: ツールバーを有効にする
+  hide_mode:
+    always: 常に
+    never: 無効
+    on_overlap: 重なり時
+  item_size: 商品サイズ
+  label: ツールバーの設定
+  margin: 余白サイズ
+  padding: パディングサイズ
+  placeholder: {}
+update:
+  available: 更新が利用可能です！
+  channel: 更新チャンネル
+  downloading: ダウンロード中...
+wall:
+  blur: ブラー
+  cancel: キャンセル
+  close: 閉じる
+  collection_name: コレクション名
+  collections: コレクション
+  contrast: コントラスト
+  corrupted_wallpapers_message: 壁紙が破損している場合は、削除することを検討してください。
+  coverage_pause_threshold: 一時停止しきい値 (ウィンドウ カバレッジ)
+  create: 作成する
+  create_collection: コレクションを作成
+  default_collection: デフォルトの壁紙またはコレクション
+  default_collection_description: 特定のオーバーライド セットを持たないすべてのモニターとワークスペースに適用されます。
+  delete_collection: コレクションの削除
+  edit_collection: コレクションの編集
+  extend: 拡張
+  fit:
+    contain: コンテイン
+    cover: カバー
+    fill: フィル
+  flipHorizontal: 水平反転
+  flipVertical: 垂直反転
+  generating_thumbnails: 壁紙のサムネイルの生成
+  hours: 時間
+  interval: 壁紙変更の間隔
+  minutes: 分
+  monitor_collection: モニターコレクション
+  multimonitor_behaviour: マルチモニターの動作
+  muted: ビデオの音声をミュート
+  no_background: 壁紙に使用するファイルを選択
+  no_collections: まだコレクションは作成されていません。 + ボタンをクリックして作成します。
+  objectFit: 背景のフィット
+  objectPosition: 背景の位置
+  overlayColor: オーバーレイカラー
+  overlayMixBlendMode: オーバーレイミックスブレンドモード
+  per_monitor: モニターごと
+  per_monitor_config: モニターごとの構成
+  playback: 再生速度
+  position:
+    bottom: 下
+    center: 中央
+    left: 左
+    right: 右
+    top: 上
+  processing_video: ビデオの処理
+  random: スライドショーをランダム化
+  saturation: 彩度
+  seconds: 秒
+  select_collection: コレクションの選択
+  thumbnail_generation_complete: サムネイルの生成が完了しました
+  thumbnail_generation_finished: サムネイルの生成が正常に終了しました
+  use_accent_color: 壁紙のアクセントカラーを使用する
+  wallpaper_collection: 壁紙コレクション
+  wallpaper_settings: 壁紙の設定
+  wallpapers: 壁紙
+  wallpapers_and_collections: 壁紙とコレクション
+  withOverlay: オーバーレイ付き
+  workspace_collections: ワークスペースコレクション
+weg:
+  auto_hide: 自動的に隠す
+  auto_hide_touch_disabled: 自動非表示はタッチ スクリーン デバイスでは利用できません
+  delay_to_hide: 隠れるまでの時間
+  delay_to_show: 表示されるまでの時間
+  dock_side: 位置
+  filtering: アイテムのフィルタリング
+  gap: アイテム間のスペース
+  hide_mode:
+    always: 常に
+    never: 無効
+    on_overlap: 重なり時
+  import_error: タスクバー項目のインポートに失敗しました
+  import_from_taskbar:
+    button: Windows タスクバーからインポート
+    label: ピン留めされたアイテムをインポートする
+  import_no_items: Windows タスクバーに固定された項目が見つかりません
+  import_success: Windows タスクバーから {{count}} 個のアイテムを正常にインポートしました
+  items:
+    gap: アイテム間のスペース
+    label: ドック上のアイテム
+    middle_click_action:
+      close_app: アプリを閉じる
+      label: 中クリックアクション
+      open_new_instance: 新しいインスタンスを開く
+    pinned_visibility:
+      always: 常に
+      label: ピン留めされたアイテムの表示設定
+      when_primary: モニターがプライマリの場合
+    show_instance_counter: 開いているウィンドウのカウンターを表示する
+    show_window_title: 開いているウィンドウのタイトルを表示する（水平方向のみ）
+    size: アイテムのサイズ
+    split_windows: ウィンドウの分割 (ウィンドウごとに 1 つのアイテム)
+    temporal_visibility:
+      all: 全て
+      label: 固定されていないアイテムの表示設定
+      on_monitor: モニター上
+  label: ドック（タスクバー）
+  margin: ドックの隙間
+  mode:
+    full_width: 全画面幅
+    min_content: できるだけ小さく
+  padding: 余白
+  show_end_task: タスクバーに終了ボタンを表示する
+  width: ドックの幅
+welcome:
+  give_a_review: レビューを投稿する
+  message: >-
+    Seelen UI は、Windows 用の無料のオープンソース
+    デスクトップ環境です。ここでは、デスクトップの外観や動作を完全に制御でき、ワークフローやスタイルに合わせてあらゆる詳細をカスタマイズできます。
+  ok: 始めましょう！
+  review: >-
+    Seelen UI
+    の使用を楽しんでいる場合は、ストアにレビューを残すことを検討してください。あなたのフィードバックはプロジェクトの成長と改善に役立ちます。
+  title: Seelen UI へようこそ!
+widget:
+  default_instance: デフォルトのインスタンス
+  default_instance_hint: 常にアクティブで、ルート ウィジェット構成を使用します
+  enable: このウィジェットを有効にする
+  enable_for_monitor: このモニターで有効にする
+  extra_instances: 追加のインスタンス
+  instance: 実例
+  instances: インスタンス
+wm:
+  animations:
+    duration: アニメーション期間（MS）
+    ease_function: アニメーション緩和機能
+    enable: ウィンドウのアニメーションを有効にします
+  author: 製作者
+  auto_stack: アプリカテゴリごとの自動スタック
+  border:
+    enable: ウィンドウの境界線を描画する
+    offset: 境界線の余白
+    width: 線幅
+  description: 説明
+  drag_behavior: ドラッグ動作
+  drag_behavior_options:
+    sort: 並べ替え (ドラッグしながらウィンドウの順序を変更)
+    swap: スワップ (ドラッグ終了時にウィンドウをスワップ)
+  floating:
+    height: フローティング ウィンドウの高さ
+    title: フローティング ウィンドウのサイズ
+    width: フローティング ウィンドウの幅
+  layout: レイアウト
+  resize_delta: リサイズ時の変化率（％）
+  space_between_containers: ウィンドウ間の間隔
+  stack_bar_visibility: スタックバーの表示設定
+  stack_bar_visibility_options:
+    always: いつも
+    as_needed: 必要に応じて
+  workspace_offset: ワークスペース全体の間隔（マージン）
+  workspace_padding: ワークスペースの全体の間隔
+'yes': はい

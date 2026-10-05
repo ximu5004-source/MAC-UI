@@ -1,0 +1,40 @@
+app_menu:
+  close: بستن
+  close_multiple: همه را ببندید
+  copy_handles: دسته کپی کردن
+  edit_app_icon: ویرایش نماد برنامه
+  kill: فرآیند کشتن
+  kill_multiple: کشتن تمام فرآیندها
+  open_file_location: مکان فایل را باز کنید
+  pin: پین کردن
+  pin_to_center: پین به مرکز
+  pin_to_left: پین به سمت چپ
+  pin_to_right: پین به راست
+  run_as: به عنوان مدیر اجرا کنید
+  unpin: باز کردن
+context_menu:
+  edit_icon: ویرایش نماد
+  remove_module: حذف ماژول
+  remove_separator: جداکننده را بردارید
+  reorder_disable: نوار وظیفه قفل
+  reorder_enable: نوار کار را باز کنید
+media:
+  label: مدیا پلیر
+  not_playing: هیچ چیز بازی نمی کند
+show_desktop:
+  label: نمایش دسکتاپ
+start:
+  label: منوی شروع
+taskbar_menu:
+  add_file: پرونده سفارشی
+  add_separator: جداکننده را اضافه کنید
+  media: مدیا پلیر
+  modules: ماژول ها
+  settings: تنظیمات
+  task_manager: Task Manager
+trash_bin:
+  empty_bin: سطل بازیافت خالی
+  item_count: '{{0}} مورد'
+  label: سطل بازیافت
+weg:
+  empty: هیچ موردی برای نمایش وجود ندارد

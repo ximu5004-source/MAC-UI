@@ -1,0 +1,28 @@
+import { forwardRef, type HTMLAttributes } from "preact/compat";
+
+import { cx } from "../../utils/styling.ts";
+import InlineSVG from "../InlineSvg/index.tsx";
+import cs from "./index.module.css";
+import type { IconName } from "libs/ui/icons.ts";
+
+interface ReactIconProps extends HTMLAttributes<HTMLElement> {
+  iconName: IconName;
+  size?: string | number;
+  color?: string;
+  style?: React.CSSProperties;
+}
+
+/** React Icons */
+export const Icon = forwardRef<HTMLElement, ReactIconProps>((props, ref) => {
+  const { iconName, size, color, className, style, ...rest } = props;
+
+  return (
+    <InlineSVG
+      ref={ref}
+      {...rest}
+      src={`/icons/${iconName}.svg`}
+      className={cx("slu-icon", cs.reactIcon, className)}
+      style={{ height: size, color, ...(style || {}) }}
+    />
+  );
+});

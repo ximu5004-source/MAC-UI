@@ -1,0 +1,477 @@
+action:
+  confirm: Ești sigur?
+  confirm_body: Această acțiune nu poate fi anulată.
+apps_configurations:
+  app:
+    bindings: Legare (notă ambele opțiuni sunt necesare)
+    category: Categorie
+    category_placeholder: Nici unul
+    monitor: Monitor
+    monitor_placeholder: Nici unul
+    name: Nume
+    ok_create: Crea
+    ok_edit: Actualizați
+    ok_readonly: Editați ca nou
+    options:
+      NoInteractive: Nu interactiv
+      VdPinned: Afișați în toate spațiile de lucru
+      WmFloat: Twm - Începeți să plutească
+      WmForce: Twm - Gestionarea forței
+      WmUnmanage: Twm - Unmanage
+    options_label: Opțiuni suplimentare
+    title_create: Crearea {{nume}}
+    title_edit: Editare {{nume}}
+    title_readonly: Vizualizare {{nume}}
+    weg_options_label: Opțiuni de doc/bara de activități
+    wm_options_label: Opțiuni manager de ferestre
+    workspace: Spațiu de lucru
+    workspace_placeholder: Nici unul
+  bundled_msg: >-
+    Aceste configurații în pachet nu sunt editabile și sunt concepute pentru a
+    vă oferi cea mai bună experiență fără personalizare. Acestea configurează
+    automat cele mai frecvente aplicații pentru dvs.
+  bundled_title: App Config Bundled cu Seelen
+  confirm_delete: Ești sigur că vrei să ștergi această configurație/s?
+  confirm_delete_title: Confirmă ștergerea
+  delete: Șterge
+  export: Export
+  export_full: Exportul setărilor în funcție de aplicație
+  extra_info: >-
+    Seelen UI folosește un singur identificator pe aplicație (prima potrivire
+    găsită), astfel încât ordinea în modul în care este specificată este
+    importantă, cea mai recentă adăugată va fi prioritară, deoarece notă tabelul
+    este sortat în mod implicit de la cel mai recent la vechi.
+  identifier:
+    add_block: Adăugați bloc
+    and: ȘI
+    id: Identificator
+    kind: Identifică de
+    matching_strategy: Strategia de potrivire
+    matching_strategy_option:
+      contains: Conține
+      ends_with: Se termină cu
+      equals: Egal
+      regex: Expresia regulată
+      starts_with: Începe cu
+    negation: Negate potrivire
+    or: SAU
+    remove: Ștergeți blocul
+    type:
+      class: Clasă
+      exe: Exe
+      path: Cale
+      title: Titlu
+  import: Import
+  import_full: Importul setărilor în funcție de aplicație
+  new: Nou
+  search: Căutare
+  swap: Swap
+cancel: Anulare
+close: Aproape
+delete: Șterge
+devtools:
+  app_folders: Foldere de aplicații
+  color_palette: Paleta de culori
+  color_palette_note: >-
+    Aceste culori se adaptează automat la modul de lumină/întuneric — fiecare
+    nuanță este raportată la contrastul cu fundalul curent, nu o valoare fixă.
+    Folosiți-le în loc de culorile codificate pentru a obține suport automat
+    pentru teme.
+  custom_config_file: Încărcați fișierul de configurare personalizat
+  data_folder: Folder de date
+  enable: Activați instrumentele pentru dezvoltatori
+  enable_description: >-
+    Deblochează instrumente avansate pentru inspectarea și depanarea elementelor
+    interne ale interfeței de utilizare Seelen. Nu este destinat utilizării
+    regulate.
+  icons: Pictograme stocate în cache
+  install_folder: Folder de instalare
+  load: Sarcină
+  settings_file: Fișier de setări
+  shared_components: Componente standard SLU
+  simulate_dialog:
+    label: Dialog Simulare
+    trigger: Trigger
+  simulate_perm:
+    label: Simulați cererea de permisiune pentru widget
+    result_allowed: ✓ Permisiune acordată
+    result_denied: ✗ Permisiune refuzată
+    trigger: Simula
+    widget_id_placeholder: '@autor/nume-widget'
+  tools: Instrumente
+  unlock_shortcuts: Deblocați comenzi rapide numai pentru citire
+  unlock_shortcuts_description: >-
+    Permiteți editarea comenzilor rapide care sunt în mod normal numai pentru
+    citire (de exemplu, suprascrieri de sistem).
+  unstable_optimizations: Optimizări instabile
+  unstable_optimizations_description: >-
+    Activați semnalizatoarele Chromium experimentale care reduc utilizarea RAM.
+
+    Avertisment: dacă un widget se blochează, toate widget-urile care partajează
+    același încărcător se vor bloca împreună.
+  widgets_debug:
+    actions: Acțiuni
+    empty: Niciun widget încărcat. Faceți clic pe Reîmprospătare.
+    instance_id: ID de instanță
+    monitor_id: ID monitor
+    open_devtools: DevTools
+    refresh: Reîmprospăta
+    status: Stare
+    tab: Widgeturi
+    widget_id: ID widget
+discord_banner:
+  message: >-
+    Conectați-vă cu alți utilizatori Seelen UI, obțineți ajutor, partajați teme
+    și fiți la curent cu cele mai recente știri.
+  title: Alăturați-vă comunității noastre
+extras:
+  backup_group: Backup în cloud
+  backup_last_sync: Ultima sincronizare
+  backup_never_synced: Nu s-a sincronizat niciodată
+  backup_sync: Sincronizați setările cu cloud
+  backup_sync_description: Faceți backup și restaurați automat setările prin cloud.
+  clear_icons: Ștergeți memoria cache a pictogramelor de sistem
+  clear_icons_tooltip: >-
+    Ar putea fi necesară o repornire pentru ca toate widget-urile să intre în
+    vigoare
+  discord_rpc: Prezență bogată în discordia
+  discord_rpc_description: Arată tuturor că ai stil!
+  exit: Renunță/ieșire
+  relaunch: Relansare
+  streaming_mode: Modul de streaming
+  streaming_mode_description: >-
+    Înlocuiește informațiile sensibile (de exemplu, e-mailurile) cu substituenți
+    pentru a proteja confidențialitatea în timpul înregistrărilor sau capturilor
+    de ecran.
+  version: Versiune
+  version_fixed: >-
+    Aplicația și versiunile WebView2 Runtime sunt remediate. Aceasta înseamnă că
+    aplicația nu va primi actualizări și WebView2 Runtime nu va fi actualizat
+    automat cu actualizări Windows.
+general:
+  accent_color: Culoare de accent
+  date_format: Formatul datei
+  date_format_how_to: Cum se scrie un format de dată?
+  hardware_acceleration: Accelerație hardware
+  hardware_acceleration_description: >-
+    Dezactivarea accelerației hardware va reduce utilizarea memoriei. Este sigur
+    să dezactivați dacă nu utilizați animații grele, deși widgeturile
+    individuale pot forța în continuare utilizarea GPU-ului, indiferent de
+    această setare.
+  icon_pack:
+    available: Pachete de pictograme disponibile
+    selected: Pachete de pictograme active
+  language: Limba
+  monday: luni
+  performance_mode:
+    label: Optimizări
+    on_battery: Pe baterie
+    on_energy_saver: Pe economia de energie
+    options:
+      disabled: Dezactivat
+      extreme: Extrem
+      minimal: Minim
+    plugged: Conectat sau încărcat
+  polling_interval: Interval de interogare a sistemului
+  polling_interval_description: >-
+    Cât de des (în secunde) Seelen UI verifică resursele sistemului, cum ar fi
+    CPU, RAM, rețea și activitatea discului. Un număr mai mic înseamnă
+    actualizări mai frecvente, dar o utilizare ușor mai mare a resurselor.
+  saturday: sâmbătă
+  start_of_week: Începutul săptămânii
+  startup: Rulați la pornire?
+  sunday: duminică
+  suspend_on_game_mode: Suspendați widget-urile în modul Joc
+  suspend_on_game_mode_description: >-
+    Când Windows Game Mode este activ, toate vizualizările web widget sunt
+    distruse pentru a elibera CPU și memorie pentru joc. Widgeturile sunt
+    restaurate automat când se încheie Modul Joc.
+  theme:
+    available: Teme disponibile
+    selected: Teme active
+global: Global
+header:
+  labels:
+    config: Configurații
+    developer: Pentru dezvoltatori
+    extras: Extras
+    general: General
+    home: Acasă
+    iconpack: Pachete de pictograme
+    monitors: Monitoare
+    plugin: Plugin-uri
+    resources: Resurse
+    session: Cont
+    shortcuts: Comitete rapide
+    soundpack: Pachete de sunet
+    specific_apps: Setări în funcție de aplicație
+    theme: Teme
+    virtual_desk: Birouri virtuale
+    wallpaper: Imagini de fundal
+    widget: Widget-uri
+home:
+  new_resources: Resurse noi
+inherit: Moşteni
+inProgress: În curs...
+insert: Introduce
+join_us: Alăturaţi-ne!
+loading: Se încarcă...
+miscellaneous: Diverse
+monitors_configurations:
+  label: Monitor {{index}}
+more: Mai mult
+'no': Nu
+open: Deschis
+quit: Părăsi
+remove: Elimina
+reset_all_to_default: Resetați toate la valorile implicite
+reset_configurations: Resetați configurațiile
+reset_to_default: Resetare la valoarea implicită
+resources:
+  affected_widgets: Widgeturi afectate
+  app_outdated: >-
+    Această resursă necesită o versiune mai recentă a Seelen UI pentru a
+    funcționa corect.
+  coming_soon: În curând
+  corrupted_wallpaper: Nu s-a extras miniatura - format video corupt sau neacceptat
+  delete: Ștergeți resursa
+  discover: Descoperiți mai multe resurse
+  has_update: O actualizare este disponibilă
+  high_impact: Impact mare asupra performanței
+  import_wallpapers: Importați imagini de fundal locale
+  included_plugins: Pluginuri incluse
+  modified: Modificat
+  open_folder: Deschideți folderul de resurse
+  outdated: >-
+    Această resursă a fost proiectată pentru o versiune mai veche a Seelen UI și
+    este posibil să nu funcționeze corect.
+  see_on_website: Vezi pe site
+  update_now: Actualizare
+  updates_available: Actualizări disponibile
+  updates_available_description: Următoarele resurse au actualizări disponibile.
+review_request:
+  not_now: Nu acum
+  sure: Sigur!
+  title: Vă bucurați de Seelen UI?
+save: Salvați
+save_and_restart: Salvați și reporniți
+search: Căutare
+see_more: A se vedea mai mult
+session:
+  logout: Sign out
+  plan: Plan
+  sign_in: Conectare
+  sign_in_hint: Browserul se va deschide astfel încât să vă puteți conecta în siguranță.
+  upgrade_to: Upgrade la
+shortcuts:
+  disabled_tooltip: Widgetul și comenzile rapide ale acestuia sunt dezactivate
+  duplicate_error: S-au detectat comenzi rapide conflictuale
+  duplicate_error_hint: >-
+    Unele comenzi rapide sunt atribuite mai multor acțiuni. Dezactivați unul
+    dintre widget-urile aflate în conflict sau reatribuiți legarea tastelor
+    duplicate pentru rezolvare.
+  enable: Activați sistemul de comenzi rapide încorporate
+  enable_tooltip: >-
+    Dezactivați dacă veți implementa propriul sistem de comenzi rapide folosind
+    clientul UI Seelen
+  labels:
+    create_new_workspace: Creați un spațiu de lucru nou
+    create_new_workspace_row: Creați un nou rând de spațiu de lucru
+    destroy_current_workspace: Distrugeți spațiul de lucru actual
+    misc_force_quit: Forța a renunțat
+    misc_force_restart: Forțați repornirea
+    move_to_workspace: Treceți la Workspace {{0}}
+    pause_toggle: Întrerupeți/Reluați comenzile rapide
+    send_to_next_workspace: Trimiteți fereastra la următorul spațiu de lucru
+    send_to_previous_workspace: Trimiteți fereastra în spațiul de lucru anterior
+    send_to_workspace: Trimiteți la Workspace {{0}}
+    send_to_workspace_down: Trimiteți fereastra la spațiul de lucru de mai jos
+    send_to_workspace_up: Trimiteți fereastra în spațiul de lucru de mai sus
+    switch_to_next_workspace: Treceți la următorul spațiu de lucru
+    switch_to_previous_workspace: Treceți la spațiul de lucru anterior
+    switch_to_workspace_down: Comutați la spațiul de lucru de mai jos
+    switch_to_workspace_up: Comutați la spațiul de lucru de mai sus
+    switch_workspace: Treceți la Workspace {{0}}
+  readonly_tooltip: Aceasta este o scurtătură numai pentru citire
+  reset: Resetați la valorile implicite
+sides:
+  bottom: Fund
+  left: Stânga
+  right: Dreapta
+  top: Top
+toolbar:
+  auto_hide: Ascunde auto
+  auto_hide_touch_disabled: Ascunderea automată nu este disponibilă pe dispozitivele cu ecran tactil
+  delay_to_hide: Întârzie să te ascunzi
+  delay_to_show: Întârzieți afișarea
+  dock_side: Poziția
+  enable: Activați bara de instrumente fantezistă
+  hide_mode:
+    always: Întotdeauna
+    never: Nu
+    on_overlap: Pe suprapunere
+  item_size: Dimensiunea articolului
+  label: Bara de instrumente
+  margin: Dimensiunea marginii
+  padding: Dimensiunea căptușelii
+  placeholder: {}
+update:
+  available: Actualizare disponibilă!
+  channel: Actualizare canal
+  downloading: Descărcare ...
+wall:
+  blur: Ceață
+  cancel: Anula
+  close: Aproape
+  collection_name: Numele colecției
+  collections: Colecții
+  contrast: Contrast
+  corrupted_wallpapers_message: 'Imagini de fundal corupte, luați în considerare ștergerea acestora:'
+  coverage_pause_threshold: Pragul de pauză (acoperire fereastră)
+  create: Crea
+  create_collection: Creați o colecție
+  default_collection: Tapet sau colecție implicită
+  default_collection_description: >-
+    Se aplică tuturor monitoarelor și spațiilor de lucru care nu au un set de
+    suprareglare specific.
+  delete_collection: Șterge colecția
+  edit_collection: Editați colecția
+  extend: Extindeți primarul
+  fit:
+    contain: Conține
+    cover: Acoperire
+    fill: Umpleți
+  flipHorizontal: Flip orizontal
+  flipVertical: Flip vertical
+  generating_thumbnails: Generarea miniaturilor de fundal
+  hours: ore
+  interval: Schimbați tapet fiecare
+  minutes: minute
+  monitor_collection: Colecția de monitor
+  multimonitor_behaviour: Comportamentul multimonitor
+  muted: Dezactivați sunetul video
+  no_background: Slideshow gol, folosind în schimb fundalul temei.
+  no_collections: Nicio colecție încă creată. Faceți clic pe butonul + pentru a crea unul.
+  objectFit: Potrivire în fundal
+  objectPosition: Poziția de fundal
+  overlayColor: Culoare suprapunere
+  overlayMixBlendMode: Mod de amestecare suprapunere Mix
+  per_monitor: Per monitor
+  per_monitor_config: Configurație pe monitor
+  playback: Viteza de redare
+  position:
+    bottom: Fund
+    center: Centrul
+    left: Stânga
+    right: Corect
+    top: Sus
+  processing_video: Se procesează videoclipul
+  random: Prezentare de diapozitive aleatorie
+  saturation: Saturație
+  seconds: secunde
+  select_collection: Selectați Colecție
+  thumbnail_generation_complete: Generarea miniaturii finalizată
+  thumbnail_generation_finished: Generarea miniaturilor s-a încheiat cu succes
+  use_accent_color: Utilizați culoarea de accent pentru tapet
+  wallpaper_collection: Colecția de imagini de fundal
+  wallpaper_settings: Setări de fundal
+  wallpapers: Imagini de fundal
+  wallpapers_and_collections: Imagini de fundal și colecții
+  withOverlay: Cu suprapunere
+  workspace_collections: Colecții de spațiu de lucru
+weg:
+  auto_hide: Ascundere automată
+  auto_hide_touch_disabled: Ascunderea automată nu este disponibilă pe dispozitivele cu ecran tactil
+  delay_to_hide: Întârzie să te ascunzi
+  delay_to_show: Întârzieți afișarea
+  dock_side: Poziţie
+  filtering: Filtrarea elementelor
+  gap: Decalaj
+  hide_mode:
+    always: Întotdeauna
+    never: Nu
+    on_overlap: Pe suprapunere
+  import_error: Nu s-au putut importa elementele din bara de activități
+  import_from_taskbar:
+    button: Importați din bara de activități Windows
+    label: Importați elemente fixate
+  import_no_items: Nu s-au găsit elemente fixate în bara de activități Windows
+  import_success: S-au importat {{count}} articole din bara de activități Windows
+  items:
+    gap: Spațiu între articole
+    label: Articole
+    middle_click_action:
+      close_app: Închideți aplicația
+      label: Acțiune de clic din mijloc
+      open_new_instance: Deschideți o nouă instanță
+    pinned_visibility:
+      always: Întotdeauna
+      label: Vizibilitatea elementelor fixate
+      when_primary: Când monitorul este principal
+    show_instance_counter: Afișați contorul ferestrelor deschise
+    show_window_title: Afișează titlul ferestrei deschise (numai orizontal)
+    size: Dimensiunea articolului
+    split_windows: Divizarea ferestrelor (un element pe fereastră)
+    temporal_visibility:
+      all: Toate
+      label: Vizibilitatea elementelor nefixate
+      on_monitor: Pe monitor
+  label: Dock/Bara de activități
+  margin: Marjă
+  mode:
+    full_width: Lățimea ecranului complet
+    min_content: Cât de mic poate fi
+  padding: Căptușeală
+  show_end_task: Afișarea sarcinii finale în bara de activități
+  width: Lăţime
+welcome:
+  give_a_review: Dă o recenzie
+  message: >-
+    Seelen UI este un mediu desktop gratuit și open source pentru Windows. Aici
+    aveți control deplin asupra modului în care arată și se comportă desktopul,
+    permițându-vă să personalizați fiecare detaliu pentru a se potrivi cu fluxul
+    și stilul dvs. de lucru.
+  ok: Să începem!
+  review: >-
+    Dacă vă place să utilizați Seelen UI, luați în considerare să lăsați o
+    recenzie în magazin - feedbackul dvs. ajută proiectul să crească și să se
+    îmbunătățească.
+  title: Bun venit la Seelen UI!
+widget:
+  default_instance: Instanță implicită
+  default_instance_hint: Întotdeauna activ, folosește configurația widget rădăcină
+  enable: Activați acest widget
+  enable_for_monitor: Activați pe acest monitor
+  extra_instances: Instanțe suplimentare
+  instance: Exemplu
+  instances: Instanțe
+wm:
+  animations:
+    duration: Durata de animație (MS)
+    ease_function: Funcția de ușurare a animației
+    enable: Activați animațiile Window
+  author: Autor
+  auto_stack: Stack automat în funcție de categoria de aplicație
+  border:
+    enable: Activați granița ferestrei
+    offset: Offset de frontieră
+    width: Lățimea graniței
+  description: Descriere
+  drag_behavior: Comportament de tragere
+  drag_behavior_options:
+    sort: Sortare (reordonează ferestrele în timp ce trageți)
+    swap: Schimbați (schimbați ferestrele la capătul de tragere)
+  floating:
+    height: Înălțimea ferestrelor plutitoare
+    title: Dimensiunea ferestrelor plutitoare
+    width: Lățimea ferestrelor plutitoare
+  layout: Aspect
+  resize_delta: Redimensionați delta (%)
+  space_between_containers: Spațiu între containere
+  stack_bar_visibility: Stack Bar Vizibilitate
+  stack_bar_visibility_options:
+    always: Întotdeauna
+    as_needed: La nevoie
+  workspace_offset: Spații de lucru Offset (marje)
+  workspace_padding: Padding spații de lucru
+'yes': Da

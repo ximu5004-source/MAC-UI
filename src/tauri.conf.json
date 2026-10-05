@@ -1,0 +1,109 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
+  "productName": "MAC UI",
+  "mainBinaryName": "mac-ui",
+  "identifier": "com.seelen.seelen-ui",
+  "version": "../package.json",
+  "app": {
+    "security": {
+      "assetProtocol": {
+        "enable": true,
+        "scope": [
+          "$RESOURCE/**/*",
+          "$TEMP/**/*",
+          "$APPDATA/**/*",
+          "$LOCALDATA/**/*",
+          "**/*.jpg",
+          "**/*.jpeg",
+          "**/*.png",
+          "**/*.webp",
+          "**/*.gif",
+          "**/*.svg"
+        ]
+      }
+    },
+    "withGlobalTauri": false
+  },
+  "build": {
+    "beforeDevCommand": "npm run build:ui -- --serve",
+    "beforeBuildCommand": "npm run build:ui -- --production",
+    "devUrl": "http://localhost:3579",
+    "frontendDist": "../dist",
+    "features": []
+  },
+  "bundle": {
+    "active": true,
+    "createUpdaterArtifacts": false,
+    "publisher": "JONA",
+    "category": "Utility",
+    "copyright": "MAC UI modifications © 2026 JONA. Based on Seelen UI © its contributors. AGPL-3.0-or-later.",
+    "shortDescription": "MAC UI",
+    "longDescription": "MAC UI by JONA — Liquid Glass desktop environment for Windows, based on Seelen UI.",
+    "licenseFile": "../LICENSE",
+    "homepage": "https://github.com/eythaann/Seelen-UI",
+    "resources": {
+      "static": "static",
+      "../LICENSE": "LICENSE",
+      "../NOTICE.md": "NOTICE.md"
+    },
+    "targets": [
+      "nsis"
+    ],
+    "icon": [
+      "static/icons/mac-ui/icon.ico"
+    ],
+    "windows": {
+      "certificateThumbprint": null,
+      "digestAlgorithm": "sha256",
+      "nsis": {
+        "installerIcon": "static/icons/mac-ui/icon.ico",
+        "template": "templates/installer.nsi",
+        "installerHooks": "templates/installer-hooks.nsh",
+        "installMode": "perMachine",
+        "startMenuFolder": "MAC UI",
+        "displayLanguageSelector": true,
+        "languages": [
+          "arabic",
+          "bulgarian",
+          "dutch",
+          "english",
+          "french",
+          "german",
+          "japanese",
+          "korean",
+          "portuguesebr",
+          "russian",
+          "simpchinese",
+          "spanish",
+          "swedish",
+          "tradchinese",
+          "turkish"
+        ]
+      }
+    },
+    "fileAssociations": [
+      {
+        "ext": [
+          ".slu"
+        ],
+        "name": "seelen-ui.file",
+        "description": "MAC UI Resource File",
+        "mimeType": "text/plain",
+        "role": "Viewer"
+      }
+    ]
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": ""
+    },
+    "deep-link": {
+      "mobile": [],
+      "desktop": {
+        "schemes": [
+          "seelen-ui.uri"
+        ]
+      }
+    }
+  }
+}

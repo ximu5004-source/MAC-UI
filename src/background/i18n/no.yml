@@ -1,0 +1,82 @@
+auth:
+  login_failed_body: >-
+    Noe gikk galt under pålogging. Hvis dette vedvarer, kontroller at Windows
+    'Credential Manager'-tjenesten (VaultSvc) er aktivert og kjører, og prøv på
+    nytt.
+  login_failed_title: Innlogging mislyktes
+cancel: Kansellere
+done: Ferdig
+elevated:
+  description: >-
+    Seelen UI kjører med administratorrettigheter.
+
+    Dette legger ikke til eller forbedrer noen funksjoner, og det kan utgjøre en
+    sikkerhetsrisiko.
+
+    For bedre sikkerhet, start den på nytt uten administratortillatelser.
+  title: Kjører som administrator
+file_explorer: Filutforsker
+resource:
+  added: En ny ressurs er lagt til
+  download_failed_body: >-
+    Noe gikk galt mens du lastet ned ressursen, vennligst rapporter den til
+    Seelen -utviklerteamet.
+  download_failed_title: Ressursnedlasting mislyktes
+  downloading: Last ned eiendeler ...
+  downloading_body: Dette kan ta noen sekunder, ikke lukk vinduet.
+  enable: Aktiver
+  login_required_action: Logg på
+  login_required_body: Du må logge på for å laste ned denne ressursen.
+  login_required_title: Pålogging kreves
+runtime:
+  corrupted_data: Ødelagte data
+  corrupted_file: En konfigurasjonsfil er ødelagt ved å bruke standardverdier i stedet.
+  corrupted_file_path: Ødelagt filsti
+  download: Gå til nedlastingssiden
+  files_integrity: >-
+    Vi kunne ikke bekrefte integriteten til applikasjonsfilene.
+
+    Dette kan skje hvis filene ble endret, ødelagt eller installasjonen er
+    ufullstendig.
+
+    Av sikkerhetsgrunner kan ikke Seelen UI fortsette.
+
+    Installer den på nytt fra den offisielle nettsiden.
+  files_integrity_title: Sikkerhetsvarsel - Kontroll av filers integritet mislyktes
+  not_found: WebView2 Runtime ikke funnet
+  not_found_description: Seelen UI krever Webview2 Runtime. Vennligst installer den.
+  outdated: WebView2 Runtime utdatert
+  outdated_description: >-
+    Seelen UI krever Webview2 Runtime %{min_version} eller høyere. Vennligst
+    oppdater den.
+service:
+  not_running: Seelen UI Service kjører ikke
+  not_running_description: >-
+    Seelen UI Service (slu-service) er en avhengighet/hjelper for at appen skal
+    fungere skikkelig.
+  not_running_ok: Start tjenesten
+shortcut:
+  conflicts:
+    body: >-
+      Noen snarveier er tilordnet flere handlinger, vennligst tilordne dem på
+      nytt.
+    dismiss: Avskjedige
+    review: Gjennomgå
+    title: Snarveiskonflikter oppdaget
+  register:
+    placeholder: Trykk på enhver tastekombinasjon
+    title: Registrering av ny snarvei
+widget_liveness:
+  failed_description: |-
+    Modulen «%{widget_name}» sluttet å svare for mange ganger.
+
+    Du kan prøve å starte appen på nytt.
+  failed_title: Widget-feil
+widget_permissions:
+  perm_open_file: åpne filer
+  perm_run: kjøre programmer
+  request_description: |-
+    Modulen «%{widget_name}» ber om tillatelse til %{command}.
+
+    Vil du tillate dette?
+  request_title: Forespørsel om widgettillatelse

@@ -1,0 +1,83 @@
+auth:
+  login_failed_body: >-
+    Nešto nije u redu tijekom prijave. Ako se ovo nastavi, provjerite je li
+    usluga Windows 'Credential Manager' (VaultSvc) omogućena i pokrenuta, a
+    zatim pokušajte ponovno.
+  login_failed_title: Prijava nije uspjela
+cancel: Otkazati
+done: Završen
+elevated:
+  description: >-
+    Seelen UI radi s administratorskim ovlastima.
+
+    Ovo ne dodaje niti poboljšava nikakve značajke i može predstavljati
+    sigurnosni rizik.
+
+    Radi bolje sigurnosti, ponovno ga pokrenite bez administratorskih
+    dopuštenja.
+  title: Pokreće se kao administrator
+file_explorer: File Explorer
+resource:
+  added: Dodan je novi resurs
+  download_failed_body: >-
+    Nešto je pošlo po zlu prilikom preuzimanja resursa, molimo da ga prijavite
+    timu za razvojne programere Seelen.
+  download_failed_title: Preuzimanje resursa nije uspjelo
+  downloading: Preuzimanje imovine ...
+  downloading_body: >-
+    Ovo bi moglo potrajati nekoliko sekundi, molim vas, nemojte zatvoriti
+    prozor.
+  enable: Omogućiti
+  login_required_action: Prijavite se
+  login_required_body: Morate se prijaviti da preuzmete ovaj resurs.
+  login_required_title: Prijava je obavezna
+runtime:
+  corrupted_data: Oštećeni podaci
+  corrupted_file: Konfiguracijska datoteka je oštećena, koristeći zadane vrijednosti.
+  corrupted_file_path: Ispravljena staza datoteke
+  download: Idi na stranicu za preuzimanje
+  files_integrity: >-
+    Nismo mogli provjeriti integritet aplikacijskih datoteka.
+
+    To se može dogoditi ako su datoteke izmijenjene, oštećene ili instalacija
+    nije dovršena.
+
+    Iz sigurnosnih razloga, Seelen UI ne može nastaviti.
+
+    Ponovno ga instalirajte sa službene web stranice.
+  files_integrity_title: Sigurnosno upozorenje - Provjera integriteta datoteka nije uspjela
+  not_found: WebView2 Runtime nije pronađen
+  not_found_description: Seelen UI zahtijeva Webview2 Runtime. Molimo instalirajte ga.
+  outdated: WebView2 Runtime je zastario
+  outdated_description: >-
+    Seelen UI zahtijeva Webview2 Runtime %{min_version} ili noviji. Molimo
+    ažurirajte ga.
+service:
+  not_running: Usluga Seelen UI nije pokrenuta
+  not_running_description: >-
+    Seelen UI Service (slu-service) je ovisnost/pomoć za ispravan rad
+    aplikacije.
+  not_running_ok: Pokrenite uslugu
+shortcut:
+  conflicts:
+    body: Neki prečaci dodijeljeni su višestrukim radnjama, ponovno ih dodijelite.
+    dismiss: Odbaciti
+    review: Pregled
+    title: Otkriveni sukobi prečaca
+  register:
+    placeholder: Pritisnite bilo koju kombinaciju tipki
+    title: Registriranje novog prečaca
+widget_liveness:
+  failed_description: |-
+    Widget '%{widget_name}' prestao je reagirati previše puta.
+
+    Možete pokušati ponovno pokrenuti aplikaciju.
+  failed_title: Pogreška widgeta
+widget_permissions:
+  perm_open_file: otvorene datoteke
+  perm_run: pokretati programe
+  request_description: |-
+    Widget '%{widget_name}' traži dozvolu za %{command}.
+
+    Želite li to dopustiti?
+  request_title: Zahtjev za dopuštenje widgeta

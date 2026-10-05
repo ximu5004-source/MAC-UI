@@ -1,0 +1,7 @@
+id: "@default/wm-float"
+target: "@seelen/window-manager"
+metadata:
+  displayName: !extend i18n/display_name.yml
+  description: !extend i18n/description.yml
+plugin:
+  structure: null # this means float only, no tiling

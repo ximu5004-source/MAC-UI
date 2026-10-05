@@ -1,0 +1,22 @@
+all: Όλες οι εφαρμογές
+app_settings: Ρυθμίσεις εφαρμογής
+applications: Εφαρμογές
+back: Πίσω
+disband: Διάλυση φακέλου
+edit_icon: Επεξεργασία εικονιδίου
+folder: Φάκελος
+no_matching_items: Δεν βρέθηκαν στοιχεία που να ταιριάζουν με την αναζήτησή σας
+open_file_location: Ανοίξτε την τοποθεσία αρχείου
+pin: Καρφίτσα
+pin_to_dock: Καρφίτσωμα στο Dock
+power_menu: Μενού Power
+query:
+  all: Ολοι
+  apps: Εφαρμογές
+  files: Αρχεία
+  web: Ιστός
+run_as_admin: Εκτέλεση ως Διαχειριστής
+unpin: Ξεκαρφιτσώνω
+web_search: Πατήστε Enter για αναζήτηση στον Ιστό
+welcome_message: Καλώς ήρθατε στο μενού της εφαρμογής Seelen UI.
+welcome_message2: Σε αυτήν την καρτέλα, μπορείτε να καρφιτσώσετε τις αγαπημένες σας εφαρμογές.

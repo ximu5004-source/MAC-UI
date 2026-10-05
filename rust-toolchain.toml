@@ -1,0 +1,3 @@
+[toolchain]
+# https://releases.rs/docs/1.97.0/
+channel = "nightly-2026-05-22"

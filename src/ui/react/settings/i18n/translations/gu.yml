@@ -1,0 +1,466 @@
+action:
+  confirm: તમને ખાતરી છે?
+  confirm_body: આ ક્રિયા પૂર્વવત્ કરી શકાતી નથી.
+apps_configurations:
+  app:
+    bindings: બંધનકર્તા (નોંધો કે બંને વિકલ્પો જરૂરી છે)
+    category: શ્રેણી
+    category_placeholder: કોઈ નહિ
+    monitor: મોનીટર
+    monitor_placeholder: કોઈ નહિ
+    name: નામ
+    ok_create: બનાવો
+    ok_edit: અપડેટ કરો
+    ok_readonly: નવા તરીકે સંપાદિત કરો
+    options:
+      NoInteractive: કોઈ ઇન્ટરેક્ટિવ નથી
+      VdPinned: તમામ કાર્યસ્થળોમાં બતાવો
+      WmFloat: Twm - ફ્લોટિંગ શરૂ કરો
+      WmForce: Twm - ફોર્સ મેનેજ કરો
+      WmUnmanage: Twm - unmanage
+    options_label: વધારાના વિકલ્પો
+    title_create: '{{name}} બનાવી રહ્યાં છીએ'
+    title_edit: સંપાદન {{નામ}}
+    title_readonly: '{{name}} જોઈ રહ્યાં છીએ'
+    weg_options_label: ડોક/ટાસ્કબાર વિકલ્પો
+    wm_options_label: વિંડો મેનેજર વિકલ્પો
+    workspace: વર્કસ્પેસ
+    workspace_placeholder: કોઈ નહિ
+  bundled_msg: >-
+    આ બંડલ કરેલ રૂપરેખાંકનો સંપાદનયોગ્ય નથી અને કસ્ટમાઇઝેશન વિના તમને શ્રેષ્ઠ
+    અનુભવ પ્રદાન કરવા માટે રચાયેલ છે. તેઓ આપમેળે તમારા માટે સૌથી સામાન્ય
+    એપ્લિકેશનોને ગોઠવે છે.
+  bundled_title: સીલેન સાથે બંડલ કરેલ એપ્લિકેશન રૂપરેખા
+  confirm_delete: શું તમે ખરેખર આ ગોઠવણી/ઓ કાઢી નાખવા માંગો છો?
+  confirm_delete_title: કાઢી નાખવાની પુષ્ટિ કરો
+  delete: કાઢી નાખો
+  export: નિકાસ કરો
+  export_full: અરજી દ્વારા નિકાસ સેટિંગ્સ
+  extra_info: >-
+    સીલેન યુઆઈ એપ્લિકેશન દીઠ માત્ર એક ઓળખકર્તાનો ઉપયોગ કરે છે (પ્રથમ મેચ મળી)
+    તેથી કેવી રીતે વિશિષ્ટ છે તે ક્રમમાં મહત્વપૂર્ણ છે, નવીનતમ ઉમેરવામાં
+    પ્રાધાન્ય આપવામાં આવશે, કારણ કે નોંધ કારણ કે ટેબલ ડિફ default લ્ટથી નવીનતમથી
+    જૂની સુધી સ orted ર્ટ કરવામાં આવે છે.
+  identifier:
+    add_block: બ્લોક ઉમેરો
+    and: અને
+    id: ઓળખકર્તા
+    kind: દ્વારા ઓળખો
+    matching_strategy: મેચિંગ સ્ટ્રેટેજી
+    matching_strategy_option:
+      contains: સમાવે છે
+      ends_with: સાથે સમાપ્ત થાય છે
+      equals: સમકક્ષ
+      regex: નિયમિત અભિવ્યક્તિ
+      starts_with: થી શરૂ થાય છે
+    negation: નેગેટ મેચિંગ
+    or: અથવા
+    remove: બ્લોક કાઢી નાખો
+    type:
+      class: વર્ગ
+      exe: Exe
+      path: પાથ
+      title: શીર્ષક
+  import: આયાત કરો
+  import_full: અરજી દ્વારા આયાત સેટિંગ્સ
+  new: નવી
+  search: શોધો
+  swap: સ્વેપ
+cancel: રદ કરો
+close: બંધ
+delete: કાઢી નાખો
+devtools:
+  app_folders: એપ્લિકેશન ફોલ્ડર્સ
+  color_palette: કલર પેલેટ
+  color_palette_note: >-
+    આ રંગો આપમેળે પ્રકાશ/શ્યામ મોડમાં અનુકૂલન કરે છે — દરેક શેડ વર્તમાન
+    પૃષ્ઠભૂમિ સાથે વિપરીત-સાપેક્ષ છે, નિશ્ચિત મૂલ્ય નથી. સ્વચાલિત થીમ સપોર્ટ
+    મેળવવા માટે હાર્ડકોડેડ રંગોને બદલે તેનો ઉપયોગ કરો.
+  custom_config_file: કસ્ટમ રૂપરેખા ફાઇલ લોડ કરો
+  data_folder: ડેટા ફોલ્ડર
+  enable: વિકાસકર્તા સાધનો સક્ષમ કરો
+  enable_description: >-
+    સીલેન UI ઇન્ટરનલ્સને તપાસવા અને ડીબગ કરવા માટે અદ્યતન સાધનોને અનલૉક કરે છે.
+    નિયમિત ઉપયોગ માટે બનાવાયેલ નથી.
+  icons: કેશ્ડ ચિહ્નો
+  install_folder: ઇન્સ્ટોલેશન ફોલ્ડર
+  load: લોડ
+  settings_file: સેટિંગ્સ ફાઇલ
+  shared_components: SLU પ્રમાણભૂત ઘટકો
+  simulate_dialog:
+    label: ડાયલોગનું અનુકરણ કરો
+    trigger: ટ્રિગર
+  simulate_perm:
+    label: વિજેટ પરવાનગી વિનંતીનું અનુકરણ કરો
+    result_allowed: ✓ પરવાનગી આપવામાં આવી
+    result_denied: ✗ પરવાનગી નકારી
+    trigger: અનુકરણ કરો
+    widget_id_placeholder: '@author/widget-name'
+  tools: સાધનો
+  unlock_shortcuts: ફક્ત વાંચવા માટેના શૉર્ટકટ્સ અનલૉક કરો
+  unlock_shortcuts_description: >-
+    સામાન્ય રીતે ફક્ત વાંચવા માટેના શોર્ટકટને સંપાદિત કરવાની મંજૂરી આપો (દા.ત.
+    સિસ્ટમ ઓવરરાઇડ્સ).
+  unstable_optimizations: અસ્થિર ઑપ્ટિમાઇઝેશન
+  unstable_optimizations_description: >-
+    પ્રાયોગિક Chromium ફ્લેગ્સ સક્ષમ કરો જે RAM નો ઉપયોગ ઘટાડે છે.
+
+    ચેતવણી: જો વિજેટ ક્રેશ થાય છે, તો સમાન લોડરને શેર કરતા તમામ વિજેટો એકસાથે
+    ક્રેશ થશે.
+  widgets_debug:
+    actions: ક્રિયાઓ
+    empty: કોઈ વિજેટ્સ લોડ થયા નથી. રિફ્રેશ પર ક્લિક કરો.
+    instance_id: ઇન્સ્ટન્સ ID
+    monitor_id: મોનિટર ID
+    open_devtools: DevTools
+    refresh: તાજું કરો
+    status: સ્થિતિ
+    tab: વિજેટ્સ
+    widget_id: વિજેટ ID
+discord_banner:
+  message: >-
+    અન્ય Seelen UI વપરાશકર્તાઓ સાથે કનેક્ટ થાઓ, મદદ મેળવો, થીમ્સ શેર કરો અને
+    નવીનતમ સમાચાર સાથે અદ્યતન રહો.
+  title: અમારા સમુદાયમાં જોડાઓ
+extras:
+  backup_group: મેઘ બેકઅપ
+  backup_last_sync: છેલ્લું સમન્વયન
+  backup_never_synced: ક્યારેય સમન્વયિત નથી
+  backup_sync: મેઘ પર સુમેળ સેટિંગ્સ
+  backup_sync_description: ક્લાઉડ દ્વારા આપમેળે બેકઅપ લો અને તમારી સેટિંગ્સ પુનઃસ્થાપિત કરો.
+  clear_icons: સ્પષ્ટ સિસ્ટમ ચિહ્નો કેશ
+  clear_icons_tooltip: બધા વિજેટો પર સંપૂર્ણ અસર કરવા માટે ફરીથી પ્રારંભ કરવાની જરૂર પડી શકે છે
+  discord_rpc: અસંખ્ય સમૃદ્ધ હાજરી
+  discord_rpc_description: દરેકને બતાવો કે તમારી પાસે શૈલી છે!
+  exit: છોડો/બહાર નીકળો
+  relaunch: ફરીથી લોંચ કરો
+  streaming_mode: સ્ટ્રીમિંગ મોડ
+  streaming_mode_description: >-
+    રેકોર્ડિંગ અથવા સ્ક્રીનશોટ દરમિયાન ગોપનીયતાને સુરક્ષિત રાખવા માટે
+    પ્લેસહોલ્ડર્સ સાથે સંવેદનશીલ માહિતી (દા.ત. ઇમેઇલ્સ) ને બદલે છે.
+  version: સંસ્કરણ
+  version_fixed: >-
+    એપ્લિકેશન અને WebView2 રનટાઇમ સંસ્કરણો નિશ્ચિત છે. આનો અર્થ એ છે કે
+    એપ્લિકેશન અપડેટ્સ પ્રાપ્ત કરશે નહીં અને WebView2 રનટાઇમ Windows અપડેટ્સ સાથે
+    આપમેળે અપડેટ થશે નહીં.
+general:
+  accent_color: ઉચ્ચારણ રંગ
+  date_format: તારીખ ફોર્મેટ
+  date_format_how_to: તારીખ ફોર્મેટ કેવી રીતે લખવું?
+  hardware_acceleration: હાર્ડવેર પ્રવેગક
+  hardware_acceleration_description: >-
+    હાર્ડવેર પ્રવેગકને અક્ષમ કરવાથી મેમરી વપરાશ ઘટશે. જો તમે ભારે એનિમેશનનો
+    ઉપયોગ ન કરી રહ્યાં હોવ તો તેને અક્ષમ કરવું સલામત છે, જો કે વ્યક્તિગત વિજેટ્સ
+    હજુ પણ આ સેટિંગને ધ્યાનમાં લીધા વિના GPU ઉપયોગને દબાણ કરી શકે છે.
+  icon_pack:
+    available: ઉપલબ્ધ આઇકન પેક
+    selected: સક્રિય આઇકન પેક્સ
+  language: ભાષા
+  monday: સોમવાર
+  performance_mode:
+    label: ઑપ્ટિમાઇઝેશન
+    on_battery: બેટરી પર
+    on_energy_saver: Energy ર્જા બચતકાર પર
+    options:
+      disabled: અયોગ્ય
+      extreme: આત્યંતિક
+      minimal: પ્રમાણસર
+    plugged: પ્લગ અથવા ચાર્જિંગ
+  polling_interval: સિસ્ટમ મતદાન અંતરાલ
+  polling_interval_description: >-
+    સીલેન UI કેટલી વાર (સેકન્ડોમાં) સીપીયુ, રેમ, નેટવર્ક અને ડિસ્ક પ્રવૃત્તિ
+    જેવા સિસ્ટમ સંસાધનોની તપાસ કરે છે. નાની સંખ્યાનો અર્થ વધુ વારંવાર અપડેટ્સ,
+    પરંતુ સંસાધનનો થોડો વધારે ઉપયોગ.
+  saturday: શનિવાર
+  start_of_week: સપ્તાહની શરૂઆત
+  startup: સ્ટાર્ટઅપ પર ચલાવો?
+  sunday: રવિવાર
+  suspend_on_game_mode: ગેમ મોડ પર વિજેટ્સને સસ્પેન્ડ કરો
+  suspend_on_game_mode_description: >-
+    જ્યારે વિન્ડોઝ ગેમ મોડ સક્રિય હોય છે, ત્યારે તમામ વિજેટ વેબવ્યુઝ ગેમ માટે
+    CPU અને મેમરીને મુક્ત કરવા માટે નાશ પામે છે. જ્યારે ગેમ મોડ સમાપ્ત થાય છે
+    ત્યારે વિજેટ્સ આપમેળે પુનઃસ્થાપિત થાય છે.
+  theme:
+    available: ઉપલબ્ધ થીમ્સ
+    selected: સક્રિય થીમ્સ
+global: વૈશ્વિક
+header:
+  labels:
+    config: ગોઠવણી
+    developer: વિકાસકર્તાઓ માટે
+    extras: વધારાની રકમ
+    general: જનરલ
+    home: ઘર
+    iconpack: ચિહ્ન
+    monitors: મોનિટર
+    plugin: તૃણ
+    resources: સાધનો
+    session: એકાઉન્ટ
+    shortcuts: શૉર્ટકટ્સ
+    soundpack: સાચા પેક
+    specific_apps: અરજી દ્વારા સેટિંગ્સ
+    theme: થીમ
+    virtual_desk: વર્ચ્યુઅલ ડેસ્કટ .પ
+    wallpaper: વ wallpapers લપેપર્સ
+    widget: વિજેટો
+home:
+  new_resources: નવી સાધનો
+inherit: વારસો મેળવવો
+inProgress: ચાલુ છે...
+insert: દાખલ કરવું
+join_us: અમારી સાથે જોડાઓ!
+loading: લોડ કરી રહ્યું છે...
+miscellaneous: પરચુરણ
+monitors_configurations:
+  label: મોનિટર કરો {{અનુક્રમણિકા}}
+more: વધારે
+'no': કોઈ
+open: ખુલ્લા
+quit: છોડો
+remove: દૂર કરવું
+reset_all_to_default: બધાને ડિફ default લ્ટ મૂલ્યો પર ફરીથી સેટ કરો
+reset_configurations: રૂપરેખાંકનો રીસેટ કરો
+reset_to_default: ડિફ default લ્ટ મૂલ્ય પર ફરીથી સેટ કરો
+resources:
+  affected_widgets: અસરગ્રસ્ત વિજેટો
+  app_outdated: આ સંસાધનને યોગ્ય રીતે કાર્ય કરવા માટે સીલેન યુઆઈનું નવું સંસ્કરણ જરૂરી છે.
+  coming_soon: ટૂંક સમયમાં આવી રહ્યું છે
+  corrupted_wallpaper: થંબનેલ કાઢવામાં નિષ્ફળ - દૂષિત અથવા અસમર્થિત વિડિઓ ફોર્મેટ
+  delete: સાધન કા delો
+  discover: વધુ સંસાધનો શોધો
+  has_update: એક અપડેટ ઉપલબ્ધ છે
+  high_impact: કામગીરી પર ઉચ્ચ અસર
+  import_wallpapers: સ્થાનિક વ wallp લપેપર્સ આયાત કરો
+  included_plugins: પ્લગઈનો સમાવેશ થાય છે
+  modified: સુધારેલ
+  open_folder: ખુલ્લા સંસાધન ફોલ્ડર
+  outdated: >-
+    આ સંસાધન સીલેન UI ના જૂના સંસ્કરણ માટે બનાવવામાં આવ્યું હતું અને કદાચ યોગ્ય
+    રીતે કાર્ય કરશે નહીં.
+  see_on_website: વેબસાઇટ પર જુઓ
+  update_now: અપડેટ કરો
+  updates_available: અપડેટ્સ ઉપલબ્ધ છે
+  updates_available_description: નીચેના સંસાધનોમાં અપડેટ્સ ઉપલબ્ધ છે.
+review_request:
+  not_now: અત્યારે નહિ
+  sure: ચોક્કસ!
+  title: Seelen UI માણી રહ્યાં છો?
+save: સાચવો
+save_and_restart: સાચવો અને ફરીથી પ્રારંભ કરો
+search: શોધો
+see_more: વધુ જુઓ
+session:
+  logout: સાઇન આઉટ કરો
+  plan: યોજના
+  sign_in: સાઇન ઇન કરો
+  sign_in_hint: તમારું બ્રાઉઝર ખુલશે જેથી તમે સુરક્ષિત રીતે સાઇન ઇન કરી શકો.
+  upgrade_to: પર અપગ્રેડ કરો
+shortcuts:
+  disabled_tooltip: વિજેટ અને તેના શોર્ટકટ્સ અક્ષમ છે
+  duplicate_error: વિરોધાભાસી શૉર્ટકટ્સ મળ્યાં
+  duplicate_error_hint: >-
+    કેટલાક શૉર્ટકટ્સ બહુવિધ ક્રિયાઓ માટે અસાઇન કરવામાં આવ્યા છે. વિરોધાભાસી
+    વિજેટ્સમાંથી એકને અક્ષમ કરો અથવા ઉકેલવા માટે ડુપ્લિકેટ કી બંધનકર્તાને ફરીથી
+    સોંપો.
+  enable: બિલ્ટ-ઇન શ shortc ર્ટકટ્સ સિસ્ટમને સક્ષમ કરો
+  enable_tooltip: >-
+    જો તમે સીલેન યુઆઈ ક્લાયંટનો ઉપયોગ કરીને તમારી પોતાની શ shortc ર્ટકટ્સ સિસ્ટમ
+    લાગુ કરશો તો અક્ષમ કરો
+  labels:
+    create_new_workspace: નવી વર્કસ્પેસ બનાવો
+    create_new_workspace_row: નવી વર્કસ્પેસ પંક્તિ બનાવો
+    destroy_current_workspace: વર્તમાન વર્કસ્પેસનો નાશ કરો
+    misc_force_quit: છોડી દેવું
+    misc_force_restart: બળનો ફરીથી પ્રારંભ કરવો
+    move_to_workspace: વર્કસ્પેસ {{0}} પર ખસેડો
+    pause_toggle: શૉર્ટકટ્સ થોભાવો/ફરીથી શરૂ કરો
+    send_to_next_workspace: વિન્ડોને નેક્સ્ટ વર્કસ્પેસ પર મોકલો
+    send_to_previous_workspace: વિન્ડોને પહેલાની વર્કસ્પેસ પર મોકલો
+    send_to_workspace: વર્કસ્પેસ {{0}} પર મોકલો
+    send_to_workspace_down: વિન્ડોને નીચે વર્કસ્પેસ પર મોકલો
+    send_to_workspace_up: ઉપર વર્કસ્પેસ પર વિન્ડો મોકલો
+    switch_to_next_workspace: આગળના કાર્યસ્થળ પર સ્વિચ કરો
+    switch_to_previous_workspace: પાછલા વર્કસ્પેસ પર સ્વિચ કરો
+    switch_to_workspace_down: નીચે વર્કસ્પેસ પર સ્વિચ કરો
+    switch_to_workspace_up: ઉપર વર્કસ્પેસ પર સ્વિચ કરો
+    switch_workspace: વર્કસ્પેસ પર સ્વિચ કરો {{0}}
+  readonly_tooltip: આ ફક્ત એક વાંચવા માટે શોર્ટકટ છે
+  reset: ડિફોલ્ટ પર ફરીથી સેટ કરો
+sides:
+  bottom: તળિયે
+  left: ડાબી
+  right: અધિકાર
+  top: ટોચ
+toolbar:
+  auto_hide: સ્વત hideપ
+  auto_hide_touch_disabled: ટચ સ્ક્રીન ઉપકરણો પર સ્વતઃ છુપાવો ઉપલબ્ધ નથી
+  delay_to_hide: છુપાવવામાં વિલંબ
+  delay_to_show: બતાવવામાં વિલંબ
+  dock_side: પદ
+  enable: ફેન્સી ટૂલબાર સક્ષમ કરો
+  hide_mode:
+    always: હંમેશા
+    never: ક્યારેય નહીં
+    on_overlap: ઓવરલેપ પર
+  item_size: આઇટમનું કદ
+  label: વમળ
+  margin: માર્જિન માપ
+  padding: ગાદી કદ
+  placeholder: {}
+update:
+  available: અપડેટ ઉપલબ્ધ!
+  channel: અપડેટ
+  downloading: ડાઉનલોડ ...
+wall:
+  blur: અસ્પષ્ટતા
+  cancel: રદ કરો
+  close: બંધ કરો
+  collection_name: સંગ્રહનું નામ
+  collections: સંગ્રહો
+  contrast: વિપરીત
+  corrupted_wallpapers_message: 'દૂષિત વૉલપેપર્સ, આને કાઢી નાખવાનું વિચારો:'
+  coverage_pause_threshold: થોભો થ્રેશોલ્ડ (વિન્ડો કવરેજ)
+  create: બનાવો
+  create_collection: સંગ્રહ બનાવો
+  default_collection: ડિફૉલ્ટ વૉલપેપર અથવા સંગ્રહ
+  default_collection_description: બધા મોનિટર અને વર્કસ્પેસ પર લાગુ કે જેમાં ચોક્કસ ઓવરરાઇડ સેટ નથી.
+  delete_collection: સંગ્રહ કાઢી નાખો
+  edit_collection: સંગ્રહ સંપાદિત કરો
+  extend: પ્રાથમિક વિસ્તારો
+  fit:
+    contain: સમાવવું
+    cover: આવરણ
+    fill: ભરવું
+  flipHorizontal: આડું
+  flipVertical: Verીટી પચે
+  generating_thumbnails: વૉલપેપર થંબનેલ્સ જનરેટ કરી રહ્યાં છીએ
+  hours: સમય
+  interval: દરેક વ wallp લપેપર બદલો
+  minutes: પ્રકાર
+  monitor_collection: મોનિટર કલેક્શન
+  multimonitor_behaviour: મલ્ટિમોનિટર બિહેવિયર
+  muted: વિડિઓ ઑડિઓ મ્યૂટ કરો
+  no_background: તેના બદલે થીમની પૃષ્ઠભૂમિનો ઉપયોગ કરીને ખાલી સ્લાઇડશો.
+  no_collections: હજી સુધી કોઈ સંગ્રહ બનાવ્યો નથી. એક બનાવવા માટે + બટન પર ક્લિક કરો.
+  objectFit: પૃષ્ઠભૂમિ
+  objectPosition: પૃષ્ઠભૂમિ
+  overlayColor: Overંચો રંગ
+  overlayMixBlendMode: ઓવરલે મિક્સ બ્લેન્ડ મોડ
+  per_monitor: મોનિટર દીઠ
+  per_monitor_config: પ્રતિ-મોનિટર રૂપરેખાંકન
+  playback: પ્લેબેક ગતિ
+  position:
+    bottom: તળિયે
+    center: કેન્દ્ર
+    left: ડાબી બાજુ
+    right: અધિકાર
+    top: ટોચ
+  processing_video: વિડિઓ પર પ્રક્રિયા કરી રહ્યું છે
+  random: સ્લાઇડશોને રેન્ડમાઇઝ કરો
+  saturation: સચોટતા
+  seconds: સેકન્ડ
+  select_collection: સંગ્રહ પસંદ કરો
+  thumbnail_generation_complete: થંબનેલ જનરેશન પૂર્ણ
+  thumbnail_generation_finished: થંબનેલ જનરેશન સફળતાપૂર્વક સમાપ્ત થયું
+  use_accent_color: વૉલપેપર ઉચ્ચાર રંગનો ઉપયોગ કરો
+  wallpaper_collection: વૉલપેપર કલેક્શન
+  wallpaper_settings: વૉલપેપર સેટિંગ્સ
+  wallpapers: વૉલપેપર્સ
+  wallpapers_and_collections: વૉલપેપર્સ અને સંગ્રહો
+  withOverlay: ઓવરલે સાથે
+  workspace_collections: વર્કસ્પેસ સંગ્રહો
+weg:
+  auto_hide: સ્વતઃ છુપાવો
+  auto_hide_touch_disabled: ટચ સ્ક્રીન ઉપકરણો પર સ્વતઃ છુપાવો ઉપલબ્ધ નથી
+  delay_to_hide: છુપાવવામાં વિલંબ
+  delay_to_show: બતાવવામાં વિલંબ
+  dock_side: પદ
+  filtering: બાબત
+  gap: ગેપ
+  hide_mode:
+    always: હંમેશા
+    never: ક્યારેય નહીં
+    on_overlap: ઓવરલેપ પર
+  import_error: ટાસ્કબાર આઇટમ્સ આયાત કરવામાં નિષ્ફળ
+  import_from_taskbar:
+    button: વિન્ડોઝ ટાસ્કબારમાંથી આયાત કરો
+    label: પિન કરેલી વસ્તુઓ આયાત કરો
+  import_no_items: Windows ટાસ્કબારમાં કોઈ પિન કરેલી આઇટમ્સ મળી નથી
+  import_success: Windows ટાસ્કબારમાંથી {{count}} આઇટમ્સ સફળતાપૂર્વક આયાત કરી
+  items:
+    gap: વસ્તુઓ વચ્ચે જગ્યા
+    label: વસ્તુઓ
+    middle_click_action:
+      close_app: એપ્લિકેશન બંધ કરો
+      label: મધ્ય ક્લિક ક્રિયા
+      open_new_instance: નવો દાખલો ખોલો
+    pinned_visibility:
+      always: હંમેશા
+      label: પિન કરેલી વસ્તુઓની દૃશ્યતા
+      when_primary: જ્યારે મોનિટર પ્રાથમિક છે
+    show_instance_counter: ખુલ્લા વિંડોઝ કાઉન્ટર બતાવો
+    show_window_title: ખુલ્લી વિંડો શીર્ષક બતાવો (ફક્ત આડી)
+    size: વસ્તુનું કદ
+    split_windows: વિન્ડોઝ સ્પ્લિટ કરો (વિન્ડો દીઠ એક આઇટમ)
+    temporal_visibility:
+      all: બધા
+      label: અનપિન કરેલ આઇટમ્સની દૃશ્યતા
+      on_monitor: મોનિટર પર
+  label: ડોક/ટાસ્કબાર
+  margin: માર્જિન
+  mode:
+    full_width: પૂર્ણ સ્ક્રીનની પહોળાઈ
+    min_content: બની શકે તેટલું નાનું
+  padding: ગાદી
+  show_end_task: ટાસ્કબારમાં અંતિમ કાર્ય બતાવો
+  width: પહોળાઈ
+welcome:
+  give_a_review: એક સમીક્ષા આપો
+  message: >-
+    સીલેન UI એ Windows માટે ફ્રી અને ઓપન સોર્સ ડેસ્કટોપ એન્વાર્યમેન્ટ છે. અહીં
+    તમારું ડેસ્કટૉપ કેવું દેખાય છે અને કેવી રીતે વર્તે છે તેના પર તમારું સંપૂર્ણ
+    નિયંત્રણ છે, જે તમને તમારા વર્કફ્લો અને શૈલી સાથે મેળ ખાતી દરેક વિગતને
+    કસ્ટમાઇઝ કરવાની મંજૂરી આપે છે.
+  ok: ચાલો શરૂ કરીએ!
+  review: >-
+    જો તમને Seelen UI નો ઉપયોગ કરવાનો આનંદ આવે, તો સ્ટોર પર સમીક્ષા કરવાનું
+    વિચારો — તમારો પ્રતિસાદ પ્રોજેક્ટને વધવા અને સુધારવામાં મદદ કરે છે.
+  title: Seelen UI માં આપનું સ્વાગત છે!
+widget:
+  default_instance: ડિફૉલ્ટ ઇન્સ્ટન્સ
+  default_instance_hint: હંમેશા સક્રિય, રૂટ વિજેટ રૂપરેખાનો ઉપયોગ કરે છે
+  enable: આ વિજેટને સક્ષમ કરો
+  enable_for_monitor: આ મોનિટર પર સક્ષમ કરો
+  extra_instances: વધારાના દાખલાઓ
+  instance: દાખલો
+  instances: દાખલા
+wm:
+  animations:
+    duration: એનિમેશન અવધિ (એમએસ)
+    ease_function: એનિમેશન સરળ કાર્ય
+    enable: વિંડોના એનિમેશનને સક્ષમ કરો
+  author: લેખક
+  auto_stack: એપ્લિકેશન શ્રેણી દ્વારા સ્વતઃ સ્ટેક
+  border:
+    enable: વિન્ડોની બોર્ડર સક્ષમ કરો
+    offset: બોર્ડર ઓફસેટ
+    width: સરહદની પહોળાઈ
+  description: વર્ણન
+  drag_behavior: ખેંચો વર્તન
+  drag_behavior_options:
+    sort: સૉર્ટ કરો (ડ્રેગ કરતી વખતે વિંડોઝને ફરીથી ગોઠવો)
+    swap: સ્વેપ (ડ્રેગ એન્ડ પર વિન્ડોઝ સ્વેપ)
+  floating:
+    height: ફ્લોટિંગ વિન્ડોઝ ઊંચાઈ
+    title: ફ્લોટિંગ વિન્ડોઝ કદ
+    width: ફ્લોટિંગ વિન્ડોઝ પહોળાઈ
+  layout: લેઆઉટ
+  resize_delta: ડેલ્ટાનું કદ બદલો (%)
+  space_between_containers: કન્ટેનર વચ્ચે જગ્યા
+  stack_bar_visibility: સ્ટેક બાર દૃશ્યતા
+  stack_bar_visibility_options:
+    always: હંમેશા
+    as_needed: જરૂર મુજબ
+  workspace_offset: વર્કસ્પેસ ઓફસેટ (માર્જિન)
+  workspace_padding: વર્કસ્પેસ પેડિંગ
+'yes': હા

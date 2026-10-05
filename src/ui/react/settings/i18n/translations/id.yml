@@ -1,0 +1,475 @@
+action:
+  confirm: Apa kamu yakin?
+  confirm_body: Tindakan ini tidak bisa dibatalkan.
+apps_configurations:
+  app:
+    bindings: Mengikat (perhatikan kedua opsi itu diperlukan)
+    category: Kategori
+    category_placeholder: Tidak ada
+    monitor: Monitor
+    monitor_placeholder: Tidak ada
+    name: Nama
+    ok_create: Membuat
+    ok_edit: Memperbarui
+    ok_readonly: Edit sebagai baru
+    options:
+      NoInteractive: Tidak Ada Interaktif
+      VdPinned: Tampilkan di semua ruang kerja
+      WmFloat: Twm - Mulai Mengambang
+      WmForce: Twm - Paksa Kelola
+      WmUnmanage: Twm - Batalkan pengelolaan
+    options_label: Opsi tambahan
+    title_create: Membuat {{name}}
+    title_edit: Mengedit {{name}}
+    title_readonly: Melihat {{name}}
+    weg_options_label: Opsi Dock/Taskbar
+    wm_options_label: Opsi Manajer Jendela
+    workspace: Ruang kerja
+    workspace_placeholder: Tidak ada
+  bundled_msg: >-
+    Konfigurasi yang dibundel ini tidak dapat diedit dan dirancang untuk memberi
+    Anda pengalaman terbaik tanpa kustomisasi. Mereka secara otomatis
+    mengonfigurasi aplikasi yang paling umum untuk Anda.
+  bundled_title: Aplikasi Config dibundel dengan Seelen
+  confirm_delete: Anda yakin ingin menghapus konfigurasi ini?
+  confirm_delete_title: Konfirmasi hapus
+  delete: Menghapus
+  export: Ekspor
+  export_full: Pengaturan ekspor menurut aplikasi
+  extra_info: >-
+    Seelen UI Gunakan hanya satu pengidentifikasi per aplikasi (Pertandingan
+    Pertama Ditemukan) sehingga pesanan dalam bagaimana spesifisasi itu penting,
+    yang ditambahkan terbaru akan diprioritaskan, seperti yang dicatat tabel
+    diurutkan secara default dari yang terbaru ke yang lama.
+  identifier:
+    add_block: Tambahkan blok
+    and: DAN
+    id: Pengidentifikasi
+    kind: Identifikasi oleh
+    matching_strategy: Strategi pencocokan
+    matching_strategy_option:
+      contains: Berisi
+      ends_with: Berakhir dengan
+      equals: Setara
+      regex: Ekspresi reguler
+      starts_with: Dimulai dengan
+    negation: Meninggalkan pencocokan
+    or: ATAU
+    remove: Hapus blok
+    type:
+      class: Kelas
+      exe: Contoh
+      path: Jalur
+      title: Judul
+  import: Impor
+  import_full: Mengimpor pengaturan berdasarkan aplikasi
+  new: Baru
+  search: Mencari
+  swap: Menukar
+cancel: Membatalkan
+close: Menutup
+delete: Menghapus
+devtools:
+  app_folders: Folder aplikasi
+  color_palette: Palet Warna
+  color_palette_note: >-
+    Warna-warna ini secara otomatis beradaptasi dengan mode terang/gelap —
+    setiap bayangan bersifat kontras terhadap latar belakang saat ini, bukan
+    nilai tetap. Gunakan warna tersebut sebagai pengganti warna hardcode untuk
+    mendapatkan dukungan tema otomatis.
+  custom_config_file: Muat file konfigurasi khusus
+  data_folder: Folder Data
+  enable: Aktifkan alat pengembang
+  enable_description: >-
+    Membuka alat canggih untuk memeriksa dan men-debug internal Seelen UI. Tidak
+    dimaksudkan untuk penggunaan biasa.
+  icons: Ikon yang di-cache
+  install_folder: Folder Instalasi
+  load: Memuat
+  settings_file: File Pengaturan
+  shared_components: Komponen Standar SLU
+  simulate_dialog:
+    label: Simulasikan Dialog
+    trigger: Pemicu
+  simulate_perm:
+    label: Simulasikan Permintaan Izin Widget
+    result_allowed: ✓ Izin diberikan
+    result_denied: ✗ Izin ditolak
+    trigger: Simulasikan
+    widget_id_placeholder: '@penulis/nama-widget'
+  tools: Peralatan
+  unlock_shortcuts: Buka Kunci Pintasan Hanya-Baca
+  unlock_shortcuts_description: >-
+    Izinkan pintasan pengeditan yang biasanya hanya dapat dibaca (misalnya
+    penggantian sistem).
+  unstable_optimizations: Optimasi Tidak Stabil
+  unstable_optimizations_description: >-
+    Aktifkan tanda Chromium eksperimental yang mengurangi penggunaan RAM.
+
+    Peringatan: jika widget mogok, semua widget yang berbagi pemuat yang sama
+    akan mogok secara bersamaan.
+  widgets_debug:
+    actions: Tindakan
+    empty: Tidak ada widget yang dimuat. Klik Segarkan.
+    instance_id: ID Contoh
+    monitor_id: ID pemantauan
+    open_devtools: Alat Pengembang
+    refresh: Menyegarkan
+    status: Status
+    tab: Widget
+    widget_id: ID Widget
+discord_banner:
+  message: >-
+    Terhubung dengan pengguna Seelen UI lainnya, dapatkan bantuan, berbagi tema,
+    dan ikuti terus berita terkini.
+  title: Bergabunglah dengan Komunitas kami
+extras:
+  backup_group: Cadangan Awan
+  backup_last_sync: Sinkronisasi terakhir
+  backup_never_synced: Tidak pernah disinkronkan
+  backup_sync: Sinkronkan pengaturan ke cloud
+  backup_sync_description: Cadangkan dan pulihkan pengaturan Anda secara otomatis melalui cloud.
+  clear_icons: Menghapus Cache Ikon Sistem
+  clear_icons_tooltip: >-
+    Pengaktifan ulang mungkin diperlukan untuk menerapkan efek sepenuhnya pada
+    semua widget
+  discord_rpc: Kehadiran yang kaya akan perselisihan
+  discord_rpc_description: Tunjukkan kepada semua orang bahwa Anda punya gaya!
+  exit: Berhenti/keluar
+  relaunch: Peluncuran kembali
+  streaming_mode: Modus Streaming
+  streaming_mode_description: >-
+    Menggantikan informasi sensitif (misalnya email) dengan placeholder untuk
+    melindungi privasi selama perekaman atau tangkapan layar.
+  version: 'Versi: kapan'
+  version_fixed: >-
+    Versi aplikasi dan WebView2 Runtime telah diperbaiki. Artinya aplikasi tidak
+    akan menerima pembaruan dan WebView2 Runtime tidak akan diperbarui secara
+    otomatis dengan pembaruan Windows.
+general:
+  accent_color: Aksen warna
+  date_format: Format tanggal
+  date_format_how_to: Bagaimana cara menulis format tanggal?
+  hardware_acceleration: Akselerasi Perangkat Keras
+  hardware_acceleration_description: >-
+    Menonaktifkan akselerasi perangkat keras akan mengurangi penggunaan memori.
+    Aman untuk menonaktifkannya jika Anda tidak menggunakan animasi berat,
+    meskipun masing-masing widget mungkin masih memaksa penggunaan GPU terlepas
+    dari pengaturan ini.
+  icon_pack:
+    available: Paket Ikon yang Tersedia
+    selected: Paket Ikon Aktif
+  language: Bahasa
+  monday: Senin
+  performance_mode:
+    label: Pengoptimalan
+    on_battery: Pada baterai
+    on_energy_saver: Tentang Penghemat Energi
+    options:
+      disabled: Dengan disabilitas
+      extreme: Ekstrim
+      minimal: Minimal
+    plugged: Terhubung atau pengisian daya
+  polling_interval: Interval pemungutan suara sistem
+  polling_interval_description: >-
+    Seberapa sering (dalam hitungan detik) Seelen UI memeriksa sumber daya
+    sistem seperti CPU, RAM, jaringan, dan aktivitas disk. Angka yang lebih
+    kecil berarti pembaruan yang lebih sering, namun penggunaan sumber daya
+    sedikit lebih tinggi.
+  saturday: Sabtu
+  start_of_week: Awal Minggu
+  startup: Jalankan saat startup?
+  sunday: Minggu
+  suspend_on_game_mode: Tangguhkan widget pada Mode Game
+  suspend_on_game_mode_description: >-
+    Saat Mode Game Windows aktif, semua tampilan web widget dimusnahkan untuk
+    mengosongkan CPU dan memori game. Widget secara otomatis dipulihkan ketika
+    Mode Game berakhir.
+  theme:
+    available: Tema yang Tersedia
+    selected: Tema Aktif
+global: Global
+header:
+  labels:
+    config: Konfigurasi
+    developer: Untuk pengembang
+    extras: Ekstra
+    general: Umum
+    home: Rumah
+    iconpack: Paket Ikon
+    monitors: Monitor
+    plugin: Plugin
+    resources: Sumber daya
+    session: Akun
+    shortcuts: Pintasan
+    soundpack: Paket Suara
+    specific_apps: Pengaturan berdasarkan Aplikasi
+    theme: Tema
+    virtual_desk: Desktop Virtual
+    wallpaper: Wallpaper
+    widget: Widget
+home:
+  new_resources: Sumber Daya Baru
+inherit: Mewarisi
+inProgress: Sedang berlangsung...
+insert: Menyisipkan
+join_us: Bergabunglah dengan kami!
+loading: Memuat...
+miscellaneous: Aneka ragam
+monitors_configurations:
+  label: Monitor {{index}}
+more: Lagi
+'no': TIDAK
+open: Membuka
+quit: Berhenti
+remove: Menghapus
+reset_all_to_default: Atur ulang semua ke nilai default
+reset_configurations: Setel ulang konfigurasi
+reset_to_default: Atur ulang ke nilai default
+resources:
+  affected_widgets: Widget yang Terkena Dampak
+  app_outdated: >-
+    Sumber daya ini membutuhkan versi terbaru dari Seelen UI agar dapat
+    berfungsi dengan baik.
+  coming_soon: Segera hadir
+  corrupted_wallpaper: Gagal mengekstrak thumbnail - format video rusak atau tidak didukung
+  delete: Hapus sumber daya
+  discover: Temukan lebih banyak sumber daya
+  has_update: Pembaruan tersedia
+  high_impact: Dampak tinggi pada kinerja
+  import_wallpapers: Impor wallpaper lokal
+  included_plugins: Termasuk Plugin
+  modified: Diubah
+  open_folder: Buka folder sumber daya
+  outdated: >-
+    Sumber daya ini dirancang untuk versi lama Seelen UI dan mungkin tidak
+    berfungsi dengan baik.
+  see_on_website: Lihat di situs web
+  update_now: Memperbarui
+  updates_available: Pembaruan Tersedia
+  updates_available_description: Sumber daya berikut memiliki pembaruan yang tersedia.
+review_request:
+  not_now: Tidak sekarang
+  sure: Tentu!
+  title: Menikmati Seelen UI?
+save: Menyimpan
+save_and_restart: Simpan & restart
+search: Mencari
+see_more: Lihat Lebih Lanjut
+session:
+  logout: Keluar
+  plan: Rencana
+  sign_in: Masuk
+  sign_in_hint: Browser Anda akan terbuka sehingga Anda dapat masuk dengan aman.
+  upgrade_to: Tingkatkan ke
+shortcuts:
+  disabled_tooltip: Widget dan pintasannya dinonaktifkan
+  duplicate_error: Pintasan yang bertentangan terdeteksi
+  duplicate_error_hint: >-
+    Beberapa pintasan ditetapkan ke beberapa tindakan. Nonaktifkan salah satu
+    widget yang bertentangan atau tetapkan ulang pengikatan kunci duplikat untuk
+    menyelesaikannya.
+  enable: Aktifkan sistem pintasan bawaan
+  enable_tooltip: >-
+    Nonaktifkan jika Anda akan mengimplementasikan sistem pintasan Anda sendiri
+    menggunakan klien Seelen UI
+  labels:
+    create_new_workspace: Buat ruang kerja baru
+    create_new_workspace_row: Buat Baris Ruang Kerja Baru
+    destroy_current_workspace: Hancurkan ruang kerja saat ini
+    misc_force_quit: Force berhenti
+    misc_force_restart: Memaksa Mulai Ulang
+    move_to_workspace: Pindah ke Workspace {{0}}
+    pause_toggle: Jeda/Lanjutkan Pintasan
+    send_to_next_workspace: Kirim Jendela ke Ruang Kerja Berikutnya
+    send_to_previous_workspace: Kirim Jendela ke Ruang Kerja Sebelumnya
+    send_to_workspace: Kirim ke Workspace {{0}}
+    send_to_workspace_down: Kirim Jendela ke Ruang Kerja Di Bawah
+    send_to_workspace_up: Kirim Jendela ke Ruang Kerja Di Atas
+    switch_to_next_workspace: Beralih ke ruang kerja berikutnya
+    switch_to_previous_workspace: Beralih ke ruang kerja sebelumnya
+    switch_to_workspace_down: Beralih ke Ruang Kerja Di Bawah
+    switch_to_workspace_up: Beralih ke Ruang Kerja Di Atas
+    switch_workspace: Beralih ke Workspace {{0}}
+  readonly_tooltip: Ini adalah jalan pintas yang hanya membaca
+  reset: Reset ke default
+sides:
+  bottom: Dasar
+  left: Kiri
+  right: Benar
+  top: Atas
+toolbar:
+  auto_hide: Persembunyian otomatis
+  auto_hide_touch_disabled: Sembunyikan otomatis tidak tersedia pada perangkat layar sentuh
+  delay_to_hide: Penundaan untuk bersembunyi
+  delay_to_show: Keterlambatan untuk ditampilkan
+  dock_side: Posisi
+  enable: Aktifkan toolbar mewah
+  hide_mode:
+    always: Selalu
+    never: Tidak pernah
+    on_overlap: Di tumpang tindih
+  item_size: Ukuran Barang
+  label: Toolbar
+  margin: Ukuran Margin
+  padding: Ukuran Bantalan
+  placeholder: {}
+update:
+  available: Perbarui Tersedia!
+  channel: Perbarui saluran
+  downloading: Mengunduh ...
+wall:
+  blur: Blur
+  cancel: Membatalkan
+  close: Menutup
+  collection_name: Nama Koleksi
+  collections: Koleksi
+  contrast: Kontras
+  corrupted_wallpapers_message: 'Wallpaper rusak, pertimbangkan untuk menghapus ini:'
+  coverage_pause_threshold: Ambang batas jeda (cakupan jendela)
+  create: Membuat
+  create_collection: Buat Koleksi
+  default_collection: Wallpaper atau koleksi default
+  default_collection_description: >-
+    Diterapkan ke semua monitor dan ruang kerja yang tidak memiliki set override
+    tertentu.
+  delete_collection: Hapus Koleksi
+  edit_collection: Sunting Koleksi
+  extend: Perpanjang primer
+  fit:
+    contain: Berisi
+    cover: Penutup
+    fill: Isi
+  flipHorizontal: Balik Horizontal
+  flipVertical: Balik Vertikal
+  generating_thumbnails: Menghasilkan Gambar Mini Wallpaper
+  hours: jam
+  interval: Ubah wallpaper setiap
+  minutes: menit
+  monitor_collection: Koleksi Pantau
+  multimonitor_behaviour: Perilaku Multimonitor
+  muted: Bisukan audio video
+  no_background: Slideshow kosong, menggunakan latar belakang tema sebagai gantinya.
+  no_collections: Belum ada koleksi yang dibuat. Klik tombol + untuk membuatnya.
+  objectFit: Kesesuaian Latar Belakang
+  objectPosition: Posisi Latar Belakang
+  overlayColor: Warna Hamparan
+  overlayMixBlendMode: Mode Campuran Campuran Hamparan
+  per_monitor: Per monitor
+  per_monitor_config: Konfigurasi Per-Monitor
+  playback: Kecepatan pemutaran
+  position:
+    bottom: Bawah
+    center: Pusat
+    left: Kiri
+    right: Benar.
+    top: Atas
+  processing_video: Memproses video
+  random: Mengacak tayangan slide
+  saturation: Kejenuhan
+  seconds: detik
+  select_collection: Pilih Koleksi
+  thumbnail_generation_complete: Pembuatan Gambar Kecil Selesai
+  thumbnail_generation_finished: Pembuatan thumbnail telah selesai dengan sukses
+  use_accent_color: Gunakan warna aksen wallpaper
+  wallpaper_collection: Koleksi Kertas Dinding
+  wallpaper_settings: Pengaturan Wallpaper
+  wallpapers: Wallpaper
+  wallpapers_and_collections: Wallpaper & Koleksi
+  withOverlay: Dengan Overlay
+  workspace_collections: Koleksi Ruang Kerja
+weg:
+  auto_hide: Sembunyi otomatis
+  auto_hide_touch_disabled: Sembunyikan otomatis tidak tersedia pada perangkat layar sentuh
+  delay_to_hide: Penundaan untuk bersembunyi
+  delay_to_show: Keterlambatan untuk ditampilkan
+  dock_side: Posisi
+  filtering: Pemfilteran Item
+  gap: Celah
+  hide_mode:
+    always: Selalu
+    never: Tidak pernah
+    on_overlap: Di tumpang tindih
+  import_error: Gagal mengimpor item bilah tugas
+  import_from_taskbar:
+    button: Impor dari Bilah Tugas Windows
+    label: Impor Item yang Disematkan
+  import_no_items: Tidak ada item yang disematkan di bilah tugas Windows
+  import_success: Berhasil mengimpor {{count}} item dari taskbar Windows
+  items:
+    gap: Ruang antar item
+    label: Item
+    middle_click_action:
+      close_app: Tutup Aplikasi
+      label: Aksi Klik Tengah
+      open_new_instance: Buka Instans Baru
+    pinned_visibility:
+      always: Selalu
+      label: Visibilitas Item yang Disematkan
+      when_primary: Saat monitor menjadi yang utama
+    show_instance_counter: Tampilkan penghitung jendela yang terbuka
+    show_window_title: Menampilkan judul jendela yang terbuka (hanya horizontal)
+    size: Ukuran item
+    split_windows: Split Windows (satu item per jendela)
+    temporal_visibility:
+      all: Semua
+      label: Visibilitas Item yang Tidak Disematkan
+      on_monitor: Di Monitor
+  label: Dock/Taskbar
+  margin: Batas
+  mode:
+    full_width: Lebar layar penuh
+    min_content: Sekecil mungkin
+  padding: Lapisan
+  show_end_task: Menampilkan tugas akhir di bilah tugas
+  width: Lebar
+welcome:
+  give_a_review: Berikan Ulasan
+  message: >-
+    Seelen UI adalah lingkungan desktop sumber terbuka dan gratis untuk Windows.
+    Di sini Anda memiliki kendali penuh atas tampilan dan perilaku desktop Anda,
+    memungkinkan Anda menyesuaikan setiap detail agar sesuai dengan alur kerja
+    dan gaya Anda.
+  ok: Mari kita mulai!
+  review: >-
+    Jika Anda senang menggunakan Seelen UI, pertimbangkan untuk meninggalkan
+    ulasan di toko — masukan Anda membantu proyek tumbuh dan meningkat.
+  title: Selamat datang di Seelen UI!
+widget:
+  default_instance: Mesin Virtual Bawaan
+  default_instance_hint: Selalu aktif, menggunakan konfigurasi widget root
+  enable: Aktifkan widget ini
+  enable_for_monitor: Aktifkan pada monitor ini
+  extra_instances: Instans Ekstra
+  instance: Contoh
+  instances: Contoh
+wm:
+  animations:
+    duration: Durasi Animasi (MS)
+    ease_function: Fungsi pelonggaran animasi
+    enable: Aktifkan animasi Window
+  author: Pengarang
+  auto_stack: Tumpukan otomatis berdasarkan kategori aplikasi
+  border:
+    enable: Aktifkan Perbatasan Jendela
+    offset: Offset perbatasan
+    width: Lebar perbatasan
+  description: Keterangan
+  drag_behavior: Perilaku Seret
+  drag_behavior_options:
+    sort: Sortir (urutkan ulang jendela sambil menyeret)
+    swap: Swap (menukar jendela pada drag end)
+  floating:
+    height: Ketinggian Jendela Mengambang
+    title: Ukuran Jendela Mengambang
+    width: Lebar Jendela Mengambang
+  layout: Tata letak
+  resize_delta: Ubah Ubah Delta (%)
+  space_between_containers: Ruang antar wadah
+  stack_bar_visibility: Visibilitas Stack Bar
+  stack_bar_visibility_options:
+    always: Selalu
+    as_needed: Sesuai kebutuhan
+  workspace_offset: Offset ruang kerja (margin)
+  workspace_padding: Padding ruang kerja
+'yes': Ya

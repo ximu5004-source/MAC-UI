@@ -1,0 +1,534 @@
+mac_ui:
+  by_jona: By JONA
+  personal: Personalization
+  desktop: Desktop & widgets
+  appearance: Appearance
+  advanced: Advanced
+  navigation: Settings navigation
+  search: Find a settings page
+  no_results: No matching settings pages
+  about: About MAC UI
+  minimize: Minimize
+  maximize: Maximize or restore
+  updates_available: Resource updates available
+  pending: Unsaved changes
+  saved: Up to date
+  revert: Revert
+  save_failed: Unable to save settings
+  unsaved: Discard unsaved changes?
+  unsaved_hint: Your changes have not been saved. Keep editing to save them, or discard them and close Settings.
+  discard: Discard and close
+  keep_editing: Keep editing
+  overview_subtitle: A calmer desktop. Your way.
+  your_desktop: Your desktop
+  enabled: Enabled
+  disabled: Disabled
+  wallpaper_hint: Desktop organization and wallpaper are independent. Keep your Windows wallpaper while using the desktop organizer.
+  publisher: Author & publisher
+  license: Open-source license
+  attribution: MAC UI customizations by JONA. Original Seelen UI copyrights and third-party licenses are preserved.
+  upstream: Based on
+  upstream_account: Seelen account · upstream service
+  updates: Application updates
+  manual_updates: MAC UI uses manual updates. Upstream Seelen application updates are disabled to preserve your custom features.
+  welcome_title: Welcome to MAC UI
+  welcome_body: Liquid Glass controls, an independent desktop organizer, and familiar Windows apps. Customize each component from the sidebar.
+  get_started: Get started
+action:
+  confirm: Are you sure?
+  confirm_body: This action cannot be undone.
+apps_configurations:
+  app:
+    bindings: Binding (note both options are required)
+    category: Category
+    category_placeholder: None
+    monitor: Monitor
+    monitor_placeholder: None
+    name: Name
+    ok_create: Create
+    ok_edit: Update
+    ok_readonly: Edit as New
+    options:
+      NoInteractive: No Interactive
+      VdPinned: Show in all workspaces
+      WmFloat: Twm - Start Floating
+      WmForce: Twm - Force Manage
+      WmUnmanage: Twm - Unmanage
+    options_label: Extra Options
+    title_create: Creating {{name}}
+    title_edit: Editing {{name}}
+    title_readonly: Viewing {{name}}
+    weg_options_label: Dock/Taskbar Options
+    wm_options_label: Window Manager Options
+    workspace: Workspace
+    workspace_placeholder: None
+  bundled_msg: >-
+    These bundled configurations are not editable and are designed to provide
+    you with the best experience without customization. They automatically
+    configure the most common applications for you.
+  bundled_title: App Config Bundled with Seelen
+  confirm_delete: Are you sure you want to delete this configuration/s?
+  confirm_delete_title: Confirm Delete
+  delete: Delete
+  export: Export
+  export_full: Export settings by application
+  extra_info: >-
+    MAC UI use only one identifier per app (first match found) so the order
+    in how are specificated is important, the latest added will be prioritized,
+    as note the table is sorted by default from latest to old.
+  identifier:
+    add_block: Add Block
+    and: AND
+    id: Identifier
+    kind: Identify By
+    matching_strategy: Matching Strategy
+    matching_strategy_option:
+      contains: Contains
+      ends_with: Ends with
+      equals: Equals
+      regex: Regular expression
+      starts_with: Starts with
+    negation: Negate Matching
+    or: OR
+    remove: Delete Block
+    type:
+      class: Class
+      exe: Exe
+      path: Path
+      title: Title
+  import: Import
+  import_full: Import settings by application
+  new: New
+  search: Search
+  swap: Swap
+cancel: Cancel
+close: Close
+delete: Delete
+devtools:
+  app_folders: App Folders
+  color_palette: Color Palette
+  color_palette_note: >-
+    These colors automatically adapt to light/dark mode — each shade is
+    contrast-relative to the current background, not a fixed value. Use them
+    instead of hardcoded colors to get automatic theme support.
+  custom_config_file: Load Custom Config File
+  data_folder: Data Folder
+  enable: Enable Developer Tools
+  enable_description: >-
+    Unlocks advanced tools for inspecting and debugging MAC UI internals. Not
+    intended for regular use.
+  icons: Cached Icons
+  install_folder: Installation Folder
+  load: Load
+  settings_file: Settings File
+  shared_components: SLU Standard Components
+  simulate_dialog:
+    label: Simulate Dialog
+    trigger: Trigger
+  simulate_perm:
+    label: Simulate Widget Permission Request
+    result_allowed: ✓ Permission granted
+    result_denied: ✗ Permission denied
+    trigger: Simulate
+    widget_id_placeholder: '@author/widget-name'
+  tools: Tools
+  unlock_shortcuts: Unlock Read-Only Shortcuts
+  unlock_shortcuts_description: Allow editing shortcuts that are normally read-only (e.g. system overrides).
+  unstable_optimizations: Unstable Optimizations
+  unstable_optimizations_description: >-
+    Enable experimental Chromium flags that reduce RAM usage.
+
+    Warning: if a widget crashes, all widgets sharing the same loader will crash
+    together.
+  widgets_debug:
+    actions: Actions
+    empty: No widgets loaded. Click Refresh.
+    instance_id: Instance ID
+    monitor_id: Monitor ID
+    open_devtools: DevTools
+    refresh: Refresh
+    status: Status
+    tab: Widgets
+    widget_id: Widget ID
+discord_banner:
+  message: >-
+    Connect with other Seelen UI users, get help, share themes, and stay up to
+    date with the latest news.
+  title: Join our Community
+extras:
+  backup_group: Cloud Backup
+  backup_last_sync: Last sync
+  backup_never_synced: Never synced
+  backup_sync: Sync settings to cloud
+  backup_sync_description: Automatically back up and restore your settings via the cloud.
+  clear_icons: Clear System Icons Cache
+  clear_icons_tooltip: A restart could be required to fully take effect on all widgets
+  discord_rpc: Discord rich presence
+  discord_rpc_description: Show everyone you've got style!
+  exit: Quit/Exit
+  relaunch: Relaunch
+  streaming_mode: Streaming Mode
+  streaming_mode_description: >-
+    Replaces sensitive information (e.g. emails) with placeholders to protect
+    privacy during recordings or screenshots.
+  version: Version
+  version_fixed: >-
+    The application and WebView2 Runtime versions are fixed. This means that the
+    application will not receive updates and the WebView2 Runtime will not be
+    automatically updated with Windows updates.
+general:
+  accent_color: Accent color
+  date_format: Date format
+  date_format_how_to: How to write a date format?
+  hardware_acceleration: Hardware acceleration
+  hardware_acceleration_description: >-
+    Disabling hardware acceleration will reduce memory usage. It is safe to
+    disable if you are not using heavy animations, though individual widgets may
+    still force GPU usage regardless of this setting.
+  icon_pack:
+    available: Available Icon Packs
+    selected: Active Icon Packs
+  language: Language
+  monday: Monday
+  performance_mode:
+    label: Optimizations
+    on_battery: On battery
+    on_energy_saver: On energy saver
+    options:
+      disabled: Disabled
+      extreme: Extreme
+      minimal: Minimal
+    plugged: Plugged or charging
+  polling_interval: System polling interval
+  polling_interval_description: >-
+    How often (in seconds) MAC UI checks system resources like CPU, RAM,
+    network, and disk activity. A smaller number means more frequent updates,
+    but slightly higher resource usage.
+  saturday: Saturday
+  start_of_week: Start of week
+  startup: Run on startup?
+  sunday: Sunday
+  suspend_on_game_mode: Suspend widgets on Game Mode
+  suspend_on_game_mode_description: >-
+    When Windows Game Mode is active, all widget webviews are destroyed to free
+    CPU and memory for the game. Widgets are automatically restored when Game
+    Mode ends.
+  theme:
+    available: Available Themes
+    selected: Active Themes
+global: Global
+header:
+  labels:
+    config: Configurations
+    developer: For developers
+    extras: Extras
+    general: General
+    home: Home
+    iconpack: Icon Packs
+    monitors: Monitors
+    plugin: Plugins
+    resources: Resources
+    session: Account
+    shortcuts: Shortcuts
+    soundpack: Sound Packs
+    specific_apps: Settings by Application
+    theme: Themes
+    virtual_desk: Virtual Desktops
+    wallpaper: Wallpapers
+    widget: Widgets
+home:
+  new_resources: New Resources
+inherit: Inherit
+inProgress: In Progress...
+insert: Insert
+join_us: Join us!
+loading: Loading...
+miscellaneous: Miscellaneous
+monitors_configurations:
+  label: Monitor {{index}}
+more: More
+'no': 'No'
+open: Open
+quit: Quit
+remove: Remove
+reset_all_to_default: Reset all to default values
+reset_configurations: Reset configurations
+reset_to_default: Reset to default value
+resources:
+  affected_widgets: Affected Widgets
+  app_outdated: This resource requires a newer version of MAC UI to work properly.
+  coming_soon: Coming Soon
+  corrupted_wallpaper: Failed to extract thumbnail - corrupted or unsupported video format
+  delete: Delete Resource
+  discover: Discover more resources
+  has_update: An update is available
+  high_impact: High impact on performance
+  import_wallpapers: Import local wallpapers
+  included_plugins: Included Plugins
+  modified: Modified
+  open_folder: Open resource folder
+  outdated: >-
+    This resource was designed for an older version of MAC UI and might not
+    work properly.
+  see_on_website: See on website
+  update_now: Update
+  updates_available: Updates Available
+  updates_available_description: The following resources have updates available.
+review_request:
+  not_now: Not now
+  sure: Sure!
+  title: Enjoying MAC UI?
+save: Save
+save_and_restart: Save & Restart
+search: Search
+see_more: See More
+session:
+  logout: Sign Out
+  plan: Plan
+  sign_in: Sign In
+  sign_in_hint: Your browser will open so you can sign in securely.
+  upgrade_to: Upgrade to
+shortcuts:
+  capture_failed: Unable to start shortcut input. Please try again.
+  disabled_tooltip: The widget and its shortcuts are disabled
+  duplicate_error: Conflicting shortcuts detected
+  duplicate_error_hint: >-
+    Some shortcuts are assigned to multiple actions. Disable one of the
+    conflicting widgets or reassign the duplicate key binding to resolve.
+  enable: Enable built-in shortcuts system
+  edit: Edit shortcut
+  enable_tooltip: >-
+    Disable if you will implement your own shortcuts system using the MAC UI
+    Client
+  labels:
+    create_new_workspace: Create new Workspace
+    create_new_workspace_row: Create New Workspace Row
+    destroy_current_workspace: Destroy Current Workspace
+    misc_force_quit: Force Quit
+    misc_force_restart: Force Restart
+    move_to_workspace: Move to Workspace {{0}}
+    pause_toggle: Pause/Resume Shortcuts
+    send_to_next_workspace: Send Window to Next Workspace
+    send_to_previous_workspace: Send Window to Previous Workspace
+    send_to_workspace: Send to Workspace {{0}}
+    send_to_workspace_down: Send Window to Workspace Below
+    send_to_workspace_up: Send Window to Workspace Above
+    switch_to_next_workspace: Switch to Next Workspace
+    switch_to_previous_workspace: Switch to Previous Workspace
+    switch_to_workspace_down: Switch to Workspace Below
+    switch_to_workspace_up: Switch to Workspace Above
+    switch_workspace: Switch to Workspace {{0}}
+  readonly_tooltip: This is a read-only shortcut
+  reset: Reset to Defaults
+  single_key_hint: Use Win on its own, or a combination of two or more keys.
+sides:
+  bottom: Bottom
+  left: Left
+  right: Right
+  top: Top
+toolbar:
+  auto_hide: Auto Hide
+  auto_hide_touch_disabled: Auto hide is not available on touch screen devices
+  delay_to_hide: Delay to hide
+  delay_to_show: Delay to show
+  dock_side: Position
+  enable: Enable Fancy Toolbar
+  hide_mode:
+    always: Always
+    never: Never
+    on_overlap: On overlap
+  item_size: Item Size
+  label: Toolbar
+  margin: Margin Size
+  padding: Padding Size
+  placeholder: {}
+update:
+  available: Update Available!
+  channel: Update Channel
+  downloading: Downloading...
+wall:
+  blur: Blur
+  cancel: Cancel
+  close: Close
+  collection_name: Collection Name
+  collections: Collections
+  contrast: Contrast
+  corrupted_wallpapers_message: 'Corrupted wallpapers, consider deleting these:'
+  coverage_pause_threshold: Pause threshold (window coverage)
+  create: Create
+  create_collection: Create Collection
+  default_collection: Default wallpaper or collection
+  default_collection_description: >-
+    Applied to all monitors and workspaces that do not have a specific override
+    set.
+  desktop_shell: Seelen desktop icons
+  desktop_shell_description: >-
+    Replace the native desktop icon surface while MAC UI is running. Turning
+    this off restores Windows desktop icons immediately.
+  delete_collection: Delete Collection
+  edit_collection: Edit Collection
+  extend: Extend primary
+  fit:
+    contain: Contain
+    cover: Cover
+    fill: Fill
+  flipHorizontal: Flip Horizontal
+  flipVertical: Flip Vertical
+  generating_thumbnails: Generating Wallpaper Thumbnails
+  hours: hours
+  interval: Change wallpaper every
+  minutes: minutes
+  monitor_collection: Monitor Collection
+  multimonitor_behaviour: Multimonitor Behaviour
+  muted: Mute video audio
+  no_background: Empty slideshow, using theme's background instead.
+  no_collections: No collections created yet. Click the + button to create one.
+  objectFit: Background Fit
+  objectPosition: Background Position
+  overlayColor: Overlay Color
+  overlayMixBlendMode: Overlay Mix Blend Mode
+  per_monitor: Per monitor
+  per_monitor_config: Per-Monitor Configuration
+  playback: Playback speed
+  position:
+    bottom: Bottom
+    center: Center
+    left: Left
+    right: Right
+    top: Top
+  processing_video: Processing video
+  random: Randomize slideshow
+  saturation: Saturation
+  seconds: seconds
+  select_collection: Select Collection
+  thumbnail_generation_complete: Thumbnail Generation Complete
+  thumbnail_generation_finished: Thumbnail generation has finished successfully
+  use_accent_color: Use wallpaper accent color
+  wallpaper_collection: Wallpaper Collection
+  wallpaper_settings: Wallpaper Settings
+  wallpapers: Wallpapers
+  wallpapers_and_collections: Wallpapers & Collections
+  withOverlay: With Overlay
+  workspace_collections: Workspace Collections
+weg:
+  overall_size: Dock Size
+  size_small: Small
+  size_large: Large
+  size_hint: Resize icons and the Dock together without stretching the artwork. Apply with Save at the top.
+  auto_hide: Auto Hide
+  auto_hide_touch_disabled: Auto hide is not available on touch screen devices
+  delay_to_hide: Delay to hide
+  delay_to_show: Delay to show
+  dock_side: Position
+  filtering: Item Filtering
+  gap: Gap
+  hide_mode:
+    always: Always
+    never: Never
+    on_overlap: On overlap
+  import_error: Failed to import taskbar items
+  import_from_taskbar:
+    button: Import from Windows Taskbar
+    label: Import Pinned Items
+  import_no_items: No pinned items found in Windows taskbar
+  import_success: Successfully imported {{count}} item(s) from Windows taskbar
+  items:
+    gap: Space Between Items
+    label: Items
+    middle_click_action:
+      close_app: Close App
+      label: Middle Click Action
+      open_new_instance: Open New Instance
+    pinned_visibility:
+      always: Always
+      label: Pinned Items Visibility
+      when_primary: When the monitor is primary
+    show_instance_counter: Show open windows counter
+    show_window_title: Show open window title (only horizontal)
+    size: Item Size
+    split_windows: Split Windows (one item per window)
+    temporal_visibility:
+      all: All
+      label: Unpinned Items Visibility
+      on_monitor: On Monitor
+  label: Dock/Taskbar
+  margin: Margin
+  mode:
+    full_width: Full screen width
+    min_content: Small as can be
+  padding: Padding
+  show_end_task: Show end task in taskbar
+  width: Width
+welcome:
+  give_a_review: Give a Review
+  message: >-
+    MAC UI is a free and open source desktop environment for Windows. Here
+    you have full control over how your desktop looks and behaves, allowing you
+    to customize every detail to match your workflow and style.
+  ok: Let's start!
+  review: >-
+    If you enjoy using MAC UI, consider leaving a review on the store — your
+    feedback helps the project grow and improve.
+  title: Welcome to MAC UI!
+desktop_glass:
+  title: Dock glass appearance
+  save_hint: Preview changes below, then select Save to apply. Undo Changes restores the saved appearance.
+  reset: Reset appearance
+  preview: Preview · sample background
+  preview_description: Dock and application icon glass preview on a sample background showing transparency and highlights.
+  dock: Dock material
+  dock_hint: Changes only the Dock surface, not app icons, text or running indicators.
+  icons: Application icon edges
+  icons_hint: Applies to app icon plates and edge highlights in the Dock, desktop and Launchpad. Artwork and ordinary files remain unchanged.
+  dockTransparency: Dock transparency
+  dockGloss: Dock gloss
+  iconEdgeTransparency: Icon edge transparency
+  iconEdgeGloss: Icon edge gloss
+  opaque: Opaque
+  transparent: Fully transparent
+  matte: Matte
+  glossy: Glossy
+desktop_manager:
+  enable: Enable Desktop Manager
+  enable_wallpaper: Enable built-in wallpaper
+  independent: Desktop and wallpaper are independent
+  wallpaper_hint: Turning off built-in wallpaper leaves your desktop files and organizer panels available. Windows or your wallpaper app manages the background.
+  open: Desktop settings
+widget:
+  default_instance: Default Instance
+  default_instance_hint: Always active, uses the root widget config
+  enable: Enable this widget
+  enable_for_monitor: Enable on this monitor
+  extra_instances: Extra Instances
+  instance: Instance
+  instances: Instances
+wm:
+  animations:
+    duration: Animation Duration (ms)
+    ease_function: Animation Easing Function
+    enable: Enable Window's Animations
+  author: Author
+  auto_stack: Auto stack by app category
+  border:
+    enable: Enable Window's Border
+    offset: Border Offset
+    width: Border Width
+  description: Description
+  drag_behavior: Drag Behavior
+  drag_behavior_options:
+    sort: Sort (reorder windows while dragging)
+    swap: Swap (swap windows on drag end)
+  floating:
+    height: Floating Windows Height
+    title: Floating Windows Size
+    width: Floating Windows Width
+  layout: Layout
+  resize_delta: Resize Delta (%)
+  space_between_containers: Space Between Containers
+  stack_bar_visibility: Stack Bar Visibility
+  stack_bar_visibility_options:
+    always: Always
+    as_needed: As needed
+  workspace_offset: Workspaces Offset (Margins)
+  workspace_padding: Workspaces Padding
+'yes': 'Yes'

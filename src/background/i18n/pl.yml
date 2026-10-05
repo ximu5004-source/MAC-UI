@@ -1,0 +1,86 @@
+auth:
+  login_failed_body: >-
+    Coś poszło nie tak podczas logowania. Jeśli problem będzie się powtarzał,
+    upewnij się, że usługa „Credential Manager” systemu Windows (VaultSvc) jest
+    włączona i działa, a następnie spróbuj ponownie.
+  login_failed_title: Logowanie nie powiodło się
+cancel: Anulować
+done: Zrobione
+elevated:
+  description: >-
+    Seelen UI działa z uprawnieniami administratora.
+
+    Nie dodaje to ani nie ulepsza żadnych funkcji i może stanowić zagrożenie
+    bezpieczeństwa.
+
+    Dla większego bezpieczeństwa uruchom go ponownie bez uprawnień
+    administratora.
+  title: Uruchamianie jako Administrator
+file_explorer: Eksplorator plików
+resource:
+  added: Dodano nowy zasób
+  download_failed_body: >-
+    Coś poszło nie tak podczas pobierania zasobu, zgłoś to zespołowi deweloperów
+    Seelen.
+  download_failed_title: Pobieranie zasobów nie powiodło się
+  downloading: Pobieranie zasobów...
+  downloading_body: Może to potrwać kilka sekund, nie zamykaj okna.
+  enable: Włącz
+  login_required_action: Zalogować się
+  login_required_body: Aby pobrać ten zasób, musisz się zalogować.
+  login_required_title: Zaloguj się Wymagane
+runtime:
+  corrupted_data: Uszkodzone dane
+  corrupted_file: >-
+    Plik konfiguracyjny jest uszkodzony i zamiast niego używane są wartości
+    domyślne.
+  corrupted_file_path: Uszkodzona ścieżka pliku
+  download: Przejdź do strony pobierania
+  files_integrity: >-
+    Nie mogliśmy zweryfikować integralności plików aplikacji.
+
+    Może się to zdarzyć, jeśli pliki zostały zmodyfikowane, uszkodzone lub
+    instalacja jest niekompletna.
+
+    Ze względów bezpieczeństwa interfejs użytkownika Seelen nie może być
+    kontynuowany.
+
+    Zainstaluj go ponownie z oficjalnej strony internetowej.
+  files_integrity_title: Alert zabezpieczeń — sprawdzenie integralności plików nie powiodło się
+  not_found: Nie znaleziono środowiska uruchomieniowego WebView2
+  not_found_description: >-
+    Interfejs użytkownika Seelen wymaga środowiska uruchomieniowego Webview2.
+    Zainstaluj go.
+  outdated: Środowisko wykonawcze WebView2 jest nieaktualne
+  outdated_description: >-
+    Interfejs użytkownika Seelen wymaga środowiska uruchomieniowego Webview2
+    %{min_version} lub nowszego. Zaktualizuj je i spróbuj ponownie.
+service:
+  not_running: Usługa Seelen UI nie działa prawidłowo
+  not_running_description: >-
+    Usługa Seelen UI Service (slu-service) jest zależnością umożliwiającą
+    prawidłowe działanie aplikacji.
+  not_running_ok: Uruchom usługę
+shortcut:
+  conflicts:
+    body: Niektóre skróty są przypisane do wielu działań. Przypisz je ponownie.
+    dismiss: Odrzucać
+    review: Recenzja
+    title: Wykryto konflikty skrótów
+  register:
+    placeholder: Naciśnij dowolną kombinację klawiszy
+    title: Rejestracja nowego skrótu
+widget_liveness:
+  failed_description: |-
+    Widżet „%{widget_name}” przestał odpowiadać zbyt wiele razy.
+
+    Możesz spróbować ponownie uruchomić aplikację.
+  failed_title: Błąd widgetu
+widget_permissions:
+  perm_open_file: otwarte pliki
+  perm_run: uruchamiać programy
+  request_description: |-
+    Widżet „%{widget_name}” prosi o pozwolenie na %{command}.
+
+    Czy chcesz na to pozwolić?
+  request_title: Żądanie pozwolenia na widget

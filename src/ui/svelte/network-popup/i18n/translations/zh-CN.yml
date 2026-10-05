@@ -1,0 +1,23 @@
+available: 可用网络
+connect: 连接
+connected: 已连接
+connecting: 正在连接...
+disconnect: 断开
+forget: 忘记
+hidden: 隐藏网络
+hotspot:
+  band: 频段
+  'off': 已关闭
+  'on': 已开启
+  open_network: 开放网络
+  password: 密码
+  settings: 更多热点设置
+  ssid: 网络名称
+  title: 热点
+more: 更多网络设置
+no_adapter: 找不到 Wi-Fi 适配器
+not_found: 未找到 Wi-Fi 网络
+password: 密码
+saved: 已保存的网络
+scanning: 扫描网络
+secured: 加密网络

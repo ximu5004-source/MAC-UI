@@ -1,0 +1,6 @@
+:root { --config-margin: 8px; --config-padding: 8px; --config-space-between-items: 8px; }
+* { box-sizing: border-box; }
+body { background: #a5b8bf; font: 14px "Segoe UI", sans-serif; }
+.qa-controls { position: fixed; top: 20px; left: 20px; display: flex; gap: 20px; padding: 12px; background: white; border-radius: 12px; color: #222; z-index: 10; }
+.qa-controls label { display: flex; align-items: center; gap: 8px; }
+.qa-controls input { accent-color: #0874e8; }

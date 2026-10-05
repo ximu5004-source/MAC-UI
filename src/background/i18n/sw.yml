@@ -1,0 +1,82 @@
+auth:
+  login_failed_body: >-
+    Hitilafu fulani imetokea wakati wa kuingia. Hili likiendelea, hakikisha kuwa
+    huduma ya Windows 'Credential Manager' (VaultSvc) imewashwa na inaendeshwa,
+    kisha ujaribu tena.
+  login_failed_title: Kuingia kumeshindwa
+cancel: Ghairi
+done: Imekamilika
+elevated:
+  description: >-
+    Seelen UI inaendeshwa na haki za msimamizi.
+
+    Hii haiongezi au kuboresha vipengele vyovyote, na inaweza kuleta hatari ya
+    usalama.
+
+    Kwa usalama bora, tafadhali iwashe upya bila ruhusa za msimamizi.
+  title: Kuendesha kama Msimamizi
+file_explorer: Kichunguzi cha Faili
+resource:
+  added: Rasilimali mpya imeongezwa
+  download_failed_body: >-
+    Kitu kilienda vibaya wakati wa kupakua rasilimali, tafadhali ripoti kwa timu
+    ya wasanidi programu wa Seelen.
+  download_failed_title: Upakuaji wa rasilimali umeshindwa
+  downloading: Kupakua mali ...
+  downloading_body: Hii inaweza kuchukua sekunde chache, tafadhali usifunge dirisha.
+  enable: Wezesha
+  login_required_action: Ingia
+  login_required_body: Unahitaji kuingia ili kupakua nyenzo hii.
+  login_required_title: Ingia katika akaunti Inahitajika
+runtime:
+  corrupted_data: Data iliyoharibiwa
+  corrupted_file: Faili ya usanidi imeharibiwa, kwa kutumia maadili ya msingi badala yake.
+  corrupted_file_path: Njia ya faili iliyoharibiwa
+  download: Nenda kwenye ukurasa wa kupakua
+  files_integrity: >-
+    Hatukuweza kuthibitisha uadilifu wa faili za programu.
+
+    Hii inaweza kutokea ikiwa faili zilirekebishwa, kupotoshwa, au usakinishaji
+    haujakamilika.
+
+    Kwa sababu za usalama, Seelen UI haiwezi kuendelea.
+
+    Tafadhali isakinishe upya kutoka kwa tovuti rasmi.
+  files_integrity_title: Tahadhari ya Usalama - Ukaguzi wa Uadilifu wa Faili Umeshindwa
+  not_found: Muda wa utekelezaji wa WebView2 haujapatikana
+  not_found_description: Seelen UI inahitaji Webview2 Runtime. Tafadhali isakinishe.
+  outdated: WebView2 Runtime imepitwa na wakati
+  outdated_description: >-
+    Seelen UI inahitaji Webview2 Runtime %{min_version} au toleo jipya zaidi.
+    Tafadhali isasishe.
+service:
+  not_running: Huduma ya Seelen UI haifanyi kazi
+  not_running_description: >-
+    Seelen UI Service (slu-service) ni tegemezi/msaidizi kwa programu kufanya
+    kazi vizuri.
+  not_running_ok: Anza huduma
+shortcut:
+  conflicts:
+    body: >-
+      Baadhi ya njia za mkato zimekabidhiwa kwa vitendo vingi, tafadhali
+      zikabidhi upya.
+    dismiss: Ondoa
+    review: Kagua
+    title: Migogoro ya Njia ya mkato Imegunduliwa
+  register:
+    placeholder: Bonyeza mchanganyiko wowote muhimu
+    title: Kusajili njia ya mkato mpya
+widget_liveness:
+  failed_description: |-
+    Wijeti '%{widget_name}' iliacha kujibu mara nyingi sana.
+
+    Unaweza kujaribu kuanzisha upya programu.
+  failed_title: Hitilafu ya Wijeti
+widget_permissions:
+  perm_open_file: fungua faili
+  perm_run: endesha programu
+  request_description: |-
+    Wijeti '%{widget_name}' inaomba ruhusa kwa %{command}.
+
+    Je, ungependa kuruhusu hili?
+  request_title: Ombi la Ruhusa ya Wijeti

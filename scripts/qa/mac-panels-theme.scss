@@ -1,0 +1,11 @@
+// Isolated acceptance test uses the real legacy cascade after the built CSS.
+@import "../../src/static/themes/default/shared/index.scss";
+@import "../../src/static/themes/default/styles/user-menu.scss";
+@import "../../src/static/themes/default/styles/keyboard-selector.scss";
+@import "../../src/static/themes/default/styles/bluetooth-popup.scss";
+@import "../../src/static/themes/default/styles/network-popup.scss";
+@import "../../src/static/themes/default/styles/media-popup.scss";
+@import "../../src/static/themes/default/styles/notifications.scss";
+@import "../../src/static/themes/default/styles/quick-settings.scss";
+@import "../../src/static/themes/default/styles/calendar-popup.scss";
+@import "../../src/static/themes/default/styles/power-menu.scss";

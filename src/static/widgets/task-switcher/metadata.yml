@@ -1,0 +1,38 @@
+id: "@seelen/task-switcher"
+icon: PiSelectionForegroundDuotone
+metadata:
+  displayName: !extend i18n/display_name.yml
+  description: !extend i18n/description.yml
+instances: Single
+loader: Internal
+preset: Overlay
+settings:
+  - type: switch
+    key: onlyOnActiveMonitor
+    label: !extend i18n/settings/only-on-active-monitor.yml
+    defaultValue: false
+shortcuts:
+  - id: task-switcher-next-auto
+    command: ["task-switcher", "select-next-task", "--auto-confirm"]
+    label: !extend i18n/shortcuts/task-switcher-next-auto.yml
+    defaultKeys: ["Alt", "Tab"]
+    readonly: true
+    system: true
+  - id: task-switcher-prev-auto
+    command: ["task-switcher", "select-previous-task", "--auto-confirm"]
+    label: !extend i18n/shortcuts/task-switcher-prev-auto.yml
+    defaultKeys: ["Alt", "Shift", "Tab"]
+    readonly: true
+    system: true
+  - id: task-switcher-next
+    command: ["task-switcher", "select-next-task"]
+    label: !extend i18n/shortcuts/task-switcher-next.yml
+    defaultKeys: ["Alt", "Ctrl", "Tab"]
+    readonly: true
+    system: true
+  - id: task-switcher-prev
+    command: ["task-switcher", "select-previous-task"]
+    label: !extend i18n/shortcuts/task-switcher-prev.yml
+    defaultKeys: ["Alt", "Ctrl", "Shift", "Tab"]
+    readonly: true
+    system: true

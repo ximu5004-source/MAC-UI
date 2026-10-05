@@ -1,0 +1,23 @@
+available: Հասանելի ցանցեր
+connect: Միացնել
+connected: Միացված է
+connecting: Միացում...
+disconnect: Անջատել
+forget: Մոռացեք
+hidden: Թաքնված ցանց
+hotspot:
+  band: Խումբ
+  'off': Անջատված
+  'on': Միացված է
+  open_network: Բաց ցանց
+  password: Գաղտնաբառ
+  settings: Ավելի թեժ կետի կարգավորումներ
+  ssid: Ցանցի անվանումը
+  title: Թեժ կետ
+more: Լրացուցիչ ցանցային կարգավորումներ
+no_adapter: Wi-Fi ադապտեր չի գտնվել
+not_found: Wi-Fi ցանցեր չեն գտնվել
+password: Գաղտնաբառ
+saved: Պահպանված ցանցեր
+scanning: Ցանցերի սկանավորում
+secured: Կոդավորված ցանց

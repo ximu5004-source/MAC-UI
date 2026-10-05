@@ -1,0 +1,40 @@
+app_menu:
+  close: Zavřít
+  close_multiple: Zavřít všechny
+  copy_handles: Kopírovat úchyty
+  edit_app_icon: Upravit ikonu aplikace
+  kill: Ukončit proces
+  kill_multiple: Ukončit všechny procesy
+  open_file_location: Otevřít umístění souboru
+  pin: Připnout
+  pin_to_center: Připnout na střed
+  pin_to_left: Připnout doleva
+  pin_to_right: Připnout doprava
+  run_as: Spustit jako administrátor
+  unpin: Odepnout
+context_menu:
+  edit_icon: Upravit ikonu
+  remove_module: Odebrat modul
+  remove_separator: Odstraňte separátor
+  reorder_disable: Uzamčení hlavního panelu
+  reorder_enable: Odemknutí hlavního panelu
+media:
+  label: Přehrávač médií
+  not_playing: Nic nehraje
+show_desktop:
+  label: Zobrazit plochu
+start:
+  label: Nabídka Start
+taskbar_menu:
+  add_file: Připnout vlastní soubor
+  add_separator: Přidat oddělovač
+  media: Přehrávač médií
+  modules: Moduly
+  settings: Nastavení
+  task_manager: Správce úloh
+trash_bin:
+  empty_bin: Vyprázdněte koš
+  item_count: '{{0}} položek'
+  label: Koš
+weg:
+  empty: Žádné položky k zobrazení

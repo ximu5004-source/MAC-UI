@@ -1,0 +1,23 @@
+available: ઉપલબ્ધ નેટવર્ક્સ
+connect: કનેક્ટ કરો
+connected: સાથે જોડાયેલ છે
+connecting: કનેક્ટ કરી રહ્યું છે...
+disconnect: ડિસ્કનેક્ટ કરો
+forget: ભૂલી જાવ
+hidden: છુપાયેલ નેટવર્ક
+hotspot:
+  band: બેન્ડ
+  'off': બંધ
+  'on': ચાલુ
+  open_network: નેટવર્ક ખોલો
+  password: પાસવર્ડ
+  settings: વધુ હોટસ્પોટ સેટિંગ્સ
+  ssid: નેટવર્ક નામ
+  title: હોટસ્પોટ
+more: વધુ નેટવર્ક સેટિંગ્સ
+no_adapter: કોઈ Wi-Fi એડેપ્ટર મળ્યું નથી
+not_found: કોઈ Wi-Fi નેટવર્ક મળ્યું નથી
+password: પાસવર્ડ
+saved: સાચવેલા નેટવર્ક્સ
+scanning: નેટવર્ક્સ માટે સ્કેનિંગ
+secured: એન્ક્રિપ્ટેડ નેટવર્ક

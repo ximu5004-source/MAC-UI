@@ -1,0 +1,7 @@
+.control { min-width: 0; width: 100%; padding-block: 10px; }
+.heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 13px; }
+.heading output { font-variant-numeric: tabular-nums; color: var(--mac-secondary); min-width: 6ch; text-align: right; }
+.control input { display: block; width: 100%; height: 30px; margin: 5px 0 0; cursor: pointer; accent-color: var(--system-accent-color, #0874e8); }
+.control input:focus-visible { outline: 2px solid var(--system-accent-color, #0874e8); outline-offset: 3px; border-radius: 5px; }
+.ends { display: flex; justify-content: space-between; font-size: 12px; color: var(--mac-secondary); }
+.control p { margin: 8px 0 0; font-size: 12px; line-height: 1.6; color: var(--mac-secondary); }

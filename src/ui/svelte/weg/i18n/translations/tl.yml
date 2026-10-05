@@ -1,0 +1,40 @@
+app_menu:
+  close: Malapit
+  close_multiple: Isara ang lahat
+  copy_handles: Kopyahin ang mga hawakan
+  edit_app_icon: I-edit ang Icon ng App
+  kill: Proseso ng Patayin
+  kill_multiple: Patayin ang Lahat ng Proseso
+  open_file_location: Buksan ang lokasyon ng file
+  pin: Pin
+  pin_to_center: Pin sa gitna
+  pin_to_left: Pin sa kaliwa
+  pin_to_right: Pin sa kanan
+  run_as: Tumakbo bilang Administrator
+  unpin: Unpin
+context_menu:
+  edit_icon: I-edit ang Icon
+  remove_module: Alisin ang Module
+  remove_separator: Alisin ang Separator
+  reorder_disable: I -lock ang taskbar
+  reorder_enable: I -unlock ang taskbar
+media:
+  label: Media Player
+  not_playing: Walang naglalaro
+show_desktop:
+  label: Ipakita ang Desktop
+start:
+  label: Start Menu
+taskbar_menu:
+  add_file: Pin pasadyang file
+  add_separator: Magdagdag ng Separator
+  media: Media Player
+  modules: Mga module
+  settings: Mga setting
+  task_manager: Task Manager
+trash_bin:
+  empty_bin: Walang laman ang Recycle Bin
+  item_count: '{{0}} mga item'
+  label: Recycle Bin
+weg:
+  empty: Walang maipapakitang item

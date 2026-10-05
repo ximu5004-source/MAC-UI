@@ -1,0 +1,22 @@
+all: Tüm Uygulamalar
+app_settings: Uygulama Ayarları
+applications: Uygulamalar
+back: Geri
+disband: Klasörü Dağıt
+edit_icon: Simgeyi Düzenle
+folder: Klasör
+no_matching_items: Aramanızla eşleşen öğe bulunamadı
+open_file_location: Dosya Konumunu Aç
+pin: Sabitle
+pin_to_dock: Dock'a sabitle
+power_menu: Güç Menüsü
+query:
+  all: Tüm
+  apps: Uygulamalar
+  files: Dosyalar
+  web: ağ
+run_as_admin: Yönetici olarak çalıştır
+unpin: Sabitlemeyi kaldır
+web_search: Web'de arama yapmak için Enter'a basın
+welcome_message: Seelen UI uygulama menüsüne hoş geldiniz.
+welcome_message2: Bu sekmede favori uygulamalarınızı sabitleyebilirsiniz.

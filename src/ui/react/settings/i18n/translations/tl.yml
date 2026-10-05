@@ -1,0 +1,483 @@
+action:
+  confirm: Sigurado ka ba?
+  confirm_body: Ang pagkilos na ito ay hindi maaaring magawa.
+apps_configurations:
+  app:
+    bindings: Ang pagbubuklod (tandaan ang parehong mga pagpipilian ay kinakailangan)
+    category: Kategorya
+    category_placeholder: Wala
+    monitor: Subaybayan
+    monitor_placeholder: Wala
+    name: Pangalan
+    ok_create: Lumikha
+    ok_edit: I -update
+    ok_readonly: I -edit bilang bago
+    options:
+      NoInteractive: Walang interactive
+      VdPinned: Ipakita sa lahat ng mga lugar ng trabaho
+      WmFloat: TWM - Simulan ang lumulutang
+      WmForce: TWM - Pamahalaan ang Pamahalaan
+      WmUnmanage: TWM - hindi namamahala
+    options_label: Dagdag na mga pagpipilian
+    title_create: Lumilikha ng {{pangalan}}
+    title_edit: Pag -edit {{pangalan}}
+    title_readonly: Pagtingin {{pangalan}}
+    weg_options_label: Mga pagpipilian sa pantalan/taskbar
+    wm_options_label: Mga pagpipilian sa Window Manager
+    workspace: Workspace
+    workspace_placeholder: Wala
+  bundled_msg: >-
+    Ang mga naka -bundle na mga pagsasaayos ay hindi mai -edit at idinisenyo
+    upang mabigyan ka ng pinakamahusay na karanasan nang walang pagpapasadya.
+    Awtomatiko nilang i -configure ang pinaka -karaniwang mga aplikasyon para sa
+    iyo.
+  bundled_title: Ang config ng app na naka -bundle kay Seelen
+  confirm_delete: Sigurado ka bang nais mong tanggalin ang pagsasaayos na ito/s?
+  confirm_delete_title: Kumpirmahin ang Tanggalin
+  delete: Tanggalin
+  export: I -export
+  export_full: Mga setting ng pag -export sa pamamagitan ng aplikasyon
+  extra_info: >-
+    Ang Seelen UI ay gumagamit lamang ng isang identifier bawat app (unang tugma
+    na natagpuan) kaya ang pagkakasunud -sunod sa kung paano ang tinukoy ay
+    mahalaga, ang pinakabagong idinagdag ay unahin, dahil ang tala ang
+    talahanayan ay pinagsunod -sunod ng default mula sa pinakabagong hanggang sa
+    luma.
+  identifier:
+    add_block: Magdagdag ng block
+    and: At
+    id: Identifier
+    kind: Kilalanin ng
+    matching_strategy: Diskarte sa pagtutugma
+    matching_strategy_option:
+      contains: Naglalaman
+      ends_with: Nagtatapos sa
+      equals: katumbas
+      regex: Regular na pagpapahayag
+      starts_with: Nagsisimula sa
+    negation: Negate pagtutugma
+    or: O
+    remove: Tanggalin ang bloke
+    type:
+      class: Klase
+      exe: Exe
+      path: Daan
+      title: Pamagat
+  import: Angkat
+  import_full: Mga setting ng pag -import sa pamamagitan ng application
+  new: Bago
+  search: Maghanap
+  swap: Ipagpalit
+cancel: Kanselahin
+close: Malapit
+delete: Tanggalin
+devtools:
+  app_folders: Mga folder ng app
+  color_palette: Palette ng Kulay
+  color_palette_note: >-
+    Ang mga kulay na ito ay awtomatikong umaangkop sa light/dark mode — bawat
+    shade ay contrast-relative sa kasalukuyang background, hindi isang fixed
+    value. Gamitin ang mga ito sa halip na mga hardcoded na kulay para makakuha
+    ng awtomatikong suporta sa tema.
+  custom_config_file: I -load ang pasadyang config file
+  data_folder: Folder ng data
+  enable: Paganahin ang mga tool ng developer
+  enable_description: >-
+    Ina-unlock ang mga advanced na tool para sa pag-inspeksyon at pag-debug sa
+    mga internal ng Seelen UI. Hindi inilaan para sa regular na paggamit.
+  icons: Mga Naka-cache na Icon
+  install_folder: Folder ng pag -install
+  load: Mag -load
+  settings_file: File ng mga setting
+  shared_components: Mga Pamantayang Bahagi ng SLU
+  simulate_dialog:
+    label: Gayahin ang Dialog
+    trigger: Trigger
+  simulate_perm:
+    label: Gayahin ang Kahilingan ng Pahintulot sa Widget
+    result_allowed: ✓ Ipinagkaloob ang pahintulot
+    result_denied: ✗ Tinanggihan ang pahintulot
+    trigger: Gayahin
+    widget_id_placeholder: '@author/widget-name'
+  tools: Mga gamit
+  unlock_shortcuts: I-unlock ang Mga Read-Only na Shortcut
+  unlock_shortcuts_description: >-
+    Payagan ang pag-edit ng mga shortcut na karaniwang read-only (hal.
+    pag-override ng system).
+  unstable_optimizations: Mga Hindi Matatag na Optimization
+  unstable_optimizations_description: >-
+    I-enable ang pang-eksperimentong mga flag ng Chromium na nagpapababa sa
+    paggamit ng RAM. 
+
+    Babala: kung ang isang widget ay nag-crash, ang lahat ng mga widget na
+    nagbabahagi ng parehong loader ay magkaka-crash.
+  widgets_debug:
+    actions: Mga aksyon
+    empty: Walang na-load na mga widget. I-click ang I-refresh.
+    instance_id: Instance ID
+    monitor_id: Monitor ID
+    open_devtools: DevTools
+    refresh: I-refresh
+    status: Katayuan
+    tab: Mga Widget
+    widget_id: Widget ID
+discord_banner:
+  message: >-
+    Kumonekta sa iba pang user ng Seelen UI, humingi ng tulong, magbahagi ng mga
+    tema, at manatiling napapanahon sa pinakabagong balita.
+  title: Sumali sa aming Komunidad
+extras:
+  backup_group: Cloud Backup
+  backup_last_sync: Huling pag-sync
+  backup_never_synced: Hindi kailanman naka-sync
+  backup_sync: I-sync ang mga setting sa cloud
+  backup_sync_description: >-
+    Awtomatikong i-back up at i-restore ang iyong mga setting sa pamamagitan ng
+    cloud.
+  clear_icons: I -clear ang Mga Icon ng System Cache
+  clear_icons_tooltip: >-
+    Ang isang pag -restart ay maaaring kailanganin upang ganap na maisakatuparan
+    ang lahat ng mga widget
+  discord_rpc: Discord rich presence
+  discord_rpc_description: Ipakita sa lahat na mayroon kang istilo!
+  exit: Huminto/exit
+  relaunch: Muling pagsasaayos
+  streaming_mode: Streaming Mode
+  streaming_mode_description: >-
+    Pinapalitan ang sensitibong impormasyon (hal. mga email) ng mga placeholder
+    upang protektahan ang privacy habang nagre-record o mga screenshot.
+  version: Bersyon
+  version_fixed: >-
+    Ang mga bersyon ng application at WebView2 Runtime ay naayos na.
+    Nangangahulugan ito na ang application ay hindi makakatanggap ng mga update
+    at ang WebView2 Runtime ay hindi awtomatikong maa-update sa Windows update.
+general:
+  accent_color: Kulay ng accent
+  date_format: Format ng petsa
+  date_format_how_to: Paano magsulat ng format ng petsa?
+  hardware_acceleration: Pagpapabilis ng Hardware
+  hardware_acceleration_description: >-
+    Ang hindi pagpapagana ng hardware acceleration ay makakabawas sa paggamit ng
+    memorya. Ligtas itong i-disable kung hindi ka gumagamit ng mabibigat na
+    animation, kahit na ang mga indibidwal na widget ay maaari pa ring pilitin
+    ang paggamit ng GPU anuman ang setting na ito.
+  icon_pack:
+    available: Magagamit na Mga Icon Pack
+    selected: Mga Aktibong Icon Pack
+  language: Wika
+  monday: Lunes
+  performance_mode:
+    label: Mga pag-optimize
+    on_battery: Sa baterya
+    on_energy_saver: Sa enerhiya saver
+    options:
+      disabled: Hindi pinagana
+      extreme: Matinding
+      minimal: Minimal
+    plugged: Naka -plug o singilin
+  polling_interval: Agwat ng botohan ng system
+  polling_interval_description: >-
+    Gaano kadalas (sa mga segundo) sinusuri ng Seelen UI ang mga mapagkukunan ng
+    system tulad ng CPU, RAM, network, at aktibidad ng disk. Ang mas maliit na
+    bilang ay nangangahulugan ng mas madalas na pag-update, ngunit bahagyang mas
+    mataas ang paggamit ng mapagkukunan.
+  saturday: Sabado
+  start_of_week: Simula ng Linggo
+  startup: Patakbuhin sa Startup?
+  sunday: Linggo
+  suspend_on_game_mode: Suspindihin ang mga widget sa Game Mode
+  suspend_on_game_mode_description: >-
+    Kapag aktibo ang Windows Game Mode, sisirain ang lahat ng widget sa webview
+    para mabakante ang CPU at memorya para sa laro. Awtomatikong nare-restore
+    ang mga widget kapag natapos na ang Game Mode.
+  theme:
+    available: Magagamit na Mga Tema
+    selected: Mga Aktibong Tema
+global: Global
+header:
+  labels:
+    config: Mga pagsasaayos
+    developer: Para sa mga developer
+    extras: Extras
+    general: Pangkalahatan
+    home: Home
+    iconpack: Icon pack
+    monitors: Monitor
+    plugin: Plugins
+    resources: Mga mapagkukunan
+    session: Account
+    shortcuts: Mga shortcut
+    soundpack: Mga tunog pack
+    specific_apps: Mga setting sa pamamagitan ng application
+    theme: Mga tema
+    virtual_desk: Mga Virtual Desktop
+    wallpaper: Wallpaper
+    widget: Mga widget
+home:
+  new_resources: Mga bagong mapagkukunan
+inherit: Magmana
+inProgress: Sa pag -unlad ...
+insert: Ipasok
+join_us: Samahan mo kami!
+loading: Naglo -load ...
+miscellaneous: Miscellaneous
+monitors_configurations:
+  label: Subaybayan {{index}}
+more: Higit pa
+'no': Hindi
+open: Buksan
+quit: Huminto ka
+remove: Alisin
+reset_all_to_default: I -reset ang lahat sa mga default na halaga
+reset_configurations: I-reset ang mga configuration
+reset_to_default: I -reset sa default na halaga
+resources:
+  affected_widgets: Mga Apektadong Widget
+  app_outdated: >-
+    Ang mapagkukunang ito ay nangangailangan ng isang mas bagong bersyon ng
+    Seelen UI upang gumana nang maayos.
+  coming_soon: Malapit na
+  corrupted_wallpaper: >-
+    Nabigong i-extract ang thumbnail - sira o hindi sinusuportahang format ng
+    video
+  delete: Tanggalin ang mapagkukunan
+  discover: Tuklasin ang higit pang mga mapagkukunan
+  has_update: Magagamit ang isang pag -update
+  high_impact: Mataas na epekto sa pagganap
+  import_wallpapers: Mag -import ng mga lokal na wallpaper
+  included_plugins: Kasamang Mga Plugin
+  modified: Binago
+  open_folder: Buksan ang folder ng mapagkukunan
+  outdated: >-
+    Ang mapagkukunang ito ay dinisenyo para sa isang mas lumang bersyon ng
+    Seelen UI at maaaring hindi gumana nang maayos.
+  see_on_website: Tingnan sa website
+  update_now: Update
+  updates_available: Magagamit ang mga Update
+  updates_available_description: Ang mga sumusunod na mapagkukunan ay may magagamit na mga update.
+review_request:
+  not_now: Hindi ngayon
+  sure: Oo naman!
+  title: Nasisiyahan sa Seelen UI?
+save: I -save
+save_and_restart: I -save at i -restart
+search: Maghanap
+see_more: Makita pa
+session:
+  logout: Mag-sign Out
+  plan: Plano
+  sign_in: Mag-sign In
+  sign_in_hint: Magbubukas ang iyong browser upang ligtas kang makapag-sign in.
+  upgrade_to: Mag-upgrade sa
+shortcuts:
+  disabled_tooltip: Ang widget at ang mga shortcut nito ay hindi pinagana
+  duplicate_error: May nakitang mga salungat na shortcut
+  duplicate_error_hint: >-
+    Ang ilang mga shortcut ay itinalaga sa maraming pagkilos. Huwag paganahin
+    ang isa sa mga magkasalungat na widget o muling italaga ang duplicate na key
+    binding upang malutas.
+  enable: Paganahin ang built-in na mga shortcut system
+  enable_tooltip: >-
+    Huwag paganahin kung ipatutupad mo ang iyong sariling sistema ng mga
+    shortcut gamit ang Seelen UI Client
+  labels:
+    create_new_workspace: Lumikha ng bagong workspace
+    create_new_workspace_row: Gumawa ng Bagong Workspace Row
+    destroy_current_workspace: Wasakin ang kasalukuyang workspace
+    misc_force_quit: Puwersa na huminto
+    misc_force_restart: Force restart
+    move_to_workspace: Lumipat sa workspace {{0}}
+    pause_toggle: I-pause/Ipagpatuloy ang Mga Shortcut
+    send_to_next_workspace: Ipadala ang Window sa Susunod na Workspace
+    send_to_previous_workspace: Ipadala ang Window sa Nakaraang Workspace
+    send_to_workspace: Ipadala sa Workspace {{0}}
+    send_to_workspace_down: Ipadala ang Window sa Workspace sa ibaba
+    send_to_workspace_up: Ipadala ang Window sa Workspace sa Itaas
+    switch_to_next_workspace: Lumipat sa Susunod na Workspace
+    switch_to_previous_workspace: Lumipat sa nakaraang workspace
+    switch_to_workspace_down: Lumipat sa Workspace sa ibaba
+    switch_to_workspace_up: Lumipat sa Workspace sa Itaas
+    switch_workspace: Lumipat sa workspace {{0}}
+  readonly_tooltip: Ito ay isang shortcut na basahin lamang
+  reset: I -reset sa mga default
+sides:
+  bottom: Ilalim
+  left: Kaliwa
+  right: Tama
+  top: Tuktok
+toolbar:
+  auto_hide: Auto itago
+  auto_hide_touch_disabled: Hindi available ang auto hide sa mga touch screen device
+  delay_to_hide: Delay sa pagtatago
+  delay_to_show: Pagkaantala sa pagpapakita
+  dock_side: Posisyon
+  enable: Paganahin ang magarbong toolbar
+  hide_mode:
+    always: Laging
+    never: Hindi kailanman
+    on_overlap: Sa overlap
+  item_size: Laki ng Item
+  label: Toolbar
+  margin: Laki ng Margin
+  padding: Laki ng Padding
+  placeholder: {}
+update:
+  available: Mag -update Magagamit!
+  channel: I -update ang channel
+  downloading: Pag -download ...
+wall:
+  blur: Malabo
+  cancel: Kanselahin
+  close: Isara
+  collection_name: Pangalan ng Koleksyon
+  collections: Mga koleksyon
+  contrast: Kaibahan
+  corrupted_wallpapers_message: 'Mga sirang wallpaper, isaalang-alang ang pagtanggal ng mga ito:'
+  coverage_pause_threshold: I-pause ang threshold (saklaw sa bintana)
+  create: Lumikha
+  create_collection: Lumikha ng Koleksyon
+  default_collection: Default na wallpaper o koleksyon
+  default_collection_description: >-
+    Inilapat sa lahat ng monitor at workspace na walang partikular na set ng
+    override.
+  delete_collection: Tanggalin ang Koleksyon
+  edit_collection: I-edit ang Koleksyon
+  extend: Palawakin ang pangunahin
+  fit:
+    contain: Naglalaman
+    cover: Takpan
+    fill: Punan
+  flipHorizontal: I -flip ang pahalang
+  flipVertical: Flip vertical
+  generating_thumbnails: Pagbuo ng Mga Thumbnail ng Wallpaper
+  hours: oras
+  interval: Baguhin ang wallpaper bawat
+  minutes: minuto
+  monitor_collection: Monitor Collection
+  multimonitor_behaviour: Pag-uugali ng Multimonitor
+  muted: Mute Video Audio
+  no_background: Walang laman na slideshow, gamit ang background ng tema sa halip.
+  no_collections: Wala pang nagawang koleksyon. I-click ang + button para gumawa ng isa.
+  objectFit: Pagkasyahin sa background
+  objectPosition: Posisyon sa background
+  overlayColor: Kulay ng overlay
+  overlayMixBlendMode: Overlay Mix Blend Mode
+  per_monitor: Bawat monitor
+  per_monitor_config: Bawat-Monitor Configuration
+  playback: Bilis ng pag -playback
+  position:
+    bottom: Ilalim
+    center: Sentro
+    left: Kaliwa
+    right: Tama
+    top: Tuktok
+  processing_video: Pinoproseso ang video
+  random: Randomize slideshow
+  saturation: Saturation
+  seconds: segundo
+  select_collection: Piliin ang Koleksyon
+  thumbnail_generation_complete: Kumpleto na ang Pagbuo ng Thumbnail
+  thumbnail_generation_finished: Matagumpay na natapos ang pagbuo ng thumbnail
+  use_accent_color: Gumamit ng kulay ng accent ng wallpaper
+  wallpaper_collection: Koleksyon ng Wallpaper
+  wallpaper_settings: Mga Setting ng Wallpaper
+  wallpapers: Mga Wallpaper
+  wallpapers_and_collections: Mga Wallpaper at Koleksyon
+  withOverlay: Na may overlay
+  workspace_collections: Mga Koleksyon ng Workspace
+weg:
+  auto_hide: Auto itago
+  auto_hide_touch_disabled: Hindi available ang auto hide sa mga touch screen device
+  delay_to_hide: Delay sa pagtatago
+  delay_to_show: Pagkaantala sa pagpapakita
+  dock_side: Posisyon
+  filtering: Pag -filter ng item
+  gap: Gap
+  hide_mode:
+    always: Laging
+    never: Hindi kailanman
+    on_overlap: Sa overlap
+  import_error: Nabigong mag-import ng mga item sa taskbar
+  import_from_taskbar:
+    button: Mag-import mula sa Windows Taskbar
+    label: Mag-import ng Mga Naka-pin na Item
+  import_no_items: Walang nakitang mga naka-pin na item sa Windows taskbar
+  import_success: Matagumpay na na-import ang {{count}} (mga) item mula sa Windows taskbar
+  items:
+    gap: Puwang sa pagitan ng mga item
+    label: Mga item
+    middle_click_action:
+      close_app: Isara ang App
+      label: Gitnang Pag-click na Aksyon
+      open_new_instance: Buksan ang Bagong Instance
+    pinned_visibility:
+      always: Laging
+      label: Visibility ng Mga Naka-pin na Item
+      when_primary: Kapag ang monitor ay pangunahin
+    show_instance_counter: Ipakita ang bukas na counter ng windows
+    show_window_title: Ipakita ang Buksan ang Pamagat ng Window (Pahalang lamang)
+    size: Laki ng item
+    split_windows: Hatiin ang Windows (isang item sa bawat window)
+    temporal_visibility:
+      all: Lahat
+      label: Visibility ng Mga Na-unpin na Item
+      on_monitor: Sa Monitor
+  label: Dock/Taskbar
+  margin: Margin
+  mode:
+    full_width: Buong lapad ng screen
+    min_content: Maliit hangga't maaari
+  padding: Padding
+  show_end_task: Ipakita ang pagtatapos ng gawain sa taskbar
+  width: Lapad
+welcome:
+  give_a_review: Magbigay ng Review
+  message: >-
+    Ang Seelen UI ay isang libre at open source na desktop environment para sa
+    Windows. Dito mayroon kang ganap na kontrol sa hitsura at pag-uugali ng
+    iyong desktop, na nagbibigay-daan sa iyong i-customize ang bawat detalye
+    upang tumugma sa iyong daloy ng trabaho at istilo.
+  ok: Magsimula na tayo!
+  review: >-
+    Kung masisiyahan ka sa paggamit ng Seelen UI, isaalang-alang ang pag-iwan ng
+    review sa tindahan — ang iyong feedback ay nakakatulong sa proyekto na
+    lumago at umunlad.
+  title: Maligayang pagdating sa Seelen UI!
+widget:
+  default_instance: Default na Instance
+  default_instance_hint: Palaging aktibo, gumagamit ng root widget config
+  enable: Paganahin ang widget na ito
+  enable_for_monitor: Paganahin sa monitor na ito
+  extra_instances: Mga Dagdag na Instance
+  instance: Halimbawa
+  instances: Mga pagkakataon
+wm:
+  animations:
+    duration: Tagal ng Animation (MS)
+    ease_function: Pag -andar ng pag -easing ng animation
+    enable: Paganahin ang mga animation ng window
+  author: May -akda
+  auto_stack: Auto stack ayon sa kategorya ng app
+  border:
+    enable: Paganahin ang hangganan ng window
+    offset: Border Offset
+    width: Lapad ng hangganan
+  description: Paglalarawan
+  drag_behavior: I-drag ang Gawi
+  drag_behavior_options:
+    sort: Pagbukud-bukurin (muling ayusin ang mga bintana habang nagda-drag)
+    swap: Magpalit (magpalit ng mga bintana sa dulo ng pag-drag)
+  floating:
+    height: Lumulutang na Taas ng Windows
+    title: Lumulutang na Sukat ng Windows
+    width: Lumulutang na Lapad ng Windows
+  layout: Layout
+  resize_delta: Baguhin ang laki ng Delta (%)
+  space_between_containers: Puwang sa pagitan ng mga lalagyan
+  stack_bar_visibility: Stack Bar Visibility
+  stack_bar_visibility_options:
+    always: Laging
+    as_needed: Kung kinakailangan
+  workspace_offset: Workspaces Offset (Margin)
+  workspace_padding: Mga workspaces padding
+'yes': Oo

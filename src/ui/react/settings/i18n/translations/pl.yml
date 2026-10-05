@@ -1,0 +1,481 @@
+action:
+  confirm: Jesteś pewien?
+  confirm_body: Tego działania nie można cofnąć.
+apps_configurations:
+  app:
+    bindings: Skrót klawiszowy (wymagane są obie opcje)
+    category: Kategoria
+    category_placeholder: Nic
+    monitor: Ekran
+    monitor_placeholder: Nic
+    name: Nazwa
+    ok_create: Utwórz
+    ok_edit: Edytuj
+    ok_readonly: Edytuj jako nowy
+    options:
+      NoInteractive: Brak interaktywnego
+      VdPinned: Pokaż we wszystkich obszarach roboczych
+      WmFloat: Twm - Zacznij pływać
+      WmForce: Twm – Zarządzanie siłami
+      WmUnmanage: Twm — nie zarządzaj
+    options_label: Dodatkowe opcje
+    title_create: Tworzenie {{nazwa}}
+    title_edit: Edycja {{nazwa}}
+    title_readonly: Przeglądanie {{Nazwa}}
+    weg_options_label: Ustawienia docka/paska zadań
+    wm_options_label: Ustawienia menadżera okien
+    workspace: Obszar roboczy
+    workspace_placeholder: Nic
+  bundled_msg: >-
+    Te konfiguracje pakietowe nie są edytowalne i mają na celu zapewnienie
+    najlepszych wrażeń bez dostosowywania. Automatycznie konfigurują dla Ciebie
+    najczęściej używane aplikacje.
+  bundled_title: App Config w pakiecie z Seelen
+  confirm_delete: Czy na pewno chcesz usunąć tę konfigurację?
+  confirm_delete_title: Potwierdź usunięcie
+  delete: Usuń
+  export: Eksportuj
+  export_full: Eksport ustawień według aplikacji
+  extra_info: >-
+    Interfejs użytkownika Seelen używa tylko jednego identyfikatora na aplikację
+    (znaleziono pierwsze dopasowanie), dlatego ważna jest kolejność dodawania.
+    Priorytet będzie mieć najnowszy dodany, ponieważ tabela jest domyślnie
+    sortowana od najnowszego do najstarszego.
+  identifier:
+    add_block: Dodaj blok
+    and: I
+    id: Identyfikator
+    kind: Identyfikuj poprzez
+    matching_strategy: Sposób dopasowania
+    matching_strategy_option:
+      contains: Zawiera
+      ends_with: Kończy się na
+      equals: Równe
+      regex: Wyrażenie regularne
+      starts_with: Zaczyna się od
+    negation: Negate dopasowanie
+    or: LUB
+    remove: Usuń blok
+    type:
+      class: Klasa
+      exe: Ex
+      path: Ścieżka
+      title: Tytuł
+  import: Importuj
+  import_full: Importowanie ustawień według aplikacji
+  new: Nowy
+  search: Szukaj
+  swap: Zamień
+cancel: Anuluj
+close: Zamknij
+delete: Usuń
+devtools:
+  app_folders: Foldery aplikacji
+  color_palette: Paleta kolorów
+  color_palette_note: >-
+    Kolory te automatycznie dostosowują się do trybu jasny/ciemny — każdy odcień
+    zależy od kontrastu bieżącego tła, a nie od stałej wartości. Używaj ich
+    zamiast zakodowanych na stałe kolorów, aby uzyskać automatyczną obsługę
+    motywów.
+  custom_config_file: Załaduj niestandardowy plik konfiguracyjny
+  data_folder: Folder danych
+  enable: Włącz narzędzia programistów
+  enable_description: >-
+    Odblokowuje zaawansowane narzędzia do sprawdzania i debugowania wewnętrznych
+    elementów interfejsu użytkownika Seelen. Nie jest przeznaczony do
+    regularnego użytku.
+  icons: Ikony w pamięci podręcznej
+  install_folder: Folder instalacyjny
+  load: Obciążenie
+  settings_file: Plik ustawień
+  shared_components: Standardowe komponenty SLU
+  simulate_dialog:
+    label: Symuluj okno dialogowe
+    trigger: Spust
+  simulate_perm:
+    label: Symuluj żądanie pozwolenia na widget
+    result_allowed: ✓ Zezwolenie udzielone
+    result_denied: ✗ Odmowa pozwolenia
+    trigger: Symulować
+    widget_id_placeholder: '@autor/nazwa-widgetu'
+  tools: Narzędzia
+  unlock_shortcuts: Odblokuj skróty tylko do odczytu
+  unlock_shortcuts_description: >-
+    Zezwalaj na edytowanie skrótów, które zwykle są tylko do odczytu (np.
+    zastąpienia systemowe).
+  unstable_optimizations: Niestabilne optymalizacje
+  unstable_optimizations_description: >-
+    Włącz eksperymentalne flagi Chromium, które zmniejszają użycie pamięci RAM.
+
+    Ostrzeżenie: jeśli widżet ulegnie awarii, wszystkie widżety korzystające z
+    tego samego modułu ładującego ulegną awarii razem.
+  widgets_debug:
+    actions: Działania
+    empty: Nie załadowano żadnych widżetów. Kliknij Odśwież.
+    instance_id: Identyfikator instancji
+    monitor_id: Identyfikator monitora
+    open_devtools: Narzędzia deweloperskie
+    refresh: Odświeżać
+    status: Status
+    tab: Widżety
+    widget_id: Identyfikator widgetu
+discord_banner:
+  message: >-
+    Połącz się z innymi użytkownikami interfejsu Seelen, uzyskaj pomoc,
+    udostępniaj motywy i bądź na bieżąco z najnowszymi wiadomościami.
+  title: Dołącz do naszej społeczności
+extras:
+  backup_group: Kopia zapasowa w chmurze
+  backup_last_sync: Ostatnia synchronizacja
+  backup_never_synced: Nigdy nie synchronizowane
+  backup_sync: Synchronizuj ustawienia z chmurą
+  backup_sync_description: >-
+    Automatycznie twórz kopie zapasowe i przywracaj ustawienia za pośrednictwem
+    chmury.
+  clear_icons: Wyczyść pamięć podręczną ikon systemowych
+  clear_icons_tooltip: >-
+    Do poprawnego uruchomienia wszystkich widżetów może być wymagane ponowne
+    uruchomienie systemu
+  discord_rpc: Bogata obecność w Discord
+  discord_rpc_description: Pokaż wszystkim, że masz styl!
+  exit: Wyjdź
+  relaunch: Wznów
+  streaming_mode: Tryb przesyłania strumieniowego
+  streaming_mode_description: >-
+    Zastępuje poufne informacje (np. e-maile) symbolami zastępczymi, aby chronić
+    prywatność podczas nagrań lub zrzutów ekranu.
+  version: Wersja
+  version_fixed: >-
+    Wersje aplikacji i środowiska wykonawczego WebView2 zostały naprawione.
+    Oznacza to, że aplikacja nie będzie otrzymywać aktualizacji, a środowisko
+    wykonawcze WebView2 nie będzie automatycznie aktualizowane aktualizacjami
+    systemu Windows.
+general:
+  accent_color: Kolor akcentu
+  date_format: Format daty
+  date_format_how_to: Jak napisać format daty?
+  hardware_acceleration: Przyspieszenie sprzętowe
+  hardware_acceleration_description: >-
+    Wyłączenie przyspieszania sprzętowego zmniejszy zużycie pamięci. Można
+    bezpiecznie wyłączyć tę funkcję, jeśli nie używasz ciężkich animacji,
+    chociaż poszczególne widżety mogą nadal wymuszać użycie procesora
+    graficznego niezależnie od tego ustawienia.
+  icon_pack:
+    available: Dostępne pakiety ikon
+    selected: Aktywne pakiety ikon
+  language: Język
+  monday: Poniedziałek
+  performance_mode:
+    label: Optymalizacje
+    on_battery: Na baterii
+    on_energy_saver: Na oszczędności energii
+    options:
+      disabled: Wyłączony
+      extreme: Skrajny
+      minimal: Minimalny
+    plugged: Podłączone lub ładowanie
+  polling_interval: Interwał odpytywania systemu
+  polling_interval_description: >-
+    Jak często (w sekundach) interfejs użytkownika Seelen sprawdza zasoby
+    systemowe, takie jak procesor, pamięć RAM, sieć i aktywność dysku. Mniejsza
+    liczba oznacza częstsze aktualizacje, ale nieco większe zużycie zasobów.
+  saturday: Sobota
+  start_of_week: Początek tygodnia
+  startup: Uruchomić przy starcie systemu?
+  sunday: Niedziela
+  suspend_on_game_mode: Zawieszanie widżetów w trybie gry
+  suspend_on_game_mode_description: >-
+    Gdy tryb gry systemu Windows jest aktywny, wszystkie wyświetlenia widżetów
+    są niszczone, aby zwolnić procesor i pamięć dla gry. Widżety są
+    automatycznie przywracane po zakończeniu trybu gry.
+  theme:
+    available: Dostępne motywy
+    selected: Aktywne motywy
+global: Światowy
+header:
+  labels:
+    config: Konfiguracje
+    developer: Dla deweloperów
+    extras: Dodatki
+    general: Ogólne
+    home: Strona główna
+    iconpack: Pakiety ikon
+    monitors: Ekrany
+    plugin: Wtyczki
+    resources: Zasoby
+    session: Konto
+    shortcuts: Skróty klawiszowe
+    soundpack: Pakiety dźwiękowe
+    specific_apps: Ustawienia według aplikacji
+    theme: Tematy
+    virtual_desk: Wirtualne komputery stacjonarne
+    wallpaper: Tapety
+    widget: Widżety
+home:
+  new_resources: Nowe zasoby
+inherit: Dziedziczyć
+inProgress: W trakcie...
+insert: Wstawić
+join_us: Dołącz do nas!
+loading: Ładowanie...
+miscellaneous: Różnorodny
+monitors_configurations:
+  label: Monitor {{indeks}}
+more: Więcej
+'no': NIE
+open: otwarty
+quit: Zrezygnować
+remove: Usunąć
+reset_all_to_default: Przywróć wartości domyślne
+reset_configurations: Zresetuj konfiguracje
+reset_to_default: Przywróć wartość domyślną
+resources:
+  affected_widgets: Dotknięte widżety
+  app_outdated: Ten zasób wymaga nowszej wersji Seelen UI do poprawnego działania.
+  coming_soon: Już wkrótce
+  corrupted_wallpaper: >-
+    Nie udało się wyodrębnić miniatury — uszkodzony lub nieobsługiwany format
+    wideo
+  delete: Usuń zasób
+  discover: Odkryj więcej zasobów
+  has_update: Aktualizacja jest dostępna
+  high_impact: Duży wpływ na wydajność
+  import_wallpapers: Import lokalnych tapet
+  included_plugins: Dołączone wtyczki
+  modified: Zmodyfikowano
+  open_folder: Otwórz folder zasobów
+  outdated: >-
+    Ten zasób został zaprojektowany dla starszej wersji Seelen UI i może nie
+    działać poprawnie.
+  see_on_website: Zobacz na stronie internetowej
+  update_now: Aktualizacja
+  updates_available: Dostępne aktualizacje
+  updates_available_description: W poniższych zasobach dostępne są aktualizacje.
+review_request:
+  not_now: Nie teraz
+  sure: Jasne!
+  title: Podoba Ci się interfejs użytkownika Seelen?
+save: Zastosuj
+save_and_restart: Zastosuj i uruchom ponownie
+search: Szukaj
+see_more: Zobacz więcej
+session:
+  logout: Wyloguj się
+  plan: Plan
+  sign_in: Zalogować się
+  sign_in_hint: Twoja przeglądarka otworzy się, abyś mógł bezpiecznie się zalogować.
+  upgrade_to: Uaktualnij do
+shortcuts:
+  disabled_tooltip: Widżet i jego skróty są wyłączone
+  duplicate_error: Wykryto sprzeczne skróty
+  duplicate_error_hint: >-
+    Niektóre skróty są przypisane do wielu akcji. Wyłącz jeden z widżetów
+    powodujących konflikt lub ponownie przypisz zduplikowane powiązanie
+    klawiszy, aby rozwiązać problem.
+  enable: Włącz wbudowany system skrótów
+  enable_tooltip: >-
+    Wyłącz, jeśli zaimplementujesz własny system skrótów za pomocą klienta
+    Seelen UI
+  labels:
+    create_new_workspace: Utwórz nowy obszar roboczy
+    create_new_workspace_row: Utwórz nowy wiersz obszaru roboczego
+    destroy_current_workspace: Zniszcz obecny obszar roboczy
+    misc_force_quit: Force zrezygnować
+    misc_force_restart: Wymuś restart
+    move_to_workspace: Przenieś się do przestrzeni roboczej {{0}}
+    pause_toggle: Wstrzymaj/Wznów skróty
+    send_to_next_workspace: Wyślij okno do następnego obszaru roboczego
+    send_to_previous_workspace: Wyślij okno do poprzedniego obszaru roboczego
+    send_to_workspace: Wyślij do przestrzeni roboczej {{0}}
+    send_to_workspace_down: Wyślij okno do obszaru roboczego poniżej
+    send_to_workspace_up: Wyślij okno do obszaru roboczego powyżej
+    switch_to_next_workspace: Przejdź na następny obszar roboczy
+    switch_to_previous_workspace: Przejdź na poprzedni obszar roboczy
+    switch_to_workspace_down: Przejdź do obszaru roboczego poniżej
+    switch_to_workspace_up: Przełącz na obszar roboczy powyżej
+    switch_workspace: Przełącz na przestrzeń roboczą {{0}}
+  readonly_tooltip: To jest skrót tylko do odczytu
+  reset: Zresetuj do domyślnych
+sides:
+  bottom: Dół
+  left: Lewo
+  right: Prawo
+  top: Góra
+toolbar:
+  auto_hide: Automatyczne ukrywanie
+  auto_hide_touch_disabled: >-
+    Funkcja automatycznego ukrywania nie jest dostępna na urządzeniach z ekranem
+    dotykowym
+  delay_to_hide: Opóźnienie ukrycia
+  delay_to_show: Opóźnienie wysunięcia
+  dock_side: Pozycja
+  enable: Włącz pasek narzędzi
+  hide_mode:
+    always: Zawsze
+    never: Nigdy
+    on_overlap: Kiedy zasłania
+  item_size: Rozmiar przedmiotu
+  label: Pasek narzędzi
+  margin: Rozmiar marginesu
+  padding: Rozmiar wyściółki
+  placeholder: {}
+update:
+  available: Dostępna aktualizacja!
+  channel: Kanał aktualizacji
+  downloading: Pobieranie...
+wall:
+  blur: Rozmycie
+  cancel: Anulować
+  close: Zamknąć
+  collection_name: Nazwa kolekcji
+  collections: Kolekcje
+  contrast: Kontrast
+  corrupted_wallpapers_message: 'Uszkodzone tapety. Rozważ ich usunięcie:'
+  coverage_pause_threshold: Próg pauzy (zasłonięcie okna)
+  create: Tworzyć
+  create_collection: Utwórz kolekcję
+  default_collection: Domyślna tapeta lub kolekcja
+  default_collection_description: >-
+    Stosowane do wszystkich monitorów i obszarów roboczych, które nie mają
+    określonego zestawu zastąpień.
+  delete_collection: Usuń kolekcję
+  edit_collection: Edytuj kolekcję
+  extend: Rozszerz podstawowy
+  fit:
+    contain: Zawierać
+    cover: Okładka
+    fill: Wypełnienie
+  flipHorizontal: Odwróć w poziomie
+  flipVertical: Flip Vertical
+  generating_thumbnails: Generowanie miniatur tapet
+  hours: godzin
+  interval: Zmień tapetę co
+  minutes: minut
+  monitor_collection: Kolekcja monitorów
+  multimonitor_behaviour: Zachowanie wielu monitorów
+  muted: Wycisz dźwięk wideo
+  no_background: Brak tapet, używane są tapety motywu systemu Windows.
+  no_collections: Nie utworzono jeszcze żadnych kolekcji. Kliknij przycisk +, aby go utworzyć.
+  objectFit: Dopasowanie tła
+  objectPosition: Pozycja w tle
+  overlayColor: Kolor nakładki
+  overlayMixBlendMode: Tryb mieszania nakładki
+  per_monitor: Na monitor
+  per_monitor_config: Konfiguracja na monitor
+  playback: Prędkość odtwarzania
+  position:
+    bottom: Dół
+    center: Centrum
+    left: Lewa
+    right: Prawo
+    top: Top
+  processing_video: Przetwarzanie wideo
+  random: Losowa kolejność
+  saturation: Nasycenie
+  seconds: sekund
+  select_collection: Wybierz opcję Kolekcja
+  thumbnail_generation_complete: Generowanie miniatur zostało ukończone
+  thumbnail_generation_finished: Generowanie miniatury zakończyło się pomyślnie
+  use_accent_color: Użyj koloru akcentującego tapetę
+  wallpaper_collection: Kolekcja tapet
+  wallpaper_settings: Ustawienia tapety
+  wallpapers: Tapety
+  wallpapers_and_collections: Tapety i kolekcje
+  withOverlay: Z nakładką
+  workspace_collections: Kolekcje obszaru roboczego
+weg:
+  auto_hide: Automatyczne ukrywanie
+  auto_hide_touch_disabled: >-
+    Funkcja automatycznego ukrywania nie jest dostępna na urządzeniach z ekranem
+    dotykowym
+  delay_to_hide: Opóźnienie ukrycia
+  delay_to_show: Opóźnienie wysunięcia
+  dock_side: Pozycja
+  filtering: Filtrowanie pozycji
+  gap: Przerwa
+  hide_mode:
+    always: Zawsze
+    never: Nigdy
+    on_overlap: Kiedy zasłania
+  import_error: Nie udało się zaimportować elementów paska zadań
+  import_from_taskbar:
+    button: Importuj z paska zadań systemu Windows
+    label: Importuj przypięte elementy
+  import_no_items: Nie znaleziono przypiętych elementów na pasku zadań systemu Windows
+  import_success: Pomyślnie zaimportowano elementy ({{count}}) z paska zadań systemu Windows
+  items:
+    gap: Przerwa między elementami
+    label: Elementy
+    middle_click_action:
+      close_app: Zamknij aplikację
+      label: Akcja środkowego kliknięcia
+      open_new_instance: Otwórz nową instancję
+    pinned_visibility:
+      always: Zawsze
+      label: Widoczność przypiętych elementów
+      when_primary: Główny ekran
+    show_instance_counter: Wyświetl liczbę otwartych okien
+    show_window_title: Wyświetl tytuł otwartego okna (tylko poziomo)
+    size: Rozmiar elementów
+    split_windows: Podziel okna (jeden element na okno)
+    temporal_visibility:
+      all: Wszystkie ekrany
+      label: Widoczność uruchomionych aplikacji
+      on_monitor: Jeden ekran
+  label: Dock/Pasek zadań
+  margin: Margines
+  mode:
+    full_width: Pełna szerokość ekranu
+    min_content: Jak najmniejszy
+  padding: Wysokość tła
+  show_end_task: Pokaż zadanie końcowe na pasku zadań
+  width: Szerokość
+welcome:
+  give_a_review: Wystaw recenzję
+  message: >-
+    Seelen UI to bezpłatne środowisko graficzne typu open source dla systemu
+    Windows. Tutaj masz pełną kontrolę nad wyglądem i zachowaniem pulpitu, co
+    pozwala dostosować każdy szczegół do Twojego przepływu pracy i stylu.
+  ok: Zacznijmy!
+  review: >-
+    Jeśli lubisz korzystać z interfejsu użytkownika Seelen, rozważ pozostawienie
+    recenzji w sklepie — Twoja opinia pomoże rozwijać i ulepszać projekt.
+  title: Witamy w interfejsie Seelen!
+widget:
+  default_instance: Domyślna instancja
+  default_instance_hint: Zawsze aktywny, korzysta z konfiguracji widgetu głównego
+  enable: Włącz ten widżet
+  enable_for_monitor: Włącz na tym monitorze
+  extra_instances: Dodatkowe instancje
+  instance: Przykład
+  instances: Wystąpienia
+wm:
+  animations:
+    duration: Czas trwania animacji (MS)
+    ease_function: Funkcja łagodzenia animacji
+    enable: Włącz animacje okna
+  author: Autor
+  auto_stack: Automatyczne układanie według kategorii aplikacji
+  border:
+    enable: Włącz granicę okna
+    offset: Przesunięcie granic
+    width: Szerokość granicy
+  description: Opis
+  drag_behavior: Przeciągnij zachowanie
+  drag_behavior_options:
+    sort: Sortuj (zmieniaj kolejność okien podczas przeciągania)
+    swap: Zamień (zamień okna po przeciągnięciu)
+  floating:
+    height: Wysokość ruchomego okna
+    title: Pływający rozmiar systemu Windows
+    width: Zmienna szerokość okna
+  layout: Układ
+  resize_delta: Delta rozmiaru (%)
+  space_between_containers: Przestrzeń między oknami
+  stack_bar_visibility: Widoczność paska stosu
+  stack_bar_visibility_options:
+    always: Zawsze
+    as_needed: W razie potrzeby
+  workspace_offset: Marginesy przestrzeni roboczych
+  workspace_padding: Wysokość tła przestrzeni roboczych
+'yes': Tak

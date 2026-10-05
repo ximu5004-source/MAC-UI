@@ -1,0 +1,230 @@
+.workspaces-viewer {
+  width: 100vw;
+  height: 100vh;
+  background-color: #000c; // just in case wallpaper fails
+
+  .monitor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-m);
+    padding: var(--spacing-2xl);
+
+    .active-wallpaper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      filter: blur(10px);
+    }
+
+    .workspaces {
+      --card-height: 200px;
+      --card-width: 280px;
+
+      flex-shrink: 0;
+      width: min-content;
+      max-width: 100%;
+      height: calc(var(--card-height) + var(--spacing-m) * 2);
+
+      padding: var(--spacing-m);
+      box-shadow: var(--shadow-m);
+
+      background-color: var(--slu-std-bg-color);
+      border-radius: 10px;
+
+      display: grid;
+      grid-template-columns: repeat(calc(var(--column-count) + 1), var(--card-width));
+      grid-template-rows: repeat(calc(var(--row-count) + 1), var(--card-height));
+      gap: var(--spacing-m);
+
+      overflow: auto;
+      scroll-snap-type: y mandatory;
+
+      .workspace {
+        scroll-snap-align: center;
+
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        display: grid;
+        grid-template-rows: auto 1fr;
+        gap: var(--spacing-s);
+
+        background-color: var(--slu-std-bg-light-color);
+        padding: var(--spacing-s);
+        box-shadow: var(--shadow-s);
+        border-radius: 10px;
+
+        .workspace-header {
+          display: flex;
+          align-items: center;
+          gap: var(--spacing-s);
+
+          .workspace-name-input {
+            flex: 1;
+            font-weight: 600;
+
+            &::placeholder {
+              color: inherit;
+            }
+          }
+        }
+
+        .workspace-preview {
+          width: 100%;
+          height: 100%;
+          border-radius: 8px;
+          overflow: hidden;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 60%;
+          border-radius: 4px;
+          height: 4px;
+          background-color: transparent;
+          transition: background-color 0.2s ease;
+        }
+
+        &.workspace-active {
+          &::before {
+            background-color: var(--system-accent-color);
+          }
+        }
+
+        &.workspace-viewing {
+          transform: scale(1.05);
+        }
+
+        &.workspace-drop-target {
+          outline: 2px dashed var(--system-accent-color);
+          outline-offset: 2px;
+        }
+      }
+
+      .add-workspace-column,
+      .add-workspace-row {
+        width: 100%;
+        height: 100%;
+        padding: var(--spacing-s);
+        flex-shrink: 0;
+
+        border-radius: 8px;
+        background-color: var(--slu-std-bg-light-color);
+        box-shadow: var(--shadow-s);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .add-workspace-column {
+        grid-row: 1/-1;
+        grid-column: -2/-1;
+
+        position: sticky;
+        top: 0;
+        bottom: 0;
+        height: var(--card-height);
+      }
+
+      .add-workspace-row {
+        scroll-snap-align: center;
+        grid-row: -2/-1;
+        grid-column: 1/-2;
+      }
+    }
+  }
+}
+
+.windows {
+  width: 100%;
+  flex: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--spacing-m);
+
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.window {
+  display: inline-flex;
+  flex-direction: column;
+  width: fit-content;
+
+  border-radius: 10px;
+  background-color: var(--slu-std-bg-light-color);
+  box-shadow: var(--shadow-s);
+  overflow: hidden;
+
+  .window-header {
+    width: 0;
+    min-width: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-s);
+
+    padding: var(--spacing-2xs) var(--spacing-xs);
+    border-bottom: 1px solid var(--color-gray-200);
+
+    figure {
+      height: 1rem;
+      width: auto;
+      aspect-ratio: 1 / 1;
+    }
+
+    .window-title {
+      flex: 1;
+      min-width: 0;
+      font-weight: 600;
+      font-size: 0.9rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  &.is-dragging {
+    opacity: 0;
+  }
+
+  &.is-overlay {
+    cursor: grabbing;
+  }
+
+  .window-preview-container {
+    width: max-content;
+    max-width: 640px;
+    max-height: 360px;
+
+    .window-preview {
+      width: auto;
+      height: auto;
+    }
+
+    &:has(.window-no-preview) {
+      min-width: 160px;
+      min-height: 90px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .window-no-preview {
+      width: 30px;
+    }
+  }
+}

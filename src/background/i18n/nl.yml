@@ -1,0 +1,89 @@
+auth:
+  login_failed_body: >-
+    Er is iets misgegaan tijdens het inloggen. Als dit aanhoudt, controleer dan
+    of de Windows 'Credential Manager'-service (VaultSvc) is ingeschakeld en
+    actief is en probeer het vervolgens opnieuw.
+  login_failed_title: Inloggen mislukt
+cancel: Annuleren
+done: Klaar
+elevated:
+  description: >-
+    Seelen UI draait met beheerdersrechten.
+
+    Dit voegt geen functies toe of verbetert deze niet, en het kan een
+    veiligheidsrisico vormen.
+
+    Voor een betere veiligheid dient u het programma opnieuw op te starten
+    zonder beheerdersrechten.
+  title: Uitvoeren als beheerder
+file_explorer: Bestandsverkenner
+resource:
+  added: Er is een nieuwe bron toegevoegd
+  download_failed_body: >-
+    Er is iets misgegaan tijdens het downloaden van de bron, meld dit
+    alstublieft aan het ontwikkelteam van Seelen.
+  download_failed_title: Downloaden van bronnen mislukt
+  downloading: Bedrijfsmiddelen downloaden...
+  downloading_body: Dit kan enkele seconden duren, sluit het venster niet.
+  enable: inschakelen
+  login_required_action: Inloggen
+  login_required_body: U moet inloggen om deze bron te downloaden.
+  login_required_title: Aanmelden vereist
+runtime:
+  corrupted_data: Beschadigde gegevens
+  corrupted_file: >-
+    Een configuratiebestand is beschadigd, waardoor standaardwaarden worden
+    gebruikt.
+  corrupted_file_path: Corrupt bestandspad
+  download: Ga naar de downloadpagina
+  files_integrity: >-
+    We konden de integriteit van de applicatiebestanden niet verifiëren.
+
+    Dit kan gebeuren als bestanden zijn gewijzigd of beschadigd of als de
+    installatie onvolledig is.
+
+    Om veiligheidsredenen kan de Seelen UI niet doorgaan.
+
+    Installeer het opnieuw vanaf de officiële website.
+  files_integrity_title: >-
+    Beveiligingswaarschuwing - Controle van de integriteit van bestanden is
+    mislukt
+  not_found: WebView2 Runtime niet gevonden
+  not_found_description: >-
+    De Seelen-gebruikersinterface vereist Webview2 Runtime. Installeer het
+    alstublieft.
+  outdated: WebView2 Runtime verouderd
+  outdated_description: >-
+    Seelen UI vereist Webview2 Runtime %{min_version} of hoger. Update het
+    alstublieft.
+service:
+  not_running: Seelen UI-service is niet actief
+  not_running_description: >-
+    Seelen UI Service (slu-service) is een afhankelijkheid/helper om de app
+    correct te laten werken.
+  not_running_ok: Dienst starten
+shortcut:
+  conflicts:
+    body: >-
+      Sommige snelkoppelingen zijn aan meerdere acties toegewezen. Wijs deze
+      opnieuw toe.
+    dismiss: Afwijzen
+    review: Beoordeling
+    title: Snelkoppelingsconflicten gedetecteerd
+  register:
+    placeholder: Druk op een sleutelcombinatie
+    title: Nieuwe snelkoppeling registreren
+widget_liveness:
+  failed_description: |-
+    De widget '%{widget_name}' reageerde te vaak niet meer.
+
+    U kunt proberen de app opnieuw te starten.
+  failed_title: Widgetfout
+widget_permissions:
+  perm_open_file: bestanden openen
+  perm_run: programma's uitvoeren
+  request_description: |-
+    De widget '%{widget_name}' vraagt ​​toestemming voor %{command}.
+
+    Wilt u dit toestaan?
+  request_title: Verzoek om widgettoestemming

@@ -1,0 +1,109 @@
+/*
+ * The idea with this feature of Shared styles over all widgets, is to provide a way to
+ * reusable components and styles that can be used across all widgets.
+ *
+ * As example all bundled widgets related to popups uses these shared styles.
+ *
+ * By default we shouldn't touch global scopes like `body`, `button`, `input` etc.
+ * Instead we use data attributes to target specific elements, and only if the developer
+ * decides to use these shared components/styles in their widgets.
+ */
+
+@import "./inputs.scss";
+@import "./buttons.scss";
+
+:root {
+  --slu-std-fg-color: var(--color-gray-900);
+  --slu-std-fg-secondary-color: var(--color-gray-700);
+  --slu-std-fg-muted-color: var(--color-gray-500);
+  --slu-std-fg-disabled-color: var(--color-gray-400);
+
+  --slu-std-bg-dark-color: light-dark(var(--color-gray-75), var(--color-gray-25));
+  --slu-std-bg-color: var(--color-gray-50);
+  --slu-std-bg-light-color: light-dark(var(--color-gray-25), var(--color-gray-75));
+
+  --slu-std-ui-color: light-dark(var(--system-accent-dark-color), var(--system-accent-light-color));
+  --slu-std-ui-hover-color: light-dark(
+    var(--system-accent-darker-color),
+    var(--system-accent-lighter-color)
+  );
+
+  --slu-std-ui-hover-overlay: oklch(from var(--system-accent-color) l c h / 0.2);
+  --slu-std-ui-pressed-overlay: oklch(from var(--system-accent-color) l c h / 0.3);
+}
+
+// default hide/show widget animations.
+:root {
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+
+  &[data-widget-hidden] {
+    opacity: 0;
+  }
+}
+
+// Accessibility Improvement
+*:focus-visible {
+  outline-offset: 2px;
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: var(--system-accent-color);
+}
+
+// standard scroll
+* {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-gray-300);
+    border-radius: 8px;
+
+    &:active {
+      background-color: var(--color-gray-400);
+    }
+  }
+}
+
+body {
+  color: var(--slu-std-fg-color);
+  background-color: var(--slu-std-bg-color);
+}
+
+// Standard for popover
+body:has(> div > .slu-std-popover) {
+  background-color: transparent;
+  overflow: hidden;
+
+  > #root,
+   > #app {
+    width: min-content;
+    height: min-content;
+    overflow: hidden; // disable margin collapse
+  }
+}
+
+.slu-std-popover {
+  width: 300px;
+  max-height: 700px;
+  overflow: auto;
+
+  padding: var(--spacing-xs);
+  margin: 10px; // this margin will allow the box-shadow to be visible
+
+  background-color: var(--slu-std-bg-color);
+  border-radius: 10px;
+
+  box-shadow: var(--shadow-m);
+  font-size: 0.8rem;
+
+  .svg-icon {
+    height: 1rem;
+  }
+}

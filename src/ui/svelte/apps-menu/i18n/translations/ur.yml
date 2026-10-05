@@ -1,0 +1,22 @@
+all: تمام ایپس
+app_settings: ایپ کی ترتیبات
+applications: درخواستیں
+back: واپس
+disband: فولڈر کو ختم کریں
+edit_icon: آئیکن میں ترمیم کریں۔
+folder: فولڈر
+no_matching_items: آپ کی تلاش سے ملنے والی کوئی چیز نہیں ملی
+open_file_location: فائل کا مقام کھولیں
+pin: پن
+pin_to_dock: ڈاک پر پن کریں۔
+power_menu: پاور مینو
+query:
+  all: سب
+  apps: ایپس
+  files: فائلیں
+  web: ویب
+run_as_admin: ایڈمنسٹریٹر کی حیثیت سے چلائیں
+unpin: انپن
+web_search: ویب کو تلاش کرنے کے لئے ENTER دبائیں
+welcome_message: سیلین UI ایپ مینو میں خوش آمدید۔
+welcome_message2: اس ٹیب پر ، آپ اپنی پسندیدہ ایپس کو پن کرسکتے ہیں۔

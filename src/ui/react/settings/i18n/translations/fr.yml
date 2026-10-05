@@ -1,0 +1,483 @@
+action:
+  confirm: Es-tu sûr?
+  confirm_body: Cette action ne peut pas être annulée.
+apps_configurations:
+  app:
+    bindings: Raccourcis (notez que les deux options sont nécessaires)
+    category: Catégorie
+    category_placeholder: Aucun
+    monitor: Moniteur
+    monitor_placeholder: Aucun
+    name: Nom
+    ok_create: Créer
+    ok_edit: Mettre à jour
+    ok_readonly: Modifier en tant que nouveau
+    options:
+      NoInteractive: Pas d'interactivité
+      VdPinned: Afficher dans tous les espaces de travail
+      WmFloat: Twm - Commencer à flotter
+      WmForce: Twm - Forcer la gestion
+      WmUnmanage: Twm - Annuler la gestion
+    options_label: Options supplémentaires
+    title_create: Création de {{name}}
+    title_edit: Modification de {{nom}}
+    title_readonly: Visualisation de {{name}}
+    weg_options_label: Options Dock/Barre des tâches
+    wm_options_label: Options gestionnaire de fenêtres
+    workspace: Espace de travail
+    workspace_placeholder: Aucun
+  bundled_msg: >-
+    Ces configurations groupées ne sont pas modifiables et sont conçues pour
+    vous offrir la meilleure expérience sans personnalisation. Ils configurent
+    automatiquement pour vous les applications les plus courantes.
+  bundled_title: Configuration des applications groupées avec Seelen
+  confirm_delete: Êtes-vous sûr de vouloir supprimer cette/ces configuration(s) ?
+  confirm_delete_title: Confirmer la suppression
+  delete: Supprimer
+  export: Exporter
+  export_full: Exporter les paramètres par application
+  extra_info: >-
+    Seelen UI utilise un seul identifiant par application (premier correspondant
+    trouvé), donc l'ordre dans lequel ils sont spécifiés est important, le
+    dernier ajouté sera priorisée, car le tableau est trié par défaut du plus
+    récent au plus ancien.
+  identifier:
+    add_block: Ajouter un bloc
+    and: ET
+    id: Identifiant
+    kind: Identifier par
+    matching_strategy: Stratégie de correspondance
+    matching_strategy_option:
+      contains: Contient
+      ends_with: Se termine par
+      equals: Égal
+      regex: Expression régulière
+      starts_with: Commence par
+    negation: Annuler la correspondance
+    or: OU
+    remove: Supprimer le bloc
+    type:
+      class: Classe
+      exe: Exe
+      path: Chemin
+      title: Titre
+  import: Importer
+  import_full: Importer des paramètres par application
+  new: Nouveau
+  search: Rechercher
+  swap: Échanger
+cancel: Annuler
+close: Fermer
+delete: Supprimer
+devtools:
+  app_folders: Dossiers de Seelen UI
+  color_palette: Palette de couleurs
+  color_palette_note: >-
+    Ces couleurs s'adaptent automatiquement au mode clair/sombre : chaque nuance
+    est un contraste relatif à l'arrière-plan actuel, et non une valeur fixe.
+    Utilisez-les à la place des couleurs codées en dur pour obtenir une prise en
+    charge automatique des thèmes.
+  custom_config_file: Charger un fichier de configuration personnalisé
+  data_folder: Dossier des données de l'application
+  enable: Activer les outils de développement
+  enable_description: >-
+    Débloque des outils avancés pour inspecter et déboguer les composants
+    internes de l’interface utilisateur de Seelen. Non destiné à un usage
+    régulier.
+  icons: Icônes mises en cache
+  install_folder: Dossier d'installation
+  load: Charger
+  settings_file: Fichier de paramètres
+  shared_components: Composants standards SLU
+  simulate_dialog:
+    label: Boîte de dialogue Simuler
+    trigger: Déclenchement
+  simulate_perm:
+    label: Simuler une demande d'autorisation de widget
+    result_allowed: ✓ Autorisation accordée
+    result_denied: ✗ Autorisation refusée
+    trigger: Simuler
+    widget_id_placeholder: '@auteur/nom-widget'
+  tools: Outils
+  unlock_shortcuts: Déverrouiller les raccourcis en lecture seule
+  unlock_shortcuts_description: >-
+    Autoriser la modification des raccourcis qui sont normalement en lecture
+    seule (par exemple, les remplacements du système).
+  unstable_optimizations: Optimisations instables
+  unstable_optimizations_description: "Activez les indicateurs Chromium expérimentaux qui réduisent l’utilisation de la RAM.\nAttention\_: si un widget plante, tous les widgets partageant le même chargeur planteront ensemble."
+  widgets_debug:
+    actions: Actes
+    empty: Aucun widget chargé. Cliquez sur Actualiser.
+    instance_id: ID d'instance
+    monitor_id: ID du moniteur
+    open_devtools: Outils de développement
+    refresh: Rafraîchir
+    status: Statut
+    tab: Widgets
+    widget_id: Identifiant du widget
+discord_banner:
+  message: >-
+    Connectez-vous avec d'autres utilisateurs de Seelen UI, obtenez de l'aide,
+    partagez des thèmes et restez informé des dernières nouvelles.
+  title: Rejoignez notre communauté
+extras:
+  backup_group: Sauvegarde dans le cloud
+  backup_last_sync: Dernière synchronisation
+  backup_never_synced: Jamais synchronisé
+  backup_sync: Synchroniser les paramètres avec le cloud
+  backup_sync_description: Sauvegardez et restaurez automatiquement vos paramètres via le cloud.
+  clear_icons: Effacer le cache des icônes du système
+  clear_icons_tooltip: >-
+    Un redémarrage peut être nécessaire pour que cela prenne effet sur tous les
+    widgets
+  discord_rpc: Présence riche en discorde
+  discord_rpc_description: "Montrez à tout le monde que vous avez du style\_!"
+  exit: Quitter
+  relaunch: Redémarrer Seelen UI
+  streaming_mode: Mode diffusion
+  streaming_mode_description: >-
+    Remplace les informations sensibles (par exemple les e-mails) par des
+    espaces réservés pour protéger la confidentialité lors des enregistrements
+    ou des captures d'écran.
+  version: Version
+  version_fixed: >-
+    Les versions de l'application et de WebView2 Runtime sont corrigées. Cela
+    signifie que l'application ne recevra pas de mises à jour et que WebView2
+    Runtime ne sera pas automatiquement mis à jour avec les mises à jour
+    Windows.
+general:
+  accent_color: Couleur d'accentuation
+  date_format: Format de la date
+  date_format_how_to: Comment écrire un format de date ?
+  hardware_acceleration: Accélération matérielle
+  hardware_acceleration_description: >-
+    La désactivation de l'accélération matérielle réduira l'utilisation de la
+    mémoire. Vous pouvez le désactiver en toute sécurité si vous n'utilisez pas
+    d'animations lourdes, bien que des widgets individuels puissent toujours
+    forcer l'utilisation du GPU quel que soit ce paramètre.
+  icon_pack:
+    available: Packs d'icônes disponibles
+    selected: Packs d'icônes actifs
+  language: Langue
+  monday: Lundi
+  performance_mode:
+    label: Optimisations
+    on_battery: Sur la batterie
+    on_energy_saver: Sur l'énergie
+    options:
+      disabled: Désactivé
+      extreme: Extrême
+      minimal: Minimal
+    plugged: Bouchée ou charge
+  polling_interval: Intervalle d'interrogation du système
+  polling_interval_description: >-
+    À quelle fréquence (en secondes) Seelen UI vérifie les ressources système
+    telles que l'activité du processeur, de la RAM, du réseau et du disque. Un
+    nombre plus petit signifie des mises à jour plus fréquentes, mais une
+    utilisation des ressources légèrement plus élevée.
+  saturday: Samedi
+  start_of_week: Début de semaine
+  startup: Lancer au démarrage ?
+  sunday: Dimanche
+  suspend_on_game_mode: Suspendre les widgets en mode jeu
+  suspend_on_game_mode_description: >-
+    Lorsque le mode jeu Windows est actif, toutes les vues Web des widgets sont
+    détruites afin de libérer le processeur et la mémoire pour le jeu. Les
+    widgets sont automatiquement restaurés à la fin du mode jeu.
+  theme:
+    available: Thèmes disponibles
+    selected: Thèmes actifs
+global: Mondial
+header:
+  labels:
+    config: Configurations
+    developer: Pour les développeurs
+    extras: Extras
+    general: Général
+    home: Accueil
+    iconpack: Packs d'icônes
+    monitors: Moniteurs
+    plugin: Plugins
+    resources: Ressources
+    session: Compte
+    shortcuts: Raccourcis
+    soundpack: Paquets de sons
+    specific_apps: Paramètres par application
+    theme: Thèmes
+    virtual_desk: Bureaux virtuels
+    wallpaper: Fonds d'écran
+    widget: Widgets
+home:
+  new_resources: Nouvelles ressources
+inherit: Hériter
+inProgress: En cours...
+insert: Insérer
+join_us: Rejoignez-nous !
+loading: Chargement...
+miscellaneous: Divers
+monitors_configurations:
+  label: Moniteur {{index}}
+more: Plus
+'no': Non
+open: Ouvrir
+quit: Quitter
+remove: Retirer
+reset_all_to_default: Rétablir les valeurs par défaut
+reset_configurations: Réinitialiser les configurations
+reset_to_default: Remise à la valeur par défaut
+resources:
+  affected_widgets: Widgets concernés
+  app_outdated: >-
+    Cette ressource nécessite une version plus récente de Seelen UI pour
+    fonctionner correctement.
+  coming_soon: À venir
+  corrupted_wallpaper: "Échec de l'extraction de la vignette\_: format vidéo corrompu ou non pris en charge"
+  delete: Supprimer les ressources
+  discover: Découvrez d'autres ressources
+  has_update: Une mise à jour est disponible
+  high_impact: Impact élevé sur les performances
+  import_wallpapers: Importer des fonds d'écran locaux
+  included_plugins: Plugins inclus
+  modified: Modifié
+  open_folder: Ouvrir le dossier des ressources
+  outdated: >-
+    Cette ressource a été conçue pour une ancienne version de Seelen UI et peut
+    ne pas fonctionner correctement.
+  see_on_website: Voir sur le site
+  update_now: Mise à jour
+  updates_available: Mises à jour disponibles
+  updates_available_description: Les ressources suivantes disposent de mises à jour disponibles.
+review_request:
+  not_now: Pas maintenant
+  sure: Bien sûr!
+  title: "Vous appréciez l'interface utilisateur de Seelen\_?"
+save: Enregistrer
+save_and_restart: Enregistrer et redémarrer
+search: Recherche
+see_more: Voir plus
+session:
+  logout: Se déconnecter
+  plan: Plan
+  sign_in: Se connecter
+  sign_in_hint: >-
+    Votre navigateur s'ouvrira pour que vous puissiez vous connecter en toute
+    sécurité.
+  upgrade_to: Mettre à niveau vers
+shortcuts:
+  disabled_tooltip: Le widget et ses raccourcis sont désactivés
+  duplicate_error: Raccourcis conflictuels détectés
+  duplicate_error_hint: >-
+    Certains raccourcis sont affectés à plusieurs actions. Désactivez l'un des
+    widgets en conflit ou réaffectez la liaison de clé en double à résoudre.
+  enable: Activer le système de raccourcis intégrés
+  enable_tooltip: >-
+    Désactiver si vous implémentez votre propre système de raccourcis à l'aide
+    du client de l'interface utilisateur Seelen
+  labels:
+    create_new_workspace: Créer un nouvel espace de travail
+    create_new_workspace_row: Créer une nouvelle ligne d'espace de travail
+    destroy_current_workspace: Détruire l'espace de travail actuel
+    misc_force_quit: Force quitter
+    misc_force_restart: Forcer le redémarrage
+    move_to_workspace: Déplacer dans l'espace de travail {{0}}
+    pause_toggle: Raccourcis Pause/Reprise
+    send_to_next_workspace: Envoyer la fenêtre à l'espace de travail suivant
+    send_to_previous_workspace: Envoyer la fenêtre vers l'espace de travail précédent
+    send_to_workspace: Envoyer à Workspace {{0}}
+    send_to_workspace_down: Envoyer la fenêtre vers l'espace de travail ci-dessous
+    send_to_workspace_up: Envoyer la fenêtre vers l'espace de travail ci-dessus
+    switch_to_next_workspace: Passez à l'espace de travail suivant
+    switch_to_previous_workspace: Passez à l'espace de travail précédent
+    switch_to_workspace_down: Passer à l'espace de travail ci-dessous
+    switch_to_workspace_up: Passer à l'espace de travail ci-dessus
+    switch_workspace: Passez à Workspace {{0}}
+  readonly_tooltip: Ceci est un raccourci en lecture seule
+  reset: Réinitialiser les valeurs par défaut
+sides:
+  bottom: Bas
+  left: Gauche
+  right: Droite
+  top: Haut
+toolbar:
+  auto_hide: Masquer automatiquement
+  auto_hide_touch_disabled: >-
+    Le masquage automatique n'est pas disponible sur les appareils à écran
+    tactile
+  delay_to_hide: Délai avant de masquer
+  delay_to_show: Délai avant d'afficher
+  dock_side: Position
+  enable: Activer la barre d'outils sophistiquée
+  hide_mode:
+    always: Toujours
+    never: Jamais
+    on_overlap: Sur chevauchement
+  item_size: Taille de l'article
+  label: Barre d'outils
+  margin: Taille de la marge
+  padding: Taille du rembourrage
+  placeholder: {}
+update:
+  available: Mise à jour disponible !
+  channel: Canal de mise à jour
+  downloading: Téléchargement...
+wall:
+  blur: Flou
+  cancel: Annuler
+  close: Fermer
+  collection_name: Nom de la collection
+  collections: Collections
+  contrast: Contraste
+  corrupted_wallpapers_message: "Fonds d'écran corrompus, pensez à les supprimer\_:"
+  coverage_pause_threshold: Seuil de pause (couverture de la fenêtre)
+  create: Créer
+  create_collection: Créer une collection
+  default_collection: Fond d'écran ou collection par défaut
+  default_collection_description: >-
+    Appliqué à tous les moniteurs et espaces de travail qui n’ont pas de jeu de
+    remplacement spécifique.
+  delete_collection: Supprimer la collection
+  edit_collection: Modifier la collection
+  extend: Étendre le primaire
+  fit:
+    contain: Contenir
+    cover: Couverture
+    fill: Remplir
+  flipHorizontal: Retournement horizontal
+  flipVertical: Flip Vertical
+  generating_thumbnails: Générer des vignettes de fond d'écran
+  hours: heures
+  interval: Changer de fond d'écran toutes les
+  minutes: minutes
+  monitor_collection: Collection de moniteurs
+  multimonitor_behaviour: Comportement multi-écrans
+  muted: Couper le son de la vidéo
+  no_background: Liste vide, le fond d'écran du thème sera utilisé.
+  no_collections: >-
+    Aucune collection créée pour l'instant. Cliquez sur le bouton + pour en
+    créer un.
+  objectFit: Conforme à l'arrière-plan
+  objectPosition: Position d'arrière-plan
+  overlayColor: Couleur de la superposition
+  overlayMixBlendMode: Mode de mélange de la superposition
+  per_monitor: Par moniteur
+  per_monitor_config: Configuration par moniteur
+  playback: Vitesse de lecture
+  position:
+    bottom: Le fond
+    center: Centre
+    left: Gauche
+    right: Droit
+    top: Haut de page
+  processing_video: Traitement vidéo
+  random: Diaporama aléatoire
+  saturation: Saturation
+  seconds: secondes
+  select_collection: Sélectionnez une collection
+  thumbnail_generation_complete: Génération de vignettes terminée
+  thumbnail_generation_finished: La génération des vignettes s'est terminée avec succès
+  use_accent_color: Utiliser la couleur d’accent du papier peint
+  wallpaper_collection: Collection de papiers peints
+  wallpaper_settings: Paramètres du papier peint
+  wallpapers: Fonds d'écran
+  wallpapers_and_collections: Fonds d'écran et collections
+  withOverlay: Avec recouvrement
+  workspace_collections: Collections d'espaces de travail
+weg:
+  auto_hide: Masquage automatique
+  auto_hide_touch_disabled: >-
+    Le masquage automatique n'est pas disponible sur les appareils à écran
+    tactile
+  delay_to_hide: Délai avant masquage
+  delay_to_show: Délai avant affichage
+  dock_side: Position
+  filtering: Filtrage des applications
+  gap: Écart
+  hide_mode:
+    always: Toujours
+    never: Jamais
+    on_overlap: Si chevauchement
+  import_error: Échec de l'importation des éléments de la barre des tâches
+  import_from_taskbar:
+    button: Importer depuis la barre des tâches Windows
+    label: Importer des éléments épinglés
+  import_no_items: Aucun élément épinglé trouvé dans la barre des tâches Windows
+  import_success: >-
+    {{count}} élément(s) importé(s) avec succès depuis la barre des tâches
+    Windows
+  items:
+    gap: Espace entre les éléments
+    label: Applications
+    middle_click_action:
+      close_app: Fermer l'application
+      label: Action de clic du milieu
+      open_new_instance: Ouvrir une nouvelle instance
+    pinned_visibility:
+      always: Toujours
+      label: Visibilité des éléments épinglés
+      when_primary: Lorsque le moniteur est principal
+    show_instance_counter: Compteur de fenêtres ouvertes
+    show_window_title: Afficher le titre de la fenêtre ouverte (uniquement à l'horizontale)
+    size: Taille des éléments
+    split_windows: Fenêtres divisées (un élément par fenêtre)
+    temporal_visibility:
+      all: Tous
+      label: Visibilité des éléments non épinglés
+      on_monitor: Sur le moniteur
+  label: Dock/Barre des tâches
+  margin: Marge
+  mode:
+    full_width: Pleine largeur
+    min_content: Aussi petit que possible
+  padding: Hauteur
+  show_end_task: Afficher la tâche finale dans la barre des tâches
+  width: Largeur
+welcome:
+  give_a_review: Donner un avis
+  message: >-
+    Seelen UI est un environnement de bureau gratuit et open source pour
+    Windows. Ici, vous avez un contrôle total sur l'apparence et le comportement
+    de votre bureau, vous permettant de personnaliser chaque détail en fonction
+    de votre flux de travail et de votre style.
+  ok: "Commençons\_!"
+  review: >-
+    Si vous aimez utiliser Seelen UI, pensez à laisser un avis sur la boutique :
+    vos commentaires aident le projet à se développer et à s'améliorer.
+  title: "Bienvenue dans l'interface utilisateur de Seelen\_!"
+widget:
+  default_instance: Instance par défaut
+  default_instance_hint: Toujours actif, utilise la configuration du widget racine
+  enable: Activer ce widget
+  enable_for_monitor: Activer sur ce moniteur
+  extra_instances: Instances supplémentaires
+  instance: Exemple
+  instances: Instances
+wm:
+  animations:
+    duration: Durée d'animation (MS)
+    ease_function: Fonction d'assouplissement de l'animation
+    enable: Activer les animations de Window
+  author: Auteur
+  auto_stack: Pile automatique par catégorie d'application
+  border:
+    enable: Activer la bordure de fenêtre
+    offset: Décalage de bordure
+    width: Largeur de la bordure
+  description: Description
+  drag_behavior: Comportement de traînée
+  drag_behavior_options:
+    sort: Trier (réorganiser les fenêtres en les faisant glisser)
+    swap: Swap (échanger les fenêtres à la fin du glissement)
+  floating:
+    height: Hauteur des fenêtres flottantes
+    title: Taille des fenêtres flottantes
+    width: Largeur des fenêtres flottantes
+  layout: Disposition
+  resize_delta: Delta de redimensionnement (%)
+  space_between_containers: Espacement entre les conteneurs
+  stack_bar_visibility: Visibilité de la barre de pile
+  stack_bar_visibility_options:
+    always: Toujours
+    as_needed: Au besoin
+  workspace_offset: Décalage des bureaux virtuels (Marges)
+  workspace_padding: Rembourrage(Padding) des bureaux virtuels
+'yes': Oui

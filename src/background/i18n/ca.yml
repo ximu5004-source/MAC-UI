@@ -1,0 +1,84 @@
+auth:
+  login_failed_body: >-
+    S'ha produït un error durant l'inici de sessió. Si això continua,
+    assegureu-vos que el servei "Gestor de credencials" de Windows (VaultSvc)
+    estigui habilitat i en funcionament i, a continuació, torneu-ho a provar.
+  login_failed_title: No s'ha pogut iniciar la sessió
+cancel: Cancel·lar
+done: Fer
+elevated:
+  description: >-
+    La interfície d'usuari de Seelen s'està executant amb privilegis
+    d'administrador.
+
+    Això no afegeix ni millora cap funció i pot suposar un risc de seguretat.
+
+    Per a una millor seguretat, reinicieu-lo sense permís d'administrador.
+  title: Executant com a administrador
+file_explorer: Explorador de fitxers
+resource:
+  added: S'ha afegit un nou recurs
+  download_failed_body: >-
+    Alguna cosa va passar malament mentre descarregueu el recurs, informeu -lo a
+    l'equip de desenvolupadors de Seelen.
+  download_failed_title: Descàrrega de recursos ha fallat
+  downloading: Descarregar actius ...
+  downloading_body: Això pot trigar uns segons, si us plau, no tanqueu la finestra.
+  enable: Capacitar
+  login_required_action: Inicieu la sessió
+  login_required_body: Heu d'iniciar sessió per descarregar aquest recurs.
+  login_required_title: Inicia sessió obligatori
+runtime:
+  corrupted_data: Dades corrompudes
+  corrupted_file: >-
+    En canvi, un fitxer de configuració està corromput, utilitzant valors
+    predeterminats.
+  corrupted_file_path: Ruta del fitxer corromput
+  download: Aneu a la pàgina de descàrrega
+  files_integrity: >-
+    No hem pogut verificar la integritat dels fitxers de l'aplicació.
+
+    Això pot passar si els fitxers es van modificar, es van malmetre o la
+    instal·lació està incompleta.
+
+    Per motius de seguretat, la interfície d'usuari de Seelen no pot continuar.
+
+    Torneu-lo a instal·lar des del lloc web oficial.
+  files_integrity_title: 'Alerta de seguretat: la comprovació d''integritat dels fitxers ha fallat'
+  not_found: No s'ha trobat el temps d'execució de WebView2
+  not_found_description: La interfície d'usuari de Seelen requereix Webview2 Runtime. Instal·leu-lo.
+  outdated: Temps d'execució de WebView2 obsolet
+  outdated_description: >-
+    La IU de Seelen requereix el temps d'execució de Webview2 %{min_version} o
+    superior. Si us plau, actualitzeu-lo.
+service:
+  not_running: El servei d'IU de Seelen no s'executa
+  not_running_description: >-
+    Seelen UI Service (servei slu) és una dependència/ajuda perquè l'aplicació
+    funcioni correctament.
+  not_running_ok: Iniciar servei
+shortcut:
+  conflicts:
+    body: >-
+      Algunes dreceres s'assignen a diverses accions, si us plau,
+      reassigneu-les.
+    dismiss: Descartar
+    review: Revisió
+    title: S'han detectat conflictes de dreceres
+  register:
+    placeholder: Premeu qualsevol combinació de tecles
+    title: Registre de nou drecera
+widget_liveness:
+  failed_description: |-
+    El widget '%{widget_name}' va deixar de respondre massa vegades.
+
+    Pots provar de reiniciar l'aplicació.
+  failed_title: Error del widget
+widget_permissions:
+  perm_open_file: obrir fitxers
+  perm_run: executar programes
+  request_description: |-
+    El widget '%{widget_name}' demana permís a %{command}.
+
+    Vols permetre això?
+  request_title: Sol·licitud de permís de widget

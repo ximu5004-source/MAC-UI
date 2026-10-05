@@ -1,0 +1,12 @@
+id: "@default/wm-columns"
+target: "@seelen/window-manager"
+metadata:
+  displayName: !extend i18n/display_name.yml
+  description: !extend i18n/description.yml
+plugin:
+  structure:
+    type: Horizontal
+    children:
+      - type: Leaf
+      - type: Leaf
+      - type: Leaf

@@ -1,0 +1,40 @@
+app_menu:
+  close: Zatvoriti
+  close_multiple: Zatvoriti sve
+  copy_handles: Ručke za kopiranje
+  edit_app_icon: Uredi ikonu aplikacije
+  kill: Kill Process
+  kill_multiple: Ubijte sve procese
+  open_file_location: Otvorite lokaciju datoteke
+  pin: Pin
+  pin_to_center: Pin za centar
+  pin_to_left: Pin na lijevo
+  pin_to_right: Pin na desno
+  run_as: Trčite kao administrator
+  unpin: Otrcati
+context_menu:
+  edit_icon: Edit Icon
+  remove_module: Uklonite modul
+  remove_separator: Uklonite separator
+  reorder_disable: Zaključavanje zadataka
+  reorder_enable: Otključajte traku zadataka
+media:
+  label: Media Player
+  not_playing: Ništa se ne igra
+show_desktop:
+  label: Prikaži radnu površinu
+start:
+  label: Start Menu
+taskbar_menu:
+  add_file: PIN prilagođena datoteka
+  add_separator: Dodaj separator
+  media: Media Player
+  modules: Moduli
+  settings: Postavke
+  task_manager: Task Manager
+trash_bin:
+  empty_bin: Ispraznite koš za smeće
+  item_count: '{{0}} stavki'
+  label: Recycle Bin
+weg:
+  empty: Nema stavki za prikaz

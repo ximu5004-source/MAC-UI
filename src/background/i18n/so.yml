@@ -1,0 +1,87 @@
+auth:
+  login_failed_body: >-
+    Wax baa khaldamay markii la soo galayay Haddii ay tani sii socoto, hubi in
+    adeegga 'Maareeyaha Aqoonsiga' ee Windows (VaultSvc) uu shaqaynayo oo uu
+    socdo, ka dibna isku day mar kale.
+  login_failed_title: Gelitaanku wuu fashilmay
+cancel: Burin
+done: Sameeyey
+elevated:
+  description: >-
+    Seelen UI waxa ay la socotaa mudnaanta maamulaha
+
+    Tani ma soo kordhinayso ama ma wanaajinayso wax sifooyin ah, waxaana laga
+    yaabaa inay keento khatar amni.
+
+    Si loo helo nabad-gelyo wanaagsan, fadlan dib u billow la'aanteed maamulaha
+    fasaxa
+  title: U ordaya sidii Maamule
+file_explorer: File Explorer
+resource:
+  added: Kheyraad Cusub ayaa lagu daray
+  download_failed_body: >-
+    Waxbaa khaldamay iyagoo soo dejinaya kheyraadka, fadlan u sheeg kooxda
+    horumarinta Selelen ee Selen.
+  download_failed_title: Soo-dejiyeyaasha Kheyraadka ayaa ku guuldareystay
+  downloading: Soo dejisashada hantida ...
+  downloading_body: >-
+    Tani waxay qaadan kartaa dhowr ilbidhiqsi, fadlan ha xiri ka dhigin
+    daaqadda.
+  enable: Karsiin
+  login_required_action: Soo gal
+  login_required_body: Waxaad u baahan tahay inaad gasho si aad u soo dejiso agabkan.
+  login_required_title: Saxeexa loo baahan yahay
+runtime:
+  corrupted_data: Xogta musuqmaasuqa
+  corrupted_file: >-
+    Faylka qaabeynta ayaa la musuqmaasuqay, iyadoo la adeegsanayo qiimayaasha
+    caadiga ah halkii.
+  corrupted_file_path: Jidka faylka ee musuqmaasuqa
+  download: Tag bogga soo dejinta
+  files_integrity: >-
+    Waanu xaqiijin kari waynay daacadnimada faylasha codsiga
+
+    Tani waxay dhici kartaa haddii faylasha wax laga beddelay, la kharribmay,
+    ama rakibiddu aanay dhammaystirnayn.
+
+    Sababaha amniga, Seelen UI ma sii socon karo.
+
+    Fadlan dib uga soo dejiso degelka rasmiga ah
+  files_integrity_title: Digniin Amni - Hubinta daacadnimada faylalka waa guuldareystay
+  not_found: WebView2 Runtime lama helin
+  not_found_description: Seelen UI wuxuu u baahan yahay Webview2 Runtime. Fadlan rakib
+  outdated: WebView2 Runtime waa dhacay
+  outdated_description: >-
+    Seelen UI wuxuu u baahan yahay Webview2 Runtime %{min_version} ama ka
+    sareeya. Fadlan u cusboonaysii
+service:
+  not_running: Seelen UI Service ma socdo
+  not_running_description: >-
+    Seelen UI Service (slu-service) waa ku-tiirsanaan/caawiye abka inuu si sax
+    ah u shaqeeyo.
+  not_running_ok: Bilow adeegga
+shortcut:
+  conflicts:
+    body: >-
+      Jidadka gaagaaban qaarkood ayaa loo qoondeeyay falal badan, fadlan dib u
+      habee.
+    dismiss: Eryi
+    review: Dib u eegis
+    title: Isku dhacyada Gaaban ee la ogaaday
+  register:
+    placeholder: Riix wixii isku darka furaha ah
+    title: Diiwaangelinta gaagaaban cusub
+widget_liveness:
+  failed_description: |-
+    Qalabka '%{widget_name}' wuxuu joojiyay jawaab celinta marar badan.
+
+    Waxaad isku dayi kartaa inaad dib u bilowdo abka.
+  failed_title: Khaladka Widget
+widget_permissions:
+  perm_open_file: faylasha furan
+  perm_run: socodsii barnaamijyada
+  request_description: |-
+    Qalabka '%{widget_name}' wuxuu codsanayaa ogolaanshaha %{command}.
+
+    Ma doonaysaa inaad tan ogolaato?
+  request_title: Codsiga Ogolaanshaha Widget

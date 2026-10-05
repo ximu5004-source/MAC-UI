@@ -1,0 +1,470 @@
+action:
+  confirm: তুমি কি নিশ্চিত?
+  confirm_body: এই ক্রিয়াটি পূর্বাবস্থায় ফিরে যেতে পারে না।
+apps_configurations:
+  app:
+    bindings: বাইন্ডিং (নোট উভয় বিকল্পের প্রয়োজন)
+    category: বিভাগ
+    category_placeholder: কিছুই না
+    monitor: মনিটর
+    monitor_placeholder: কিছুই না
+    name: নাম
+    ok_create: সৃষ্টি
+    ok_edit: হালনাগাদ
+    ok_readonly: নতুন হিসাবে সম্পাদনা
+    options:
+      NoInteractive: কোন ইন্টারেক্টিভ
+      VdPinned: সমস্ত কর্মক্ষেত্রে দেখান
+      WmFloat: Twm - ভাসতে শুরু করুন
+      WmForce: Twm - ফোর্স ম্যানেজ
+      WmUnmanage: Twm - Unmanage
+    options_label: অতিরিক্ত বিকল্প
+    title_create: '{{নাম}} তৈরি করা'
+    title_edit: সম্পাদনা {{নাম}}
+    title_readonly: '{{নাম}} দেখুন'
+    weg_options_label: ডক/টাস্কবার বিকল্প
+    wm_options_label: উইন্ডো ম্যানেজার বিকল্পগুলি
+    workspace: কর্মক্ষেত্র
+    workspace_placeholder: কিছুই না
+  bundled_msg: >-
+    এই বান্ডিলযুক্ত কনফিগারেশনগুলি সম্পাদনাযোগ্য নয় এবং আপনাকে কাস্টমাইজেশন
+    ছাড়াই সেরা অভিজ্ঞতা সরবরাহ করার জন্য ডিজাইন করা হয়েছে। তারা
+    স্বয়ংক্রিয়ভাবে আপনার জন্য সর্বাধিক সাধারণ অ্যাপ্লিকেশনগুলি কনফিগার করে।
+  bundled_title: অ্যাপ কনফিগারেশন সিলেনের সাথে বান্ডিল
+  confirm_delete: আপনি কি নিশ্চিত যে আপনি এই কনফিগারেশন/গুলি মুছতে চান?
+  confirm_delete_title: নিশ্চিত বাতিল
+  delete: মুছে ফেলা
+  export: রফতানি
+  export_full: অ্যাপ্লিকেশন দ্বারা রফতানি সেটিংস
+  extra_info: >-
+    সিলেন ইউআই প্রতি অ্যাপ্লিকেশনটিতে কেবলমাত্র একটি শনাক্তকারী ব্যবহার করুন
+    (প্রথম ম্যাচটি পাওয়া গেছে) সুতরাং কীভাবে নির্দিষ্ট করা হয়েছে তার ক্রমটি
+    গুরুত্বপূর্ণ, সর্বশেষ যোগ করা অগ্রাধিকার দেওয়া হবে, কারণ দ্রষ্টব্য টেবিলটি
+    সর্বশেষ থেকে পুরানো পর্যন্ত ডিফল্টরূপে বাছাই করা হয়েছে।
+  identifier:
+    add_block: ব্লক যুক্ত করুন
+    and: এবং
+    id: সনাক্তকারী
+    kind: দ্বারা চিহ্নিত করুন
+    matching_strategy: ম্যাচিং কৌশল
+    matching_strategy_option:
+      contains: ধারণ করে
+      ends_with: দিয়ে শেষ হয়
+      equals: সমান
+      regex: নিয়মিত অভিব্যক্তি
+      starts_with: দিয়ে শুরু হয়
+    negation: ম্যাচিং অবহেলা
+    or: বা
+    remove: ব্লক মুছুন
+    type:
+      class: ক্লাস
+      exe: Exe
+      path: পথ
+      title: শিরোনাম
+  import: আমদানি
+  import_full: আবেদন দ্বারা সেটিংস আমদানি করুন
+  new: নতুন
+  search: অনুসন্ধান
+  swap: অদলবদল
+cancel: বাতিল
+close: বন্ধ
+delete: মুছে ফেলা
+devtools:
+  app_folders: অ্যাপ্লিকেশন ফোল্ডার
+  color_palette: কালার প্যালেট
+  color_palette_note: >-
+    এই রঙগুলি স্বয়ংক্রিয়ভাবে হালকা/অন্ধকার মোডে খাপ খাইয়ে নেয় — প্রতিটি
+    ছায়া বর্তমান পটভূমির সাথে বৈপরীত্য-সম্পর্কিত, একটি নির্দিষ্ট মান নয়।
+    স্বয়ংক্রিয় থিম সমর্থন পেতে হার্ডকোডেড রঙের পরিবর্তে এগুলি ব্যবহার করুন।
+  custom_config_file: কাস্টম কনফিগার ফাইল লোড করুন
+  data_folder: ডেটা ফোল্ডার
+  enable: বিকাশকারী সরঞ্জাম সক্ষম করুন
+  enable_description: >-
+    Seelen UI অভ্যন্তরীণ পরিদর্শন এবং ডিবাগ করার জন্য উন্নত সরঞ্জামগুলি আনলক
+    করে৷ নিয়মিত ব্যবহারের উদ্দেশ্যে নয়।
+  icons: ক্যাশে আইকন
+  install_folder: ইনস্টলেশন ফোল্ডার
+  load: বোঝা
+  settings_file: সেটিংস ফাইল
+  shared_components: SLU স্ট্যান্ডার্ড উপাদান
+  simulate_dialog:
+    label: ডায়ালগ অনুকরণ করুন
+    trigger: ট্রিগার
+  simulate_perm:
+    label: উইজেট অনুমতি অনুরোধ অনুকরণ
+    result_allowed: ✓ অনুমতি দেওয়া হয়েছে
+    result_denied: ✗ অনুমতি অস্বীকৃত
+    trigger: অনুকরণ
+    widget_id_placeholder: '@লেখক/উইজেট-নাম'
+  tools: টুলস
+  unlock_shortcuts: শুধুমাত্র পঠনযোগ্য শর্টকাট আনলক করুন
+  unlock_shortcuts_description: সাধারণত পঠনযোগ্য শর্টকাট সম্পাদনা করার অনুমতি দিন (যেমন সিস্টেম ওভাররাইড)।
+  unstable_optimizations: অস্থির অপ্টিমাইজেশান
+  unstable_optimizations_description: >-
+    পরীক্ষামূলক ক্রোমিয়াম পতাকাগুলি সক্ষম করে যা RAM ব্যবহার হ্রাস করে৷
+
+    সতর্কতা: যদি একটি উইজেট ক্র্যাশ হয়, একই লোডার ভাগ করে নেওয়া সমস্ত উইজেট
+    একসাথে ক্র্যাশ হবে৷
+  widgets_debug:
+    actions: কর্ম
+    empty: কোনো উইজেট লোড হয়নি। রিফ্রেশ ক্লিক করুন.
+    instance_id: ইনস্ট্যান্স আইডি
+    monitor_id: মনিটর আইডি
+    open_devtools: DevTools
+    refresh: রিফ্রেশ
+    status: স্ট্যাটাস
+    tab: উইজেট
+    widget_id: উইজেট আইডি
+discord_banner:
+  message: >-
+    অন্যান্য Seelen UI ব্যবহারকারীদের সাথে সংযোগ করুন, সাহায্য পান, থিমগুলি ভাগ
+    করুন এবং সর্বশেষ খবরের সাথে আপ টু ডেট থাকুন৷
+  title: আমাদের সম্প্রদায়ে যোগদান করুন
+extras:
+  backup_group: ক্লাউড ব্যাকআপ
+  backup_last_sync: শেষ সিঙ্ক
+  backup_never_synced: কখনই সিঙ্ক করা হয়নি
+  backup_sync: ক্লাউডে সিঙ্ক সেটিংস
+  backup_sync_description: >-
+    স্বয়ংক্রিয়ভাবে ব্যাক আপ করুন এবং ক্লাউডের মাধ্যমে আপনার সেটিংস পুনরুদ্ধার
+    করুন।
+  clear_icons: ক্লিয়ার সিস্টেম আইকন ক্যাশে
+  clear_icons_tooltip: >-
+    সমস্ত উইজেটগুলিতে পুরোপুরি কার্যকর করার জন্য একটি পুনঃসূচনা প্রয়োজন হতে
+    পারে
+  discord_rpc: বিরোধ সমৃদ্ধ উপস্থিতি
+  discord_rpc_description: আপনার শৈলী আছে সবাইকে দেখান!
+  exit: প্রস্থান/প্রস্থান
+  relaunch: পুনরায় চালু
+  streaming_mode: স্ট্রিমিং মোড
+  streaming_mode_description: >-
+    রেকর্ডিং বা স্ক্রিনশটের সময় গোপনীয়তা রক্ষা করতে স্থানধারকদের সাথে
+    সংবেদনশীল তথ্য (যেমন ইমেল) প্রতিস্থাপন করে।
+  version: সংস্করণ
+  version_fixed: >-
+    অ্যাপ্লিকেশন এবং WebView2 রানটাইম সংস্করণ স্থির করা হয়েছে। এর মানে হল যে
+    অ্যাপ্লিকেশনটি আপডেট পাবে না এবং WebView2 রানটাইম স্বয়ংক্রিয়ভাবে উইন্ডোজ
+    আপডেটের সাথে আপডেট হবে না।
+general:
+  accent_color: সুরের ধাপের রঙ
+  date_format: তারিখ ফর্ম্যাট
+  date_format_how_to: কিভাবে একটি তারিখ বিন্যাস লিখতে?
+  hardware_acceleration: হার্ডওয়্যার ত্বরণ
+  hardware_acceleration_description: >-
+    হার্ডওয়্যার ত্বরণ নিষ্ক্রিয় করা মেমরি ব্যবহার হ্রাস করবে। আপনি যদি ভারী
+    অ্যানিমেশন ব্যবহার না করেন তবে এটি অক্ষম করা নিরাপদ, যদিও পৃথক উইজেটগুলি
+    এখনও এই সেটিং নির্বিশেষে GPU ব্যবহার বাধ্য করতে পারে৷
+  icon_pack:
+    available: উপলব্ধ আইকন প্যাক
+    selected: সক্রিয় আইকন প্যাক
+  language: ভাষা
+  monday: সোমবার
+  performance_mode:
+    label: অপ্টিমাইজেশন
+    on_battery: ব্যাটারিতে
+    on_energy_saver: শক্তি সঞ্চয় উপর
+    options:
+      disabled: অক্ষম
+      extreme: চরম
+      minimal: ন্যূনতম
+    plugged: প্লাগ বা চার্জিং
+  polling_interval: সিস্টেম পোলিং ব্যবধান
+  polling_interval_description: >-
+    কত ঘন ঘন (সেকেন্ডে) Seelen UI CPU, RAM, নেটওয়ার্ক এবং ডিস্ক কার্যকলাপের মতো
+    সিস্টেম সংস্থানগুলি পরীক্ষা করে। একটি ছোট সংখ্যা মানে আরো ঘন ঘন আপডেট,
+    কিন্তু সামান্য বেশি সম্পদ ব্যবহার।
+  saturday: শনিবার
+  start_of_week: সপ্তাহের শুরু
+  startup: প্রারম্ভকালে চালানো?
+  sunday: রবিবার
+  suspend_on_game_mode: গেম মোডে উইজেট স্থগিত করুন
+  suspend_on_game_mode_description: >-
+    যখন উইন্ডোজ গেম মোড সক্রিয় থাকে, তখন গেমের জন্য CPU এবং মেমরি ফ্রি করতে
+    সমস্ত উইজেট ওয়েবভিউ ধ্বংস হয়ে যায়। গেম মোড শেষ হলে উইজেটগুলি
+    স্বয়ংক্রিয়ভাবে পুনরুদ্ধার করা হয়।
+  theme:
+    available: উপলব্ধ থিম
+    selected: সক্রিয় থিম
+global: গ্লোবাল
+header:
+  labels:
+    config: কনফিগারেশন
+    developer: বিকাশকারীদের জন্য
+    extras: অতিরিক্ত
+    general: সাধারণ
+    home: বাড়ি
+    iconpack: আইকন প্যাকস
+    monitors: মনিটর
+    plugin: প্লাগইন
+    resources: সংস্থান
+    session: হিসাব
+    shortcuts: শর্টকাটস
+    soundpack: সাউন্ড প্যাকস
+    specific_apps: আবেদন দ্বারা সেটিংস
+    theme: থিম
+    virtual_desk: ভার্চুয়াল ডেস্কটপস
+    wallpaper: ওয়ালপেপার
+    widget: উইজেটস
+home:
+  new_resources: নতুন সংস্থান
+inherit: উত্তরাধিকারী
+inProgress: চলমান...
+insert: .োকান
+join_us: আমাদের সাথে যোগ দিন!
+loading: লোড হচ্ছে ...
+miscellaneous: বিবিধ
+monitors_configurations:
+  label: '{{সূচক}} মনিটর'
+more: আরও
+'no': না
+open: খোলা
+quit: প্রস্থান
+remove: সরান
+reset_all_to_default: সমস্ত ডিফল্ট মানগুলিতে পুনরায় সেট করুন
+reset_configurations: কনফিগারেশন রিসেট করুন
+reset_to_default: ডিফল্ট মান পুনরায় সেট করুন
+resources:
+  affected_widgets: প্রভাবিত উইজেট
+  app_outdated: >-
+    এই সংস্থানটির জন্য সঠিকভাবে কাজ করার জন্য সিলেন ইউআইয়ের একটি নতুন সংস্করণ
+    প্রয়োজন।
+  coming_soon: শীঘ্রই আসছে
+  corrupted_wallpaper: থাম্বনেল বের করতে ব্যর্থ হয়েছে - দূষিত বা অসমর্থিত ভিডিও বিন্যাস
+  delete: সংস্থান মুছুন
+  discover: আরও সংস্থান আবিষ্কার করুন
+  has_update: একটি আপডেট উপলব্ধ
+  high_impact: কর্মক্ষমতা উপর উচ্চ প্রভাব
+  import_wallpapers: স্থানীয় ওয়ালপেপার আমদানি করুন
+  included_plugins: অন্তর্ভুক্ত প্লাগইন
+  modified: পরিবর্তিত
+  open_folder: ওপেন রিসোর্স ফোল্ডার
+  outdated: >-
+    এই সংস্থানটি সিলেন ইউআইয়ের একটি পুরানো সংস্করণের জন্য ডিজাইন করা হয়েছিল
+    এবং এটি সঠিকভাবে কাজ নাও করতে পারে।
+  see_on_website: ওয়েবসাইটে দেখুন
+  update_now: আপডেট
+  updates_available: আপডেট উপলব্ধ
+  updates_available_description: নিম্নলিখিত সংস্থান আপডেট উপলব্ধ আছে.
+review_request:
+  not_now: এখন না
+  sure: নিশ্চিত!
+  title: Seelen UI উপভোগ করছেন?
+save: সংরক্ষণ
+save_and_restart: সংরক্ষণ করুন এবং পুনরায় চালু করুন
+search: অনুসন্ধান করুন
+see_more: আরও দেখুন
+session:
+  logout: সাইন আউট
+  plan: পরিকল্পনা
+  sign_in: সাইন ইন করুন
+  sign_in_hint: আপনার ব্রাউজার খুলবে যাতে আপনি নিরাপদে সাইন ইন করতে পারেন।
+  upgrade_to: আপগ্রেড করুন
+shortcuts:
+  disabled_tooltip: উইজেট এবং এর শর্টকাটগুলি অক্ষম করা হয়েছে৷
+  duplicate_error: পরস্পরবিরোধী শর্টকাট সনাক্ত করা হয়েছে৷
+  duplicate_error_hint: >-
+    কিছু শর্টকাট একাধিক অ্যাকশনের জন্য বরাদ্দ করা হয়েছে। বিরোধপূর্ণ উইজেটগুলির
+    একটি অক্ষম করুন বা সমাধানের জন্য ডুপ্লিকেট কী বাইন্ডিং পুনরায় বরাদ্দ করুন৷
+  enable: অন্তর্নির্মিত শর্টকাট সিস্টেম সক্ষম করুন
+  enable_tooltip: >-
+    আপনি যদি সিলেন ইউআই ক্লায়েন্ট ব্যবহার করে নিজের শর্টকাট সিস্টেমটি প্রয়োগ
+    করেন তবে অক্ষম করুন
+  labels:
+    create_new_workspace: নতুন কর্মক্ষেত্র তৈরি করুন
+    create_new_workspace_row: নতুন ওয়ার্কস্পেস সারি তৈরি করুন
+    destroy_current_workspace: বর্তমান কর্মক্ষেত্র ধ্বংস করুন
+    misc_force_quit: ফোর্স প্রস্থান
+    misc_force_restart: জোর পুনরায় চালু করুন
+    move_to_workspace: ওয়ার্কস্পেসে যান {{0}}
+    pause_toggle: শর্টকাট বিরতি/পুনরায় শুরু করুন
+    send_to_next_workspace: পরবর্তী কর্মক্ষেত্রে উইন্ডো পাঠান
+    send_to_previous_workspace: পূর্ববর্তী কর্মক্ষেত্রে উইন্ডো পাঠান
+    send_to_workspace: ওয়ার্কস্পেসে প্রেরণ করুন {{0}}
+    send_to_workspace_down: নিচের ওয়ার্কস্পেসে উইন্ডো পাঠান
+    send_to_workspace_up: উপরের ওয়ার্কস্পেসে উইন্ডো পাঠান
+    switch_to_next_workspace: পরবর্তী কর্মক্ষেত্রে স্যুইচ করুন
+    switch_to_previous_workspace: পূর্ববর্তী কর্মক্ষেত্রে স্যুইচ করুন
+    switch_to_workspace_down: নীচের কর্মক্ষেত্রে স্যুইচ করুন
+    switch_to_workspace_up: উপরে ওয়ার্কস্পেস এ স্যুইচ করুন
+    switch_workspace: ওয়ার্কস্পেসে স্যুইচ করুন {{0}}
+  readonly_tooltip: এটি কেবল একটি পঠিত শর্টকাট
+  reset: ডিফল্ট পুনরায় সেট করুন
+sides:
+  bottom: নীচে
+  left: বাম
+  right: ঠিক আছে
+  top: শীর্ষ
+toolbar:
+  auto_hide: অটো আড়াল
+  auto_hide_touch_disabled: টাচ স্ক্রীন ডিভাইসে স্বয়ংক্রিয় লুকান উপলব্ধ নয়
+  delay_to_hide: আড়াল করতে বিলম্ব
+  delay_to_show: দেখাতে বিলম্ব
+  dock_side: অবস্থান
+  enable: অভিনব সরঞ্জামদণ্ড সক্ষম করুন
+  hide_mode:
+    always: সর্বদা
+    never: কখনই না
+    on_overlap: ওভারল্যাপে
+  item_size: আইটেম আকার
+  label: সরঞ্জামদণ্ড
+  margin: মার্জিন সাইজ
+  padding: প্যাডিং আকার
+  placeholder: {}
+update:
+  available: আপডেট উপলব্ধ!
+  channel: আপডেট চ্যানেল
+  downloading: ডাউনলোড ...
+wall:
+  blur: অস্পষ্টতা
+  cancel: বাতিল করুন
+  close: বন্ধ
+  collection_name: সংগ্রহের নাম
+  collections: সংগ্রহ
+  contrast: বিপরীতে
+  corrupted_wallpapers_message: 'দূষিত ওয়ালপেপার, এগুলি মুছে ফেলার কথা বিবেচনা করুন:'
+  coverage_pause_threshold: পজ থ্রেশহোল্ড (উইন্ডো কভারেজ)
+  create: তৈরি করুন
+  create_collection: সংগ্রহ তৈরি করুন
+  default_collection: ডিফল্ট ওয়ালপেপার বা সংগ্রহ
+  default_collection_description: নির্দিষ্ট ওভাররাইড সেট নেই এমন সমস্ত মনিটর এবং ওয়ার্কস্পেসগুলিতে প্রযোজ্য৷
+  delete_collection: সংগ্রহ মুছুন
+  edit_collection: সংগ্রহ সম্পাদনা করুন
+  extend: প্রাথমিক প্রসারিত
+  fit:
+    contain: ধারণ করে
+    cover: কভার
+    fill: পূরণ করুন
+  flipHorizontal: অনুভূমিক ফ্লিপ
+  flipVertical: উল্লম্ব ফ্লিপ
+  generating_thumbnails: ওয়ালপেপার থাম্বনেল তৈরি করা হচ্ছে
+  hours: ঘন্টা
+  interval: প্রতিটি ওয়ালপেপার পরিবর্তন করুন
+  minutes: মিনিট
+  monitor_collection: সংগ্রহ মনিটর
+  multimonitor_behaviour: মাল্টিমনিটর আচরণ
+  muted: ভিডিও অডিও নিঃশব্দ করুন
+  no_background: পরিবর্তে থিমের পটভূমি ব্যবহার করে খালি স্লাইডশো।
+  no_collections: এখনো কোনো সংগ্রহ তৈরি করা হয়নি। একটি তৈরি করতে + বোতামে ক্লিক করুন।
+  objectFit: পটভূমি ফিট
+  objectPosition: পটভূমি অবস্থান
+  overlayColor: ওভারলে রঙ
+  overlayMixBlendMode: ওভারলে মিক্স মিশ্রণ মোড
+  per_monitor: মনিটর প্রতি
+  per_monitor_config: প্রতি-মনিটর কনফিগারেশন
+  playback: প্লেব্যাক গতি
+  position:
+    bottom: নীচে
+    center: কেন্দ্র
+    left: বাম
+    right: ঠিক আছে
+    top: শীর্ষ
+  processing_video: ভিডিও প্রসেস করা হচ্ছে
+  random: এলোমেলোভাবে স্লাইডশো
+  saturation: স্যাচুরেশন
+  seconds: সেকেন্ড
+  select_collection: সংগ্রহ নির্বাচন করুন
+  thumbnail_generation_complete: থাম্বনেইল জেনারেশন সম্পূর্ণ
+  thumbnail_generation_finished: থাম্বনেইল জেনারেশন সফলভাবে শেষ হয়েছে
+  use_accent_color: ওয়ালপেপার অ্যাকসেন্ট রঙ ব্যবহার করুন
+  wallpaper_collection: ওয়ালপেপার সংগ্রহ
+  wallpaper_settings: ওয়ালপেপার সেটিংস
+  wallpapers: ওয়ালপেপার
+  wallpapers_and_collections: ওয়ালপেপার এবং সংগ্রহ
+  withOverlay: ওভারলে সহ
+  workspace_collections: ওয়ার্কস্পেস সংগ্রহ
+weg:
+  auto_hide: স্বয়ং চামড়া
+  auto_hide_touch_disabled: টাচ স্ক্রীন ডিভাইসে স্বয়ংক্রিয় লুকান উপলব্ধ নয়
+  delay_to_hide: আড়াল করতে বিলম্ব
+  delay_to_show: দেখাতে বিলম্ব
+  dock_side: অবস্থান
+  filtering: আইটেম ফিল্টারিং
+  gap: ফাঁক
+  hide_mode:
+    always: সর্বদা
+    never: কখনই না
+    on_overlap: ওভারল্যাপে
+  import_error: টাস্কবার আইটেম আমদানি করতে ব্যর্থ হয়েছে
+  import_from_taskbar:
+    button: উইন্ডোজ টাস্কবার থেকে আমদানি করুন
+    label: পিন করা আইটেম আমদানি করুন
+  import_no_items: Windows টাস্কবারে কোনো পিন করা আইটেম পাওয়া যায়নি
+  import_success: Windows টাস্কবার থেকে সফলভাবে {{count}}টি আইটেম(গুলি) আমদানি করা হয়েছে৷
+  items:
+    gap: আইটেম মধ্যে স্থান
+    label: আইটেম
+    middle_click_action:
+      close_app: অ্যাপ বন্ধ করুন
+      label: মিডল ক্লিক অ্যাকশন
+      open_new_instance: নতুন উদাহরণ খুলুন
+    pinned_visibility:
+      always: সর্বদা
+      label: পিন করা আইটেম দৃশ্যমানতা
+      when_primary: যখন মনিটর প্রাথমিক হয়
+    show_instance_counter: ওপেন উইন্ডোজ কাউন্টার দেখান
+    show_window_title: ওপেন উইন্ডো শিরোনাম দেখান (কেবল অনুভূমিক)
+    size: আইটেমের আকার
+    split_windows: স্প্লিট উইন্ডোজ (প্রতি উইন্ডোতে একটি আইটেম)
+    temporal_visibility:
+      all: সব
+      label: আনপিন করা আইটেম দৃশ্যমানতা
+      on_monitor: মনিটরে
+  label: ডক/টাস্কবার
+  margin: মার্জিন
+  mode:
+    full_width: পূর্ণ পর্দা প্রস্থ
+    min_content: যতটা সম্ভব ছোট
+  padding: প্যাডিং
+  show_end_task: টাস্কবারে শেষ টাস্ক দেখান
+  width: প্রস্থ
+welcome:
+  give_a_review: একটি পর্যালোচনা দিন
+  message: >-
+    Seelen UI হল উইন্ডোজের জন্য একটি বিনামূল্যের এবং ওপেন সোর্স ডেস্কটপ পরিবেশ।
+    এখানে আপনার ডেস্কটপ কেমন দেখায় এবং আচরণ করে তার উপর আপনার সম্পূর্ণ
+    নিয়ন্ত্রণ রয়েছে, আপনাকে আপনার কর্মপ্রবাহ এবং শৈলীর সাথে মেলে প্রতিটি বিবরণ
+    কাস্টমাইজ করার অনুমতি দেয়।
+  ok: শুরু করা যাক!
+  review: >-
+    আপনি যদি Seelen UI ব্যবহার করে উপভোগ করেন, তাহলে দোকানে একটি পর্যালোচনা করার
+    কথা বিবেচনা করুন — আপনার প্রতিক্রিয়া প্রকল্পের বৃদ্ধি এবং উন্নতিতে সাহায্য
+    করে।
+  title: Seelen UI তে স্বাগতম!
+widget:
+  default_instance: ডিফল্ট উদাহরণ
+  default_instance_hint: সর্বদা সক্রিয়, রুট উইজেট কনফিগারেশন ব্যবহার করে
+  enable: এই উইজেট সক্ষম করুন
+  enable_for_monitor: এই মনিটরে সক্ষম করুন
+  extra_instances: অতিরিক্ত উদাহরণ
+  instance: দৃষ্টান্ত
+  instances: উদাহরণ
+wm:
+  animations:
+    duration: অ্যানিমেশন সময়কাল (এমএস)
+    ease_function: অ্যানিমেশন ইজিং ফাংশন
+    enable: উইন্ডোর অ্যানিমেশনগুলি সক্ষম করুন
+  author: লেখক
+  auto_stack: অ্যাপ্লিকেশন বিভাগ দ্বারা স্বয়ংক্রিয় স্ট্যাক
+  border:
+    enable: উইন্ডোর সীমানা সক্ষম করুন
+    offset: সীমান্ত অফসেট
+    width: সীমানার প্রশস্থতা
+  description: বর্ণনা
+  drag_behavior: টেনে আনার আচরণ
+  drag_behavior_options:
+    sort: সাজান (ড্র্যাগ করার সময় উইন্ডোজ পুনরায় সাজান)
+    swap: অদলবদল (ড্র্যাগ এন্ডে সোয়াপ উইন্ডো)
+  floating:
+    height: ভাসমান উইন্ডোজের উচ্চতা
+    title: ফ্লোটিং উইন্ডোজ সাইজ
+    width: ভাসমান উইন্ডোজ প্রস্থ
+  layout: বিন্যাস
+  resize_delta: পুনরায় আকার ডেল্টা (%)
+  space_between_containers: পাত্রে স্থান
+  stack_bar_visibility: স্ট্যাক বার দৃশ্যমানতা
+  stack_bar_visibility_options:
+    always: সর্বদা
+    as_needed: প্রয়োজন মতো
+  workspace_offset: ওয়ার্কস্পেস অফসেট (মার্জিন)
+  workspace_padding: ওয়ার্কস্পেস প্যাডিং
+'yes': হ্যাঁ

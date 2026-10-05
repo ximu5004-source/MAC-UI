@@ -1,0 +1,472 @@
+action:
+  confirm: Oletko varma?
+  confirm_body: Tätä toimintaa ei voida kumota.
+apps_configurations:
+  app:
+    bindings: Sidonta (huomautus tarvitaan molemmat vaihtoehdot)
+    category: Kategoria
+    category_placeholder: Ei mitään
+    monitor: Monitori
+    monitor_placeholder: Ei mitään
+    name: Nimi
+    ok_create: Luoda
+    ok_edit: Päivittää
+    ok_readonly: Muokata UUSIA
+    options:
+      NoInteractive: Ei interaktiivista
+      VdPinned: Näytä kaikissa työtiloissa
+      WmFloat: Twm - Aloita kelluminen
+      WmForce: Twm - Pakota hallinta
+      WmUnmanage: Twm - Ei hallintaa
+    options_label: Ylimääräiset vaihtoehdot
+    title_create: '{{Nimi}} luominen'
+    title_edit: Muokkaaminen {{nimi}}
+    title_readonly: Katselu {{nimi}}
+    weg_options_label: Dock/tehtäväpalkin vaihtoehdot
+    wm_options_label: Window Manager -vaihtoehdot
+    workspace: Työtila
+    workspace_placeholder: Ei mitään
+  bundled_msg: >-
+    Näitä pauhutettuja kokoonpanoja ei voida muokata, ja ne on suunniteltu
+    tarjoamaan sinulle paras kokemus ilman räätälöintiä. Ne määrittelevät
+    sinulle yleisimmät sovellukset automaattisesti.
+  bundled_title: APP -konfigurointi, joka on mukana Seelenin kanssa
+  confirm_delete: Haluatko varmasti poistaa tämän kokoonpanon/S?
+  confirm_delete_title: Vahvista poistaminen
+  delete: Poistaa
+  export: Viedä
+  export_full: Vie asetukset sovelluksittain
+  extra_info: >-
+    Seelen -käyttöliittymä käyttää vain yhtä tunnistetta sovellusta kohden
+    (ensimmäinen ottelu löydetty), joten tilaus kuinka spesifikaatio on tärkeä,
+    viimeisin lisätty lisätään etusijalle, kuten huomaa, että taulukko
+    lajitellaan oletuksena viimeisimmästä vanhaan.
+  identifier:
+    add_block: Lisätä
+    and: JA
+    id: Tunniste
+    kind: Tunnistaa jtk
+    matching_strategy: Sovitusstrategia
+    matching_strategy_option:
+      contains: Sisältää
+      ends_with: päättyy
+      equals: Yhtä
+      regex: Säännöllinen lauseke
+      starts_with: Alkaa kanssa
+    negation: Negatiivista vastaavuus
+    or: TAI
+    remove: Poistaa lohko
+    type:
+      class: Luokka
+      exe: Exe
+      path: Polku
+      title: Otsikko
+  import: Tuonti
+  import_full: Tuo asetukset sovelluksittain
+  new: Uusi
+  search: Hae
+  swap: Vaihtaa
+cancel: Peruuttaa
+close: Lähellä
+delete: Poistaa
+devtools:
+  app_folders: Sovelluskansiot
+  color_palette: Väripaletti
+  color_palette_note: >-
+    Nämä värit mukautuvat automaattisesti vaaleaan/tummaan tilaan – jokainen
+    sävy on kontrastisuhteessa nykyiseen taustaan, ei kiinteään arvoon. Käytä
+    niitä kovakoodattujen värien sijaan saadaksesi automaattisen teematuen.
+  custom_config_file: Lataa mukautettu konfigurointitiedosto
+  data_folder: Tietokansio
+  enable: Ota kehittäjätyökalut käyttöön
+  enable_description: >-
+    Avaa edistyneet työkalut Seelen-käyttöliittymän sisäosien tarkastamiseen ja
+    virheenkorjaukseen. Ei tarkoitettu säännölliseen käyttöön.
+  icons: Välimuistissa olevat kuvakkeet
+  install_folder: Asennuskansio
+  load: Ladata
+  settings_file: Asetustiedosto
+  shared_components: SLU:n vakiokomponentit
+  simulate_dialog:
+    label: Simuloi valintaikkuna
+    trigger: Laukaista
+  simulate_perm:
+    label: Simuloi widgetin lupapyyntö
+    result_allowed: ✓ Lupa myönnetty
+    result_denied: ✗ Lupa evätty
+    trigger: Simuloida
+    widget_id_placeholder: '@author/widgetin nimi'
+  tools: Työkalut
+  unlock_shortcuts: Avaa vain luku -pikakuvakkeet
+  unlock_shortcuts_description: >-
+    Salli muokkausten pikakuvakkeet, jotka ovat normaalisti vain luku -tilassa
+    (esim. järjestelmän ohitukset).
+  unstable_optimizations: Epävakaat optimoinnit
+  unstable_optimizations_description: >-
+    Ota käyttöön kokeelliset Chromium-merkit, jotka vähentävät RAM-muistin
+    käyttöä.
+
+    Varoitus: jos widget kaatuu, kaikki saman latausohjelman jakavat widgetit
+    kaatuvat yhdessä.
+  widgets_debug:
+    actions: Toiminnot
+    empty: Ei widgetejä ladattu. Napsauta Päivitä.
+    instance_id: Ilmentymän tunnus
+    monitor_id: Näytön tunnus
+    open_devtools: DevTools
+    refresh: Päivitä
+    status: Status
+    tab: Widgetit
+    widget_id: Widgetin tunnus
+discord_banner:
+  message: >-
+    Ota yhteyttä muihin Seelen-käyttöliittymän käyttäjiin, hanki apua, jaa
+    teemoja ja pysy ajan tasalla viimeisimmistä uutisista.
+  title: Liity yhteisöömme
+extras:
+  backup_group: Pilvivarmuuskopio
+  backup_last_sync: Viimeisin synkronointi
+  backup_never_synced: Ei koskaan synkronoitu
+  backup_sync: Synkronoi asetukset pilveen
+  backup_sync_description: Varmuuskopioi ja palauta asetuksesi automaattisesti pilven kautta.
+  clear_icons: Tyhjennä järjestelmän kuvakkeiden välimuisti
+  clear_icons_tooltip: >-
+    Uudelleenkäynnistystä saatetaan tarvita, jotta kaikki widgetit tulisivat
+    täysin voimaan.
+  discord_rpc: Eripurainen läsnäolo
+  discord_rpc_description: Näytä kaikille, että sinulla on tyyliä!
+  exit: Lopettaa/poistua
+  relaunch: Käynnistää uudelleen
+  streaming_mode: Suoratoistotila
+  streaming_mode_description: >-
+    Korvaa arkaluontoiset tiedot (esim. sähköpostit) paikkamerkeillä
+    yksityisyyden suojaamiseksi tallennuksen tai kuvakaappauksen aikana.
+  version: Versio
+  version_fixed: >-
+    Sovellus ja WebView2 Runtime -versiot ovat kiinteät. Tämä tarkoittaa, että
+    sovellus ei saa päivityksiä ja WebView2 Runtime ei päivity automaattisesti
+    Windows-päivityksillä.
+general:
+  accent_color: Korostusväri
+  date_format: Päiväysmuoto
+  date_format_how_to: Kuinka kirjoittaa päivämäärämuoto?
+  hardware_acceleration: Laitteistokiihdytys
+  hardware_acceleration_description: >-
+    Laitteistokiihdytyksen poistaminen käytöstä vähentää muistin käyttöä. Se on
+    turvallista poistaa käytöstä, jos et käytä raskaita animaatioita, vaikka
+    yksittäiset widgetit voivat silti pakottaa GPU:n käyttöön tästä asetuksesta
+    huolimatta.
+  icon_pack:
+    available: Saatavilla kuvakepaketit
+    selected: Aktiiviset kuvakepaketit
+  language: Kieli
+  monday: maanantai
+  performance_mode:
+    label: Optimoinnit
+    on_battery: Akun päällä
+    on_energy_saver: Energiansäästäjällä
+    options:
+      disabled: Vammainen
+      extreme: Äärimmäinen
+      minimal: Minimaalinen
+    plugged: Kytketty tai lataus
+  polling_interval: Järjestelmän äänestysväli
+  polling_interval_description: >-
+    Kuinka usein (sekunneissa) Seelen UI tarkistaa järjestelmäresurssit, kuten
+    suorittimen, RAM-muistin, verkon ja levytoiminnan. Pienempi luku tarkoittaa
+    useammin päivityksiä, mutta hieman suurempaa resurssien käyttöä.
+  saturday: lauantai
+  start_of_week: Viikon alku
+  startup: Suorittaa käynnistyksen yhteydessä?
+  sunday: sunnuntai
+  suspend_on_game_mode: Keskeytä widgetit pelitilassa
+  suspend_on_game_mode_description: >-
+    Kun Windows Game Mode on aktiivinen, kaikki widget-verkkonäkymät tuhotaan,
+    jotta pelille vapautuu suoritinta ja muistia. Widgetit palautetaan
+    automaattisesti, kun pelitila päättyy.
+  theme:
+    available: Käytettävissä olevat teemat
+    selected: Aktiiviset teemat
+global: Maailmanlaajuinen
+header:
+  labels:
+    config: Kokoonpanot
+    developer: Kehittäjille
+    extras: Lisävarusteet
+    general: Yleinen
+    home: Kotiin
+    iconpack: Kuvakepaketit
+    monitors: Näytöt
+    plugin: Liitännäiset
+    resources: Resurssit
+    session: Tili
+    shortcuts: Pikakuvakkeet
+    soundpack: Sound Packit
+    specific_apps: Asetukset sovelluksen mukaan
+    theme: Teemat
+    virtual_desk: Virtuaaliset työpöydät
+    wallpaper: Taustakuvat
+    widget: Widgetit
+home:
+  new_resources: Uudet resurssit
+inherit: Periä
+inProgress: Käynnissä...
+insert: Lisätä
+join_us: Liity meihin!
+loading: Ladataan...
+miscellaneous: Sekalainen
+monitors_configurations:
+  label: Monitor {{hakemisto}}
+more: Lisää
+'no': Ei
+open: Avata
+quit: Lopettaa
+remove: Poistaa
+reset_all_to_default: Nollaa kaikki oletusarvot
+reset_configurations: Palauta asetukset
+reset_to_default: Nollaa oletusarvoon
+resources:
+  affected_widgets: Asianomaiset widgetit
+  app_outdated: Tämä resurssi vaatii uudemman version Seelen UI:sta toimiakseen oikein.
+  coming_soon: Tulossa pian
+  corrupted_wallpaper: >-
+    Pikkukuvan purkaminen epäonnistui – videomuoto on vioittunut tai sitä ei
+    tueta
+  delete: Poistaa resurssi
+  discover: Löydä lisää resursseja
+  has_update: Päivitys on käytettävissä
+  high_impact: Suuri vaikutus suorituskykyyn
+  import_wallpapers: Tuo paikallisia taustakuvia
+  included_plugins: Mukana lisäosat
+  modified: Muutettu
+  open_folder: Avaa resurssikansio
+  outdated: >-
+    Tämä resurssi on suunniteltu Seelen UI:n vanhemmalle versiolle, eikä se
+    välttämättä toimi oikein.
+  see_on_website: Katso nettisivuilta
+  update_now: Päivittää
+  updates_available: Päivityksiä saatavilla
+  updates_available_description: Seuraaviin resursseihin on saatavilla päivityksiä.
+review_request:
+  not_now: Ei nyt
+  sure: Varma!
+  title: Pidätkö Seelen-käyttöliittymästä?
+save: Tallentaa
+save_and_restart: Tallenna ja käynnistä uudelleen
+search: Haku
+see_more: Katso lisää
+session:
+  logout: Kirjaudu ulos
+  plan: Suunnitelma
+  sign_in: Kirjaudu sisään
+  sign_in_hint: Selaimesi avautuu, jotta voit kirjautua sisään turvallisesti.
+  upgrade_to: Päivitä
+shortcuts:
+  disabled_tooltip: Widget ja sen pikakuvakkeet on poistettu käytöstä
+  duplicate_error: Ristiriitaiset pikanäppäimet havaittu
+  duplicate_error_hint: >-
+    Jotkut pikanäppäimet on määritetty useille toiminnoille. Poista jokin
+    ristiriitaisista widgeteistä käytöstä tai määritä kaksoisavaimen sidos
+    uudelleen ratkaistaksesi.
+  enable: Ota sisäänrakennettu pikakuvausjärjestelmä
+  enable_tooltip: >-
+    Poista käytöstä, jos otat käyttöön omat pikakuvausjärjestelmäsi Seelen UI
+    -asiakkaan avulla
+  labels:
+    create_new_workspace: Luo uusi työtila
+    create_new_workspace_row: Luo uusi työtilarivi
+    destroy_current_workspace: Tuhoa nykyinen työtila
+    misc_force_quit: Pakottaa
+    misc_force_restart: Pakota uudelleenkäynnistys
+    move_to_workspace: Siirry työtilaan {{0}}
+    pause_toggle: Keskeytä/Jatka pikanäppäimet
+    send_to_next_workspace: Lähetä ikkuna seuraavaan työtilaan
+    send_to_previous_workspace: Lähetä ikkuna edelliseen työtilaan
+    send_to_workspace: Lähetä työtilaan {{0}}
+    send_to_workspace_down: Lähetä ikkuna alla olevaan työtilaan
+    send_to_workspace_up: Lähetä ikkuna yllä olevaan työtilaan
+    switch_to_next_workspace: Vaihda seuraavaan työtilaan
+    switch_to_previous_workspace: Vaihda edelliseen työtilaan
+    switch_to_workspace_down: Vaihda alla olevaan työtilaan
+    switch_to_workspace_up: Vaihda työtilaan yläpuolella
+    switch_workspace: Vaihda työtilaan {{0}}
+  readonly_tooltip: Tämä on vain luku-pikakuvake
+  reset: Palauta laiminlyöntiin
+sides:
+  bottom: Pohja
+  left: Vasen
+  right: Oikea
+  top: Ylhäältä
+toolbar:
+  auto_hide: Automaattinen piilo
+  auto_hide_touch_disabled: Automaattinen piilotus ei ole käytettävissä kosketusnäytöllisissä laitteissa
+  delay_to_hide: Viive piilottaa
+  delay_to_show: Viive näyttöön
+  dock_side: Asema
+  enable: Ota hieno työkalurivi käyttöön
+  hide_mode:
+    always: Aina
+    never: Ei koskaan
+    on_overlap: Päällekkäin
+  item_size: Tuotteen koko
+  label: Työkalurivi
+  margin: Marginaalin koko
+  padding: Pehmusteen koko
+  placeholder: {}
+update:
+  available: Päivitä saatavilla!
+  channel: Päivityskanava
+  downloading: Lataaminen ...
+wall:
+  blur: Sumeus
+  cancel: Peruuttaa
+  close: Lähellä
+  collection_name: Kokoelman nimi
+  collections: Kokoelmat
+  contrast: Kontrasti
+  corrupted_wallpapers_message: 'Vioittuneet taustakuvat, harkitse näiden poistamista:'
+  coverage_pause_threshold: Taukokynnys (ikkunan peitto)
+  create: Luoda
+  create_collection: Luo kokoelma
+  default_collection: Oletus taustakuva tai kokoelma
+  default_collection_description: Koskee kaikkia näyttöjä ja työtiloja, joilla ei ole tiettyä ohitusasetusta.
+  delete_collection: Poista kokoelma
+  edit_collection: Muokkaa kokoelmaa
+  extend: Laajenna ensisijaista
+  fit:
+    contain: Sisältää
+    cover: Kansi
+    fill: Täytä
+  flipHorizontal: Käännä vaakasuora
+  flipVertical: Flip pystysuora
+  generating_thumbnails: Taustakuvien pikkukuvien luominen
+  hours: tuntia
+  interval: Vaihda taustakuva jokainen
+  minutes: minuutti
+  monitor_collection: Näytön kokoelma
+  multimonitor_behaviour: Multimonitorin käyttäytyminen
+  muted: Mykistä videon ääni
+  no_background: Tyhjä diaesitys käyttämällä sen sijaan teeman taustalla.
+  no_collections: Kokoelmia ei ole vielä luotu. Luo sellainen napsauttamalla +-painiketta.
+  objectFit: Tausta Fit
+  objectPosition: Tausta Asema
+  overlayColor: Päällekkäisväri
+  overlayMixBlendMode: Päällekkäinen sekoitus sekoitustila
+  per_monitor: per monitori
+  per_monitor_config: Monitorikohtainen kokoonpano
+  playback: Toistonopeus
+  position:
+    bottom: Pohja
+    center: Keskusta
+    left: Vasen
+    right: Oikea
+    top: Top
+  processing_video: Videota käsitellään
+  random: Satunnaista diaesitys
+  saturation: Saturaatio
+  seconds: sekunti
+  select_collection: Valitse Kokoelma
+  thumbnail_generation_complete: Pikkukuvien luominen valmis
+  thumbnail_generation_finished: Pikkukuvien luominen on päättynyt onnistuneesti
+  use_accent_color: Käytä taustakuvan korostusväriä
+  wallpaper_collection: Taustakuva kokoelma
+  wallpaper_settings: Taustakuvan asetukset
+  wallpapers: Taustakuvat
+  wallpapers_and_collections: Taustakuvat & Kokoelmat
+  withOverlay: Päällysteen kanssa
+  workspace_collections: Työtilakokoelmat
+weg:
+  auto_hide: Automaattinen piilo
+  auto_hide_touch_disabled: Automaattinen piilotus ei ole käytettävissä kosketusnäytöllisissä laitteissa
+  delay_to_hide: Viive piilottaa
+  delay_to_show: Viive näyttöön
+  dock_side: Sijainti
+  filtering: Kohteen suodatus
+  gap: Kuilu
+  hide_mode:
+    always: Aina
+    never: Ei koskaan
+    on_overlap: Päällekkäin
+  import_error: Tehtäväpalkin kohteiden tuonti epäonnistui
+  import_from_taskbar:
+    button: Tuo Windowsin tehtäväpalkista
+    label: Tuo kiinnitetyt kohteet
+  import_no_items: Windowsin tehtäväpalkista ei löytynyt kiinnitettyjä kohteita
+  import_success: '{{count}} kohde(tta) tuotiin onnistuneesti Windowsin tehtäväpalkista'
+  items:
+    gap: Tilaa esineiden välillä
+    label: Kohteet
+    middle_click_action:
+      close_app: Sulje sovellus
+      label: Keskimmäinen napsautustoiminto
+      open_new_instance: Avaa Uusi ilmentymä
+    pinned_visibility:
+      always: Aina
+      label: Kiinnitettyjen kohteiden näkyvyys
+      when_primary: Kun näyttö on ensisijainen
+    show_instance_counter: Näytä avoimien ikkunoiden laskuri
+    show_window_title: Näytä avoimen ikkunan otsikko (vain vaakasuora)
+    size: Esineen koko
+    split_windows: Jaetut ikkunat (yksi kohde per ikkuna)
+    temporal_visibility:
+      all: Kaikki
+      label: Irrotettujen kohteiden näkyvyys
+      on_monitor: Monitorissa
+  label: Telakka/tehtäväpalkki
+  margin: Marginaali
+  mode:
+    full_width: Koko näytön leveys
+    min_content: Niin pieni kuin voi olla
+  padding: Pehmuste
+  show_end_task: Näyttää lopetetun tehtävän tehtäväpalkissa
+  width: Leveys
+welcome:
+  give_a_review: Anna arvostelu
+  message: >-
+    Seelen UI on ilmainen ja avoimen lähdekoodin työpöytäympäristö Windowsille.
+    Täällä voit hallita täysin sitä, miten työpöytäsi näyttää ja käyttäytyy,
+    joten voit mukauttaa jokaisen yksityiskohdan työnkulkusi ja tyylisi
+    mukaiseksi.
+  ok: Aloitetaan!
+  review: >-
+    Jos pidät Seelen-käyttöliittymän käytöstä, harkitse arvostelun jättämistä
+    kauppaan – palautteesi auttaa projektia kasvamaan ja kehittymään.
+  title: Tervetuloa Seelen-käyttöliittymään!
+widget:
+  default_instance: Oletusinstanssi
+  default_instance_hint: Aina aktiivinen, käyttää juuriwidgetin konfiguraatiota
+  enable: Ota tämä widget käyttöön
+  enable_for_monitor: Ota käyttöön tällä näytöllä
+  extra_instances: Ylimääräiset esiintymät
+  instance: Esimerkki
+  instances: Instanssit
+wm:
+  animations:
+    duration: Animaation kesto (MS)
+    ease_function: Animaation helpotustoiminto
+    enable: Ota ikkunan animaatiot käyttöön
+  author: Kirjoittaja
+  auto_stack: Automaattinen pinoaminen sovellusluokan mukaan
+  border:
+    enable: Ota ikkunan reuna käyttöön
+    offset: Rajan siirtyminen
+    width: Rajan leveys
+  description: Kuvaus
+  drag_behavior: Vetokäyttäytyminen
+  drag_behavior_options:
+    sort: Lajittele (järjestä ikkunat uudelleen vetäessäsi)
+    swap: Vaihda (vaihda ikkunoita vetämällä)
+  floating:
+    height: Kelluva ikkunakorkeus
+    title: Kelluva Windowsin koko
+    width: Kelluva ikkunan leveys
+  layout: Layout
+  resize_delta: Muuttaa Delta (%)
+  space_between_containers: Konttien välinen tila
+  stack_bar_visibility: Pinopalkin näkyvyys
+  stack_bar_visibility_options:
+    always: Aina
+    as_needed: Tarpeen mukaan
+  workspace_offset: Työtilojen siirtymä (marginaalit)
+  workspace_padding: Työtilat
+'yes': Kyllä

@@ -1,0 +1,124 @@
+.taskbar {
+  isolation: isolate;
+  overflow: visible;
+  border: 0;
+  border-radius: calc(var(--config-item-size) * 0.38);
+  background: transparent;
+  box-shadow: none;
+}
+
+.taskbar > .bg-layers {
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.taskbar > .bg-layers > .bg-layer-1 {
+  background: var(--mac-glass-surface);
+  backdrop-filter: var(--mac-glass-blur);
+  border: 0;
+  box-shadow: none;
+}
+
+.taskbar > .bg-layers > .bg-layer-2 {
+  background: none;
+}
+
+.taskbar > .bg-layers > .bg-layer-3 {
+  box-shadow: none;
+}
+
+.taskbar > .weg-items-container {
+  position: relative;
+  z-index: 2;
+  border-radius: inherit;
+}
+
+.weg-item {
+  overflow: visible;
+  padding: 0;
+  border-radius: 24%;
+  background: transparent;
+  box-shadow: none;
+}
+
+.weg-item:hover {
+  background: transparent;
+}
+
+.weg-item:hover .slu-icon-outer[data-appearance="liquid-glass"] {
+  transform: translateY(-3px) scale(1.055);
+  filter: none;
+  box-shadow: none;
+}
+
+.weg-item:active {
+  transform: none;
+}
+
+.weg-item:active .slu-icon-outer[data-appearance="liquid-glass"] {
+  transform: translateY(1px) scale(0.96);
+}
+
+.weg-item:hover .slu-icon-outer[data-appearance="app-glass"],
+.weg-item:focus-visible .slu-icon-outer[data-appearance="app-glass"] {
+  transform: translateY(-3px) scale(1.055);
+  filter: none;
+  box-shadow: none;
+}
+
+.weg-item:active .slu-icon-outer[data-appearance="app-glass"] {
+  transform: translateY(1px) scale(0.96);
+}
+
+.weg-item .weg-item-icon {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1;
+}
+
+.weg-item-overlay .weg-item-notification-badge,
+.weg-item-overlay .weg-item-instance-counter-badge {
+  z-index: 5;
+  border: 1px solid rgb(255 255 255 / 0.75);
+  box-shadow: 0 3px 8px rgb(0 0 0 / 0.2);
+}
+
+.weg-item-overlay .weg-item-notification-badge {
+  background: var(--system-accent-color);
+}
+
+.weg-item-overlay .weg-item-instance-counter-badge {
+  background: rgb(0 0 0 / 0.65);
+}
+
+.weg-item-overlay .weg-item-open-sign {
+  background: rgb(255 255 255 / 0.92);
+  box-shadow: none;
+}
+
+.weg-item-overlay .weg-item-open-sign.weg-item-open-sign-focused {
+  background: #55b5ff;
+  box-shadow: none;
+}
+
+.weg-separator {
+  opacity: 0.5;
+}
+
+.weg-item.media-session-container {
+  overflow: hidden;
+  border: 0;
+  border-radius: calc(var(--config-item-size) * 0.48);
+  background: var(--mac-glass-surface);
+  box-shadow: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .weg-item:hover .slu-icon-outer[data-appearance="liquid-glass"],
+  .weg-item:active .slu-icon-outer[data-appearance="liquid-glass"],
+  .weg-item:hover .slu-icon-outer[data-appearance="app-glass"],
+  .weg-item:focus-visible .slu-icon-outer[data-appearance="app-glass"],
+  .weg-item:active .slu-icon-outer[data-appearance="app-glass"] {
+    transform: none;
+  }
+}

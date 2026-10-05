@@ -1,0 +1,40 @@
+app_menu:
+  close: Tæt
+  close_multiple: Luk alt
+  copy_handles: Kopier håndtag
+  edit_app_icon: Rediger app-ikon
+  kill: Aflivningsproces
+  kill_multiple: Dræb alle processer
+  open_file_location: Åbn filplacering
+  pin: Pin
+  pin_to_center: Stift til centrum
+  pin_to_left: Pin til venstre
+  pin_to_right: Pin til højre
+  run_as: Kør som administrator
+  unpin: Unpin
+context_menu:
+  edit_icon: Rediger ikon
+  remove_module: Fjern modul
+  remove_separator: Fjern separatoren
+  reorder_disable: Lås proceslinjen
+  reorder_enable: Lås proceslinjen op
+media:
+  label: Medieafspiller
+  not_playing: Intet spiller
+show_desktop:
+  label: Vis skrivebord
+start:
+  label: Startmenu
+taskbar_menu:
+  add_file: Pin brugerdefineret fil
+  add_separator: Tilføj separator
+  media: Medieafspiller
+  modules: Moduler
+  settings: Indstillinger
+  task_manager: Task Manager
+trash_bin:
+  empty_bin: Tøm papirkurven
+  item_count: '{{0}} elementer'
+  label: Papirkurv
+weg:
+  empty: Ingen elementer at vise

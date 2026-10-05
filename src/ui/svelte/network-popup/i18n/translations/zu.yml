@@ -1,0 +1,23 @@
+available: Amanethiwekhi atholakalayo
+connect: Xhuma
+connected: Kuxhunywe ku
+connecting: Iyaxhuma...
+disconnect: Nqamula
+forget: Khohlwa
+hidden: Inethiwekhi Efihliwe
+hotspot:
+  band: Ibhendi
+  'off': Valiwe
+  'on': Vuliwe
+  open_network: Vula inethiwekhi
+  password: Iphasiwedi
+  settings: Izilungiselelo eziningi ze-Hotspot
+  ssid: Igama lenethiwekhi
+  title: I-Hotspot
+more: Izilungiselelo Zenethiwekhi Eziningi
+no_adapter: Ayikho i-adaptha ye-Wi-Fi etholakele
+not_found: Awekho amanethiwekhi e-Wi-Fi atholiwe
+password: Iphasiwedi
+saved: Amanethiwekhi alondoloziwe
+scanning: Iskenela amanethiwekhi
+secured: Inethiwekhi ebethelwe

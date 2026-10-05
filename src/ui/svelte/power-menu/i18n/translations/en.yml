@@ -1,0 +1,25 @@
+goodbye: Goodbye {{0}}
+hibernate: Hibernate
+lock: Lock session
+log_out: Log out
+reboot: Reboot
+shutdown: Power off
+suspend: Suspend
+uptime: Uptime
+title: Power & Session
+description: Choose what happens next on this computer.
+cancel: Cancel
+escape_hint: Esc to go back or close
+working: Working…
+operation_failed: Could not complete the action
+hints:
+  lock: Keep your work open
+  log_out: End this session
+  shutdown: Turn off this computer
+  reboot: Restart the system
+  suspend: Continue later
+  hibernate: Save state and sleep
+confirm_description:
+  shutdown: Shut down this computer? Save any unfinished work before continuing.
+  reboot: Restart this computer? Save any unfinished work before continuing.
+  log_out: Log out of this session? Unsaved work may be lost.

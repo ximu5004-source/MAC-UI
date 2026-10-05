@@ -1,0 +1,73 @@
+auth:
+  login_failed_body: >-
+    Ohun kan ti ko tọ nigba wiwọle. Ti eyi ba tẹsiwaju, rii daju pe iṣẹ Windows
+    'Credential Manager' (VaultSvc) ti ṣiṣẹ ati ṣiṣiṣẹ, lẹhinna gbiyanju
+    lẹẹkansi.
+  login_failed_title: Wọle kuna
+cancel: Fagilee
+done: Ṣe
+elevated:
+  description: |-
+    Seelen UI nṣiṣẹ pẹlu awọn anfani alakoso.
+    Eyi ko ṣafikun tabi mu awọn ẹya eyikeyi dara, ati pe o le jẹ eewu aabo.
+    Fun aabo to dara julọ, jọwọ tun bẹrẹ laisi awọn igbanilaaye alakoso.
+  title: Nṣiṣẹ bi Alakoso
+file_explorer: Explorer faili
+resource:
+  added: A ti ṣafikun awọn orisun titun
+  download_failed_body: >-
+    Ohunkan ti o jẹ aṣiṣe lakoko gbigba awọn orisun, jọwọ jabo o si ẹgbẹ oludalu
+    ti o yẹ fun Silen.
+  download_failed_title: Igbasilẹ Igbasilẹ kuna
+  downloading: Gbigba awọn ohun-ini ...
+  downloading_body: Eyi le gba iṣẹju diẹ, jọwọ maṣe pa window naa.
+  enable: Mu ṣiṣẹ
+  login_required_action: Wọle
+  login_required_body: O nilo lati wọle lati ṣe igbasilẹ ohun elo yii.
+  login_required_title: Wọle Ti beere fun
+runtime:
+  corrupted_data: Awọn data ti o bajẹ
+  corrupted_file: Faili iṣeto kan jẹ ibajẹ, lilo awọn iye aifọwọyi dipo.
+  corrupted_file_path: Ọna faili ibajẹ
+  download: Lọ si oju-iwe igbasilẹ
+  files_integrity: |-
+    A ko le mọ daju otitọ ti awọn faili ohun elo naa.
+    Eyi le ṣẹlẹ ti awọn faili ba yipada, bajẹ, tabi fifi sori ẹrọ ko pe.
+    Fun awọn idi aabo, Seelen UI ko le tẹsiwaju.
+    Jọwọ tun fi sii lati oju opo wẹẹbu osise.
+  files_integrity_title: Itaniji Aabo - Ṣayẹwo Iduroṣinṣin Awọn faili kuna
+  not_found: WebView2 asiko isise ko ri
+  not_found_description: Seelen UI nilo Webview2 Runtime. Jọwọ fi sii.
+  outdated: WebView2 Runtime ti igba atijọ
+  outdated_description: >-
+    Seelen UI nilo Webview2 Runtime %{min_version} tabi ga julọ. Jọwọ ṣe
+    imudojuiwọn rẹ.
+service:
+  not_running: Seelen UI Service ko nṣiṣẹ
+  not_running_description: >-
+    Iṣẹ Seelen UI (iṣẹ slu-slu) jẹ igbẹkẹle/oluranlọwọ fun ohun elo lati ṣiṣẹ
+    daradara.
+  not_running_ok: Bẹrẹ iṣẹ
+shortcut:
+  conflicts:
+    body: Diẹ ninu awọn ọna abuja ni a yan si awọn iṣe lọpọlọpọ, jọwọ tun wọn sọtọ.
+    dismiss: Yọọ kuro
+    review: Atunwo
+    title: Awari Awọn Rogbodiyan Ọna abuja
+  register:
+    placeholder: Tẹ eyikeyi apapo bọtini
+    title: Sisọ ọrọ abuja tuntun
+widget_liveness:
+  failed_description: |-
+    Ẹrọ ailorukọ '%{widget_name}' dẹkun idahun ni ọpọlọpọ igba.
+
+    O le gbiyanju lati tun app naa bẹrẹ.
+  failed_title: Aṣiṣe ẹrọ ailorukọ
+widget_permissions:
+  perm_open_file: ṣii awọn faili
+  perm_run: ṣiṣe awọn eto
+  request_description: |-
+    Ẹrọ ailorukọ '%{widget_name}' n beere fun igbanilaaye lati %{command}.
+
+    Ṣe o fẹ gba eyi laaye?
+  request_title: Ibeere Gbigbanilaaye ailorukọ

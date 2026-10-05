@@ -1,0 +1,23 @@
+available: Rhwydweithiau sydd ar gael
+connect: Cyswllt
+connected: Wedi'i gysylltu â
+connecting: Wrthi'n cysylltu...
+disconnect: Datgysylltu
+forget: Anghofiwch
+hidden: Rhwydwaith Cudd
+hotspot:
+  band: Band
+  'off': I ffwrdd
+  'on': Ar
+  open_network: Rhwydwaith agored
+  password: Cyfrinair
+  settings: Mwy o Gosodiadau Hotspot
+  ssid: Enw rhwydwaith
+  title: Man poeth
+more: Mwy o Gosodiadau Rhwydwaith
+no_adapter: Ni chanfuwyd addasydd Wi-Fi
+not_found: Ni chanfuwyd unrhyw rwydweithiau Wi-Fi
+password: Cyfrinair
+saved: Rhwydweithiau wedi'u cadw
+scanning: Sganio am rwydweithiau
+secured: Rhwydwaith wedi'i amgryptio

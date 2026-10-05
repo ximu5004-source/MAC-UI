@@ -1,0 +1,482 @@
+action:
+  confirm: Bist du sicher?
+  confirm_body: Diese Aktion kann nicht rückgängig gemacht werden.
+apps_configurations:
+  app:
+    bindings: Bindung (beide Optionen sind erforderlich)
+    category: Kategorie
+    category_placeholder: Keine
+    monitor: Monitor
+    monitor_placeholder: Keine
+    name: Name
+    ok_create: Erstellen
+    ok_edit: Ändern
+    ok_readonly: Als neu bearbeiten
+    options:
+      NoInteractive: Keine Interaktivität
+      VdPinned: In allen Arbeitsbereichen anzeigen
+      WmFloat: Twm – Beginnen Sie mit dem Schweben
+      WmForce: Twm – Force Manage
+      WmUnmanage: Twm – Nicht verwalten
+    options_label: Zusätzliche Optionen
+    title_create: '{{name}} erstellen'
+    title_edit: Bearbeitung {{Name}}
+    title_readonly: '{{name}} ansehen'
+    weg_options_label: Dock/Taskleistenoptionen
+    wm_options_label: Fenstermanageroptionen
+    workspace: Arbeitsbereich
+    workspace_placeholder: Keine
+  bundled_msg: >-
+    Diese gebündelten Konfigurationen sind nicht bearbeitbar und wurden
+    entwickelt, um dir das beste Erlebnis ohne Anpassung zu bieten. Sie
+    konfigurieren die gebräuchlichsten Anwendungen automatisch für dich.
+  bundled_title: Mit Seelen gebündelte App-Konfiguration
+  confirm_delete: Möchtest du diese Konfiguration wirklich löschen?
+  confirm_delete_title: Löschen bestätigen
+  delete: Löschen
+  export: Exportieren
+  export_full: Einstellungen nach Anwendung exportieren
+  extra_info: >-
+    Seelen UI Verwenden Sie nur einen Kenner pro App (zuerst übereinstimmend
+    gefunden). Die Reihenfolge, in der spezifisch ist, ist wichtig. Die neueste
+    hinzugefügte zusätzliche wird priorisiert, da die Tabelle standardmäßig von
+    der neuesten nach alt sortiert wird.
+  identifier:
+    add_block: Block hinzufügen
+    and: UND
+    id: Identifikator
+    kind: Identifizieren nach
+    matching_strategy: Abgleichstrategie
+    matching_strategy_option:
+      contains: Enthält
+      ends_with: Endet mit
+      equals: Gleich
+      regex: Regulärer Ausdruck
+      starts_with: Beginnt mit
+    negation: Abgleich negieren
+    or: ODER
+    remove: Block löschen
+    type:
+      class: Klasse
+      exe: Exe
+      path: Weg
+      title: Titel
+  import: Importieren
+  import_full: Einstellungen nach Anwendung importieren
+  new: Neu
+  search: Suchen
+  swap: Austauschen
+cancel: Abbrechen
+close: Schließen
+delete: Löschen
+devtools:
+  app_folders: Anwendungsordner
+  color_palette: Farbpalette
+  color_palette_note: >-
+    Diese Farben passen sich automatisch an den Hell-/Dunkelmodus an – jeder
+    Farbton ist kontrastreich zum aktuellen Hintergrund und kein fester Wert.
+    Verwenden Sie sie anstelle von fest codierten Farben, um automatische
+    Designunterstützung zu erhalten.
+  custom_config_file: Benutzerdefinierte Konfigurationsdatei laden
+  data_folder: Datenordner
+  enable: Entwicklerwerkzeuge aktivieren
+  enable_description: >-
+    Schaltet erweiterte Tools zum Überprüfen und Debuggen von Seelen-UI-Interna
+    frei. Nicht für den regelmäßigen Gebrauch bestimmt.
+  icons: Zwischengespeicherte Symbole
+  install_folder: Installationsordner
+  load: Laden
+  settings_file: Einstellungsdatei
+  shared_components: SLU-Standardkomponenten
+  simulate_dialog:
+    label: Dialog simulieren
+    trigger: Auslösen
+  simulate_perm:
+    label: Widget-Berechtigungsanfrage simulieren
+    result_allowed: ✓ Erlaubnis erteilt
+    result_denied: ✗ Erlaubnis verweigert
+    trigger: Simulieren
+    widget_id_placeholder: '@Autor/Widget-Name'
+  tools: Werkzeuge
+  unlock_shortcuts: Schalten Sie schreibgeschützte Verknüpfungen frei
+  unlock_shortcuts_description: >-
+    Bearbeitungsverknüpfungen zulassen, die normalerweise schreibgeschützt sind
+    (z. B. Systemüberschreibungen).
+  unstable_optimizations: Instabile Optimierungen
+  unstable_optimizations_description: >-
+    Aktivieren Sie experimentelle Chromium-Flags, die die RAM-Nutzung
+    reduzieren.
+
+    Warnung: Wenn ein Widget abstürzt, stürzen alle Widgets, die denselben
+    Loader nutzen, gleichzeitig ab.
+  widgets_debug:
+    actions: Aktionen
+    empty: Keine Widgets geladen. Klicken Sie auf Aktualisieren.
+    instance_id: Instanz-ID
+    monitor_id: Monitor-ID
+    open_devtools: DevTools
+    refresh: Aktualisieren
+    status: Status
+    tab: Widgets
+    widget_id: Widget-ID
+discord_banner:
+  message: >-
+    Vernetzen Sie sich mit anderen Benutzern der Seelen-Benutzeroberfläche,
+    erhalten Sie Hilfe, tauschen Sie Themen aus und bleiben Sie über die
+    neuesten Nachrichten auf dem Laufenden.
+  title: Treten Sie unserer Community bei
+extras:
+  backup_group: Cloud-Backup
+  backup_last_sync: Letzte Synchronisierung
+  backup_never_synced: Nie synchronisiert
+  backup_sync: Synchronisieren Sie die Einstellungen mit der Cloud
+  backup_sync_description: >-
+    Sichern Sie Ihre Einstellungen automatisch über die Cloud und stellen Sie
+    sie wieder her.
+  clear_icons: System-Symbol-Cache löschen
+  clear_icons_tooltip: >-
+    Ein Neustart könnte erforderlich sein, um alle Widgets vollständig zu
+    aktivieren.
+  discord_rpc: Zwietrachtreiche Präsenz
+  discord_rpc_description: Zeigen Sie allen, dass Sie Stil haben!
+  exit: Beenden
+  relaunch: Neu starten
+  streaming_mode: Streaming-Modus
+  streaming_mode_description: >-
+    Ersetzt sensible Informationen (z. B. E-Mails) durch Platzhalter, um die
+    Privatsphäre bei Aufzeichnungen oder Screenshots zu schützen.
+  version: Version
+  version_fixed: >-
+    Die Anwendungs- und WebView2-Runtime-Versionen sind behoben. Dies bedeutet,
+    dass die Anwendung keine Updates erhält und die WebView2 Runtime nicht
+    automatisch mit Windows-Updates aktualisiert wird.
+general:
+  accent_color: Akzentfarbe
+  date_format: Datumsformat
+  date_format_how_to: Wie schreibe ich ein Datumsformat?
+  hardware_acceleration: Hardwarebeschleunigung
+  hardware_acceleration_description: >-
+    Durch Deaktivieren der Hardwarebeschleunigung wird die Speichernutzung
+    reduziert. Es ist sicher, die Funktion zu deaktivieren, wenn Sie keine
+    umfangreichen Animationen verwenden, obwohl einzelne Widgets unabhängig von
+    dieser Einstellung möglicherweise immer noch die GPU-Nutzung erzwingen.
+  icon_pack:
+    available: Verfügbare Icon-Pakete
+    selected: Aktive Icon-Pakete
+  language: Sprache
+  monday: Montag
+  performance_mode:
+    label: Optimierungen
+    on_battery: Batterie
+    on_energy_saver: Auf Energiesparer
+    options:
+      disabled: Deaktiviert
+      extreme: Extrem
+      minimal: Minimal
+    plugged: Verstopft oder aufgeladen
+  polling_interval: Systemabfrageintervall
+  polling_interval_description: >-
+    Wie oft (in Sekunden) prüft Seelen UI Systemressourcen wie CPU, RAM,
+    Netzwerk und Festplattenaktivität? Eine kleinere Zahl bedeutet häufigere
+    Updates, aber eine etwas höhere Ressourcennutzung.
+  saturday: Samstag
+  start_of_week: Wochenbeginn
+  startup: Beim Hochfahren ausführen?
+  sunday: Sonntag
+  suspend_on_game_mode: Widgets im Spielemodus anhalten
+  suspend_on_game_mode_description: >-
+    Wenn der Windows-Spielemodus aktiv ist, werden alle Widget-Webansichten
+    zerstört, um CPU und Speicher für das Spiel freizugeben. Widgets werden
+    automatisch wiederhergestellt, wenn der Spielemodus endet.
+  theme:
+    available: Verfügbare Themen
+    selected: Aktive Themen
+global: Global
+header:
+  labels:
+    config: Konfigurationen
+    developer: Für Entwickler
+    extras: Extras
+    general: Allgemein
+    home: Home
+    iconpack: Icon Packs
+    monitors: Monitore
+    plugin: Plugins
+    resources: Ressourcen
+    session: Konto
+    shortcuts: Kurzbefehle
+    soundpack: Sound Packs
+    specific_apps: Einstellungen nach Anwendung
+    theme: Themen
+    virtual_desk: Virtuelle Desktops
+    wallpaper: Bildschirmhintergründe
+    widget: Widgets
+home:
+  new_resources: Neue Ressourcen
+inherit: Erben
+inProgress: In Bearbeitung...
+insert: Einfügen
+join_us: Begleiten Sie uns!
+loading: Am Laden...
+miscellaneous: Verschiedenes
+monitors_configurations:
+  label: Monitor {{index}}
+more: Mehr
+'no': NEIN
+open: Öffnen
+quit: Beenden
+remove: Entfernen
+reset_all_to_default: Alles auf Standardwerte zurücksetzen
+reset_configurations: Konfigurationen zurücksetzen
+reset_to_default: Zurücksetzen auf den Standardwert
+resources:
+  affected_widgets: Betroffene Widgets
+  app_outdated: >-
+    Diese Ressource erfordert eine neuere Version von Seelen UI, um richtig zu
+    funktionieren.
+  coming_soon: Demnächst erhältlich
+  corrupted_wallpaper: >-
+    Miniaturansicht konnte nicht extrahiert werden – beschädigtes oder nicht
+    unterstütztes Videoformat
+  delete: Ressource löschen
+  discover: Weitere Ressourcen entdecken
+  has_update: Ein Update ist verfügbar
+  high_impact: Hoher Einfluss auf die Leistung
+  import_wallpapers: Lokale Hintergrundbilder importieren
+  included_plugins: Enthaltene Plugins
+  modified: Geändert
+  open_folder: Ressourcenordner öffnen
+  outdated: >-
+    Diese Ressource wurde für eine ältere Version von Seelen UI entwickelt und
+    funktioniert möglicherweise nicht richtig.
+  see_on_website: Siehe auf der Website
+  update_now: Aktualisieren
+  updates_available: Updates verfügbar
+  updates_available_description: Für die folgenden Ressourcen sind Updates verfügbar.
+review_request:
+  not_now: Nicht jetzt
+  sure: Sicher!
+  title: Gefällt dir die Benutzeroberfläche von Seelen?
+save: Speichern
+save_and_restart: Speichern & neu starten
+search: Suchen
+see_more: Mehr sehen
+session:
+  logout: Abmelden
+  plan: Planen
+  sign_in: Anmelden
+  sign_in_hint: Ihr Browser wird geöffnet, sodass Sie sich sicher anmelden können.
+  upgrade_to: Upgrade auf
+shortcuts:
+  disabled_tooltip: Das Widget und seine Verknüpfungen sind deaktiviert
+  duplicate_error: Widersprüchliche Verknüpfungen erkannt
+  duplicate_error_hint: >-
+    Einige Tastenkombinationen sind mehreren Aktionen zugeordnet. Deaktivieren
+    Sie eines der widersprüchlichen Widgets oder weisen Sie die doppelte
+    Schlüsselbindung neu zu, um sie aufzulösen.
+  enable: Aktivieren Sie ein integriertes Verknüpfungssystem
+  enable_tooltip: >-
+    Deaktivieren Sie, wenn Sie Ihr eigenes Verknüpfungssystem mit dem Seelen UI
+    -Client implementieren
+  labels:
+    create_new_workspace: Erstellen Sie einen neuen Arbeitsbereich
+    create_new_workspace_row: Erstellen Sie eine neue Arbeitsbereichszeile
+    destroy_current_workspace: Zerstören Sie den aktuellen Arbeitsbereich
+    misc_force_quit: Kraft verlassen
+    misc_force_restart: Neustart erzwingen
+    move_to_workspace: Wechseln Sie zum Arbeitsbereich {{0}}
+    pause_toggle: Verknüpfungen zum Anhalten/Fortsetzen
+    send_to_next_workspace: Fenster an nächsten Arbeitsbereich senden
+    send_to_previous_workspace: Fenster an vorherigen Arbeitsbereich senden
+    send_to_workspace: An den Arbeitsbereich senden {{0}}
+    send_to_workspace_down: Fenster an den Arbeitsbereich unten senden
+    send_to_workspace_up: Fenster an den Arbeitsbereich oben senden
+    switch_to_next_workspace: Wechseln Sie zum nächsten Arbeitsbereich
+    switch_to_previous_workspace: Wechseln Sie zum vorherigen Arbeitsbereich
+    switch_to_workspace_down: Wechseln Sie zum Arbeitsbereich unten
+    switch_to_workspace_up: Wechseln Sie zum Arbeitsbereich oben
+    switch_workspace: Wechseln Sie zum Arbeitsbereich {{0}}
+  readonly_tooltip: Dies ist eine schreibgeschützte Verknüpfung
+  reset: Auf Standards zurücksetzen
+sides:
+  bottom: Unten
+  left: Links
+  right: Rechts
+  top: Oben
+toolbar:
+  auto_hide: Automatisch ausblenden
+  auto_hide_touch_disabled: Das automatische Ausblenden ist auf Touchscreen-Geräten nicht verfügbar
+  delay_to_hide: Verzögerung zum Verstecken
+  delay_to_show: Verzögerung beim Anzeigen
+  dock_side: Position
+  enable: Elegante Werkzeugleiste aktivieren
+  hide_mode:
+    always: Stets
+    never: Niemals
+    on_overlap: Auf Überlappung
+  item_size: Artikelgröße
+  label: Symbolleiste
+  margin: Randgröße
+  padding: Polstergröße
+  placeholder: {}
+update:
+  available: Update verfügbar!
+  channel: Update-Kanal
+  downloading: Am Herunterladen ...
+wall:
+  blur: Unschärfe
+  cancel: Stornieren
+  close: Schließen
+  collection_name: Sammlungsname
+  collections: Sammlungen
+  contrast: Kontrast
+  corrupted_wallpapers_message: 'Beschädigte Hintergrundbilder. Löschen Sie diese:'
+  coverage_pause_threshold: Pausenschwelle (Fensterabdeckung)
+  create: Erstellen
+  create_collection: Sammlung erstellen
+  default_collection: Standardhintergrund oder -sammlung
+  default_collection_description: >-
+    Wird auf alle Monitore und Arbeitsbereiche angewendet, für die kein
+    bestimmter Überschreibungssatz festgelegt ist.
+  delete_collection: Sammlung löschen
+  edit_collection: Sammlung bearbeiten
+  extend: Grundschule verlängern
+  fit:
+    contain: Enthält
+    cover: Abdeckung
+    fill: Füllen Sie
+  flipHorizontal: Horizontal spiegeln
+  flipVertical: Vertikal drehen
+  generating_thumbnails: Generieren von Hintergrundbild-Miniaturansichten
+  hours: Std.
+  interval: Wechseln Sie die Hintergrundbild
+  minutes: Minuten
+  monitor_collection: Sammlung überwachen
+  multimonitor_behaviour: Multimonitor-Verhalten
+  muted: Video-Audio stumm schalten
+  no_background: Leere Diashow, stattdessen wird der Hintergrund des Themas verwendet.
+  no_collections: >-
+    Es wurden noch keine Sammlungen erstellt. Klicken Sie auf die Schaltfläche
+    „+“, um eins zu erstellen.
+  objectFit: Hintergrund Passform
+  objectPosition: Hintergrund Position
+  overlayColor: Überlagerungsfarbe
+  overlayMixBlendMode: Mischmodus Überlagerung
+  per_monitor: Pro Monitor
+  per_monitor_config: Konfiguration pro Monitor
+  playback: Wiedergabegeschwindigkeit
+  position:
+    bottom: Unten
+    center: Zentrum
+    left: Links
+    right: Rechts
+    top: Top
+  processing_video: Video verarbeiten
+  random: Die Diashow randomisieren
+  saturation: Sättigung
+  seconds: Sekunden
+  select_collection: Wählen Sie Sammlung
+  thumbnail_generation_complete: Miniaturbild-Erstellung abgeschlossen
+  thumbnail_generation_finished: Die Miniaturbildgenerierung wurde erfolgreich abgeschlossen
+  use_accent_color: Verwenden Sie eine Akzentfarbe für die Tapete
+  wallpaper_collection: Tapetensammlung
+  wallpaper_settings: Hintergrundeinstellungen
+  wallpapers: Hintergrundbilder
+  wallpapers_and_collections: Hintergrundbilder und Sammlungen
+  withOverlay: Mit Overlay
+  workspace_collections: Arbeitsbereichssammlungen
+weg:
+  auto_hide: Automatisch ausblenden
+  auto_hide_touch_disabled: Das automatische Ausblenden ist auf Touchscreen-Geräten nicht verfügbar
+  delay_to_hide: Verzögerung zum Verstecken
+  delay_to_show: Verzögerung beim Anzeigen
+  dock_side: Position
+  filtering: Element-Filterung
+  gap: Abstand
+  hide_mode:
+    always: Stets
+    never: Niemals
+    on_overlap: Auf Überlappung
+  import_error: Taskleistenelemente konnten nicht importiert werden
+  import_from_taskbar:
+    button: Aus der Windows-Taskleiste importieren
+    label: Angepinnte Elemente importieren
+  import_no_items: In der Windows-Taskleiste wurden keine angehefteten Elemente gefunden
+  import_success: '{{count}} Elemente erfolgreich aus der Windows-Taskleiste importiert'
+  items:
+    gap: Abstand zwischen Elementen
+    label: Elemente
+    middle_click_action:
+      close_app: App schließen
+      label: Aktion mit mittlerem Klick
+      open_new_instance: Neue Instanz öffnen
+    pinned_visibility:
+      always: Stets
+      label: Sichtbarkeit angehefteter Elemente
+      when_primary: Wenn der Monitor primär ist
+    show_instance_counter: Zähler für offene Fenster anzeigen
+    show_window_title: Titel des geöffneten Fensters anzeigen (nur horizontal)
+    size: Elementgröße
+    split_windows: Geteilte Fenster (ein Element pro Fenster)
+    temporal_visibility:
+      all: Alle
+      label: Sichtbarkeit nicht angehefteter Elemente
+      on_monitor: Auf dem Monitor
+  label: Dock/Taskleiste
+  margin: Rand
+  mode:
+    full_width: Volle Bildschirmbreite
+    min_content: So klein wie möglich
+  padding: Polsterung
+  show_end_task: Beendete Aufgabe in der Taskleiste anzeigen
+  width: Breite
+welcome:
+  give_a_review: Geben Sie eine Bewertung ab
+  message: >-
+    Seelen UI ist eine kostenlose Open-Source-Desktopumgebung für Windows. Hier
+    haben Sie die volle Kontrolle über das Aussehen und Verhalten Ihres Desktops
+    und können jedes Detail an Ihren Arbeitsablauf und Stil anpassen.
+  ok: Fangen wir an!
+  review: >-
+    Wenn Ihnen die Nutzung der Seelen-Benutzeroberfläche Spaß macht, denken Sie
+    darüber nach, eine Bewertung im Store abzugeben – Ihr Feedback trägt dazu
+    bei, dass das Projekt wächst und sich verbessert.
+  title: Willkommen bei Seelen UI!
+widget:
+  default_instance: Standardinstanz
+  default_instance_hint: Immer aktiv, verwendet die Root-Widget-Konfiguration
+  enable: Aktivieren Sie dieses Widget
+  enable_for_monitor: Auf diesem Monitor aktivieren
+  extra_instances: Zusätzliche Instanzen
+  instance: Beispiel
+  instances: Instanzen
+wm:
+  animations:
+    duration: Animationsdauer (MS)
+    ease_function: Animation Lockering -Funktion
+    enable: Aktivieren Sie die Animationen von Windows
+  author: Autor
+  auto_stack: Automatisches Stapeln nach App-Kategorie
+  border:
+    enable: Fensterrand aktivieren
+    offset: Randversatz
+    width: Randbreite
+  description: Beschreibung
+  drag_behavior: Drag-Verhalten
+  drag_behavior_options:
+    sort: Sortieren (Fenster beim Ziehen neu anordnen)
+    swap: Tauschen (Fenster am Ende des Ziehens tauschen)
+  floating:
+    height: Schwebende Fensterhöhe
+    title: Floating Windows-Größe
+    width: Schwebende Fensterbreite
+  layout: Layout
+  resize_delta: Relative Größenänderung (%)
+  space_between_containers: Abstand zwischen Containern
+  stack_bar_visibility: Sichtbarkeit der Stapelleiste
+  stack_bar_visibility_options:
+    always: Stets
+    as_needed: Nach Bedarf
+  workspace_offset: Arbeitsbereichs-Versatz (Ränder)
+  workspace_padding: Arbeitsbereichs-Padding
+'yes': Ja

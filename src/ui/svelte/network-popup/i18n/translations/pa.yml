@@ -1,0 +1,23 @@
+available: ਉਪਲਬਧ ਨੈੱਟਵਰਕ
+connect: ਜੁੜੋ
+connected: ਨਾਲ ਜੁੜਿਆ ਹੋਇਆ ਹੈ
+connecting: ਕਨੈਕਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ...
+disconnect: ਡਿਸਕਨੈਕਟ ਕਰੋ
+forget: ਭੁੱਲ ਜਾਓ
+hidden: ਲੁਕਿਆ ਹੋਇਆ ਨੈੱਟਵਰਕ
+hotspot:
+  band: ਬੈਂਡ
+  'off': ਬੰਦ
+  'on': '''ਤੇ'
+  open_network: ਨੈੱਟਵਰਕ ਖੋਲ੍ਹੋ
+  password: ਪਾਸਵਰਡ
+  settings: ਹੋਰ ਹੌਟਸਪੌਟ ਸੈਟਿੰਗਾਂ
+  ssid: ਨੈੱਟਵਰਕ ਦਾ ਨਾਮ
+  title: ਹੌਟਸਪੌਟ
+more: ਹੋਰ ਨੈੱਟਵਰਕ ਸੈਟਿੰਗਾਂ
+no_adapter: ਕੋਈ Wi-Fi ਅਡਾਪਟਰ ਨਹੀਂ ਮਿਲਿਆ
+not_found: ਕੋਈ Wi-Fi ਨੈੱਟਵਰਕ ਨਹੀਂ ਮਿਲਿਆ
+password: ਪਾਸਵਰਡ
+saved: ਸੁਰੱਖਿਅਤ ਕੀਤੇ ਨੈੱਟਵਰਕ
+scanning: ਨੈੱਟਵਰਕਾਂ ਲਈ ਸਕੈਨ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ
+secured: ਐਨਕ੍ਰਿਪਟਡ ਨੈੱਟਵਰਕ

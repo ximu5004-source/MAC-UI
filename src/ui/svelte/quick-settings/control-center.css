@@ -1,0 +1,130 @@
+/* Compact native-style pills. Material belongs to the single outer surface;
+ * individual controls never blur or brighten the interior a second time. */
+#root .slu-std-popover.mac-panel.quick-settings {
+  /* Keep state color readable without putting an opaque disc under the icon. */
+  --quick-enabled-ink: color-mix(in srgb, var(--mac-accent) 50%, var(--mac-ink));
+  width: 360px;
+  padding: 18px 16px 12px;
+  gap: 16px;
+  border-radius: 28px;
+}
+#root .quick-settings .quick-toggle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 18px 12px;
+}
+#root .quick-settings .quick-toggle {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: center;
+  gap: 5px;
+}
+#root .quick-settings .quick-toggle-pill {
+  display: flex;
+  height: 46px;
+  border-radius: 24px;
+  border: 1px solid var(--mac-line);
+  background: var(--mac-card);
+  overflow: hidden;
+}
+#root .quick-settings .quick-toggle-pill button {
+  appearance: none;
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  color: inherit;
+  background: transparent;
+  box-shadow: none;
+  cursor: pointer;
+  transition: background-color 140ms ease;
+}
+#root .quick-settings .quick-toggle-action { flex: 1; border-radius: 24px; }
+#root .quick-settings .quick-toggle-details { width: 34px; border-radius: 0 24px 24px 0; }
+#root .quick-settings .quick-toggle-details .slu-icon { height: 17px; }
+#root .quick-settings .quick-toggle-glyph {
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  width: 42px;
+  height: 42px;
+  border-radius: 0;
+  border: 0;
+  color: var(--mac-ink);
+  background: transparent;
+  box-shadow: none;
+  filter: none;
+  opacity: 1;
+  transition: color 140ms ease;
+}
+#root .quick-settings .quick-toggle-glyph .slu-icon {
+  width: 23px;
+  height: 23px;
+  min-width: 23px;
+  opacity: 1;
+  filter: none;
+}
+#root .quick-settings .quick-toggle[data-enabled="true"] .quick-toggle-glyph {
+  /* Enabled and disabled use the same plain artwork. Only semantic ink changes;
+   * the outer pill owns every background and boundary, with no inner circle. */
+  color: var(--quick-enabled-ink);
+}
+#root .quick-settings .quick-toggle-pill button:hover:enabled { background: var(--mac-hover); }
+#root .quick-settings .quick-toggle-pill button:active:enabled { background: var(--mac-selected); }
+#root .quick-settings .quick-toggle-pill button:focus-visible {
+  outline: 2px solid var(--quick-enabled-ink);
+  outline-offset: -3px;
+}
+#root .quick-settings .quick-toggle-pill button:disabled { cursor: wait; opacity: 1; }
+#root .quick-settings .quick-toggle-label {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+#root .quick-settings .quick-toggle-status {
+  min-height: 15px;
+  color: var(--mac-secondary);
+  font-size: 11px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+#root .quick-settings .quick-toggle-status.failed { color: var(--mac-ink); font-weight: 600; }
+#root .slu-std-popover.mac-panel.quick-settings .quick-settings-levels {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid var(--mac-line);
+}
+#root .slu-std-popover.mac-panel.quick-settings .quick-settings-item {
+  padding: 0;
+  grid-template-columns: 32px minmax(0, 1fr) 36px;
+  min-height: 40px;
+  gap: 8px;
+  background: transparent;
+}
+#root .slu-std-popover.mac-panel.quick-settings .quick-settings-footer {
+  margin: 0 -4px;
+  padding-top: 8px;
+}
+#root .slu-std-popover.mac-panel.quick-settings .quick-settings-footer > button {
+  height: 36px;
+  width: 36px;
+  background: transparent;
+}
+@media (prefers-reduced-motion: reduce) {
+  #root .quick-settings .quick-toggle-pill button,
+  #root .quick-settings .quick-toggle-glyph { transition: none; }
+}
+@media (forced-colors: active) {
+  #root .quick-settings .quick-toggle-pill { border-color: ButtonText; background: Canvas; }
+  #root .quick-settings .quick-toggle-glyph { color: CanvasText; }
+  #root .quick-settings .quick-toggle[data-enabled="true"] .quick-toggle-glyph { color: Highlight; }
+  #root .quick-settings .quick-toggle-pill button:focus-visible { outline-color: Highlight; }
+}

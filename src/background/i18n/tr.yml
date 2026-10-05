@@ -1,0 +1,86 @@
+auth:
+  login_failed_body: >-
+    Oturum açma sırasında bir şeyler ters gitti. Bu durum devam ederse Windows
+    'Kimlik Bilgisi Yöneticisi' hizmetinin (VaultSvc) etkinleştirildiğinden ve
+    çalıştığından emin olun ve tekrar deneyin.
+  login_failed_title: giriş başarısız oldu
+cancel: İptal etmek
+done: Tamamlamak
+elevated:
+  description: >-
+    Seelen UI yönetici ayrıcalıklarıyla çalışıyor.
+
+    Bu, herhangi bir özelliği eklemez veya iyileştirmez ve güvenlik riski
+    oluşturabilir.
+
+    Daha iyi güvenlik için lütfen yönetici izinleri olmadan yeniden başlatın.
+  title: Yönetici olarak çalıştırma
+file_explorer: Dosya Gezgini
+resource:
+  added: Yeni bir kaynak eklendi
+  download_failed_body: >-
+    Kaynak indirilirken bir şeyler ters gitti, lütfen bunu Seelen geliştirici
+    ekibine bildirin.
+  download_failed_title: Kaynak indirme başarısız oldu
+  downloading: Varlıklar indiriliyor...
+  downloading_body: Bu işlem birkaç saniye sürebilir, lütfen pencereyi kapatmayın.
+  enable: Etkinleştir
+  login_required_action: Oturum aç
+  login_required_body: Bu kaynağı indirmek için oturum açmanız gerekiyor.
+  login_required_title: Oturum açmanız gerekiyor
+runtime:
+  corrupted_data: Bozuk veriler
+  corrupted_file: >-
+    Bir yapılandırma dosyası bozulmuş, bunun yerine varsayılan değerler
+    kullanılıyor.
+  corrupted_file_path: Bozuk dosya yolu
+  download: İndirme sayfasına git
+  files_integrity: >-
+    Uygulama dosyalarının bütünlüğünü doğrulayamadık.
+
+    Dosyalar değiştirilmiş, bozulmuşsa veya yükleme tamamlanmamışsa bu durum
+    meydana gelebilir.
+
+    Güvenlik nedeniyle Seelen kullanıcı arayüzü devam edemiyor.
+
+    Lütfen resmi web sitesinden yeniden yükleyin.
+  files_integrity_title: Güvenlik Uyarısı - Dosya Bütünlüğü Denetimi Başarısız
+  not_found: WebView2 Çalışma Zamanı bulunamadı
+  not_found_description: >-
+    Seelen kullanıcı arayüzü Webview2 Çalışma Zamanı gerektirir. Lütfen
+    yükleyin.
+  outdated: WebView2 Çalışma Zamanı güncel değil
+  outdated_description: >-
+    Seelen kullanıcı arayüzü, Webview2 Çalışma Zamanı %{min_version} veya üstünü
+    gerektirir. Lütfen güncelleyin.
+service:
+  not_running: Seelen UI Hizmeti çalışmıyor
+  not_running_description: >-
+    Seelen UI Hizmeti (slu-service), uygulamanın düzgün çalışması için bir
+    bağımlılık/yardımcıdır.
+  not_running_ok: Hizmeti başlat
+shortcut:
+  conflicts:
+    body: >-
+      Bazı kısayollar birden fazla eyleme atanmıştır; lütfen bunları yeniden
+      atayın.
+    dismiss: Azletmek
+    review: Gözden geçirmek
+    title: Kısayol Çakışmaları Algılandı
+  register:
+    placeholder: Herhangi bir tuş kombinasyonuna basın
+    title: Yeni kısayol kaydetme
+widget_liveness:
+  failed_description: |-
+    '%{widget_name}' widget'ı birçok kez yanıt vermeyi durdurdu.
+
+    Uygulamayı yeniden başlatmayı deneyebilirsiniz.
+  failed_title: Widget Hatası
+widget_permissions:
+  perm_open_file: dosyaları aç
+  perm_run: programları çalıştır
+  request_description: |-
+    '%{widget_name}' widget'ı %{command} için izin istiyor.
+
+    Buna izin vermek istiyor musun?
+  request_title: Widget İzin Talebi
