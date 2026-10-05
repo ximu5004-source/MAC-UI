@@ -7,6 +7,9 @@ MAC UI 是基于 [eythaann/Seelen-UI](https://github.com/eythaann/Seelen-UI) 独
 项目继续采用 **AGPL-3.0-or-later** 许可证。保留上游应用源码、原始资源与署名；排除私有签名材料及构建产物，上游 CI 脚本作为非活动参考归档，不直接用来自动发布 MAC UI。请参阅 [LICENSE](LICENSE)、[NOTICE](NOTICE.md) 和[保留的上游项目介绍](README.upstream.md)。MAC UI 不是 Apple 产品，也不是 Seelen UI 官方发行版。
 
 ![已遮盖个人信息的 MAC UI 桌面概览](documentation/images/mac-ui/desktop-overview.png)
+<img width="380" height="620" alt="image" src="https://github.com/user-attachments/assets/128b9800-8205-47be-8bdc-604d24406d56" />
+<img width="340" height="333" alt="image" src="https://github.com/user-attachments/assets/742d58d4-95a5-439d-9e7c-6cb8f96ea370" />
+<img width="708" height="72" alt="image" src="https://github.com/user-attachments/assets/680b17f5-205d-4fbc-944a-49f0c38aa37e" />
 
 ## 主要功能
 
@@ -19,9 +22,7 @@ MAC UI 是基于 [eythaann/Seelen-UI](https://github.com/eythaann/Seelen-UI) 独
 ### 桌面整理
 
 ![已遮盖个人应用与文件信息的桌面堆栈](documentation/images/mac-ui/desktop-stacks.png)
-<img width="380" height="620" alt="image" src="https://github.com/user-attachments/assets/128b9800-8205-47be-8bdc-604d24406d56" />
-<img width="340" height="333" alt="image" src="https://github.com/user-attachments/assets/742d58d4-95a5-439d-9e7c-6cb8f96ea370" />
-<img width="708" height="72" alt="image" src="https://github.com/user-attachments/assets/680b17f5-205d-4fbc-944a-49f0c38aa37e" />
+
 
 
 “桌面管理”页面提供整理模块开关和外观调节。这里的 Dock 控件与 Dock 设置页使用同一组偏好设置。
