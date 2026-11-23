@@ -7,7 +7,7 @@ pub use windows::*;
 
 use std::sync::LazyLock;
 
-use seelen_core::system_state::UserAppWindow;
+use macui_core::system_state::UserAppWindow;
 
 use crate::{event_manager, utils::lock_free::SyncVec, windows_api::window::Window};
 
@@ -49,18 +49,18 @@ impl UserAppsManager {
     /// window as untracked and pushing a duplicate entry.
     fn add_win(&self, window: &Window) -> bool {
         let hwnd = window.address();
+        if self.contains_win(window) {
+            return false;
+        }
         let is_focused = window.is_focused();
-        self.interactable_windows.get_or_insert_with(
-            |w| w.hwnd == hwnd,
-            || {
-                log::trace!("Adding: {window}");
-                let mut serialized = window.to_serializable();
-                if is_focused {
-                    serialized.last_foreground_at = windows::now_millis();
-                }
-                serialized
-            },
-        )
+        // Property-store/COM calls and same-process window messages can wait
+        // for another GUI STA. Never hold the tracked-window lock across them.
+        let mut serialized = window.to_serializable();
+        if is_focused {
+            serialized.last_foreground_at = windows::now_millis();
+        }
+        self.interactable_windows
+            .get_or_insert_with(|w| w.hwnd == hwnd, || serialized)
     }
 
     fn remove_win(&self, window: &Window) {

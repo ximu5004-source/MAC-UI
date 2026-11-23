@@ -16,7 +16,7 @@ profile:
   log_out: Log out
   open_onedrive: Open OneDrive directory
   open_user_folder: Open user directory
-seelen_options:
+macui_options:
   open_installation_folder: MAC UI settings folder
   open_log_folder: MAC UI log folder
   title: MAC UI

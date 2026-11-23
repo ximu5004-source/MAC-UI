@@ -3,22 +3,22 @@ import type {
   IconPack,
   IconPack as IIconPack,
   IconPackEntry,
-  SeelenCommandGetIconArgs,
-} from "@seelen-ui/types";
+  MacUiCommandGetIconArgs,
+} from "@macui/types";
 import { List } from "../utils/List.ts";
 import { newFromInvoke, newOnEvent } from "../utils/State.ts";
-import { invoke, SeelenCommand, SeelenEvent, type UnSubscriber } from "../handlers/mod.ts";
+import { invoke, MacUiCommand, MacUiEvent, type UnSubscriber } from "../handlers/mod.ts";
 import { Settings } from "./settings/mod.ts";
 import type { UnlistenFn } from "@tauri-apps/api/event";
 import { convertFileSrc } from "@tauri-apps/api/core";
 
 export class IconPackList extends List<IIconPack> {
   static getAsync(): Promise<IconPackList> {
-    return newFromInvoke(this, SeelenCommand.StateGetIconPacks);
+    return newFromInvoke(this, MacUiCommand.StateGetIconPacks);
   }
 
   static onChange(cb: (payload: IconPackList) => void): Promise<UnSubscriber> {
-    return newOnEvent(cb, this, SeelenEvent.StateIconPacksChanged);
+    return newOnEvent(cb, this, MacUiEvent.StateIconPacksChanged);
   }
 }
 
@@ -156,12 +156,12 @@ export class IconPackManager {
     };
   }
 
-  public getIconEntry(args: SeelenCommandGetIconArgs): IconPackEntry | null {
+  public getIconEntry(args: MacUiCommandGetIconArgs): IconPackEntry | null {
     const {
       path,
       umid,
       __seen = new Set<string>(),
-    } = args as SeelenCommandGetIconArgs & { __seen?: Set<string> };
+    } = args as MacUiCommandGetIconArgs & { __seen?: Set<string> };
 
     // If neither path nor UMID is provided, return null
     if (!path && !umid) {
@@ -191,25 +191,15 @@ export class IconPackManager {
       }
 
       if (!entry && lowerPath) {
-        entry = pack.entries.find((e) => {
-          if (e.type !== "unique" || !e.path) {
-            return false;
-          }
-
-          if (e.path === lowerPath) {
-            return true;
-          }
-
-          // only search for filename in case of executable files
-          if (extension === "exe") {
-            const filename = lowerPath.split("\\").pop();
-            // Use separator-aware check to avoid partial name matches (e.g. "mysteam.exe" != "steam.exe")
-            if (filename && (e.path === filename || e.path.endsWith("\\" + filename))) {
-              return true;
-            }
-          }
-          return false;
-        }) as Extract<IconPackEntry, { type: "unique" }>;
+        entry = pack.entries.find(
+          (e) => e.type === "unique" && e.path?.toLowerCase() === lowerPath,
+        ) as Extract<IconPackEntry, { type: "unique" }>;
+        if (!entry && extension === "exe") {
+          const filename = lowerPath.split("\\").pop();
+          entry = pack.entries.find(
+            (e) => e.type === "unique" && e.path?.toLowerCase() === filename,
+          ) as Extract<IconPackEntry, { type: "unique" }>;
+        }
       }
 
       if (entry) {
@@ -219,7 +209,7 @@ export class IconPackManager {
             return null;
           }
           __seen.add(entry.redirect);
-          return this.getIconEntry({ path: entry.redirect, __seen } as SeelenCommandGetIconArgs);
+          return this.getIconEntry({ path: entry.redirect, __seen } as MacUiCommandGetIconArgs);
         }
 
         if (entry.icon) {
@@ -247,12 +237,12 @@ export class IconPackManager {
     return null;
   }
 
-  public getIconPath(args: SeelenCommandGetIconArgs): IIcon | null {
+  public getIconPath(args: MacUiCommandGetIconArgs): IIcon | null {
     const entry = this.getIconEntry(args);
     return entry?.icon || null;
   }
 
-  public getIcon({ path, umid }: SeelenCommandGetIconArgs): IIcon | null {
+  public getIcon({ path, umid }: MacUiCommandGetIconArgs): IIcon | null {
     const iconPath = this.getIconPath({ path, umid });
     return iconPath ? resolveAsSrc(iconPath) : null;
   }
@@ -321,11 +311,11 @@ export class IconPackManager {
    *   path: "C:\\Program Files\\Steam\\steam.exe"
    * });
    * const iconPath = instance.extractIcon({
-   *   umid: "Seelen.SeelenUI_p6yyn03m1894e!App"
+   *   umid: "MacUi.MacUi_p6yyn03m1894e!App"
    * });
    */
-  public static requestIconExtraction(obj: SeelenCommandGetIconArgs): Promise<void> {
-    return invoke(SeelenCommand.GetIcon, obj);
+  public static requestIconExtraction(obj: MacUiCommandGetIconArgs): Promise<void> {
+    return invoke(MacUiCommand.GetIcon, obj);
   }
 
   /**
@@ -333,7 +323,7 @@ export class IconPackManager {
    * All icons should be regenerated after calling this method.
    */
   public static clearCachedIcons(): Promise<void> {
-    return invoke(SeelenCommand.StateDeleteCachedIcons);
+    return invoke(MacUiCommand.StateDeleteCachedIcons);
   }
 }
 

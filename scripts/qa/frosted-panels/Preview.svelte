@@ -3,11 +3,10 @@
   import QuickToggle from "src/ui/svelte/quick-settings/components/QuickToggle.svelte";
   import MediaDevices from "src/ui/svelte/flyouts/app/MediaDevices.svelte";
   import Brightness from "src/ui/svelte/flyouts/app/Brightness.svelte";
-  import type { MediaDevice, MonitorBrightness } from "@seelen-ui/lib/types";
+  import type { MediaDevice, MonitorBrightness } from "@macui/lib/types";
   import { setMessages, locale } from "libs/ui/svelte/utils/i18n";
-  import { invoke, SeelenCommand } from "./native-mock";
+  import { invoke, MacUiCommand } from "./native-mock";
   import BackgroundByLayers from "libs/ui/svelte/components/BackgroundByLayers/BackgroundByLayers.svelte";
-  import DesktopStack from "src/ui/svelte/desktop-shell/modules/DesktopShell/DesktopStack.svelte";
   import { frostedForeground } from "libs/ui/svelte/utils/frostedContrast";
 
   let dark = $state(true);
@@ -37,9 +36,6 @@
   let native = $state("正在检查原生边界");
   let gloss = $state(false);
   let showMaterials = $state(true);
-  let collapsed = $state(false);
-  let stackPosition = $state({ x: 0, y: 0 });
-  let stackSize = $state<{ width: number; height: number } | undefined>({ width: 320, height: 280 });
   let output = $state({ id: "qa-output", name: "隔离测试输出", volume: .44, muted: false } as MediaDevice);
   let brightness = $state({ instanceName: "qa-monitor", currentBrightness: 60, availableLevels: [0, 20, 40, 60, 80, 100], levels: 6 } as MonitorBrightness);
 
@@ -73,14 +69,14 @@
   }
 
   onMount(() => {
-    void invoke(SeelenCommand.SetFrostedRegions).then(() => {
+    void invoke(MacUiCommand.SetFrostedRegions).then(() => {
       native = "错误：网页不应该报告原生合成成功";
     }).catch(() => { native = "原生合成不支持：仅 CSS 回退预览，不是 Windows 磨砂验收"; });
     const handler = (event: Event) => {
       const { command, payload } = (event as CustomEvent).detail;
-      if (command === SeelenCommand.SetVolumeLevel) output = { ...output, volume: payload.level };
-      if (command === SeelenCommand.MediaToggleMute) output = { ...output, muted: !output.muted };
-      if (command === SeelenCommand.SetMonitorBrightness) brightness = { ...brightness, currentBrightness: payload.level };
+      if (command === MacUiCommand.SetVolumeLevel) output = { ...output, volume: payload.level };
+      if (command === MacUiCommand.MediaToggleMute) output = { ...output, muted: !output.muted };
+      if (command === MacUiCommand.SetMonitorBrightness) brightness = { ...brightness, currentBrightness: payload.level };
     };
     window.addEventListener("qa-native-command", handler);
     return () => window.removeEventListener("qa-native-command", handler);
@@ -100,7 +96,7 @@
     <span role="status">{native}</span>
   </header>
   <div class="qa-layout">
-    <section class="slu-std-popover mac-panel mac-frosted-surface quick-settings" data-frosted-ink={adaptiveForeground}>
+    <section class="macui-std-popover mac-panel mac-frosted-surface quick-settings" data-frosted-ink={adaptiveForeground}>
       <h1 class="mac-panel-heading">控制中心</h1>
       <div class="quick-toggle-grid">
         <QuickToggle icon="IoWifiSharp" label="Wi-Fi" status={wifi ? "启用" : "禁用"} enabled={wifi}
@@ -124,19 +120,10 @@
       <div class="flyout mac-frosted-surface" data-frosted-ink={adaptiveForeground} data-placement="top" data-showing="true"><Brightness {brightness} orientation="horizontal" /></div>
       <div class="flyout mac-frosted-surface" data-frosted-ink={adaptiveForeground} data-placement="right" data-showing="true"><MediaDevices {output} orientation="vertical" /></div>
     </section>
-    <section class="qa-materials" aria-label="实际 Dock 与桌面分组材质">
+    <section class="qa-materials" aria-label="Dock 材质">
       <div class="qa-dock mac-dock-material" data-mac-material="dock" style:--mac-dock-alpha=".1" style:--mac-dock-gloss={gloss ? 1 : 0} style:opacity={showMaterials ? 1 : 0}>
         <BackgroundByLayers />
         <span class="qa-dock-caption">Dock 内部材质</span>
-      </div>
-      <div class="qa-stack-stage" style:opacity={showMaterials ? 1 : 0}>
-        <DesktopStack title="图片与文件" count={4} {collapsed} position={stackPosition} dimensions={stackSize} bounds={{ width: 340, height: 320 }}
-          active={false} snap={false} onmove={(point) => stackPosition = point} onresize={(point, size) => { stackPosition = point; stackSize = size; }}
-          oninteraction={() => {}} oncollapse={() => collapsed = !collapsed} onactivate={() => {}}>
-          {#snippet children()}
-            {#each ["设计稿", "图片", "文件夹", "文档"] as item}<span class="qa-stack-item">{item}</span>{/each}
-          {/snippet}
-        </DesktopStack>
       </div>
     </section>
   </div>
@@ -165,8 +152,6 @@
   .qa-materials { display: flex; flex-direction: column; gap: 22px; width: 340px; margin: 10px; }
   .qa-dock { position: relative; isolation: isolate; width: 320px; height: 72px; border-radius: 22px; }
   .qa-dock-caption { position: absolute; inset: 24px 50px; text-align: center; font-size: 13px; }
-  .qa-stack-stage { position: relative; width: 340px; height: 320px; }
-  .qa-stack-item { display: grid; place-items: center; height: 76px; border-radius: 16px; background: rgb(255 255 255 / .18); color: inherit; }
   .details-result { margin: 0; min-height: 20px; color: var(--mac-secondary); font-size: 12px; }
   .qa-request-counts { display: block; font-size: 11px; line-height: 1.5; color: var(--mac-secondary); overflow-wrap: anywhere; }
   .qa-note { max-width: 650px; margin: 28px 10px; padding: 10px; background: Canvas; color: CanvasText; border-radius: 8px; line-height: 1.6; }

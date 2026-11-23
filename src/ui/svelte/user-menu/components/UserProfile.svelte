@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { User, WidgetId } from "@seelen-ui/lib/types";
-  import { invoke, SeelenCommand, Widget } from "@seelen-ui/lib";
+  import type { User, WidgetId } from "@macui/lib/types";
+  import { invoke, MacUiCommand, Widget } from "@macui/lib";
   import { convertFileSrc } from "@tauri-apps/api/core";
   import { path } from "@tauri-apps/api";
   import Icon from "libs/ui/svelte/components/Icon/Icon.svelte";
@@ -13,17 +13,17 @@
   let { user }: Props = $props();
 
   async function openUserFolder() {
-    invoke(SeelenCommand.OpenFile, { path: await path.homeDir() });
+    invoke(MacUiCommand.OpenFile, { path: await path.homeDir() });
   }
 
   function openOneDrive() {
     if (user.oneDrivePath) {
-      invoke(SeelenCommand.OpenFile, { path: user.oneDrivePath });
+      invoke(MacUiCommand.OpenFile, { path: user.oneDrivePath });
     }
   }
 
   function openAccountSettings() {
-    invoke(SeelenCommand.OpenFile, { path: "ms-settings:accounts" });
+    invoke(MacUiCommand.OpenFile, { path: "ms-settings:accounts" });
   }
 
   let openingPower = $state(false);
@@ -32,8 +32,8 @@
     openingPower = true;
     try {
       await Widget.self.hide();
-      await invoke(SeelenCommand.TriggerWidget, {
-        payload: { id: "@seelen/power-menu" as WidgetId },
+      await invoke(MacUiCommand.TriggerWidget, {
+        payload: { id: "@macui/power-menu" as WidgetId },
       });
     } catch (error) {
       console.error("Failed to open power confirmation:", error);

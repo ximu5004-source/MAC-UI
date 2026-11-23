@@ -1,22 +1,22 @@
 import type Sandbox from "@nyariv/sandboxjs";
-import { Alignment, FancyToolbarSide, type WidgetId } from "@seelen-ui/lib/types";
+import { Alignment, FancyToolbarSide, type WidgetId, type WidgetTriggerPayload } from "@macui/lib/types";
 import { toPhysicalPixels } from "libs/ui/react/utils/index.ts";
-import { invoke, SeelenCommand } from "@seelen-ui/lib";
+import { invoke, MacUiCommand } from "@macui/lib";
 import { settingsState } from "./state/settings.svelte.ts";
 import { evalSanboxed } from "libs/ui/svelte/utils/sandbox.ts";
 
 const ALLOWED_COMMANDS = [
-  SeelenCommand.SwitchWorkspace,
-  SeelenCommand.SetVolumeLevel,
-  SeelenCommand.OpenFile,
-  SeelenCommand.MediaPrev,
-  SeelenCommand.MediaNext,
-  SeelenCommand.MediaTogglePlayPause,
+  MacUiCommand.SwitchWorkspace,
+  MacUiCommand.SetVolumeLevel,
+  MacUiCommand.OpenFile,
+  MacUiCommand.MediaPrev,
+  MacUiCommand.MediaNext,
+  MacUiCommand.MediaTogglePlayPause,
 ];
 
 const ActionsScope = {
-  SeelenCommand,
-  invoke(command: SeelenCommand, args?: any) {
+  MacUiCommand,
+  invoke(command: MacUiCommand, args?: any) {
     if (!ALLOWED_COMMANDS.includes(command)) {
       console.warn(`Trying to execute command that is not allowed: "${command}"`);
       return;
@@ -24,7 +24,7 @@ const ActionsScope = {
     invoke(command, args);
   },
   open(path: string) {
-    invoke(SeelenCommand.OpenFile, { path });
+    invoke(MacUiCommand.OpenFile, { path });
   },
   // trigger is added on other step but is present too
 };
@@ -36,7 +36,11 @@ export function evalActionSanboxed(
   evalSanboxed(executor, { ...scope, ...ActionsScope });
 }
 
-export function triggerWidget(widgetId: WidgetId, itemId: string): void {
+export function triggerWidget(
+  widgetId: WidgetId,
+  itemId: string,
+  customArgs?: WidgetTriggerPayload["customArgs"],
+): void {
   if (typeof widgetId !== "string") {
     return;
   }
@@ -57,9 +61,15 @@ export function triggerWidget(widgetId: WidgetId, itemId: string): void {
 
   const y = isTopPosition ? windowY + toPhysicalPixels(rootRect.bottom) : windowY + toPhysicalPixels(rootRect.top);
 
-  invoke(SeelenCommand.TriggerWidget, {
+  invoke(MacUiCommand.TriggerWidget, {
     payload: {
       id: widgetId,
+      customArgs: {
+        ...customArgs,
+        // Popup preset alone consumes this key. Hover previews and other
+        // programmatic trigger sources retain their show/update semantics.
+        __macuiPopupToggleSource: `toolbar:${itemId}:${windowX}:${windowY}`,
+      },
       desiredPosition: { x, y },
       alignX: Alignment.Center,
       alignY: isTopPosition ? Alignment.Start : Alignment.End,

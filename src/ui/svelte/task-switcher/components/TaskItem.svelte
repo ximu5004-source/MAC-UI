@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { UserAppWindow } from "@seelen-ui/lib/types";
-  import { invoke, SeelenCommand } from "@seelen-ui/lib";
+  import type { UserAppWindow } from "@macui/lib/types";
+  import { invoke, MacUiCommand } from "@macui/lib";
   import { globalState } from "../state/index.svelte.ts";
   import { FileIcon, Icon } from "libs/ui/svelte/components/Icon";
   import MissingIcon from "libs/ui/svelte/components/Icon/MissingIcon.svelte";
@@ -46,7 +46,7 @@
 
   function handleClick() {
     globalState.showing = false;
-    invoke(SeelenCommand.WegToggleWindowState, {
+    invoke(MacUiCommand.WegToggleWindowState, {
       hwnd: task.hwnd,
       wasFocused: false,
       minimizeTarget: null,
@@ -102,7 +102,7 @@
       data-skin="transparent"
       onclick={(e) => {
         e.stopPropagation();
-        invoke(SeelenCommand.WegCloseApp, { hwnd: task.hwnd });
+        invoke(MacUiCommand.WegCloseApp, { hwnd: task.hwnd });
       }}
     >
       <Icon iconName="TbX" />

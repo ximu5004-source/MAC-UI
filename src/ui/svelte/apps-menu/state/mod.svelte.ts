@@ -1,12 +1,13 @@
-import { invoke, SeelenCommand, SeelenEvent, Settings, subscribe } from "@seelen-ui/lib";
+import { invoke, MacUiCommand, MacUiEvent, Settings, subscribe } from "@macui/lib";
 import { convertFileSrc } from "@tauri-apps/api/core";
-import type { StartMenuItem } from "@seelen-ui/lib/types";
+import type { StartMenuItem } from "@macui/lib/types";
 import { lazyRune, persistentRune } from "libs/ui/svelte/utils";
 import { StartDisplayMode, StartView } from "../constants";
-import { foldersAsStartMenuItems } from "./knownFolders.svelte";
 import { locale } from "../i18n/index.ts";
+import { clearFavoritesSafely } from "../favoritesClear";
+import { FAVORITES_FILE, loadFavoritesStorage } from "../favoritesStorage";
 import {
-  disbandFolder, getItemId, importStartMenu, moveIntoFolder, moveRootItem,
+  disbandFolder, getItemId, moveIntoFolder, moveRootItem,
   normalizeLayout, removeApp, startMenuCatalog,
   type FavFolderItem, type FavPinnedItem, type LaunchpadLayout,
 } from "../launchpad";
@@ -14,31 +15,41 @@ export type { FavAppItem, FavFolderItem, FavPinnedItem } from "../launchpad";
 
 const settings = lazyRune(() => Settings.getAsync());
 Settings.onChange((s) => (settings.value = s));
-const user = lazyRune(() => invoke(SeelenCommand.GetUser));
-subscribe(SeelenEvent.UserChanged, user.setByPayload);
-const monitors = lazyRune(() => invoke(SeelenCommand.SystemGetMonitors));
-subscribe(SeelenEvent.SystemMonitorsChanged, monitors.setByPayload);
-const startMenuItems = lazyRune(() => invoke(SeelenCommand.GetStartMenuItems));
-subscribe(SeelenEvent.StartMenuItemsChanged, startMenuItems.setByPayload);
+const user = lazyRune(() => invoke(MacUiCommand.GetUser));
+subscribe(MacUiEvent.UserChanged, user.setByPayload);
+const monitors = lazyRune(() => invoke(MacUiCommand.SystemGetMonitors));
+subscribe(MacUiEvent.SystemMonitorsChanged, monitors.setByPayload);
+const startMenuItems = lazyRune(() => invoke(MacUiCommand.GetStartMenuItems));
+subscribe(MacUiEvent.StartMenuItemsChanged, startMenuItems.setByPayload);
 await Promise.all([settings.init(), user.init(), monitors.init(), startMenuItems.init()]);
 
 $effect.root(() => { $effect(() => { locale.set(settings.value.language); }); });
 
-const STORAGE_FILE = "launchpad-v1.json";
+// Preserve v1 intact for rollback; v2 never auto-imports the application catalog.
+const STORAGE_FILE = FAVORITES_FILE;
 let pinnedItems = $state<FavPinnedItem[]>([]);
 let saveState = $state<"saved" | "saving" | "error">("saved");
-let importing = $state(false);
-let importResult = $state<{ addedApps: number; addedFolders: number } | null>(null);
-let importFailed = $state(false);
+let refreshing = $state(false);
+let refreshFailed = $state(false);
+let choosingFavorites = $state(false);
+let retainedLegacyLayout = $state(false);
+let clearingFavorites = $state(false);
+let clearFavoritesError = $state(false);
+let clearUndo = $state<FavPinnedItem[] | null>(null);
+let layoutLoaded = $state(false);
+let layoutLoading = $state(false);
+let layoutLoadError = $state(false);
 let writeQueue: Promise<void> = Promise.resolve();
 let revision = 0;
 
 function saveItems(items: FavPinnedItem[]): Promise<void> {
+  if (!layoutLoaded) return Promise.reject(new Error("Favorites are not loaded; refusing to overwrite saved layout"));
+  clearUndo = null;
   pinnedItems = normalizeLayout(items);
-  const content = JSON.stringify({ version: 1, items: pinnedItems } satisfies LaunchpadLayout);
+  const content = JSON.stringify({ version: 2, items: pinnedItems } satisfies LaunchpadLayout);
   const currentRevision = ++revision;
   saveState = "saving";
-  const save = writeQueue.catch(() => {}).then(() => invoke(SeelenCommand.WriteFile, { filename: STORAGE_FILE, content }));
+  const save = writeQueue.catch(() => {}).then(() => invoke(MacUiCommand.WriteFile, { filename: STORAGE_FILE, content }));
   writeQueue = save;
   void save.then(() => {
     if (revision === currentRevision) saveState = "saved";
@@ -49,37 +60,24 @@ function saveItems(items: FavPinnedItem[]): Promise<void> {
   return save;
 }
 
-// Use a new file so the previous favorites layout is always available for rollback.
-let stored: string | null = null;
-try { stored = await invoke(SeelenCommand.ReadFile, { filename: STORAGE_FILE }); } catch { /* First launch. */ }
-if (stored !== null) {
+async function loadFavorites() {
+  if (layoutLoading || layoutLoaded) return;
+  layoutLoading = true;
+  layoutLoadError = false;
   try {
-    const parsed = JSON.parse(stored);
-    if (parsed?.version !== 1 || !Array.isArray(parsed.items)) throw new Error("Invalid Launchpad layout");
-    pinnedItems = normalizeLayout(parsed.items);
-  } catch {
-    // Preserve corrupt/unknown data before recovery; if that fails, don't overwrite it.
-    await invoke(SeelenCommand.WriteFile, { filename: `launchpad-recovery-${Date.now()}.json`, content: stored });
-    stored = null;
-  }
+    const loaded = await loadFavoritesStorage(
+      filename => invoke(MacUiCommand.ReadFile, { filename }), startMenuCatalog(startMenuItems.value),
+    );
+    pinnedItems = loaded.items;
+    retainedLegacyLayout = loaded.migrated;
+    layoutLoaded = true;
+    if (loaded.needsSave) await saveItems(loaded.items).catch(() => {});
+  } catch (error) {
+    layoutLoadError = true;
+    console.error("Could not read favorites; existing layout is preserved:", error);
+  } finally { layoutLoading = false; }
 }
-if (stored === null) {
-  let previous: FavPinnedItem[] = [];
-  try {
-    previous = normalizeLayout(JSON.parse(await invoke(SeelenCommand.ReadFile, { filename: "favorites.json" })));
-  } catch {
-    try {
-      const native = await invoke(SeelenCommand.GetNativeStartMenu);
-      previous = normalizeLayout(native.pinnedList.map((entry) => {
-        const item = entry as unknown as Record<string, string>;
-        const path = item.desktopAppLink;
-        const matched = path && startMenuItems.value.find(i => i.path.toLowerCase() === path.toLowerCase());
-        return { type: "app", itemId: matched ? getItemId(matched) : item.packagedAppId || item.destopAppId || path };
-      }));
-    } catch (error) { console.warn("Native pins unavailable; using Start Menu catalog", error); }
-  }
-  await saveItems(importStartMenu(previous, startMenuItems.value).items).catch(() => {});
-}
+await loadFavorites();
 
 const displayMode = await persistentRune("launchpad-display-mode-v1", StartDisplayMode.Fullscreen);
 let view = $state(StartView.Favorites);
@@ -94,7 +92,7 @@ class State {
   get wallpaper() { return wallpaper; }
   async refreshWallpaper() {
     try {
-      const path = await invoke(SeelenCommand.GetNativeShellWallpaper);
+      const path = await invoke(MacUiCommand.GetNativeShellWallpaper);
       wallpaper = path ? convertFileSrc(path) : "";
     } catch { wallpaper = ""; }
   }
@@ -118,30 +116,85 @@ class State {
   get pinnedItems() { return pinnedItems; }
   set pinnedItems(value: FavPinnedItem[]) { void saveItems(value).catch(() => {}); }
   get saveState() { return saveState; }
-  get importing() { return importing; }
-  get importResult() { return importResult; }
-  get importFailed() { return importFailed; }
+  get refreshing() { return refreshing; }
+  get refreshFailed() { return refreshFailed; }
+  get retainedLegacyLayout() { return retainedLegacyLayout; }
+  get choosingFavorites() { return choosingFavorites; }
+  set choosingFavorites(value: boolean) { choosingFavorites = value; }
+  get clearingFavorites() { return clearingFavorites; }
+  get clearFavoritesError() { return clearFavoritesError; }
+  get canUndoClear() { return clearUndo !== null; }
+  get layoutLoadError() { return layoutLoadError; }
+  get layoutLoading() { return layoutLoading; }
+  get canEditFavorites() { return layoutLoaded && !layoutLoading; }
   get displayMode() { return displayMode.value; }
   set displayMode(value: StartDisplayMode) { displayMode.value = value; }
   get folders() { return pinnedItems.filter((i): i is FavFolderItem => i.type === "folder"); }
 
-  retrySave() { void saveItems(pinnedItems).catch(() => {}); }
+  retrySave() {
+    if (!layoutLoaded) { void loadFavorites(); return; }
+    void saveItems(pinnedItems).catch(() => {});
+  }
 
-  async importWindowsStartMenu() {
-    if (importing) return;
-    importing = true;
-    importFailed = false;
-    importResult = null;
+  chooseFavorites() {
+    if (!layoutLoaded) return;
+    choosingFavorites = true;
+    this.view = StartView.All;
+    this.page = 0;
+  }
+
+  async clearFavorites() {
+    if (!layoutLoaded || clearingFavorites || !pinnedItems.length) return false;
+    clearingFavorites = true;
+    clearFavoritesError = false;
+    let completed = false;
+    const snapshot = normalizeLayout(pinnedItems);
     try {
-      startMenuItems.value = await invoke(SeelenCommand.GetStartMenuItems);
-      const result = importStartMenu(pinnedItems, startMenuItems.value);
-      await saveItems(result.items);
-      importResult = { addedApps: result.addedApps, addedFolders: result.addedFolders };
-      this.view = StartView.Favorites;
+      await clearFavoritesSafely(snapshot, {
+        getRevision: () => revision,
+        // Explicit user action only; retain a durable copy before any reset.
+        backup: items => invoke(MacUiCommand.WriteFile, {
+          filename: `launchpad-favorites-before-clear-${Date.now()}-${crypto.randomUUID()}.json`,
+          content: JSON.stringify({ version: 2, items } satisfies LaunchpadLayout),
+        }),
+        clear: () => {
+          const saved = saveItems([]);
+          return { revision, saved };
+        },
+        restore: items => {
+          ++revision;
+          pinnedItems = normalizeLayout(items);
+          clearUndo = normalizeLayout(items);
+          saveState = "error";
+        },
+        complete: items => {
+          clearUndo = items;
+          retainedLegacyLayout = false;
+          openFolderId = null;
+          this.page = 0;
+          completed = true;
+        },
+      });
     } catch (error) {
-      importFailed = true;
-      console.error("Start Menu import failed:", error);
-    } finally { importing = false; }
+      clearFavoritesError = true;
+      console.error("Could not clear favorites safely:", error);
+    } finally { clearingFavorites = false; }
+    return completed;
+  }
+  undoClearFavorites() {
+    if (clearUndo) this.pinnedItems = clearUndo;
+  }
+
+  async refreshApplications() {
+    if (refreshing) return;
+    refreshing = true;
+    refreshFailed = false;
+    try {
+      startMenuItems.value = await invoke(MacUiCommand.GetStartMenuItems);
+    } catch (error) {
+      refreshFailed = true;
+      console.error("Start Menu refresh failed:", error);
+    } finally { refreshing = false; }
   }
 
   isPinned(item: StartMenuItem) {
@@ -149,6 +202,7 @@ class State {
     return pinnedItems.some(i => i.type === "app" ? i.itemId.toLowerCase() === id : i.itemIds.some(child => child.toLowerCase() === id));
   }
   togglePin(item: StartMenuItem) {
+    if (!layoutLoaded || clearingFavorites) return;
     const id = getItemId(item);
     this.pinnedItems = this.isPinned(item) ? removeApp(pinnedItems, id) : [...pinnedItems, { type: "app", itemId: id }];
   }
@@ -187,14 +241,10 @@ class State {
   moveRootItem(itemId: string, offset: number) { this.pinnedItems = moveRootItem(pinnedItems, itemId, offset); }
 
   getMenuItem(id: string): StartMenuItem | undefined {
-    const item = startMenuItems.value.find(i => getItemId(i).toLowerCase() === id.toLowerCase())
-      || foldersAsStartMenuItems.value.find(i => getItemId(i).toLowerCase() === id.toLowerCase());
-    if (item) return item;
-    if (id.includes("\\") || id.includes("/")) return {
-      path: id, umid: null, display_name: (id.split(/[\\/]/g).pop() || id).replace(/\.lnk$/i, ""),
-      target: null, toast_activator: null, start_menu_folder: [],
-    };
-    return undefined;
+    // Unavailable legacy IDs stay saved, but never fabricate a launchable app
+    // from a Downloads/Desktop installer or an uninstalled shortcut.
+    return this.allItems.find(i => getItemId(i).toLowerCase() === id.toLowerCase()
+      || (i.path && i.path.toLowerCase() === id.toLowerCase()));
   }
 }
 export const globalState = new State();

@@ -8,7 +8,7 @@ cancel: रद्द गर्नु
 done: पूरा
 elevated:
   description: >-
-    Seelen UI प्रशासक विशेषाधिकार संग चलिरहेको छ।
+    MAC UI प्रशासक विशेषाधिकार संग चलिरहेको छ।
 
     यसले कुनै पनि सुविधाहरू थप्ने वा सुधार गर्दैन, र यसले सुरक्षा जोखिम
     निम्त्याउन सक्छ।
@@ -36,19 +36,19 @@ runtime:
   files_integrity: |-
     हामीले अनुप्रयोग फाइलहरूको अखण्डता प्रमाणित गर्न सकेनौं।
     यदि फाइलहरू परिमार्जन, भ्रष्ट वा स्थापना अपूर्ण भएमा यो हुन सक्छ।
-    सुरक्षा कारणहरूका लागि, Seelen UI जारी राख्न सक्दैन।
+    सुरक्षा कारणहरूका लागि, MAC UI जारी राख्न सक्दैन।
     कृपया यसलाई आधिकारिक वेबसाइटबाट पुन: स्थापना गर्नुहोस्।
   files_integrity_title: सुरक्षा सतर्कता - फाइलहरूको अखण्डता जाँच असफल भयो
   not_found: WebView2 रनटाइम फेला परेन
-  not_found_description: Seelen UI लाई Webview2 रनटाइम चाहिन्छ। कृपया यसलाई स्थापना गर्नुहोस्।
+  not_found_description: MAC UI लाई Webview2 रनटाइम चाहिन्छ। कृपया यसलाई स्थापना गर्नुहोस्।
   outdated: WebView2 रनटाइम पुरानो
   outdated_description: >-
-    Seelen UI लाई Webview2 रनटाइम %{min_version} वा उच्च चाहिन्छ। कृपया यसलाई
+    MAC UI लाई Webview2 रनटाइम %{min_version} वा उच्च चाहिन्छ। कृपया यसलाई
     अपडेट गर्नुहोस्।
 service:
-  not_running: Seelen UI सेवा चलिरहेको छैन
+  not_running: MAC UI सेवा चलिरहेको छैन
   not_running_description: >-
-    Seelen UI सेवा (slu-service) एपलाई राम्रोसँग काम गर्नको लागि निर्भरता/सहायक
+    MAC UI सेवा (macui-service) एपलाई राम्रोसँग काम गर्नको लागि निर्भरता/सहायक
     हो।
   not_running_ok: सेवा सुरु गर्नुहोस्
 shortcut:

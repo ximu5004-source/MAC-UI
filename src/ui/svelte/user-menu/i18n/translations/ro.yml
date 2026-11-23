@@ -15,7 +15,7 @@ profile:
   log_out: Deconectați-vă
   open_onedrive: Deschideți directorul OneDrive
   open_user_folder: Deschideți directorul de utilizatori
-seelen_options:
-  open_installation_folder: Deschideți folderul de setări Seelen
-  open_log_folder: Deschideți folderul de jurnal Seelen
-  title: directoarele Seelen
+macui_options:
+  open_installation_folder: Deschideți folderul de setări MAC UI
+  open_log_folder: Deschideți folderul de jurnal MAC UI
+  title: directoarele MAC UI

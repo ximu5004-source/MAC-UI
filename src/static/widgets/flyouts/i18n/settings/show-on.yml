@@ -11,7 +11,7 @@ cy: "Dangos ar:"
 da: "Vis på:"
 de: "Anzeigen auf:"
 el: "Εμφάνιση σε:"
-en: "Show on:"
+en: What to show
 es: "Mostrar en:"
 et: "Näita:"
 eu: "Erakutsi:"
@@ -67,6 +67,6 @@ ur: "پر دکھائیں:"
 uz: 'Ko''rsatish:'
 vi: "Hiển thị trên:"
 yo: "Ṣe afihan lori:"
-zh-CN: 显示于：
-zh-TW: 顯示時機：
+zh-CN: 提醒内容
+zh-TW: 提醒內容
 zu: "Bonisa ku:"

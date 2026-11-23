@@ -59,10 +59,10 @@ export function getSystemTokens(computed: CSSStyleDeclaration) {
 
 export function getThemeTokens(computed: CSSStyleDeclaration) {
   return {
-    foregroundColor: computed.getPropertyValue("--slu-std-fg-color"),
-    foregroundSecondaryColor: computed.getPropertyValue("--slu-std-fg-secondary-color"),
-    foregroundMutedColor: computed.getPropertyValue("--slu-std-fg-muted-color"),
-    foregroundDisabledColor: computed.getPropertyValue("--slu-std-fg-disabled-color"),
-    backgroundColor: computed.getPropertyValue("--slu-std-bg-color"),
+    foregroundColor: computed.getPropertyValue("--macui-std-fg-color"),
+    foregroundSecondaryColor: computed.getPropertyValue("--macui-std-fg-secondary-color"),
+    foregroundMutedColor: computed.getPropertyValue("--macui-std-fg-muted-color"),
+    foregroundDisabledColor: computed.getPropertyValue("--macui-std-fg-disabled-color"),
+    backgroundColor: computed.getPropertyValue("--macui-std-bg-color"),
   };
 }

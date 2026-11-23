@@ -1,5 +1,5 @@
 // Main build orchestrator
-// This file coordinates the build process for Seelen UI applications
+// This file coordinates the build process for MacUi UI applications
 
 import { parseArgs } from "./build/config.ts";
 import { extractIcons } from "./build/steps/icons.ts";
@@ -23,6 +23,10 @@ import process from "node:process";
  */
 async function main() {
   const args = await parseArgs();
+  if (process.platform === "win32") {
+    const { execFileSync } = await import("node:child_process");
+    execFileSync(process.execPath, ["scripts/build/desktop-native.mjs"], { stdio: "inherit" });
+  }
   console.info(`Build mode: ${args.isProd ? "production" : "development"}`);
   console.info(`Serve: ${args.serve ? "enabled" : "disabled"}\n`);
 

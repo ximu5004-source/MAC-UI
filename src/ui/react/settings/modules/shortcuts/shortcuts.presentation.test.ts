@@ -12,7 +12,7 @@ test("each edit wires the same unique callback event to listen and invoke", () =
 });
 
 test("Launchpad has an explicit opt-in switch and accessible shortcut controls", () => {
-  assert.match(view, /widget\.id === "@seelen\/apps-menu" &&/);
+  assert.match(view, /widget\.id === "@macui\/apps-menu" &&/);
   assert.match(view, /value=\{isWidgetEnabled\(widget\.id\)\}/);
   assert.match(view, /onChange=\{\(enabled\) => patchWidgetConfig\(widget\.id, \{ enabled \}\)\}/);
   assert.match(view, /aria-label=\{t\("widget\.enable"\)\}/);

@@ -30,14 +30,14 @@ apps_configurations:
     Šios sujungtos konfigūracijos nėra redaguojamos ir yra skirtos suteikti jums
     geriausią patirtį be pritaikymo. Jie automatiškai sukonfigūruoja dažniausiai
     jums.
-  bundled_title: APP CONFIC sujungta su „Seelen“
+  bundled_title: APP CONFIC sujungta su „MAC UI“
   confirm_delete: Ar tikrai norite ištrinti šią konfigūraciją (-us)?
   confirm_delete_title: Patvirtinkite ištrynti
   delete: Ištrinti
   export: Eksportas
   export_full: Eksportuoti nustatymus pagal programą
   extra_info: >-
-    „Seelen“ vartotojo sąsaja naudoja tik vieną identifikatorių vienai programai
+    „MAC UI“ vartotojo sąsaja naudoja tik vieną identifikatorių vienai programai
     (rasta pirmoji atitiktis), todėl svarbi tvarka, kaip nurodyta, bus teikiama
     pirmenybė naujausiai pridėtai, nes pagal numatytuosius nustatymus lentelė
     rūšiuojama nuo naujausios iki senesnės.
@@ -81,13 +81,13 @@ devtools:
   data_folder: Duomenų aplankas
   enable: Įgalinkite kūrėjo įrankius
   enable_description: >-
-    Atrakina pažangius įrankius, skirtus Seelen vartotojo sąsajos vidinėms
+    Atrakina pažangius įrankius, skirtus MAC UI vartotojo sąsajos vidinėms
     detalėms tikrinti ir derinti. Neskirtas nuolatiniam naudojimui.
   icons: Talpykloje saugomos piktogramos
   install_folder: Diegimo aplankas
   load: Įkelti
   settings_file: Nustatymų failas
-  shared_components: SLU standartiniai komponentai
+  shared_components: MAC UI standartiniai komponentai
   simulate_dialog:
     label: Imituoti dialogą
     trigger: Trigeris
@@ -120,7 +120,7 @@ devtools:
     widget_id: Valdiklio ID
 discord_banner:
   message: >-
-    Susisiekite su kitais Seelen UI naudotojais, gaukite pagalbos, bendrinkite
+    Susisiekite su kitais MAC UI naudotojais, gaukite pagalbos, bendrinkite
     temas ir gaukite naujausias naujienas.
   title: Prisijunkite prie mūsų bendruomenės
 extras:
@@ -171,7 +171,7 @@ general:
     plugged: Prijungtas ar įkrovimas
   polling_interval: Sistemos apklausos intervalas
   polling_interval_description: >-
-    Kaip dažnai (sekundėmis) Seelen vartotojo sąsaja tikrina sistemos išteklius,
+    Kaip dažnai (sekundėmis) MAC UI vartotojo sąsaja tikrina sistemos išteklius,
     pvz., CPU, RAM, tinklo ir disko veiklą. Mažesnis skaičius reiškia dažnesnius
     atnaujinimus, bet šiek tiek didesnį išteklių naudojimą.
   saturday: šeštadienis
@@ -226,7 +226,7 @@ reset_configurations: Iš naujo nustatyti konfigūracijas
 reset_to_default: Iš naujo nustatyti numatytąją vertę
 resources:
   affected_widgets: Paveikti valdikliai
-  app_outdated: Kad šis išteklius veiktų tinkamai, reikia naujesnės "Seelen UI" versijos.
+  app_outdated: Kad šis išteklius veiktų tinkamai, reikia naujesnės "MAC UI" versijos.
   coming_soon: Netrukus
   corrupted_wallpaper: >-
     Nepavyko išskleisti miniatiūros – sugadintas arba nepalaikomas vaizdo įrašo
@@ -240,7 +240,7 @@ resources:
   modified: Pakeista
   open_folder: Atidarykite išteklių aplanką
   outdated: >-
-    Šis išteklius buvo sukurtas senesnei "Seelen UI" versijai ir gali neveikti
+    Šis išteklius buvo sukurtas senesnei "MAC UI" versijai ir gali neveikti
     tinkamai.
   see_on_website: Žiūrėti svetainėje
   update_now: Atnaujinti
@@ -249,7 +249,7 @@ resources:
 review_request:
   not_now: Ne dabar
   sure: Žinoma!
-  title: Mėgaukitės Seelen vartotojo sąsaja?
+  title: Mėgaukitės MAC UI vartotojo sąsaja?
 save: Sutaupyti
 save_and_restart: Išsaugokite ir paleiskite iš naujo
 search: Ieškoti
@@ -268,7 +268,7 @@ shortcuts:
     iš nesuderinamų valdiklių arba iš naujo priskirkite pasikartojantį rakto
     susiejimą, kad išspręstumėte.
   enable: Įgalinti įmontuotą nuorodų sistemą
-  enable_tooltip: Išjunkite, jei įdiegsite savo nuorodų sistemą naudodami „Seelen UI“ klientą
+  enable_tooltip: Išjunkite, jei įdiegsite savo nuorodų sistemą naudodami „MAC UI“ klientą
   labels:
     create_new_workspace: Sukurkite naują darbo vietą
     create_new_workspace_row: Sukurti naują darbo srities eilutę
@@ -422,15 +422,15 @@ weg:
 welcome:
   give_a_review: Pateikite apžvalgą
   message: >-
-    Seelen UI yra nemokama atvirojo kodo darbalaukio aplinka, skirta Windows.
+    MAC UI yra nemokama atvirojo kodo darbalaukio aplinka, skirta Windows.
     Čia galite visiškai valdyti, kaip atrodo ir veikia jūsų darbalaukis, todėl
     galite tinkinti kiekvieną detalę, kad ji atitiktų jūsų darbo eigą ir stilių.
   ok: Pradėkime!
   review: >-
-    Jei jums patinka naudoti Seelen vartotojo sąsają, apsvarstykite galimybę
+    Jei jums patinka naudoti MAC UI vartotojo sąsają, apsvarstykite galimybę
     palikti atsiliepimą parduotuvėje – jūsų atsiliepimai padeda projektui augti
     ir tobulėti.
-  title: Sveiki atvykę į Seelen vartotojo sąsają!
+  title: Sveiki atvykę į MAC UI vartotojo sąsają!
 widget:
   default_instance: Numatytasis egzempliorius
   default_instance_hint: Visada aktyvus, naudoja šakninio valdiklio konfigūraciją

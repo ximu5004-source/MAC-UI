@@ -1,23 +1,23 @@
 .container {
-  height: 100%;
   width: 100%;
+  min-width: 0;
+  padding: 22px;
+  border-radius: 26px;
+  background: var(--mac-surface);
+  box-shadow: var(--mac-shadow);
   display: grid;
-  grid-template-rows: 1fr 40px;
+  gap: 16px;
+  grid-template-rows: auto auto;
   grid-template-columns: 100%;
 }
 
 .newBtn {
   width: 100%;
-  background-color: var(--color-green-600);
   padding: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   display: inline-block;
-
-  &:hover {
-    background-color: var(--color-green-700) !important;
-  }
 }
 
 .actions {
@@ -32,7 +32,7 @@
   }
 
   :global(.ant-empty) {
-    margin: 119px;
+    margin: 32px 16px;
   }
 
   :global(.ant-table-body) {
@@ -60,8 +60,6 @@
 }
 
 .footer {
-  position: absolute;
-  bottom: 15px;
   display: flex;
   align-items: center;
   gap: var(--spacing-s);

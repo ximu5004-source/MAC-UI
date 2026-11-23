@@ -1,8 +1,8 @@
 <script lang="ts">
-  import type { UserAppWindow } from "@seelen-ui/lib/types";
+  import type { UserAppWindow } from "@macui/lib/types";
   import { state } from "../state.svelte";
   import { Icon, MissingIcon, FileIcon } from "libs/ui/svelte/components/Icon";
-  import { invoke, SeelenCommand, Widget } from "@seelen-ui/lib";
+  import { invoke, MacUiCommand, Widget } from "@macui/lib";
   import { createDraggable } from "@dnd-kit/svelte";
 
   interface Props {
@@ -37,7 +37,7 @@
   tabindex="0"
   onclick={(e) => {
     e.stopPropagation();
-    invoke(SeelenCommand.WegToggleWindowState, { hwnd, wasFocused: false, minimizeTarget: null });
+    invoke(MacUiCommand.WegToggleWindowState, { hwnd, wasFocused: false, minimizeTarget: null });
     Widget.self.hide();
   }}
   onkeydown={(e) => {
@@ -58,7 +58,7 @@
       data-skin="transparent"
       onclick={(e) => {
         e.stopPropagation();
-        invoke(SeelenCommand.WegCloseApp, { hwnd });
+        invoke(MacUiCommand.WegCloseApp, { hwnd });
       }}
     >
       <Icon iconName="TbX" />

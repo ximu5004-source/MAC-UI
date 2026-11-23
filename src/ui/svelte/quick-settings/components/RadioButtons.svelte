@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { invoke, SeelenCommand } from "@seelen-ui/lib";
-  import { HotspotState, RadioDeviceKind, type RadioDevice, type WidgetId } from "@seelen-ui/lib/types";
+  import { invoke, MacUiCommand } from "@macui/lib";
+  import { HotspotState, RadioDeviceKind, type RadioDevice, type WidgetId } from "@macui/lib/types";
   import { state } from "../state.svelte";
   import type { IconName } from "libs/ui/icons";
   import { t } from "../i18n";
@@ -30,22 +30,22 @@
   }
 
   function openDetails(id: string) {
-    return invoke(SeelenCommand.TriggerWidget, { payload: { id: id as WidgetId } });
+    return invoke(MacUiCommand.TriggerWidget, { payload: { id: id as WidgetId } });
   }
 
   function radioDetails(kind: RadioDeviceKind) {
-    if (kind === RadioDeviceKind.WiFi) return () => openDetails("@seelen/network-popup");
-    if (kind === RadioDeviceKind.Bluetooth) return () => openDetails("@seelen/bluetooth-popup");
+    if (kind === RadioDeviceKind.WiFi) return () => openDetails("@macui/network-popup");
+    if (kind === RadioDeviceKind.Bluetooth) return () => openDetails("@macui/bluetooth-popup");
     return undefined;
   }
 
   async function toggleRadio(radio: RadioDevice) {
-    await invoke(SeelenCommand.SetRadioState, { kind: radio.kind, enabled: !radio.isEnabled });
+    await invoke(MacUiCommand.SetRadioState, { kind: radio.kind, enabled: !radio.isEnabled });
   }
 
   async function toggleHotspot() {
     if (!state.hotspot) return;
-    await invoke(SeelenCommand.SetNetworkHotspotState, {
+    await invoke(MacUiCommand.SetNetworkHotspotState, {
       enabled: state.hotspot.state !== HotspotState.on,
     });
   }
@@ -53,17 +53,17 @@
   async function toggleHdr() {
     const newState = !hdrEnabled;
     await Promise.all(hdrMonitors.map((monitor) =>
-      invoke(SeelenCommand.SetMonitorHdr, { id: monitor.id, state: newState })
+      invoke(MacUiCommand.SetMonitorHdr, { id: monitor.id, state: newState })
     ));
   }
 
   async function toggleDarkMode() {
-    await invoke(SeelenCommand.SystemSetDarkMode, { enabled: !state.darkMode });
+    await invoke(MacUiCommand.SystemSetDarkMode, { enabled: !state.darkMode });
   }
 
   async function toggleNightLight() {
     const enabled = !state.nightLightEnabled;
-    await invoke(SeelenCommand.SystemSetNightLightEnabled, { enabled });
+    await invoke(MacUiCommand.SystemSetNightLightEnabled, { enabled });
     state.nightLightEnabled = enabled;
   }
 </script>

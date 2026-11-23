@@ -1,6 +1,6 @@
 use std::path::PathBuf;
 
-use crate::{error::Result, resource::SluResource, state::Theme};
+use crate::{error::Result, resource::MacUiResource, state::Theme};
 
 #[tokio::test]
 async fn test_compatibility_with_older_schemas() -> Result<()> {

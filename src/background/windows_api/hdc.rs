@@ -3,7 +3,7 @@ use windows::Win32::{
     Graphics::Gdi::{CLR_INVALID, GetDC, GetPixel, HDC, ReleaseDC},
 };
 
-use seelen_core::system_state::Color;
+use macui_core::system_state::Color;
 
 // Copy or Clone can't be implemented cuz this implements auto Drop/Release of the HDC
 #[derive(Debug, PartialEq, Eq)]

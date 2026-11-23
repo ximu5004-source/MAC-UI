@@ -1,6 +1,6 @@
 use std::sync::LazyLock;
 
-use seelen_core::system_state::SeelenFont;
+use macui_core::system_state::MacUiFont;
 use windows::Win32::Graphics::DirectWrite::{
     DWRITE_FACTORY_TYPE_SHARED, DWriteCreateFactory, IDWriteFactory, IDWriteFontFamily,
 };
@@ -42,7 +42,7 @@ impl FontManager {
         Ok(())
     }
 
-    unsafe fn get_font_family_name(family: &IDWriteFontFamily) -> Result<SeelenFont> {
+    unsafe fn get_font_family_name(family: &IDWriteFontFamily) -> Result<MacUiFont> {
         unsafe {
             let names = family.GetFamilyNames()?;
 
@@ -57,13 +57,13 @@ impl FontManager {
             let mut buf = WindowsString::new_to_fill(len as usize + 1);
             names.GetString(locale_index, buf.as_mut_slice())?;
 
-            Ok(SeelenFont {
+            Ok(MacUiFont {
                 family: buf.to_string(),
             })
         }
     }
 
-    pub fn get_fonts(&self) -> Result<Vec<SeelenFont>> {
+    pub fn get_fonts(&self) -> Result<Vec<MacUiFont>> {
         let mut collection = None;
         let mut fonts = Vec::new();
 

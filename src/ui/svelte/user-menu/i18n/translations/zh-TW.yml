@@ -16,7 +16,7 @@ profile:
   log_out: 退出
   open_onedrive: 打開 OneDrive 目錄
   open_user_folder: 打開用戶目錄
-seelen_options:
-  open_installation_folder: 打開 Seelen 設定文件夾
-  open_log_folder: 打開 Seelen 日誌文件夾
-  title: Seelen 目錄
+macui_options:
+  open_installation_folder: 打開 MAC UI 設定文件夾
+  open_log_folder: 打開 MAC UI 日誌文件夾
+  title: MAC UI 目錄

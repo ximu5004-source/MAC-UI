@@ -25,17 +25,22 @@ export const cx = (...args: Args[]): string => {
 };
 
 export function isDarkModeEnabled() {
-  return globalThis.matchMedia("(prefers-color-scheme: dark)").matches;
+  return document.documentElement.dataset.colorScheme === "dark";
 }
 
 export function useDarkMode() {
   const [isDarkMode, setIsDarkMode] = useState(isDarkModeEnabled());
 
   useEffect(() => {
-    const mediaQuery = globalThis.matchMedia("(prefers-color-scheme: dark)");
-    const listener = () => setIsDarkMode(mediaQuery.matches);
-    mediaQuery.addEventListener("change", listener);
-    return () => mediaQuery.removeEventListener("change", listener);
+    const listener = () => setIsDarkMode(isDarkModeEnabled());
+    const observer = new MutationObserver(listener);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-color-scheme"] });
+    globalThis.addEventListener("macui-color-scheme-change", listener);
+    listener();
+    return () => {
+      observer.disconnect();
+      globalThis.removeEventListener("macui-color-scheme-change", listener);
+    };
   }, []);
 
   return isDarkMode;

@@ -1,4 +1,4 @@
-use seelen_core::system_state::{RadioDevice, RadioDeviceKind};
+use macui_core::system_state::{RadioDevice, RadioDeviceKind};
 use windows::{
     Devices::Radios::{Radio, RadioKind, RadioState},
     Foundation::TypedEventHandler,
@@ -12,15 +12,15 @@ use crate::{
     windows_api::DeviceEvent,
 };
 
-pub struct SluRadioDevice {
+pub struct MacUiRadioDevice {
     pub id: String,
     pub raw: Radio,
     pub cache: RadioDevice,
     state_changed_token: i64,
 }
 
-impl SluRadioDevice {
-    pub fn create(device_id: &str) -> Result<SluRadioDevice> {
+impl MacUiRadioDevice {
+    pub fn create(device_id: &str) -> Result<MacUiRadioDevice> {
         let radio = Radio::FromIdAsync(&device_id.into())?.join()?;
 
         let id = device_id.to_string();
@@ -63,7 +63,7 @@ impl SluRadioDevice {
             },
         ))?;
 
-        Ok(SluRadioDevice {
+        Ok(MacUiRadioDevice {
             id: device_id.to_string(),
             cache: Self::to_serializable(device_id, &radio)?,
             raw: radio,
@@ -89,7 +89,7 @@ impl SluRadioDevice {
     }
 }
 
-impl Drop for SluRadioDevice {
+impl Drop for MacUiRadioDevice {
     fn drop(&mut self) {
         let _ = self.raw.RemoveStateChanged(self.state_changed_token);
     }

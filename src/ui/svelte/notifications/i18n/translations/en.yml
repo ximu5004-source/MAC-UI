@@ -5,3 +5,13 @@ settings: More Notifications Settings
 title: Notifications
 reply: Reply
 dismiss: Dismiss notification
+messaging:
+  wechat: WeChat
+  wecom: WeCom
+  dingtalk: DingTalk
+  feishu: Feishu / Lark
+  open: Open {{app}}
+  new_message: 'You have a new message from {{app}}.'
+  action_failed: Could not open or dismiss this notification. Please try again.
+  windows_unavailable: Windows notifications are unavailable. Messaging reminders can still appear here.
+  bridge_unavailable: Messaging reminders are unavailable. Please reopen MAC UI to retry.

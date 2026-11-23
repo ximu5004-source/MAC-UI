@@ -3,9 +3,9 @@ use std::sync::{
     atomic::{AtomicBool, Ordering},
 };
 
+use macui_core::{state::PerformanceMode, system_state::AudioWaveform};
 use parking_lot::Mutex;
 use rustfft::{FftPlanner, num_complex::Complex};
-use seelen_core::{state::PerformanceMode, system_state::AudioWaveform};
 use windows::Win32::{
     Media::Audio::{
         AUDCLNT_BUFFERFLAGS_SILENT, AUDCLNT_SHAREMODE_SHARED, AUDCLNT_STREAMFLAGS_LOOPBACK,

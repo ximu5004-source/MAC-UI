@@ -16,7 +16,7 @@ profile:
   log_out: 注销账户
   open_onedrive: 打开 OneDrive 目录
   open_user_folder: 打开用户目录
-seelen_options:
+macui_options:
   open_installation_folder: MAC UI 设置文件夹
   open_log_folder: MAC UI 日志文件夹
   title: MAC UI

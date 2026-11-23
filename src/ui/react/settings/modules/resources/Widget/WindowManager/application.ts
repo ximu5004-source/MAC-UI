@@ -7,7 +7,7 @@ import type {
   WmAnimations,
   WmDragBehavior,
   WmStackBarVisibility,
-} from "@seelen-ui/lib/types";
+} from "@macui/lib/types";
 
 /**
  * Patches the WindowManager configuration with partial updates.
@@ -20,8 +20,8 @@ export function patchWmConfig(patch: Partial<WindowManagerSettings>) {
     ...settings.value,
     byWidget: {
       ...settings.value.byWidget,
-      "@seelen/window-manager": {
-        ...settings.value.byWidget["@seelen/window-manager"],
+      "@macui/window-manager": {
+        ...settings.value.byWidget["@macui/window-manager"],
         ...patch,
       },
     },
@@ -32,7 +32,7 @@ export function patchWmConfig(patch: Partial<WindowManagerSettings>) {
  * Gets the current WindowManager configuration
  */
 export function getWmConfig(): WindowManagerSettings {
-  return settings.value.byWidget["@seelen/window-manager"];
+  return settings.value.byWidget["@macui/window-manager"];
 }
 
 /**

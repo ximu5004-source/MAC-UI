@@ -1,7 +1,7 @@
 <script lang="ts">
   import Monitor from "./app/Monitor.svelte";
   import { state } from "./state.svelte";
-  import { Widget } from "@seelen-ui/lib";
+  import { Widget } from "@macui/lib";
 
   $effect(() => {
     Widget.self.ready();

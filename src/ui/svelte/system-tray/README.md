@@ -1,8 +1,9 @@
 # Full system tray
 
-The popup displays every icon returned by the native tray bridge, including non-messaging
-apps, hidden icons, and system icons. Messaging clients are sorted first, but are not a filter.
-Only duplicate stable IDs are merged; multiple icons owned by one app remain separate.
+The popup shows a compact icon grid with 20-pixel images, accessible names and hover labels.
+It includes hidden, system and non-messaging icons. Task Manager registers multiple CPU meter
+frames on one callback window. They share one tile, and clicks use the currently visible frame's
+native ID. Other applications retain their distinct native icons.
 
 ## Layout and loading
 
@@ -60,3 +61,32 @@ never register one. No installer was rebuilt for this change.
 Regression coverage: hook protocol/visibility tests, signed-coordinate packing tests,
 nonblocking FIFO/overflow recovery tests, Dock restore-routing tests, and pointer/keyboard
 activation tests. Native third-party apps were not clicked by these automated tests.
+
+## Restored-baseline fixes (2026-10-29)
+
+- Native GUID and HWND/uID identities resolve partial updates to the original
+  stable item. Distinct explicit GUIDs remain separate. The tray event worker
+  retires invalid callback windows every two seconds, including while idle.
+- Repeated icon pixel changes trigger a bounded visual attention pulse in the
+  toolbar and popup. A new real toast/balloon can pulse separately. Clicking
+  acknowledges the visual pulse across webviews; it does not mark chats read.
+  Existing notification history and the first icon snapshot are not new messages.
+- Empty native tooltip/balloon updates clear old hints instead of preserving
+  stale unread metadata. Explicit zero/no-unread wording is not a notification.
+- Explicit blank native icon frames also participate in visual-change detection;
+  the toolbar retains the last application image instead of disappearing. A
+  blank icon alone does not create message content or a notification count.
+- Bitmap decoding follows GetDIBits' unselected-bitmap requirement and checks
+  bounded allocation and full scanline reads. Failed reads never publish a hash.
+- A tray-local worker reconnects only to the verified Windows Explorer tray
+  thread after shell replacement, with finite retry delays and hook-before-DLL
+  cleanup. Its process identity checks are local to this module; it has no
+  dependency on installation ownership, startup handoff or desktop recovery.
+
+Windows notification access may be unavailable or denied; native tray metadata
+and pixel-change attention remain independent of that permission. If a client
+publishes no toast, balloon, unread hint or changing native icon, MAC UI has no
+reliable signal and does not invent message content or unread counts.
+
+This patch has pure regression coverage. Actual WeChat/WeCom incoming messages,
+Task Manager relaunch and Explorer restart still require native acceptance.

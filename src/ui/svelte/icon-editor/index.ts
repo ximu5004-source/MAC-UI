@@ -1,9 +1,9 @@
 import { mount } from "svelte";
 import App from "./app.svelte";
-import { Widget } from "@seelen-ui/lib";
-import { LogicalSize } from "@seelen-ui/lib/tauri";
+import { Widget } from "@macui/lib";
+import { LogicalSize } from "@macui/lib/tauri";
 
-import "@seelen-ui/lib/styles/reset.css";
+import "@macui/lib/styles/reset.css";
 
 await Widget.self.init();
 await Promise.all([

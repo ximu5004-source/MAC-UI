@@ -1,28 +1,88 @@
 # Changelog
 
+## [4.3.1] — 2026-11-23
+
+- 安装包附带 Microsoft Visual C++ 与 WebView2 离线安装程序，按需准备运行依赖。
+- 桌面右键菜单使用标准 Windows 菜单参数，保留原生菜单项与 MAC UI 桌面入口。
+- 整理盒按鼠标位置连续移动，支持跨显示器拖动和不同缩放比例。
+- 整理盒边缘吸附范围为 12 DIP，按住 Shift 可临时关闭吸附，松手后保留当前位置。
+- 整理盒使用显示器可用区域，折叠状态下保留展开高度。
+- 桌面操作日志包含 Windows 版本、接口名称和错误码。
+
+## [4.3.0] — 2026-11-23
+
+- 桌面管理采用 C#、WPF 与 Windows Shell，支持文件拖放、整理盒分组、映射文件夹和原生文件操作。
+- 整理盒、菜单和控制条使用可调透明度与磨砂强度的玻璃材质。
+- 整理盒支持边缘吸附、网格、布局锁定和覆盖式自动隐藏滚动条。
+- 框选覆盖整理盒的完整内容区域，拖动文件时显示跟随指针的原生图像。
+- 桌面、整理盒和控制条保持在普通窗口下方，不单独出现在任务栏与 Alt+Tab 中。
+- 桌面设置集中到 MAC UI 设置页，窗口按钮使用居中的矢量图标。
+- 退出时等待文件操作结束，恢复 Explorer 桌面图标，并结束桌面管理与服务进程。
+
+## [4.2.0] — 2026-11-22
+
+- 设置按桌面、Dock 与启动台、顶部栏、窗口、外观和系统分类，采用卡片与二级页面。
+- 设置窗口使用可透出背景的液态玻璃，提供蓝色强调色、红色退出按钮和圆形窗口按钮。
+- 设置内页采用紧凑分栏布局，将相关选项集中排列，支持搜索与键盘操作。
+- 增加桌面整理的排列方式、图标大小、网格、吸附和布局锁定设置。
+- 统一右键菜单与通知浮层的玻璃效果，优化系统托盘图标的居中显示。
+- 调整音频设备的媒体与通话按钮间距，保持两种输出设置独立操作。
+
+## [4.1.1] — 2026-11-19
+
+- 更新 MAC UI 标志，设置窗口采用蓝色强调色。
+
+- 设置改用无边框圆角窗口，首页提供功能卡片和消息弹窗开关。
+- 修复微信和企业微信未读数量递增时的漏报，并修复通知在勿扰查询和其他浮层初始化期间丢失的问题。
+
+## [4.1.0] — 2026-11-19
+
+- Hover over a running Dock application to preview its windows. Move into the preview to select or close a window.
+- Settings uses the Material Studio layout. Its header switches between original glass and a higher-contrast finish with
+  neutral edges over bright wallpapers.
+- Read visible text fields of supported WeChat notification popups, including separately exposed sender and body.
+
+## [4.0.0] — MAC UI, 2026-11-02
+
+- Preserve the accepted desktop UI and saved layout while improving native file menus and removing file-icon hover
+  operation hints.
+- Add office-notification fallback collection and system minimize/restore event animation with reversible
+  native-animation custody.
+- Remove native window queries from shared list locks and check standalone frontend embedding.
+- User-confirmed verification; local Windows x64 installer and matching source snapshot. No GitHub upload.
+
 ## [3.0.1] — MAC UI, 2026-10-05
 
 ### MAC UI fixes
 
 - Add an explicit Launchpad enable switch to its shortcut group and accept standalone Win in the shortcut editor.
-- Subscribe to settings updates before the initial fetch; refresh the live settings snapshot when the main settings file or its sidecars change.
-- Keep keyboard capture alive when shortcuts are temporarily disabled, allowing re-enabling without restarting the service.
+- Subscribe to settings updates before the initial fetch; refresh the live settings snapshot when the main settings file
+  or its sidecars change.
+- Keep keyboard capture alive when shortcuts are temporarily disabled, allowing re-enabling without restarting the
+  service.
 - Isolate shortcut recordings by request identity and clean up listeners on accept, cancel, failure and dialog close.
 - Exclude nightly-only debug symbols from stable installers at compile time.
-- Retain the accepted 3.0 visuals and saved preferences. The user confirmed the shortcut issue resolved on 2026-10-05 and authorized 3.0.1 packaging.
+- Retain the accepted 3.0 visuals and saved preferences. The user confirmed the shortcut issue resolved on 2026-10-05
+  and authorized 3.0.1 packaging.
 - Genie minimization remains disabled; no new animation functionality is enabled in this maintenance release.
 
 ## [3.0.0] — MAC UI, 2026-10-05
 
 ### MAC UI updates
 
-- Unify built-in glass popovers, the calendar, account menu and session sheet with neutral frosted interiors, edge-only gloss and clear text.
-- Use a macOS-inspired Launchpad application grid without Quick Access or a right sidebar; opening folders hides the underlying application grid.
-- Restore the editable standalone Win-key Launchpad shortcut. Trigger only on release and preserve native Win-key combinations.
+- Unify built-in glass popovers, the calendar, account menu and session sheet with neutral frosted interiors, edge-only
+  gloss and clear text.
+- Use a macOS-inspired Launchpad application grid without Quick Access or a right sidebar; opening folders hides the
+  underlying application grid.
+- Restore the editable standalone Win-key Launchpad shortcut. Trigger only on release and preserve native Win-key
+  combinations.
 - Keep application icons free of added glow and retain proportional Dock sizing, transparency and gloss controls.
-- Dismiss Launchpad/account panels before opening the session sheet; preserve cancellation-first focus and explicit confirmation for destructive actions.
-- Retain saved layouts, pinned applications and compatibility identifiers. The user accepted the current test build on 2026-10-05.
-- Genie mesh/capture work remains gated off in production; this release does not enable a replacement for Windows minimize animations.
+- Dismiss Launchpad/account panels before opening the session sheet; preserve cancellation-first focus and explicit
+  confirmation for destructive actions.
+- Retain saved layouts, pinned applications and compatibility identifiers. The user accepted the current test build on
+  2026-10-05.
+- Genie mesh/capture work remains gated off in production; this release does not enable a replacement for Windows
+  minimize animations.
 
 ## [2.8.7] — MAC UI, 2026-10-04
 

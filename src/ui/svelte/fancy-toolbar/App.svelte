@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Widget } from "@seelen-ui/lib";
+  import { Widget } from "@macui/lib";
   import { onMount } from "svelte";
   import { debounce } from "lodash";
   import Toolbar from "./components/Toolbar.svelte";
@@ -13,7 +13,7 @@
   const focusedIsAppsMenu = $derived(
     startMenuExes.some((program) => (focused.value?.exe || "").endsWith(program)) ||
       widgetStatuses.value.some(
-        (w) => w.widgetId === "@seelen/apps-menu" && w.webviewWindowId === focused.value?.hwnd,
+        (w) => w.widgetId === "@macui/apps-menu" && w.webviewWindowId === focused.value?.hwnd,
       ),
   );
 

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { t } from "../../i18n";
-  import { invoke, SeelenCommand, Widget } from "@seelen-ui/lib";
-  import type { WidgetId } from "@seelen-ui/lib/types";
+  import { invoke, MacUiCommand, Widget } from "@macui/lib";
+  import type { WidgetId } from "@macui/lib/types";
   import { globalState } from "../../state/mod.svelte";
   import { StartDisplayMode } from "../../constants";
   import { Icon } from "libs/ui/svelte/components/Icon";
@@ -9,14 +9,14 @@
 
   async function openUserMenu() {
     await Widget.self.hide();
-    await invoke(SeelenCommand.TriggerWidget, {
-      payload: { id: "@seelen/user-menu" as WidgetId },
+    await invoke(MacUiCommand.TriggerWidget, {
+      payload: { id: "@macui/user-menu" as WidgetId },
     });
   }
 
   function openAppSettings() {
-    invoke(SeelenCommand.TriggerWidget, {
-      payload: { id: "@seelen/settings" as WidgetId },
+    invoke(MacUiCommand.TriggerWidget, {
+      payload: { id: "@macui/settings" as WidgetId },
     });
   }
 
@@ -24,8 +24,8 @@
     // Dismiss the source before showing the sheet: another WebView's sharp
     // grid must not be mistaken for the new panel's own content.
     await Widget.self.hide();
-    await invoke(SeelenCommand.TriggerWidget, {
-      payload: { id: "@seelen/power-menu" as WidgetId },
+    await invoke(MacUiCommand.TriggerWidget, {
+      payload: { id: "@macui/power-menu" as WidgetId },
     });
   }
 </script>

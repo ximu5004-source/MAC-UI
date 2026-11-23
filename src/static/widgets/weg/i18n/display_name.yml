@@ -11,7 +11,7 @@ cy: Doc/bar tasgau
 da: Dock/Arbejdsfelt
 de: Dock/Taskbar
 el: Αποβάθρα/Μπάρα πιάτων
-en: Dock/Taskbar
+en: Dock
 es: Muelle/Barra de Muelle
 et: Dock/Taskbar
 eu: Dock / ataza barra
@@ -69,6 +69,6 @@ uz: Dok / vazifalar paneli
 vi: Dock/Thanh tác vụ
 yo: Dock / forkbar
 zh: 码头/任务栏
-zh-CN: 停靠栏/任务栏
+zh-CN: Dock 栏
 zh-TW: Dock/任務欄
 zu: Dock / taskbar

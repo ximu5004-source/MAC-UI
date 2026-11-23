@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { invoke, SeelenCommand } from "@seelen-ui/lib";
+  import { invoke, MacUiCommand } from "@macui/lib";
   import FileIcon from "libs/ui/svelte/components/Icon/FileIcon.svelte";
 
   interface Props {
@@ -10,7 +10,7 @@
   let { path, displayName }: Props = $props();
 
   function selectFileOnExplorer() {
-    invoke(SeelenCommand.SelectFileOnExplorer, { path });
+    invoke(MacUiCommand.SelectFileOnExplorer, { path });
   }
 </script>
 

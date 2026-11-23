@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { invoke, SeelenCommand } from "@seelen-ui/lib";
-  import { type ContextMenuItem, Alignment } from "@seelen-ui/lib/types";
+  import { invoke, MacUiCommand } from "@macui/lib";
+  import { type ContextMenuItem, Alignment } from "@macui/lib/types";
   import { Icon } from "libs/ui/svelte/components/Icon";
   import { state } from "./state.svelte";
 
@@ -11,7 +11,7 @@
   let { item }: SubmenuProps = $props();
 
   function handleClick() {
-    invoke(SeelenCommand.TriggerContextMenu, {
+    invoke(MacUiCommand.TriggerContextMenu, {
       menu: {
         identifier: item.identifier,
         items: item.items,

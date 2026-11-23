@@ -8,7 +8,7 @@ cancel: Kansellere
 done: Ferdig
 elevated:
   description: >-
-    Seelen UI kjører med administratorrettigheter.
+    MAC UI kjører med administratorrettigheter.
 
     Dette legger ikke til eller forbedrer noen funksjoner, og det kan utgjøre en
     sikkerhetsrisiko.
@@ -20,7 +20,7 @@ resource:
   added: En ny ressurs er lagt til
   download_failed_body: >-
     Noe gikk galt mens du lastet ned ressursen, vennligst rapporter den til
-    Seelen -utviklerteamet.
+    MAC UI -utviklerteamet.
   download_failed_title: Ressursnedlasting mislyktes
   downloading: Last ned eiendeler ...
   downloading_body: Dette kan ta noen sekunder, ikke lukk vinduet.
@@ -39,20 +39,20 @@ runtime:
     Dette kan skje hvis filene ble endret, ødelagt eller installasjonen er
     ufullstendig.
 
-    Av sikkerhetsgrunner kan ikke Seelen UI fortsette.
+    Av sikkerhetsgrunner kan ikke MAC UI fortsette.
 
     Installer den på nytt fra den offisielle nettsiden.
   files_integrity_title: Sikkerhetsvarsel - Kontroll av filers integritet mislyktes
   not_found: WebView2 Runtime ikke funnet
-  not_found_description: Seelen UI krever Webview2 Runtime. Vennligst installer den.
+  not_found_description: MAC UI krever Webview2 Runtime. Vennligst installer den.
   outdated: WebView2 Runtime utdatert
   outdated_description: >-
-    Seelen UI krever Webview2 Runtime %{min_version} eller høyere. Vennligst
+    MAC UI krever Webview2 Runtime %{min_version} eller høyere. Vennligst
     oppdater den.
 service:
-  not_running: Seelen UI Service kjører ikke
+  not_running: MAC UI Service kjører ikke
   not_running_description: >-
-    Seelen UI Service (slu-service) er en avhengighet/hjelper for at appen skal
+    MAC UI Service (macui-service) er en avhengighet/hjelper for at appen skal
     fungere skikkelig.
   not_running_ok: Start tjenesten
 shortcut:

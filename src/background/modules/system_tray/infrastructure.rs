@@ -1,20 +1,25 @@
 use std::sync::Once;
 
-use seelen_core::{
-    handlers::SeelenEvent,
+use macui_core::{
+    handlers::MacUiEvent,
     system_state::{SysTrayIcon, SysTrayIconId, SystrayIconAction},
 };
 
 use crate::{
-    app::emit_to_webviews, error::Result, modules::system_tray::application::SystemTrayManager,
+    app::emit_to_webviews,
+    error::Result,
+    modules::system_tray::application::{SystemTrayEvent, SystemTrayManager},
 };
 
 fn get_system_tray_manager() -> &'static SystemTrayManager {
     static TAURI_EVENT_REGISTRATION: Once = Once::new();
     TAURI_EVENT_REGISTRATION.call_once(|| {
-        SystemTrayManager::subscribe(|_event| {
+        SystemTrayManager::subscribe(|event| {
+            if !matches!(event, SystemTrayEvent::Changed) {
+                return;
+            }
             emit_to_webviews(
-                SeelenEvent::SystemTrayChanged,
+                MacUiEvent::SystemTrayChanged,
                 SystemTrayManager::instance().icons(),
             );
         });

@@ -12,7 +12,7 @@ elevated:
 file_explorer: 文件浏览器
 resource:
   added: 已添加新资源
-  download_failed_body: 下载资源时出现问题，请向 Seelen 开发团队报告。
+  download_failed_body: 下载资源时出现问题，请向 MAC UI 开发团队报告。
   download_failed_title: 资源下载失败
   downloading: 正在下载资源...
   downloading_body: 这可能需要几秒钟，请不要关闭窗口。
@@ -36,8 +36,10 @@ runtime:
   outdated: WebView2 运行时版本过旧
   outdated_description: MAC UI 需要 Webview2 运行时 %{min_version} 或更高版本。请更新它。
 service:
+  exit_failed_title: MAC UI 尚未退出
+  exit_failed_description: MAC UI 服务未能及时停止，当前桌面仍保持运行。请重新点击退出，详细原因已记录到日志。
   not_running: MAC UI 服务未运行
-  not_running_description: MAC UI 服务（slu-service）是应用程序正常工作的依赖项/帮助程序。
+  not_running_description: MAC UI 服务（macui-service）是应用程序正常工作的依赖项/帮助程序。
   not_running_ok: 启动服务
 shortcut:
   conflicts:

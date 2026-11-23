@@ -89,7 +89,7 @@ mod tests {
         fn new() -> Self {
             static ID: AtomicUsize = AtomicUsize::new(0);
             let path = std::env::temp_dir().join(format!(
-                "seelen-new-file-test-{}-{}-{}",
+                "macui-new-file-test-{}-{}-{}",
                 std::process::id(),
                 std::time::SystemTime::now()
                     .duration_since(std::time::UNIX_EPOCH)

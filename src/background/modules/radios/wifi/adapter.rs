@@ -1,6 +1,6 @@
 use std::collections::{HashMap, HashSet};
 
-use seelen_core::system_state::WlanBssEntry;
+use macui_core::system_state::WlanBssEntry;
 use windows::{
     Devices::WiFi::WiFiAdapter,
     Foundation::TypedEventHandler,
@@ -388,23 +388,23 @@ pub fn scan_bss_list(
     }
 }
 
-// ── SluWifiAdapter ────────────────────────────────────────────────────────────
+// ── MacUiWifiAdapter ────────────────────────────────────────────────────────────
 
 /// RAII wrapper around a single `WiFiAdapter`.
 ///
 /// Subscribes to `AvailableNetworksChanged` on construction and unregisters on drop.
 /// When the event fires it sends `WifiManagerEvent::NetworksChanged` so the
 /// infrastructure layer can emit updated network data to webviews.
-pub struct SluWifiAdapter {
+pub struct MacUiWifiAdapter {
     #[allow(dead_code)]
     pub id: String,
     pub raw: WiFiAdapter,
     token: i64,
 }
 
-unsafe impl Send for SluWifiAdapter {}
+unsafe impl Send for MacUiWifiAdapter {}
 
-impl SluWifiAdapter {
+impl MacUiWifiAdapter {
     /// Obtain the adapter by device ID and subscribe to network change events.
     pub fn create(device_id: &str) -> Result<Self> {
         let raw = WiFiAdapter::FromIdAsync(&HSTRING::from(device_id))?.join()?;
@@ -451,7 +451,7 @@ impl SluWifiAdapter {
     }
 }
 
-impl Drop for SluWifiAdapter {
+impl Drop for MacUiWifiAdapter {
     fn drop(&mut self) {
         self.raw
             .RemoveAvailableNetworksChanged(self.token)

@@ -8,7 +8,7 @@ cancel: Cancel·lar
 done: Fer
 elevated:
   description: >-
-    La interfície d'usuari de Seelen s'està executant amb privilegis
+    La interfície d'usuari de MAC UI s'està executant amb privilegis
     d'administrador.
 
     Això no afegeix ni millora cap funció i pot suposar un risc de seguretat.
@@ -20,7 +20,7 @@ resource:
   added: S'ha afegit un nou recurs
   download_failed_body: >-
     Alguna cosa va passar malament mentre descarregueu el recurs, informeu -lo a
-    l'equip de desenvolupadors de Seelen.
+    l'equip de desenvolupadors de MAC UI.
   download_failed_title: Descàrrega de recursos ha fallat
   downloading: Descarregar actius ...
   downloading_body: Això pot trigar uns segons, si us plau, no tanqueu la finestra.
@@ -41,20 +41,20 @@ runtime:
     Això pot passar si els fitxers es van modificar, es van malmetre o la
     instal·lació està incompleta.
 
-    Per motius de seguretat, la interfície d'usuari de Seelen no pot continuar.
+    Per motius de seguretat, la interfície d'usuari de MAC UI no pot continuar.
 
     Torneu-lo a instal·lar des del lloc web oficial.
   files_integrity_title: 'Alerta de seguretat: la comprovació d''integritat dels fitxers ha fallat'
   not_found: No s'ha trobat el temps d'execució de WebView2
-  not_found_description: La interfície d'usuari de Seelen requereix Webview2 Runtime. Instal·leu-lo.
+  not_found_description: La interfície d'usuari de MAC UI requereix Webview2 Runtime. Instal·leu-lo.
   outdated: Temps d'execució de WebView2 obsolet
   outdated_description: >-
-    La IU de Seelen requereix el temps d'execució de Webview2 %{min_version} o
+    La IU de MAC UI requereix el temps d'execució de Webview2 %{min_version} o
     superior. Si us plau, actualitzeu-lo.
 service:
-  not_running: El servei d'IU de Seelen no s'executa
+  not_running: El servei d'IU de MAC UI no s'executa
   not_running_description: >-
-    Seelen UI Service (servei slu) és una dependència/ajuda perquè l'aplicació
+    MAC UI Service (servei macui-service) és una dependència/ajuda perquè l'aplicació
     funcioni correctament.
   not_running_ok: Iniciar servei
 shortcut:

@@ -1,7 +1,7 @@
 use std::{collections::HashMap, sync::Once};
 
-use seelen_core::{
-    handlers::SeelenEvent,
+use macui_core::{
+    handlers::MacUiEvent,
     system_state::{FocusedApp, UserAppWindow, UserAppWindowColors, UserAppWindowPreview},
 };
 use windows::Win32::UI::Shell::{IShellDispatch6, Shell};
@@ -20,7 +20,7 @@ fn get_apps_manager() -> &'static UserAppsManager {
     TAURI_EVENT_REGISTRATION.call_once(|| {
         UserAppsManager::subscribe(|_event| {
             emit_to_webviews(
-                SeelenEvent::UserAppWindowsChanged,
+                MacUiEvent::UserAppWindowsChanged,
                 UserAppsManager::instance().interactable_windows.to_vec(),
             );
         });
@@ -30,13 +30,13 @@ fn get_apps_manager() -> &'static UserAppsManager {
             match event {
                 WinPreviewEvent::Captured(_) | WinPreviewEvent::Cleaned(_) => {
                     emit_to_webviews(
-                        SeelenEvent::UserAppWindowsPreviewsChanged,
+                        MacUiEvent::UserAppWindowsPreviewsChanged,
                         WinPreviewManager::instance().get_previews(),
                     );
                 }
                 WinPreviewEvent::ColorsUpdated(_) => {
                     emit_to_webviews(
-                        SeelenEvent::UserAppWindowsColorsChanged,
+                        MacUiEvent::UserAppWindowsColorsChanged,
                         WinPreviewManager::instance().get_colors(),
                     );
                 }

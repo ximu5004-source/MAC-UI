@@ -1,0 +1,10 @@
+{
+  "native.glass_transparency": "玻璃透明度",
+  "native.glass_blur": "磨砂强度",
+  "native.desktop_menu": "MAC UI 桌面",
+  "native.map_folder": "映射文件夹…",
+  "native.windows_menu": "Windows 文件菜单",
+  "native.dissolve": "解散整理盒",
+  "native.close_preview": "关闭预览",
+  "native.spacing_range": "图标间距请输入 0 到 64 之间的整数。"
+}

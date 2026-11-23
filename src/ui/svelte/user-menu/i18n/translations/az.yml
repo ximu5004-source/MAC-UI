@@ -15,7 +15,7 @@ profile:
   log_out: Çıxın
   open_onedrive: OneDrive qovluğunu açın
   open_user_folder: İstifadəçi kataloqunu açın
-seelen_options:
-  open_installation_folder: Seelen parametrləri qovluğunu açın
-  open_log_folder: Seelen log qovluğunu açın
+macui_options:
+  open_installation_folder: MAC UI parametrləri qovluğunu açın
+  open_log_folder: MAC UI log qovluğunu açın
   title: Görünən kataloqlar

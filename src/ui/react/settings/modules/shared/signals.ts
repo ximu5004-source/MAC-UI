@@ -1,12 +1,12 @@
-import { invoke, SeelenCommand, SeelenEvent, subscribe } from "@seelen-ui/lib";
+import { invoke, MacUiCommand, MacUiEvent, subscribe } from "@macui/lib";
 import { lazySignal } from "libs/ui/react/utils/LazySignal";
 import { signal } from "@preact/signals";
 
 export const $virtual_desktops = lazySignal(async () => {
-  return await invoke(SeelenCommand.StateGetVirtualDesktops);
+  return await invoke(MacUiCommand.StateGetVirtualDesktops);
 });
 
-subscribe(SeelenEvent.VirtualDesktopsChanged, (event) => {
+subscribe(MacUiEvent.VirtualDesktopsChanged, (event) => {
   $virtual_desktops.value = event.payload;
 });
 

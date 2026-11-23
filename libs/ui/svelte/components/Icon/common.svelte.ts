@@ -1,5 +1,5 @@
-import { IconPackManager } from "@seelen-ui/lib";
-import type { Icon } from "@seelen-ui/lib/types";
+import { IconPackManager } from "@macui/lib";
+import type { Icon } from "@macui/lib/types";
 import { prefersDarkColorScheme } from "../../runes/DarkMode.svelte";
 
 const manager = await IconPackManager.create();

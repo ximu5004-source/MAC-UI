@@ -15,7 +15,7 @@ profile:
   log_out: வெளியேறு
   open_onedrive: OneDrive கோப்பகத்தைத் திறக்கவும்
   open_user_folder: பயனர் கோப்பகத்தைத் திறக்கவும்
-seelen_options:
+macui_options:
   open_installation_folder: சீலன் அமைப்புகள் கோப்புறையைத் திறக்கவும்
   open_log_folder: சீலன் பதிவு கோப்புறையைத் திறக்கவும்
   title: சீலன் கோப்பகங்கள்

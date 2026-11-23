@@ -1,11 +1,11 @@
-import type { PerformanceMode } from "@seelen-ui/types";
-import { invoke, SeelenCommand, SeelenEvent, subscribe } from "../../handlers/mod.ts";
+import type { PerformanceMode } from "@macui/types";
+import { invoke, MacUiCommand, MacUiEvent, subscribe } from "../../handlers/mod.ts";
 import { RuntimeStyleSheet } from "../../utils/DOM.ts";
 
 export async function disableAnimationsOnPerformanceMode(): Promise<void> {
-  const initial = await invoke(SeelenCommand.StateGetPerformanceMode);
+  const initial = await invoke(MacUiCommand.StateGetPerformanceMode);
   setDisableAnimations(initial);
-  subscribe(SeelenEvent.StatePerformanceModeChanged, (e) => {
+  subscribe(MacUiEvent.StatePerformanceModeChanged, (e) => {
     setDisableAnimations(e.payload);
   });
 }

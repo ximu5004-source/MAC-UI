@@ -8,7 +8,7 @@ cancel: Chansliff
 done: Wedi gwneud
 elevated:
   description: >-
-    Mae Seelen UI yn rhedeg gyda breintiau gweinyddwr.
+    Mae MAC UI yn rhedeg gyda breintiau gweinyddwr.
 
     Nid yw hyn yn ychwanegu nac yn gwella unrhyw nodweddion, a gall achosi risg
     diogelwch.
@@ -20,7 +20,7 @@ resource:
   added: Ychwanegwyd adnodd newydd
   download_failed_body: >-
     Aeth rhywbeth o'i le wrth lawrlwytho'r adnodd, rhowch wybod iddo i dîm
-    datblygwyr Seelen.
+    datblygwyr MAC UI.
   download_failed_title: Methodd Lawrlwytho Adnoddau
   downloading: Lawrlwytho asedau ...
   downloading_body: Efallai y bydd hyn yn cymryd ychydig eiliadau, peidiwch â chau'r ffenestr.
@@ -39,20 +39,20 @@ runtime:
     Gall hyn ddigwydd os cafodd ffeiliau eu haddasu, eu llygru, neu os yw'r
     gosodiad yn anghyflawn.
 
-    Am resymau diogelwch, ni all Seelen UI barhau.
+    Am resymau diogelwch, ni all MAC UI barhau.
 
     Ailosodwch ef o'r wefan swyddogol.
   files_integrity_title: Rhybudd Diogelwch - Methwyd Gwirio Cywirdeb Ffeiliau
   not_found: WebView2 Runtime heb ei ganfod
-  not_found_description: Mae Seelen UI angen Amser Rhedeg Webview2. Os gwelwch yn dda gosod.
+  not_found_description: Mae MAC UI angen Amser Rhedeg Webview2. Os gwelwch yn dda gosod.
   outdated: WebView2 Runtime wedi dyddio
   outdated_description: >-
-    Mae Seelen UI angen amser rhedeg Webview2 %{ min_version} neu uwch.
+    Mae MAC UI angen amser rhedeg Webview2 %{ min_version} neu uwch.
     Diweddarwch ef.
 service:
-  not_running: Gwasanaeth UI Seelen ddim yn rhedeg
+  not_running: Gwasanaeth UI MAC UI ddim yn rhedeg
   not_running_description: >-
-    Mae Seelen UI Service (slu-service) yn ddibyniaeth / cynorthwyydd i'r ap
+    Mae MAC UI Service (macui-service) yn ddibyniaeth / cynorthwyydd i'r ap
     weithio'n iawn.
   not_running_ok: Dechrau gwasanaeth
 shortcut:

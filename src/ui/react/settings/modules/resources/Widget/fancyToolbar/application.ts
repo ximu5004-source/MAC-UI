@@ -1,5 +1,5 @@
 import { settings } from "../../../../state/mod";
-import type { FancyToolbarSettings, FancyToolbarSide, HideMode } from "@seelen-ui/lib/types";
+import type { FancyToolbarSettings, FancyToolbarSide, HideMode } from "@macui/lib/types";
 
 /**
  * Patches the FancyToolbar configuration with partial updates.
@@ -14,8 +14,8 @@ export function patchToolbarConfig(patch: Partial<FancyToolbarSettings>) {
     ...settings.value,
     byWidget: {
       ...settings.value.byWidget,
-      "@seelen/fancy-toolbar": {
-        ...settings.value.byWidget["@seelen/fancy-toolbar"],
+      "@macui/fancy-toolbar": {
+        ...settings.value.byWidget["@macui/fancy-toolbar"],
         ...patch,
       },
     },
@@ -26,7 +26,7 @@ export function patchToolbarConfig(patch: Partial<FancyToolbarSettings>) {
  * Gets the current FancyToolbar configuration
  */
 export function getToolbarConfig(): FancyToolbarSettings {
-  return settings.value.byWidget["@seelen/fancy-toolbar"];
+  return settings.value.byWidget["@macui/fancy-toolbar"];
 }
 
 /**

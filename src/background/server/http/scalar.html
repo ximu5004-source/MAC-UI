@@ -1,67 +1,8 @@
 <!doctype html>
-<html>
-  <head>
-    <title>Seelen UI - HTTP API</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="https://seelen.io/favicon.ico" type="image/x-icon" />
-  </head>
-  <body>
-    <div id="app"></div>
-    <div class="sl-external-links">
-      <a href="https://seelen.io" target="_blank" rel="noopener">Website</a>
-      <a href="https://github.com/eythaann/seelen-ui" target="_blank" rel="noopener">GitHub</a>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/@scalar/api-reference"></script>
-    <script>
-    Scalar.createApiReference("#app", {
-      url: "/api-doc/openapi.json",
-      theme: "kepler",
-      showDeveloperTools: "never",
-      favicon: "https://seelen.io/favicon.ico",
-      defaultHttpClient: {
-        targetKey: "javascript",
-        clientKey: "fetch",
-      },
-      info: {
-        title: "Seelen UI",
-        description: "Public HTTP API to interact with the desktop environment",
-      },
-      sources: [
-        {
-          url: "/api-doc/openapi.json",
-          title: "Seelen UI",
-        },
-      ],
-    });
-    </script>
-    <style>
-    .scalar-mcp-layer {
-      display: none !important;
-    }
-
-    .sl-external-links {
-      position: fixed;
-      top: 12px;
-      right: 16px;
-      z-index: 1000;
-      display: flex;
-      gap: 16px;
-      font-family: var(--scalar-font, sans-serif);
-      font-size: 13px;
-    }
-
-    .sl-external-links a {
-      color: var(--scalar-color-1, #333);
-      text-decoration: none;
-      opacity: 0.75;
-    }
-
-    .sl-external-links a:hover {
-      opacity: 1;
-      text-decoration: underline;
-    }
-    </style>
-  </body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>MAC UI · Local API</title>
+<style>body{font:16px/1.6 system-ui;background:#17151e;color:#f2eef9;max-width:960px;margin:48px auto;padding:24px}a{color:#c2adff}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:24px;border:1px solid #494151;border-radius:16px;background:#22202b}</style>
+</head><body><h1>MAC UI · Local API</h1><p><a href="/api-doc/openapi.json">OpenAPI specification</a></p>
+<pre id="api" aria-live="polite">Loading local API specification…</pre>
+<script>fetch("/api-doc/openapi.json").then(r=>{if(!r.ok)throw Error(r.status);return r.json()}).then(data=>document.querySelector("#api").textContent=JSON.stringify(data,null,2)).catch(()=>document.querySelector("#api").textContent="Unable to load the local API specification.");</script>
+</body></html>

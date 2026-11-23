@@ -1,14 +1,20 @@
-import { mount } from "svelte";
+import { mount, tick } from "svelte";
+import { preparePreview } from "./state.svelte";
 import App from "./App.svelte";
-import { Widget } from "@seelen-ui/lib";
+import { Widget } from "@macui/lib";
 
-import "@seelen-ui/lib/styles/reset.css";
+import "@macui/lib/styles/reset.css";
 
 const root = document.getElementById("root")!;
 
 await Widget.self.init({
   autoSizeByContent: root,
   hideOnFocusLoss: true,
+  focusPopupOnShow: ({ customArgs }) => !customArgs?.hoverAnchor,
+  async beforePopupShow(payload) {
+    preparePreview(payload);
+    await tick();
+  },
 });
 
 mount(App, {

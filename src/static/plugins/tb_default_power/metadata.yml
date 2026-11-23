@@ -3,7 +3,7 @@ metadata:
   displayName: !extend i18n/display_name.yml
   description: !extend i18n/description.yml
 icon: PiBatteryMediumFill
-target: "@seelen/fancy-toolbar"
+target: "@macui/fancy-toolbar"
 plugin:
   scopes:
     - Power

@@ -1,6 +1,6 @@
 import { useSignal } from "@preact/signals";
-import { WallpaperConfiguration } from "@seelen-ui/lib";
-import { WallpaperKind } from "@seelen-ui/lib/types";
+import { WallpaperConfiguration } from "@macui/lib";
+import { WallpaperKind } from "@macui/lib/types";
 import { cx } from "libs/ui/react/utils/styling.ts";
 import type { ComponentChildren } from "preact";
 

@@ -8,7 +8,7 @@ pub mod system_state;
 pub mod utils;
 
 pub use chrono;
-pub use error::SeelenLibError;
+pub use error::MacUiLibError;
 pub use rect::*;
 
 #[macro_use(Serialize, Deserialize)]
@@ -42,6 +42,6 @@ fn generate_schemas() {
     write_schema::<Widget>("./gen/schemas/widget.schema.json");
     write_schema::<IconPack>("./gen/schemas/icon_pack.schema.json");
 
-    handlers::SeelenEvent::generate_ts_file("./src/handlers/events.ts");
-    handlers::SeelenCommand::generate_ts_file("./src/handlers/commands.ts");
+    handlers::MacUiEvent::generate_ts_file("./src/handlers/events.ts");
+    handlers::MacUiCommand::generate_ts_file("./src/handlers/commands.ts");
 }

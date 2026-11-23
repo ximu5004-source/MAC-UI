@@ -12,10 +12,10 @@ const packageJson: BuildOptions["package"] = {
   license,
   repository: {
     type: "git",
-    url: "git+https://github.com/eythaann/Seelen-UI.git",
+    url: "git+https://github.com/ximu5004-source/MAC-UI.git",
   },
   bugs: {
-    url: "https://github.com/eythaann/Seelen-UI/issues",
+    url: "https://github.com/ximu5004-source/MAC-UI/issues",
   },
 };
 

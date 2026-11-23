@@ -1,5 +1,5 @@
-import { invoke, SeelenCommand, SeelenEvent, subscribe, Widget } from "@seelen-ui/lib";
-import { ZOrder } from "@seelen-ui/lib/types";
+import { invoke, MacUiCommand, MacUiEvent, subscribe, Widget } from "@macui/lib";
+import { ZOrder } from "@macui/lib/types";
 
 let tooltipText = $state<string | null>(null);
 const showing = $derived(!!tooltipText);
@@ -13,7 +13,7 @@ Widget.self.onTrigger(async ({ desiredPosition, alignX, alignY, customArgs }) =>
 
   if (desiredPosition) {
     await Widget.self.adjustAndSetPosition(desiredPosition.x, desiredPosition.y, alignX, alignY);
-    invoke(SeelenCommand.SetSelfZOrder, { zOrder: ZOrder.Top });
+    invoke(MacUiCommand.SetSelfZOrder, { zOrder: ZOrder.Top });
   }
 
   tooltipText = String(customArgs?.text ?? "") || null;
@@ -25,7 +25,7 @@ Widget.self.onTrigger(async ({ desiredPosition, alignX, alignY, customArgs }) =>
 // that always means the user has moved on, regardless of which window (if any)
 // held OS focus before.
 let focusedAppHwnd = $state<number | null>(null);
-subscribe(SeelenEvent.GlobalFocusChanged, ({ payload: focused }) => {
+subscribe(MacUiEvent.GlobalFocusChanged, ({ payload: focused }) => {
   focusedAppHwnd = focused.hwnd;
 });
 

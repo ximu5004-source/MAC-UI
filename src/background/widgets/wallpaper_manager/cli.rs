@@ -1,5 +1,5 @@
-pub use slu_ipc::commands::WallpaperCli;
-use slu_ipc::commands::WallpaperCommand;
+pub use macui_ipc::commands::WallpaperCli;
+use macui_ipc::commands::WallpaperCommand;
 
 use crate::{error::Result, virtual_desktops::wallpapers::WorkspaceWallpapersManager};
 

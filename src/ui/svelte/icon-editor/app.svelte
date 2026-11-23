@@ -1,6 +1,6 @@
 <script lang="ts">
   import { convertFileSrc } from "@tauri-apps/api/core";
-  import { invoke, SeelenCommand, Widget } from "@seelen-ui/lib";
+  import { invoke, MacUiCommand, Widget } from "@macui/lib";
   import { t } from "./i18n";
   import { editorState, resetState } from "./state.svelte";
   import CanvasRenderer from "./CanvasRenderer.svelte";
@@ -83,7 +83,7 @@
     if (!editorState.entry || editorState.saving) return;
     editorState.saving = true;
     try {
-      await invoke(SeelenCommand.DeleteUserCustomAppIcon, { entry: editorState.entry });
+      await invoke(MacUiCommand.DeleteUserCustomAppIcon, { entry: editorState.entry });
       Widget.getCurrent().hide();
     } finally {
       editorState.saving = false;
@@ -106,7 +106,7 @@
       const dataUrl = temp.toDataURL("image/png");
       const iconBase64 = dataUrl.split(",")[1]!;
 
-      await invoke(SeelenCommand.RegisterUserCustomAppIcon, {
+      await invoke(MacUiCommand.RegisterUserCustomAppIcon, {
         iconBase64,
         entry: editorState.entry,
       });
@@ -286,7 +286,7 @@
 <style>
   :global(body) {
     overflow: hidden;
-    background: var(--slu-std-bg-color);
+    background: var(--macui-std-bg-color);
   }
 
   .icon-editor {
@@ -336,7 +336,7 @@
   }
 
   .draw-active {
-    outline: 2px solid var(--slu-accent-color, #5588ff);
+    outline: 2px solid var(--macui-accent-color, #5588ff);
   }
 
   .controls {

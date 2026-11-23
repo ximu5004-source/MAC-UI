@@ -30,14 +30,14 @@ apps_configurations:
     Aquestes configuracions agrupades no són editables i estan dissenyades per
     proporcionar -vos la millor experiència sense personalització. Configuen
     automàticament les aplicacions més habituals per a vosaltres.
-  bundled_title: Configuració de l'aplicació agrupada amb Seelen
+  bundled_title: Configuració de l'aplicació agrupada amb MAC UI
   confirm_delete: Esteu segur que voleu suprimir aquesta configuració/s?
   confirm_delete_title: Confirmeu Suprimeix
   delete: Esborrar
   export: Exportar
   export_full: Exporta la configuració per sol·licitud
   extra_info: >-
-    La interfície d'usuari de Seelen només utilitza un identificador per
+    La interfície d'usuari de MAC UI només utilitza un identificador per
     aplicació (primer partit que es troba), de manera que l'ordre de com
     s'especifica és important, es prioritzarà l'últim afegit, ja que nota que la
     taula s'ordena de manera predeterminada de l'antiga a la vella.
@@ -81,12 +81,12 @@ devtools:
   enable: Activa les eines de desenvolupadors
   enable_description: >-
     Desbloqueja eines avançades per inspeccionar i depurar els elements interns
-    de la interfície d'usuari de Seelen. No està pensat per a un ús habitual.
+    de la interfície d'usuari de MAC UI. No està pensat per a un ús habitual.
   icons: Icones en memòria cau
   install_folder: Carpeta d'instal·lació
   load: Carregar
   settings_file: Arxiu de configuració
-  shared_components: Components estàndard de la SLU
+  shared_components: Components estàndard de la MAC UI
   simulate_dialog:
     label: Diàleg de simulació
     trigger: Disparador
@@ -119,7 +119,7 @@ devtools:
     widget_id: ID del widget
 discord_banner:
   message: >-
-    Connecteu-vos amb altres usuaris de la interfície d'usuari de Seelen,
+    Connecteu-vos amb altres usuaris de la interfície d'usuari de MAC UI,
     obteniu ajuda, compartiu temes i estigueu al dia de les últimes notícies.
   title: Uneix-te a la nostra comunitat
 extras:
@@ -173,7 +173,7 @@ general:
     plugged: Tassa o càrrega
   polling_interval: Interval de sondeig del sistema
   polling_interval_description: >-
-    Amb quina freqüència (en segons) la interfície d'usuari de Seelen comprova
+    Amb quina freqüència (en segons) la interfície d'usuari de MAC UI comprova
     els recursos del sistema com la CPU, la memòria RAM, la xarxa i l'activitat
     del disc. Un nombre més petit significa actualitzacions més freqüents, però
     un ús de recursos lleugerament superior.
@@ -231,7 +231,7 @@ resources:
   affected_widgets: Ginys afectats
   app_outdated: >-
     Aquest recurs requereix una versió més recent de la interfície d'usuari de
-    Seelen per funcionar correctament.
+    MAC UI per funcionar correctament.
   coming_soon: Aviat
   corrupted_wallpaper: 'No s''ha pogut extreure la miniatura: format de vídeo danyat o no compatible'
   delete: Esborra el recurs
@@ -244,7 +244,7 @@ resources:
   open_folder: Obrir la carpeta de recursos
   outdated: >-
     Aquest recurs va ser dissenyat per a una versió anterior de la interfície
-    d'usuari de Seelen i pot no funcionar correctament.
+    d'usuari de MAC UI i pot no funcionar correctament.
   see_on_website: Veure al lloc web
   update_now: Actualització
   updates_available: Actualitzacions disponibles
@@ -252,7 +252,7 @@ resources:
 review_request:
   not_now: Ara no
   sure: Segur!
-  title: Us agrada la interfície d'usuari de Seelen?
+  title: Us agrada la interfície d'usuari de MAC UI?
 save: Estalviar
 save_and_restart: Desar i reiniciar
 search: Cerca
@@ -274,7 +274,7 @@ shortcuts:
   enable: Activa el sistema integrat de dreceres
   enable_tooltip: >-
     Desactiveu si implementareu el vostre propi sistema de dreceres mitjançant
-    el client de la interfície d'usuari de Seelen
+    el client de la interfície d'usuari de MAC UI
   labels:
     create_new_workspace: Creeu un espai de treball nou
     create_new_workspace_row: Crea una fila d'espai de treball nova
@@ -430,15 +430,15 @@ weg:
 welcome:
   give_a_review: Fes una ressenya
   message: >-
-    Seelen UI és un entorn d'escriptori gratuït i de codi obert per a Windows.
+    MAC UI és un entorn d'escriptori gratuït i de codi obert per a Windows.
     Aquí teniu un control total sobre com es veu i es comporta el vostre
     escriptori, cosa que us permet personalitzar tots els detalls perquè
     coincideixin amb el vostre flux de treball i estil.
   ok: Comencem!
   review: >-
-    Si us agrada utilitzar Seelen UI, penseu a deixar una ressenya a la botiga:
+    Si us agrada utilitzar MAC UI, penseu a deixar una ressenya a la botiga:
     els vostres comentaris ajuden el projecte a créixer i millorar.
-  title: Benvingut a Seelen UI!
+  title: Benvingut a MAC UI!
 widget:
   default_instance: Instància per defecte
   default_instance_hint: Sempre actiu, utilitza la configuració del widget arrel

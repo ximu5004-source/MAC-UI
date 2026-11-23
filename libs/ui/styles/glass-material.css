@@ -65,6 +65,17 @@ html[data-native-frosted="true"] .mac-dock-material[data-mac-material="dock"] > 
   mask-composite: exclude;
   opacity: calc(var(--mac-icon-gloss, 0) * (1 - pow(1 - var(--mac-icon-edge-alpha, .1), 4)));
 }
+/* Preserve both slider endpoints, including a fully clear Dock at 100%. */
+:where(html[data-glass-contrast="enhanced"]) .mac-dock-material[data-mac-material="dock"] > .bg-layers > .bg-layer-1 {
+  background: rgb(30 30 34 / var(--mac-dock-alpha, .1));
+  box-shadow: inset 0 0 0 1px rgb(0 0 0 / calc(var(--mac-dock-alpha, .1) * 2));
+}
+:where(html[data-glass-contrast="enhanced"]) .mac-dock-material[data-mac-material="dock"] .weg-item-icon {
+  filter: drop-shadow(0 1px 1px rgb(0 0 0 / .42));
+}
+:where(html[data-glass-contrast="enhanced"]) .mac-dock-material .weg-item-open-sign-active {
+  outline: 1px solid rgb(0 0 0 / .48);
+}
 @media (prefers-reduced-transparency: reduce), (forced-colors: active), (prefers-contrast: more) {
   .mac-dock-material[data-mac-material="dock"] > .bg-layers > .bg-layer-1,
   .mac-icon-material.with-plate { background: Canvas; backdrop-filter: none; }

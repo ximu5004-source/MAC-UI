@@ -71,7 +71,7 @@
       transition: background-color 0.2s ease-in-out;
 
       &.active {
-        background-color: var(--system-accent-color);
+        background-color: var(--mac-accent);
       }
     }
   }

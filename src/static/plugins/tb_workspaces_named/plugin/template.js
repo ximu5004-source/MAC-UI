@@ -16,7 +16,7 @@ return Group({
         overflow: "hidden",
         textOverflow: "ellipsis",
       },
-      onClick: `invoke(SeelenCommand.SwitchWorkspace, { workspaceId: '${w.id}' })`,
+      onClick: `invoke(MacUiCommand.SwitchWorkspace, { workspaceId: '${w.id}' })`,
     });
   }),
   style: {

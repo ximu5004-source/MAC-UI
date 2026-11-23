@@ -3,7 +3,7 @@ pub mod handler;
 pub mod hook;
 pub mod state_v2;
 
-use seelen_core::{handlers::SeelenEvent, state::AppExtraFlag};
+use macui_core::{handlers::MacUiEvent, state::AppExtraFlag};
 
 pub struct WindowManagerV2;
 use windows::Win32::{
@@ -67,7 +67,7 @@ impl WindowManagerV2 {
     }
 
     pub fn force_retiling() -> Result<()> {
-        emit_to_webviews(SeelenEvent::WMForceRetiling, ());
+        emit_to_webviews(MacUiEvent::WMForceRetiling, ());
         Ok(())
     }
 }

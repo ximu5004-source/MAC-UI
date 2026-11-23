@@ -30,14 +30,14 @@ apps_configurations:
     Deze gebundelde configuraties zijn niet bewerkbaar en zijn ontworpen om u de
     beste ervaring zonder aanpassing te bieden. Ze configureren automatisch de
     meest voorkomende toepassingen voor u.
-  bundled_title: App -configuratie gebundeld met Seelen
+  bundled_title: App -configuratie gebundeld met MAC UI
   confirm_delete: Weet u zeker dat u deze configuratie(s) wilt verwijderen?
   confirm_delete_title: Bevestig verwijderen
   delete: Verwijderen
   export: Exporteren
   export_full: Instellingen exporteren per toepassing
   extra_info: >-
-    Seelen UI gebruikt slechts één ID per app (eerste gevonden match), dus de
+    MAC UI gebruikt slechts één ID per app (eerste gevonden match), dus de
     volgorde waarin ze worden gespecificeerd is belangrijk. De laatst
     toegevoegde krijgt prioriteit, aangezien de tabel standaard wordt gesorteerd
     van nieuwste naar oude.
@@ -67,7 +67,7 @@ apps_configurations:
   search: Zoekopdracht
   swap: Ruilen
 cancel: Annuleren
-close: Sluiten
+close: MacUiiten
 delete: Verwijderen
 devtools:
   app_folders: App -mappen
@@ -81,13 +81,13 @@ devtools:
   data_folder: Gegevensmap
   enable: Schakel ontwikkelaarstools in
   enable_description: >-
-    Ontgrendelt geavanceerde tools voor het inspecteren en debuggen van Seelen
+    Ontgrendelt geavanceerde tools voor het inspecteren en debuggen van MAC UI
     UI-internals. Niet bedoeld voor regelmatig gebruik.
   icons: Gecachte pictogrammen
   install_folder: Installatiemap
   load: Laden
   settings_file: Instellingenbestand
-  shared_components: SLU-standaardcomponenten
+  shared_components: MAC UI-standaardcomponenten
   simulate_dialog:
     label: Simuleer dialoog
     trigger: Trekker
@@ -120,7 +120,7 @@ devtools:
     widget_id: Widget-ID
 discord_banner:
   message: >-
-    Maak contact met andere Seelen UI-gebruikers, krijg hulp, deel thema's en
+    Maak contact met andere MAC UI-gebruikers, krijg hulp, deel thema's en
     blijf op de hoogte van het laatste nieuws.
   title: Word lid van onze gemeenschap
 extras:
@@ -171,7 +171,7 @@ general:
     plugged: Aangesloten of opladen
   polling_interval: Systeem polling-interval
   polling_interval_description: >-
-    Hoe vaak (in seconden) Seelen UI systeembronnen zoals CPU, RAM, netwerk en
+    Hoe vaak (in seconden) MAC UI systeembronnen zoals CPU, RAM, netwerk en
     schijfactiviteit controleert. Een kleiner aantal betekent frequentere
     updates, maar een iets hoger bronnengebruik.
   saturday: Zaterdag
@@ -211,7 +211,7 @@ home:
 inherit: Erven
 inProgress: Bezig...
 insert: Invoegen
-join_us: Sluit je bij ons aan!
+join_us: MacUiit je bij ons aan!
 loading: Bezig met laden...
 miscellaneous: Gemengd
 monitors_configurations:
@@ -226,7 +226,7 @@ reset_configurations: Configuraties resetten
 reset_to_default: Terugzetten naar standaardwaarde
 resources:
   affected_widgets: Betrokken widgets
-  app_outdated: Deze bron vereist een nieuwere versie van Seelen UI om goed te werken.
+  app_outdated: Deze bron vereist een nieuwere versie van MAC UI om goed te werken.
   coming_soon: Binnenkort beschikbaar
   corrupted_wallpaper: Kan miniatuur niet extraheren - beschadigd of niet-ondersteund videoformaat
   delete: Verwijder resource
@@ -238,7 +238,7 @@ resources:
   modified: Gewijzigd
   open_folder: Map met bronnen openen
   outdated: >-
-    Deze bron is ontworpen voor een oudere versie van Seelen UI en werkt
+    Deze bron is ontworpen voor een oudere versie van MAC UI en werkt
     mogelijk niet goed.
   see_on_website: Zie op website
   update_now: Update
@@ -247,7 +247,7 @@ resources:
 review_request:
   not_now: Niet nu
   sure: Zeker!
-  title: Geniet je van de Seelen-gebruikersinterface?
+  title: Geniet je van de MAC UI-gebruikersinterface?
 save: Opslaan
 save_and_restart: Opslaan en opnieuw opstarten
 search: Zoekopdracht
@@ -426,15 +426,15 @@ weg:
 welcome:
   give_a_review: Geef een recensie
   message: >-
-    Seelen UI is een gratis en open source desktopomgeving voor Windows. Hier
+    MAC UI is een gratis en open source desktopomgeving voor Windows. Hier
     heeft u volledige controle over hoe uw bureaublad eruitziet en zich
     gedraagt, zodat u elk detail kunt aanpassen aan uw workflow en stijl.
   ok: Laten we beginnen!
   review: >-
-    Als u de Seelen UI graag gebruikt, overweeg dan om een ​​recensie achter te
+    Als u de MAC UI graag gebruikt, overweeg dan om een ​​recensie achter te
     laten in de winkel. Uw feedback helpt het project te groeien en te
     verbeteren.
-  title: Welkom bij de Seelen-gebruikersinterface!
+  title: Welkom bij de MAC UI-gebruikersinterface!
 widget:
   default_instance: Standaardinstantie
   default_instance_hint: Altijd actief, gebruikt de rootwidgetconfiguratie

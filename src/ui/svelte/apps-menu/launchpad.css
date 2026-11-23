@@ -1,7 +1,7 @@
 @import "../../../../libs/ui/styles/frosted-material.css";
 
-/* The native window gutter is not material: only the large rounded surface
-   paints glass. Never add a tinted rectangle or an outer icon halo. */
+/* Windowed gutters stay transparent. Fullscreen keeps one edge-to-edge glass
+   backdrop and a bounded neutral content surface so labels remain readable. */
 html:has(.apps-menu.launchpad),
 body:has(.apps-menu.launchpad),
 #root:has(> .apps-menu.launchpad) {
@@ -10,25 +10,36 @@ body:has(.apps-menu.launchpad),
   box-shadow: none;
   filter: none;
   backdrop-filter: none;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  box-sizing: border-box;
 }
+html:has(.apps-menu.launchpad), body:has(.apps-menu.launchpad) { overflow: hidden; }
+#root:has(> .apps-menu.launchpad[data-fullscreen=true]) { padding: 0; }
 
 .apps-menu.launchpad {
-  color-scheme: light dark;
+  color-scheme: inherit;
   --lp-fg: light-dark(#000, #fff);
   --lp-muted: var(--lp-fg);
+  --lp-fg-inverse: light-dark(#fff, #000);
   --lp-control: light-dark(rgb(255 255 255 / .08), rgb(0 0 0 / .08));
   --lp-hover: light-dark(rgb(0 0 0 / .08), rgb(255 255 255 / .12));
   --lp-border: light-dark(rgb(0 0 0 / .16), rgb(255 255 255 / .22));
   --lp-panel: var(--mac-glass-surface);
   --lp-icon: 64px;
+  --lp-cell-height: calc(var(--lp-icon) + 56px);
   --lp-motion: 180ms;
   position: relative;
   isolation: isolate;
   overflow: clip;
   box-sizing: border-box;
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr) auto;
-  gap: 12px;
+  grid-template-rows: minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
+  place-items: center;
+  width: 100%;
+  height: 100%;
   padding: 24px 28px 16px;
   border: 0;
   border-radius: 48px;
@@ -40,20 +51,43 @@ body:has(.apps-menu.launchpad),
   font-weight: 400;
   animation: launchpad-enter var(--lp-motion) ease-out;
 }
+.launchpad .launchpad-content {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 16px;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+}
 .apps-menu.launchpad[data-fullscreen=false] {
   border-radius: 48px;
   box-shadow: none;
 }
 .apps-menu.launchpad[data-fullscreen=true] {
-  width: min(1440px, calc(100% - 48px));
-  height: calc(100% - 48px);
-  margin: 24px auto;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  border-radius: 0;
+  padding: clamp(24px, 4vh, 72px) clamp(24px, 4vw, 128px);
+}
+.apps-menu.launchpad[data-fullscreen=true] .launchpad-content {
+  width: min(1280px, 100%);
+  height: min(900px, 100%);
+  padding: 32px 40px 20px;
+  border: 1px solid light-dark(rgb(255 255 255 / .66), rgb(255 255 255 / .18));
+  border-radius: 36px;
+  background: light-dark(rgb(247 248 252 / .72), rgb(28 29 36 / .8));
+  box-shadow: inset 0 1px 0 light-dark(rgb(255 255 255 / .65), rgb(255 255 255 / .08));
 }
 .launchpad .launchpad-header {
   position: relative;
   display: grid;
   place-items: center;
-  min-height: 40px;
+  min-height: 44px;
 }
 .launchpad .launchpad-search {
   box-sizing: border-box;
@@ -61,7 +95,7 @@ body:has(.apps-menu.launchpad),
   align-items: center;
   gap: 10px;
   width: min(440px, calc(100% - 88px));
-  height: 40px;
+  height: 44px;
   padding: 0 14px;
   border: 1px solid var(--lp-border);
   border-radius: 22px;
@@ -90,7 +124,7 @@ body:has(.apps-menu.launchpad),
   box-shadow: none;
   color: var(--lp-fg);
   font: inherit;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
 }
 .launchpad .launchpad-search input::placeholder { color: var(--lp-muted); opacity: 1; }
@@ -123,8 +157,8 @@ body:has(.apps-menu.launchpad),
 .launchpad .launchpad-close {
   position: absolute;
   right: 0;
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: var(--lp-control);
 }
@@ -158,10 +192,11 @@ body:has(.apps-menu.launchpad),
   border-radius: 12px;
   background: var(--lp-control);
 }
-.launchpad .launchpad-view-switch button { min-height: 28px; padding: 4px 10px; font-size: 13px; }
+.launchpad .launchpad-view-switch button { min-height: 30px; padding: 4px 12px; font-size: 14px; }
 .launchpad .launchpad-view-switch [aria-pressed=true] { background: var(--lp-hover); }
-.launchpad .launchpad-actions { display: flex; gap: 4px; }
-.launchpad .launchpad-actions button { font-size: 12px; padding: 5px 8px; }
+.launchpad .launchpad-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 4px; }
+.launchpad .launchpad-actions button { font-size: 14px; padding: 6px 10px; }
+.launchpad .launchpad-actions .launchpad-clear { border: 1px solid var(--lp-border); }
 .launchpad .launchpad-toolbar select {
   border: 1px solid var(--lp-border);
   border-radius: 8px;
@@ -174,10 +209,11 @@ body:has(.apps-menu.launchpad),
   justify-content: center;
   align-items: center;
   gap: 8px;
-  min-height: 18px;
+  min-height: 22px;
   text-align: center;
   color: var(--lp-muted);
-  font-size: 12px;
+  font-size: 13px;
+  line-height: 20px;
 }
 .launchpad .launchpad-feedback button { min-height: 24px; padding: 0 8px; text-decoration: underline; }
 .launchpad .launchpad-applications-viewport,
@@ -200,7 +236,7 @@ body:has(.apps-menu.launchpad),
   box-sizing: border-box;
   display: grid;
   grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
-  grid-template-rows: repeat(var(--launchpad-rows), minmax(120px, 1fr));
+  grid-template-rows: repeat(var(--launchpad-rows), var(--lp-cell-height));
   gap: 16px 24px;
   width: 100%;
   height: 100%;
@@ -208,9 +244,10 @@ body:has(.apps-menu.launchpad),
   padding: 8px;
   margin: 0;
   align-content: center;
+  justify-items: center;
   list-style: none;
 }
-.apps-menu.launchpad[data-compact=true] .launchpad-grid { grid-template-rows: repeat(var(--launchpad-rows), minmax(104px, 1fr)); gap: 12px 16px; }
+.apps-menu.launchpad[data-compact=true] .launchpad-grid { gap: 12px 16px; }
 .apps-menu.launchpad .app,
 .apps-menu.launchpad .folder {
   box-sizing: border-box;
@@ -220,6 +257,7 @@ body:has(.apps-menu.launchpad),
   align-items: center;
   gap: 8px;
   width: 100%;
+  max-width: 168px;
   min-width: 0;
   min-height: 0;
   padding: 4px 2px;
@@ -236,6 +274,9 @@ body:has(.apps-menu.launchpad),
 .apps-menu.launchpad .app:focus-visible,
 .apps-menu.launchpad .folder:focus-visible { outline: 2px solid var(--lp-fg); outline-offset: -2px; background: var(--lp-hover); }
 .apps-menu.launchpad [aria-selected=true] { background: var(--lp-hover); }
+.apps-menu.launchpad .app.choosing-favorite { position: relative; }
+.launchpad .launchpad-pin-state { position: absolute; right: 10px; top: 6px; display: grid; place-items: center; width: 24px; height: 24px; border: 1px solid var(--lp-border); border-radius: 50%; background: var(--lp-control); }
+.launchpad .launchpad-pin-state[data-pinned=true] { background: var(--lp-fg); color: var(--lp-fg-inverse); }
 .apps-menu.launchpad .app .app-icon,
 .apps-menu.launchpad .folder .folder-grid {
   flex: 0 0 auto;
@@ -283,7 +324,7 @@ body:has(.apps-menu.launchpad),
   overflow-wrap: anywhere;
   text-align: center;
   color: var(--lp-fg);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 20px;
   opacity: 1;
@@ -320,6 +361,7 @@ body:has(.apps-menu.launchpad),
 .launchpad .page-arrow { width: 32px; height: 32px; }
 .launchpad .pinned-view-empty,
 .launchpad .all-apps-view-empty { position: absolute; inset: 20% 0 auto; height: auto; color: var(--lp-muted); font-style: normal; font-weight: 400; font-size: 15px; pointer-events: none; }
+.launchpad .pinned-view-empty button { pointer-events: auto; padding: 8px 20px; background: var(--lp-control); border: 1px solid var(--lp-border); }
 .apps-menu.launchpad .apps-menu-footer {
   box-sizing: border-box;
   width: 100%;
@@ -335,7 +377,28 @@ body:has(.apps-menu.launchpad),
 .apps-menu.launchpad .apps-menu-footer .user-profile { width: auto; max-width: 240px; gap: 8px; padding: 3px 8px 3px 3px; font-size: 13px; border-radius: 20px; }
 .launchpad .user-profile-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .apps-menu.launchpad .apps-menu-footer .user-profile-picture { width: 28px !important; height: 28px !important; flex: 0 0 28px; object-fit: cover; box-shadow: none; filter: none; }
-.launchpad .launchpad-footer-hint { font-size: 12px; text-align: center; padding-inline: 12px; }
+.launchpad .launchpad-footer-hint { font-size: 13px; text-align: center; padding-inline: 12px; }
+
+.launchpad .launchpad-clear-dialog {
+  position: fixed;
+  box-sizing: border-box;
+  inset: 0;
+  width: min(480px, calc(100vw - 40px));
+  margin: auto;
+  padding: 28px;
+  border: 1px solid var(--lp-border);
+  border-radius: 26px;
+  background: light-dark(rgb(250 250 254 / .97), rgb(30 31 38 / .97));
+  color: var(--lp-fg);
+}
+.launchpad .launchpad-clear-dialog::backdrop { background: rgb(0 0 0 / .25); }
+.launchpad .launchpad-clear-dialog h2 { margin: 0 0 12px; font-size: 20px; line-height: 28px; font-weight: 600; }
+.launchpad .launchpad-clear-dialog p { margin: 0; font-size: 14px; line-height: 23px; }
+.launchpad .launchpad-clear-dialog .launchpad-clear-error { margin-top: 12px; font-weight: 600; }
+.launchpad .launchpad-clear-dialog-actions { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.launchpad .launchpad-clear-dialog-actions button { padding: 8px 14px; font-size: 14px; border: 1px solid var(--lp-border); }
+.launchpad .launchpad-clear-dialog-actions .launchpad-clear-confirm { background: var(--lp-fg); color: var(--lp-fg-inverse); }
+.launchpad .launchpad-clear-dialog-actions .launchpad-clear-confirm:is(:hover, :active):not(:disabled) { background: var(--lp-fg); opacity: .9; }
 
 /* A classic centered folder sheet owns its grid. Root application content is
    visibility-hidden above, so no sharp icons/names can bleed through it. */
@@ -396,6 +459,7 @@ html[data-native-frosted=true] #root .launchpad .launchpad-folder-modal.mac-fros
 @keyframes launchpad-enter { from { opacity: 0; } to { opacity: 1; } }
 @media (max-width: 700px) {
   .apps-menu.launchpad { padding: 18px 16px 12px; gap: 10px; }
+  .apps-menu.launchpad[data-fullscreen=true] .launchpad-content { padding: 20px 18px 12px; border-radius: 28px; }
   .launchpad .launchpad-toolbar { flex-wrap: wrap; gap: 6px; }
   .launchpad .launchpad-actions { gap: 2px; }
   .launchpad .launchpad-footer-hint { display: none; }
@@ -403,6 +467,7 @@ html[data-native-frosted=true] #root .launchpad .launchpad-folder-modal.mac-fros
 }
 @media (max-height: 520px) {
   .apps-menu.launchpad { padding-block: 14px; gap: 8px; }
+  .apps-menu.launchpad[data-fullscreen=true] .launchpad-content { padding-block: 14px 8px; gap: 8px; }
   .launchpad .launchpad-header { min-height: 36px; }
   .launchpad .launchpad-search { height: 36px; }
   .launchpad .launchpad-applications { gap: 4px; }
@@ -417,7 +482,7 @@ html[data-native-frosted=true] #root .launchpad .launchpad-folder-modal.mac-fros
   .launchpad *, .launchpad *::before, .launchpad *::after { transition: none !important; }
 }
 @media (prefers-reduced-transparency: reduce), (prefers-contrast: more), (forced-colors: active) {
-  .apps-menu.launchpad, .launchpad .launchpad-folder-modal {
+  .apps-menu.launchpad, .launchpad .launchpad-folder-modal, .launchpad .launchpad-content, .launchpad .launchpad-clear-dialog {
     --lp-fg: CanvasText;
     --lp-muted: CanvasText;
     --lp-control: Canvas;

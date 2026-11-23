@@ -15,7 +15,7 @@ profile:
   log_out: লগ আউট করুন
   open_onedrive: OneDrive ডিরেক্টরি খুলুন
   open_user_folder: ব্যবহারকারী ডিরেক্টরি খুলুন
-seelen_options:
-  open_installation_folder: Seelen সেটিংস ফোল্ডার খুলুন
-  open_log_folder: Seelen লগ ফোল্ডার খুলুন
-  title: Seelen ডিরেক্টরি
+macui_options:
+  open_installation_folder: MAC UI সেটিংস ফোল্ডার খুলুন
+  open_log_folder: MAC UI লগ ফোল্ডার খুলুন
+  title: MAC UI ডিরেক্টরি

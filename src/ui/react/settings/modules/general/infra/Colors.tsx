@@ -1,4 +1,4 @@
-import { Color, invoke, SeelenCommand } from "@seelen-ui/lib";
+import { Color, invoke, MacUiCommand } from "@macui/lib";
 import { ColorPicker } from "antd";
 import { useTranslation } from "react-i18next";
 
@@ -28,7 +28,7 @@ export function Colors() {
         <div
           onClickCapture={(e) => {
             e.stopPropagation();
-            invoke(SeelenCommand.OpenFile, { path: "ms-settings:colors" }).catch(console.error);
+            invoke(MacUiCommand.OpenFile, { path: "ms-settings:colors" }).catch(console.error);
           }}
         >
           <ColorPicker value={colors.accent.toHexString()} disabledAlpha showText />

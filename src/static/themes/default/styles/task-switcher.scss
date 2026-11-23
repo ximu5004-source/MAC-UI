@@ -18,7 +18,7 @@
   max-width: 100%;
   max-height: 100%;
 
-  background-color: var(--slu-std-bg-color);
+  background-color: var(--macui-std-bg-color);
   box-shadow: var(--shadow-l);
   border-radius: 1rem;
   padding: 1rem;
@@ -34,7 +34,7 @@
     width: fit-content;
     border-radius: 10px;
     width: 260px;
-    background-color: var(--slu-std-bg-light-color);
+    background-color: var(--macui-std-bg-light-color);
     box-shadow: var(--shadow-s);
 
     &:focus {

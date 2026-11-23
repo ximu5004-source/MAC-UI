@@ -15,7 +15,7 @@ profile:
   log_out: Гарах
   open_onedrive: OneDrive лавлахыг нээнэ үү
   open_user_folder: Хэрэглэгчийн лавлахыг нээх
-seelen_options:
-  open_installation_folder: Seelen тохиргооны хавтсыг нээнэ үү
-  open_log_folder: Seelen бүртгэлийн хавтсыг нээнэ үү
-  title: Seelen лавлахууд
+macui_options:
+  open_installation_folder: MAC UI тохиргооны хавтсыг нээнэ үү
+  open_log_folder: MAC UI бүртгэлийн хавтсыг нээнэ үү
+  title: MAC UI лавлахууд

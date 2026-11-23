@@ -40,15 +40,15 @@ runtime:
     ਇਹ ਉਦੋਂ ਹੋ ਸਕਦਾ ਹੈ ਜੇਕਰ ਫਾਈਲਾਂ ਨੂੰ ਸੋਧਿਆ ਗਿਆ ਸੀ, ਖਰਾਬ ਕੀਤਾ ਗਿਆ ਸੀ, ਜਾਂ
     ਇੰਸਟਾਲੇਸ਼ਨ ਅਧੂਰੀ ਹੈ।
 
-    ਸੁਰੱਖਿਆ ਕਾਰਨਾਂ ਕਰਕੇ, Seelen UI ਜਾਰੀ ਨਹੀਂ ਰਹਿ ਸਕਦਾ ਹੈ।
+    ਸੁਰੱਖਿਆ ਕਾਰਨਾਂ ਕਰਕੇ, MAC UI ਜਾਰੀ ਨਹੀਂ ਰਹਿ ਸਕਦਾ ਹੈ।
 
     ਕਿਰਪਾ ਕਰਕੇ ਇਸਨੂੰ ਅਧਿਕਾਰਤ ਵੈੱਬਸਾਈਟ ਤੋਂ ਮੁੜ ਸਥਾਪਿਤ ਕਰੋ।
   files_integrity_title: ਸੁਰੱਖਿਆ ਚੇਤਾਵਨੀ - ਫਾਈਲਾਂ ਦੀ ਇਕਸਾਰਤਾ ਜਾਂਚ ਅਸਫਲ ਰਹੀ
   not_found: WebView2 ਰਨਟਾਈਮ ਨਹੀਂ ਮਿਲਿਆ
-  not_found_description: Seelen UI ਨੂੰ Webview2 ਰਨਟਾਈਮ ਦੀ ਲੋੜ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਇਸਨੂੰ ਸਥਾਪਿਤ ਕਰੋ।
+  not_found_description: MAC UI ਨੂੰ Webview2 ਰਨਟਾਈਮ ਦੀ ਲੋੜ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਇਸਨੂੰ ਸਥਾਪਿਤ ਕਰੋ।
   outdated: WebView2 ਰਨਟਾਈਮ ਪੁਰਾਣਾ
   outdated_description: >-
-    Seelen UI ਲਈ Webview2 ਰਨਟਾਈਮ %{min_version} ਜਾਂ ਇਸ ਤੋਂ ਵੱਧ ਦੀ ਲੋੜ ਹੈ। ਕਿਰਪਾ
+    MAC UI ਲਈ Webview2 ਰਨਟਾਈਮ %{min_version} ਜਾਂ ਇਸ ਤੋਂ ਵੱਧ ਦੀ ਲੋੜ ਹੈ। ਕਿਰਪਾ
     ਕਰਕੇ ਇਸਨੂੰ ਅੱਪਡੇਟ ਕਰੋ।
 service:
   not_running: ਸੀਲਨ UI ਸੇਵਾ ਨਹੀਂ ਚੱਲ ਰਹੀ

@@ -15,7 +15,7 @@ profile:
   log_out: Finalizar la sesión
   open_onedrive: Abrir directorio de OneDrive
   open_user_folder: Abrir directorio de usuarios
-seelen_options:
-  open_installation_folder: Abra la carpeta de configuración de Seelen
-  open_log_folder: Abrir la carpeta de registro de Seelen
-  title: Directorios de Seelen
+macui_options:
+  open_installation_folder: Abra la carpeta de configuración de MAC UI
+  open_log_folder: Abrir la carpeta de registro de MAC UI
+  title: Directorios de MAC UI

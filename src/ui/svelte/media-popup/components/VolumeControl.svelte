@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { invoke, SeelenCommand } from "@seelen-ui/lib";
+  import { invoke, MacUiCommand } from "@macui/lib";
   import Icon from "libs/ui/svelte/components/Icon/Icon.svelte";
   import { throttle } from "lodash";
   import { t } from "../i18n";
@@ -39,7 +39,7 @@
   });
 
   const onExternalChange = throttle((value: number) => {
-    invoke(SeelenCommand.SetVolumeLevel, {
+    invoke(MacUiCommand.SetVolumeLevel, {
       deviceId,
       sessionId: sessionId || null,
       level: value / 100,
@@ -54,7 +54,7 @@
   }
 
   async function toggleMute() {
-    await invoke(SeelenCommand.MediaToggleMute, {
+    await invoke(MacUiCommand.MediaToggleMute, {
       deviceId,
       sessionId: sessionId || null,
     });

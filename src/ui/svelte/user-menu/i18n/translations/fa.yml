@@ -15,7 +15,7 @@ profile:
   log_out: از سیستم خارج شوید
   open_onedrive: دایرکتوری OneDrive را باز کنید
   open_user_folder: دایرکتوری کاربر را باز کنید
-seelen_options:
-  open_installation_folder: پوشه تنظیمات Seelen را باز کنید
-  open_log_folder: پوشه log Seelen را باز کنید
-  title: دایرکتوری های Seelen
+macui_options:
+  open_installation_folder: پوشه تنظیمات MAC UI را باز کنید
+  open_log_folder: پوشه log MAC UI را باز کنید
+  title: دایرکتوری های MAC UI

@@ -4,7 +4,7 @@ use crate::{
     modules::system_tray::SystemTrayManager,
     windows_api::{WindowEnumerator, WindowsApi, window::Window},
 };
-use seelen_core::system_state::SystrayIconAction;
+use macui_core::system_state::SystrayIconAction;
 use std::path::{Path, PathBuf};
 use windows::Win32::UI::WindowsAndMessaging::{SW_RESTORE, SW_SHOW, WS_CAPTION, WS_EX_TOOLWINDOW};
 

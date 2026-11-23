@@ -1,4 +1,4 @@
-id: "@seelen/calendar-popup"
+id: "@macui/calendar-popup"
 icon: FaCalendar
 metadata:
   displayName: !extend i18n/display_name.yml

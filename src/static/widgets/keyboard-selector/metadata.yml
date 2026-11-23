@@ -1,4 +1,4 @@
-id: "@seelen/keyboard-selector"
+id: "@macui/keyboard-selector"
 icon: FaRegKeyboard
 metadata:
   displayName: !extend i18n/display_name.yml

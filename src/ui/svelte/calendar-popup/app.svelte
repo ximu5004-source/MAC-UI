@@ -1,6 +1,6 @@
 <script lang="ts">
   import { globalState } from "./state.svelte";
-  import { Widget } from "@seelen-ui/lib";
+  import { Widget } from "@macui/lib";
   import Icon from "libs/ui/svelte/components/Icon/Icon.svelte";
   import { t } from "./i18n";
   import moment from "moment";
@@ -106,7 +106,7 @@
   }
 }} />
 
-<div class="slu-std-popover mac-panel mac-frosted-surface calendar-popup">
+<div class="macui-std-popover mac-panel mac-frosted-surface calendar-popup">
   <div class="calendar" onwheel={handleWheel}>
     <!-- Calendar Header -->
     <div class="calendar-header">

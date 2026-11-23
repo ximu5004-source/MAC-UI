@@ -3,7 +3,7 @@
   import { iconPackManager, type IconState } from "./common.svelte.ts";
   import { prefersDarkColorScheme } from "../../runes/DarkMode.svelte.ts";
   import MissingIcon from "./MissingIcon.svelte";
-  import SluIconRenderer from "./SluIconRenderer.svelte";
+  import MacUiIconRenderer from "./MacUiIconRenderer.svelte";
 
   interface Props {
     name: string;
@@ -30,7 +30,7 @@
 </script>
 
 {#if state.src}
-  <SluIconRenderer {...imgProps} {state} class={className} {lazy} />
+  <MacUiIconRenderer {...imgProps} {state} class={className} {lazy} />
 {:else}
   <MissingIcon {...imgProps} class={className} />
 {/if}

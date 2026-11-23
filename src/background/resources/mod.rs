@@ -9,10 +9,11 @@ use std::{
     sync::{Arc, LazyLock},
 };
 
-use seelen_core::{
-    handlers::SeelenEvent,
+use macui_core::{
+    handlers::MacUiEvent,
     resource::{
-        IconPackId, PluginId, ResourceId, ResourceKind, SluResource, ThemeId, WallpaperId, WidgetId,
+        IconPackId, MacUiResource, PluginId, ResourceId, ResourceKind, ThemeId, WallpaperId,
+        WidgetId,
     },
     state::{IconPack, Plugin, Theme, Wallpaper, WallpaperCollection, Widget},
 };
@@ -22,7 +23,7 @@ use crate::{
     app::emit_to_webviews,
     error::{Result, ResultLogExt},
     state::application::FULL_STATE,
-    utils::{constants::SEELEN_COMMON, date_based_hex_id, lock_free::TracedMutex},
+    utils::{constants::MACUI_COMMON, date_based_hex_id, lock_free::TracedMutex},
 };
 
 pub static RESOURCES: LazyLock<Arc<ResourceManager>> =
@@ -77,12 +78,15 @@ impl ResourceManager {
     pub async fn load(&self, kind: &ResourceKind, path: &Path) -> Result<Option<ResourceId>> {
         let id = match kind {
             ResourceKind::Theme => {
+                if !Self::is_fixed_glass_path(path) {
+                    return Err("MAC UI uses its built-in Liquid Glass appearance only".into());
+                }
                 let mut theme = Theme::load(path).await?;
                 if theme.id.starts_with("@deprecated") {
                     return Ok(None);
                 }
                 theme.metadata.internal.bundled =
-                    path.starts_with(SEELEN_COMMON.bundled_themes_path());
+                    path.starts_with(MACUI_COMMON.bundled_themes_path());
                 let id = (*theme.id).clone();
                 self.themes
                     .upsert_async(theme.id.clone(), Arc::new(theme))
@@ -92,7 +96,7 @@ impl ResourceManager {
             ResourceKind::Widget => {
                 let mut widget = Widget::load(path).await?;
                 widget.metadata.internal.bundled =
-                    path.starts_with(SEELEN_COMMON.bundled_widgets_path());
+                    path.starts_with(MACUI_COMMON.bundled_widgets_path());
 
                 widget
                     .plugins
@@ -116,7 +120,7 @@ impl ResourceManager {
             ResourceKind::Plugin => {
                 let mut plugin = Plugin::load(path).await?;
                 plugin.metadata.internal.bundled =
-                    path.starts_with(SEELEN_COMMON.bundled_plugins_path());
+                    path.starts_with(MACUI_COMMON.bundled_plugins_path());
                 let id = (*plugin.id).clone();
                 self.plugins
                     .upsert_async(plugin.id.clone(), Arc::new(plugin))
@@ -139,11 +143,11 @@ impl ResourceManager {
                     {
                         let wallpaper = Wallpaper::create_from_file(
                             path,
-                            &SEELEN_COMMON
+                            &MACUI_COMMON
                                 .user_wallpapers_path()
                                 .join(date_based_hex_id()),
                             // copy if file is outside of user wallpapers (ex: Desktop)
-                            !path.starts_with(SEELEN_COMMON.user_wallpapers_path()),
+                            !path.starts_with(MACUI_COMMON.user_wallpapers_path()),
                         )
                         .await?;
                         let id = (*wallpaper.id).clone();
@@ -163,7 +167,7 @@ impl ResourceManager {
                 id
             }
             ResourceKind::IconPack => {
-                let is_system = path == SEELEN_COMMON.system_icon_pack_path();
+                let is_system = path == MACUI_COMMON.system_icon_pack_path();
                 if is_system {
                     // Check before awaiting — never hold MutexGuard across an await point
                     let needs_load = self.system_icon_pack.lock().is_none();
@@ -176,12 +180,7 @@ impl ResourceManager {
                     return Ok(None);
                 }
 
-                let icon_pack = IconPack::load(path).await?;
-                let id = (*icon_pack.id).clone();
-                self.icon_packs
-                    .upsert_async(icon_pack.id.clone(), Arc::new(icon_pack))
-                    .await;
-                id
+                return Err("Custom icon packs are unavailable; MAC UI uses system icons".into());
             }
             ResourceKind::SoundPack => {
                 // feature not implemented
@@ -193,10 +192,8 @@ impl ResourceManager {
 
     pub fn unload(&self, kind: &ResourceKind, path: &Path) {
         match kind {
-            ResourceKind::Theme => {
-                self.themes
-                    .retain_sync(|_, v| v.metadata.internal.path != path);
-            }
+            // The only appearance is a required application resource, not unloadable.
+            ResourceKind::Theme => {}
             ResourceKind::Widget => {
                 self.plugins
                     .retain_sync(|_, v| v.metadata.internal.path != path);
@@ -223,18 +220,14 @@ impl ResourceManager {
 
     pub fn unload_all(&self, kind: &ResourceKind) {
         match kind {
-            ResourceKind::Theme => self
-                .themes
-                .retain_sync(|_, v| self.manual.contains_sync(&v.metadata.internal.path)),
+            ResourceKind::Theme => self.themes.retain_sync(|_, _| false),
             ResourceKind::Plugin => self
                 .plugins
                 .retain_sync(|_, v| self.manual.contains_sync(&v.metadata.internal.path)),
             ResourceKind::Widget => self
                 .widgets
                 .retain_sync(|_, v| self.manual.contains_sync(&v.metadata.internal.path)),
-            ResourceKind::IconPack => self
-                .icon_packs
-                .retain_sync(|_, v| self.manual.contains_sync(&v.metadata.internal.path)),
+            ResourceKind::IconPack => self.icon_packs.retain_sync(|_, _| false),
             ResourceKind::Wallpaper => self
                 .wallpapers
                 .retain_sync(|_, v| self.manual.contains_sync(&v.metadata.internal.path)),
@@ -246,22 +239,28 @@ impl ResourceManager {
 
     /// returns a flat list of paths to be loaded for this kind
     async fn get_entries_for_type(kind: &ResourceKind) -> Result<Vec<PathBuf>> {
+        if *kind == ResourceKind::Theme {
+            return Ok(vec![
+                MACUI_COMMON.bundled_themes_path().join("default"),
+                MACUI_COMMON.bundled_themes_path().join("liquid-glass"),
+            ]);
+        }
+        if *kind == ResourceKind::IconPack {
+            return Ok(Vec::new());
+        }
         let dirs: Vec<PathBuf> = match kind {
-            ResourceKind::Theme => vec![
-                SEELEN_COMMON.bundled_themes_path().to_path_buf(),
-                SEELEN_COMMON.user_themes_path().to_path_buf(),
-            ],
+            ResourceKind::Theme => unreachable!("handled above"),
             ResourceKind::Widget => vec![
-                SEELEN_COMMON.bundled_widgets_path().to_path_buf(),
-                SEELEN_COMMON.user_widgets_path().to_path_buf(),
+                MACUI_COMMON.bundled_widgets_path().to_path_buf(),
+                MACUI_COMMON.user_widgets_path().to_path_buf(),
             ],
             ResourceKind::Plugin => vec![
-                SEELEN_COMMON.bundled_plugins_path().to_path_buf(),
-                SEELEN_COMMON.user_plugins_path().to_path_buf(),
+                MACUI_COMMON.bundled_plugins_path().to_path_buf(),
+                MACUI_COMMON.user_plugins_path().to_path_buf(),
             ],
-            ResourceKind::Wallpaper => vec![SEELEN_COMMON.user_wallpapers_path().to_path_buf()],
-            ResourceKind::IconPack => vec![SEELEN_COMMON.user_icons_path().to_path_buf()],
-            ResourceKind::SoundPack => vec![SEELEN_COMMON.user_sounds_path().to_path_buf()],
+            ResourceKind::Wallpaper => vec![MACUI_COMMON.user_wallpapers_path().to_path_buf()],
+            ResourceKind::IconPack => unreachable!("handled above"),
+            ResourceKind::SoundPack => vec![MACUI_COMMON.user_sounds_path().to_path_buf()],
         };
 
         async fn read_dir_entries(dir: PathBuf) -> Result<Vec<PathBuf>> {
@@ -303,18 +302,23 @@ impl ResourceManager {
 
         if kind == ResourceKind::IconPack {
             // try load system icon pack
-            let _ = self
-                .load(&kind, SEELEN_COMMON.system_icon_pack_path())
-                .await;
+            let _ = self.load(&kind, MACUI_COMMON.system_icon_pack_path()).await;
             // creates the system icon pack if not loaded
             std::thread::spawn(move || RESOURCES.ensure_system_icon_pack(on_mount).log_error());
         }
         Ok(())
     }
 
-    /// Activates a loaded resource the same way the "Enable" button does after installing
-    /// a resource from the marketplace (via `seelen-ui.uri:` or a dropped `.slu` file).
+    fn is_fixed_glass_path(path: &Path) -> bool {
+        path == MACUI_COMMON.bundled_themes_path().join("default")
+            || path == MACUI_COMMON.bundled_themes_path().join("liquid-glass")
+    }
+
+    /// Activates an imported local `.maui` resource.
     pub fn enable_resource(&self, kind: ResourceKind, id: ResourceId) {
+        if matches!(kind, ResourceKind::Theme | ResourceKind::IconPack) {
+            return;
+        }
         let plugin_events: Vec<PluginId> = match &kind {
             ResourceKind::Plugin => vec![PluginId::from(id.clone())],
             ResourceKind::Widget => {
@@ -332,26 +336,6 @@ impl ResourceManager {
             FULL_STATE.rcu(move |state| {
                 let mut state = state.cloned();
                 match kind {
-                    ResourceKind::Theme => {
-                        let theme_id = ThemeId::from(id.clone());
-                        let has_shared_styles = RESOURCES
-                            .themes
-                            .read_sync(&theme_id, |_, t| {
-                                t.shared_styles.as_ref().is_some_and(|s| !s.is_empty())
-                            })
-                            .unwrap_or(false);
-                        if has_shared_styles {
-                            state.settings.active_themes.clear();
-                            state.settings.active_themes.push("@default/theme".into());
-                        }
-                        state.settings.active_themes.push(theme_id);
-                    }
-                    ResourceKind::IconPack => {
-                        state
-                            .settings
-                            .active_icon_packs
-                            .push(IconPackId::from(id.clone()));
-                    }
                     ResourceKind::Widget => {
                         state
                             .settings
@@ -373,7 +357,7 @@ impl ResourceManager {
             });
 
             for plugin_id in plugin_events {
-                emit_to_webviews(SeelenEvent::PluginEnabled, plugin_id);
+                emit_to_webviews(MacUiEvent::PluginEnabled, plugin_id);
             }
 
             FULL_STATE.load().write_settings().log_error();

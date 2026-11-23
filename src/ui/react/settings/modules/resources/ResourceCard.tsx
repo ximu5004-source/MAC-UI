@@ -1,22 +1,20 @@
-import { invoke, SeelenCommand } from "@seelen-ui/lib";
+import { invoke, MacUiCommand } from "@macui/lib";
 import type {
-  Resource,
   ResourceId,
   ResourceKind,
   ResourceMetadata,
   ResourceText as IResourceText,
   Wallpaper,
-} from "@seelen-ui/lib/types";
+} from "@macui/lib/types";
 import { Icon } from "libs/ui/react/components/Icon/index.tsx";
 import { ResourceText, ResourceTextAsMarkdown } from "libs/ui/react/components/ResourceText/index.tsx";
 import { cx } from "libs/ui/react/utils/styling.ts";
 import { convertFileSrc } from "@tauri-apps/api/core";
 import { Button, Flex, Input, Popconfirm, Tooltip } from "antd";
 import type { ComponentChildren } from "preact";
-import { useEffect, useState } from "preact/hooks";
 import { useTranslation } from "react-i18next";
 
-import { SettingsGroup, SettingsOption } from "../../components/SettingsBox/index.tsx";
+import { SettingsGroup } from "../../components/SettingsBox/index.tsx";
 import { EnvConfig } from "../shared/config/infra.ts";
 import cs from "./infra.module.css";
 import type { IconName } from "libs/ui/icons.ts";
@@ -36,26 +34,9 @@ interface ResourceCardProps {
 }
 
 export function ResourceCard({ resource, kind, actions, body }: ResourceCardProps) {
-  const [hasUpdate, setHasUpdate] = useState(false);
   const isCorrupted = kind === "Wallpaper" && $corruptedWallpapers.value.has(resource.id);
 
   const { t } = useTranslation();
-
-  useEffect(() => {
-    async function checkUpdate() {
-      if (resource.id.startsWith("@")) {
-        return;
-      }
-
-      const res = await fetch(`https://product.seelen.io/resource/${resource.id}`);
-      const remoteResource: Resource = await res.json();
-      const lastUpdateRelease = new Date(remoteResource.updatedAt);
-      const writtenAt = new Date(resource.metadata.writtenAt);
-      setHasUpdate(lastUpdateRelease > writtenAt);
-    }
-
-    checkUpdate();
-  }, []);
 
   const [major = 0, minor = 0, patch = 0] = EnvConfig.version.split(".").map(Number);
   const [majorTarget = 0, minorTarget = 0, patchTarget = 0] = resource.metadata.appTargetVersion || [];
@@ -99,30 +80,6 @@ export function ResourceCard({ resource, kind, actions, body }: ResourceCardProp
         <ResourceText className={cs.title} text={resource.metadata.displayName} />
 
         <div className={cs.actionsTop}>
-          {!resource.id.startsWith("@") && !hasUpdate && (
-            <Tooltip title={t("resources.see_on_website")}>
-              <Button
-                type="link"
-                href={`https://seelen.io/resources/${compressUuid(resource.id)}`}
-                target="_blank"
-              >
-                <Icon iconName="TbWorldShare" />
-              </Button>
-            </Tooltip>
-          )}
-
-          {hasUpdate && (
-            <Tooltip title={t("resources.has_update")} placement="left">
-              <Button
-                type="link"
-                href={`https://seelen.io/resources/${compressUuid(resource.id)}?update`}
-                target="_blank"
-              >
-                <Icon iconName="MdUpdate" />
-              </Button>
-            </Tooltip>
-          )}
-
           {actions}
         </div>
       </div>
@@ -132,7 +89,8 @@ export function ResourceCard({ resource, kind, actions, body }: ResourceCardProp
       </div>
 
       <div className={cs.footer}>
-        {!resource.metadata.bundled && resource.metadata.path.includes("com.seelen.seelen-ui") && (
+        {!resource.metadata.bundled &&
+          ["com.macui.macui", "com.jona.mac-ui"].some((id) => resource.metadata.path.includes(id)) && (
           <Tooltip title={t("resources.delete")} placement="left">
             <Popconfirm
               title={t("action.confirm")}
@@ -140,7 +98,7 @@ export function ResourceCard({ resource, kind, actions, body }: ResourceCardProp
               okText={t("yes")}
               cancelText={t("no")}
               onConfirm={() => {
-                invoke(SeelenCommand.RemoveResource, { kind, id: resource.id });
+                invoke(MacUiCommand.RemoveResource, { kind, id: resource.id });
               }}
             >
               <Button type="text" danger>
@@ -174,7 +132,7 @@ export function ResourceIcon({ kind }: { kind: ResourceKind }) {
 }
 
 function ResourcePortraitInner({ resource, kind }: ResourcePortraitProps) {
-  if (resource.metadata.portrait) {
+  if (resource.metadata.portrait && !/^https?:/i.test(resource.metadata.portrait)) {
     return <img src={resource.metadata.portrait} />;
   }
 
@@ -223,14 +181,12 @@ export function resolveDisplayName(name: IResourceText | undefined, language: st
 }
 
 interface ResourceListHeaderProps {
-  discoverUrl: string;
   search: string;
   onSearch: (v: string) => void;
   children?: ComponentChildren;
 }
 
 export function ResourceListHeader({
-  discoverUrl,
   search,
   onSearch,
   children,
@@ -238,34 +194,18 @@ export function ResourceListHeader({
   const { t } = useTranslation();
   return (
     <SettingsGroup>
-      <Flex gap={10}>
-        <b>{t("search")}:</b>
+      <Flex gap={10} align="center">
+        <b style={{ flexShrink: 0 }}>{t("search")}:</b>
         <Input
           type="search"
           value={search}
           onChange={(e) => onSearch((e.target as HTMLInputElement).value)}
-          style={{ width: "100%" }}
+          style={{ flex: 1, minWidth: 0 }}
         />
       </Flex>
 
-      <SettingsOption>
-        <span>{t("resources.discover")}:</span>
-        <Button href={discoverUrl} target="_blank" type="link">
-          {discoverUrl}
-        </Button>
-      </SettingsOption>
+      <p style={{ color: "var(--mac-secondary)", fontSize: 13 }}>{t("mac_local.wallpapers_local_hint")}</p>
       {children}
     </SettingsGroup>
   );
-}
-
-export function compressUuid(uuid: string): string {
-  let hex = uuid.replace(/-/g, "");
-  let data = String.fromCharCode.apply(
-    null,
-    hex.match(/\w{2}/g)!.map(function (a) {
-      return parseInt(a, 16);
-    }),
-  );
-  return btoa(data).replace(/\+/g, "-").replace(/\//g, "_").replace(/=/g, "");
 }

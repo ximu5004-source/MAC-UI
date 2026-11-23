@@ -1,6 +1,6 @@
 import "./reset.css";
 
-const { js, css, html } = window.__SLU_WIDGET;
+const { js, css, html } = window.__MACUI_WIDGET;
 
 if (html) {
   document.body.innerHTML = html;

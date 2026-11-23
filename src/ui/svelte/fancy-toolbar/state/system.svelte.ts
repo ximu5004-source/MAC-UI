@@ -1,4 +1,4 @@
-import { FancyToolbarSide } from "@seelen-ui/lib/types";
+import { FancyToolbarSide } from "@macui/lib/types";
 import { currentMonitorId, monitors, mousePos, virtualDesktop } from "./getters.svelte.ts";
 
 export { virtualDesktop };

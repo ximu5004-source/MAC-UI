@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { MultimonitorBehaviour } from "@seelen-ui/lib/types";
+  import { MultimonitorBehaviour } from "@macui/lib/types";
   import { gState } from "../../state.svelte.ts";
   import Monitor from "./Monitor.svelte";
 

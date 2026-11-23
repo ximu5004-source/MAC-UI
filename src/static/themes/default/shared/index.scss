@@ -13,23 +13,23 @@
 @import "./buttons.scss";
 
 :root {
-  --slu-std-fg-color: var(--color-gray-900);
-  --slu-std-fg-secondary-color: var(--color-gray-700);
-  --slu-std-fg-muted-color: var(--color-gray-500);
-  --slu-std-fg-disabled-color: var(--color-gray-400);
+  --macui-std-fg-color: var(--color-gray-900);
+  --macui-std-fg-secondary-color: var(--color-gray-700);
+  --macui-std-fg-muted-color: var(--color-gray-500);
+  --macui-std-fg-disabled-color: var(--color-gray-400);
 
-  --slu-std-bg-dark-color: light-dark(var(--color-gray-75), var(--color-gray-25));
-  --slu-std-bg-color: var(--color-gray-50);
-  --slu-std-bg-light-color: light-dark(var(--color-gray-25), var(--color-gray-75));
+  --macui-std-bg-dark-color: light-dark(var(--color-gray-75), var(--color-gray-25));
+  --macui-std-bg-color: var(--color-gray-50);
+  --macui-std-bg-light-color: light-dark(var(--color-gray-25), var(--color-gray-75));
 
-  --slu-std-ui-color: light-dark(var(--system-accent-dark-color), var(--system-accent-light-color));
-  --slu-std-ui-hover-color: light-dark(
+  --macui-std-ui-color: light-dark(var(--system-accent-dark-color), var(--system-accent-light-color));
+  --macui-std-ui-hover-color: light-dark(
     var(--system-accent-darker-color),
     var(--system-accent-lighter-color)
   );
 
-  --slu-std-ui-hover-overlay: oklch(from var(--system-accent-color) l c h / 0.2);
-  --slu-std-ui-pressed-overlay: oklch(from var(--system-accent-color) l c h / 0.3);
+  --macui-std-ui-hover-overlay: oklch(from var(--system-accent-color) l c h / 0.2);
+  --macui-std-ui-pressed-overlay: oklch(from var(--system-accent-color) l c h / 0.3);
 }
 
 // default hide/show widget animations.
@@ -72,12 +72,12 @@
 }
 
 body {
-  color: var(--slu-std-fg-color);
-  background-color: var(--slu-std-bg-color);
+  color: var(--macui-std-fg-color);
+  background-color: var(--macui-std-bg-color);
 }
 
 // Standard for popover
-body:has(> div > .slu-std-popover) {
+body:has(> div > .macui-std-popover) {
   background-color: transparent;
   overflow: hidden;
 
@@ -89,7 +89,7 @@ body:has(> div > .slu-std-popover) {
   }
 }
 
-.slu-std-popover {
+.macui-std-popover {
   width: 300px;
   max-height: 700px;
   overflow: auto;
@@ -97,7 +97,7 @@ body:has(> div > .slu-std-popover) {
   padding: var(--spacing-xs);
   margin: 10px; // this margin will allow the box-shadow to be visible
 
-  background-color: var(--slu-std-bg-color);
+  background-color: var(--macui-std-bg-color);
   border-radius: 10px;
 
   box-shadow: var(--shadow-m);

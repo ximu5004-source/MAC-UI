@@ -1,16 +1,16 @@
 use std::sync::LazyLock;
 
-use parking_lot::Mutex;
-use seelen_core::{
+use macui_core::{
     resource::WidgetId,
     state::{WegItem, WegItemData, WegItems},
 };
+use parking_lot::Mutex;
 use uuid::Uuid;
 
 use crate::{
     error::{Result, ResultLogExt},
     modules::apps::application::msix::MsixAppsManager,
-    utils::{atomic_write_file, constants::SEELEN_COMMON},
+    utils::{atomic_write_file, constants::MACUI_COMMON},
     widgets::weg::native_taskbar::get_windows_taskbar_pinned_apps,
 };
 
@@ -33,7 +33,7 @@ impl WegItemsManager {
 
     pub fn write(&self, mut items: WegItems) -> Result<()> {
         items.sanitize();
-        let path = SEELEN_COMMON
+        let path = MACUI_COMMON
             .widget_data_dir(&WidgetId::known_weg())
             .join("state.yml");
         // Hold the lock while writing so concurrent saves (one webview per
@@ -45,14 +45,24 @@ impl WegItemsManager {
     }
 
     pub fn load(&self) -> Result<()> {
-        let path = SEELEN_COMMON
+        let path = MACUI_COMMON
             .widget_data_dir(&WidgetId::known_weg())
             .join("state.yml");
 
         let items = if path.exists() {
             let mut items: WegItems = serde_yaml::from_str(&std::fs::read_to_string(&path)?)?;
+            let had_legacy_media = items
+                .left
+                .iter()
+                .chain(&items.center)
+                .chain(&items.right)
+                .any(|item| matches!(item, WegItem::Media { .. }));
             items.sanitize();
             resolve_msix_paths(&mut items);
+            if had_legacy_media {
+                // Persist the one-way move to the toolbar without resetting any pinned layout.
+                atomic_write_file(&path, serde_yaml::to_string(&items)?.as_bytes())?;
+            }
             items
         } else {
             // First run: try to import from Windows taskbar
@@ -169,13 +179,10 @@ fn initial_items() -> WegItems {
             prevent_pinning: false,
             relaunch: None,
         })],
-        right: vec![
-            WegItem::Plugin {
-                id: Uuid::new_v4(),
-                plugin: "@default/weg-trash-bin".into(),
-            },
-            WegItem::Media { id: Uuid::new_v4() },
-        ],
+        right: vec![WegItem::Plugin {
+            id: Uuid::new_v4(),
+            plugin: "@default/weg-trash-bin".into(),
+        }],
     }
 }
 
@@ -218,7 +225,7 @@ mod tests {
             "Left should have StartMenu and ShowDesktop"
         );
         assert_eq!(items.center.len(), 1, "Center should have File Explorer");
-        assert_eq!(items.right.len(), 2, "Right should have TrashBin and Media");
+        assert_eq!(items.right.len(), 1, "Right should have TrashBin only");
 
         // Verify left items
         assert!(matches!(items.left[0], WegItem::Plugin { .. }));
@@ -234,7 +241,14 @@ mod tests {
 
         // Verify right items
         assert!(matches!(items.right[0], WegItem::Plugin { .. }));
-        assert!(matches!(items.right[1], WegItem::Media { .. }));
+        assert!(
+            !items
+                .left
+                .iter()
+                .chain(&items.center)
+                .chain(&items.right)
+                .any(|item| matches!(item, WegItem::Media { .. }))
+        );
     }
 
     #[test]

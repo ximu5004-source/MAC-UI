@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { invoke, SeelenCommand } from "@seelen-ui/lib";
+  import { invoke, MacUiCommand } from "@macui/lib";
   import { Icon, SpecificIcon } from "libs/ui/svelte/components/Icon";
   import { nanosecondsToPlayingTime } from "libs/ui/utils";
   import { convertFileSrc } from "@tauri-apps/api/core";
-  import type { MediaPlayer } from "@seelen-ui/lib/types";
+  import type { MediaPlayer } from "@macui/lib/types";
 
   interface Props {
     playing: MediaPlayer;
@@ -34,19 +34,19 @@
   <div class="player-controls">
     <button
       data-skin="transparent"
-      onclick={() => invoke(SeelenCommand.MediaPrev, { id: playing.umid })}
+      onclick={() => invoke(MacUiCommand.MediaPrev, { id: playing.umid })}
     >
       <Icon iconName="IoPlaySkipBack" />
     </button>
     <button
       data-skin="transparent"
-      onclick={() => invoke(SeelenCommand.MediaTogglePlayPause, { id: playing.umid })}
+      onclick={() => invoke(MacUiCommand.MediaTogglePlayPause, { id: playing.umid })}
     >
       <Icon iconName={playing.playing ? "IoPause" : "IoPlay"} />
     </button>
     <button
       data-skin="transparent"
-      onclick={() => invoke(SeelenCommand.MediaNext, { id: playing.umid })}
+      onclick={() => invoke(MacUiCommand.MediaNext, { id: playing.umid })}
     >
       <Icon iconName="IoPlaySkipForward" />
     </button>

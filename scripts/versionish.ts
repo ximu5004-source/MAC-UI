@@ -2,7 +2,7 @@ import fs from "fs";
 import process from "node:process";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
-import { execSync } from "child_process";
+import { execFileSync, execSync } from "node:child_process";
 
 function updateCargoVersion(filePath: string, version: string): void {
   let content = fs.readFileSync(filePath, "utf-8");
@@ -63,13 +63,27 @@ function replaceChangelogVersion(oldVersion: string, newVersion: string): void {
 
 function createGitCommit(message: string): void {
   execSync("git add .", { stdio: "inherit" });
-  execSync(`git commit -m "${message}"`, { stdio: "inherit" });
+  execFileSync("git", ["commit", "-m", message], { stdio: "inherit" });
   console.log(`✓ Git commit created: ${message}`);
 }
 
 function createGitTag(tag: string): void {
-  execSync(`git tag ${tag}`, { stdio: "inherit" });
+  execFileSync("git", ["tag", "-a", tag, "-m", `MAC UI ${tag}`], { stdio: "inherit" });
   console.log(`✓ Git tag created: ${tag}`);
+}
+
+function releaseParts(version: string): bigint[] {
+  if (!/^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/.test(version)) {
+    throw new Error("Expected a release version such as 4.1.0");
+  }
+  return version.split(".").map((part) => BigInt(part));
+}
+
+function requireUnusedTag(version: string): void {
+  const tag = `v${version}`;
+  if (execFileSync("git", ["tag", "--list", tag], { encoding: "utf8" }).trim()) {
+    throw new Error(`Release tag ${tag} already exists`);
+  }
 }
 
 function updateAllVersions(version: string, skipLockfiles = false): void {
@@ -84,6 +98,15 @@ function updateAllVersions(version: string, skipLockfiles = false): void {
   const packageJson = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
   packageJson.version = version;
   fs.writeFileSync("./package.json", JSON.stringify(packageJson, null, 2) + "\n");
+  const assemblyPath = "./native/DesktopOrganizer/AssemblyInfo.cs";
+  let assembly = fs.readFileSync(assemblyPath, "utf8");
+  const assemblyVersion = version.split("-")[0] + ".0";
+  assembly = assembly.replace(
+    /Assembly(?:File)?Version\("[^"]*"\)/g,
+    (attribute) => attribute.replace(/"[^"]*"/, `"${assemblyVersion}"`),
+  );
+  assembly = assembly.replace(/AssemblyInformationalVersion\("[^"]*"\)/, `AssemblyInformationalVersion("${version}")`);
+  fs.writeFileSync(assemblyPath, assembly);
   console.log("✓ App versions updated");
 
   // Update lockfiles (skip in CI)
@@ -109,6 +132,13 @@ async function main(args: string[]) {
         });
       },
       ({ version }) => {
+        const current = releaseParts(JSON.parse(fs.readFileSync("package.json", "utf8")).version);
+        const next = releaseParts(version);
+        const changed = next.findIndex((part, index) => part !== current[index]);
+        if (changed < 0 || next[changed]! < current[changed]!) {
+          throw new Error("The new release version must exceed the current version");
+        }
+        requireUnusedTag(version);
         console.log(`Starting release with version: ${version}`);
 
         updateAllVersions(version);
@@ -145,6 +175,8 @@ async function main(args: string[]) {
         const packageJson = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
         const currentVersion = packageJson.version;
 
+        releaseParts(currentVersion);
+        requireUnusedTag(currentVersion);
         console.log(`Finishing release: ${currentVersion}`);
 
         replaceChangelogVersion(`${currentVersion}-dev`, currentVersion);

@@ -65,7 +65,7 @@ impl Drop for MediaPlayerSession {
 
 #[derive(Debug, Clone)]
 pub struct MediaPlayer {
-    pub base: seelen_core::system_state::MediaPlayer,
+    pub base: macui_core::system_state::MediaPlayer,
     pub removed_at: Option<Instant>,
 }
 

@@ -30,7 +30,7 @@
 }
 
 .leaf {
-  border: 2px solid var(--system-accent-color);
+  border: 2px solid var(--mac-accent);
   border-radius: 8px;
 }
 
@@ -43,6 +43,6 @@
   width: 30%;
   height: 30%;
 
-  border: 2px solid var(--system-accent-color);
+  border: 2px solid var(--mac-accent);
   border-radius: 8px;
 }

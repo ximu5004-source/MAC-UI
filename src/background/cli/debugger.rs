@@ -1,10 +1,10 @@
 use std::sync::atomic::Ordering;
 
-pub use slu_ipc::commands::DebuggerCli;
+pub use macui_ipc::commands::DebuggerCli;
 
 use crate::{error::Result, hook::LOG_WIN_EVENTS};
 
-use slu_ipc::commands::DebuggerSubCommand;
+use macui_ipc::commands::DebuggerSubCommand;
 
 pub fn process(cmd: DebuggerCli) -> Result<()> {
     match cmd.subcommand {

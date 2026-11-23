@@ -8,7 +8,7 @@ cancel: Cancelar
 done: Concluída
 elevated:
   description: >-
-    O Seelen UI está a ser executado com privilégios de administrador.
+    O MAC UI está a ser executado com privilégios de administrador.
 
     Isto não acrescenta nem melhora nenhum recurso e pode representar um risco
     de segurança.
@@ -20,7 +20,7 @@ resource:
   added: Um novo recurso foi adicionado
   download_failed_body: >-
     Algo deu errado ao baixar o recurso, informe -o à equipe de desenvolvedores
-    da Seelen.
+    da MAC UI.
   download_failed_title: Download de recursos falhou
   downloading: Download de ativos ...
   downloading_body: Isso pode levar alguns segundos, por favor, não feche a janela.
@@ -39,20 +39,20 @@ runtime:
     Isso pode acontecer se os arquivos forem modificados, corrompidos ou se a
     instalação estiver incompleta.
 
-    Por motivos de segurança, o Seelen UI não pode continuar.
+    Por motivos de segurança, o MAC UI não pode continuar.
 
     Por favor, reinstale-o no site oficial.
   files_integrity_title: Alerta de segurança - Falha na verificação de integridade dos arquivos
   not_found: WebView2 Tempo de execução não encontrado
-  not_found_description: O SEELEN UI requer o tempo de execução do WebView2. Por favor, instale.
+  not_found_description: O MAC UI requer o tempo de execução do WebView2. Por favor, instale.
   outdated: WebView2 Tempo de execução desatualizado
   outdated_description: >-
-    O SEELEN UI requer WebView2 Runtime %{min_version} ou superior. Por favor,
+    O MAC UI requer WebView2 Runtime %{min_version} ou superior. Por favor,
     atualize -o.
 service:
-  not_running: Serviço de interface do usuário de Seelen não está sendo executado
+  not_running: Serviço de interface do usuário de MAC UI não está sendo executado
   not_running_description: >-
-    O Serviço Seelen UI (SLU-Service) é uma dependência/auxiliar para o
+    O Serviço MAC UI (macui-service) é uma dependência/auxiliar para o
     aplicativo funcionar corretamente.
   not_running_ok: Start Service
 shortcut:

@@ -1,5 +1,5 @@
-import { invoke, RuntimeStyleSheet, SeelenCommand, Widget } from "@seelen-ui/lib";
-import { type AppBarEdge, FancyToolbarSide, HideMode } from "@seelen-ui/lib/types";
+import { invoke, RuntimeStyleSheet, MacUiCommand, Widget } from "@macui/lib";
+import { type AppBarEdge, FancyToolbarSide, HideMode } from "@macui/lib/types";
 import { isTouchPrimary } from "libs/ui/svelte/utils/signals.svelte.ts";
 import { locale } from "../i18n/index.ts";
 import { declareDocumentAsLayeredHitbox } from "libs/ui/react/utils/layered.ts";
@@ -38,7 +38,7 @@ class SettingsState {
   }
 
   get value() {
-    return _settings.value.byWidget["@seelen/fancy-toolbar"];
+    return _settings.value.byWidget["@macui/fancy-toolbar"];
   }
 
   get allByWidget() {
@@ -92,12 +92,12 @@ async function updateWidgetPosition() {
   }
 
   if (hideMode === HideMode.Never || isTouch) {
-    await invoke(SeelenCommand.RegisterAppBar, {
+    await invoke(MacUiCommand.RegisterAppBar, {
       rect,
       edge: position as unknown as AppBarEdge,
     });
   } else {
-    await invoke(SeelenCommand.UnregisterAppBar);
+    await invoke(MacUiCommand.UnregisterAppBar);
   }
 }
 

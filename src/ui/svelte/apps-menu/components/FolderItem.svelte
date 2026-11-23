@@ -3,7 +3,7 @@
   import { FileIcon } from "libs/ui/svelte/components/Icon";
   import { globalState } from "../state/mod.svelte";
   import { t } from "../i18n";
-  import { invoke, SeelenCommand } from "@seelen-ui/lib";
+  import { invoke, MacUiCommand } from "@macui/lib";
   import { createSortable } from "@dnd-kit/svelte/sortable";
   import { getFolderContextMenu } from "./context-menu.svelte";
   import type { SelectionScope } from "../keyboard-navigation";
@@ -52,7 +52,7 @@
 
   function handleFolderContextMenu(event: MouseEvent) {
     event.preventDefault();
-    invoke(SeelenCommand.TriggerContextMenu, {
+    invoke(MacUiCommand.TriggerContextMenu, {
       menu,
       forwardTo: null,
     });

@@ -8,13 +8,13 @@ const entry = source("./index.ts");
 const css = source("./calendar.css");
 
 test("calendar opts into the shared neutral frost with a 28px rounded surface", () => {
-  assert.match(app, /slu-std-popover mac-panel mac-frosted-surface calendar-popup/);
+  assert.match(app, /macui-std-popover mac-panel mac-frosted-surface calendar-popup/);
   assert.match(entry, /import "libs\/ui\/svelte\/styles\/mac-panels\.css"/);
   assert.match(entry, /await configureMacPanel\(widget\)/);
   assert.match(entry, /trackFrostedSurfaces\("\.calendar-popup\.mac-frosted-surface"\)/);
   assert.doesNotMatch(entry, /trackFrostedSurfaces\([^)]*,\s*true/);
   assert.match(css, /border-radius: 28px/);
-  assert.match(css, /color-scheme: light dark/);
+  assert.match(css, /color-scheme: inherit/);
   assert.doesNotMatch(css, /drop-shadow|backdrop-filter|linear-gradient/);
 });
 

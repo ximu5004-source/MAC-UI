@@ -1,4 +1,4 @@
-id: "@seelen/notifications"
+id: "@macui/notifications"
 icon: IoNotificationsOutline
 metadata:
   displayName: !extend i18n/display_name.yml

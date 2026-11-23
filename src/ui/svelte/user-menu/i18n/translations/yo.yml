@@ -15,7 +15,7 @@ profile:
   log_out: Jade jade
   open_onedrive: Ṣii itọsọna OneDrive
   open_user_folder: Ṣii itọsọna olumulo
-seelen_options:
-  open_installation_folder: Ṣii folda eto Seelen
-  open_log_folder: Ṣii folda Seelen log
-  title: Seelen awọn ilana
+macui_options:
+  open_installation_folder: Ṣii folda eto MAC UI
+  open_log_folder: Ṣii folda MAC UI log
+  title: MAC UI awọn ilana

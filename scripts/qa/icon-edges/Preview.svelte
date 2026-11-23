@@ -1,6 +1,6 @@
 <script lang="ts">
   import AppGlassIcon from "../../../libs/ui/svelte/components/Icon/AppGlassIcon.svelte";
-  import SluIconRenderer from "../../../libs/ui/svelte/components/Icon/SluIconRenderer.svelte";
+  import MacUiIconRenderer from "../../../libs/ui/svelte/components/Icon/MacUiIconRenderer.svelte";
   const art = (body: string) => `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">${body}</svg>`)}`;
   const icons = [
     { name: "圆形", src: art('<circle cx="32" cy="32" r="29" fill="#1981de"/><circle cx="32" cy="32" r="13" fill="#fff"/>') },
@@ -24,7 +24,7 @@
     {/each}
     {#if icons[2]}
       <button class="weg-item" aria-label="文件图标">
-        <SluIconRenderer state={icons[2]} data-appearance="liquid-glass" style={`width:${size}px;height:${size}px`} />
+        <MacUiIconRenderer state={icons[2]} data-appearance="liquid-glass" style={`width:${size}px;height:${size}px`} />
       </button>
     {/if}
   </div>

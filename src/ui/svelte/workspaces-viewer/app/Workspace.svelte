@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { DesktopWorkspace } from "@seelen-ui/lib/types";
-  import { invoke, SeelenCommand, Widget } from "@seelen-ui/lib";
+  import type { DesktopWorkspace } from "@macui/lib/types";
+  import { invoke, MacUiCommand, Widget } from "@macui/lib";
   import { Icon } from "libs/ui/svelte/components/Icon";
   import { Wallpaper } from "libs/ui/svelte/components/Wallpaper";
   import { state as store } from "../state.svelte";
@@ -34,14 +34,14 @@
   async function switchWorkspace() {
     if (active) return;
     await Widget.self.hide();
-    await invoke(SeelenCommand.SwitchWorkspace, {
+    await invoke(MacUiCommand.SwitchWorkspace, {
       workspaceId: workspace.id,
     });
   }
 
   async function destroyWorkspace(e: MouseEvent) {
     e.stopPropagation();
-    await invoke(SeelenCommand.DestroyWorkspace, {
+    await invoke(MacUiCommand.DestroyWorkspace, {
       workspaceId: workspace.id,
     });
   }
@@ -50,7 +50,7 @@
     const newName = workspaceName.trim();
     if (newName === (workspace.name || "")) return;
     try {
-      await invoke(SeelenCommand.RenameWorkspace, {
+      await invoke(MacUiCommand.RenameWorkspace, {
         workspaceId: workspace.id,
         name: newName || null,
       });

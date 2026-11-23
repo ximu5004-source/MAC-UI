@@ -30,14 +30,14 @@ apps_configurations:
     Ove paketne konfiguracije nisu moguće uređivati ​​i dizajnirane su tako da
     vam pruže najbolje iskustvo bez prilagodbe. Oni automatski konfiguriraju
     najčešće aplikacije za vas.
-  bundled_title: Aplikacija config sa Seelen
+  bundled_title: Aplikacija config sa MAC UI
   confirm_delete: Jeste li sigurni da želite izbrisati ovu konfiguraciju?
   confirm_delete_title: Potvrdi Delete
   delete: Izbrisati
   export: Izvoz
   export_full: Postavke izvoza putem aplikacije
   extra_info: >-
-    Seelen UI koristi samo jedan identifikator po aplikaciji (prvo pronađeno
+    MAC UI koristi samo jedan identifikator po aplikaciji (prvo pronađeno
     podudaranje) tako da je redoslijed u načinu na koji su specificirani važan,
     najnovije dodano će imati prioritet, imajte na umu da je tablica sortirana
     prema zadanim postavkama od najnovijeg prema starom.
@@ -82,12 +82,12 @@ devtools:
   enable: Omogućite alate za razvojne programere
   enable_description: >-
     Otključava napredne alate za provjeru i otklanjanje grešaka unutarnje
-    komponente korisničkog sučelja Seelen. Nije namijenjen za redovitu upotrebu.
+    komponente korisničkog sučelja MAC UI. Nije namijenjen za redovitu upotrebu.
   icons: Spremljene ikone
   install_folder: Mapa za instalaciju
   load: Opterećenje
   settings_file: Datoteka postavki
-  shared_components: SLU standardne komponente
+  shared_components: MAC UI standardne komponente
   simulate_dialog:
     label: Simulacija dijaloga
     trigger: Okidač
@@ -120,7 +120,7 @@ devtools:
     widget_id: ID widgeta
 discord_banner:
   message: >-
-    Povežite se s drugim korisnicima Seelen UI, potražite pomoć, dijelite teme i
+    Povežite se s drugim korisnicima MAC UI, potražite pomoć, dijelite teme i
     ostanite u tijeku s najnovijim vijestima.
   title: Pridružite se našoj zajednici
 extras:
@@ -171,7 +171,7 @@ general:
     plugged: Priključeno ili punjenje
   polling_interval: Interval prozivanja sustava
   polling_interval_description: >-
-    Koliko često (u sekundama) Seelen UI provjerava sistemske resurse kao što su
+    Koliko često (u sekundama) MAC UI provjerava sistemske resurse kao što su
     CPU, RAM, mreža i aktivnost diska. Manji broj znači češća ažuriranja, ali
     malo veću upotrebu resursa.
   saturday: subota
@@ -227,7 +227,7 @@ reset_to_default: Poništite na zadanu vrijednost
 resources:
   affected_widgets: Zahvaćeni widgeti
   app_outdated: >-
-    Ovaj resurs zahtijeva da novija verzija Seelen korisničkog sučelja radi
+    Ovaj resurs zahtijeva da novija verzija MAC UI korisničkog sučelja radi
     ispravno.
   coming_soon: Dolazi uskoro
   corrupted_wallpaper: >-
@@ -242,7 +242,7 @@ resources:
   modified: Izmijenjeno
   open_folder: Mapa otvorenih resursa
   outdated: >-
-    Ovaj je resurs dizajniran za stariju verziju seelen korisničkog sučelja i
+    Ovaj je resurs dizajniran za stariju verziju macui korisničkog sučelja i
     možda neće raditi ispravno.
   see_on_website: Vidi na web stranici
   update_now: Ažurirati
@@ -251,7 +251,7 @@ resources:
 review_request:
   not_now: Ne sad
   sure: Naravno!
-  title: Uživate li u Seelen korisničkom sučelju?
+  title: Uživate li u MAC UI korisničkom sučelju?
 save: Uštedjeti
 save_and_restart: Spremi i ponovno pokrenite
 search: Pretraživanje
@@ -271,7 +271,7 @@ shortcuts:
   enable: Omogući ugrađeni sustav prečaca
   enable_tooltip: >-
     Onemogući ako ćete implementirati vlastiti sustav prečaca pomoću klijenta
-    Seelen UI
+    MAC UI
   labels:
     create_new_workspace: Stvorite novi radni prostor
     create_new_workspace_row: Stvorite novi redak radnog prostora
@@ -425,15 +425,15 @@ weg:
 welcome:
   give_a_review: Dajte recenziju
   message: >-
-    Seelen UI je besplatno desktop okruženje otvorenog koda za Windows. Ovdje
+    MAC UI je besplatno desktop okruženje otvorenog koda za Windows. Ovdje
     imate potpunu kontrolu nad izgledom i ponašanjem vaše radne površine, što
     vam omogućuje da prilagodite svaki detalj kako bi odgovarao vašem tijeku
     rada i stilu.
   ok: Počnimo!
   review: >-
-    Ako volite koristiti Seelen UI, razmislite o tome da ostavite recenziju u
+    Ako volite koristiti MAC UI, razmislite o tome da ostavite recenziju u
     trgovini - vaše povratne informacije pomažu razvoju i poboljšanju projekta.
-  title: Dobro došli u Seelen UI!
+  title: Dobro došli u MAC UI!
 widget:
   default_instance: Zadana instanca
   default_instance_hint: Uvijek aktivan, koristi konfiguraciju korijenskog widgeta
@@ -441,7 +441,7 @@ widget:
   enable_for_monitor: Omogućite ovaj monitor
   extra_instances: Dodatne instance
   instance: Primjer
-  instances: Slučajevi
+  instances: MacUičajevi
 wm:
   animations:
     duration: Trajanje animacije (MS)

@@ -1,4 +1,8 @@
+mod bitmap_layout;
 pub mod queue;
+mod shell_namespace;
+
+pub(crate) use shell_namespace::is_namespace_path as is_desktop_namespace_path;
 
 #[cfg(target_arch = "x86_64")]
 use std::arch::x86_64::{
@@ -22,7 +26,7 @@ use windows::Win32::UI::Shell::{
 use windows::Win32::{
     Graphics::Gdi::{
         BI_RGB, BITMAP, BITMAPINFO, BITMAPINFOHEADER, CreateCompatibleDC, DIB_RGB_COLORS, DeleteDC,
-        GetDIBits, GetObjectW, HBITMAP, SelectObject,
+        GetDIBits, GetObjectW, HBITMAP, HDC,
     },
     UI::{
         Shell::ExtractIconExW,
@@ -30,14 +34,14 @@ use windows::Win32::{
     },
 };
 
-use seelen_core::state::Icon;
+use macui_core::state::Icon;
 use windows_core::Owned;
 
 use crate::{
     error::Result,
     modules::{apps::application::msix::MsixAppsManager, start::application::StartMenuManager},
     resources::RESOURCES,
-    utils::{constants::SEELEN_COMMON, date_based_hex_id},
+    utils::{constants::MACUI_COMMON, date_based_hex_id},
     windows_api::{WindowsApi, string_utils::WindowsString, types::AppUserModelId},
 };
 
@@ -100,6 +104,14 @@ pub fn convert_hicon_to_rgba_image(hicon: &HICON) -> Result<RgbaImage> {
     }
 }
 
+struct MemoryDc(HDC);
+
+impl Drop for MemoryDc {
+    fn drop(&mut self) {
+        let _ = unsafe { DeleteDC(self.0) };
+    }
+}
+
 pub fn convert_hbitmap_to_rgba_image(hbitmap: HBITMAP) -> Result<RgbaImage> {
     unsafe {
         let mut bitmap = BITMAP::default();
@@ -112,18 +124,21 @@ pub fn convert_hbitmap_to_rgba_image(hbitmap: HBITMAP) -> Result<RgbaImage> {
             return Err("Failed to get bitmap info".into());
         }
 
-        let width = bitmap.bmWidth;
-        let height = bitmap.bmHeight.abs();
-
-        let hdc_screen = CreateCompatibleDC(None);
-        let hdc_mem = CreateCompatibleDC(Some(hdc_screen));
-        let hbm_old = SelectObject(hdc_mem, hbitmap.into());
+        let layout = bitmap_layout::checked_layout(bitmap.bmWidth, bitmap.bmHeight)
+            .ok_or("Invalid or oversized native icon bitmap")?;
+        let hdc = CreateCompatibleDC(None);
+        if hdc.is_invalid() {
+            return Err("Failed to create icon bitmap device context".into());
+        }
+        let hdc = MemoryDc(hdc);
+        // GetDIBits requires this bitmap NOT to be selected into any DC. The
+        // bitmap returned by GetIconInfoExW is an owned, unselected copy.
 
         let mut bmp_info = BITMAPINFO {
             bmiHeader: BITMAPINFOHEADER {
                 biSize: std::mem::size_of::<BITMAPINFOHEADER>() as u32,
-                biWidth: width,
-                biHeight: -(height), // Negative for top-down bitmap
+                biWidth: layout.width as i32,
+                biHeight: -(layout.height as i32), // Negative for top-down bitmap
                 biPlanes: 1,
                 biBitCount: 32, // 4 bytes per pixel
                 biCompression: BI_RGB.0,
@@ -132,32 +147,27 @@ pub fn convert_hbitmap_to_rgba_image(hbitmap: HBITMAP) -> Result<RgbaImage> {
             ..Default::default()
         };
 
-        let mut buffer = vec![0u8; (width * height * 4) as usize];
+        let mut buffer = vec![0u8; layout.bytes];
 
         let dibits_result = GetDIBits(
-            hdc_mem,
+            hdc.0,
             hbitmap,
             0,
-            height as u32,
+            layout.height,
             Some(buffer.as_mut_ptr() as *mut _),
             &mut bmp_info,
             DIB_RGB_COLORS,
         );
 
-        // Cleanup GDI always, even on error
-        SelectObject(hdc_mem, hbm_old);
-        let _ = DeleteDC(hdc_mem);
-        let _ = DeleteDC(hdc_screen);
-
-        if dibits_result == 0 {
-            return Err("Failed to get dibits".into());
+        if !bitmap_layout::complete_scanlines(dibits_result, layout.height) {
+            return Err("Failed to read complete native icon bitmap scanlines".into());
         }
 
         // Alpha fix (important!)
         fix_alpha_channel(buffer.as_mut_slice());
         bgra_to_rgba(buffer.as_mut_slice());
 
-        let image = ImageBuffer::from_raw(width as u32, height as u32, buffer)
+        let image = ImageBuffer::from_raw(layout.width, layout.height, buffer)
             .ok_or("Failed to create image buffer")?;
         Ok(image)
     }
@@ -293,6 +303,9 @@ pub fn extract_icon_from_module(path: &Path, index: i32) -> Result<RgbaImage> {
 }
 
 pub fn get_shell_icon(path: &Path) -> Result<RgbaImage> {
+    if is_desktop_namespace_path(path) {
+        return shell_namespace::get_icon(path);
+    }
     unsafe {
         let normalized = path
             .canonicalize()?
@@ -402,7 +415,7 @@ fn _extract_and_save_icon_from_module_with_index(
 
     save_as_webp(
         &image,
-        &SEELEN_COMMON
+        &MACUI_COMMON
             .system_icon_pack_path()
             .join(&gen_icon_filename),
     )?;
@@ -416,6 +429,21 @@ fn _extract_and_save_icon_from_module_with_index(
 ///
 /// umid on this case only applys to Property Store umid
 fn _extract_and_save_icon_from_file(origin: &Path) -> Result<()> {
+    if is_desktop_namespace_path(origin) {
+        if RESOURCES.has_app_icon(None, Some(origin)) {
+            return Ok(());
+        }
+        let image = get_shell_icon(origin)?;
+        let filename = format!("shell_namespace_{}.webp", date_based_hex_id());
+        let icon = Icon {
+            base: Some(filename.clone()),
+            is_aproximately_square: is_aproximately_a_square(&image),
+            ..Default::default()
+        };
+        save_as_webp(&image, &MACUI_COMMON.system_icon_pack_path().join(filename))?;
+        RESOURCES.add_system_app_icon(None, Some(origin), icon);
+        return Ok(());
+    }
     if !origin.exists() {
         // Handle Windows path,index notation (e.g. "C:\path\app.exe,2" or "file.ico,0")
         if let Some((real_path, index)) = parse_path_with_icon_index(origin) {
@@ -469,7 +497,7 @@ fn _extract_and_save_icon_from_file(origin: &Path) -> Result<()> {
         gen_icon.is_aproximately_square = is_aproximately_a_square(&image);
         save_as_webp(
             &image,
-            &SEELEN_COMMON
+            &MACUI_COMMON
                 .system_icon_pack_path()
                 .join(&gen_icon_filename),
         )?;
@@ -497,7 +525,7 @@ fn _extract_and_save_icon_from_file(origin: &Path) -> Result<()> {
     if use_path_icon {
         save_as_webp(
             &icon,
-            &SEELEN_COMMON
+            &MACUI_COMMON
                 .system_icon_pack_path()
                 .join(&gen_icon_filename),
         )?;
@@ -506,7 +534,7 @@ fn _extract_and_save_icon_from_file(origin: &Path) -> Result<()> {
         let gen_icon_filename = format!("{}_{}.webp", origin_ext, date_based_hex_id());
         save_as_webp(
             &icon,
-            &SEELEN_COMMON
+            &MACUI_COMMON
                 .system_icon_pack_path()
                 .join(&gen_icon_filename),
         )?;
@@ -544,13 +572,13 @@ fn _extract_and_save_icon_umid(aumid: &AppUserModelId) -> Result<()> {
 
                 save_as_webp(
                     &light_rgba,
-                    &SEELEN_COMMON
+                    &MACUI_COMMON
                         .system_icon_pack_path()
                         .join(format!("{name}_light.webp")),
                 )?;
                 save_as_webp(
                     &dark_rgba,
-                    &SEELEN_COMMON
+                    &MACUI_COMMON
                         .system_icon_pack_path()
                         .join(format!("{name}_dark.webp")),
                 )?;
@@ -560,7 +588,7 @@ fn _extract_and_save_icon_umid(aumid: &AppUserModelId) -> Result<()> {
             } else {
                 save_as_webp(
                     &light_rgba,
-                    &SEELEN_COMMON
+                    &MACUI_COMMON
                         .system_icon_pack_path()
                         .join(format!("{name}.webp")),
                 )?;
@@ -644,4 +672,48 @@ fn save_as_webp(image: &RgbaImage, path: &std::path::Path) -> Result<()> {
         webp::Encoder::from_rgba(image.as_raw(), image.width(), image.height()).encode_lossless();
     std::fs::write(path, &*webp_bytes)?;
     Ok(())
+}
+
+#[cfg(test)]
+mod native_bitmap_tests {
+    use super::*;
+    use windows::Win32::Graphics::Gdi::CreateDIBSection;
+
+    #[test]
+    #[ignore = "Explicit opt-in: synthetic Windows GDI objects only; no windows, screen or user icons"]
+    fn synthetic_unselected_bitmap_decodes_complete_rgba() {
+        let info = BITMAPINFO {
+            bmiHeader: BITMAPINFOHEADER {
+                biSize: size_of::<BITMAPINFOHEADER>() as u32,
+                biWidth: 2,
+                biHeight: -2,
+                biPlanes: 1,
+                biBitCount: 32,
+                biCompression: BI_RGB.0,
+                ..Default::default()
+            },
+            ..Default::default()
+        };
+        let mut pixels = std::ptr::null_mut();
+        let bitmap = unsafe {
+            Owned::new(CreateDIBSection(None, &info, DIB_RGB_COLORS, &mut pixels, None, 0).unwrap())
+        };
+        assert!(!pixels.is_null());
+        let bgra = [
+            0u8, 0, 255, 255, 0, 255, 0, 255, 255, 0, 0, 255, 255, 255, 255, 255,
+        ];
+        unsafe {
+            std::ptr::copy_nonoverlapping(bgra.as_ptr(), pixels.cast::<u8>(), bgra.len());
+        }
+        let image = convert_hbitmap_to_rgba_image(*bitmap).unwrap();
+        assert_eq!(image.dimensions(), (2, 2));
+        assert_eq!(
+            image.into_raw(),
+            [
+                255, 0, 0, 255, 0, 255, 0, 255, 0, 0, 255, 255, 255, 255, 255, 255
+            ]
+        );
+        // Owned<HBITMAP> deletes the synthetic bitmap after the decoder's DC
+        // has already been released, including assertion/unwind paths.
+    }
 }

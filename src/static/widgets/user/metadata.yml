@@ -1,4 +1,4 @@
-id: "@seelen/user-menu"
+id: "@macui/user-menu"
 icon: PiFolderUser
 metadata:
   displayName: !extend i18n/display_name.yml

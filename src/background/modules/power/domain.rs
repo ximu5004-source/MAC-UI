@@ -1,4 +1,4 @@
-use seelen_core::system_state::{Battery, PowerMode, PowerStatus};
+use macui_core::system_state::{Battery, PowerMode, PowerStatus};
 use windows::Win32::System::Power::{EFFECTIVE_POWER_MODE, SYSTEM_POWER_STATUS};
 
 use crate::error::Result;
@@ -27,7 +27,7 @@ pub fn power_mode_to_serializable(mode: EFFECTIVE_POWER_MODE) -> PowerMode {
     }
 }
 
-pub fn battery_to_slu_battery(battery: battery::Battery) -> Result<Battery> {
+pub fn battery_to_macui_battery(battery: battery::Battery) -> Result<Battery> {
     let percentage = (battery.state_of_charge().value * 100.0).round();
 
     Ok(Battery {

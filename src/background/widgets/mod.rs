@@ -1,8 +1,8 @@
 pub mod cli;
-pub mod desktop_shell;
 pub mod frosted;
 pub mod loader;
 pub mod manager;
+pub mod native_host;
 pub mod permissions;
 mod pod_readiness;
 pub mod popups;
@@ -18,9 +18,9 @@ use std::{
     sync::LazyLock,
 };
 
-use seelen_core::{
+use macui_core::{
     Rect,
-    handlers::SeelenEvent,
+    handlers::MacUiEvent,
     resource::ResourceId,
     state::{
         Alignment, WidgetDebugInfo, WidgetInstanceMode, WidgetStatus, WidgetTriggerPayload,
@@ -36,7 +36,7 @@ use crate::{
     error::Result,
     resources::RESOURCES,
     state::application::FULL_STATE,
-    utils::{atomic_write_file, constants::SEELEN_COMMON, lock_free::SyncHashMap},
+    utils::{atomic_write_file, constants::MACUI_COMMON, lock_free::SyncHashMap},
     widgets::{manager::WIDGET_MANAGER, webview::WidgetWebviewLabel},
     windows_api::{
         AppBarData, WindowsApi,
@@ -65,7 +65,7 @@ fn flush_pending_trigger(label: &WidgetWebviewLabel) -> Result<()> {
         PENDING_TRIGGERS.remove(label)
     }) {
         log::info!("Emitting pending trigger for {label}");
-        get_app_handle().emit_to(label.raw.clone(), SeelenEvent::WidgetTriggered, &pending)?;
+        get_app_handle().emit_to(label.raw.clone(), MacUiEvent::WidgetTriggered, &pending)?;
     }
     Ok(())
 }
@@ -82,6 +82,9 @@ fn trigger_widget_inner(
     let state = FULL_STATE.load();
     if !state.is_widget_enabled(&payload.id) {
         return Err("Can't trigger a disabled widget".into());
+    }
+    if payload.id.to_string() == native_host::DESKTOP_ID {
+        return native_host::reconcile(true);
     }
 
     let widget = RESOURCES
@@ -173,7 +176,7 @@ fn trigger_widget_inner(
         return Ok(());
     }
 
-    get_app_handle().emit_to(label.raw, SeelenEvent::WidgetTriggered, &payload)?;
+    get_app_handle().emit_to(label.raw, MacUiEvent::WidgetTriggered, &payload)?;
     Ok(())
 }
 
@@ -186,7 +189,7 @@ pub fn trigger_context_menu(
     let owner = WidgetWebviewLabel::try_from_raw(webview.label())?;
     let owner_hwnd = webview.hwnd()?.0 as isize;
 
-    let mut payload = WidgetTriggerPayload::new("@seelen/context-menu".into());
+    let mut payload = WidgetTriggerPayload::new("@macui/context-menu".into());
     payload.instance_id = Some(menu.identifier);
     payload.align_x = menu.align_x;
     payload.align_y = menu.align_y;
@@ -206,7 +209,7 @@ pub fn trigger_dialog(dialog: Dialog, webview: tauri::WebviewWindow) -> Result<(
     let owner = WidgetWebviewLabel::try_from_raw(webview.label())?;
     let owner_hwnd = webview.hwnd()?.0 as isize;
 
-    let mut payload = WidgetTriggerPayload::new("@seelen/dialog".into());
+    let mut payload = WidgetTriggerPayload::new("@macui/dialog".into());
     payload.instance_id = Some(dialog.identifier);
 
     payload.add_custom_arg("dialog", serde_json::to_value(&dialog)?);
@@ -217,7 +220,7 @@ pub fn trigger_dialog(dialog: Dialog, webview: tauri::WebviewWindow) -> Result<(
 
 /// Trigger a dialog from backend code (no owner webview; button events are emitted globally).
 pub fn trigger_dialog_backend(dialog: Dialog) -> Result<()> {
-    let mut payload = WidgetTriggerPayload::new("@seelen/dialog".into());
+    let mut payload = WidgetTriggerPayload::new("@macui/dialog".into());
     payload.instance_id = Some(dialog.identifier);
     payload.align_x = Some(Alignment::Center);
     payload.align_y = Some(Alignment::Center);
@@ -230,6 +233,33 @@ pub fn trigger_dialog_backend(dialog: Dialog) -> Result<()> {
 #[tauri::command(async)]
 pub fn get_self_window_handle(webview: tauri::WebviewWindow) -> Result<isize> {
     Ok(webview.hwnd()?.0 as isize)
+}
+
+/// A hover preview must never activate the window that owns its thumbnails.
+#[tauri::command]
+pub fn set_self_popup_visible(webview: tauri::WebviewWindow, visible: bool) -> Result<()> {
+    use windows::Win32::UI::WindowsAndMessaging::{
+        SWP_HIDEWINDOW, SWP_NOACTIVATE, SWP_NOMOVE, SWP_NOSIZE, SWP_NOZORDER, SWP_SHOWWINDOW,
+        SetWindowPos,
+    };
+    let visibility = if visible {
+        SWP_SHOWWINDOW
+    } else {
+        SWP_HIDEWINDOW
+    };
+    // This command operates only on the caller's HWND, on its owning UI thread.
+    unsafe {
+        SetWindowPos(
+            HWND(webview.hwnd()?.0),
+            None,
+            0,
+            0,
+            0,
+            0,
+            SWP_NOACTIVATE | SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER | visibility,
+        )?;
+    }
+    Ok(())
 }
 
 #[tauri::command(async)]
@@ -267,14 +297,6 @@ pub fn set_self_z_order(webview: tauri::WebviewWindow, z_order: ZOrder) -> Resul
     };
     let hwnd = HWND(webview.hwnd()?.0);
 
-    if WidgetWebviewLabel::try_from_raw(webview.label())?
-        .widget_id
-        .as_str()
-        == "@seelen/desktop-shell"
-    {
-        return desktop_shell::keep_at_desktop(hwnd);
-    }
-
     WindowsApi::set_z_order(
         hwnd,
         match z_order {
@@ -289,11 +311,11 @@ pub fn set_self_z_order(webview: tauri::WebviewWindow, z_order: ZOrder) -> Resul
 }
 
 pub fn show_settings() -> Result<()> {
-    trigger_widget(WidgetTriggerPayload::new("@seelen/settings".into()))
+    trigger_widget(WidgetTriggerPayload::new("@macui/settings".into()))
 }
 
 pub fn show_settings_at(route: &str) -> Result<()> {
-    let mut payload = WidgetTriggerPayload::new("@seelen/settings".into());
+    let mut payload = WidgetTriggerPayload::new("@macui/settings".into());
     payload.add_custom_arg("route", route);
     trigger_widget(payload)
 }
@@ -301,8 +323,8 @@ pub fn show_settings_at(route: &str) -> Result<()> {
 #[tauri::command(async)]
 pub fn show_start_menu() -> Result<()> {
     let guard = FULL_STATE.load();
-    if guard.is_widget_enabled(&"@seelen/apps-menu".into()) {
-        trigger_widget(WidgetTriggerPayload::new("@seelen/apps-menu".into()))?;
+    if guard.is_widget_enabled(&"@macui/apps-menu".into()) {
+        trigger_widget(WidgetTriggerPayload::new("@macui/apps-menu".into()))?;
         return Ok(());
     }
     // trick for showing the native start menu
@@ -330,7 +352,7 @@ pub fn read_data_file(webview: tauri::WebviewWindow, filename: String) -> Result
 
 fn widget_data_dir(webview: &tauri::WebviewWindow) -> Result<PathBuf> {
     let label = WidgetWebviewLabel::try_from_raw(webview.label())?;
-    let data_dir = SEELEN_COMMON.app_data_dir().join("data");
+    let data_dir = MACUI_COMMON.app_data_dir().join("data");
 
     let folder = match &*label.widget_id {
         ResourceId::Local(id) => id.trim_start_matches("@").replace("/", "-"),
@@ -345,6 +367,7 @@ fn widget_data_dir(webview: &tauri::WebviewWindow) -> Result<PathBuf> {
 pub fn notify_widget_statuses_change() {
     std::thread::spawn(|| {
         let mut result = Vec::new();
+        result.extend(native_host::debug_status());
         WIDGET_MANAGER.deployments.for_each(|(_, deployment)| {
             deployment.pods.for_each(|(_, pod)| {
                 result.push(WidgetDebugInfo {
@@ -357,13 +380,14 @@ pub fn notify_widget_statuses_change() {
                 });
             });
         });
-        emit_to_webviews(SeelenEvent::WidgetDebugInfoChanged, result);
+        emit_to_webviews(MacUiEvent::WidgetDebugInfoChanged, result);
     });
 }
 
 #[tauri::command(async)]
 pub fn debug_get_widgets_statuses() -> Vec<WidgetDebugInfo> {
     let mut result = Vec::new();
+    result.extend(native_host::debug_status());
     WIDGET_MANAGER.deployments.for_each(|(_, deployment)| {
         deployment.pods.for_each(|(_, pod)| {
             result.push(WidgetDebugInfo {

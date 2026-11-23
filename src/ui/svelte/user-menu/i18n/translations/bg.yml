@@ -15,7 +15,7 @@ profile:
   log_out: Излезте
   open_onedrive: Отворете директорията на OneDrive
   open_user_folder: Отворете потребителската директория
-seelen_options:
-  open_installation_folder: Отворете папката с настройки на Seelen
-  open_log_folder: Отворете папката с журнал на Seelen
-  title: Seelen директории
+macui_options:
+  open_installation_folder: Отворете папката с настройки на MAC UI
+  open_log_folder: Отворете папката с журнал на MAC UI
+  title: MAC UI директории

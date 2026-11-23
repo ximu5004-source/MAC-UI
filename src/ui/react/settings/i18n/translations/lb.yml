@@ -30,7 +30,7 @@ apps_configurations:
     Dës gebündelt Konfiguratiounen sinn net geännert a sinn entwéckelt fir Iech
     déi bescht Erfahrung ouni Personnalisatioun ze ginn. Si konfiguréieren
     automatesch déi heefegst Uwendungen fir Iech.
-  bundled_title: App con conflüchteg mat Seelen
+  bundled_title: App con conflüchteg mat MAC UI
   confirm_delete: Sidd Dir sécher, datt Dir dës Configuratioun / s läscht braucht?
   confirm_delete_title: Confirméieren Leedung
   delete: Läschen
@@ -81,13 +81,13 @@ devtools:
   data_folder: Etabond Dossier
   enable: Aktivéiert Entwéckler Tools
   enable_description: >-
-    Spär fortgeschratt Tools fir Inspektioun an Debugging Seelen UI Interns. Net
+    Spär fortgeschratt Tools fir Inspektioun an Debugging MAC UI Interns. Net
     fir regelméisseg Gebrauch geduecht.
   icons: Cache Ikonen
   install_folder: Installatioun Dossier
   load: Lueden
   settings_file: Settytout-Datei
-  shared_components: SLU Standard Komponente
+  shared_components: MAC UI Standard Komponente
   simulate_dialog:
     label: Simuléieren Dialog
     trigger: Ausléiser
@@ -120,7 +120,7 @@ devtools:
     widget_id: Widget ID
 discord_banner:
   message: >-
-    Connectéiert mat anere Seelen UI Benotzer, kritt Hëllef, deelt Themen a
+    Connectéiert mat anere MAC UI Benotzer, kritt Hëllef, deelt Themen a
     bleift um neisten Neiegkeeten.
   title: Maacht mat bei eiser Gemeinschaft
 extras:
@@ -170,7 +170,7 @@ general:
     plugged: Ugeschloss oder opluede
   polling_interval: System Ëmfro Intervall
   polling_interval_description: >-
-    Wéi dacks (a Sekonnen) Seelen UI iwwerpréift Systemressourcen wéi CPU, RAM,
+    Wéi dacks (a Sekonnen) MAC UI iwwerpréift Systemressourcen wéi CPU, RAM,
     Netzwierk an Diskaktivitéit. Eng méi kleng Zuel bedeit méi heefeg Updates,
     awer e bësse méi héich Ressourceverbrauch.
   saturday: Samschdeg
@@ -225,7 +225,7 @@ reset_configurations: Reset Konfiguratiounen
 reset_to_default: Reset op Standardwäert
 resources:
   affected_widgets: Betraff Widgets
-  app_outdated: Dës Ressource brauch eng nei Versioun vu Seelen Ui fir richteg ze schaffen.
+  app_outdated: Dës Ressource brauch eng nei Versioun vu MAC UI fir richteg ze schaffen.
   coming_soon: Geschwënn
   corrupted_wallpaper: Ausgefall Miniatur Extrait - korrupt oder net ënnerstëtzt Video Format
   delete: Läschen Ressource
@@ -237,7 +237,7 @@ resources:
   modified: Geännert
   open_folder: Oppen Ressource Dossier
   outdated: >-
-    Dës Ressource gouf fir eng méi al Versioun vu seelen UI entworf a sech net
+    Dës Ressource gouf fir eng méi al Versioun vu MAC UI entworf a sech net
     richteg schaffen.
   see_on_website: Gesinn op Websäit
   update_now: Update
@@ -246,7 +246,7 @@ resources:
 review_request:
   not_now: Net elo
   sure: Sécher!
-  title: Genéisst Seelen UI?
+  title: Genéisst MAC UI?
 save: Spuerwäit
 save_and_restart: Spuert & nei starten
 search: Sichen
@@ -423,15 +423,15 @@ weg:
 welcome:
   give_a_review: Gëff eng Iwwerpréiwung
   message: >-
-    Seelen UI ass e gratis an Open Source Desktop-Ëmfeld fir Windows. Hei hutt
+    MAC UI ass e gratis an Open Source Desktop-Ëmfeld fir Windows. Hei hutt
     Dir voll Kontroll iwwer wéi Ären Desktop ausgesäit a behuelen, wat Iech
     erlaabt all Detail ze personaliséieren fir Äre Workflow a Stil ze passen.
   ok: Loosst eis ufänken!
   review: >-
-    Wann Dir genéisst Seelen UI ze benotzen, betruecht eng Iwwerpréiwung am
+    Wann Dir genéisst MAC UI ze benotzen, betruecht eng Iwwerpréiwung am
     Geschäft ze loossen - Äre Feedback hëlleft de Projet ze wuessen a
     verbesseren.
-  title: Wëllkomm op Seelen UI!
+  title: Wëllkomm op MAC UI!
 widget:
   default_instance: Standard Instanz
   default_instance_hint: Ëmmer aktiv, benotzt d'Root Widget Configuratioun

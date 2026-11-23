@@ -8,7 +8,7 @@ cancel: გაუქმება
 done: გაკეთებული
 elevated:
   description: >-
-    Seelen UI მუშაობს ადმინისტრატორის პრივილეგიებით.
+    MAC UI მუშაობს ადმინისტრატორის პრივილეგიებით.
 
     ეს არ ამატებს ან არ აუმჯობესებს რაიმე ფუნქციას და შეიძლება საფრთხე შეუქმნას
     უსაფრთხოებას.
@@ -21,7 +21,7 @@ resource:
   added: დაემატა ახალი რესურსი
   download_failed_body: >-
     რესურსის ჩამოტვირთვისას რამე არასწორედ დასრულდა, გთხოვთ, შეატყობინოთ მას
-    Seelen Developer- ის გუნდს.
+    MAC UI Developer- ის გუნდს.
   download_failed_title: რესურსის ჩამოტვირთვა ვერ მოხერხდა
   downloading: აქტივების ჩამოტვირთვა ...
   downloading_body: ამას შეიძლება რამდენიმე წამი დასჭირდეს, გთხოვთ, არ დახუროთ ფანჯარა.
@@ -42,20 +42,20 @@ runtime:
     ეს შეიძლება მოხდეს, თუ ფაილები შეცვლილია, დაზიანებულია ან ინსტალაცია
     არასრულია.
 
-    უსაფრთხოების მიზეზების გამო, Seelen UI ვერ გააგრძელებს.
+    უსაფრთხოების მიზეზების გამო, MAC UI ვერ გააგრძელებს.
 
     გთხოვთ ხელახლა დააინსტალიროთ ოფიციალური საიტიდან.
   files_integrity_title: უსაფრთხოების გაფრთხილება - ფაილების მთლიანობის შემოწმება ვერ მოხერხდა
   not_found: WebView2 Runtime ვერ მოიძებნა
-  not_found_description: Seelen UI მოითხოვს Webview2 Runtime-ს. გთხოვთ დააინსტალიროთ.
+  not_found_description: MAC UI მოითხოვს Webview2 Runtime-ს. გთხოვთ დააინსტალიროთ.
   outdated: WebView2 Runtime მოძველებულია
   outdated_description: >-
-    Seelen UI მოითხოვს Webview2 Runtime %{min_version} ან უფრო მაღალს. გთხოვთ
+    MAC UI მოითხოვს Webview2 Runtime %{min_version} ან უფრო მაღალს. გთხოვთ
     განაახლოთ იგი.
 service:
-  not_running: Seelen UI სერვისი არ მუშაობს
+  not_running: MAC UI სერვისი არ მუშაობს
   not_running_description: >-
-    Seelen UI Service (slu-service) არის დამოკიდებულება/დამხმარე აპის გამართულად
+    MAC UI Service (macui-service) არის დამოკიდებულება/დამხმარე აპის გამართულად
     მუშაობისთვის.
   not_running_ok: სერვისის დაწყება
 shortcut:

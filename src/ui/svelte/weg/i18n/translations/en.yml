@@ -39,3 +39,9 @@ trash_bin:
 weg:
   activation_failed: Could not restore the background app. Open it from the system tray; no new instance was started.
   empty: No items to show
+window_animation:
+  label: Dock window animation
+  genie: Genie (minimize and restore)
+  native: Windows default
+  settings: Animation settings…
+  save_failed: Could not save the Dock animation setting. Try again.

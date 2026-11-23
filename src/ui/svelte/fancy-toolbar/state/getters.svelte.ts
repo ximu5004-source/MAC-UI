@@ -1,44 +1,44 @@
-import { invoke, PluginList, SeelenCommand, SeelenEvent, Settings, subscribe, Widget } from "@seelen-ui/lib";
-import type { UserAppWindowColors } from "@seelen-ui/lib/types";
+import { invoke, PluginList, MacUiCommand, MacUiEvent, Settings, subscribe, Widget } from "@macui/lib";
+import type { UserAppWindowColors } from "@macui/lib/types";
 import { lazyRune } from "libs/ui/svelte/utils";
 
 export const currentMonitorId = Widget.getCurrent().decoded.monitorId!;
 
 export const virtualDesktop = lazyRune(async () => {
-  const initialDesktops = await invoke(SeelenCommand.StateGetVirtualDesktops);
+  const initialDesktops = await invoke(MacUiCommand.StateGetVirtualDesktops);
   return initialDesktops.monitors[currentMonitorId];
 });
-subscribe(SeelenEvent.VirtualDesktopsChanged, (e) => {
+subscribe(MacUiEvent.VirtualDesktopsChanged, (e) => {
   virtualDesktop.value = e.payload.monitors[currentMonitorId];
 });
 
-export const virtualDesktops = lazyRune(() => invoke(SeelenCommand.StateGetVirtualDesktops));
-subscribe(SeelenEvent.VirtualDesktopsChanged, virtualDesktops.setByPayload);
+export const virtualDesktops = lazyRune(() => invoke(MacUiCommand.StateGetVirtualDesktops));
+subscribe(MacUiEvent.VirtualDesktopsChanged, virtualDesktops.setByPayload);
 
-export const monitors = lazyRune(() => invoke(SeelenCommand.SystemGetMonitors));
-subscribe(SeelenEvent.SystemMonitorsChanged, monitors.setByPayload);
+export const monitors = lazyRune(() => invoke(MacUiCommand.SystemGetMonitors));
+subscribe(MacUiEvent.SystemMonitorsChanged, monitors.setByPayload);
 
-export const mousePos = lazyRune(() => invoke(SeelenCommand.GetMousePosition));
-subscribe(SeelenEvent.GlobalMouseMove, mousePos.setByPayload);
+export const mousePos = lazyRune(() => invoke(MacUiCommand.GetMousePosition));
+subscribe(MacUiEvent.GlobalMouseMove, mousePos.setByPayload);
 
 export const settings = lazyRune(() => Settings.getAsync());
 Settings.onChange((s) => (settings.value = s));
 
-export const interactables = lazyRune(() => invoke(SeelenCommand.GetUserAppWindows));
-subscribe(SeelenEvent.UserAppWindowsChanged, interactables.setByPayload);
+export const interactables = lazyRune(() => invoke(MacUiCommand.GetUserAppWindows));
+subscribe(MacUiEvent.UserAppWindowsChanged, interactables.setByPayload);
 
 export const windowsColors = lazyRune<Record<number, UserAppWindowColors>>(
-  () => invoke(SeelenCommand.GetUserAppWindowsColors),
+  () => invoke(MacUiCommand.GetUserAppWindowsColors),
 );
-subscribe(SeelenEvent.UserAppWindowsColorsChanged, windowsColors.setByPayload);
+subscribe(MacUiEvent.UserAppWindowsColorsChanged, windowsColors.setByPayload);
 
-export const focused = lazyRune(() => invoke(SeelenCommand.GetFocusedApp));
-subscribe(SeelenEvent.GlobalFocusChanged, focused.setByPayload);
+export const focused = lazyRune(() => invoke(MacUiCommand.GetFocusedApp));
+subscribe(MacUiEvent.GlobalFocusChanged, focused.setByPayload);
 
-export const widgetStatuses = lazyRune(() => invoke(SeelenCommand.DebugGetWidgetsStatuses));
-subscribe(SeelenEvent.WidgetDebugInfoChanged, widgetStatuses.setByPayload);
+export const widgetStatuses = lazyRune(() => invoke(MacUiCommand.DebugGetWidgetsStatuses));
+subscribe(MacUiEvent.WidgetDebugInfoChanged, widgetStatuses.setByPayload);
 
-export const toolbarItems = lazyRune(() => invoke(SeelenCommand.StateGetToolbarItems));
+export const toolbarItems = lazyRune(() => invoke(MacUiCommand.StateGetToolbarItems));
 
 export const plugins = lazyRune(async () => (await PluginList.getAsync()).forCurrentWidget());
 PluginList.onChange((list) => {

@@ -1,4 +1,4 @@
-import { invoke, type Rect, SeelenCommand, SeelenEvent, Settings, subscribe, Widget } from "@seelen-ui/lib";
+import { invoke, type Rect, MacUiCommand, MacUiEvent, Settings, subscribe, Widget } from "@macui/lib";
 import { locale } from "./i18n/index.ts";
 import { lazyRune } from "libs/ui/svelte/utils/LazyRune.svelte.ts";
 
@@ -12,11 +12,11 @@ $effect.root(() => {
   });
 });
 
-let monitors = lazyRune(() => invoke(SeelenCommand.SystemGetMonitors));
-subscribe(SeelenEvent.SystemMonitorsChanged, monitors.setByPayload);
+let monitors = lazyRune(() => invoke(MacUiCommand.SystemGetMonitors));
+subscribe(MacUiEvent.SystemMonitorsChanged, monitors.setByPayload);
 
-let user = lazyRune(() => invoke(SeelenCommand.GetUser));
-subscribe(SeelenEvent.UserChanged, user.setByPayload);
+let user = lazyRune(() => invoke(MacUiCommand.GetUser));
+subscribe(MacUiEvent.UserChanged, user.setByPayload);
 
 await Promise.all([user.init(), monitors.init()]);
 

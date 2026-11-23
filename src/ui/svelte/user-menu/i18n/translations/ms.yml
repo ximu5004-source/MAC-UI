@@ -15,7 +15,7 @@ profile:
   log_out: Log keluar
   open_onedrive: Buka direktori OneDrive
   open_user_folder: Buka direktori pengguna
-seelen_options:
-  open_installation_folder: Buka folder tetapan Seelen
-  open_log_folder: Buka folder log Seelen
-  title: Direktori Seelen
+macui_options:
+  open_installation_folder: Buka folder tetapan MAC UI
+  open_log_folder: Buka folder log MAC UI
+  title: Direktori MAC UI

@@ -1,5 +1,5 @@
 import { useSignal } from "@preact/signals";
-import { ResourceKind, type WallpaperId } from "@seelen-ui/lib/types";
+import { ResourceKind, type WallpaperId } from "@macui/lib/types";
 import { Icon } from "libs/ui/react/components/Icon/index.tsx";
 import { ResourceText } from "libs/ui/react/components/ResourceText/index.tsx";
 import { VerticalSortableSelect } from "src/ui/react/settings/components/SortableSelector/index.tsx";

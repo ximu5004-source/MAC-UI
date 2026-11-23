@@ -1,5 +1,5 @@
 import { settings } from "../../../../../state/mod";
-import type { Border } from "@seelen-ui/lib/types";
+import type { Border } from "@macui/lib/types";
 
 /**
  * Patches the WindowManager Border configuration with partial updates.
@@ -8,13 +8,13 @@ import type { Border } from "@seelen-ui/lib/types";
  * patchBorderConfig({ enabled: true, width: 2 });
  */
 export function patchBorderConfig(patch: Partial<Border>) {
-  const currentWmSettings = settings.value.byWidget["@seelen/window-manager"];
+  const currentWmSettings = settings.value.byWidget["@macui/window-manager"];
 
   settings.value = {
     ...settings.value,
     byWidget: {
       ...settings.value.byWidget,
-      "@seelen/window-manager": {
+      "@macui/window-manager": {
         ...currentWmSettings,
         border: {
           ...currentWmSettings.border,
@@ -29,7 +29,7 @@ export function patchBorderConfig(patch: Partial<Border>) {
  * Gets the current Border configuration
  */
 export function getBorderConfig(): Border {
-  return settings.value.byWidget["@seelen/window-manager"].border;
+  return settings.value.byWidget["@macui/window-manager"].border;
 }
 
 /**

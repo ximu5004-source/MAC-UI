@@ -1,4 +1,4 @@
-import { Settings } from "@seelen-ui/lib";
+import { Settings } from "@macui/lib";
 import { lazyRune } from "../utils/LazyRune.svelte";
 import { DEFAULT_GLASS_APPEARANCE, GLASS_SETTINGS_WIDGET, normalizeGlassAppearance } from "../../utils/glassAppearance";
 

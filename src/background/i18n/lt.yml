@@ -8,7 +8,7 @@ cancel: Atšaukti
 done: Padaryta
 elevated:
   description: >-
-    Seelen vartotojo sąsaja veikia su administratoriaus teisėmis.
+    MAC UI vartotojo sąsaja veikia su administratoriaus teisėmis.
 
     Tai neprideda ir nepatobulina jokių funkcijų ir gali kelti pavojų saugumui.
 
@@ -19,7 +19,7 @@ file_explorer: Failų naršyklė
 resource:
   added: Pridėtas naujas išteklius
   download_failed_body: >-
-    Atsisiunčiant išteklių kažkas nepavyko, praneškite apie tai "Seelen" kūrėjų
+    Atsisiunčiant išteklių kažkas nepavyko, praneškite apie tai "MAC UI" kūrėjų
     komandai.
   download_failed_title: Išteklių atsisiuntimas nepavyko
   downloading: Turto atsisiuntimas...
@@ -41,20 +41,20 @@ runtime:
     Taip gali nutikti, jei failai buvo modifikuoti, sugadinti arba diegimas
     nebaigtas.
 
-    Saugumo sumetimais Seelen vartotojo sąsaja negali tęstis.
+    Saugumo sumetimais MAC UI vartotojo sąsaja negali tęstis.
 
     Įdiekite jį iš naujo iš oficialios svetainės.
   files_integrity_title: Saugos įspėjimas – nepavyko patikrinti failų vientisumo
   not_found: WebView2 vykdymo laikas nerastas
-  not_found_description: „Seelen“ vartotojo sąsajai reikalinga „Webview2 Runtime“. Įdiekite jį.
+  not_found_description: „MAC UI“ vartotojo sąsajai reikalinga „Webview2 Runtime“. Įdiekite jį.
   outdated: „WebView2“ vykdymo laikas pasenęs
   outdated_description: >-
-    „Seelen“ vartotojo sąsajai reikalinga „Webview2 Runtime“ %{min_version} arba
+    „MAC UI“ vartotojo sąsajai reikalinga „Webview2 Runtime“ %{min_version} arba
     naujesnė versija. Prašome atnaujinti.
 service:
-  not_running: Seelen UI paslauga neveikia
+  not_running: MAC UI paslauga neveikia
   not_running_description: >-
-    Seelen UI paslauga (slu-service) yra priklausomybė / pagalbininkas, kad
+    MAC UI paslauga (macui-service) yra priklausomybė / pagalbininkas, kad
     programa tinkamai veiktų.
   not_running_ok: Pradėti paslaugą
 shortcut:

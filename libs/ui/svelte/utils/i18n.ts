@@ -57,8 +57,10 @@ async function loadLocale(locale: string) {
   _messages.update((m) => ({ ...m, [locale]: messages }));
 }
 
-// Load the default locale in the background
-loadLocale("en");
+// Initialize the fallback before any component renders its first label.
+// Otherwise fast native state fetches can render empty messages while the
+// locale request is still in flight (including new media/notification labels).
+await loadLocale("en");
 
 export const locale = {
   get value() {

@@ -1,5 +1,5 @@
-import { invoke, SeelenCommand, Widget } from "@seelen-ui/lib";
-import type { ContextMenu, ContextMenuItem, UserAppWindow, WidgetId } from "@seelen-ui/lib/types";
+import { invoke, MacUiCommand, Widget } from "@macui/lib";
+import type { ContextMenu, ContextMenuItem, UserAppWindow } from "@macui/lib/types";
 import type { AppOrFileWegItem } from "./types.ts";
 import { dockStateActions } from "./state/items.svelte.ts";
 import { fullSettings } from "./state/settings.svelte.ts";
@@ -30,23 +30,15 @@ Widget.self.webview.listen(onAppMenuClick, ({ payload }) => {
   } else if (key === "run") {
     activateItem(item).catch(console.error);
   } else if (key === "open_location") {
-    invoke(SeelenCommand.SelectFileOnExplorer, { path: item.path });
+    invoke(MacUiCommand.SelectFileOnExplorer, { path: item.path });
   } else if (key === "run_as") {
     launchItem(item, true);
   } else if (key === "copy_hwnd") {
     navigator.clipboard.writeText(JSON.stringify(windows.map((w) => w.hwnd.toString(16))));
   } else if (key === "close") {
-    windows.forEach((w) => invoke(SeelenCommand.WegCloseApp, { hwnd: w.hwnd }));
+    windows.forEach((w) => invoke(MacUiCommand.WegCloseApp, { hwnd: w.hwnd }));
   } else if (key === "kill") {
-    windows.forEach((w) => invoke(SeelenCommand.WegKillApp, { hwnd: w.hwnd }));
-  } else if (key === "edit_app_icon") {
-    const entry = iconPackManager.value.getIconEntry({ path: item.path, umid: item.umid });
-    invoke(SeelenCommand.TriggerWidget, {
-      payload: {
-        id: "@seelen/icon-editor" as WidgetId,
-        customArgs: { entry },
-      },
-    });
+    windows.forEach((w) => invoke(MacUiCommand.WegKillApp, { hwnd: w.hwnd }));
   }
 });
 
@@ -106,13 +98,6 @@ export function getUserApplicationContextMenu(
       label: t("app_menu.run_as"),
       callbackEvent: onAppMenuClick,
     },
-    {
-      type: "Item",
-      key: "edit_app_icon",
-      icon: "RiEditBoxLine",
-      label: t("app_menu.edit_app_icon"),
-      callbackEvent: onAppMenuClick,
-    },
   );
 
   if (windows.length) {
@@ -137,7 +122,7 @@ export function getUserApplicationContextMenu(
       danger: true,
     });
 
-    const settings = fullSettings.value.byWidget["@seelen/weg"];
+    const settings = fullSettings.value.byWidget["@macui/weg"];
     if (settings.showEndTask) {
       items.push({
         type: "Item",
@@ -154,14 +139,14 @@ export function getUserApplicationContextMenu(
 }
 
 export function activateItem(item: AppOrFileWegItem) {
-  return restoreOrLaunch(item.path.toLowerCase(), () => invoke(SeelenCommand.ActivateExistingApp, {
+  return restoreOrLaunch(item.path.toLowerCase(), () => invoke(MacUiCommand.ActivateExistingApp, {
     path: item.path, executable: item.relaunch?.command ?? null,
   }), () => launchItem(item, false));
 }
 
 export function launchItem(item: AppOrFileWegItem, elevated: boolean) {
   if (item.relaunch) {
-    return invoke(SeelenCommand.Run, {
+    return invoke(MacUiCommand.Run, {
       program: item.relaunch.command,
       args: item.relaunch.args,
       workingDir: item.relaunch.workingDir,
@@ -169,7 +154,7 @@ export function launchItem(item: AppOrFileWegItem, elevated: boolean) {
     });
   }
 
-  return invoke(SeelenCommand.Run, {
+  return invoke(MacUiCommand.Run, {
     program: item.umid ? `shell:AppsFolder\\${item.umid}` : item.path,
     args: null,
     workingDir: null,

@@ -1,5 +1,5 @@
-import { RuntimeStyleSheet } from "@seelen-ui/lib";
-import type { MediaPlayer } from "@seelen-ui/lib/types";
+import { RuntimeStyleSheet } from "@macui/lib";
+import type { MediaPlayer } from "@macui/lib/types";
 import { convertFileSrc } from "@tauri-apps/api/core";
 
 let player = $state<MediaPlayer | null>(null);

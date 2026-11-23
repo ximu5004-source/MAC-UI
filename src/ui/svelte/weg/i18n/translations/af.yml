@@ -1,6 +1,6 @@
 app_menu:
   close: Naby
-  close_multiple: Sluit alles
+  close_multiple: MacUiit alles
   copy_handles: Kopiehandvatsels
   edit_app_icon: Wysig App-ikoon
   kill: Doodproses
@@ -16,7 +16,7 @@ context_menu:
   edit_icon: Wysig ikoon
   remove_module: Verwyder module
   remove_separator: Verwyder skeiding
-  reorder_disable: Sluit taakbalk
+  reorder_disable: MacUiit taakbalk
   reorder_enable: Ontsluit taakbalk
 media:
   label: Mediaspeler

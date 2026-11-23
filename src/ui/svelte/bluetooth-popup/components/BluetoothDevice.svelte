@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { BluetoothDevice, DevicePairingNeededAction } from "@seelen-ui/lib/types";
-  import { invoke, SeelenCommand } from "@seelen-ui/lib";
+  import type { BluetoothDevice, DevicePairingNeededAction } from "@macui/lib/types";
+  import { invoke, MacUiCommand } from "@macui/lib";
   import Icon from "libs/ui/svelte/components/Icon/Icon.svelte";
   import { t } from "../i18n";
   import { getIconNameForBTDevice } from "libs/ui/svelte/utils/bluetoothIcons";
@@ -47,26 +47,26 @@
 
   async function handleConnect() {
     await withLoading(BluetoothOperation.Connecting, async () => {
-      await invoke(SeelenCommand.ConnectBluetoothDevice, { id: device.id });
+      await invoke(MacUiCommand.ConnectBluetoothDevice, { id: device.id });
     });
   }
 
   async function handleDisconnect() {
     await withLoading(BluetoothOperation.Disconnecting, async () => {
-      await invoke(SeelenCommand.DisconnectBluetoothDevice, { id: device.id });
+      await invoke(MacUiCommand.DisconnectBluetoothDevice, { id: device.id });
     });
   }
 
   async function handleForget() {
     await withLoading(BluetoothOperation.Unpairing, async () => {
-      await invoke(SeelenCommand.ForgetBluetoothDevice, { id: device.id });
+      await invoke(MacUiCommand.ForgetBluetoothDevice, { id: device.id });
     });
   }
 
   async function handleTriggerPair() {
     if (pairingAction) {
       await withLoading(BluetoothOperation.Pairing, async () => {
-        await invoke(SeelenCommand.ConfirmBluetoothDevicePairing, {
+        await invoke(MacUiCommand.ConfirmBluetoothDevicePairing, {
           id: device.id,
           answer: {
             accept: true,
@@ -80,7 +80,7 @@
       });
     } else {
       await withLoading(BluetoothOperation.Pairing, async () => {
-        pairingAction = await invoke(SeelenCommand.RequestPairBluetoothDevice, {
+        pairingAction = await invoke(MacUiCommand.RequestPairBluetoothDevice, {
           id: device.id,
         });
       });
@@ -93,7 +93,7 @@
 
   async function handleCancelPair() {
     if (pairingAction) {
-      await invoke(SeelenCommand.ConfirmBluetoothDevicePairing, {
+      await invoke(MacUiCommand.ConfirmBluetoothDevicePairing, {
         id: device.id,
         answer: {
           accept: false,

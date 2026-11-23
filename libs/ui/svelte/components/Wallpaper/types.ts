@@ -1,4 +1,4 @@
-import type { Wallpaper, WallpaperInstanceSettings } from "@seelen-ui/lib/types";
+import type { Wallpaper, WallpaperInstanceSettings } from "@macui/lib/types";
 
 export interface BaseProps {
   definition?: Wallpaper;

@@ -3,3 +3,13 @@ shortcuts_resumed: Shortcuts Resumed
 volume: Volume
 toggle_mute: Toggle mute
 brightness: Brightness
+reply: Reply
+dismiss: Dismiss notification
+messaging:
+  wechat: WeChat
+  wecom: WeCom
+  dingtalk: DingTalk
+  feishu: Feishu / Lark
+  open: Open {{app}}
+  new_message: 'You have a new message from {{app}}.'
+  action_failed: Could not open or dismiss this notification. Please try again.

@@ -1,4 +1,4 @@
-import { PerformanceMode, type PerformanceModeSettings } from "@seelen-ui/lib/types";
+import { PerformanceMode, type PerformanceModeSettings } from "@macui/lib/types";
 import { Select } from "antd";
 import { useTranslation } from "react-i18next";
 import { SettingsGroup, SettingsOption, SettingsSubGroup } from "../../../components/SettingsBox/index.tsx";

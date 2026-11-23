@@ -1,4 +1,4 @@
-import { TwmNodeKind, type TwmRuntimeTree } from "@seelen-ui/lib/types";
+import { TwmNodeKind, type TwmRuntimeTree } from "@macui/lib/types";
 
 export class NodeUtils {
   static isEmpty(tree: TwmRuntimeTree, nodeId: number): boolean {

@@ -1,4 +1,4 @@
-id: "@seelen/fancy-toolbar"
+id: "@macui/fancy-toolbar"
 icon: BiSolidDockTop
 metadata:
   displayName: !extend i18n/display_name.yml

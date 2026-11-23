@@ -8,7 +8,7 @@ cancel: Hlikihla
 done: Usulile
 elevated:
   description: >-
-    I-Seelen UI isebenza ngamalungelo omlawuli.
+    I-MAC UI isebenza ngamalungelo omlawuli.
 
     Lokhu akungezi noma akuthuthukisi noma yiziphi izici, futhi kungase kudale
     ingcuphe yezokuphepha.
@@ -21,7 +21,7 @@ resource:
   added: Kufakwe insiza entsha
   download_failed_body: >-
     Kukhona okungahambanga kahle ngenkathi elanda insiza, sicela ubike kwiqembu
-    le-Seelen Developer.
+    le-MAC UI Developer.
   download_failed_title: Ukulanda izinsiza kwehlulekile
   downloading: Ukulanda Amafa ...
   downloading_body: Lokhu kungathatha imizuzwana embalwa, ngicela ungavali iwindi.
@@ -42,20 +42,20 @@ runtime:
     Lokhu kungenzeka uma amafayela aye ashintshwa, wonakala, noma ukufakwa
     kungaphelele.
 
-    Ngenxa yezizathu zokuphepha, i-Seelen UI ayikwazi ukuqhubeka.
+    Ngenxa yezizathu zokuphepha, i-MAC UI ayikwazi ukuqhubeka.
 
     Sicela uyifake kabusha kusuka kuwebhusayithi esemthethweni.
   files_integrity_title: Isexwayiso Sokuphepha - Ukuhlola Ubuqotho Kwamafayela Kwehlulekile
   not_found: Isikhathi sokusebenza se-WebView2 asitholakali
-  not_found_description: I-Seelen UI idinga isikhathi sokusebenza se-Webview2. Sicela uyifake.
+  not_found_description: I-MAC UI idinga isikhathi sokusebenza se-Webview2. Sicela uyifake.
   outdated: I-WebView2 Runtime isiphelelwe yisikhathi
   outdated_description: >-
-    I-Seelen UI idinga isikhathi sokusebenza se-Webview2 %{min_version} noma
+    I-MAC UI idinga isikhathi sokusebenza se-Webview2 %{min_version} noma
     ngaphezulu. Sicela uyibuyekeze.
 service:
-  not_running: Isevisi ye-Seelen UI ayisebenzi
+  not_running: Isevisi ye-MAC UI ayisebenzi
   not_running_description: >-
-    Isevisi ye-Seelen UI (slu-service) incike/umsizi ukuze uhlelo lokusebenza
+    Isevisi ye-MAC UI (macui-service) incike/umsizi ukuze uhlelo lokusebenza
     lusebenze kahle.
   not_running_ok: Qala isevisi
 shortcut:

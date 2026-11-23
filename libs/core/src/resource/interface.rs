@@ -5,7 +5,7 @@ use serde::{Serialize, de::DeserializeOwned};
 use crate::{
     error::Result,
     resource::{
-        ResourceKind, SluResourceFile, deserialize_extended_yaml, deserialize_extended_yaml_no_vars,
+        MacUiPackage, ResourceKind, deserialize_extended_yaml, deserialize_extended_yaml_no_vars,
     },
     utils::search_resource_entrypoint,
 };
@@ -13,7 +13,7 @@ use crate::{
 use super::ResourceMetadata;
 
 #[allow(async_fn_in_trait)]
-pub trait SluResource: Sized + Serialize + DeserializeOwned {
+pub trait MacUiResource: Sized + Serialize + DeserializeOwned {
     const KIND: ResourceKind;
 
     fn metadata(&self) -> &ResourceMetadata;
@@ -37,19 +37,21 @@ pub trait SluResource: Sized + Serialize + DeserializeOwned {
                 let bytes = tokio::fs::read(path).await?;
                 serde_json::from_slice(&bytes)?
             }
-            "slu" => {
-                let file = SluResourceFile::load(path).await?;
-                if Self::KIND != file.resource.kind {
+            "maui" | "slu" => {
+                let file = MacUiPackage::load(path).await?;
+                if Self::KIND != file.kind() {
                     return Err(format!(
                         "Resource file is not of expected kind: {:?} instead is {:?}",
                         Self::KIND,
-                        file.resource.kind
+                        file.kind()
                     )
                     .into());
                 }
 
                 let mut parsed: Self = file.try_parse_into()?;
-                parsed.metadata_mut().internal.remote = Some(Box::new(file.resource.clone()));
+                if let MacUiPackage::Legacy(file) = &file {
+                    parsed.metadata_mut().internal.remote = Some(Box::new(file.resource.clone()));
+                }
                 parsed
             }
             _ => return Err("Invalid file extension".into()),
@@ -116,10 +118,11 @@ pub trait SluResource: Sized + Serialize + DeserializeOwned {
             .to_lowercase();
 
         match extension.as_str() {
-            "slu" => {
-                let mut slu_file = SluResourceFile::load(&save_path).await?;
-                slu_file.data = serde_json::to_value(self)?.into();
-                slu_file.store(&save_path).await?;
+            "maui" | "slu" => {
+                let mut macui_file = MacUiPackage::load(&save_path).await?;
+                macui_file.replace_data(self)?;
+                // Legacy input remains untouched; all new package writes use .maui.
+                macui_file.store(&save_path.with_extension("maui")).await?;
             }
             "yml" | "yaml" => {
                 let content = serde_yaml::to_string(self)?;

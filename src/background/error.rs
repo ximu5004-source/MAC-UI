@@ -32,7 +32,7 @@ define_app_errors!(
     Io(std::io::Error);
     Tauri(tauri::Error);
     Logger(log::SetLoggerError);
-    Lib(seelen_core::SeelenLibError);
+    Lib(macui_core::MacUiLibError);
     TauriShell(tauri_plugin_shell::Error);
     Windows(windows::core::Error);
     WMI(wmi::WMIError);
@@ -55,7 +55,7 @@ define_app_errors!(
     ParseIntError(std::num::ParseIntError);
     Translator(translators::Error);
     WinHotkey(win_hotkeys::error::WHKError);
-    SluIpc(slu_ipc::error::Error);
+    MacUiIpc(macui_ipc::error::Error);
     Tokio(tokio::task::JoinError);
     Positioning(positioning::error::Error);
     Time(time::error::Error);
@@ -88,13 +88,13 @@ impl std::fmt::Debug for AppError {
                 }
 
                 // 2) skip trace of other modules/libraries specially tracing of tao and tauri libs
-                if !name.starts_with("seelen_ui") {
+                if !name.starts_with("macui") {
                     index += 1;
                     continue;
                 }
 
                 // 3) skip convertion of erros to AppError
-                if name.starts_with("seelen_ui::error::impl") && name.ends_with("from") {
+                if name.starts_with("macui::error::impl") && name.ends_with("from") {
                     index += 1;
                     continue;
                 }

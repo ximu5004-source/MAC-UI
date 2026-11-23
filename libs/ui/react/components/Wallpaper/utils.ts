@@ -1,4 +1,4 @@
-import type { PlaybackSpeed, WallpaperInstanceSettings } from "@seelen-ui/lib/types";
+import type { PlaybackSpeed, WallpaperInstanceSettings } from "@macui/lib/types";
 import type { CSSProperties } from "preact/compat";
 
 export function getPlaybackRate(speed: PlaybackSpeed): number {

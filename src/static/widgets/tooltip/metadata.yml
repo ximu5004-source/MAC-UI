@@ -1,4 +1,4 @@
-id: "@seelen/tooltip"
+id: "@macui/tooltip"
 icon: BsChatSquareText
 metadata:
   displayName: !extend i18n/display_name.yml

@@ -2,12 +2,12 @@ use std::collections::HashMap;
 use std::sync::{Arc, LazyLock, OnceLock};
 use std::time::Duration;
 
+use macui_core::handlers::MacUiEvent;
+use macui_core::resource::WallpaperId;
+use macui_core::state::{WallpaperCollection, WorkspaceId};
+use macui_core::system_state::MonitorId;
 use parking_lot::RwLock;
 use rand::RngExt;
-use seelen_core::handlers::SeelenEvent;
-use seelen_core::resource::WallpaperId;
-use seelen_core::state::{WallpaperCollection, WorkspaceId};
-use seelen_core::system_state::MonitorId;
 use tauri::Listener;
 use tokio::sync::mpsc;
 use uuid::Uuid;
@@ -34,7 +34,7 @@ enum ChangeDirection {
 
 pub struct WorkspaceWallpapersManager;
 impl WorkspaceWallpapersManager {
-    pub fn init(manager: &super::SluWorkspacesManager2) {
+    pub fn init(manager: &super::MacUiWorkspacesManager2) {
         log::trace!("Initializing Workspaces Wallpaper Manager");
 
         // Set initial wallpapers for all workspaces
@@ -48,7 +48,7 @@ impl WorkspaceWallpapersManager {
         });
 
         // Listen for settings changes
-        get_app_handle().listen(SeelenEvent::StateSettingsChanged, |_| {
+        get_app_handle().listen(MacUiEvent::StateSettingsChanged, |_| {
             Self::on_settings_changed();
         });
     }
@@ -56,9 +56,9 @@ impl WorkspaceWallpapersManager {
     /// Handle settings changes
     fn on_settings_changed() {
         SETTINGS_CHANGED.notify_one();
-        let vd_manager = super::SluWorkspacesManager2::instance();
+        let vd_manager = super::MacUiWorkspacesManager2::instance();
         Self::update_workspace_wallpapers_internal(vd_manager);
-        super::SluWorkspacesManager2::send(VirtualDesktopEvent::StateChanged);
+        super::MacUiWorkspacesManager2::send(VirtualDesktopEvent::StateChanged);
     }
 
     /// Get the wallpaper collection ID for a given workspace on a monitor
@@ -194,14 +194,16 @@ impl WorkspaceWallpapersManager {
         }
 
         {
-            let vd_manager = super::SluWorkspacesManager2::instance();
+            let vd_manager = super::MacUiWorkspacesManager2::instance();
             Self::update_workspace_wallpapers_internal(vd_manager);
-            super::SluWorkspacesManager2::send(VirtualDesktopEvent::StateChanged);
+            super::MacUiWorkspacesManager2::send(VirtualDesktopEvent::StateChanged);
         }
     }
 
     /// Update wallpaper IDs in all workspaces (internal method with manager reference)
-    pub(super) fn update_workspace_wallpapers_internal(vd_manager: &super::SluWorkspacesManager2) {
+    pub(super) fn update_workspace_wallpapers_internal(
+        vd_manager: &super::MacUiWorkspacesManager2,
+    ) {
         vd_manager.monitors.for_each(|(monitor_id, monitor)| {
             monitor
                 .set_wallpapers(|workspace| Self::get_current_wallpaper(monitor_id, &workspace.id));

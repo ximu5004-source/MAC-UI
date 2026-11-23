@@ -3,7 +3,7 @@ use windows::Win32::UI::WindowsAndMessaging::SWP_ASYNCWINDOWPOS;
 
 use crate::{error::Result, windows_api::WindowsApi};
 
-use super::SeelenWall;
+use super::MacUiWall;
 
 #[tauri::command(async)]
 pub async fn set_as_wallpaper(webview: tauri::WebviewWindow) -> Result<()> {
@@ -11,7 +11,7 @@ pub async fn set_as_wallpaper(webview: tauri::WebviewWindow) -> Result<()> {
     let rect = WindowsApi::virtual_screen_rect()?;
 
     let hwnd = HWND(handle as _);
-    match SeelenWall::try_set_under_desktop_items(hwnd) {
+    match MacUiWall::try_set_under_desktop_items(hwnd) {
         Ok(_) => {
             let relative_rect = RECT {
                 left: 0,
@@ -35,7 +35,7 @@ pub async fn set_as_wallpaper(webview: tauri::WebviewWindow) -> Result<()> {
     // refresh_desktop uses SPI_SETDESKWALLPAPER which on MSIX can cause the shell to
     // rebuild the WorkerW hierarchy, evicting our window from its parent. Log instead
     // of propagating so positioning already applied above is preserved.
-    if let Err(e) = SeelenWall::refresh_desktop() {
+    if let Err(e) = MacUiWall::refresh_desktop() {
         log::warn!("Failed to refresh desktop after wallpaper attach: {e}");
     }
     Ok(())

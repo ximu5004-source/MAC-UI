@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { WallpaperKind } from "@seelen-ui/lib/types";
+  import { WallpaperKind } from "@macui/lib/types";
 
   import ThemedWallpaper from "./components/ThemedWallpaper.svelte";
   import ImageWallpaper from "./components/ImageWallpaper.svelte";

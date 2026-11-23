@@ -1,14 +1,14 @@
 <script lang="ts">
   import type { ClassValue } from "svelte/elements";
-  import type { SeelenCommandGetIconArgs } from "@seelen-ui/lib/types";
-  import { IconPackManager } from "@seelen-ui/lib";
+  import type { MacUiCommandGetIconArgs } from "@macui/lib/types";
+  import { IconPackManager } from "@macui/lib";
   import { iconPackManager, type IconState } from "./common.svelte.ts";
   import MissingIcon from "./MissingIcon.svelte";
-  import SluIconRenderer from "./SluIconRenderer.svelte";
+  import MacUiIconRenderer from "./MacUiIconRenderer.svelte";
   import AppGlassIcon from "./AppGlassIcon.svelte";
   import { prefersDarkColorScheme } from "../../runes/DarkMode.svelte.ts";
 
-  interface Props extends SeelenCommandGetIconArgs {
+  interface Props extends MacUiCommandGetIconArgs {
     class?: ClassValue;
     lazy?: boolean;
     appearance?: "plain" | "liquid-glass" | "app-glass";
@@ -60,7 +60,7 @@
 {#if icon.src && appearance === "app-glass"}
   <AppGlassIcon {...imgProps} state={icon} class={className} {lazy} data-path={path ?? undefined} data-umid={umid ?? undefined} />
 {:else if icon.src}
-  <SluIconRenderer
+  <MacUiIconRenderer
     {...imgProps}
     state={icon}
     class={className}

@@ -34,8 +34,8 @@ interface Window {
     };
     invoke: any;
   };
-  __SLU_WIDGET: import("@seelen-ui/lib/types").Widget;
-  __SLU_WIDGET_INSTANCE: import("@seelen-ui/lib").Widget;
+  __MACUI_WIDGET: import("@macui/lib/types").Widget;
+  __MACUI_WIDGET_INSTANCE: import("@macui/lib").Widget;
 }
 
 type anyObject = Record<PropertyKey, any>;

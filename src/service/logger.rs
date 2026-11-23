@@ -5,7 +5,7 @@ use windows::Win32::UI::Shell::FOLDERID_LocalAppData;
 
 use crate::{error::Result, windows_api::WindowsApi};
 
-pub struct SluServiceLogger {}
+pub struct MacUiServiceLogger {}
 
 fn format_now() -> String {
     static FMT: LazyLock<Vec<time::format_description::BorrowedFormatItem>> = LazyLock::new(|| {
@@ -19,7 +19,7 @@ fn format_now() -> String {
         .unwrap_or_else(|_| "?time?".to_owned())
 }
 
-impl SluServiceLogger {
+impl MacUiServiceLogger {
     const MAX_LOG_SIZE: u64 = 5 * 1024 * 1024; // 5MB
 
     /// Legacy cleanup: removes old Windows Event Log registry entries if present.
@@ -59,14 +59,14 @@ impl SluServiceLogger {
 
     pub fn init() -> Result<()> {
         let logs_folder =
-            WindowsApi::known_folder(FOLDERID_LocalAppData)?.join("com.seelen.seelen-ui/logs");
+            WindowsApi::known_folder(FOLDERID_LocalAppData)?.join("com.jona.mac-ui/logs");
         std::fs::create_dir_all(&logs_folder)?;
 
-        let log_path = logs_folder.join("SLU Service.log");
+        let log_path = logs_folder.join("macui-service.log");
         if log_path.exists() {
             let metadata = std::fs::metadata(&log_path)?;
             if metadata.len() > Self::MAX_LOG_SIZE {
-                let bak_path = logs_folder.join("SLU Service.log.bak");
+                let bak_path = logs_folder.join("macui-service.log.bak");
                 std::fs::rename(&log_path, &bak_path)?;
             }
         }

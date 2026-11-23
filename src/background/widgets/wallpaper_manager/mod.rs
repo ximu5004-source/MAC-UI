@@ -17,9 +17,9 @@ use crate::{
     windows_api::{WindowEnumerator, WindowsApi},
 };
 
-pub struct SeelenWall {}
+pub struct MacUiWall {}
 
-impl SeelenWall {
+impl MacUiWall {
     fn setup_desktop_layer() -> Result<()> {
         let progman = unsafe { FindWindowA(pcstr!("Progman"), None)? };
         unsafe { PostMessageW(Some(progman), 0x052C, WPARAM(0xD), LPARAM(0x1))? };

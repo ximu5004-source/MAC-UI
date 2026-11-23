@@ -27,6 +27,40 @@ pub fn physical_regions(
     )
 }
 
+/// Native overlay HWND bounds are already physical screen coordinates. Clip
+/// visible overlays to this window and translate the subtraction mask to the
+/// window-relative coordinates required by SetWindowRgn (not monitor-local CSS).
+pub fn overlay_exclusions(window: [i32; 4], overlays: &[([i32; 4], bool)]) -> Vec<[i32; 4]> {
+    let [wx, wy, wr, wb] = window.map(i64::from);
+    if wr <= wx || wb <= wy {
+        return Vec::new();
+    }
+    let mut exclusions: Vec<_> = overlays
+        .iter()
+        .filter_map(|(rect, visible)| {
+            if !visible {
+                return None;
+            }
+            let [left, top, right, bottom] = rect.map(i64::from);
+            let clipped = [left.max(wx), top.max(wy), right.min(wr), bottom.min(wb)];
+            if clipped[2] <= clipped[0] || clipped[3] <= clipped[1] {
+                return None;
+            }
+            Some([
+                i32::try_from(clipped[0] - wx).ok()?,
+                i32::try_from(clipped[1] - wy).ok()?,
+                i32::try_from(clipped[2] - wx).ok()?,
+                i32::try_from(clipped[3] - wy).ok()?,
+            ])
+        })
+        .collect();
+    // Tauri's HWND registry has no stable enumeration order. A stable mask lets
+    // the native guard avoid repainting an unchanged desktop every timer tick.
+    exclusions.sort_unstable();
+    exclusions.dedup();
+    exclusions
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -66,6 +100,59 @@ mod tests {
         assert_eq!(
             physical_regions([100.0, 100.0], [100, 100], &[[0.0; 4]; 513]),
             None
+        );
+    }
+
+    #[test]
+    fn subtracts_visible_bars_on_two_screens_with_a_negative_desktop_origin() {
+        let exclusions = overlay_exclusions(
+            [-3840, 0, 3840, 2160],
+            &[([0, 0, 3840, 40], true), ([-3840, 0, 0, 32], true)],
+        );
+        assert_eq!(exclusions, [[0, 0, 3840, 32], [3840, 0, 7680, 40]]);
+        let remaining = |x, y| {
+            x >= 0
+                && x < 7680
+                && y >= 0
+                && y < 2160
+                && !exclusions
+                    .iter()
+                    .any(|[l, t, r, b]| x >= *l && x < *r && y >= *t && y < *b)
+        };
+        assert!(!remaining(40, 16));
+        assert!(!remaining(3880, 16));
+        assert!(remaining(40, 32));
+        assert!(remaining(3880, 40));
+        assert!(remaining(1920, 1080));
+    }
+
+    #[test]
+    fn hidden_bars_do_not_cut_the_desktop_and_resized_bars_change_the_mask() {
+        let window = [-1920, -1080, 1920, 1080];
+        assert!(overlay_exclusions(window, &[([-1920, -1080, 0, -1048], false)]).is_empty());
+        assert_eq!(
+            overlay_exclusions(window, &[([-1920, -1080, 0, -1048], true)]),
+            [[0, 0, 1920, 32]]
+        );
+        assert_eq!(
+            overlay_exclusions(window, &[([0, 1040, 1920, 1080], true)]),
+            [[1920, 2120, 3840, 2160]]
+        );
+    }
+
+    #[test]
+    fn clips_overlay_edges_ignores_empty_or_remote_bars_and_deduplicates() {
+        assert_eq!(
+            overlay_exclusions(
+                [100, 200, 1100, 800],
+                &[
+                    ([0, 190, 500, 230], true),
+                    ([0, 190, 500, 230], true),
+                    ([1100, 200, 1500, 250], true),
+                    ([200, 250, 200, 270], true),
+                ],
+            ),
+            [[0, 0, 400, 30]]
         );
     }
 }

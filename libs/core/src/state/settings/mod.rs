@@ -5,6 +5,8 @@ pub mod by_wallpaper;
 pub mod by_widget;
 #[cfg(test)]
 mod desktop_migration_tests;
+#[cfg(test)]
+mod fixed_glass_tests;
 pub mod settings_by_app;
 pub mod shortcuts;
 
@@ -29,7 +31,7 @@ use crate::{
     state::{
         by_monitor::MonitorConfiguration, by_theme::ThemeSettings,
         by_wallpaper::WallpaperInstanceSettings, by_widget::SettingsByWidget,
-        shortcuts::SluShortcutsSettings,
+        shortcuts::MacUiShortcutsSettings,
     },
 };
 
@@ -92,12 +94,12 @@ pub enum FancyToolbarSide {
     Bottom,
 }
 
-// ============== SeelenWeg Settings ==============
+// ============== MacUiWeg Settings ==============
 
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Serialize, Deserialize, JsonSchema)]
 #[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), derive(ts_rs::TS))]
 #[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), ts(repr(enum = name)))]
-pub enum SeelenWegMode {
+pub enum MacUiWegMode {
     #[serde(alias = "Full-Width")]
     FullWidth,
     #[serde(alias = "Min-Content")]
@@ -146,7 +148,38 @@ pub enum WegMiddleClickAction {
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Serialize, Deserialize, JsonSchema)]
 #[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), derive(ts_rs::TS))]
 #[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), ts(repr(enum = name)))]
-pub enum SeelenWegSide {
+pub enum WegWindowAnimation {
+    Native,
+    Genie,
+}
+
+#[cfg(test)]
+mod weg_animation_tests {
+    use super::*;
+
+    #[test]
+    fn legacy_dock_settings_receive_a_persistable_animation_default() {
+        let settings: MacUiWegSettings = serde_json::from_str(r#"{"size":48}"#).unwrap();
+        assert_eq!(settings.window_animation, WegWindowAnimation::Genie);
+        assert_eq!(settings.size, 48);
+        let json = serde_json::to_value(&settings).unwrap();
+        assert_eq!(json["windowAnimation"], "Genie");
+    }
+
+    #[test]
+    fn native_animation_choice_survives_a_settings_round_trip() {
+        let settings: MacUiWegSettings =
+            serde_json::from_str(r#"{"windowAnimation":"Native"}"#).unwrap();
+        let saved = serde_json::to_string(&settings).unwrap();
+        let restored: MacUiWegSettings = serde_json::from_str(&saved).unwrap();
+        assert_eq!(restored.window_animation, WegWindowAnimation::Native);
+    }
+}
+
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Serialize, Deserialize, JsonSchema)]
+#[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), derive(ts_rs::TS))]
+#[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), ts(repr(enum = name)))]
+pub enum MacUiWegSide {
     Left,
     Right,
     Top,
@@ -157,14 +190,14 @@ pub enum SeelenWegSide {
 #[derive(Debug, Clone, Serialize, Deserialize, JsonSchema)]
 #[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), derive(ts_rs::TS))]
 #[serde(default, rename_all = "camelCase")]
-pub struct SeelenWegSettings {
-    /// enable or disable the seelenweg
+pub struct MacUiWegSettings {
+    /// enable or disable the macuiweg
     pub enabled: bool,
     /// Key overrides for widget-declared shortcuts (`shortcut_id -> keys`).
     #[serde(rename = "$shortcuts")]
     pub shortcuts: Option<std::collections::HashMap<String, Vec<String>>>,
     /// Dock/Taskbar mode
-    pub mode: SeelenWegMode,
+    pub mode: MacUiWegMode,
     /// When to hide the dock
     pub hide_mode: HideMode,
     /// Split windows into separated items instead of grouped.
@@ -174,7 +207,7 @@ pub struct SeelenWegSettings {
     /// Determines is the pinned item should be shown or not (this can be overridden per monitor).
     pub pinned_items_visibility: WegPinnedItemsVisibility,
     /// Dock position
-    pub position: SeelenWegSide,
+    pub position: MacUiWegSide,
     /// enable or disable the instance counter visibility on weg instance
     pub show_instance_counter: bool,
     /// enable or disable the window title visibility for opened apps
@@ -195,16 +228,18 @@ pub struct SeelenWegSettings {
     pub show_end_task: bool,
     /// Action to perform when middle-clicking a dock item
     pub middle_click_action: WegMiddleClickAction,
+    /// Transition used for Dock-initiated minimize and restore actions.
+    pub window_animation: WegWindowAnimation,
 }
 
-impl Default for SeelenWegSettings {
+impl Default for MacUiWegSettings {
     fn default() -> Self {
         Self {
             enabled: true,
             shortcuts: None,
-            mode: SeelenWegMode::MinContent,
+            mode: MacUiWegMode::MinContent,
             hide_mode: HideMode::OnOverlap,
-            position: SeelenWegSide::Bottom,
+            position: MacUiWegSide::Bottom,
             show_instance_counter: true,
             show_window_title: false,
             temporal_items_visibility: WegTemporalItemsVisibility::All,
@@ -218,11 +253,12 @@ impl Default for SeelenWegSettings {
             show_end_task: false,
             split_windows: false,
             middle_click_action: WegMiddleClickAction::OpenNewInstance,
+            window_animation: WegWindowAnimation::Genie,
         }
     }
 }
 
-impl SeelenWegSettings {
+impl MacUiWegSettings {
     /// total height or width of the dock, depending on the Position
     pub fn total_size(&self) -> u32 {
         self.size + (self.padding * 2) + (self.margin * 2)
@@ -362,7 +398,7 @@ impl Default for WindowManagerSettings {
     }
 }
 
-// ================= Seelen Wall ================
+// ================= MacUi Wall ================
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, JsonSchema)]
 #[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), derive(ts_rs::TS))]
@@ -377,7 +413,7 @@ pub enum MultimonitorBehaviour {
 #[derive(Debug, Clone, Serialize, Deserialize, JsonSchema)]
 #[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), derive(ts_rs::TS))]
 #[serde(default, rename_all = "camelCase")]
-pub struct SeelenWallSettings {
+pub struct MacUiWallSettings {
     pub enabled: bool,
     /// Key overrides for widget-declared shortcuts (`shortcut_id -> keys`).
     #[serde(rename = "$shortcuts")]
@@ -392,7 +428,7 @@ pub struct SeelenWallSettings {
     pub multimonitor_behaviour: MultimonitorBehaviour,
     /// whether to extract and apply accent color from wallpaper
     pub use_accent_color: bool,
-    /// Legacy migration input only. Desktop is now the independent @seelen/desktop-shell widget.
+    /// Legacy migration input only. Desktop is now the independent @macui/desktop-shell widget.
     pub desktop_shell_enabled: bool,
     /// fraction of monitor area that must be covered by windows before pausing wallpaper (0.5–1.0)
     pub coverage_pause_threshold: f64,
@@ -401,7 +437,7 @@ pub struct SeelenWallSettings {
     pub deprecated_bgs: Option<Vec<WallpaperId>>,
 }
 
-impl Default for SeelenWallSettings {
+impl Default for MacUiWallSettings {
     fn default() -> Self {
         Self {
             enabled: true,
@@ -418,7 +454,7 @@ impl Default for SeelenWallSettings {
     }
 }
 
-// ========================== Seelen Updates ==============================
+// ========================== MacUi Updates ==============================
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, JsonSchema)]
 #[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), derive(ts_rs::TS))]
@@ -468,7 +504,7 @@ pub struct Settings {
     /// list of monitors and their configurations
     pub monitors_v3: HashMap<MonitorId, MonitorConfiguration>,
     /// app shortcuts settings
-    pub shortcuts: SluShortcutsSettings,
+    pub shortcuts: MacUiShortcutsSettings,
     /// list of selected themes as filename as backguard compatibility for versions before v2.3.8, will be removed in v3
     #[serde(alias = "selectedThemes")]
     pub old_active_themes: Vec<String>,
@@ -529,10 +565,10 @@ impl Default for Settings {
         Self {
             by_app: AppsConfigurationList::default(),
             performance_mode: PerformanceModeSettings::default(),
-            shortcuts: SluShortcutsSettings::default(),
+            shortcuts: MacUiShortcutsSettings::default(),
             drpc: false,
             old_active_themes: Vec::new(),
-            active_themes: vec!["@default/theme".into()],
+            active_themes: Self::fixed_glass_themes(),
             active_icon_packs: vec!["@system/icon-pack".into()],
             monitors_v3: HashMap::new(),
             dev_tools: false,
@@ -548,7 +584,7 @@ impl Default for Settings {
             unstable_optimizations: false,
             polling_interval: 3,
             streaming_mode: false,
-            backup_sync_enabled: true,
+            backup_sync_enabled: false,
             suspend_on_game_mode: false,
             unlock_shortcuts: false,
         }
@@ -556,6 +592,12 @@ impl Default for Settings {
 }
 
 impl Settings {
+    /// MAC UI ships one appearance. The base styles cover all system widgets and
+    /// the Liquid Glass layer adds their glass treatment; neither is user-selectable.
+    fn fixed_glass_themes() -> Vec<ThemeId> {
+        vec!["@default/theme".into(), "@macui/liquid-glass".into()]
+    }
+
     pub fn get_system_locale() -> Option<String> {
         sys_locale::get_locale()
     }
@@ -584,7 +626,7 @@ impl Settings {
     pub fn migrate(&mut self) -> Result<()> {
         // Preserve an explicit desktop choice. On the first upgrade, carry over the old
         // desktop and release the wallpaper layer, without deleting any collections.
-        let desktop_id = "@seelen/desktop-shell".into();
+        let desktop_id = "@macui/desktop-shell".into();
         if !self.by_widget.others.contains_key(&desktop_id) {
             let enabled = self.by_widget.wall.desktop_shell_enabled;
             self.by_widget.others.insert(
@@ -636,12 +678,14 @@ impl Settings {
             self.language = Self::get_app_language();
         }
 
-        // ensure base is always selected
-        self.active_themes.insert(0, "@default/theme".into());
-        self.dedup_themes();
-        // ensure base is always selected
-        self.active_icon_packs.insert(0, "@system/icon-pack".into());
-        self.dedup_icon_packs();
+        // Legacy/imported settings cannot restore removed theme or icon-pack
+        // functionality. System-extracted application icons remain available.
+        self.active_themes = Self::fixed_glass_themes();
+        self.old_active_themes.clear();
+        self.by_theme.clear();
+        self.active_icon_packs = vec!["@system/icon-pack".into()];
+        self.drpc = false;
+        self.backup_sync_enabled = false;
 
         self.by_app.prepare();
         self.by_widget.sanitize();
@@ -669,7 +713,7 @@ impl Settings {
                 Ok(serde_json::from_reader(&file)?)
             });
 
-            let shortcuts = s.spawn(|| -> Result<Option<SluShortcutsSettings>> {
+            let shortcuts = s.spawn(|| -> Result<Option<MacUiShortcutsSettings>> {
                 if !shortcuts_path.exists() {
                     return Ok(None);
                 }
@@ -704,11 +748,14 @@ impl Settings {
     }
 
     pub fn save(&self, path: impl AsRef<Path>) -> Result<()> {
+        // Apply the same invariant to saved/imported snapshots, not just startup.
+        let mut normalized = self.clone();
+        normalized.sanitize()?;
         let path = path.as_ref();
 
         {
             // Create a copy without splitted fields
-            let mut settings_copy = serde_json::to_value(self)?;
+            let mut settings_copy = serde_json::to_value(&normalized)?;
             let obj = settings_copy.as_object_mut().unwrap();
             obj.remove("shortcuts");
             obj.remove("byApp");
@@ -724,13 +771,13 @@ impl Settings {
             let shortcuts_path = parent.join(format!("{}_shortcuts.json", stem.to_string_lossy()));
             let mut shortcuts_file = File::create(&shortcuts_path)?;
             shortcuts_file.lock()?;
-            serde_json::to_writer_pretty(&shortcuts_file, &self.shortcuts)?;
+            serde_json::to_writer_pretty(&shortcuts_file, &normalized.shortcuts)?;
             shortcuts_file.flush()?;
 
             let by_app_path = parent.join(format!("{}_by_app.yml", stem.to_string_lossy()));
             let mut by_app_file = File::create(&by_app_path)?;
             by_app_file.lock()?;
-            serde_yaml::to_writer(&by_app_file, &self.by_app)?;
+            serde_yaml::to_writer(&by_app_file, &normalized.by_app)?;
             by_app_file.flush()?;
         }
 

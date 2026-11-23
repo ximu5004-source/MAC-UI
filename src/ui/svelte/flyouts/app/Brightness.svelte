@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { invoke, SeelenCommand } from "@seelen-ui/lib";
+  import { invoke, MacUiCommand } from "@macui/lib";
   import Icon from "libs/ui/svelte/components/Icon/Icon.svelte";
   import { brightnessIcon } from "libs/ui/utils";
   import { throttle } from "lodash";
-  import type { MonitorBrightness } from "@seelen-ui/lib/types";
+  import type { MonitorBrightness } from "@macui/lib/types";
   import { onDestroy } from "svelte";
   import { t } from "../i18n";
 
@@ -23,7 +23,7 @@
   });
 
   const setBrightnessThrottled = throttle((instanceName: string, level: number) => {
-    invoke(SeelenCommand.SetMonitorBrightness, { instanceName, level }).catch(console.error);
+    invoke(MacUiCommand.SetMonitorBrightness, { instanceName, level }).catch(console.error);
   }, 100);
 
   onDestroy(() => setBrightnessThrottled.cancel());

@@ -1,4 +1,4 @@
-import type { PhysicalMonitor, Widget } from "@seelen-ui/lib/types";
+import type { PhysicalMonitor, Widget } from "@macui/lib/types";
 import { ResourceText } from "libs/ui/react/components/ResourceText/index.tsx";
 import { useTranslation } from "react-i18next";
 

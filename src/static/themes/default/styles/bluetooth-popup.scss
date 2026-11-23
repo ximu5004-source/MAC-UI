@@ -8,7 +8,7 @@
     align-items: center;
     justify-content: center;
     padding: 40px 20px;
-    color: var(--slu-std-fg-muted-color);
+    color: var(--macui-std-fg-muted-color);
     font-style: italic;
     font-size: 0.95rem;
     text-align: center;
@@ -20,7 +20,7 @@
     justify-content: space-between;
     padding: 10px 6px;
     border-radius: 8px;
-    background-color: var(--slu-std-bg-light-color);
+    background-color: var(--macui-std-bg-light-color);
     box-shadow: var(--shadow-s);
 
     .bluetooth-radio-label {
@@ -52,14 +52,14 @@
       padding-left: 8px;
       margin-bottom: 8px;
       font-weight: 600;
-      color: var(--slu-std-fg-secondary-color);
+      color: var(--macui-std-fg-secondary-color);
       text-transform: uppercase;
       letter-spacing: 0.5px;
 
       .bluetooth-scanning {
         display: flex;
         align-items: center;
-        color: var(--slu-std-fg-muted-color);
+        color: var(--macui-std-fg-muted-color);
 
         .svg-icon {
           animation: rotateToTheLeft 1s linear infinite;
@@ -84,11 +84,11 @@
         border-radius: var(--spacing-xs);
 
         &:hover {
-          background-color: var(--slu-std-ui-hover-overlay);
+          background-color: var(--macui-std-ui-hover-overlay);
         }
 
         &.bt-device-selected {
-          background-color: var(--slu-std-ui-pressed-overlay);
+          background-color: var(--macui-std-ui-pressed-overlay);
         }
 
         .bt-device-info {
@@ -108,7 +108,7 @@
         .bt-device-extra-info {
           font-size: 0.7rem;
           font-family: monospace;
-          color: var(--slu-std-fg-secondary-color);
+          color: var(--macui-std-fg-secondary-color);
 
           li {
             display: flex;
@@ -116,7 +116,7 @@
 
             b {
               min-width: 90px;
-              color: var(--slu-std-fg-color);
+              color: var(--macui-std-fg-color);
             }
           }
         }
@@ -134,7 +134,7 @@
 
           .bt-device-pairing-message {
             font-size: 0.85rem;
-            color: var(--slu-std-fg-secondary-color);
+            color: var(--macui-std-fg-secondary-color);
             font-style: italic;
           }
 
@@ -178,7 +178,7 @@
         align-items: center;
         justify-content: center;
         height: 100px;
-        color: var(--slu-std-fg-muted-color);
+        color: var(--macui-std-fg-muted-color);
         font-style: italic;
         font-size: 0.9rem;
       }

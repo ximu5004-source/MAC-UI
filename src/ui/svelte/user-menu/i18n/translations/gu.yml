@@ -15,7 +15,7 @@ profile:
   log_out: લોગ આઉટ કરો
   open_onedrive: OneDrive ડિરેક્ટરી ખોલો
   open_user_folder: વપરાશકર્તા ડિરેક્ટરી ખોલો
-seelen_options:
+macui_options:
   open_installation_folder: સીલેન સેટિંગ્સ ફોલ્ડર ખોલો
   open_log_folder: સીલેન લોગ ફોલ્ડર ખોલો
   title: સીલેન ડિરેક્ટરીઓ

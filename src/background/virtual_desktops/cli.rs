@@ -1,10 +1,10 @@
-use seelen_core::{state::WorkspaceId, system_state::MonitorId};
-pub use slu_ipc::commands::VirtualDesktopCli;
-use slu_ipc::commands::{Direction, DirectionOrIndex, VdCommand};
+use macui_core::{state::WorkspaceId, system_state::MonitorId};
+pub use macui_ipc::commands::VirtualDesktopCli;
+use macui_ipc::commands::{Direction, DirectionOrIndex, VdCommand};
 
 use crate::{
     error::Result,
-    virtual_desktops::SluWorkspacesManager2,
+    virtual_desktops::MacUiWorkspacesManager2,
     windows_api::{input::Mouse, monitor::Monitor, window::Window},
 };
 
@@ -24,7 +24,7 @@ fn cursor_monitor_id() -> Result<MonitorId> {
 /// Id of the workspace neighboring the given monitor's active workspace in the
 /// grid, in the given direction. `None` if there is no workspace on that side.
 fn neighbor_workspace_id(
-    vd: &SluWorkspacesManager2,
+    vd: &MacUiWorkspacesManager2,
     monitor_id: &MonitorId,
     direction: Direction,
 ) -> Result<Option<WorkspaceId>> {
@@ -54,7 +54,7 @@ fn neighbor_workspace_id(
 /// Id of the workspace targeted by a `DirectionOrIndex`: either the neighbor in the
 /// given direction, or the workspace at the given index in the active row.
 fn target_workspace_id(
-    vd: &SluWorkspacesManager2,
+    vd: &MacUiWorkspacesManager2,
     monitor_id: &MonitorId,
     target: DirectionOrIndex,
 ) -> Result<Option<WorkspaceId>> {
@@ -70,7 +70,7 @@ fn target_workspace_id(
 }
 
 fn process_vd_command(cmd: VdCommand) -> Result<()> {
-    let vd = SluWorkspacesManager2::instance();
+    let vd = MacUiWorkspacesManager2::instance();
 
     match cmd {
         VdCommand::SwitchTo { direction } => {

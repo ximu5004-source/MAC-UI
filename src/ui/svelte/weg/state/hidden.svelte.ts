@@ -1,4 +1,4 @@
-import { HideMode } from "@seelen-ui/lib/types";
+import { HideMode } from "@macui/lib/types";
 import { virtualDesktops } from "./getters.svelte.ts";
 import { settingsState } from "./settings.svelte.ts";
 import { systemState } from "./system.svelte.ts";

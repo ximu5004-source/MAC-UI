@@ -15,7 +15,7 @@ profile:
   log_out: Выйти
   open_onedrive: Открыть каталог OneDrive
   open_user_folder: Открыть каталог пользователя
-seelen_options:
-  open_installation_folder: Открыть папку настроек Seelen
-  open_log_folder: Открыть папку журнала Seelen
+macui_options:
+  open_installation_folder: Открыть папку настроек MAC UI
+  open_log_folder: Открыть папку журнала MAC UI
   title: Зеелен каталоги

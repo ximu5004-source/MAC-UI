@@ -24,6 +24,11 @@ context_menu:
   settings: Settings
   task_manager: Task Manager
 media:
+  now_playing: Now Playing
+  not_playing: No media playing
+  playing: Playing
+  paused: Paused
+  unavailable: Media information unavailable
   default_multimedia_volume: Multimedia Volume
   device:
     channel:

@@ -32,7 +32,7 @@ $allPaths | ForEach-Object {
     $path = $_
     Write-Host ""
     Write-Host "🔧 Processing: $path" -ForegroundColor Magenta
-    &".\target\debug\slu.exe" resource translate $path
+    &".\target\debug\macui-cli.exe" resource translate $path
 }
 
 Write-Host "`n✅ Translation process completed!" -ForegroundColor Green

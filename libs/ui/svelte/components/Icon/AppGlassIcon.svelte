@@ -30,7 +30,7 @@
   }
 </script>
 
-<figure {...rest} class={["slu-icon-outer", "app-glass-icon", className]} data-appearance="app-glass">
+<figure {...rest} class={["macui-icon-outer", "app-glass-icon", className]} data-appearance="app-glass">
   <div class="rounded-surface" class:with-plate={!current.tile}>
   {#key iconState.src}
     <div class="artwork" style:transform={transform}>

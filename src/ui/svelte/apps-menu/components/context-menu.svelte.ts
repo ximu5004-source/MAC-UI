@@ -1,8 +1,7 @@
-import { invoke, SeelenCommand, SeelenEvent, Widget } from "@seelen-ui/lib";
-import type { ContextMenu, ContextMenuCallbackPayload, StartMenuItem, WidgetId } from "@seelen-ui/lib/types";
+import { invoke, MacUiCommand, MacUiEvent, Widget } from "@macui/lib";
+import type { ContextMenu, ContextMenuCallbackPayload, StartMenuItem } from "@macui/lib/types";
 import { type FavFolderItem, globalState } from "../state/mod.svelte";
 import { emit } from "@tauri-apps/api/event";
-import { iconPackManager } from "libs/ui/svelte/components/Icon/common.svelte";
 
 export const CONTEXT_MENU_ID = crypto.randomUUID();
 export const CONTEXT_MENU_CALLBACK_EVENT = "apps_menu::context_menu_action";
@@ -30,9 +29,9 @@ Widget.self.webview.listen<ContextMenuCallbackPayload>(
       globalState.moveRootItem(globalState.getItemId(item), globalState.pageSize * (key === "next-page" ? 1 : -1));
     } else if (key === "open_file_location") {
       Widget.self.hide();
-      invoke(SeelenCommand.SelectFileOnExplorer, { path: item.path });
+      invoke(MacUiCommand.SelectFileOnExplorer, { path: item.path });
     } else if (key === "pin_to_dock") {
-      emit(SeelenEvent.WegAddItem, {
+      emit(MacUiEvent.WegAddItem, {
         id: crypto.randomUUID(),
         displayName: item.display_name,
         umid: item.umid,
@@ -44,18 +43,7 @@ Widget.self.webview.listen<ContextMenuCallbackPayload>(
     } else if (key === "run_as_admin") {
       Widget.self.hide();
       const program = item.umid ? `shell:AppsFolder\\${item.umid}` : item.path;
-      invoke(SeelenCommand.Run, { program, args: null, workingDir: null, elevated: true });
-    } else if (key === "edit_icon") {
-      const entry = iconPackManager.value.getIconEntry({
-        path: item.path,
-        umid: item.umid ?? null,
-      });
-      invoke(SeelenCommand.TriggerWidget, {
-        payload: {
-          id: "@seelen/icon-editor" as WidgetId,
-          customArgs: { entry },
-        },
-      });
+      invoke(MacUiCommand.Run, { program, args: null, workingDir: null, elevated: true });
     }
   },
 );
@@ -150,14 +138,6 @@ export function getItemContextMenu(item: StartMenuItem, t: (key: string) => stri
       callbackEvent: CONTEXT_MENU_CALLBACK_EVENT,
     });
   }
-
-  items.push({
-    type: "Item",
-    key: "edit_icon",
-    label: t("edit_icon"),
-    icon: "RiEditBoxLine",
-    callbackEvent: CONTEXT_MENU_CALLBACK_EVENT,
-  });
 
   return {
     identifier: CONTEXT_MENU_ID,

@@ -1,149 +1,140 @@
-# Dock Genie prototype — 2026-10-04
+# Dock Genie minimize and restore
 
-Status: **disabled experimental prototype, not a usable/accepted feature on this
-host**. The normal Dock path still invokes Windows' own minimize and performs no
-window capture. The backend is gated by the development-only process environment
-variable `MAC_UI_EXPERIMENTAL_DOCK_GENIE=1`; no user configuration is changed.
-This is not a replacement for every Windows minimization animation.
+The Dock setting selects **Genie** or **Native** (default: Genie). The Genie path
+supports 4K windows using adaptive internal rendering. Window size alone does not
+switch a 3840 x 2160 window to Native. There is no environment-variable gate.
 
-## Measured blocker on this host
+Right-click the empty Dock background → **Dock window animation** to change the
+mode immediately. The submenu reads fresh settings and saves only this field,
+serializing repeated choices and reporting save failures. Its settings link opens
+the existing Dock page; edits made on that page still use the normal Save action.
 
-An owned **hidden, never activated** test window was used to probe the native
-transition attribute on 2026-10-04. `DwmGetWindowAttribute` failed for
-`DWMWA_TRANSITIONS_FORCEDISABLED`. The safety guard therefore declined to set it,
-and the prototype falls back even with the environment gate enabled. Guessing a
-previous value of `false` would risk altering another application's behavior.
-The [official attribute documentation](https://learn.microsoft.com/en-us/windows/win32/api/dwmapi/ne-dwmapi-dwmwindowattribute)
-only specifies this attribute for the setter. Replacing the native animation
-without double-rendering or unsafe window-state changes needs a separate design.
+This covers windows toggled through the Dock and native title-bar minimize
+buttons. A per-Dock registry publishes measured resting physical icon bounds
+for each window, including grouped windows and the hidden Dock. Preview buttons
+use that registry when no explicit target is supplied. A custom restore requires
+a recent snapshot captured by our minimize.
 
-The hide-then-minimize alternative was reviewed, not executed. The documented
-[`ShowWindow` states](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-showwindow)
-make `SW_HIDE` an additional visibility/activation transition, not an atomic
-"minimize without DWM animation" operation; `SW_SHOWMINNOACTIVE` also changes
-activation semantics. Neither is documented as a safe way to substitute arbitrary
-third-party window animations. Applying them speculatively would risk application
-hide handlers, focus and restore behavior, so they were not used as a workaround.
+The native-button path uses a dedicated low-level mouse hook with a bounded
+12 ms native hit test. Only a confirmed HTMINBUTTON with a registered Dock target
+is handled; capture and playback run on another thread. Pressing and releasing
+must refer to the same HWND/process and unchanged foreground; dragging off the
+button cancels normally. Background-window minimize buttons are supported without
+activating them. Unsupported owner-drawn client buttons, Win+D, Alt+Tab and other
+keyboard/native commands keep Windows behavior. No DLL is injected into apps.
 
-## Isolated cloak alternative probe — 2026-10-04
+## Geometry and 4K rendering
 
-A second public-API approach was tested using **only synthetic top-level windows**.
-`DWMWA_CLOAKED` is readable and `DWMWA_CLOAK` can temporarily hide a composed
-window without changing its visibility style. Microsoft's
-[DirectComposition animation example](https://learn.microsoft.com/en-us/windows/win32/directcomp/how-to--animate-the-bitmap-of-a-layered-child-window)
-uses cloak/uncloak when rendering a replacement for an owned layered child.
-It does not establish permission to cloak another process's top-level window.
+The real Dock icon rectangle and source bounds remain in physical screen pixels,
+including negative monitor coordinates. Independent cosine easing deforms a
+26 x 26 shared-vertex mesh (25 x 25 cells, 1,250 textured triangles). A neck first
+stretches towards the icon and then swallows the window. Restore samples the same
+geometry backwards. This is original code informed by static architecture
+findings; no MyDockFinder machine code, shaders or artwork is incorporated.
 
-Measured result on this host:
+PrintWindow writes the original-size window into a temporary DIB. Native GDI
+crops/downsamples it before the BGRA pixels enter Rust/cache, avoiding scalar
+channel conversion or retained full-size 4K screenshots. Redirected full-content capture is tried first; ordinary WM_PRINT is a compatibility path for a GDI app with an empty redirected frame. Both use PrintWindow and keep display-affinity/black-image restrictions. Texture budget:
+1,048,576 pixels; a 3840 x 2160 source becomes 1365 x 768 (4,193,280 bytes).
 
-- Same-process synthetic top-level: cloak, cancel/uncloak, native `SW_MINIMIZE`,
-  uncloak, nonactivating normal restore, and restore while cloaked passed. The
-  normal placement was retained and the corrected probe never became foreground.
-- A top-level created by an independently spawned copy of the **test binary**:
-  setting `DWMWA_CLOAK` returned **`0x80070005` (`E_ACCESSDENIED`)**. Its cloak and
-  placement states remained unchanged. This prevents using the cloak approach to
-  replace ordinary third-party application animations on this host.
-- The first probe used `SW_RESTORE`; it activated the off-screen synthetic window
-  despite `WS_EX_NOACTIVATE`, and the foreground assertion failed. Cleanup
-  immediately destroyed that owned window. The probe was corrected to the
-  documented nonactivating `SW_SHOWNOACTIVATE` normal restore. This intentionally
-  does **not** claim equivalence with the production Dock's activating restore or
-  prove preservation of an arbitrary maximized application's state.
+The animated framebuffer starts at 786,432 pixels (1182 x 665 for 4K), preserving
+aspect ratio. Mesh vertices are projected into it while the actual window and
+layered overlay remain full physical size. Native GDI expands the frame into the
+complete 3840 x 2160 presentation DIB. A local 2 x 2 -> 4 x 4 DIB probe first
+verifies that 32-bit SRCCOPY preserves both transparent and opaque BGRA pixels.
+The fast path is used only on success; otherwise alpha-correct AlphaBlend is used.
 
-The test lives in `src/background/widgets/weg/genie/cloak_probe.rs`, is compiled
-only under `cfg(test)`, and is ignored by default. Explicit invocation:
+Before hiding anything, a wide-neck frame is measured. If it exceeds 20 ms,
+internal detail is reduced, down to 196,608 pixels. A presented frame over 25 ms
+also reduces subsequent internal detail. It does **not** abandon 4K animation:
+late frames follow a 420 ms wall-clock timeline. This trades moving-image detail
+for responsiveness; native window content becomes sharp again at the handover.
+
+The transient overlay is a non-activating, click-through, alpha-layered tool
+window, without a webview. It receives no input and has scoped HWND/DC/bitmap
+cleanup. The screenshot fades out during its final approach to the icon. Every
+exit replaces the retained layered screenshot with a preallocated transparent
+surface before hiding/destroying the HWND and flushing queued DWM cleanup in an
+active display session. The main UI event thread does not perform capture or
+frame rendering.
+
+## Native state, cancellation and recovery
+
+One action generation spans custom animation and native fallback. Newer Dock
+actions cancel older work; an old fallback cannot overwrite a newer action.
+One animation and one PrintWindow worker are allowed at a time. Only short
+window-state commits hold a mutex; capture and rendering do not.
+
+The active path neither reads nor writes the setter-only
+`DWMWA_TRANSITIONS_FORCEDISABLED`, nor changes Windows animation preferences or
+foreign window cloaking. Minimize paints the snapshot, briefly hides the real
+window, submits SW_SHOWMINNOACTIVE and verifies visible/iconic state. The real
+window is already minimized while its snapshot enters the Dock.
+
+Restore plays the cached snapshot backwards while the app stays iconic. The
+full-size final overlay covers its short native restore commit. Saved
+WINDOWPLACEMENT preserves maximized state and the normal restore rectangle.
+A hide guard queues a reveal on error/cancellation, observes visibility within a
+bounded deadline and clears its HWND/process/generation lease. A hung app can
+outlast the deadline; recovery is still queued after the hide. Closed or changed
+processes are never revealed by cleanup. Native fallback restoration is queued
+asynchronously rather than blocking on an unresponsive application's UI thread.
+
+The app-window tracker ignores only this exact transient hide/state-change
+lease. A queued ObjectHide also checks current visibility, retaining an already
+visible/iconic Dock item. Real hide and destroy events remain actionable, without
+a timed event-suppression window. A newer Dock action, external restoration or
+intervening foreground activation dismisses playback without stealing focus back.
+
+Cached textures are memory-only: at most sixteen entries / 64 MiB, eligible for five
+minutes, with lazy expiry on cache access. HWND/process/class and saved placement
+must match. Stale, missing or changed snapshots restore
+natively. Screenshots are never written to disk.
+
+## Exclusions and resource bounds
+
+- Native is the opt-out. Selecting Genie explicitly requests this effect even
+  when Windows motion is disabled; Dock geometry is measured independently of
+  that system signal. Existing power/performance optimization modes use Native.
+  Changing the selected preference stops an active custom effect.
+- Protected-capture, elevated/unmanageable, cloaked, black or changed windows
+  retain native behavior; no capture protection is bypassed.
+- Off-screen, cross-monitor or mixed-monitor destinations remain native. Input
+  and physical surfaces are bounded to 8192 per dimension and 16,777,216 pixels;
+  4K fits these allocation limits.
+- Capture has a 250 ms deadline, including native downsampling, and checks action
+  cancellation every 8 ms. At most one worker can remain blocked in PrintWindow;
+  later actions do not accumulate capture threads.
+- Each hide/state observation has an 80 ms deadline with queued recovery. Display
+  or DPI changes, lock, display-off and source closure stop the overlay safely.
+
+## Verification
 
 ```powershell
-cargo test -p seelen-ui --bin seelen-ui owned_cloak_probe -- --ignored --nocapture --test-threads=1
+cargo check -p macui --bin macui
+cargo test -p macui --bin macui widgets::weg::genie -- --test-threads=1
+cargo test -p macui --bin macui owned_window_commit_cancel_close_and_maximized_restore -- --ignored --test-threads=1 --nocapture
+cargo test -p macui --bin macui owned_four_k_capture_minimize_restore_probe -- --ignored --test-threads=1 --nocapture
 ```
 
-Result: **1 passed**, including the explicit unsupported cross-process outcome.
-The helper uses an exact test filter and private handshake, validates the expected
-process before every mutation, owns a 10-second cleanup deadline, clears its own
-cloak and destroys its own HWND. Parent cleanup requests normal exit, then stops
-only that exact spawned helper if necessary. Windows are off-screen, tool windows;
-the corrected probe does not activate them. No user applications, global settings,
-keyboard hooks, injected modules, or normal runtime commands are modified.
+The normal suite checks all four mesh directions/endpoints/phases, allocation
+bounds, cancellation, cache identity/expiry and stale native actions. A full
+3840 x 2160 synthetic frame test checks **every** output pixel for correct opaque
+color or transparent exterior, including the actual target on a negative-coordinate
+monitor. On 2026-11-01, optimized debug draw + full 4K upscaling measured
+8.71 / 10.64 / 9.15 / 8.13 / 5.53 / 5.14 ms at phases 0 / .15 / .35 / .65 / .85 / 1.
+These are local CPU/GDI measurements, excluding UpdateLayeredWindow/compositor
+work, not a universal frame-rate guarantee.
 
-This probe rules out that alternative on this host. It is **not** a Genie feature
-implementation or visual acceptance; default native minimization remains in use.
+Measured result: all 15 normal Genie tests passed, including 4K alpha/target and quality-reduction checks. cargo check -p macui --bin macui passed. The explicit normal/maximized/cancellation/destruction probe passed.
 
-## Scope
+Explicit probes touch only self-owned windows; capture is performed on an opaque off-screen fixture before it is made transparent for playback. The ordinary
+state probe covers normal/maximized placement, hide cancellation and destruction.
+The 4K probe measured PrintWindow/downsampling at 168 ms, below the 250 ms allowance. It verified all 1,048,320 texture pixels, then submitted 55 UpdateLayeredWindow frames through real native minimize + restore in 942 ms, preserving visibility and placement. It runs native playback
+with an invisible test overlay; it does not cover the user's desktop with artwork
+or manipulate other applications.
 
-Only clicking a single-window application in MAC UI's Dock to minimize its focused
-window supplies an animation destination. Other callers retain native behavior:
-title-bar minimize, Win+D, native taskbar, workspace changes, and multi-window Dock
-preview actions. Restore remains Windows-native. No injected DLL, Explorer patch,
-global keyboard/event interception, or change to a system-wide animation setting.
-
-The renderer captures the window once into memory, bends a 256-strip mesh toward
-the actual Dock icon, then collapses the neck into that destination over 420 ms.
-It is deliberately a frozen snapshot, not a live-streaming window or just a scale
-and fade. The first frame covers the original window; Windows itself still receives
-`SW_MINIMIZE`. A temporary per-window `DWMWA_TRANSITIONS_FORCEDISABLED` flag avoids
-double animation. Its previous value must be successfully read and is restored
-with RAII as soon as minimization is observed, including error/cancellation paths.
-
-The short-lived overlay is a non-activating, click-through, tool window with
-per-pixel alpha and no webview. Surface/DC/bitmap/window resources all have scoped
-cleanup. It neither takes keyboard focus nor creates an input-blocking screen.
-
-## Safety and fallback
-
-- CSS reduced motion and Windows client-area animation preference skip the effect.
-- Protected-capture, elevated/unmanageable, wholly black, invalid or moved windows
-  fall back to ordinary native minimize.
-- Screen-spanning or off-screen windows and targets outside the source monitor
-  take the native path. This avoids incorrect mixed-DPI/cross-monitor projections.
-- The frontend converts the icon's CSS coordinates from the actual webview origin,
-  not the much smaller Dock hitbox. Non-finite and zero-sized targets are rejected.
-- Capture waits at most 80 ms. At most **one** capture worker can remain blocked in
-  another application's `PrintWindow`; further requests immediately fall back.
-  A late result is discarded, not displayed or stored on disk.
-- Input surface dimensions are bounded before capture and each owned DIB is capped
-  at 16,777,216 pixels. Only one animation runs at a time. Work is outside the UI
-  event thread; late frames are skipped against a wall-clock duration.
-- A newer Dock toggle/restore cancels an older generation. External restoration,
-  source closure, display/DPI change, locking or display-off removes the overlay.
-  Capture/renderer failure never makes the native minimize depend on animation end.
-
-## Automated checks
-
-The pure geometry test suite verifies identity/end position, a genuinely non-affine
-neck, positive finite strips with contiguous axes, and all four Dock directions.
-The frontend tests cover fractional DPI, negative monitor coordinates and invalid
-targets. Backend tests additionally cover bounded capture leases, invalid allocation
-dimensions and transparent/opaque pixels in off-screen native GDI surfaces.
-
-Measured results: `cargo check -p seelen-ui --bin seelen-ui` passed; the 8 focused
-Rust tests passed, including the explicit unsupported-attribute fallback probe;
-the 2 frontend coordinate tests passed. No other applications were manipulated by
-these tests. Passing the fallback probe does not mean the animation is available.
-
-These do **not** prove a smooth/accepted end-user visual result. Use the actual
-debug build to complete the checklist below before considering this feature done.
-
-## Pending acceptance checklist
-
-- Single-window Dock: Edge/Explorer/ordinary Win32 app visibly bends and enters its
-  correct icon; no duplicate Windows shrink, black flash or leftover overlay.
-- Restore through Dock and Alt+Tab during the effect; close source mid-effect;
-  rapid alternation; ensure no stolen focus, unreachable app, or stuck topmost surface.
-- 100%, 150%, 200% scaling; Dock top/bottom/left/right; secondary monitor with negative
-  coordinates; maximized/restored windows. Verify documented native fallbacks.
-- Reduced motion: instant ordinary native behavior with no custom deformation.
-- Capturing a protected/elevated/hung app: action still minimizes normally, memory
-  and worker counts do not accumulate across repeated requests.
-- Measure frame pacing, visible-step quality and memory on this user's 4K display.
-- Confirm the user accepts the **Dock-only** scope. If every title-bar/keyboard
-  minimization must use Genie, that requirement remains unimplemented and unaccepted.
-
-## Primary API references
-
-- [UpdateLayeredWindow](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-updatelayeredwindow)
-  supplies per-pixel transparent composition and recommends keeping overlays small.
-- [AlphaBlend](https://learn.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-alphablend)
-  scales premultiplied-alpha bitmap strips into an independent memory surface.
-- [WinEvent constants](https://learn.microsoft.com/en-us/windows/win32/winauto/event-constants)
-  provide observation of native transitions, not a supported API for replacing
-  every process's window-deformation compositor.
+Visual acceptance on ordinary Explorer/Edge/Win32 windows, real Dock clicks,
+rapid alternation and 100/150/200% scaling remains necessary. No global
+keyboard interception, live-video deformation or GPU renderer is claimed.
+API reference: [Microsoft PrintWindow documentation](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-printwindow) describes owner-rendered capture and its synchronous behavior.

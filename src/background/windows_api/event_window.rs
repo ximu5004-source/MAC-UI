@@ -75,7 +75,7 @@ impl BgWindowProc {
     unsafe fn _create_background_window(done: &crossbeam_channel::Sender<()>) -> Result<()> {
         unsafe {
             let title = WindowsString::from("MAC UI Background Window");
-            let class = WindowsString::from("SeelenBackgroundWindow");
+            let class = WindowsString::from("MacUiBackgroundWindow");
 
             let h_module = WindowsApi::module_handle_w()?;
 
@@ -167,13 +167,13 @@ impl BgWindowProc {
     }
 
     fn refresh_interactive_state() {
-        let Some(active_session) = slu_ipc::app::current_interactive_session_id() else {
+        let Some(active_session) = macui_ipc::app::current_interactive_session_id() else {
             // no active session, assume lock screen
             IS_INTERACTIVE_SESSION.store(false, Ordering::Release);
             return;
         };
 
-        let my_session = slu_ipc::app::current_session_id().unwrap_or(u32::MAX);
+        let my_session = macui_ipc::app::current_session_id().unwrap_or(u32::MAX);
         let is_interactive = active_session == my_session && !IS_LOCKED.load(Ordering::Acquire);
 
         log::info!(
@@ -236,14 +236,14 @@ impl BgWindowProc {
                 match w_param.0 as u32 {
                     WTS_SESSION_LOCK
                         if l_param.0 as u32
-                            == slu_ipc::app::current_session_id().unwrap_or(u32::MAX) =>
+                            == macui_ipc::app::current_session_id().unwrap_or(u32::MAX) =>
                     {
                         IS_LOCKED.store(true, Ordering::Release);
                         log::info!("Session locked");
                     }
                     WTS_SESSION_UNLOCK
                         if l_param.0 as u32
-                            == slu_ipc::app::current_session_id().unwrap_or(u32::MAX) =>
+                            == macui_ipc::app::current_session_id().unwrap_or(u32::MAX) =>
                     {
                         IS_LOCKED.store(false, Ordering::Release);
                         log::info!("Session unlocked");

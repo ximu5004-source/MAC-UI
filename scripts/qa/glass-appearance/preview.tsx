@@ -5,7 +5,7 @@ import { initReactI18next } from "react-i18next";
 import { load } from "js-yaml";
 import zh from "../../../src/ui/react/settings/i18n/translations/zh-CN.yml";
 import { GlassAppearanceControls } from "../../../src/ui/react/settings/modules/resources/Widget/DesktopGlass";
-import { DockSizeControl } from "../../../src/ui/react/settings/modules/resources/Widget/seelenweg/DockSizeControl";
+import { DockSizeControl } from "../../../src/ui/react/settings/modules/resources/Widget/macuiweg/DockSizeControl";
 import { DEFAULT_GLASS_APPEARANCE, normalizeGlassAppearance } from "../../../libs/ui/utils/glassAppearance";
 import "../../../src/ui/react/settings/styles/variables.css";
 import "./preview.css";

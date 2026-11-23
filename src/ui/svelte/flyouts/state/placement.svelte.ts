@@ -1,13 +1,14 @@
-import { invoke, SeelenCommand, SeelenEvent, subscribe, Widget } from "@seelen-ui/lib";
-import { ZOrder } from "@seelen-ui/lib/types";
+import { invoke, MacUiCommand, MacUiEvent, subscribe, Widget } from "@macui/lib";
+import { ZOrder } from "@macui/lib/types";
 import { lazyRune } from "libs/ui/svelte/utils";
 import { ConfigState } from "./config.svelte";
 import { PhysicalPosition } from "@tauri-apps/api/window";
 
 let showing = $state(false);
+let notificationShowing = $state(false);
 
-const monitors = lazyRune(() => invoke(SeelenCommand.SystemGetMonitors));
-subscribe(SeelenEvent.SystemMonitorsChanged, monitors.setByPayload);
+const monitors = lazyRune(() => invoke(MacUiCommand.SystemGetMonitors));
+subscribe(MacUiEvent.SystemMonitorsChanged, monitors.setByPayload);
 
 const widgetSize = lazyRune(() => Widget.self.window.outerSize());
 await Widget.self.window.onResized(widgetSize.setByPayload);
@@ -69,12 +70,15 @@ $effect.root(() => {
   $effect(() => {
     Widget.self.window.setIgnoreCursorEvents(!showing);
     if (showing) {
-      invoke(SeelenCommand.SetSelfZOrder, { zOrder: ZOrder.Top });
+      invoke(MacUiCommand.SetSelfZOrder, { zOrder: notificationShowing ? ZOrder.TopMost : ZOrder.Top });
     }
   });
 });
 
 export const RendererState = {
+  set notificationShowing(value: boolean) {
+    notificationShowing = value;
+  },
   get all() {
     return monitors.value;
   },

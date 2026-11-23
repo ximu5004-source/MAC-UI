@@ -1,7 +1,7 @@
-pub use slu_ipc::commands::WidgetCli;
-use slu_ipc::commands::WidgetCommand;
+pub use macui_ipc::commands::WidgetCli;
+use macui_ipc::commands::WidgetCommand;
 
-use seelen_core::state::WidgetTriggerPayload;
+use macui_core::state::WidgetTriggerPayload;
 
 use crate::{error::Result, widgets::trigger_widget};
 

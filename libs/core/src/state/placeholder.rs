@@ -103,15 +103,15 @@ pub struct ToolbarState {
 impl ToolbarState {
     fn migrate_plugin_id(id: PluginId) -> PluginId {
         match id.as_str() {
-            "@default/system-tray" => "@seelen/tb-system-tray".into(),
-            "@default/quick-settings" => "@seelen/tb-quick-settings".into(),
-            "@default/bluetooth" => "@seelen/tb-bluetooth-popup".into(),
-            "@default/keyboard" => "@seelen/tb-keyboard-selector".into(),
-            "@default/user" => "@seelen/tb-user-menu".into(),
-            "@default/network" => "@seelen/tb-network-popup".into(),
-            "@default/date" => "@seelen/tb-calendar-popup".into(),
-            "@default/media" => "@seelen/tb-media-popup".into(),
-            "@default/notifications" => "@seelen/tb-notifications".into(),
+            "@default/system-tray" => "@macui/tb-system-tray".into(),
+            "@default/quick-settings" => "@macui/tb-quick-settings".into(),
+            "@default/bluetooth" => "@macui/tb-bluetooth-popup".into(),
+            "@default/keyboard" => "@macui/tb-keyboard-selector".into(),
+            "@default/user" => "@macui/tb-user-menu".into(),
+            "@default/network" => "@macui/tb-network-popup".into(),
+            "@default/date" => "@macui/tb-calendar-popup".into(),
+            "@default/media" => "@macui/tb-media-popup".into(),
+            "@default/notifications" => "@macui/tb-notifications".into(),
             _ => id,
         }
     }

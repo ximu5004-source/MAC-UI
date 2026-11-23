@@ -1,4 +1,5 @@
-import type { Icon, IconPack, IconPackId, ResourceMetadata } from "@seelen-ui/types";
+/// <reference lib="deno.ns" />
+import type { Icon, IconPack, IconPackId, ResourceMetadata } from "@macui/types";
 import { IconPackManager } from "./icon_pack.ts";
 import { assertEquals } from "@std/assert";
 
@@ -252,6 +253,63 @@ Deno.test("IconPackManager", async (t) => {
         );
       },
     );
+
+    await t.step("should prefer an exact executable path over earlier filename entries", () => {
+      const { packA } = createMockIconPacks();
+      packA.entries.unshift({
+        type: "unique",
+        umid: null,
+        redirect: null,
+        path: "filenameApp.exe",
+        icon: onlyBase(GOT_BY_FILENAME),
+      });
+      const manager = new IconPackManagerMock([packA], ["a"]);
+      assertEquals(
+        manager.getIconPath({ path: "C:\\Program Files (x86)\\Some\\App\\filenameApp.exe" }),
+        onlyBase(`${A_PATH}\\${GOT_BY_PATH}`),
+      );
+    });
+
+    await t.step("should keep cached icons separate for installations with the same executable name", () => {
+      const { packA } = createMockIconPacks();
+      packA.entries = [
+        {
+          type: "unique",
+          umid: null,
+          redirect: null,
+          path: "C:\\Old MAC UI\\macui.exe",
+          icon: onlyBase("old-logo.png"),
+        },
+        {
+          type: "unique",
+          umid: null,
+          redirect: null,
+          path: "D:\\New MAC UI\\macui.exe",
+          icon: onlyBase("new-logo.png"),
+        },
+      ];
+      const manager = new IconPackManagerMock([packA], ["a"]);
+      assertEquals(
+        manager.getIconPath({ path: "D:\\New MAC UI\\macui.exe" }),
+        onlyBase(`${A_PATH}\\new-logo.png`),
+      );
+      assertEquals(
+        manager.getIconPath({ path: "C:\\Old MAC UI\\macui.exe" }),
+        onlyBase(`${A_PATH}\\old-logo.png`),
+      );
+      assertNull(manager.getIconPath({ path: "E:\\Third MAC UI\\macui.exe" }));
+    });
+
+    await t.step("should apply explicit filename-only entries without matching partial executable names", () => {
+      const { packB } = createMockIconPacks();
+      const manager = new IconPackManagerMock([packB], ["b"]);
+      assertEquals(
+        manager.getIconPath({ path: "D:\\Other installation\\filenameApp.exe" }),
+        onlyBase(`${B_PATH}\\${GOT_BY_FILENAME}`),
+      );
+      assertNull(manager.getIconPath({ path: "D:\\Other installation\\myfilenameApp.exe" }));
+      assertNull(manager.getIconPath({ path: "D:\\Other installation\\filenameApp.exe.lnk" }));
+    });
 
     await t.step("should match files by extension with priority order", () => {
       const ctx = new IconPackManagerTestContext(["b", "a"]); // 'a' has priority

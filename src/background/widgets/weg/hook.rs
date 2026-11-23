@@ -11,9 +11,9 @@ use crate::{
     windows_api::{WindowsApi, window::Window},
 };
 
-use super::{SeelenWeg, TASKBAR_CLASS};
+use super::{MacUiWeg, TASKBAR_CLASS};
 
-impl SeelenWeg {
+impl MacUiWeg {
     // move this to independent function as this should work independently if dock is enabled or not
     pub fn process_raw_win_event(event: u32, origin_hwnd: HWND) -> Result<()> {
         let origin = Window::from(origin_hwnd);

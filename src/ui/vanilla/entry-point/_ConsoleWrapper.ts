@@ -20,7 +20,7 @@ async function log(
   message: string,
   _options?: LogOptions,
 ): Promise<void> {
-  // we use the webview label as the location, instead of call stack as the stack on the Seelen UI case
+  // we use the webview label as the location, instead of call stack as the stack on the MacUi UI case
   // will be always the same because of the console wrapper
   const location = webviewInfo.label;
   await _invoke("log_from_webview", { level, message, location });

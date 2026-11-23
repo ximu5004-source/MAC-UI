@@ -1,0 +1,10 @@
+{
+  "native.glass_transparency": "Glass transparency",
+  "native.glass_blur": "Frost strength",
+  "native.desktop_menu": "MAC UI Desktop",
+  "native.map_folder": "Map folder…",
+  "native.windows_menu": "Windows file menu",
+  "native.dissolve": "Dissolve box",
+  "native.close_preview": "Close preview",
+  "native.spacing_range": "Enter icon spacing between 0 and 64 pixels."
+}

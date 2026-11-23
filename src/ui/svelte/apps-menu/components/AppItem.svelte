@@ -1,7 +1,8 @@
 <script lang="ts">
-  import type { StartMenuItem } from "@seelen-ui/lib/types";
-  import { Widget, invoke, SeelenCommand } from "@seelen-ui/lib";
-  import { FileIcon } from "libs/ui/svelte/components/Icon";
+  import type { StartMenuItem } from "@macui/lib/types";
+  import { Widget, invoke, MacUiCommand } from "@macui/lib";
+  import { FileIcon, Icon } from "libs/ui/svelte/components/Icon";
+  import { globalState } from "../state/mod.svelte";
   import { t } from "../i18n";
   import type { createSortable } from "@dnd-kit/svelte/sortable";
   import { getItemContextMenu } from "./context-menu.svelte";
@@ -12,6 +13,7 @@
     idx: number;
     isActiveDropzone?: boolean;
     lazy?: boolean;
+    pinSelection?: boolean;
     sortable?: ReturnType<typeof createSortable> | null;
     scope: SelectionScope;
   }
@@ -21,6 +23,7 @@
     idx,
     isActiveDropzone = false,
     lazy = false,
+    pinSelection = false,
     sortable = null,
     scope,
   }: Props = $props();
@@ -42,14 +45,15 @@
 
   function handleClick() {
     if (sortable?.isDragging || sortable?.isDropping) return;
+    if (pinSelection) { globalState.togglePin(item); return; }
     Widget.self.hide();
     const program = item.umid ? `shell:AppsFolder\\${item.umid}` : item.path;
-    invoke(SeelenCommand.OpenFile, { path: program });
+    invoke(MacUiCommand.OpenFile, { path: program });
   }
 
   function handleContextMenu(event: MouseEvent) {
     event.preventDefault();
-    invoke(SeelenCommand.TriggerContextMenu, {
+    invoke(MacUiCommand.TriggerContextMenu, {
       menu,
       forwardTo: null,
     });
@@ -68,11 +72,12 @@
   bind:this={el}
   {@attach sortable?.attach ?? noopAttach}
   role="option"
-  aria-selected={isSelected}
-  aria-label={item.display_name}
+  aria-selected={pinSelection ? globalState.isPinned(item) : isSelected}
+  aria-label={pinSelection ? `${item.display_name} · ${globalState.isPinned(item) ? $t("unpin") : $t("pin")}` : item.display_name}
   {tabindex}
   data-item-id={itemId}
   class="app"
+  class:choosing-favorite={pinSelection}
   class:is-dragging={sortable?.isDragging}
   class:is-dropping={sortable?.isDropping}
   class:is-drop-target={isActiveDropzone}
@@ -81,6 +86,9 @@
   onkeydown={handleKeyDown}
   onfocus={() => scope.setSelected(itemId)}
 >
+  {#if pinSelection}
+    <span class="launchpad-pin-state" data-pinned={globalState.isPinned(item)} aria-hidden="true"><Icon iconName={globalState.isPinned(item) ? "FiCheck" : "FiPlus"} /></span>
+  {/if}
   <FileIcon
     class="app-icon"
     path={item.path}

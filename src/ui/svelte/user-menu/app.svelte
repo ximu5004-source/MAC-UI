@@ -1,6 +1,6 @@
 <script lang="ts">
   import { globalState } from "./state/mod.svelte";
-  import { invoke, SeelenCommand, Widget } from "@seelen-ui/lib";
+  import { invoke, MacUiCommand, Widget } from "@macui/lib";
   import Icon from "libs/ui/svelte/components/Icon/Icon.svelte";
   import { t } from "./i18n";
   import UserProfile from "./components/UserProfile.svelte";
@@ -13,11 +13,11 @@
   });
 
   async function openInstallationFolder() {
-    invoke(SeelenCommand.OpenFile, { path: await path.appDataDir() });
+    invoke(MacUiCommand.OpenFile, { path: await path.appDataDir() });
   }
 
   async function openLogFolder() {
-    invoke(SeelenCommand.OpenFile, { path: await path.appLogDir() });
+    invoke(MacUiCommand.OpenFile, { path: await path.appLogDir() });
   }
 
   let closing = false;
@@ -33,7 +33,7 @@
 
 <svelte:window onkeydown={handleEscape} />
 
-<div class="slu-std-popover mac-panel mac-frosted-surface user-popup">
+<div class="macui-std-popover mac-panel mac-frosted-surface user-popup">
  <div class="user-popup-content">
   <UserProfile user={globalState.user} />
 
@@ -44,18 +44,18 @@
   {/each}
 
   <hr />
-  <span class="user-label">{$t("seelen_options.title")}</span>
-  <div class="user-seelen-options">
-    <button class="user-seelen-option-item" onclick={openInstallationFolder}>
+  <span class="user-label">{$t("macui_options.title")}</span>
+  <div class="user-macui-options">
+    <button class="user-macui-option-item" onclick={openInstallationFolder}>
       <Icon iconName="TbFolderCog" />
-      <span class="user-seelen-option-item-title">
-        {$t("seelen_options.open_installation_folder")}
+      <span class="user-macui-option-item-title">
+        {$t("macui_options.open_installation_folder")}
       </span>
     </button>
-    <button class="user-seelen-option-item" onclick={openLogFolder}>
+    <button class="user-macui-option-item" onclick={openLogFolder}>
       <Icon iconName="TbLogs" />
-      <span class="user-seelen-option-item-title">
-        {$t("seelen_options.open_log_folder")}
+      <span class="user-macui-option-item-title">
+        {$t("macui_options.open_log_folder")}
       </span>
     </button>
   </div>

@@ -1,12 +1,12 @@
 import { getRootContainer } from "libs/ui/react/utils/index.ts";
 import { mount } from "svelte";
 import App from "./App.svelte";
-import { Widget } from "@seelen-ui/lib";
+import { Widget } from "@macui/lib";
 import { onTriggered } from "./state/positioning.svelte.ts";
 import { LatestToggle } from "./launchpadOperations";
 import { trackFrostedSurfaces } from "libs/ui/svelte/utils/frostedSurfaces";
 
-import "@seelen-ui/lib/styles/reset.css";
+import "@macui/lib/styles/reset.css";
 import "libs/ui/styles/frosted-material.css";
 import "./launchpad.css";
 

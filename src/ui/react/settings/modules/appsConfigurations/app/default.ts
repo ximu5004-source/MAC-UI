@@ -1,4 +1,4 @@
-import { type AppConfig, AppIdentifierType, MatchingStrategy } from "@seelen-ui/lib/types";
+import { type AppConfig, AppIdentifierType, MatchingStrategy } from "@macui/lib/types";
 
 export const defaultAppConfig: AppConfig = {
   name: "New App",

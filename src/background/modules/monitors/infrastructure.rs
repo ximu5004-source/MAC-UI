@@ -1,7 +1,7 @@
 use std::sync::Once;
 
-use seelen_core::{
-    handlers::SeelenEvent,
+use macui_core::{
+    handlers::MacUiEvent,
     system_state::{MonitorId, PhysicalMonitor},
 };
 
@@ -25,7 +25,7 @@ fn get_monitor_manager() -> &'static MonitorManager {
             log::trace!("MonitorManagerEvent::{:?}", event);
             let monitors = MonitorManager::instance().get_cached_data();
             log::debug!("{monitors:#?}");
-            emit_to_webviews(SeelenEvent::SystemMonitorsChanged, monitors);
+            emit_to_webviews(MacUiEvent::SystemMonitorsChanged, monitors);
             crate::widgets::webview::restore_webviews_after_display_change();
         });
     });

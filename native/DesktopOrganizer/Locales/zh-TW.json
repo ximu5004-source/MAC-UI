@@ -1,0 +1,6 @@
+{
+  "native.windows_menu": "Windows 檔案選單",
+  "native.dissolve": "解散整理盒",
+  "native.close_preview": "關閉預覽",
+  "native.spacing_range": "圖示間距請輸入 0 到 64 之間的整數。"
+}

@@ -1,4 +1,4 @@
-use seelen_core::state::WmDragBehavior;
+use macui_core::state::WmDragBehavior;
 
 use crate::{
     error::Result,

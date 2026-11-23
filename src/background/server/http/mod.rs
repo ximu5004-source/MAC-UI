@@ -1,14 +1,12 @@
 use crate::resources::RESOURCES;
 use salvo::prelude::*;
 
-/// "SLU" interpreted as a base-36 number.
+/// Stable loopback port retained for existing local automation clients.
 pub const LOCAL_API_PORT: u16 = 37_074;
 
 const SCALAR_HTML: &str = include_str!("./scalar.html");
 
-/// Serves the Scalar API reference page. We render this ourselves instead of using
-/// `salvo_oapi::scalar::Scalar` so we can load the official Scalar CDN script directly
-/// and freely configure it (theme, GitHub link, etc.) in `scalar.html`.
+/// Serves the self-contained local API reference without external scripts.
 #[handler]
 async fn scalar_docs(res: &mut Response) {
     res.render(Text::Html(SCALAR_HTML));
@@ -35,7 +33,7 @@ async fn ping() -> Json<PingResponse> {
 ///
 /// Returns a list of all available themes.
 #[endpoint(tag("Resources"))]
-async fn themes() -> Json<Vec<std::sync::Arc<seelen_core::state::Theme>>> {
+async fn themes() -> Json<Vec<std::sync::Arc<macui_core::state::Theme>>> {
     Json(RESOURCES.themes())
 }
 
@@ -43,7 +41,7 @@ async fn themes() -> Json<Vec<std::sync::Arc<seelen_core::state::Theme>>> {
 ///
 /// Returns a list of all available icon packs.
 #[endpoint(tag("Resources"))]
-async fn icon_packs() -> Json<Vec<std::sync::Arc<seelen_core::state::IconPack>>> {
+async fn icon_packs() -> Json<Vec<std::sync::Arc<macui_core::state::IconPack>>> {
     Json(RESOURCES.icon_packs())
 }
 
@@ -56,7 +54,7 @@ async fn icon_packs() -> Json<Vec<std::sync::Arc<seelen_core::state::IconPack>>>
 async fn theme_tokens(
     // Whether to resolve dark-mode tokens. Themes without `tokensDark` fall back to `tokens`.
     dark: salvo::oapi::extract::QueryParam<bool, false>,
-) -> Json<seelen_core::state::ThemeTokens> {
+) -> Json<macui_core::state::ThemeTokens> {
     let dark = dark.into_inner().unwrap_or(false);
     let state = crate::state::application::FULL_STATE.load();
 
@@ -79,7 +77,7 @@ async fn theme_tokens(
             }
         })
         .cloned()
-        .fold(seelen_core::state::ThemeTokens::default(), |acc, tokens| {
+        .fold(macui_core::state::ThemeTokens::default(), |acc, tokens| {
             acc.merge(tokens)
         });
 
@@ -87,7 +85,7 @@ async fn theme_tokens(
 }
 
 /* #[endpoint]
-async fn settings() -> Json<seelen_core::state::Settings> {
+async fn settings() -> Json<macui_core::state::Settings> {
     let state = crate::state::application::FULL_STATE.load();
     Json(&state.settings)
 } */
@@ -127,7 +125,7 @@ async fn run_http_server() {
                 .push(Router::with_path("icon-packs").get(icon_packs)),
         );
 
-    let doc = OpenApi::new(env!("CARGO_PKG_NAME"), env!("CARGO_PKG_VERSION")).merge_router(&api);
+    let doc = OpenApi::new("MAC UI Local API", env!("CARGO_PKG_VERSION")).merge_router(&api);
 
     let router = Router::new()
         .push(api)

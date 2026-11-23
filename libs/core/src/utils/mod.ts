@@ -5,9 +5,9 @@ export class Rect {
   bottom = 0;
 }
 
-export function isSeelenUIRuntime(): boolean {
+export function isMacUiRuntime(): boolean {
   // deno-lint-ignore no-explicit-any
-  return !!(globalThis.window as any).__SLU_WIDGET;
+  return !!(globalThis.window as any).__MACUI_WIDGET;
 }
 
 export { RuntimeStyleSheet } from "./DOM.ts";

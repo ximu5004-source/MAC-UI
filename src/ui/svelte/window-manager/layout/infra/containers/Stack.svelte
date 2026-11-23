@@ -1,7 +1,7 @@
 <script lang="ts">
-  import type { TwmRuntimeNode } from "@seelen-ui/lib/types";
-  import { invoke, SeelenCommand } from "@seelen-ui/lib";
-  import { WmStackBarVisibility } from "@seelen-ui/lib/types";
+  import type { TwmRuntimeNode } from "@macui/lib/types";
+  import { invoke, MacUiCommand } from "@macui/lib";
+  import { WmStackBarVisibility } from "@macui/lib/types";
   import { state } from "../../../state.svelte.ts";
   import Leaf from "./Leaf.svelte";
   import FileIcon from "libs/ui/svelte/components/Icon/FileIcon.svelte";
@@ -14,7 +14,7 @@
   let { node, overlayVisible }: Props = $props();
 
   function onTabClick(winId: number) {
-    invoke(SeelenCommand.WmSetStackActiveWindow, { hwnd: winId });
+    invoke(MacUiCommand.WmSetStackActiveWindow, { hwnd: winId });
   }
 
   const shouldShowStackBar = $derived(

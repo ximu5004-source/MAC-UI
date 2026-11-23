@@ -31,14 +31,14 @@ apps_configurations:
     upang mabigyan ka ng pinakamahusay na karanasan nang walang pagpapasadya.
     Awtomatiko nilang i -configure ang pinaka -karaniwang mga aplikasyon para sa
     iyo.
-  bundled_title: Ang config ng app na naka -bundle kay Seelen
+  bundled_title: Ang config ng app na naka -bundle kay MAC UI
   confirm_delete: Sigurado ka bang nais mong tanggalin ang pagsasaayos na ito/s?
   confirm_delete_title: Kumpirmahin ang Tanggalin
   delete: Tanggalin
   export: I -export
   export_full: Mga setting ng pag -export sa pamamagitan ng aplikasyon
   extra_info: >-
-    Ang Seelen UI ay gumagamit lamang ng isang identifier bawat app (unang tugma
+    Ang MAC UI ay gumagamit lamang ng isang identifier bawat app (unang tugma
     na natagpuan) kaya ang pagkakasunud -sunod sa kung paano ang tinukoy ay
     mahalaga, ang pinakabagong idinagdag ay unahin, dahil ang tala ang
     talahanayan ay pinagsunod -sunod ng default mula sa pinakabagong hanggang sa
@@ -84,12 +84,12 @@ devtools:
   enable: Paganahin ang mga tool ng developer
   enable_description: >-
     Ina-unlock ang mga advanced na tool para sa pag-inspeksyon at pag-debug sa
-    mga internal ng Seelen UI. Hindi inilaan para sa regular na paggamit.
+    mga internal ng MAC UI. Hindi inilaan para sa regular na paggamit.
   icons: Mga Naka-cache na Icon
   install_folder: Folder ng pag -install
   load: Mag -load
   settings_file: File ng mga setting
-  shared_components: Mga Pamantayang Bahagi ng SLU
+  shared_components: Mga Pamantayang Bahagi ng MAC UI
   simulate_dialog:
     label: Gayahin ang Dialog
     trigger: Trigger
@@ -123,7 +123,7 @@ devtools:
     widget_id: Widget ID
 discord_banner:
   message: >-
-    Kumonekta sa iba pang user ng Seelen UI, humingi ng tulong, magbahagi ng mga
+    Kumonekta sa iba pang user ng MAC UI, humingi ng tulong, magbahagi ng mga
     tema, at manatiling napapanahon sa pinakabagong balita.
   title: Sumali sa aming Komunidad
 extras:
@@ -177,7 +177,7 @@ general:
     plugged: Naka -plug o singilin
   polling_interval: Agwat ng botohan ng system
   polling_interval_description: >-
-    Gaano kadalas (sa mga segundo) sinusuri ng Seelen UI ang mga mapagkukunan ng
+    Gaano kadalas (sa mga segundo) sinusuri ng MAC UI ang mga mapagkukunan ng
     system tulad ng CPU, RAM, network, at aktibidad ng disk. Ang mas maliit na
     bilang ay nangangahulugan ng mas madalas na pag-update, ngunit bahagyang mas
     mataas ang paggamit ng mapagkukunan.
@@ -235,7 +235,7 @@ resources:
   affected_widgets: Mga Apektadong Widget
   app_outdated: >-
     Ang mapagkukunang ito ay nangangailangan ng isang mas bagong bersyon ng
-    Seelen UI upang gumana nang maayos.
+    MAC UI upang gumana nang maayos.
   coming_soon: Malapit na
   corrupted_wallpaper: >-
     Nabigong i-extract ang thumbnail - sira o hindi sinusuportahang format ng
@@ -250,7 +250,7 @@ resources:
   open_folder: Buksan ang folder ng mapagkukunan
   outdated: >-
     Ang mapagkukunang ito ay dinisenyo para sa isang mas lumang bersyon ng
-    Seelen UI at maaaring hindi gumana nang maayos.
+    MAC UI at maaaring hindi gumana nang maayos.
   see_on_website: Tingnan sa website
   update_now: Update
   updates_available: Magagamit ang mga Update
@@ -258,7 +258,7 @@ resources:
 review_request:
   not_now: Hindi ngayon
   sure: Oo naman!
-  title: Nasisiyahan sa Seelen UI?
+  title: Nasisiyahan sa MAC UI?
 save: I -save
 save_and_restart: I -save at i -restart
 search: Maghanap
@@ -279,7 +279,7 @@ shortcuts:
   enable: Paganahin ang built-in na mga shortcut system
   enable_tooltip: >-
     Huwag paganahin kung ipatutupad mo ang iyong sariling sistema ng mga
-    shortcut gamit ang Seelen UI Client
+    shortcut gamit ang MAC UI Client
   labels:
     create_new_workspace: Lumikha ng bagong workspace
     create_new_workspace_row: Gumawa ng Bagong Workspace Row
@@ -433,16 +433,16 @@ weg:
 welcome:
   give_a_review: Magbigay ng Review
   message: >-
-    Ang Seelen UI ay isang libre at open source na desktop environment para sa
+    Ang MAC UI ay isang libre at open source na desktop environment para sa
     Windows. Dito mayroon kang ganap na kontrol sa hitsura at pag-uugali ng
     iyong desktop, na nagbibigay-daan sa iyong i-customize ang bawat detalye
     upang tumugma sa iyong daloy ng trabaho at istilo.
   ok: Magsimula na tayo!
   review: >-
-    Kung masisiyahan ka sa paggamit ng Seelen UI, isaalang-alang ang pag-iwan ng
+    Kung masisiyahan ka sa paggamit ng MAC UI, isaalang-alang ang pag-iwan ng
     review sa tindahan — ang iyong feedback ay nakakatulong sa proyekto na
     lumago at umunlad.
-  title: Maligayang pagdating sa Seelen UI!
+  title: Maligayang pagdating sa MAC UI!
 widget:
   default_instance: Default na Instance
   default_instance_hint: Palaging aktibo, gumagamit ng root widget config

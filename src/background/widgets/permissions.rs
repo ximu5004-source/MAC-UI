@@ -1,7 +1,7 @@
 use std::{collections::HashMap, path::PathBuf, sync::LazyLock};
 
+use macui_core::resource::WidgetId;
 use parking_lot::Mutex;
-use seelen_core::resource::WidgetId;
 use serde::{Deserialize, Serialize};
 use tauri_plugin_dialog::{DialogExt, MessageDialogButtons, MessageDialogKind};
 
@@ -9,7 +9,7 @@ use crate::{
     app::get_app_handle,
     error::{Result, ResultLogExt},
     resources::RESOURCES,
-    utils::constants::SEELEN_COMMON,
+    utils::constants::MACUI_COMMON,
     widgets::webview::WidgetWebviewLabel,
 };
 
@@ -57,7 +57,7 @@ pub struct PermissionsManager {
 }
 
 pub static WIDGET_PERMISSIONS: LazyLock<PermissionsManager> = LazyLock::new(|| {
-    let path = SEELEN_COMMON.app_data_dir().join("permissions.json");
+    let path = MACUI_COMMON.app_data_dir().join("permissions.json");
     PermissionsManager::load(path)
 });
 

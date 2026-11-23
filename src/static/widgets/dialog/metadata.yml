@@ -1,4 +1,4 @@
-id: "@seelen/dialog"
+id: "@macui/dialog"
 icon: FaRegWindowRestore
 metadata:
   displayName: !extend i18n/display_name.yml

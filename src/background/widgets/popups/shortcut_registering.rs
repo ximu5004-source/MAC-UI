@@ -1,8 +1,8 @@
 use std::sync::LazyLock;
 
+use macui_core::state::{CssStyles, Dialog, DialogContent};
+use macui_ipc::{ServiceIpc, messages::SvcAction};
 use parking_lot::Mutex;
-use seelen_core::state::{CssStyles, Dialog, DialogContent};
-use slu_ipc::{ServiceIpc, messages::SvcAction};
 use uuid::Uuid;
 
 use tauri::{Emitter, EventId, Listener, Manager};
@@ -51,7 +51,7 @@ impl RegShortcutData {
 }
 
 fn hide_dialog(dialog_id: Uuid) {
-    let label = WidgetWebviewLabel::new(&"@seelen/dialog".into(), None, Some(&dialog_id));
+    let label = WidgetWebviewLabel::new(&"@macui/dialog".into(), None, Some(&dialog_id));
     if let Some(window) = get_app_handle().get_webview_window(&label.raw) {
         window.hide().log_error();
     }
@@ -218,7 +218,7 @@ fn get_dialog(id: Uuid, shortcut: &[String]) -> Dialog {
                 value: s.to_string(),
                 styles: Some(
                     CssStyles::new()
-                        .add("backgroundColor", "var(--slu-std-bg-light-color)")
+                        .add("backgroundColor", "var(--macui-std-bg-light-color)")
                         .add("padding", "4px 10px")
                         .add("borderRadius", "4px"),
                 ),

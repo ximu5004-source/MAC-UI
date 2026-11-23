@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { HotspotState } from "@seelen-ui/lib/types";
+  import { HotspotState } from "@macui/lib/types";
   import Icon from "libs/ui/svelte/components/Icon/Icon.svelte";
   import { globalState } from "../state.svelte";
   import { t } from "../i18n";

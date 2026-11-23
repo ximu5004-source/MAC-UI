@@ -18,7 +18,7 @@ return Group({
         backgroundColor: isActive ? "var(--system-accent-color)" : "currentColor",
         transition: "width 0.2s ease-in-out, backgroundColor 0.2s ease-in-out",
       },
-      onClick: `invoke(SeelenCommand.SwitchWorkspace, { workspaceId: '${w.id}' })`,
+      onClick: `invoke(MacUiCommand.SwitchWorkspace, { workspaceId: '${w.id}' })`,
     });
   }),
   style: {

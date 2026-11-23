@@ -8,7 +8,7 @@ cancel: Anula
 done: Făcut
 elevated:
   description: >-
-    Seelen UI rulează cu privilegii de administrator.
+    MAC UI rulează cu privilegii de administrator.
 
     Acest lucru nu adaugă sau îmbunătățește nicio caracteristică și poate
     prezenta un risc de securitate.
@@ -20,7 +20,7 @@ resource:
   added: O nouă resursă a fost adăugată
   download_failed_body: >-
     Ceva nu a mers bine în timpul descărcării resursei, vă rugăm să raportați
-    acest lucru echipei de dezvoltatori Seelen.
+    acest lucru echipei de dezvoltatori MAC UI.
   download_failed_title: Descărcarea resurselor a eșuat
   downloading: Descărcarea activelor...
   downloading_body: Aceasta poate dura câteva secunde, vă rugăm să nu închideți fereastra.
@@ -41,20 +41,20 @@ runtime:
     Acest lucru se poate întâmpla dacă fișierele au fost modificate, corupte sau
     instalarea este incompletă.
 
-    Din motive de securitate, Seelen UI nu poate continua.
+    Din motive de securitate, MAC UI nu poate continua.
 
     Vă rugăm să-l reinstalați de pe site-ul oficial.
   files_integrity_title: Alertă de securitate - Verificarea integrității fișierelor a eșuat
   not_found: WebView2 Runtime nu a fost găsit
-  not_found_description: Seelen UI necesită Webview2 Runtime. Vă rugăm să o instalați.
+  not_found_description: MAC UI necesită Webview2 Runtime. Vă rugăm să o instalați.
   outdated: WebView2 Runtime depășit
   outdated_description: >-
-    Seelen UI necesită Webview2 Runtime %{min_version} sau mai mare. Vă rugăm să
+    MAC UI necesită Webview2 Runtime %{min_version} sau mai mare. Vă rugăm să
     o actualizați.
 service:
-  not_running: Serviciul Seelen UI nu rulează
+  not_running: Serviciul MAC UI nu rulează
   not_running_description: >-
-    Seelen UI Service (serviciul slu) este o dependență/ajutor pentru ca
+    MAC UI Service (serviciul macui-service) este o dependență/ajutor pentru ca
     aplicația să funcționeze corect.
   not_running_ok: Începeți serviciul
 shortcut:

@@ -1,12 +1,13 @@
 <script lang="ts">
-  import { invoke, SeelenCommand, Widget } from "@seelen-ui/lib";
+  import { invoke, MacUiCommand, Widget } from "@macui/lib";
   import {
     Alignment,
     FancyToolbarSide,
     type ContextMenu,
     type ToolbarItem,
     type WidgetId,
-  } from "@seelen-ui/lib/types";
+    type WidgetTriggerPayload,
+  } from "@macui/lib/types";
   import type { createSortable } from "@dnd-kit/svelte/sortable";
   import { t } from "../i18n/index.ts";
   import { evalActionSanboxed, triggerWidget } from "../actionEvaluator.ts";
@@ -28,6 +29,8 @@
   import { prefersDarkColorScheme } from "libs/ui/svelte/runes/DarkMode.svelte.ts";
   import { CssHandled } from "libs/ui/svelte/utils/animations.ts";
   import CommunicationTray from "./CommunicationTray.svelte";
+  import NowPlaying from "../modules/now-playing/NowPlaying.svelte";
+  import { NOW_PLAYING_PLUGIN_ID } from "../modules/now-playing/module.ts";
   import { isPrimaryToolbarClick, isToolbarActivationKey } from "../activation.ts";
 
   interface Props {
@@ -47,6 +50,7 @@
 
   $effect(() => {
     let unlistenContextMenu: (() => void) | undefined;
+    let disposed = false;
 
     Widget.self.webview
       .listen(callbackEvent, ({ payload }) => {
@@ -56,10 +60,12 @@
         }
       })
       .then((fn) => {
-        unlistenContextMenu = fn;
+        if (disposed) fn();
+        else unlistenContextMenu = fn;
       });
 
     return () => {
+      disposed = true;
       unlistenContextMenu?.();
     };
   });
@@ -68,7 +74,7 @@
 
   let userSourceName = $derived.by(() => {
     const allByWidget = settingsState.allByWidget;
-    const userMenuConfig = allByWidget["@seelen/user-menu" as WidgetId];
+    const userMenuConfig = allByWidget["@macui/user-menu" as WidgetId];
     return userMenuConfig?.displayNameSource as string;
   });
 
@@ -128,7 +134,7 @@
   function activate() {
     evalActionSanboxed(onClickExec, {
       ...scope,
-      trigger: (widgetId: WidgetId) => triggerWidget(widgetId, self.id),
+      trigger: (widgetId: WidgetId, customArgs?: WidgetTriggerPayload["customArgs"]) => triggerWidget(widgetId, self.id, customArgs),
     });
   }
 
@@ -158,7 +164,7 @@
         },
       ],
     };
-    invoke(SeelenCommand.TriggerContextMenu, {
+    invoke(MacUiCommand.TriggerContextMenu, {
       menu: { ...menu, alignX: Alignment.Center, alignY: alignY },
       forwardTo: null,
     });
@@ -167,7 +173,7 @@
   function handleWheel(e: WheelEvent) {
     evalActionSanboxed(e.deltaY < 0 ? onWheelUpExec : onWheelDownExec, {
       ...scope,
-      trigger: (widgetId: WidgetId) => triggerWidget(widgetId, self.id),
+      trigger: (widgetId: WidgetId, customArgs?: WidgetTriggerPayload["customArgs"]) => triggerWidget(widgetId, self.id, customArgs),
     });
   }
 
@@ -192,8 +198,10 @@
   });
 </script>
 
-{#if !fetching && (content || self.render)}
-  {#if self.id === "@seelen/tb-system-tray"}<CommunicationTray />{/if}
+{#if pluginId === NOW_PLAYING_PLUGIN_ID}
+  <NowPlaying id={self.id} {pluginId} {sortable} style={itemStyle} oncontextmenu={handleContextMenu} />
+{:else if !fetching && (content || self.render)}
+  {#if self.id === "@macui/tb-system-tray"}<CommunicationTray />{/if}
   {#if self.id.startsWith("hardcoded-separator")}
     <div {@attach sortable?.attach ?? noopAttach} class="ft-bar-separator"></div>
   {:else}

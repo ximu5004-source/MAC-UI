@@ -1,4 +1,4 @@
-export const SeelenCommand = {
+export const MacUiCommand = {
   SetVolumeLevel: "set_volume_level",
   MediaToggleMute: "media_toggle_mute",
   SetMonitorBrightness: "set_monitor_brightness",
@@ -6,10 +6,10 @@ export const SeelenCommand = {
 };
 
 export async function invoke(command: string, payload?: Record<string, unknown>) {
-  if (command === SeelenCommand.SetFrostedRegions) {
+  if (command === MacUiCommand.SetFrostedRegions) {
     throw new Error("Native backdrop composition is unsupported in the browser fixture");
   }
-  if ([SeelenCommand.SetVolumeLevel, SeelenCommand.MediaToggleMute, SeelenCommand.SetMonitorBrightness].includes(command)) {
+  if ([MacUiCommand.SetVolumeLevel, MacUiCommand.MediaToggleMute, MacUiCommand.SetMonitorBrightness].includes(command)) {
     window.dispatchEvent(new CustomEvent("qa-native-command", { detail: { command, payload } }));
     return;
   }

@@ -3,7 +3,7 @@ metadata:
   displayName: !extend i18n/display_name.yml
   description: !extend i18n/description.yml
 icon: PiTrashDuotone
-target: "@seelen/weg"
+target: "@macui/weg"
 plugin:
   scopes:
     - TrashBin
@@ -13,4 +13,4 @@ plugin:
   tooltip: |-
     return t("trash_bin.label") + "\n" + t("trash_bin.item_count", { 0: trashBinInfo.itemCount });
   onClick: |-
-    invoke(SeelenCommand.OpenFile, { path: "shell:RecycleBinFolder" });
+    invoke(MacUiCommand.OpenFile, { path: "shell:RecycleBinFolder" });

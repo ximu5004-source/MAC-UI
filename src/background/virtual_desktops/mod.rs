@@ -9,9 +9,9 @@ use std::io::Write;
 use std::sync::LazyLock;
 use std::sync::atomic::{AtomicU32, Ordering};
 
-use seelen_core::state::{DesktopWorkspace, VirtualDesktopMonitor, VirtualDesktops, WorkspaceId};
-use seelen_core::system_state::MonitorId;
-use slu_utils::{Debounce, debounce};
+use macui_core::state::{DesktopWorkspace, VirtualDesktopMonitor, VirtualDesktops, WorkspaceId};
+use macui_core::system_state::MonitorId;
+use macui_utils::{Debounce, debounce};
 use windows::Win32::UI::WindowsAndMessaging::{SW_FORCEMINIMIZE, SW_MINIMIZE, SW_RESTORE};
 
 use crate::error::{Result, ResultLogExt};
@@ -19,7 +19,7 @@ use crate::event_manager;
 use crate::hook::HookManager;
 use crate::modules::apps::application::{UserAppWinEvent, UserAppsManager};
 use crate::modules::monitors::{MonitorManager, MonitorManagerEvent};
-use crate::utils::constants::SEELEN_COMMON;
+use crate::utils::constants::MACUI_COMMON;
 use crate::utils::lock_free::{SyncHashMap, SyncVec};
 use crate::virtual_desktops::wallpapers::WorkspaceWallpapersManager;
 use crate::windows_api::window::Window;
@@ -27,8 +27,8 @@ use crate::windows_api::window::event::WinEvent;
 
 use events::VirtualDesktopEvent;
 
-static WORKSPACES_MANAGER: LazyLock<SluWorkspacesManager2> =
-    LazyLock::new(SluWorkspacesManager2::create);
+static WORKSPACES_MANAGER: LazyLock<MacUiWorkspacesManager2> =
+    LazyLock::new(MacUiWorkspacesManager2::create);
 
 /// Not a membership list — a window can belong to a workspace (be in its
 /// `DesktopWorkspace.windows`) without being here. Tracks *why* a window is
@@ -47,7 +47,7 @@ pub static MINIMIZED_BY_WORKSPACES: LazyLock<scc::HashSet<isize>> =
 /// (which would otherwise re-trigger another `switch_to_id` in a loop).
 pub static RESTORED_EVENT_QUEUE: LazyLock<SyncVec<isize>> = LazyLock::new(SyncVec::new);
 
-pub struct SluWorkspacesManager2 {
+pub struct MacUiWorkspacesManager2 {
     pub monitors: SyncHashMap<MonitorId, VirtualDesktopMonitor>,
     pub workspace_index: SyncHashMap<WorkspaceId, MonitorId>,
     pub pinned: SyncVec<isize>,
@@ -57,15 +57,15 @@ pub struct SluWorkspacesManager2 {
     switching: AtomicU32,
 }
 
-event_manager!(SluWorkspacesManager2, VirtualDesktopEvent);
+event_manager!(MacUiWorkspacesManager2, VirtualDesktopEvent);
 
-impl SluWorkspacesManager2 {
+impl MacUiWorkspacesManager2 {
     pub fn instance() -> &'static Self {
         &WORKSPACES_MANAGER
     }
 
     fn load_stored() -> Result<VirtualDesktops> {
-        let path = SEELEN_COMMON.app_cache_dir().join("workspaces2.json");
+        let path = MACUI_COMMON.app_cache_dir().join("workspaces2.json");
         let file = File::open(path)?;
         file.lock()?;
         Ok(serde_json::from_reader(file)?)
@@ -76,8 +76,8 @@ impl SluWorkspacesManager2 {
             debounce(
                 |_| {
                     let fun = || {
-                        let state: VirtualDesktops = SluWorkspacesManager2::instance().into();
-                        let path = SEELEN_COMMON.app_cache_dir().join("workspaces2.json");
+                        let state: VirtualDesktops = MacUiWorkspacesManager2::instance().into();
+                        let path = MACUI_COMMON.app_cache_dir().join("workspaces2.json");
                         let mut file = std::fs::File::create(path)?;
                         file.write_all(&serde_json::to_vec(&state)?)?;
                         file.flush()?;
@@ -545,7 +545,7 @@ impl SluWorkspacesManager2 {
     }
 }
 
-impl From<VirtualDesktops> for SluWorkspacesManager2 {
+impl From<VirtualDesktops> for MacUiWorkspacesManager2 {
     fn from(value: VirtualDesktops) -> Self {
         let mut workspace_index = HashMap::new();
         for (mid, m) in &value.monitors {
@@ -565,8 +565,8 @@ impl From<VirtualDesktops> for SluWorkspacesManager2 {
     }
 }
 
-impl From<&SluWorkspacesManager2> for VirtualDesktops {
-    fn from(value: &SluWorkspacesManager2) -> Self {
+impl From<&MacUiWorkspacesManager2> for VirtualDesktops {
+    fn from(value: &MacUiWorkspacesManager2) -> Self {
         Self {
             monitors: value.monitors.to_hash_map(),
             pinned: value.pinned.to_vec(),

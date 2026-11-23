@@ -1,13 +1,13 @@
 <script lang="ts">
-  import { invoke, SeelenCommand, Widget } from "@seelen-ui/lib";
-  import type { ContextMenu, ContextMenuItem, PluginId, WidgetId } from "@seelen-ui/lib/types";
-  import { Alignment, FancyToolbarSide } from "@seelen-ui/lib/types";
+  import { invoke, MacUiCommand, Widget } from "@macui/lib";
+  import type { ContextMenu, ContextMenuItem, PluginId, WidgetId } from "@macui/lib/types";
+  import { Alignment, FancyToolbarSide } from "@macui/lib/types";
   import { DragDropProvider, DragOverlay } from "@dnd-kit/svelte";
   import { move } from "@dnd-kit/helpers";
   import { onDestroy, onMount } from "svelte";
   import { BackgroundByLayers } from "libs/ui/svelte/components/BackgroundByLayers";
   import { getResourceText } from "libs/ui/react/utils/index.ts";
-  import { createDragDropManager } from "libs/ui/dnd.ts";
+  import { createDragDropManager, createDragDropSensors } from "libs/ui/dnd.ts";
   import { t, locale } from "../i18n/index.ts";
   import {
     toolbarState,
@@ -26,7 +26,10 @@
   import { watchWallpaperContrast } from "../wallpaperContrast";
 
   // Workaround for https://github.com/clauderic/dnd-kit/issues/2112
-  const manager = createDragDropManager();
+  const manager = createDragDropManager(() => !toolbarState.isReorderDisabled);
+  // Provider replaces manager sensor settings unless explicitly supplied. Keep Enter/Space
+  // for module buttons and gate pointer drag while the toolbar is locked.
+  const sensors = createDragDropSensors(() => !toolbarState.isReorderDisabled);
   onDestroy(() => manager.destroy());
   onMount(watchWallpaperContrast);
 
@@ -66,11 +69,11 @@
           };
         }
         if (key === "task_manager") {
-          invoke(SeelenCommand.OpenFile, { path: "Taskmgr.exe" });
+          invoke(MacUiCommand.OpenFile, { path: "Taskmgr.exe" });
         }
         if (key === "settings") {
-          invoke(SeelenCommand.TriggerWidget, {
-            payload: { id: "@seelen/settings" as WidgetId },
+          invoke(MacUiCommand.TriggerWidget, {
+            payload: { id: "@macui/settings" as WidgetId },
           });
         }
         if (key === "restore") {
@@ -173,7 +176,7 @@
     event.stopPropagation();
     const alignY =
       settingsState.position === FancyToolbarSide.Bottom ? Alignment.End : Alignment.Start;
-    invoke(SeelenCommand.TriggerContextMenu, {
+    invoke(MacUiCommand.TriggerContextMenu, {
       menu: { ...buildContextMenu(), alignX: Alignment.Center, alignY },
       forwardTo: null,
     });
@@ -203,9 +206,9 @@
     if (typeof entry === "string") {
       const plugin = plugins.value.find((p) => p.id === entry);
       if (!plugin) return null;
-      return { ...(plugin.plugin as any), id: entry };
+      return { module: { ...(plugin.plugin as any), id: entry }, pluginId: entry };
     }
-    return entry;
+    return { module: entry, pluginId: undefined };
   }
 </script>
 
@@ -223,6 +226,7 @@
 
   <DragDropProvider
     {manager}
+    {sensors}
     onDragStart={handleDragStart}
     onDragOver={handleDragOver}
     onDragEnd={handleDragEnd}
@@ -233,9 +237,9 @@
 
     <DragOverlay>
       {#snippet children(source)}
-        {@const module = resolveOverlayModule(source.id as string)}
-        {#if module}
-          <Item {module} />
+        {@const overlay = resolveOverlayModule(source.id as string)}
+        {#if overlay}
+          <Item module={overlay.module} pluginId={overlay.pluginId} />
         {/if}
       {/snippet}
     </DragOverlay>

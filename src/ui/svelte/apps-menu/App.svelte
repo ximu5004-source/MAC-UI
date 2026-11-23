@@ -1,11 +1,12 @@
 <script lang="ts">
   import { tick } from "svelte";
   import { t } from "./i18n";
-  import { Widget, invoke, SeelenCommand } from "@seelen-ui/lib";
+  import { Widget } from "@macui/lib";
   import { Icon } from "libs/ui/svelte/components/Icon";
   import StartMenuBody from "./components/layout/StartMenuBody.svelte";
   import StartMenuFooter from "./components/layout/StartMenuFooter.svelte";
   import FolderModal from "./components/FolderModal.svelte";
+  import ClearFavoritesDialog from "./components/ClearFavoritesDialog.svelte";
   import { globalState } from "./state/mod.svelte";
   import { searchState } from "./state/search.svelte";
   import { StartDisplayMode, StartView } from "./constants";
@@ -17,9 +18,10 @@
   // never squeeze large native icons or their two-line labels.
   let applicationWidth = $state(960), applicationHeight = $state(600);
   let keyboardFocus = $state(false);
+  let clearRequested = $state(false);
+  let clearTrigger: HTMLButtonElement;
   const geometry = $derived(pageGeometry(applicationWidth, applicationHeight));
   const openFolder = $derived(globalState.folders.find(f => f.itemId === globalState.openFolderId));
-  const queryPrefix = $derived(searchState.searchQuery.trim().match(/^(apps|files|web):/i)?.[1]?.toLowerCase() || "");
 
   $effect(() => { globalState.columns = geometry.columns; globalState.pageSize = geometry.pageSize; });
   $effect(() => {
@@ -41,35 +43,39 @@
     if (event.isComposing || event.defaultPrevented || document.querySelector("dialog[open]")) return;
     if (event.key === "Escape") {
       event.preventDefault();
-      if (searchState.searchQuery) searchState.searchQuery = "";
+      if (globalState.choosingFavorites) {
+        globalState.choosingFavorites = false;
+        searchState.searchQuery = "";
+        globalState.view = StartView.Favorites;
+      } else if (searchState.searchQuery) searchState.searchQuery = "";
       else if (globalState.view === StartView.All) { globalState.view = StartView.Favorites; globalState.page = 0; }
       else void Widget.self.hide();
     }
   }
   function handleBackgroundClick(event: MouseEvent) {
     const target = event.target as HTMLElement;
-    if (document.querySelector("dialog[open]") || target.closest(".apps-menu,button,input,select,.app,.folder,dialog,a,[role=alert]")) return;
+    if (document.querySelector("dialog[open]") || target.closest("button,input,select,.app,.folder,dialog,a,[role=alert],.launchpad-header,.launchpad-toolbar,.launchpad-feedback,.apps-menu-footer")) return;
     void Widget.self.hide();
   }
-  function handlePrefixChange(prefix: string) {
-    const query = searchState.searchQuery.trim().replace(/^(apps|files|web):\s*/i, "");
-    searchState.searchQuery = prefix ? `${prefix}: ${query}` : query;
-    inputElement.focus();
+  const handleInputKeyDown = createInputKeyDownHandler();
+  function selectView(view: StartView) {
+    if (globalState.clearingFavorites) return;
+    searchState.searchQuery = "";
+    globalState.choosingFavorites = false;
+    globalState.view = view;
+    globalState.page = 0;
   }
-  const handleInputKeyDown = createInputKeyDownHandler({ onEnter: () => {
-    if (queryPrefix !== "web") return false;
-    const query = searchState.searchQuery.trim().slice(4).trim();
-    if (query) {
-      void Widget.self.hide();
-      void invoke(SeelenCommand.OpenFile, { path: `https://www.google.com/search?q=${encodeURIComponent(query)}` });
-    }
-    return true;
-  } });
   async function closeFolder() {
     const id = globalState.openFolderId;
     globalState.openFolderId = null;
     await tick();
     Array.from(document.querySelectorAll<HTMLElement>(".folder")).find(el => el.dataset.itemId === id)?.focus();
+  }
+  async function closeClearDialog() {
+    clearRequested = false;
+    await tick();
+    if (clearTrigger && !clearTrigger.disabled) clearTrigger.focus();
+    else inputElement?.focus();
   }
 </script>
 
@@ -79,6 +85,7 @@
   data-searching={!!searchState.searchQuery}
   data-folder-open={!!openFolder} data-keyboard-focus={keyboardFocus} data-compact={geometry.iconSize === 48}
   style:--columns={geometry.columns} style:--launchpad-rows={geometry.rows} style:--lp-icon={`${geometry.iconSize}px`}>
+  <div class="launchpad-content">
   <header class="launchpad-header">
     <h1 class="sr-only">{$t("launchpad.title")}</h1>
     <div class="launchpad-search" role="search">
@@ -96,29 +103,40 @@
   <section class="launchpad-applications" aria-label={$t("applications")} aria-hidden={!!openFolder} inert={!!openFolder}>
     <div class="launchpad-toolbar">
         <div class="launchpad-view-switch" aria-label={$t("launchpad.view")}>
-          <button aria-pressed={globalState.view === StartView.Favorites} onclick={() => { searchState.searchQuery = ""; globalState.view = StartView.Favorites; globalState.page = 0; }}>{$t("launchpad.title")}</button>
-          <button aria-pressed={globalState.view === StartView.All} onclick={() => { searchState.searchQuery = ""; globalState.view = StartView.All; globalState.page = 0; }}>{$t("all")}</button>
+          <button aria-pressed={globalState.view === StartView.Favorites} onclick={() => selectView(StartView.Favorites)}>{$t("launchpad.favorites")}</button>
+          <button aria-pressed={globalState.view === StartView.All} onclick={() => selectView(StartView.All)}>{$t("all")}</button>
         </div>
-      {#if searchState.searchQuery}
-        <select aria-label={$t("launchpad.search_scope")} value={queryPrefix} onchange={e => handlePrefixChange(e.currentTarget.value)}>
-          <option value="">{$t("query.all")}</option><option value="apps">{$t("query.apps")}</option><option value="files">{$t("query.files")}</option><option value="web">{$t("query.web")}</option>
-        </select>
-      {:else}
-        <div class="launchpad-actions">
-          <button onclick={() => { searchState.searchQuery = ""; globalState.createEmptyFolder($t("folder")); }}><Icon iconName="FiFolderPlus" />{$t("launchpad.new_folder")}</button>
-          <button disabled={globalState.importing} aria-busy={globalState.importing} title={$t("launchpad.import_hint")} onclick={() => globalState.importWindowsStartMenu()}>
-            <Icon iconName="FiDownload" />{globalState.importing ? $t("launchpad.importing") : $t("launchpad.import")}
+      <div class="launchpad-actions">
+        {#if globalState.canUndoClear}
+          <button disabled={globalState.clearingFavorites} onclick={() => globalState.undoClearFavorites()}><Icon iconName="FiRotateCcw" />{$t("launchpad.undo_clear")}</button>
+        {/if}
+        <button bind:this={clearTrigger} class="launchpad-clear" disabled={!globalState.canEditFavorites || globalState.clearingFavorites || !globalState.pinnedItems.length}
+          title={$t("launchpad.clear_hint")} onclick={() => { clearRequested = true; }}><Icon iconName="FiTrash2" />{$t("launchpad.clear_favorites")}</button>
+        {#if globalState.choosingFavorites}
+          <button onclick={() => selectView(StartView.Favorites)}><Icon iconName="FiCheck" />{$t("launchpad.done")}</button>
+        {:else}
+          <button disabled={!globalState.canEditFavorites} onclick={() => { searchState.searchQuery = ""; globalState.chooseFavorites(); }}><Icon iconName="FiPlus" />{$t("launchpad.add_favorites")}</button>
+          {#if globalState.view === StartView.Favorites}
+          <button disabled={!globalState.canEditFavorites} onclick={() => { searchState.searchQuery = ""; globalState.createEmptyFolder($t("folder")); }}><Icon iconName="FiFolderPlus" />{$t("launchpad.new_folder")}</button>
+          {:else}
+          <button disabled={globalState.refreshing} aria-busy={globalState.refreshing} title={$t("launchpad.all_apps_hint")} onclick={() => globalState.refreshApplications()}>
+            <Icon iconName="FiRefreshCw" />{$t("launchpad.refresh")}
           </button>
-        </div>
-      {/if}
+          {/if}
+        {/if}
+      </div>
     </div>
-    <div class="launchpad-feedback" data-feedback-state={globalState.saveState === "error" || globalState.importFailed ? "error" : globalState.importResult || globalState.saveState === "saving" ? "status" : "hint"} aria-live="polite">
-      {#if globalState.saveState === "error" || globalState.importFailed}
+    <div class="launchpad-feedback" data-feedback-state={globalState.layoutLoadError || globalState.saveState === "error" || globalState.refreshFailed ? "error" : globalState.saveState === "saving" ? "status" : "hint"} aria-live="polite">
+      {#if globalState.layoutLoadError}
+        <span role="alert">{$t("launchpad.load_error")}</span>
+        <button disabled={globalState.layoutLoading} onclick={() => globalState.retrySave()}>{$t("launchpad.retry")}</button>
+      {:else if globalState.saveState === "error" || globalState.refreshFailed}
         <span role="alert">{$t("launchpad.save_error")}</span>
-        <button onclick={() => globalState.importFailed ? globalState.importWindowsStartMenu() : globalState.retrySave()}>{$t("launchpad.retry")}</button>
-      {:else if globalState.importResult}
-        <span>{$t("launchpad.import_done", { apps: String(globalState.importResult.addedApps), folders: String(globalState.importResult.addedFolders) })}</span>
+        <button onclick={() => globalState.refreshFailed ? globalState.refreshApplications() : globalState.retrySave()}>{$t("launchpad.retry")}</button>
       {:else if globalState.saveState === "saving"}<span>{$t("launchpad.saving")}</span>
+      {:else if globalState.choosingFavorites}<span>{$t("launchpad.choose_hint")}</span>
+      {:else if globalState.view === StartView.All}<span>{$t("launchpad.all_apps_hint")}</span>
+      {:else if globalState.retainedLegacyLayout}<span>{$t("launchpad.migrated_hint")}</span>
       {:else}<span>{$t("launchpad.hint")}</span>{/if}
     </div>
     <div class="launchpad-applications-viewport" bind:clientWidth={applicationWidth} bind:clientHeight={applicationHeight}>
@@ -126,5 +144,7 @@
     </div>
   </section>
   <StartMenuFooter />
+  </div>
   {#if openFolder}<FolderModal folder={openFolder} onClose={closeFolder} />{/if}
+  {#if clearRequested}<ClearFavoritesDialog onClose={closeClearDialog} />{/if}
 </div>

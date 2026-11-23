@@ -1,11 +1,28 @@
 use std::{fs::create_dir, path::PathBuf};
 
-use slu_utils::{checksums::CheckSums, signature::sign_minisign};
+use macui_utils::{checksums::CheckSums, signature::sign_minisign};
 
 fn main() {
     // Track the directory itself, including newly added widgets, not just files
     // known to tauri-build during the previous build.
     println!("cargo:rerun-if-changed=static");
+    println!("cargo:rerun-if-changed=../dist");
+    if std::env::var_os("CARGO_FEATURE_CUSTOM_PROTOCOL").is_some() {
+        for entry in [
+            "react/settings/index.html",
+            "svelte/weg/index.html",
+            "svelte/fancy-toolbar/index.html",
+            "svelte/flyouts/index.html",
+            "svelte/apps-menu/index.html",
+            "svelte/task-switcher/index.html",
+        ] {
+            let file = PathBuf::from("../dist").join(entry);
+            assert!(
+                std::fs::metadata(&file).is_ok_and(|metadata| metadata.len() > 0),
+                "Missing production frontend {entry}; finish npm run build:ui -- --production before Cargo"
+            );
+        }
+    }
     let _ = create_dir("gen");
 
     let mut checksums = CheckSums::new();

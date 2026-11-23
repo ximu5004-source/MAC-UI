@@ -30,14 +30,14 @@ apps_configurations:
     Tyto sdružené konfigurace nejsou upravitelné a jsou navrženy tak, aby vám
     poskytly nejlepší zkušenost bez přizpůsobení. Automaticky pro  Vás
     nakonfigurují nejběžnější aplikace.
-  bundled_title: Konfigurace aplikace spojená s Seelen
+  bundled_title: Konfigurace aplikace spojená s MAC UI
   confirm_delete: Určitě chcete tuto konfiguraci smazat?
   confirm_delete_title: Potvrďte smazání
   delete: Smazat
   export: Exportovat
   export_full: Export nastavení podle aplikace
   extra_info: >-
-    SEELEN UI používá pouze jeden identifikátor na aplikaci (první nalezený),
+    MAC UI používá pouze jeden identifikátor na aplikaci (první nalezený),
     takže pořadí v tom, jak jsou specifikovány, je důležité, nejnovější přidaná
     bude upřednostňována, protože tabulka je ve výchozím nastavení tříděna od
     nejnovější po nejstarší.
@@ -81,12 +81,12 @@ devtools:
   enable: Povolit vývojové nástroje
   enable_description: >-
     Odemyká pokročilé nástroje pro kontrolu a ladění vnitřků uživatelského
-    rozhraní Seelen. Není určeno pro pravidelné používání.
+    rozhraní MAC UI. Není určeno pro pravidelné používání.
   icons: Ikony uložené v mezipaměti
   install_folder: Instalační složka
   load: Načíst
   settings_file: Nastavení souboru
-  shared_components: Standardní komponenty SLU
+  shared_components: Standardní komponenty MAC UI
   simulate_dialog:
     label: Simulovat dialog
     trigger: Spoušť
@@ -120,7 +120,7 @@ devtools:
     widget_id: ID widgetu
 discord_banner:
   message: >-
-    Spojte se s ostatními uživateli uživatelského rozhraní Seelen, získejte
+    Spojte se s ostatními uživateli uživatelského rozhraní MAC UI, získejte
     nápovědu, sdílejte témata a buďte informováni o nejnovějších zprávách.
   title: Připojte se k naší komunitě
 extras:
@@ -169,7 +169,7 @@ general:
     plugged: Připojené nebo nabíjení
   polling_interval: Interval dotazování systému
   polling_interval_description: >-
-    Jak často (v sekundách) uživatelské rozhraní Seelen kontroluje systémové
+    Jak často (v sekundách) uživatelské rozhraní MAC UI kontroluje systémové
     prostředky, jako je CPU, RAM, síť a aktivita disku. Menší číslo znamená
     častější aktualizace, ale o něco vyšší využití zdrojů.
   saturday: sobota
@@ -226,7 +226,7 @@ resources:
   affected_widgets: Dotčené widgety
   app_outdated: >-
     Tento zdroj vyžaduje pro správnou funkci novější verzi uživatelského
-    rozhraní Seelen.
+    rozhraní MAC UI.
   coming_soon: Již brzy
   corrupted_wallpaper: >-
     Nepodařilo se extrahovat miniaturu – poškozený nebo nepodporovaný formát
@@ -240,7 +240,7 @@ resources:
   modified: Změněno
   open_folder: Otevření složky se zdroji
   outdated: >-
-    Tento zdroj byl navržen pro starší verzi uživatelského rozhraní Seelen a
+    Tento zdroj byl navržen pro starší verzi uživatelského rozhraní MAC UI a
     nemusí fungovat správně.
   see_on_website: Viz na webu
   update_now: Aktualizovat
@@ -249,7 +249,7 @@ resources:
 review_request:
   not_now: Teď ne
   sure: Jasně!
-  title: Líbí se vám uživatelské rozhraní Seelen?
+  title: Líbí se vám uživatelské rozhraní MAC UI?
 save: Uložit
 save_and_restart: Uložit a restartovat
 search: Vyhledávání
@@ -269,7 +269,7 @@ shortcuts:
   enable: Povolení vestavěného systému zkratek
   enable_tooltip: >-
     Zakázat, pokud budete implementovat vlastní systém zkratek pomocí klienta
-    Seelen UI.
+    MAC UI.
   labels:
     create_new_workspace: Vytvoření nového pracovního prostoru
     create_new_workspace_row: Vytvořit nový řádek pracovního prostoru
@@ -423,15 +423,15 @@ weg:
 welcome:
   give_a_review: Dejte recenzi
   message: >-
-    Seelen UI je bezplatné a open source desktopové prostředí pro Windows. Zde
+    MAC UI je bezplatné a open source desktopové prostředí pro Windows. Zde
     máte plnou kontrolu nad tím, jak váš desktop vypadá a chová se, což vám
     umožňuje přizpůsobit každý detail tak, aby odpovídal vašemu pracovnímu
     postupu a stylu.
   ok: Začněme!
   review: >-
-    Pokud rádi používáte Seelen UI, zvažte zanechání recenze v obchodě – vaše
+    Pokud rádi používáte MAC UI, zvažte zanechání recenze v obchodě – vaše
     zpětná vazba pomáhá projektu růst a zlepšovat se.
-  title: Vítejte v uživatelském rozhraní Seelen!
+  title: Vítejte v uživatelském rozhraní MAC UI!
 widget:
   default_instance: Výchozí instance
   default_instance_hint: Vždy aktivní, používá kořenovou konfiguraci widgetu

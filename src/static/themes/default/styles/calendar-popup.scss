@@ -24,7 +24,7 @@
       cursor: pointer;
 
       &:hover {
-        background-color: var(--slu-std-ui-hover-overlay);
+        background-color: var(--macui-std-ui-hover-overlay);
       }
     }
 
@@ -44,7 +44,7 @@
         justify-content: center;
 
         &:hover {
-          background-color: var(--slu-std-ui-hover-overlay);
+          background-color: var(--macui-std-ui-hover-overlay);
         }
       }
     }
@@ -93,7 +93,7 @@
     cursor: pointer;
 
     &:hover {
-      background-color: var(--slu-std-ui-hover-overlay);
+      background-color: var(--macui-std-ui-hover-overlay);
     }
 
     &.calendar-cell-off-month {
@@ -132,7 +132,7 @@
       text-align: center;
 
       &:hover {
-        background-color: var(--slu-std-ui-hover-overlay);
+        background-color: var(--macui-std-ui-hover-overlay);
       }
 
       &.calendar-month-cell-current {

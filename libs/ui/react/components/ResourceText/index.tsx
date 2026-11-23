@@ -1,5 +1,5 @@
-import type { ResourceText as IResourceText } from "@seelen-ui/lib/types";
-import { invoke, SeelenCommand } from "@seelen-ui/lib";
+import type { ResourceText as IResourceText } from "@macui/lib/types";
+import { invoke, MacUiCommand } from "@macui/lib";
 import { useTranslation } from "react-i18next";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
@@ -74,7 +74,7 @@ export function ResourceTextAsMarkdown({ text }: MarkdownViewerProps) {
         if (anchor?.href) {
           // force links on markdown being opened on browser
           e.preventDefault();
-          invoke(SeelenCommand.OpenFile, { path: anchor.href });
+          invoke(MacUiCommand.OpenFile, { path: anchor.href });
         }
       }}
     />

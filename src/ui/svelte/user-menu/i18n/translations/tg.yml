@@ -15,7 +15,7 @@ profile:
   log_out: Бароед
   open_onedrive: Феҳристи OneDrive-ро кушоед
   open_user_folder: Феҳристи корбарро кушоед
-seelen_options:
-  open_installation_folder: Папкаи танзимоти Seelenро кушоед
-  open_log_folder: Папкаи гузориши Seelenро кушоед
+macui_options:
+  open_installation_folder: Папкаи танзимоти MAC UIро кушоед
+  open_log_folder: Папкаи гузориши MAC UIро кушоед
   title: Феҳристҳои дидашуда

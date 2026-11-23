@@ -72,29 +72,89 @@ pub async fn check_for_webview_optimal_state() -> bool {
 
     let (tx, rx) = tokio::sync::oneshot::channel();
 
-    std::thread::spawn(|| {
-        let label = base64::engine::general_purpose::URL_SAFE_NO_PAD.encode("@seelen/integrity");
-        let window = tauri::WebviewWindowBuilder::new(
-            get_app_handle(),
-            &label,
-            tauri::WebviewUrl::App("vanilla/integrity/index.html".into()),
-        )
-        .visible(false)
-        .build()?;
-        window.hwnd()?; // build could not fail so we check for the handle.
-        window.destroy()?; // close the fake window
-        let _ = tx.send(());
-        Result::Ok(())
-    });
+    let worker = std::thread::Builder::new()
+        .name("WebviewStartupProbe".into())
+        .spawn(move || {
+            let result = (|| -> Result<()> {
+                let label =
+                    base64::engine::general_purpose::URL_SAFE_NO_PAD.encode("@macui/integrity");
+                let window = tauri::WebviewWindowBuilder::new(
+                    get_app_handle(),
+                    &label,
+                    tauri::WebviewUrl::App("vanilla/integrity/index.html".into()),
+                )
+                .visible(false)
+                .build()?;
+                window.hwnd()?; // A usable native handle is required as well.
+                window.destroy()?;
+                Ok(())
+            })();
+            let _ = tx.send(result);
+        });
+    if let Err(error) = worker {
+        log::error!("Could not start WebView startup probe: {error}");
+        return false;
+    }
 
+    wait_for_webview_probe(rx, std::time::Duration::from_secs(3)).await
+}
+
+async fn wait_for_webview_probe(
+    rx: tokio::sync::oneshot::Receiver<Result<()>>,
+    timeout: std::time::Duration,
+) -> bool {
     tokio::select! {
-        _ = rx => {
+        result = rx => {
+            match result {
+                Ok(Ok(())) => {},
+                Ok(Err(error)) => {
+                    log::error!("WebView startup probe failed: {error}");
+                    return false;
+                }
+                Err(error) => {
+                    // A panic/early worker exit closes the channel. That is not
+                    // a successful probe and must not be logged as confirmed.
+                    log::error!("WebView startup probe ended without a result: {error}");
+                    return false;
+                }
+            }
             log::info!("Webview optimal state confirmed.");
             true
         }
-        _ = tokio::time::sleep(std::time::Duration::from_secs(3)) => {
+        _ = tokio::time::sleep(timeout) => {
             log::error!("Webview optimal state check timed out.");
             false
         }
+    }
+}
+
+#[cfg(test)]
+mod startup_probe_tests {
+    use super::*;
+    use std::time::Duration;
+
+    #[tokio::test]
+    async fn only_an_explicit_success_confirms_the_webview_probe() {
+        let (tx, rx) = tokio::sync::oneshot::channel();
+        tx.send(Ok(())).unwrap();
+        assert!(wait_for_webview_probe(rx, Duration::from_secs(1)).await);
+    }
+
+    #[tokio::test]
+    async fn probe_failure_and_missing_result_are_not_reported_as_success() {
+        let (tx, rx) = tokio::sync::oneshot::channel();
+        tx.send(Err("Native WebView creation failed".into()))
+            .unwrap();
+        assert!(!wait_for_webview_probe(rx, Duration::from_secs(1)).await);
+
+        let (tx, rx) = tokio::sync::oneshot::channel();
+        drop(tx);
+        assert!(!wait_for_webview_probe(rx, Duration::from_secs(1)).await);
+    }
+
+    #[tokio::test]
+    async fn a_stalled_probe_keeps_the_bounded_startup_deadline() {
+        let (_tx, rx) = tokio::sync::oneshot::channel();
+        assert!(!wait_for_webview_probe(rx, Duration::from_millis(1)).await);
     }
 }

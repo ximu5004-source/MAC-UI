@@ -1,7 +1,7 @@
 use tauri::{Builder, Wry};
 
 pub fn register_plugins(app_builder: Builder<Wry>) -> Builder<Wry> {
-    // tauri_plugin_deep_link is intentionally omitted: the URI scheme (seelen-ui.uri) is
+    // tauri_plugin_deep_link is intentionally omitted: the URI scheme (macui.uri) is
     // declared in tauri.conf.json only for the bundler to inject it into installer.nsi;
     // no runtime URL callback handling is needed.
     app_builder

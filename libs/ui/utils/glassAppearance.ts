@@ -1,6 +1,6 @@
-import type { WidgetId } from "@seelen-ui/lib/types";
+import type { WidgetId } from "@macui/lib/types";
 
-export const GLASS_SETTINGS_WIDGET = "@seelen/desktop-shell" as WidgetId;
+export const GLASS_SETTINGS_WIDGET = "@macui/desktop-shell" as WidgetId;
 
 /** Shared by settings previews and live widgets. Percentages are transparency,
  * not opacity: 100 means no material. Never change the artwork's opacity. */

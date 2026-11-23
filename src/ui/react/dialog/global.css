@@ -20,8 +20,8 @@ body,
   display: grid;
   grid-template-rows: min-content 1fr min-content;
 
-  background-color: var(--slu-std-bg-color);
-  color: var(--slu-std-fg-color);
+  background-color: var(--macui-std-bg-color);
+  color: var(--macui-std-fg-color);
   border-radius: 10px;
 
   box-shadow: var(--shadow-m);
@@ -32,7 +32,7 @@ body,
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--slu-std-bg-light-color);
+    background-color: var(--macui-std-bg-light-color);
 
     padding: var(--spacing-xs) var(--spacing-s);
     font-weight: 600;

@@ -10,7 +10,7 @@
     selectPreselectedOrFirst,
     type SelectionScope,
   } from "../keyboard-navigation";
-  import type { StartMenuItem } from "@seelen-ui/lib/types";
+  import type { StartMenuItem } from "@macui/lib/types";
   import { pageSlice } from "../launchpad";
   import PageControls from "./PageControls.svelte";
   import PageViewport from "./PageViewport.svelte";
@@ -90,14 +90,14 @@
     onchange={changePage}>
   <ul bind:this={grid} role="listbox" aria-label={$t("applications")} class="all-apps-view-list launchpad-grid">
     {#each pagination.items as item, idx (getItemKey(item))}
-      <AppItem {item} {idx} lazy {scope} />
+      <AppItem {item} {idx} lazy {scope} pinSelection={globalState.choosingFavorites} />
     {/each}
   </ul>
   </PageViewport>
 
   {#if searchState.searchedItems.length === 0}
     <div class="all-apps-view-empty">
-      {searchState.searchFilter === "web" ? $t("web_search") : $t("no_matching_items")}
+      {$t("no_matching_items")}
     </div>
   {/if}
   <PageControls page={pagination.page} count={pagination.count} onchange={changePage} />

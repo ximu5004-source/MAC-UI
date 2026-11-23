@@ -15,7 +15,7 @@ profile:
   log_out: Esci
   open_onedrive: Apri la directory di OneDrive
   open_user_folder: Apri la directory utente
-seelen_options:
-  open_installation_folder: Apri la cartella delle impostazioni di Seelen
-  open_log_folder: Apri la cartella di registro di Seelen
-  title: Directory Seelen
+macui_options:
+  open_installation_folder: Apri la cartella delle impostazioni di MAC UI
+  open_log_folder: Apri la cartella di registro di MAC UI
+  title: Directory MAC UI

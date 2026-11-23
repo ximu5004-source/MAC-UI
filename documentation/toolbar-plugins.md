@@ -1,4 +1,22 @@
-# Toolbar Plugins — `@seelen/fancy-toolbar`
+# Toolbar Plugins — `@macui/fancy-toolbar`
+
+## Music Playback module / 音乐播放模块
+
+The built-in `@macui/tb-now-playing` module shows the current track and playback state and opens
+the Now Playing panel. It is independent of `@macui/tb-media-popup` (volume and output devices).
+Right-click the top bar → **Modules → Music Playback** to add/remove it; right-click its icon →
+**Remove module** to remove it directly. Unlock the top bar to reorder it between the left,
+center and right groups. Changes are saved with the normal toolbar layout and synchronized
+between monitors. Removing the module stops its own media-session subscription; other media
+modules may still subscribe independently.
+
+右键顶部栏 → **模块 → 音乐播放**，勾选添加、取消勾选移除；也可以右键音乐图标 → **移除模块**。
+解锁顶部栏后可以拖动调整位置。新配置和“恢复默认值”包含音乐播放模块；已有配置不会被强制修改，
+需要时自行勾选添加，移除后不会在重新启动时自动加回来。音量模块不受影响。
+
+Implementation: `src/ui/svelte/fancy-toolbar/modules/now-playing/` contains the component,
+mount-scoped state and module ID; `src/static/plugins/tb_now_playing/metadata.yml` registers it.
+Only this registered plugin ID uses the built-in renderer, not arbitrary inline items.
 
 This is one concrete example of the generic Plugin mechanism described in [plugin guidelines](./plugin-guidelines):
 `@seelen/fancy-toolbar` is the target widget, and this page documents **its** schema for `plugin`, and **its** rules for

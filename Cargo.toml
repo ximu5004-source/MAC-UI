@@ -19,8 +19,8 @@ codegen-units = 1
 members = [
   "libs/core",
   "libs/positioning",
-  "libs/slu-ipc",
-  "libs/slu-macros",
+  "libs/macui-ipc",
+  "libs/macui-macros",
   "libs/utils",
   "src",
   "src/hook_dll",
@@ -65,10 +65,10 @@ reqwest = "0.13.1"
 rust-i18n = "4.1.0"
 salvo = "0.95.1"
 sha2 = "0.10.9"
-seelen-core = { path = "libs/core" }
-slu-ipc = { path = "libs/slu-ipc" }
-slu-macros = { path = "libs/slu-macros" }
-slu-utils = { path = "libs/utils" }
+macui-core = { path = "libs/core" }
+macui-ipc = { path = "libs/macui-ipc" }
+macui-macros = { path = "libs/macui-macros" }
+macui-utils = { path = "libs/utils" }
 positioning = { path = "libs/positioning" }
 sysinfo = "0.38.3"
 tauri = "2.11.2"

@@ -1,4 +1,4 @@
-import { invoke, SeelenCommand } from "@seelen-ui/lib";
+import { invoke, MacUiCommand } from "@macui/lib";
 import { Icon } from "libs/ui/react/components/Icon";
 import { Badge, Button, Tooltip } from "antd";
 import { useEffect, useState } from "react";
@@ -11,7 +11,7 @@ export function UpdateButton() {
   const { t } = useTranslation();
 
   useEffect(() => {
-    invoke(SeelenCommand.CheckForUpdates)
+    invoke(MacUiCommand.CheckForUpdates)
       .then(setUpdate)
       .catch(() => setUpdate(false));
   }, []);
@@ -28,7 +28,7 @@ export function UpdateButton() {
         onClick={() => {
           if (!downloading) {
             setDownloading(true);
-            invoke(SeelenCommand.InstallLastAvailableUpdate).finally(() => setDownloading(false));
+            invoke(MacUiCommand.InstallLastAvailableUpdate).finally(() => setDownloading(false));
           }
         }}
       >

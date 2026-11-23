@@ -1,0 +1,174 @@
+desktop_shell:
+  native_order: 图标排序
+  apply_order: 应用排序
+  cancel_order: 取消
+  order_changed: 桌面内容已变化，请重新打开排序窗口。
+  activity:
+    recent: 最近打开
+    frequent: 我的常用
+    pin: 固定到我的常用
+    unpin: 取消常用固定
+    empty: 在此桌面打开文件，或将选中文件固定到「我的常用」，即可显示在此。
+    hint: 依据本桌面记录的打开次数和固定引用展示，最多显示 100 个当前可用项目；与 Windows 全局最近访问记录独立。
+  time_groups:
+    recent-week: 最近一周
+    older: 一周前
+  sort:
+    time-grouped: 按时间分组
+    label: 盒内排序
+    all: 全局排序
+    manual: 手动顺序
+    name: 名称
+    type: 文件类型
+    modified: 修改时间（新到旧）
+    size: 文件大小（大到小）
+    recent: 在此桌面最近打开
+    frequent: 固定优先，其次使用频次
+  organize:
+    deskgo: 整理
+    now: 一键整理
+    lock: 锁定整理盒布局
+    lock_hint: 锁定整理盒的位置和尺寸，文件操作与排序仍可使用
+  backup:
+    label: 布局备份与恢复
+    create: 保存布局快照
+    restore_manual: 恢复已存快照
+    restore_previous: 恢复上次保存的布局
+    created: 布局快照已保存
+    restored: 布局已恢复，磁盘文件没有改变
+  files:
+    selection: 选中文件操作
+    selected: 已选 {{count}} 项
+    copy: 复制
+    cut: 剪切
+    paste: 粘贴
+    delete: 删除
+    properties: 属性
+    working: Windows 正在处理文件操作…
+  spacing:
+    label: 图标间距
+    horizontal: 水平间距（像素）
+    vertical: 垂直间距（像素）
+    reset: 恢复默认间距
+  boxes:
+    namespace_readonly: 系统项目可打开或使用 Windows 原生菜单，不能作为普通文件重命名、剪贴或删除。
+    drop_link_unsupported: 暂不支持 Alt 拖放创建快捷方式；未更改文件。
+    drop_query_unsupported: 最近和常用列表不是文件夹；请放到普通整理盒或桌面。
+    drop_files_only: 原生文件拖放仅支持实际文件或文件夹。
+    box_limit: 最多支持 64 个自定义整理盒。
+    invalid_box: 请输入有效的整理盒名称。
+    files_unavailable: Windows 文件服务暂不可用。
+    selection_readonly: 请先选择可用文件。
+    operation_busy: 请等待当前操作完成。
+    create: 新建整理盒
+    scroll_up: 向上浏览整理盒
+    scroll_down: 向下浏览整理盒
+    new_name: 我的整理盒
+    edit: 整理盒设置
+    name: 名称
+    extensions: 文件扩展名
+    rule_hint: '例如 pdf, docx。手动放置优先；规则重叠时，优先进入先创建的整理盒。'
+    folder: 映射文件夹（可选）
+    choose_folder: 选择文件夹
+    clear_folder: 取消映射
+    folder_hint: 显示文件夹的直接子项。右键使用 Windows 原生菜单；删除、剪切、重命名会操作原文件。点击刷新更新内容。
+    monitor: 显示器
+    disconnected: 已保存的显示器（未连接）
+    primary: 主屏
+    save: 保存
+    saving: 正在保存…
+    cancel: 取消
+    delete: 删除整理盒
+    delete_hint: 只删除整理盒及其规则。桌面文件恢复自动分类；映射文件保留在原文件夹。
+    confirm_delete: 确认删除整理盒
+    move_to: 移到整理盒
+    automatic: 恢复自动分类
+    moved: 已移到「{{title}}」
+    empty: 拖入桌面项目，或在整理盒设置中添加扩展名规则、映射文件夹。
+    mapping_unavailable: 映射文件夹暂不可用。请在整理盒设置中检查路径后刷新。
+    verify_failed: 无法验证保存的布局，已尝试恢复上一份有效布局。
+    recovery_failed: 无法保留原配置，已暂停保存以免覆盖。请处理显示的文件错误后重新打开桌面管理。
+    recovered: 已从备份恢复上一份有效布局，损坏文件另存保留。
+    corrupt_preserved: 损坏的布局文件已另存保留，现显示初始布局。
+  icon_size: 图标大小
+  icon_sizes:
+    '32': Windows 小图标
+    '48': 小
+    '64': 中
+    '80': 大
+    '96': 超大
+  move_hint: 拖动标题移动；方向键微调，Shift 加速
+  icon_move_hint: 拖动整理；Ctrl/Shift 多选。右键打开 Windows 文件菜单。Delete 放入回收站；Shift+Delete 请求永久删除并由 Windows 确认
+  icon_moved: 已移到第 {{position}} 项，共 {{count}} 项
+  icon_order_reset: 已恢复按名称排列
+  move_controls: 位置与尺寸微调
+  snap_grid: 网格吸附
+  show_grid: 显示网格
+  show_grid_hint: 持续显示对齐格子；不改变网格吸附或现有收纳框的位置
+  snap_hint: 移动或缩放时按 20 像素网格对齐边缘；关闭后可自由摆放
+  resize_hint: 拖动边缘或角落调整大小；聚焦缩放手柄后可用方向键微调
+  narrower: 宽度 −
+  wider: 宽度 +
+  shorter: 高度 −
+  taller: 高度 +
+  resize_n: 调整上边缘
+  resize_s: 调整下边缘
+  resize_e: 调整右边缘
+  resize_w: 调整左边缘
+  resize_ne: 调整右上角
+  resize_nw: 调整左上角
+  resize_se: 调整右下角
+  resize_sw: 调整左下角
+  move_left: 向左移动
+  move_up: 向上移动
+  move_down: 向下移动
+  move_right: 向右移动
+  reset_layout: 恢复默认收纳布局
+  expand: 展开
+  collapse: 折叠
+  operation_failed: 操作失败
+  label: 桌面
+  controls_label: 桌面设置
+  rename_label: 重命名桌面项目
+  new_folder_name: 新建文件夹
+  new_text_name: 新建文本文档
+  new_markdown_name: 新建 Markdown 文档
+  new_file_name: 新建{{type}}
+  new_file_fallback: 新建文件
+  creating: 正在创建…
+  file_types:
+    text: 文本文档
+    markdown: Markdown 文档
+  arrange:
+    custom_short: 自定
+    name: 按名称排列
+    name_short: 名称
+    category: 按类型整理收纳
+    category_short: 整理
+  menu:
+    organizer: MAC UI 桌面整理
+    move_previous: 前移一项
+    move_next: 后移一项
+    reset_icon_order: 当前列表恢复名称顺序
+    reset_all_icon_order: 所有图标恢复名称顺序
+    open: 打开
+    open_folder: 打开文件夹
+    reveal: 在文件资源管理器中显示
+    rename: 重命名
+    new_folder: 新建文件夹
+    new_file: 新建文件
+    arrange: 桌面排列方式
+    refresh: 刷新
+    open_desktop: 打开桌面文件夹
+  categories:
+    deskgo-folders: 我的文件夹
+    deskgo-files: 我的文件
+    desktop: 桌面
+    folders: 文件夹
+    images: 图片
+    documents: 文档
+    videos: 视频
+    audio: 音频
+    archives: 压缩包
+    apps: 应用与快捷方式
+    other: 其他

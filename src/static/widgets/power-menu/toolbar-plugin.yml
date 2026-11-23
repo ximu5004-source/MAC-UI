@@ -1,9 +1,9 @@
-id: "@seelen/tb-power-menu"
+id: "@macui/tb-power-menu"
 metadata:
   displayName: !extend i18n/display_name.yml
   description: !extend i18n/description.yml
 icon: IoPower
-target: "@seelen/fancy-toolbar"
+target: "@macui/fancy-toolbar"
 plugin:
   scopes:
     - Power
@@ -12,4 +12,4 @@ plugin:
   template: |-
     return Icon({ name: "IoPower" });
   onClickV2: |-
-    trigger("@seelen/power-menu");
+    trigger("@macui/power-menu");

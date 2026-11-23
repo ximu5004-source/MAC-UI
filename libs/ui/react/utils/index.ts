@@ -1,4 +1,4 @@
-import type { ResourceText } from "@seelen-ui/lib/types";
+import type { ResourceText } from "@macui/lib/types";
 
 export function getRootContainer(): HTMLElement {
   const element = document.getElementById("root");

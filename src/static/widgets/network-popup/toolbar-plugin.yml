@@ -1,9 +1,9 @@
-id: "@seelen/tb-network-popup"
+id: "@macui/tb-network-popup"
 metadata:
   displayName: !extend i18n/display_name.yml
   description: !extend i18n/description.yml
 icon: FaWifi
-target: "@seelen/fancy-toolbar"
+target: "@macui/fancy-toolbar"
 plugin:
   scopes:
     - Network
@@ -14,4 +14,4 @@ plugin:
     if (usingInterface?.type === "IEEE80211") return icon("FaWifi");
     return icon("FaComputer");
   onClickV2: |-
-    trigger("@seelen/network-popup");
+    trigger("@macui/network-popup");

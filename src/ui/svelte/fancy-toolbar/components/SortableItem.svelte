@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { ToolbarItem } from "@seelen-ui/lib/types";
+  import type { ToolbarItem } from "@macui/lib/types";
   import { createSortable } from "@dnd-kit/svelte/sortable";
   import { RestrictToHorizontalAxis } from "@dnd-kit/abstract/modifiers";
   import { toolbarState } from "../state/items.svelte.ts";
@@ -21,7 +21,9 @@
       return index;
     },
     get disabled() {
-      return toolbarState.isReorderDisabled;
+      // Lock sorting, not the module's button. Pointer activation is gated by Toolbar.
+      // Marking the draggable disabled makes dnd-kit declare aria-disabled on the control.
+      return { draggable: false, droppable: toolbarState.isReorderDisabled };
     },
     modifiers: [RestrictToHorizontalAxis],
   });

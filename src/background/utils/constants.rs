@@ -3,16 +3,16 @@ use std::{
     sync::{Arc, LazyLock},
 };
 
-use seelen_core::resource::{ResourceId, WidgetId};
+use macui_core::resource::{ResourceId, WidgetId};
 use tauri::Manager;
 use windows::Win32::UI::Shell::FOLDERID_Windows;
 
 use crate::{app::get_app_handle, windows_api::WindowsApi};
 
-pub static SEELEN_COMMON: LazyLock<Arc<SeelenCommon>> =
-    LazyLock::new(|| Arc::new(SeelenCommon::new()));
+pub static MACUI_COMMON: LazyLock<Arc<MacUiCommon>> =
+    LazyLock::new(|| Arc::new(MacUiCommon::new()));
 
-pub struct SeelenCommon {
+pub struct MacUiCommon {
     // general
     resource_dir: PathBuf,
     data_dir: PathBuf,
@@ -37,7 +37,7 @@ pub struct SeelenCommon {
 }
 
 #[allow(dead_code)]
-impl SeelenCommon {
+impl MacUiCommon {
     pub fn new() -> Self {
         let resolver = get_app_handle().path();
 
@@ -47,7 +47,7 @@ impl SeelenCommon {
         let temp_dir = resolver
             .temp_dir()
             .expect("Failed to get temp dir")
-            .join("com.seelen.seelen-ui");
+            .join("com.jona.mac-ui");
 
         let system_dir =
             WindowsApi::known_folder(FOLDERID_Windows).expect("Failed to get system dir");
@@ -149,7 +149,7 @@ impl SeelenCommon {
     }
 
     pub fn widget_data_dir(&self, id: &WidgetId) -> PathBuf {
-        let data_dir = SEELEN_COMMON.app_data_dir().join("data");
+        let data_dir = MACUI_COMMON.app_data_dir().join("data");
         let folder = match &**id {
             ResourceId::Local(id) => id.trim_start_matches("@").replace("/", "-"),
             ResourceId::Remote(uuid) => uuid.to_string(),

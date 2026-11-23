@@ -5,17 +5,17 @@ import { batch, computed, signal } from "@preact/signals";
 import { lazySignal } from "../../../../../libs/ui/react/utils/LazySignal.ts";
 
 interface SettingsSnapshot {
-  byWidget: { "@seelen/apps-menu": { enabled: boolean } };
+  byWidget: { "@macui/apps-menu": { enabled: boolean } };
 }
 
 function snapshot(enabled: boolean): SettingsSnapshot {
-  return { byWidget: { "@seelen/apps-menu": { enabled } } };
+  return { byWidget: { "@macui/apps-menu": { enabled } } };
 }
 
 test("settings subscribes to change events before starting the initial fetch", () => {
   const source = readFileSync(new URL("./mod.ts", import.meta.url), "utf8");
-  assert.match(source, /settings = lazySignal\(\(\) => invoke\(SeelenCommand.StateGetSettings/);
-  const subscribe = source.indexOf("await subscribe(SeelenEvent.StateSettingsChanged");
+  assert.match(source, /settings = lazySignal\(\(\) => invoke\(MacUiCommand.StateGetSettings/);
+  const subscribe = source.indexOf("await subscribe(MacUiEvent.StateSettingsChanged");
   const initialize = source.indexOf("await settings.init()");
   assert.ok(subscribe >= 0 && initialize > subscribe);
   assert.match(source.slice(subscribe, initialize), /settings\.value = payload;/);
@@ -35,7 +35,7 @@ test("a settings event during fetch wins over its stale enabled/disabled snapsho
       settings.value = latest;
       initialSettings.value = JSON.stringify(latest);
     });
-    const inputDisabled = computed(() => !settings.value.byWidget["@seelen/apps-menu"].enabled);
+    const inputDisabled = computed(() => !settings.value.byWidget["@macui/apps-menu"].enabled);
     assert.equal(inputDisabled.value, !eventEnabled);
 
     resolveFetch!(snapshot(!eventEnabled));
@@ -60,5 +60,5 @@ test("an event before init is retained, while no-event initialization still uses
   const noEvent = lazySignal(() => Promise.resolve(initial));
   await noEvent.init();
   assert.equal(noEvent.value, initial);
-  assert.equal(!noEvent.value.byWidget["@seelen/apps-menu"].enabled, true);
+  assert.equal(!noEvent.value.byWidget["@macui/apps-menu"].enabled, true);
 });

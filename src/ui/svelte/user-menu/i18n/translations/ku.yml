@@ -15,7 +15,7 @@ profile:
   log_out: Derkeve
   open_onedrive: Peldanka OneDrive vekin
   open_user_folder: Peldanka bikarhêner vekin
-seelen_options:
-  open_installation_folder: Peldanka mîhengên Seelen vekin
-  open_log_folder: Peldanka têketinê ya Seelen veke
-  title: derhênerên Seelen
+macui_options:
+  open_installation_folder: Peldanka mîhengên MAC UI vekin
+  open_log_folder: Peldanka têketinê ya MAC UI veke
+  title: derhênerên MAC UI

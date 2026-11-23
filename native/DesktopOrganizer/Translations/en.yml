@@ -1,0 +1,174 @@
+desktop_shell:
+  native_order: Arrange icons
+  apply_order: Apply order
+  cancel_order: Cancel
+  order_changed: The desktop changed. Reopen the editor to arrange the current icons.
+  activity:
+    recent: Recently opened
+    frequent: Frequently used
+    pin: Pin to frequently used
+    unpin: Unpin from frequently used
+    empty: Open files here or pin selected files to Frequently used to populate this box.
+    hint: This view uses opens recorded in Desktop Manager and pinned references, limited to 100 currently available items. It is separate from Windows’ global Recent history.
+  time_groups:
+    recent-week: Within the last week
+    older: More than a week ago
+  sort:
+    time-grouped: Group by modification time
+    label: Sort this box
+    all: Sort all boxes
+    manual: Manual order
+    name: Name
+    type: File type
+    modified: Modified time (newest first)
+    size: File size (largest first)
+    recent: Recently opened here
+    frequent: Pinned first, then usage
+  organize:
+    deskgo: Organize
+    now: Organize now
+    lock: Lock box layout
+    lock_hint: Lock box positions and sizes; file actions and sorting remain available
+  backup:
+    label: Layout backup and restore
+    create: Save a layout snapshot
+    restore_manual: Restore saved snapshot
+    restore_previous: Restore previous saved layout
+    created: Layout snapshot saved
+    restored: Layout restored. Files on disk were not changed
+  files:
+    selection: Selected file actions
+    selected: '{{count}} selected'
+    copy: Copy
+    cut: Cut
+    paste: Paste to Desktop
+    delete: Delete
+    properties: Properties
+    working: Windows is processing the file operation…
+  spacing:
+    label: Icon spacing
+    horizontal: Horizontal gap (px)
+    vertical: Vertical gap (px)
+    reset: Restore default spacing
+  boxes:
+    namespace_readonly: System items can open or use the Windows menu; ordinary file rename, clipboard and delete actions do not apply.
+    drop_link_unsupported: Alt-drag shortcut creation is not supported; no files were changed.
+    drop_query_unsupported: Recent and frequent views are not folders; drop into a regular box or the desktop.
+    drop_files_only: Native file dragging requires actual files or folders.
+    box_limit: A maximum of 64 custom boxes is supported.
+    invalid_box: Enter a valid box name.
+    files_unavailable: The Windows file service is unavailable.
+    selection_readonly: Select an available file to continue.
+    operation_busy: Wait for the current operation to finish.
+    create: New box
+    scroll_up: Scroll boxes up
+    scroll_down: Scroll boxes down
+    new_name: My box
+    edit: Box settings
+    name: Name
+    extensions: File extensions
+    rule_hint: 'Example: pdf, docx. Manual placement takes priority; when rules overlap, the first created box wins.'
+    folder: Linked folder (optional)
+    choose_folder: Choose folder
+    clear_folder: Unlink
+    folder_hint: Displays the folder’s direct children. Right-click uses the Windows menu; delete, cut and rename act on the original files. Use Refresh to update the folder.
+    monitor: Display
+    disconnected: Saved display (disconnected)
+    primary: Primary
+    save: Save
+    saving: Saving…
+    cancel: Cancel
+    delete: Delete box
+    delete_hint: Only this box and its rules will be removed. Desktop files return to automatic categories; linked files stay in their folder.
+    confirm_delete: Remove this box
+    move_to: Move to box
+    automatic: Use automatic category
+    moved: Moved to {{title}}
+    empty: Drop desktop items here, or add an extension rule or linked folder in Box settings.
+    mapping_unavailable: Linked folder unavailable. Check its path in Box settings, then refresh.
+    verify_failed: The saved layout could not be verified. The previous layout was restored when available.
+    recovery_failed: Configuration could not be preserved. Saving is paused to protect it; check the displayed file error and reopen Desktop Manager.
+    recovered: Recovered the previous valid layout from backup. The damaged file was preserved separately.
+    corrupt_preserved: The damaged layout was preserved separately. A fresh layout is shown.
+  icon_size: Icon size
+  icon_sizes:
+    '32': Windows small icons
+    '48': Small
+    '64': Medium
+    '80': Large
+    '96': Extra large
+  move_hint: Drag the title to move; arrow keys adjust, Shift moves faster
+  icon_move_hint: Drag to organize; Ctrl/Shift select multiple items. Right-click opens the Windows file menu. Delete sends files to the Recycle Bin; Shift+Delete requests permanent deletion with Windows confirmation
+  icon_moved: Moved to position {{position}} of {{count}}
+  icon_order_reset: Name order restored
+  move_controls: Adjust position and size
+  snap_grid: Snap to grid
+  show_grid: Show grid
+  show_grid_hint: Keep alignment guides visible without changing snapping or stack positions
+  snap_hint: Align panel edges to a 20 px grid while moving or resizing; switch off for free placement
+  resize_hint: Drag an edge or corner to resize; arrow keys adjust the focused resize handle
+  narrower: Width −
+  wider: Width +
+  shorter: Height −
+  taller: Height +
+  resize_n: Resize top edge
+  resize_s: Resize bottom edge
+  resize_e: Resize right edge
+  resize_w: Resize left edge
+  resize_ne: Resize top-right corner
+  resize_nw: Resize top-left corner
+  resize_se: Resize bottom-right corner
+  resize_sw: Resize bottom-left corner
+  move_left: Move left
+  move_up: Move up
+  move_down: Move down
+  move_right: Move right
+  reset_layout: Reset stack layout
+  expand: Expand
+  collapse: Collapse
+  operation_failed: Operation failed
+  label: Desktop
+  controls_label: Desktop settings
+  rename_label: Rename desktop item
+  new_folder_name: New folder
+  new_text_name: New text document
+  new_markdown_name: New Markdown document
+  new_file_name: New {{type}}
+  new_file_fallback: New file
+  creating: Creating…
+  file_types:
+    text: Text document
+    markdown: Markdown document
+  arrange:
+    custom_short: Custom
+    name: Arrange by name
+    name_short: Name
+    category: Organize by category
+    category_short: Organize
+  menu:
+    organizer: MAC UI desktop organizer
+    move_previous: Move one earlier
+    move_next: Move one later
+    reset_icon_order: Restore name order in this list
+    reset_all_icon_order: Restore name order for all icons
+    open: Open
+    open_folder: Open folder
+    reveal: Show in File Explorer
+    rename: Rename
+    new_folder: New folder
+    new_file: New file
+    arrange: Arrange desktop
+    refresh: Refresh
+    open_desktop: Open Desktop folder
+  categories:
+    deskgo-folders: My folders
+    deskgo-files: My files
+    desktop: Desktop
+    folders: Folders
+    images: Images
+    documents: Documents
+    videos: Videos
+    audio: Audio
+    archives: Archives
+    apps: Apps and shortcuts
+    other: Other

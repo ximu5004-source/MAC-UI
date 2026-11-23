@@ -37,6 +37,7 @@ pub enum WegItem {
     Separator {
         id: uuid::Uuid,
     },
+    /// Legacy media control. Accepted for migration only; Now Playing lives in the toolbar.
     Media {
         id: uuid::Uuid,
     },
@@ -104,6 +105,7 @@ pub struct WegItems {
 impl WegItems {
     fn migrate_item(item: WegItem) -> Option<WegItem> {
         let mut data = match item {
+            WegItem::Media { .. } => return None,
             WegItem::DeprecatedOldPinned(data) => data,
             WegItem::DeprecatedStartMenu { id } => {
                 return Some(WegItem::Plugin {
@@ -250,4 +252,93 @@ pub struct OldWegItemData {
     /// This intention is to prevent pinned state change, when this is neccesary
     #[serde(skip_deserializing)]
     pub pin_disabled: bool,
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn media_migration_preserves_layout_and_pinned_app_data() {
+        let left_id = uuid::Uuid::new_v4();
+        let app_id = uuid::Uuid::new_v4();
+        let separator_id = uuid::Uuid::new_v4();
+        let right_id = uuid::Uuid::new_v4();
+        let mut items = WegItems {
+            is_reorder_disabled: true,
+            left: vec![
+                WegItem::Media {
+                    id: uuid::Uuid::new_v4(),
+                },
+                WegItem::Plugin {
+                    id: left_id,
+                    plugin: "@default/weg-start-menu".into(),
+                },
+            ],
+            center: vec![
+                WegItem::AppOrFile(WegItemData {
+                    id: app_id,
+                    display_name: "Pinned app".into(),
+                    umid: Some("MACUI.Test.App".into()),
+                    path: "C:\\fake-test-app.exe".into(),
+                    pinned: true,
+                    prevent_pinning: true,
+                    relaunch: None,
+                }),
+                WegItem::Media {
+                    id: uuid::Uuid::new_v4(),
+                },
+                WegItem::Separator { id: separator_id },
+            ],
+            right: vec![
+                WegItem::Plugin {
+                    id: right_id,
+                    plugin: "@default/weg-trash-bin".into(),
+                },
+                WegItem::Media {
+                    id: uuid::Uuid::new_v4(),
+                },
+            ],
+        };
+
+        items.sanitize();
+        assert!(items.is_reorder_disabled);
+        assert_eq!(
+            items.left.iter().map(WegItem::id).collect::<Vec<_>>(),
+            vec![&left_id]
+        );
+        assert_eq!(
+            items.center.iter().map(WegItem::id).collect::<Vec<_>>(),
+            vec![&app_id, &separator_id]
+        );
+        assert_eq!(
+            items.right.iter().map(WegItem::id).collect::<Vec<_>>(),
+            vec![&right_id]
+        );
+        let WegItem::AppOrFile(app) = &items.center[0] else {
+            panic!("Pinned app was removed");
+        };
+        assert!(app.pinned && app.prevent_pinning);
+        assert_eq!(app.display_name, "Pinned app");
+
+        let after = serde_json::to_value(&items).unwrap();
+        items.sanitize();
+        assert_eq!(
+            serde_json::to_value(&items).unwrap(),
+            after,
+            "Migration must be idempotent"
+        );
+    }
+
+    #[test]
+    fn legacy_media_items_still_deserialize_but_are_removed_on_load() {
+        let media_id = uuid::Uuid::new_v4();
+        let mut items: WegItems = serde_json::from_value(serde_json::json!({
+            "left": [], "center": [], "right": [{ "type": "Media", "id": media_id }]
+        }))
+        .unwrap();
+        assert!(matches!(items.right[0], WegItem::Media { .. }));
+        items.sanitize();
+        assert!(items.left.is_empty() && items.center.is_empty() && items.right.is_empty());
+    }
 }

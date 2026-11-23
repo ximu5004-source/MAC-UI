@@ -16,12 +16,12 @@
 </script>
 
 {#if filename}
-  <InlineSVG {...rest} src={`/icons/${filename}.svg`} class={["slu-icon", className]} />
+  <InlineSVG {...rest} src={`/icons/${filename}.svg`} class={["macui-icon", className]} />
 {/if}
 
 <style>
   @layer svg-icon {
-    :global(.slu-icon) {
+    :global(.macui-icon) {
       height: 1em;
       width: max-content;
       min-width: max-content;

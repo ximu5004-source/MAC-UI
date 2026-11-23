@@ -3,7 +3,7 @@
 //! are not standard windows events, so we handle cached windows data to check for these changes, and emit
 //! synthetic events for them.
 
-use seelen_core::system_state::{FocusedApp, Relaunch, RelaunchArguments, UserAppWindow};
+use macui_core::system_state::{FocusedApp, Relaunch, RelaunchArguments, UserAppWindow};
 
 use crate::{utils::get_parts_of_inline_command, windows_api::types::AppUserModelId};
 

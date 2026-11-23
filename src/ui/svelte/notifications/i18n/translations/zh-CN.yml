@@ -5,3 +5,13 @@ settings: 更多通知设置
 title: 通知
 reply: 回复
 dismiss: 关闭此通知
+messaging:
+  wechat: 微信
+  wecom: 企业微信
+  dingtalk: 钉钉
+  feishu: 飞书
+  open: 打开{{app}}
+  new_message: '您有一条来自“{{app}}”的新消息。'
+  action_failed: 无法打开或关闭此通知，请重试。
+  windows_unavailable: Windows 通知暂不可用，办公软件的原生提醒仍可在这里显示。
+  bridge_unavailable: 办公软件提醒暂不可用，请重新打开 MAC UI 后重试。

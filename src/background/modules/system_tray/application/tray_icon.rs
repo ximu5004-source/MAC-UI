@@ -1,6 +1,6 @@
 use std::hash::{DefaultHasher, Hash, Hasher};
 
-use seelen_core::system_state::{SysTrayIcon, SysTrayIconId, SystrayIconAction};
+use macui_core::system_state::{SysTrayIcon, SysTrayIconId, SystrayIconAction};
 use windows::Win32::{
     Foundation::{HWND, LPARAM, WPARAM},
     UI::{
@@ -16,10 +16,14 @@ use windows::Win32::{
 
 use crate::{
     modules::system_tray::application::{SystemTrayManager, util::Util},
-    utils::{constants::SEELEN_COMMON, icon_extractor::convert_hicon_to_rgba_image},
+    utils::{constants::MACUI_COMMON, icon_extractor::convert_hicon_to_rgba_image},
     windows_api::{WindowsApi, window::Window},
 };
-use slu_ipc::messages::{IconEventData, Win32TrayEvent};
+use macui_ipc::messages::{IconEventData, Win32TrayEvent};
+
+// Native NIF_ICON + NULL is an explicit blank frame, not a failed decode or a
+// fabricated unread signal. Retain the last display image while observing it.
+const BLANK_NATIVE_ICON_HASH: &str = "native:null-icon";
 
 /// Events that can be emitted by `Systray`.
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -36,25 +40,51 @@ impl SystemTrayManager {
         self.icons.values()
     }
 
-    /// Returns the icon with the given handle and uid.
-    pub fn icon_by_handle(&self, handle: isize, uid: u32) -> Option<SysTrayIcon> {
+    fn find_icon(&self, icon_data: &IconEventData) -> Result<Option<SysTrayIcon>, ()> {
+        super::identity::find_icon(&self.icons.values(), icon_data).map(|icon| icon.cloned())
+    }
+
+    /// Native metadata/image work belongs to the single tray worker, while a
+    /// click may acknowledge notifications concurrently. Merge that one shared
+    /// field at commit time, never resurrecting a copied notification or icon
+    /// which Explorer reset removed. No events are emitted while the map locks.
+    fn commit_icon_update(
+        &self,
+        mut updated: SysTrayIcon,
+        notification: Option<&str>,
+    ) -> Option<SysTrayIcon> {
+        let id = updated.stable_id.clone();
         self.icons
-            .get(&SysTrayIconId::HandleUid(handle, uid), |v| v.clone())
-    }
-
-    /// Returns the icon with the given guid.
-    pub fn icon_by_guid(&self, guid: uuid::Uuid) -> Option<SysTrayIcon> {
-        self.icons.get(&SysTrayIconId::Guid(guid), |v| v.clone())
-    }
-
-    fn find_icon(&self, icon_data: &IconEventData) -> Option<SysTrayIcon> {
-        icon_data
-            .guid
-            .and_then(|guid| self.icon_by_guid(guid))
-            .or_else(|| match (icon_data.window_handle, icon_data.uid) {
-                (Some(handle), Some(uid)) => self.icon_by_handle(handle, uid),
-                _ => None,
+            .get(&id, |current| {
+                updated.notification = match notification {
+                    Some(text) => (!text.is_empty()).then(|| text.to_owned()),
+                    None => current.notification.clone(),
+                };
+                updated.notification_revision = current
+                    .notification_revision
+                    .saturating_add(u32::from(notification.is_some_and(|text| !text.is_empty())));
+                if updated == *current {
+                    return None;
+                }
+                *current = updated.clone();
+                Some(updated)
             })
+            .flatten()
+    }
+
+    /// A client may exit or replace its callback window without NIM_DELETE.
+    /// Keep hidden live icons, but retire dead owners so reopening Task Manager
+    /// cannot leave historical entries in either tray presentation.
+    pub(super) fn remove_dead_icons(&self) -> bool {
+        let mut removed = false;
+        self.icons.retain(|(_, icon)| {
+            let live = icon
+                .window_handle
+                .is_none_or(|handle| WindowsApi::is_window(HWND(handle as _)));
+            removed |= !live;
+            live
+        });
+        removed
     }
 
     /// Handles an event from the `Systray`.
@@ -70,7 +100,8 @@ impl SystemTrayManager {
         match &mut event {
             Win32TrayEvent::IconAdd { data: icon_data }
             | Win32TrayEvent::IconUpdate { data: icon_data }
-                if icon_data.tooltip.as_ref().is_none() && self.find_icon(icon_data).is_none() =>
+                if icon_data.tooltip.as_ref().is_none()
+                    && self.find_icon(icon_data) == Ok(None) =>
             {
                 if let Some(window_handle) = icon_data.window_handle {
                     let window = Window::from(window_handle);
@@ -85,12 +116,7 @@ impl SystemTrayManager {
         match &event {
             Win32TrayEvent::IconAdd { data: icon_data }
             | Win32TrayEvent::IconUpdate { data: icon_data } => {
-                let found_icon_id = self.find_icon(icon_data).map(|icon| icon.stable_id.clone());
-
-                let found_icon = match found_icon_id {
-                    Some(id) => self.icons.get(&id, |v| v.clone()),
-                    None => None,
-                };
+                let found_icon = self.find_icon(icon_data).ok()?;
 
                 // Update the icon in-place if found.
                 if let Some(found_icon) = found_icon {
@@ -100,12 +126,6 @@ impl SystemTrayManager {
                     }
 
                     let mut to_update = found_icon.clone();
-                    if let Some(notification) = &icon_data.notification {
-                        to_update.notification = Some(notification.clone());
-                        to_update.notification_revision =
-                            to_update.notification_revision.saturating_add(1);
-                    }
-
                     if let Some(uid) = icon_data.uid {
                         to_update.uid = Some(uid);
                     }
@@ -122,19 +142,22 @@ impl SystemTrayManager {
                         to_update.tooltip = tooltip.clone();
                     }
 
-                    if let Some(icon_handle) = copied_icon {
+                    if icon_data.icon_handle == Some(0) {
+                        to_update.icon_handle = Some(0);
+                        to_update.icon_image_hash = Some(BLANK_NATIVE_ICON_HASH.into());
+                    } else if let Some(icon_handle) = copied_icon {
                         // A flashing tray icon can change pixels without changing HICON.
                         if let Ok(img) = convert_hicon_to_rgba_image(&HICON(icon_handle as _)) {
                             to_update.icon_handle = icon_data.icon_handle;
                             let hash = Some(image_to_hash(&img));
                             if to_update.icon_image_hash != hash {
-                                to_update.icon_image_hash = hash;
-
-                                let path = SEELEN_COMMON
+                                let path = MACUI_COMMON
                                     .app_temp_dir()
                                     .join(format!("{}.png", to_update.stable_id));
-                                let _ = img.save(&path);
-                                to_update.icon_path = Some(path);
+                                if img.save(&path).is_ok() {
+                                    to_update.icon_image_hash = hash;
+                                    to_update.icon_path = Some(path);
+                                }
                             }
                         }
                     }
@@ -154,13 +177,8 @@ impl SystemTrayManager {
                     // Flashing applications may send the same HICON repeatedly.
                     // Decode it to detect pixel changes, but do not redraw every
                     // webview when neither pixels nor metadata actually changed.
-                    if to_update == found_icon {
-                        return None;
-                    }
-
-                    self.icons
-                        .upsert(to_update.stable_id.clone(), to_update.clone());
-                    Some(SystrayEvent::IconUpdate(to_update.clone()))
+                    self.commit_icon_update(to_update, icon_data.notification.as_deref())
+                        .map(SystrayEvent::IconUpdate)
                 } else {
                     // Icon doesn't exist yet, so add new icon. Skip icons that
                     // cannot be identified.
@@ -175,14 +193,15 @@ impl SystemTrayManager {
 
                     log::trace!("Tray icon added: {}", stable_id);
 
-                    let mut icon_image_hash = None;
+                    let mut icon_image_hash = (icon_data.icon_handle == Some(0))
+                        .then(|| BLANK_NATIVE_ICON_HASH.to_owned());
                     let mut icon_path = None;
 
                     if let Some(icon_handle) = copied_icon
                         && let Ok(img) = convert_hicon_to_rgba_image(&HICON(icon_handle as _))
                     {
                         icon_image_hash = Some(image_to_hash(&img));
-                        let path = SEELEN_COMMON
+                        let path = MACUI_COMMON
                             .app_temp_dir()
                             .join(format!("{}.png", stable_id));
                         if img.save(&path).is_ok() {
@@ -194,8 +213,16 @@ impl SystemTrayManager {
                         executable: icon_data
                             .window_handle
                             .and_then(|hwnd| Window::from(hwnd).process().program_path().ok()),
-                        notification_revision: u32::from(icon_data.notification.is_some()),
-                        notification: icon_data.notification.clone(),
+                        notification_revision: u32::from(
+                            icon_data
+                                .notification
+                                .as_ref()
+                                .is_some_and(|text| !text.is_empty()),
+                        ),
+                        notification: icon_data
+                            .notification
+                            .clone()
+                            .filter(|text| !text.is_empty()),
                         stable_id,
                         uid: icon_data.uid,
                         window_handle: icon_data.window_handle,
@@ -214,7 +241,10 @@ impl SystemTrayManager {
                 }
             }
             Win32TrayEvent::IconRemove { data: icon_data } => {
-                let icon_id = self.find_icon(icon_data).map(|icon| icon.stable_id.clone());
+                let icon_id = self
+                    .find_icon(icon_data)
+                    .ok()?
+                    .map(|icon| icon.stable_id.clone());
                 if let Some(icon_id) = icon_id {
                     log::trace!("Tray icon removed: {}", icon_id);
                     self.icons.remove(&icon_id);
@@ -370,4 +400,171 @@ fn has_change(icon: &SysTrayIcon, data: &IconEventData) -> bool {
         || data
             .is_visible
             .is_some_and(|visible| icon.is_visible != visible)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::utils::lock_free::SyncHashMap;
+
+    fn seeded_manager() -> SystemTrayManager {
+        let manager = SystemTrayManager {
+            icons: SyncHashMap::new(),
+            _loader: None,
+        };
+        let guid = uuid::Uuid::from_u128(1234);
+        let icon = SysTrayIcon {
+            stable_id: SysTrayIconId::Guid(guid),
+            guid: Some(guid),
+            window_handle: Some(100),
+            uid: Some(1),
+            executable: None,
+            notification: Some("Actual message".into()),
+            notification_revision: 7,
+            tooltip: "WeChat unread".into(),
+            icon_handle: Some(10),
+            icon_path: None,
+            icon_image_hash: Some("baseline".into()),
+            callback_message: Some(1024),
+            version: Some(4),
+            is_visible: true,
+        };
+        manager.icons.upsert(icon.stable_id.clone(), icon);
+        manager
+    }
+
+    fn partial_data() -> IconEventData {
+        IconEventData {
+            window_handle: Some(100),
+            uid: Some(1),
+            guid: None,
+            tooltip: None,
+            notification: None,
+            icon_handle: None,
+            callback_message: None,
+            version: None,
+            is_visible: None,
+        }
+    }
+
+    #[test]
+    fn guidless_modify_and_delete_operate_on_the_original_guid_entry() {
+        let manager = seeded_manager();
+        let mut data = partial_data();
+        data.tooltip = Some("Task Manager CPU 12%".into());
+        assert!(matches!(
+            manager.process_event(Win32TrayEvent::IconUpdate { data }, None),
+            Some(SystrayEvent::IconUpdate(_))
+        ));
+        assert_eq!(manager.icons.len(), 1);
+        assert_eq!(manager.icons.values()[0].tooltip, "Task Manager CPU 12%");
+        assert!(matches!(
+            manager.process_event(
+                Win32TrayEvent::IconRemove {
+                    data: partial_data()
+                },
+                None
+            ),
+            Some(SystrayEvent::IconRemove(_))
+        ));
+        assert!(manager.icons.is_empty());
+    }
+
+    #[test]
+    fn explicit_clear_does_not_create_a_new_notification_revision() {
+        let manager = seeded_manager();
+        let mut data = partial_data();
+        data.notification = Some(String::new());
+        data.tooltip = Some(String::new());
+        manager
+            .process_event(Win32TrayEvent::IconUpdate { data }, None)
+            .unwrap();
+        let icon = &manager.icons.values()[0];
+        assert_eq!(icon.notification, None);
+        assert_eq!(icon.notification_revision, 7);
+        assert_eq!(icon.tooltip, "");
+    }
+
+    #[test]
+    fn same_hicon_is_redecoded_for_clients_that_change_its_pixels_in_place() {
+        let manager = seeded_manager();
+        let mut data = partial_data();
+        data.icon_handle = Some(10);
+        assert!(has_change(&manager.icons.values()[0], &data));
+    }
+
+    #[test]
+    fn explicit_blank_frame_retains_the_app_image_and_is_not_a_notification() {
+        let manager = seeded_manager();
+        let id = manager.icons.values()[0].stable_id.clone();
+        manager.icons.get(&id, |icon| {
+            icon.icon_path = Some("last-app-image.png".into())
+        });
+        let mut data = partial_data();
+        data.icon_handle = Some(0);
+        assert!(matches!(
+            manager.process_event(Win32TrayEvent::IconUpdate { data }, None),
+            Some(SystrayEvent::IconUpdate(_))
+        ));
+        let icon = &manager.icons.values()[0];
+        assert_eq!(icon.icon_handle, Some(0));
+        assert_eq!(
+            icon.icon_image_hash.as_deref(),
+            Some(BLANK_NATIVE_ICON_HASH)
+        );
+        assert_eq!(
+            icon.icon_path.as_deref(),
+            Some(std::path::Path::new("last-app-image.png"))
+        );
+        assert_eq!(icon.notification_revision, 7);
+        assert_eq!(icon.notification.as_deref(), Some("Actual message"));
+    }
+
+    #[test]
+    fn acknowledgement_between_snapshot_and_commit_does_not_resurrect_a_notification() {
+        let manager = seeded_manager();
+        let mut pending = manager.icons.values()[0].clone();
+        pending.tooltip = "WeChat latest tooltip".into();
+        pending.icon_image_hash = Some("latest-frame".into());
+        manager.acknowledge_notification(&pending.stable_id);
+        let committed = manager.commit_icon_update(pending, None).unwrap();
+        assert_eq!(committed.notification, None);
+        assert_eq!(committed.notification_revision, 7);
+        assert_eq!(committed.tooltip, "WeChat latest tooltip");
+        assert_eq!(committed.icon_image_hash.as_deref(), Some("latest-frame"));
+    }
+
+    #[test]
+    fn acknowledgement_does_not_roll_back_native_metadata_or_a_new_notification_after_it() {
+        let manager = seeded_manager();
+        let mut pending = manager.icons.values()[0].clone();
+        pending.tooltip = "New native state".into();
+        pending.icon_image_hash = Some("new-pixels".into());
+        pending.is_visible = false;
+        manager.commit_icon_update(pending.clone(), None).unwrap();
+        manager.acknowledge_notification(&pending.stable_id);
+        let acknowledged = manager.icons.values()[0].clone();
+        assert_eq!(acknowledged.tooltip, "New native state");
+        assert_eq!(acknowledged.icon_image_hash.as_deref(), Some("new-pixels"));
+        assert!(!acknowledged.is_visible);
+        assert_eq!(acknowledged.notification, None);
+
+        let committed = manager
+            .commit_icon_update(pending, Some("Actual later notification"))
+            .unwrap();
+        assert_eq!(
+            committed.notification.as_deref(),
+            Some("Actual later notification")
+        );
+        assert_eq!(committed.notification_revision, 8);
+    }
+
+    #[test]
+    fn a_snapshot_cannot_reinsert_an_icon_removed_during_native_decoding() {
+        let manager = seeded_manager();
+        let pending = manager.icons.values()[0].clone();
+        manager.icons.remove(&pending.stable_id);
+        assert!(manager.commit_icon_update(pending, None).is_none());
+        assert!(manager.icons.is_empty());
+    }
 }

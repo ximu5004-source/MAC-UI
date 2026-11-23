@@ -1,4 +1,4 @@
-id: "@seelen/wallpaper-manager"
+id: "@macui/wallpaper-manager"
 icon: PiWallDuotone
 metadata:
   displayName: !extend i18n/display_name.yml

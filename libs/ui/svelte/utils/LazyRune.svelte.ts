@@ -56,6 +56,10 @@ export class LazyRune<T> {
     this._value = value;
   }
 
+  get snapshot(): T | undefined {
+    return this._value;
+  }
+
   /**
    * Will call the initializer and set the value if not already set
    * via another setters.

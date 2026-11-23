@@ -1,9 +1,10 @@
-import { invoke, SeelenCommand, SeelenEvent, subscribe } from "@seelen-ui/lib";
-import type { PluginId, ToolbarItem, ToolbarItem2, ToolbarState } from "@seelen-ui/lib/types";
+import { invoke, MacUiCommand, MacUiEvent, subscribe } from "@macui/lib";
+import type { PluginId, ToolbarItem, ToolbarItem2, ToolbarState } from "@macui/lib/types";
 import { matchIds } from "../utils.ts";
 import { debounce } from "lodash";
 import { emit, listen } from "@tauri-apps/api/event";
 import { plugins, toolbarItems as SaveFile } from "./getters.svelte.ts";
+import { NOW_PLAYING_PLUGIN_ID } from "../modules/now-playing/module.ts";
 
 export { plugins };
 
@@ -108,7 +109,7 @@ export function restoreStateToDefault() {
   _toolbarState = getStateFromStored({
     isReorderDisabled: false,
     left: [
-      "@seelen/tb-user-menu" as PluginId,
+      "@macui/tb-user-menu" as PluginId,
       {
         ...baseItem,
         id: crypto.randomUUID() as string,
@@ -123,16 +124,17 @@ export function restoreStateToDefault() {
       },
       "@default/focused-app-title" as PluginId,
     ],
-    center: ["@seelen/tb-calendar-popup" as PluginId],
+    center: ["@macui/tb-calendar-popup" as PluginId],
     right: [
-      "@seelen/tb-system-tray" as PluginId,
-      "@seelen/tb-keyboard-selector" as PluginId,
-      "@seelen/tb-bluetooth-popup" as PluginId,
-      "@seelen/tb-network-popup" as PluginId,
-      "@seelen/tb-media-popup" as PluginId,
+      NOW_PLAYING_PLUGIN_ID,
+      "@macui/tb-system-tray" as PluginId,
+      "@macui/tb-keyboard-selector" as PluginId,
+      "@macui/tb-bluetooth-popup" as PluginId,
+      "@macui/tb-network-popup" as PluginId,
+      "@macui/tb-media-popup" as PluginId,
       "@default/power" as PluginId,
-      "@seelen/tb-notifications" as PluginId,
-      "@seelen/tb-quick-settings" as PluginId,
+      "@macui/tb-notifications" as PluginId,
+      "@macui/tb-quick-settings" as PluginId,
     ],
   });
 }
@@ -153,7 +155,7 @@ const emitSyncEvent = debounce((state: OptimisticToolbarState) => {
 const saveTbState = debounce(async (state: OptimisticToolbarState) => {
   console.trace("Saving toolbar state");
   const { left, center, right } = listToGroups(state.items);
-  await invoke(SeelenCommand.StateWriteToolbarItems, {
+  await invoke(MacUiCommand.StateWriteToolbarItems, {
     items: { isReorderDisabled: state.isReorderDisabled, left, center, right },
   });
 }, 1000);
@@ -184,7 +186,7 @@ $effect.root(() => {
   });
 });
 
-subscribe(SeelenEvent.PluginEnabled, (e) => {
+subscribe(MacUiEvent.PluginEnabled, (e) => {
   toolbarActions.addItem(e.payload);
 });
 

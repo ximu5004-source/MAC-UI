@@ -1,9 +1,9 @@
 pub mod cache;
 pub mod event;
 
-use seelen_core::state::WorkspaceId;
-use seelen_core::{rect::Rect, system_state::MonitorId};
-use slu_ipc::messages::SvcAction;
+use macui_core::state::WorkspaceId;
+use macui_core::{rect::Rect, system_state::MonitorId};
+use macui_ipc::messages::SvcAction;
 use std::sync::Arc;
 use std::sync::atomic::Ordering;
 use std::{
@@ -24,7 +24,7 @@ use windows::{
 };
 
 use crate::hook::HookManager;
-use crate::virtual_desktops::SluWorkspacesManager2;
+use crate::virtual_desktops::MacUiWorkspacesManager2;
 use crate::windows_api::window::event::WinEvent;
 use crate::{
     cli::ServicePipe,
@@ -240,7 +240,7 @@ impl Window {
             .unwrap_or_else(|_| MonitorId("null".to_string()))
     }
 
-    pub fn slu_category(&self) -> Option<String> {
+    pub fn macui_category(&self) -> Option<String> {
         self.get_app_config()
             .ok()?
             .and_then(|config| config.category.clone())
@@ -249,7 +249,7 @@ impl Window {
     pub fn workspace_id(&self) -> Result<WorkspaceId> {
         let win_id = self.address();
         let monitor_id = self.monitor_id();
-        let workspace_id = SluWorkspacesManager2::instance()
+        let workspace_id = MacUiWorkspacesManager2::instance()
             .monitors
             .get(&monitor_id, |monitor| {
                 monitor
@@ -258,7 +258,7 @@ impl Window {
                     .map(|w| w.id.clone())
             })
             .ok_or("Monitor not found")?
-            .ok_or("This window is not binded to a seelen ui workspace")?;
+            .ok_or("This window is not assigned to a MAC UI workspace")?;
         Ok(workspace_id)
     }
 
@@ -289,7 +289,7 @@ impl Window {
     pub fn is_fullscreen(&self) -> bool {
         WindowsApi::is_fullscreen(self.0).unwrap_or(false)
             && !self.is_desktop()
-            && !self.process().is_seelen() // we ignore seelen widgets
+            && !self.process().is_macui() // we ignore macui widgets
     }
 
     /// is the window an Application Frame Host

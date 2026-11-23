@@ -1,56 +1,67 @@
-import { invoke, SeelenCommand } from "@seelen-ui/lib";
-import { Alignment, SeelenWegSide, type UserAppWindow, type WidgetId } from "@seelen-ui/lib/types";
+import { invoke, MacUiCommand } from "@macui/lib";
+import { Alignment, MacUiWegSide, type UserAppWindow, type WidgetId } from "@macui/lib/types";
 import { settingsState } from "./state/settings.svelte.ts";
+import { captureDockTarget } from "./dockTarget";
 
-export function triggerPreviewWidget(itemEl: HTMLElement, windows: UserAppWindow[]) {
+export async function triggerPreviewWidget(itemEl: HTMLElement, windows: UserAppWindow[], hovered?: () => boolean) {
   const dockSide = settingsState.position;
 
   const elRect = itemEl.getBoundingClientRect();
-  const viewRect = settingsState.widgetRect.hitboxRect;
+  const { hitboxRect: viewRect, webviewRect } = settingsState.widgetRect;
 
   const toPhysical = (n: number) => Math.round(n * globalThis.devicePixelRatio);
 
+  const anchor = {
+    left: webviewRect.left + toPhysical(elRect.left),
+    right: webviewRect.left + toPhysical(elRect.right),
+    top: webviewRect.top + toPhysical(elRect.top),
+    bottom: webviewRect.top + toPhysical(elRect.bottom),
+  };
   let x: number;
   let y: number;
   let alignX: Alignment;
   let alignY: Alignment;
 
   switch (dockSide) {
-    case SeelenWegSide.Bottom:
-      x = viewRect.left + toPhysical(elRect.left + elRect.width / 2);
+    case MacUiWegSide.Bottom:
+      x = Math.round((anchor.left + anchor.right) / 2);
       y = viewRect.top;
       alignX = Alignment.Center;
       alignY = Alignment.End;
       break;
-    case SeelenWegSide.Top:
-      x = viewRect.left + toPhysical(elRect.left + elRect.width / 2);
+    case MacUiWegSide.Top:
+      x = Math.round((anchor.left + anchor.right) / 2);
       y = viewRect.bottom;
       alignX = Alignment.Center;
       alignY = Alignment.Start;
       break;
-    case SeelenWegSide.Left:
+    case MacUiWegSide.Left:
       x = viewRect.right;
-      y = viewRect.top + toPhysical(elRect.top + elRect.height / 2);
+      y = Math.round((anchor.top + anchor.bottom) / 2);
       alignX = Alignment.Start;
       alignY = Alignment.Center;
       break;
-    case SeelenWegSide.Right:
+    case MacUiWegSide.Right:
       x = viewRect.left;
-      y = viewRect.top + toPhysical(elRect.top + elRect.height / 2);
+      y = Math.round((anchor.top + anchor.bottom) / 2);
       alignX = Alignment.End;
       alignY = Alignment.Center;
       break;
   }
 
-  invoke(SeelenCommand.TriggerWidget, {
+  const transitionTarget = await captureDockTarget(itemEl);
+  if (hovered && !hovered()) return;
+  await invoke(MacUiCommand.TriggerWidget, {
     payload: {
-      id: "@seelen/weg-preview" as WidgetId,
+      id: "@macui/weg-preview" as WidgetId,
       desiredPosition: { x, y },
       alignX,
       alignY,
       customArgs: {
         hwnds: windows.map((w) => w.hwnd),
         position: dockSide,
+        hoverAnchor: hovered ? anchor : null,
+        minimizeTarget: transitionTarget,
       },
     },
   });

@@ -25,6 +25,14 @@ if (major === undefined || minor === undefined || patch === undefined) {
 }
 
 const { target } = await getArgs();
+// MSIX identity must belong to the MAC UI publisher; never reuse an upstream certificate.
+const publisher = process.env.MAC_UI_MSIX_PUBLISHER;
+if (!publisher || !publisher.startsWith("CN=")) {
+  throw new Error("Set MAC_UI_MSIX_PUBLISHER to your own certificate subject. NSIS remains the supported distribution.");
+}
+if (!["release", "x86_64-pc-windows-msvc", "aarch64-pc-windows-msvc"].includes(target)) {
+  throw new Error("Unsupported build target");
+}
 
 // Determine architecture for MSIX naming
 const archMap: Record<string, string> = {
@@ -46,31 +54,36 @@ fs.mkdirSync(bundleFolder, { recursive: true });
 // we skip revision here because greater numbers than 65535 are not supported on msix
 const appxPackageVersion = `${major}.${minor}.${patch}.0`;
 const fileVersion = pre ? packageJson.version : appxPackageVersion;
-const installer_msix_path = path.resolve(`${bundleFolder}/Seelen.UI_${fileVersion}_${arch}.msix`);
+const installer_msix_path = path.resolve(`${bundleFolder}/MAC-UI_${fileVersion}_${arch}.msix`);
 
 // Add manifest
 const manifest = fs
   .readFileSync("src/templates/AppxManifest.xml", "utf-8")
   .replace("{{version}}", appxPackageVersion)
-  .replace("{{architecture}}", arch);
+  .replace("{{architecture}}", arch)
+  .replace("{{publisher}}", publisher.replaceAll("&", "&amp;").replaceAll('"', "&quot;").replaceAll("<", "&lt;").replaceAll(">", "&gt;"));
 fs.writeFileSync(`${buildFolder}/AppxManifest.xml`, manifest);
 
 // Add binaries
-fs.copyFileSync(`${outDir}/seelen-ui.exe`, `${buildFolder}/seelen-ui.exe`);
-fs.copyFileSync(`${outDir}/slu-service.exe`, `${buildFolder}/slu-service.exe`);
-fs.copyFileSync(`${outDir}/slu.exe`, `${buildFolder}/slu.exe`);
+fs.copyFileSync(`${outDir}/macui.exe`, `${buildFolder}/macui.exe`);
+fs.copyFileSync(`${outDir}/macui-service.exe`, `${buildFolder}/macui-service.exe`);
+fs.copyFileSync(`${outDir}/macui-cli.exe`, `${buildFolder}/macui-cli.exe`);
 
-// add pdb files if debug
-if (pre || target === "release") {
-  fs.copyFileSync(`${outDir}/seelen_ui.pdb`, `${buildFolder}/seelen_ui.pdb`);
+// Optional symbols belong only in a pre-release package.
+if (pre && fs.existsSync(`${outDir}/macui.pdb`)) {
+  fs.copyFileSync(`${outDir}/macui.pdb`, `${buildFolder}/macui.pdb`);
 }
 
 // dlls
-fs.copyFileSync(`${outDir}/sluhk.dll`, `${buildFolder}/sluhk.dll`);
+fs.copyFileSync(`${outDir}/macui_hook.dll`, `${buildFolder}/macui-hook.dll`);
 
 // integrity files
 fs.copyFileSync(`${outDir}/SHA256SUMS`, `${buildFolder}/SHA256SUMS`);
 fs.copyFileSync(`${outDir}/SHA256SUMS.sig`, `${buildFolder}/SHA256SUMS.sig`);
+
+// Preserve the license and attribution in every distribution format.
+fs.copyFileSync("LICENSE", `${buildFolder}/LICENSE`);
+fs.copyFileSync("NOTICE.md", `${buildFolder}/NOTICE.md`);
 
 // Add resources
 fs.cpSync("src/static", `${buildFolder}/static`, { recursive: true });
@@ -100,7 +113,7 @@ if (!sdkVersion) {
 
 const sdkBin = path.join(sdkBinRoot, sdkVersion, "x64");
 const makeappx = path.join(sdkBin, "makeappx.exe");
-const signtool = path.join(sdkBin, "signtool.exe");
+
 console.info(`Using Windows SDK ${sdkVersion} at ${sdkBin}`);
 
 try {
@@ -108,11 +121,7 @@ try {
   let out = execSync(`"${makeappx}" pack /d "${buildFolder}" /p "${installer_msix_path}" /nv /o`);
   console.info(out.toString());
 
-  // sign installer with local certificate (this is for testing only) store changes the cert in the windows store
-  let out2 = execSync(
-    `"${signtool}" sign /fd SHA256 /f ".cert/Seelen.pfx" /p Seelen /tr http://time.certum.pl /td sha256 "${installer_msix_path}"`,
-  );
-  console.info(out2.toString());
+  console.info("Unsigned MAC UI MSIX created. Sign separately with your own matching certificate; no certificate was loaded.");
 } catch (error) {
   console.error("\n\n", error?.toString());
   process.exit(1);

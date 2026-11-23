@@ -15,7 +15,7 @@ profile:
   log_out: Đăng xuất
   open_onedrive: Mở thư mục OneDrive
   open_user_folder: Mở thư mục người dùng
-seelen_options:
-  open_installation_folder: Mở thư mục cài đặt Seelen
-  open_log_folder: Mở thư mục nhật ký Seelen
-  title: Thư mục Seelen
+macui_options:
+  open_installation_folder: Mở thư mục cài đặt MAC UI
+  open_log_folder: Mở thư mục nhật ký MAC UI
+  title: Thư mục MAC UI

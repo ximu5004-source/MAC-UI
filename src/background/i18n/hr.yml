@@ -8,7 +8,7 @@ cancel: Otkazati
 done: Završen
 elevated:
   description: >-
-    Seelen UI radi s administratorskim ovlastima.
+    MAC UI radi s administratorskim ovlastima.
 
     Ovo ne dodaje niti poboljšava nikakve značajke i može predstavljati
     sigurnosni rizik.
@@ -21,7 +21,7 @@ resource:
   added: Dodan je novi resurs
   download_failed_body: >-
     Nešto je pošlo po zlu prilikom preuzimanja resursa, molimo da ga prijavite
-    timu za razvojne programere Seelen.
+    timu za razvojne programere MAC UI.
   download_failed_title: Preuzimanje resursa nije uspjelo
   downloading: Preuzimanje imovine ...
   downloading_body: >-
@@ -42,20 +42,20 @@ runtime:
     To se može dogoditi ako su datoteke izmijenjene, oštećene ili instalacija
     nije dovršena.
 
-    Iz sigurnosnih razloga, Seelen UI ne može nastaviti.
+    Iz sigurnosnih razloga, MAC UI ne može nastaviti.
 
     Ponovno ga instalirajte sa službene web stranice.
   files_integrity_title: Sigurnosno upozorenje - Provjera integriteta datoteka nije uspjela
   not_found: WebView2 Runtime nije pronađen
-  not_found_description: Seelen UI zahtijeva Webview2 Runtime. Molimo instalirajte ga.
+  not_found_description: MAC UI zahtijeva Webview2 Runtime. Molimo instalirajte ga.
   outdated: WebView2 Runtime je zastario
   outdated_description: >-
-    Seelen UI zahtijeva Webview2 Runtime %{min_version} ili noviji. Molimo
+    MAC UI zahtijeva Webview2 Runtime %{min_version} ili noviji. Molimo
     ažurirajte ga.
 service:
-  not_running: Usluga Seelen UI nije pokrenuta
+  not_running: Usluga MAC UI nije pokrenuta
   not_running_description: >-
-    Seelen UI Service (slu-service) je ovisnost/pomoć za ispravan rad
+    MAC UI Service (macui-service) je ovisnost/pomoć za ispravan rad
     aplikacije.
   not_running_ok: Pokrenite uslugu
 shortcut:

@@ -1,10 +1,10 @@
-/// Seelen cloud session data exposed to the UI.
+/// MacUi cloud session data exposed to the UI.
 /// Tokens are intentionally excluded — the background manages them exclusively.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), derive(ts_rs::TS))]
 #[serde(rename_all = "camelCase")]
 #[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), ts(export))]
-pub struct SeelenSession {
+pub struct MacUiSession {
     pub id: String,
     pub email: String,
     pub username: String,

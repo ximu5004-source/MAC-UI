@@ -1,8 +1,8 @@
 use std::path::Path;
 
 use futures::StreamExt;
+use macui_utils::checksums::{CheckSums, calculate_sha256};
 use rayon::iter::{IntoParallelIterator, ParallelIterator};
-use slu_utils::checksums::{CheckSums, calculate_sha256};
 
 use crate::error::Result;
 
@@ -29,8 +29,9 @@ pub async fn ensure_bundle_files_integrity(app: &tauri::AppHandle) -> Result<()>
         return Err("Checksums file not found".into());
     }
 
-    // Skip signature validation in development mode
-    if !tauri::is_dev() {
+    // build.rs writes an unsigned marker for every debug build, including
+    // self-contained custom-protocol builds. Resource hashes are still checked.
+    if !cfg!(debug_assertions) {
         verify_external_signature(&checksums_path, &signature_path, MINISIGN_PUBLIC_KEY)?;
     }
     validate_directory_checksums(&static_path, &checksums_path).await?;
@@ -92,7 +93,7 @@ fn verify_external_signature(file: &Path, signature_file: &Path, key_base64: &st
     let checksums_content = std::fs::read(file)?;
     let signature_content = std::fs::read_to_string(signature_file)?;
 
-    slu_utils::signature::verify_minisign(&checksums_content, &signature_content, key_base64)?;
+    macui_utils::signature::verify_minisign(&checksums_content, &signature_content, key_base64)?;
     log::trace!("Signature verification successful for {}", file.display());
     Ok(())
 }

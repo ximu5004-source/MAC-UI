@@ -1,4 +1,4 @@
-import { invoke, SeelenCommand, Widget } from "@seelen-ui/lib";
+import { invoke, MacUiCommand, Widget } from "@macui/lib";
 import { Icon } from "libs/ui/react/components/Icon/index.tsx";
 import { Button, Input, message, Switch, Tooltip } from "antd";
 import { useTranslation } from "react-i18next";
@@ -89,7 +89,7 @@ export function Shortcuts() {
       {Array.from(groups.byWidget.values()).map(({ widget, entries }) => (
         <SettingsGroup key={widget.id}>
           <SettingsSubGroup label={<ResourceText text={widget.metadata.displayName} />}>
-            {widget.id === "@seelen/apps-menu" && (
+            {widget.id === "@macui/apps-menu" && (
               <SettingsOption
                 label={t("widget.enable")}
                 action={
@@ -149,7 +149,7 @@ function Shortcut({ entry, onChanged }: ShortcutProps) {
             callbackEvent,
             ({ payload }) => onFinished(payload),
           ),
-        request: () => invoke(SeelenCommand.RequestToUserInputShortcut, { callbackEvent }),
+        request: () => invoke(MacUiCommand.RequestToUserInputShortcut, { callbackEvent }),
       },
       onChanged,
       () => message.warning(t("shortcuts.single_key_hint")),

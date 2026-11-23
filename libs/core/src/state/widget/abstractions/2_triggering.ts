@@ -1,6 +1,6 @@
 import { getCurrentWebview } from "@tauri-apps/api/webview";
-import type { WidgetTriggerPayload } from "@seelen-ui/types";
-import { SeelenEvent } from "../../../../mod.ts";
+import type { WidgetTriggerPayload } from "@macui/types";
+import { MacUiEvent } from "../../../../mod.ts";
 
 import { Widget_1 } from "./1_rect.ts";
 
@@ -10,7 +10,7 @@ let _triggerSubs: Set<(args: WidgetTriggerPayload) => void>;
 function registerTrigger(cb: (args: WidgetTriggerPayload) => void): unsubscriber {
   if (!_triggerSubs) {
     _triggerSubs = new Set();
-    getCurrentWebview().listen<WidgetTriggerPayload>(SeelenEvent.WidgetTriggered, ({ payload }) => {
+    getCurrentWebview().listen<WidgetTriggerPayload>(MacUiEvent.WidgetTriggered, ({ payload }) => {
       _triggerSubs.forEach((cb) => cb(payload));
     });
   }

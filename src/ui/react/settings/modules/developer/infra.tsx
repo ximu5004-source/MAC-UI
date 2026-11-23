@@ -1,4 +1,4 @@
-import { Switch, Tabs } from "antd";
+import { Switch } from "antd";
 import { useTranslation } from "react-i18next";
 
 import {
@@ -13,7 +13,6 @@ import {
 import { SettingsGroup, SettingsOption } from "../../components/SettingsBox/index.tsx";
 import { ColorPalette } from "./ColorPalette.tsx";
 import { DevToolsSettings } from "./DevToolsSettings.tsx";
-import { SystemIconPackView } from "./CachedIcons.tsx";
 import { SharedComponents } from "./SharedComponents.tsx";
 import { WidgetsDebug } from "./WidgetsDebug.tsx";
 
@@ -50,35 +49,16 @@ export function DeveloperTools() {
       )}
 
       {devTools && (
-        <Tabs
-          items={[
-            {
-              key: "settings",
-              label: t("devtools.tools"),
-              children: <DevToolsSettings />,
-            },
-            {
-              key: "colors",
-              label: t("devtools.color_palette"),
-              children: <ColorPalette />,
-            },
-            {
-              key: "shared_components",
-              label: t("devtools.shared_components"),
-              children: <SharedComponents />,
-            },
-            {
-              key: "icon_pack",
-              label: t("devtools.icons"),
-              children: <SystemIconPackView />,
-            },
-            {
-              key: "widgets_debug",
-              label: t("devtools.widgets_debug.tab"),
-              children: <WidgetsDebug />,
-            },
-          ]}
-        />
+        <>
+          <h3>{t("devtools.tools")}</h3>
+          <DevToolsSettings />
+          <h3>{t("devtools.color_palette")}</h3>
+          <ColorPalette />
+          <h3>{t("devtools.shared_components")}</h3>
+          <SharedComponents />
+          <h3>{t("devtools.widgets_debug.tab")}</h3>
+          <WidgetsDebug />
+        </>
       )}
     </>
   );

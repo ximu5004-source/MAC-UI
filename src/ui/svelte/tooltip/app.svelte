@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Widget } from "@seelen-ui/lib";
+  import { Widget } from "@macui/lib";
   import { state } from "./state.svelte";
 
   $effect(() => {
@@ -7,7 +7,7 @@
   });
 </script>
 
-<div class={["slu-std-popover", "tooltip"]} data-showing={state.showing}>{state.text ?? ""}</div>
+<div class={["macui-std-popover", "tooltip"]} data-showing={state.showing}>{state.text ?? ""}</div>
 
 <style>
   .tooltip {

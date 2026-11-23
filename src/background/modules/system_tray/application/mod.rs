@@ -1,15 +1,17 @@
 mod event_queue;
+mod hook_lifecycle;
+mod identity;
 pub mod tray_hook_loader;
 pub mod tray_icon;
 mod util;
 
 use std::sync::LazyLock;
 
-use seelen_core::system_state::{SysTrayIcon, SysTrayIconId};
-use slu_ipc::messages::Win32TrayEvent;
+use macui_core::system_state::{SysTrayIcon, SysTrayIconId};
+use macui_ipc::messages::Win32TrayEvent;
 use windows::Win32::UI::WindowsAndMessaging::{CopyIcon, DestroyIcon, HICON};
 
-use self::{event_queue::EventQueue, util::Util};
+use self::{event_queue::EventQueue, tray_icon::SystrayEvent, util::Util};
 use crate::{
     error::ResultLogExt, event_manager,
     modules::system_tray::application::tray_hook_loader::TrayHookLoader,
@@ -30,11 +32,14 @@ impl PendingTrayEvent {
             | Win32TrayEvent::IconUpdate { data }
             | Win32TrayEvent::IconRemove { data } => data,
         };
-        let copied_icon = data.icon_handle.and_then(|handle| {
-            unsafe { CopyIcon(HICON(handle as _)) }
-                .ok()
-                .map(|icon| icon.0 as isize)
-        });
+        let copied_icon = data
+            .icon_handle
+            .filter(|handle| *handle != 0)
+            .and_then(|handle| {
+                unsafe { CopyIcon(HICON(handle as _)) }
+                    .ok()
+                    .map(|icon| icon.0 as isize)
+            });
         Self { event, copied_icon }
     }
 }
@@ -55,23 +60,34 @@ pub struct SystemTrayManager {
 #[derive(Debug, Clone)]
 pub enum SystemTrayEvent {
     Changed,
+    /// Immutable per-message snapshot: Changed alone can coalesce a burst
+    /// into the latest icon state before its subscribers read that state.
+    NativeNotification(SysTrayIcon),
 }
 
 event_manager!(SystemTrayManager, SystemTrayEvent);
 
 impl SystemTrayManager {
     pub fn acknowledge_notification(&self, id: &SysTrayIconId) {
-        if let Some(mut icon) = self.icons.get(id, |icon| icon.clone()) {
-            if icon.notification.take().is_some() {
-                self.icons.upsert(id.clone(), icon);
-                Self::send(SystemTrayEvent::Changed);
-            }
+        // Change only the notification field under its existing lock. Copying
+        // the icon and reinserting it could roll back a concurrent native frame.
+        let changed = self
+            .icons
+            .get(id, |icon| icon.notification.take().is_some())
+            .unwrap_or(false);
+        if changed {
+            Self::send(SystemTrayEvent::Changed);
         }
     }
     fn create() -> Self {
         log::trace!("Creating system tray manager");
 
-        let loader = match TrayHookLoader::new() {
+        let loader = match TrayHookLoader::new(|| {
+            // A replaced Explorer invalidates its icon snapshot. The lifecycle
+            // worker requests fresh native registrations only after reconnect.
+            SystemTrayManager::instance().icons.clear();
+            SystemTrayManager::send(SystemTrayEvent::Changed);
+        }) {
             Ok(loader) => Some(loader),
             Err(err) => {
                 log::error!("Failed to create tray hook loader: {:?}", err);
@@ -95,13 +111,31 @@ impl SystemTrayManager {
     /// This method should be called from the AppIpc handler
     pub fn enqueue_tray_event(event: Win32TrayEvent) {
         static QUEUE: LazyLock<Option<EventQueue<PendingTrayEvent>>> = LazyLock::new(|| {
+            let mut last_cleanup = std::time::Instant::now();
             EventQueue::start(
                 1024,
                 |pending: PendingTrayEvent| {
-                    if SystemTrayManager::instance()
+                    let has_notification = match &pending.event {
+                        Win32TrayEvent::IconAdd { data } | Win32TrayEvent::IconUpdate { data } => {
+                            data.notification
+                                .as_ref()
+                                .is_some_and(|text| !text.is_empty())
+                        }
+                        Win32TrayEvent::IconRemove { .. } => false,
+                    };
+                    if let Some(event) = SystemTrayManager::instance()
                         .process_event(pending.event.clone(), pending.copied_icon)
-                        .is_some()
                     {
+                        if has_notification {
+                            match event {
+                                SystrayEvent::IconAdd(icon) | SystrayEvent::IconUpdate(icon) => {
+                                    SystemTrayManager::send(SystemTrayEvent::NativeNotification(
+                                        icon,
+                                    ));
+                                }
+                                SystrayEvent::IconRemove(_) => {}
+                            }
+                        }
                         SystemTrayManager::send(SystemTrayEvent::Changed);
                     }
                 },
@@ -110,6 +144,14 @@ impl SystemTrayManager {
                     SystemTrayManager::instance().icons.clear();
                     SystemTrayManager::send(SystemTrayEvent::Changed);
                     Util::refresh_icons().log_error();
+                },
+                move || {
+                    if last_cleanup.elapsed() >= std::time::Duration::from_secs(2) {
+                        last_cleanup = std::time::Instant::now();
+                        if SystemTrayManager::instance().remove_dead_icons() {
+                            SystemTrayManager::send(SystemTrayEvent::Changed);
+                        }
+                    }
                 },
             )
             .map_err(|err| log::error!("Could not start tray event worker: {err}"))

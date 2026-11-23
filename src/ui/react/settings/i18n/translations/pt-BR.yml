@@ -30,14 +30,14 @@ apps_configurations:
     Essas configurações agrupadas não são editáveis e foram projetadas para
     fornecer a melhor experiência sem personalização. Elas configuram
     automaticamente os aplicativos mais comuns para você.
-  bundled_title: Configurações de Aplicativos incluídas no Seelen
+  bundled_title: Configurações de Aplicativos incluídas no MAC UI
   confirm_delete: Tem certeza de que deseja excluir esta(s) configuração(ões)?
   confirm_delete_title: Confirmar exclusão
   delete: Excluir
   export: Exportar
   export_full: Exportar configurações por aplicativo
   extra_info: >-
-    A Seelen UI usa apenas um identificador por aplicativo (primeira
+    A MAC UI usa apenas um identificador por aplicativo (primeira
     correspondência encontrada); portanto, a ordem é importante. O último
     adicionado tem prioridade. A tabela é ordenada do mais recente ao mais
     antigo por padrão.
@@ -81,12 +81,12 @@ devtools:
   enable: Ativar Ferramentas de Desenvolvedor
   enable_description: >-
     Desbloqueia ferramentas avançadas para inspecionar e depurar os componentes
-    internos da UI do Seelen. Não se destina ao uso regular.
+    internos da UI do MAC UI. Não se destina ao uso regular.
   icons: Ícones em cache
   install_folder: Pasta de Instalação
   load: Carregar
   settings_file: Arquivo de Configurações
-  shared_components: Componentes padrão SLU
+  shared_components: Componentes padrão MAC UI
   simulate_dialog:
     label: Simular caixa de diálogo
     trigger: Acionar
@@ -119,7 +119,7 @@ devtools:
     widget_id: ID do widget
 discord_banner:
   message: >-
-    Conecte-se com outros usuários da Seelen UI, obtenha ajuda, compartilhe
+    Conecte-se com outros usuários da MAC UI, obtenha ajuda, compartilhe
     temas e mantenha-se atualizado com as últimas notícias.
   title: Junte-se à nossa comunidade
 extras:
@@ -170,7 +170,7 @@ general:
     plugged: Conectado ou carregamento
   polling_interval: Intervalo de pesquisa do sistema
   polling_interval_description: >-
-    Com que frequência (em segundos) o Seelen UI verifica os recursos do
+    Com que frequência (em segundos) o MAC UI verifica os recursos do
     sistema, como CPU, RAM, rede e atividade de disco. Um número menor significa
     atualizações mais frequentes, mas um uso de recursos um pouco maior.
   saturday: Sábado
@@ -227,7 +227,7 @@ resources:
   affected_widgets: Widgets afetados
   app_outdated: >-
     Esse recurso requer uma versão mais recente da interface do usuário da
-    Seelen para funcionar corretamente.
+    MAC UI para funcionar corretamente.
   coming_soon: Em breve
   corrupted_wallpaper: Falha ao extrair miniatura – formato de vídeo corrompido ou incompatível
   delete: Excluir recursos
@@ -240,7 +240,7 @@ resources:
   open_folder: Abrir a pasta de recursos
   outdated: >-
     Esse recurso foi projetado para uma versão mais antiga da interface do
-    usuário da Seelen e pode não funcionar corretamente.
+    usuário da MAC UI e pode não funcionar corretamente.
   see_on_website: Veja no site
   update_now: Atualizar
   updates_available: Atualizações disponíveis
@@ -248,7 +248,7 @@ resources:
 review_request:
   not_now: Agora não
   sure: Clara!
-  title: Gostando da interface do Seelen?
+  title: Gostando da interface do MAC UI?
 save: Salvar
 save_and_restart: Salve e reinicie
 search: Procurar
@@ -267,7 +267,7 @@ shortcuts:
     conflitantes ou reatribua a ligação de chave duplicada para resolver.
   enable: Habilitar o sistema de atalhos embutidos
   enable_tooltip: >-
-    Desative se você implementar seu próprio sistema de atalhos usando o Seelen
+    Desative se você implementar seu próprio sistema de atalhos usando o MAC UI
     UI Client
   labels:
     create_new_workspace: Crie um novo espaço de trabalho
@@ -426,15 +426,15 @@ weg:
 welcome:
   give_a_review: Dê uma avaliação
   message: >-
-    Seelen UI é um ambiente de desktop gratuito e de código aberto para Windows.
+    MAC UI é um ambiente de desktop gratuito e de código aberto para Windows.
     Aqui você tem controle total sobre a aparência e o comportamento de sua área
     de trabalho, permitindo personalizar cada detalhe para combinar com seu
     fluxo de trabalho e estilo.
   ok: Vamos começar!
   review: >-
-    Se você gosta de usar a UI Seelen, considere deixar um comentário na loja –
+    Se você gosta de usar a UI MAC UI, considere deixar um comentário na loja –
     seu feedback ajuda o projeto a crescer e melhorar.
-  title: Bem-vindo à UI da Seelen!
+  title: Bem-vindo à UI da MAC UI!
 widget:
   default_instance: Instância padrão
   default_instance_hint: Sempre ativo, usa a configuração do widget raiz

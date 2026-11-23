@@ -1,4 +1,4 @@
-use slu_ipc::{
+use macui_ipc::{
     AppIpc,
     messages::{AppMessage, IconEventData, Win32TrayEvent},
 };
@@ -52,7 +52,9 @@ struct NotifyIconData {
 
 impl From<NotifyIconData> for IconEventData {
     fn from(icon_data: NotifyIconData) -> Self {
-        let icon_handle = if icon_data.icon_handle != 0 && icon_data.flags.0 & NIF_ICON.0 != 0 {
+        let icon_handle = if icon_data.flags.0 & NIF_ICON.0 != 0 {
+            // An explicitly blank icon is a native visual update too. Keep it
+            // distinct from an event with no NIF_ICON update at all.
             Some(icon_data.icon_handle as isize)
         } else {
             None
@@ -66,11 +68,16 @@ impl From<NotifyIconData> for IconEventData {
         };
 
         let tooltip = if icon_data.flags.0 & NIF_TIP.0 != 0 {
-            let tooltip_len = icon_data.tooltip.iter().position(|&c| c == 0).unwrap_or(0);
+            let tooltip_len = icon_data
+                .tooltip
+                .iter()
+                .position(|&c| c == 0)
+                .unwrap_or(icon_data.tooltip.len());
             let tooltip_str = String::from_utf16_lossy(&icon_data.tooltip[..tooltip_len])
                 .replace('\r', "")
                 .to_string();
-            (!tooltip_str.is_empty()).then_some(tooltip_str)
+            // NIF_TIP with an empty string explicitly clears the old hint.
+            Some(tooltip_str)
         } else {
             None
         };
@@ -106,7 +113,7 @@ impl From<NotifyIconData> for IconEventData {
                     .iter()
                     .position(|&c| c == 0)
                     .unwrap_or(64);
-                (len > 0).then(|| {
+                Some(if len > 0 {
                     format!(
                         "{}\n{}",
                         String::from_utf16_lossy(&icon_data.info_title[..title_len]),
@@ -114,6 +121,10 @@ impl From<NotifyIconData> for IconEventData {
                     )
                     .trim()
                     .to_string()
+                } else {
+                    // NIF_INFO + empty szInfo withdraws a balloon. Distinguish
+                    // it from an update which does not touch notification data.
+                    String::new()
                 })
             } else {
                 None
@@ -272,13 +283,33 @@ mod tests {
     }
 
     #[test]
-    fn empty_or_unflagged_balloon_is_not_a_new_notification() {
+    fn empty_balloon_explicitly_clears_but_unflagged_balloon_is_no_update() {
         let mut data: NotifyIconData = unsafe { std::mem::zeroed() };
         data.flags = NIF_INFO;
-        assert!(IconEventData::from(data).notification.is_none());
+        assert_eq!(IconEventData::from(data).notification.as_deref(), Some(""));
         data.flags = NIF_TIP;
         data.size_info[0] = 65;
         assert!(IconEventData::from(data).notification.is_none());
+    }
+
+    #[test]
+    fn empty_tooltip_explicitly_clears_the_previous_unread_hint() {
+        let mut data: NotifyIconData = unsafe { std::mem::zeroed() };
+        assert_eq!(IconEventData::from(data).tooltip, None);
+        data.flags = NIF_TIP;
+        assert_eq!(IconEventData::from(data).tooltip.as_deref(), Some(""));
+        data.tooltip.fill(65);
+        assert_eq!(IconEventData::from(data).tooltip.unwrap().len(), 128);
+    }
+
+    #[test]
+    fn explicit_blank_icon_is_distinct_from_an_omitted_icon_update() {
+        let mut data: NotifyIconData = unsafe { std::mem::zeroed() };
+        assert_eq!(IconEventData::from(data).icon_handle, None);
+        data.flags = NIF_ICON;
+        assert_eq!(IconEventData::from(data).icon_handle, Some(0));
+        data.icon_handle = 123;
+        assert_eq!(IconEventData::from(data).icon_handle, Some(123));
     }
 
     fn event_data(message: NOTIFY_ICON_MESSAGE, data: NotifyIconData) -> IconEventData {

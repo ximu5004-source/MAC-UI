@@ -15,7 +15,7 @@ profile:
   log_out: გასვლა
   open_onedrive: გახსენით OneDrive დირექტორია
   open_user_folder: გახსენით მომხმარებლის დირექტორია
-seelen_options:
-  open_installation_folder: გახსენით Seelen პარამეტრების საქაღალდე
-  open_log_folder: გახსენით Seelen ჟურნალის საქაღალდე
-  title: Seelen დირექტორიები
+macui_options:
+  open_installation_folder: გახსენით MAC UI პარამეტრების საქაღალდე
+  open_log_folder: გახსენით MAC UI ჟურნალის საქაღალდე
+  title: MAC UI დირექტორიები

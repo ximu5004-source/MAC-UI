@@ -1,8 +1,8 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
   "productName": "MAC UI",
-  "mainBinaryName": "mac-ui",
-  "identifier": "com.seelen.seelen-ui",
+  "mainBinaryName": "macui",
+  "identifier": "com.jona.mac-ui",
   "version": "../package.json",
   "app": {
     "security": {
@@ -27,6 +27,7 @@
   "build": {
     "beforeDevCommand": "npm run build:ui -- --serve",
     "beforeBuildCommand": "npm run build:ui -- --production",
+    "beforeBundleCommand": "pwsh -NoProfile -File scripts/build/prepare-installer-runtime.ps1",
     "devUrl": "http://localhost:3579",
     "frontendDist": "../dist",
     "features": []
@@ -38,9 +39,9 @@
     "category": "Utility",
     "copyright": "MAC UI modifications © 2026 JONA. Based on Seelen UI © its contributors. AGPL-3.0-or-later.",
     "shortDescription": "MAC UI",
-    "longDescription": "MAC UI by JONA — Liquid Glass desktop environment for Windows, based on Seelen UI.",
+    "longDescription": "MAC UI by JONA — a local-first Liquid Glass workspace for Windows.",
     "licenseFile": "../LICENSE",
-    "homepage": "https://github.com/eythaann/Seelen-UI",
+    "homepage": "https://github.com/ximu5004-source/MAC-UI",
     "resources": {
       "static": "static",
       "../LICENSE": "LICENSE",
@@ -53,6 +54,11 @@
       "static/icons/mac-ui/icon.ico"
     ],
     "windows": {
+      "minimumWebview2Version": "110.0.0.0",
+      "webviewInstallMode": {
+        "type": "offlineInstaller",
+        "silent": true
+      },
       "certificateThumbprint": null,
       "digestAlgorithm": "sha256",
       "nsis": {
@@ -84,11 +90,11 @@
     "fileAssociations": [
       {
         "ext": [
-          ".slu"
+          "maui"
         ],
-        "name": "seelen-ui.file",
+        "name": "macui.resource",
         "description": "MAC UI Resource File",
-        "mimeType": "text/plain",
+        "mimeType": "application/vnd.macui.resource",
         "role": "Viewer"
       }
     ]
@@ -101,7 +107,7 @@
       "mobile": [],
       "desktop": {
         "schemes": [
-          "seelen-ui.uri"
+          "mac-ui"
         ]
       }
     }

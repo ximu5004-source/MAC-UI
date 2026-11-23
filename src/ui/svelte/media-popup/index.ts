@@ -1,8 +1,9 @@
 import { mount } from "svelte";
 import App from "./app.svelte";
-import { Widget } from "@seelen-ui/lib";
+import { Widget } from "@macui/lib";
+import { globalState } from "./state.svelte.ts";
 
-import "@seelen-ui/lib/styles/reset.css";
+import "@macui/lib/styles/reset.css";
 import "libs/ui/svelte/styles/mac-panels.css";
 import { configureMacPanel } from "libs/ui/svelte/utils/macPanel";
 import { trackFrostedSurfaces } from "libs/ui/svelte/utils/frostedSurfaces";
@@ -12,6 +13,7 @@ const root = document.getElementById("root")!;
 const widget = Widget.getCurrent();
 await widget.init({
   autoSizeByContent: root,
+  beforePopupShow: (payload) => globalState.prepareShow(payload),
 });
 await configureMacPanel(widget);
 

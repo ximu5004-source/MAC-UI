@@ -1,6 +1,6 @@
 use std::sync::Once;
 
-use seelen_core::{handlers::SeelenEvent, system_state::MonitorBrightness};
+use macui_core::{handlers::MacUiEvent, system_state::MonitorBrightness};
 
 use crate::{app::emit_to_webviews, error::Result};
 
@@ -22,10 +22,7 @@ fn get_brightness_manager() -> &'static BrightnessManager {
                     })
                     .collect();
 
-                emit_to_webviews(
-                    SeelenEvent::SystemMonitorsBrightnessChanged,
-                    brightness_data,
-                );
+                emit_to_webviews(MacUiEvent::SystemMonitorsBrightnessChanged, brightness_data);
             }
         });
     });

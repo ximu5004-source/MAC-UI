@@ -7,19 +7,19 @@ use crate::{
 #[cfg(test)]
 use std::{collections::HashMap, path::PathBuf};
 
-macro_rules! slu_commands_declaration {
+macro_rules! macui_commands_declaration {
     ($($key:ident = $fn_name:ident($($args:tt)*) $(-> $return_type:ty)?,)*) => {
         #[cfg(test)]
-        pub struct SeelenCommand;
+        pub struct MacUiCommand;
 
         #[cfg(test)]
-        impl SeelenCommand {
+        impl MacUiCommand {
             #[cfg(feature = "gen-binds")]
             pub(crate) fn generate_ts_file(path: &str) {
                 let mut content: Vec<String> = std::vec::Vec::new();
 
                 content.push("// This file was generated via rust macros. Don't modify manually.".to_owned());
-                content.push("export enum SeelenCommand {".to_owned());
+                content.push("export enum MacUiCommand {".to_owned());
                 $(
                     content.push(format!("  {} = '{}',", stringify!($key), stringify!($fn_name)));
                 )*
@@ -39,7 +39,7 @@ macro_rules! slu_commands_declaration {
                         #[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), derive(ts_rs::TS))]
                         #[serde(rename_all = "camelCase")]
                         #[allow(dead_code)]
-                        struct [<SeelenCommand $key Args>] {
+                        struct [<MacUiCommand $key Args>] {
                             $($args)*
                         }
                     }
@@ -53,12 +53,12 @@ macro_rules! slu_commands_declaration {
             #[derive(Deserialize)]
             #[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), derive(ts_rs::TS))]
             #[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), ts(export))]
-            enum SeelenCommandArgument {
+            enum MacUiCommandArgument {
                 $(
                     #[allow(non_snake_case)]
                     $fn_name(Box<$crate::__switch! {
                         if { $($args)* }
-                        do { [<SeelenCommand $key Args>] }
+                        do { [<MacUiCommand $key Args>] }
                         else { () }
                     }>),
                 )*
@@ -71,7 +71,7 @@ macro_rules! slu_commands_declaration {
         #[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), ts(export))]
         #[allow(non_camel_case_types, dead_code)]
         #[cfg(test)]
-        enum SeelenCommandReturn {
+        enum MacUiCommandReturn {
             $(
                 $fn_name(Box<$crate::__switch! {
                     if { $($return_type)? }
@@ -96,7 +96,7 @@ macro_rules! slu_commands_declaration {
     };
 }
 
-slu_commands_declaration! {
+macui_commands_declaration! {
     // virtual desktops
     StateGetVirtualDesktops = get_virtual_desktops() -> VirtualDesktops,
     SwitchWorkspace = switch_workspace(workspace_id: WorkspaceId),
@@ -111,12 +111,9 @@ slu_commands_declaration! {
     WallpaperPrev = wallpaper_prev(),
     WallpaperSaveThumbnail = wallpaper_save_thumbnail(wallpaper_id: ResourceId, thumbnail_bytes: Vec<u8>),
     SetAsWallpaper = set_as_wallpaper(),
-    SetAsDesktop = set_as_desktop(),
-    SetDesktopRegions = set_desktop_regions(viewport: [f64; 2], rects: Vec<[f64; 4]>),
     SetFrostedRegions = set_frosted_regions(viewport: [f64; 2], rects: Vec<[f64; 5]>),
     GetToolbarWallpaperLuminance = get_toolbar_wallpaper_luminance(viewport: [f64; 2], rects: Vec<[f64; 4]>) -> Vec<f64>,
     GetFrostedWallpaperLuminance = get_frosted_wallpaper_luminance(viewport: [f64; 2], rects: Vec<[f64; 4]>) -> Vec<f64>,
-    SetNativeDesktopIconsHidden = set_native_desktop_icons_hidden(hidden: bool),
 
     // Logging
     LogFromWebview = log_from_webview(level: u8, message: String, location: String),
@@ -171,7 +168,7 @@ slu_commands_declaration! {
     RegisterAppBar = register_app_bar(rect: Rect, edge: AppBarEdge),
     UnregisterAppBar = unregister_app_bar(),
 
-    // Seelen Settings
+    // MacUi Settings
     StateGetDefaultSettings = state_get_default_settings() -> Settings,
     StateGetDefaultMonitorSettings = state_get_default_monitor_settings() -> MonitorConfiguration,
     StateGetDefaultWallpaperSettings = state_get_default_wallpaper_settings() -> WallpaperInstanceSettings,
@@ -208,6 +205,7 @@ slu_commands_declaration! {
     TriggerDialog = trigger_dialog(dialog: Dialog),
     SetCurrentWidgetStatus = set_current_widget_status(status: WidgetStatus),
     GetSelfWindowId = get_self_window_handle() -> isize,
+    SetSelfPopupVisible = set_self_popup_visible(visible: bool),
     SetSelfPosition = set_self_position(rect: Rect),
     SetSelfZOrder = set_self_z_order(z_order: ZOrder),
     WriteFile = write_data_file(filename: String, content: String),
@@ -220,11 +218,6 @@ slu_commands_declaration! {
     // User
     GetUser = get_user() -> User,
     GetUserFolderContent = get_user_folder_content(folder_type: FolderType) -> Vec<std::path::PathBuf>,
-    GetDesktopEntries = get_desktop_entries() -> Vec<DesktopEntry>,
-    CreateDesktopFolder = create_desktop_folder(base_name: String) -> std::path::PathBuf,
-    GetDesktopNewFileTypes = get_desktop_new_file_types() -> Vec<DesktopNewFileType>,
-    CreateDesktopFile = create_desktop_file(extension: String, base_name: String) -> std::path::PathBuf,
-    RenameDesktopEntry = rename_desktop_entry(path: std::path::PathBuf, new_name: String) -> std::path::PathBuf,
     GetUserAppWindows = get_user_app_windows() -> Vec<UserAppWindow>,
     GetUserAppWindowsPreviews = get_user_app_windows_previews() -> HashMap<isize, UserAppWindowPreview>,
     GetUserAppWindowsColors = get_user_app_windows_colors() -> HashMap<isize, UserAppWindowColors>,
@@ -256,10 +249,11 @@ slu_commands_declaration! {
     Shutdown = shutdown(),
     Lock = lock(),
 
-    // SeelenWeg
+    // MacUiWeg
     WegCloseApp = weg_close_app(hwnd: isize),
     WegKillApp = weg_kill_app(hwnd: isize),
     WegToggleWindowState = weg_toggle_window_state(hwnd: isize, was_focused: bool, minimize_target: Option<Rect>),
+    WegSetWindowAnimationTargets = weg_set_window_animation_targets(targets: HashMap<isize, Rect>),
     WegPinItem = weg_pin_item(path: PathBuf),
     WegImportPinnedTaskbarItems = weg_import_pinned_taskbar_items() -> usize,
 
@@ -286,6 +280,10 @@ slu_commands_declaration! {
 
     // Notifications
     GetNotifications = get_notifications() -> Vec<AppNotification>,
+    GetCommunicationNotifications = get_communication_notifications() -> Vec<CommunicationNotification>,
+    ActivateCommunicationNotification = activate_communication_notification(id: String),
+    DismissCommunicationNotification = dismiss_communication_notification(id: String),
+    ClearCommunicationNotifications = clear_communication_notifications(),
     NotificationsClose = notifications_close(id: u32),
     NotificationsCloseAll = notifications_close_all(),
     ActivateNotification = activate_notification(
@@ -324,10 +322,10 @@ slu_commands_declaration! {
     GetTrashBinInfo = get_trash_bin_info() -> TrashBinInfo,
     TrashBinEmpty = trash_bin_empty(),
 
-    // Seelen Session
-    GetSeelenSession = get_seelen_session() -> Option<SeelenSession>,
-    SeelenLogin = seelen_login(),
-    SeelenLogout = seelen_logout(),
+    // MacUi Session
+    GetMacUiSession = get_macui_session() -> Option<MacUiSession>,
+    MacUiLogin = macui_login(),
+    MacUiLogout = macui_logout(),
 
     // Cloud Backup
     GetBackupStatus = get_backup_status() -> BackupStatus,
@@ -342,7 +340,7 @@ slu_commands_declaration! {
     ClipboardUnpinEntry = clipboard_unpin_entry(id: String),
 
     // Fonts
-    GetFonts = get_fonts() -> Vec<SeelenFont>,
+    GetFonts = get_fonts() -> Vec<MacUiFont>,
 
     // Focus Assist / DND
     GetFocusAssist = get_focus_assist() -> bool,

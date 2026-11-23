@@ -1,7 +1,7 @@
 use std::sync::{Arc, LazyLock};
 
 use arc_swap::ArcSwapOption;
-use seelen_core::system_state::{
+use macui_core::system_state::{
     BluetoothDevice as SerializableBluetoothDevice, DevicePairingAnswer, DevicePairingNeededAction,
 };
 use tokio::sync::mpsc;

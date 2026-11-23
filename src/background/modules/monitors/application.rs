@@ -7,9 +7,9 @@ use std::{
     time::Duration,
 };
 
-use seelen_core::system_state::{MonitorId, PhysicalMonitor};
-use slu_utils::display_recovery::{StableDisplaySnapshot, should_refresh_display_layout};
-use slu_utils::{Debounce, debounce};
+use macui_core::system_state::{MonitorId, PhysicalMonitor};
+use macui_utils::display_recovery::{StableDisplaySnapshot, should_refresh_display_layout};
+use macui_utils::{Debounce, debounce};
 use windows::{
     Devices::Display::Core::{
         DisplayManager, DisplayManagerChangedEventArgs, DisplayManagerDisabledEventArgs,

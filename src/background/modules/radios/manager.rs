@@ -1,18 +1,18 @@
 use std::sync::LazyLock;
 
-use seelen_core::system_state::{RadioDevice, RadioDeviceKind};
+use macui_core::system_state::{RadioDevice, RadioDeviceKind};
 use windows::Devices::Radios::{Radio, RadioAccessStatus, RadioState};
 
 use crate::{
     error::{Result, ResultLogExt},
     event_manager,
-    modules::radios::device::SluRadioDevice,
+    modules::radios::device::MacUiRadioDevice,
     utils::lock_free::SyncHashMap,
     windows_api::{DeviceEnumerator, DeviceEvent, DeviceId},
 };
 
 pub struct RadioManager {
-    pub radios: SyncHashMap<DeviceId, SluRadioDevice>,
+    pub radios: SyncHashMap<DeviceId, MacUiRadioDevice>,
     device_enumerator: Option<DeviceEnumerator>,
 }
 
@@ -41,15 +41,15 @@ impl RadioManager {
         let devices = enumerator.start_blocking()?;
 
         // Map DeviceInformation to (Radio, i64) with state change handler
-        let radios: Result<Vec<SluRadioDevice>> = devices
+        let radios: Result<Vec<MacUiRadioDevice>> = devices
             .iter()
             .map(|device| {
                 let id = device.Id()?.to_string();
-                SluRadioDevice::create(&id)
+                MacUiRadioDevice::create(&id)
             })
             .collect();
 
-        let radios_map: std::collections::HashMap<DeviceId, SluRadioDevice> = radios?
+        let radios_map: std::collections::HashMap<DeviceId, MacUiRadioDevice> = radios?
             .into_iter()
             .map(|radio| (radio.id.clone(), radio))
             .collect();
@@ -75,7 +75,7 @@ impl RadioManager {
     fn on_event(&self, event: &DeviceEvent) -> Result<()> {
         match event {
             DeviceEvent::Added(id) => {
-                let radio = SluRadioDevice::create(id)?;
+                let radio = MacUiRadioDevice::create(id)?;
                 self.radios.upsert(id.clone(), radio);
             }
             DeviceEvent::Updated(_id) => {}

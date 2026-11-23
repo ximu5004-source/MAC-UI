@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { ToolbarItem, ToolbarItem2 } from "@seelen-ui/lib/types";
+  import type { ToolbarItem, ToolbarItem2 } from "@macui/lib/types";
   import { plugins } from "../state/items.svelte.ts";
   import SortableItem from "./SortableItem.svelte";
 

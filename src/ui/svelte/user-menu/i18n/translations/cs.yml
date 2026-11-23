@@ -15,7 +15,7 @@ profile:
   log_out: Odhlaste se
   open_onedrive: Otevřete adresář OneDrive
   open_user_folder: Otevřete adresář uživatele
-seelen_options:
-  open_installation_folder: Otevřete složku nastavení Seelen
-  open_log_folder: Otevřete složku protokolu Seelen
-  title: Seelen adresáře
+macui_options:
+  open_installation_folder: Otevřete složku nastavení MAC UI
+  open_log_folder: Otevřete složku protokolu MAC UI
+  title: MAC UI adresáře

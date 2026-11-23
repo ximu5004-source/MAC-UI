@@ -1,6 +1,6 @@
 import { signal } from "@preact/signals";
-import { Widget } from "@seelen-ui/lib";
-import type { Dialog, DialogContent as IDialogContent } from "@seelen-ui/lib/types";
+import { Widget } from "@macui/lib";
+import type { Dialog, DialogContent as IDialogContent } from "@macui/lib/types";
 import { LogicalSize } from "@tauri-apps/api/window";
 import { Icon } from "libs/ui/react/components/Icon";
 import { useEffect } from "preact/hooks";
@@ -38,7 +38,7 @@ export function App() {
     <div className="dialog">
       <header className="header">
         <div className="header-content">
-          {dialog.title.map((entry, idx) => <SluPopupContent key={idx} entry={entry} />)}
+          {dialog.title.map((entry, idx) => <MacUiPopupContent key={idx} entry={entry} />)}
         </div>
         <button className="header-close" onClick={handleClose}>
           <Icon iconName="CgClose" />
@@ -46,17 +46,17 @@ export function App() {
       </header>
 
       <main className="content">
-        {dialog.content.map((entry, idx) => <SluPopupContent key={idx} entry={entry} />)}
+        {dialog.content.map((entry, idx) => <MacUiPopupContent key={idx} entry={entry} />)}
       </main>
 
       <footer className="footer">
-        {dialog.footer.map((entry, idx) => <SluPopupContent key={idx} entry={entry} />)}
+        {dialog.footer.map((entry, idx) => <MacUiPopupContent key={idx} entry={entry} />)}
       </footer>
     </div>
   );
 }
 
-function SluPopupContent({ entry }: { entry: IDialogContent }) {
+function MacUiPopupContent({ entry }: { entry: IDialogContent }) {
   switch (entry.type) {
     case "text":
       return (
@@ -75,13 +75,13 @@ function SluPopupContent({ entry }: { entry: IDialogContent }) {
           onClick={() => handleButtonClick(entry.onClick)}
           style={entry.styles || {}}
         >
-          {entry.inner.map((subEntry, idx) => <SluPopupContent key={idx} entry={subEntry} />)}
+          {entry.inner.map((subEntry, idx) => <MacUiPopupContent key={idx} entry={subEntry} />)}
         </button>
       );
     case "group":
       return (
         <div className="group" style={entry.styles || {}}>
-          {entry.items.map((subEntry, idx) => <SluPopupContent key={idx} entry={subEntry} />)}
+          {entry.items.map((subEntry, idx) => <MacUiPopupContent key={idx} entry={subEntry} />)}
         </div>
       );
     case "loader":

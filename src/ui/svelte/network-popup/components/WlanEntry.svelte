@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { WlanBssEntry } from "@seelen-ui/lib/types";
-  import { invoke, SeelenCommand } from "@seelen-ui/lib";
+  import type { WlanBssEntry } from "@macui/lib/types";
+  import { invoke, MacUiCommand } from "@macui/lib";
   import { untrack } from "svelte";
   import Icon from "libs/ui/svelte/components/Icon/Icon.svelte";
   import type { IconName } from "libs/ui/icons";
@@ -62,13 +62,13 @@
   async function onConnection() {
     transition.start(async () => {
       if (entry.connected) {
-        await invoke(SeelenCommand.WlanDisconnect);
+        await invoke(MacUiCommand.WlanDisconnect);
         return;
       }
 
       // Known networks: try with saved credentials first; on failure ask for password
       if (!showFields && entry.known && entry.ssid) {
-        const success = await invoke(SeelenCommand.WlanConnect, {
+        const success = await invoke(MacUiCommand.WlanConnect, {
           ssid: entry.ssid,
           password: null,
           hidden: false,
@@ -78,7 +78,7 @@
       }
 
       // Unknown / secured networks: user must provide credentials
-      const success = await invoke(SeelenCommand.WlanConnect, {
+      const success = await invoke(MacUiCommand.WlanConnect, {
         ssid,
         password: password || null,
         hidden: !entry.ssid,
@@ -95,7 +95,7 @@
     if (!entry.ssid) return;
     const ssid = entry.ssid;
     transition.start(async () => {
-      await invoke(SeelenCommand.WlanForget, { ssid });
+      await invoke(MacUiCommand.WlanForget, { ssid });
     });
   }
 

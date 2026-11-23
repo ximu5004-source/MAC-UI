@@ -14,7 +14,7 @@
       <img src="./mac-ui.svg" alt="" width="80" height="80" /><strong>MAC UI</strong><span>JONA</span>
     </div>
     <style>
-      #splashscreen { position: fixed; inset: 0; z-index: 1000; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 14px; background: light-dark(#f5f6f8, #20232b); color: light-dark(#20252d, #f2f4f9); font-family: "Segoe UI", sans-serif; transition: opacity 200ms ease; }
+      #splashscreen { border-radius: var(--mac-window-radius, 26px); position: fixed; inset: 0; z-index: 1000; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 14px; background: light-dark(#f5f6f8, #20232b); color: light-dark(#20252d, #f2f4f9); font-family: "Segoe UI", sans-serif; transition: opacity 200ms ease; }
       #splashscreen strong { font-size: 26px; } #splashscreen span { font-size: 12px; opacity: .7; }
       #splashscreen.hidden { display: none; } #splashscreen.vanish { opacity: 0; pointer-events: none; }
       @media (prefers-reduced-motion: reduce) { #splashscreen { transition: none; } }

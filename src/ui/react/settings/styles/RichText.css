@@ -7,7 +7,6 @@
   --spacing-xl: 1.5rem; /* 24px */
   --spacing-2xl: 2rem; /* 32px */
 
-  --config-border-radius: 10px;
 }
 
 .richText {
@@ -22,14 +21,14 @@
 
   a {
     display: inline-flex;
-    color: var(--color-blue-800);
+    color: var(--mac-accent);
 
     &:hover {
       text-decoration: underline;
     }
 
     &:visited {
-      color: var(--color-purple-900);
+      color: var(--mac-accent);
     }
   }
 

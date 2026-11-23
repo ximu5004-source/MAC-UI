@@ -1,7 +1,7 @@
-pub use slu_ipc::commands::WegCli;
-use slu_ipc::commands::WegCommand;
+pub use macui_ipc::commands::WegCli;
+use macui_ipc::commands::WegCommand;
 
-use seelen_core::{
+use macui_core::{
     state::{WegItem, WegItemData},
     system_state::UserAppWindow,
 };

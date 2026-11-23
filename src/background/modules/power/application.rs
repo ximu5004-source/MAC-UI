@@ -1,6 +1,6 @@
 use std::sync::LazyLock;
 
-use seelen_core::system_state::{Battery, PowerMode, PowerStatus};
+use macui_core::system_state::{Battery, PowerMode, PowerStatus};
 use windows::Win32::{
     Foundation::HANDLE,
     System::{
@@ -28,7 +28,7 @@ use crate::{
     windows_api::{WindowsApi, event_window::subscribe_to_background_window},
 };
 
-use super::domain::{battery_to_slu_battery, power_status_to_serializable};
+use super::domain::{battery_to_macui_battery, power_status_to_serializable};
 
 #[derive(Debug)]
 pub struct PowerManager {
@@ -148,7 +148,7 @@ impl PowerManager {
         let mut batteries: Vec<Battery> = Vec::new();
         let manager = battery::Manager::new()?;
         for battery in manager.batteries()?.flatten() {
-            batteries.push(battery_to_slu_battery(battery)?);
+            batteries.push(battery_to_macui_battery(battery)?);
         }
         Ok(batteries)
     }

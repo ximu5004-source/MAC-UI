@@ -15,7 +15,7 @@ profile:
   log_out: ලොග් අවුට් වෙන්න
   open_onedrive: OneDrive නාමාවලිය විවෘත කරන්න
   open_user_folder: පරිශීලක නාමාවලිය විවෘත කරන්න
-seelen_options:
-  open_installation_folder: Seelen සැකසුම් ෆෝල්ඩරය විවෘත කරන්න
+macui_options:
+  open_installation_folder: MAC UI සැකසුම් ෆෝල්ඩරය විවෘත කරන්න
   open_log_folder: සීලෙන් ලොග් ෆෝල්ඩරය විවෘත කරන්න
   title: සීලෙන් නාමාවලි

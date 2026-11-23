@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { Widget } from "@seelen-ui/lib";
+  import { Widget } from "@macui/lib";
   import Layout from "./layout/infra/Layout.svelte";
 
   onMount(() => {

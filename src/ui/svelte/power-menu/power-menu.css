@@ -13,7 +13,7 @@ html, body, #root {
   --power-hover: rgb(255 255 255 / .16);
   --power-accent: light-dark(#0063d6, #8cc3ff);
   --power-error: light-dark(#a61923, #ffb0b3);
-  color-scheme: light dark;
+  color-scheme: inherit;
   position: fixed;
   inset: 0;
   width: 100vw;

@@ -1,7 +1,7 @@
 use std::{collections::HashMap, sync::Once};
 
-use seelen_core::{
-    handlers::SeelenEvent,
+use macui_core::{
+    handlers::MacUiEvent,
     system_state::{AppNotification, NotificationsMode, ToastActionActivationType},
 };
 use windows::{
@@ -22,27 +22,29 @@ use crate::{
     windows_api::{Com, string_utils::WindowsString, types::AppUserModelId},
 };
 
-fn get_notification_manager() -> &'static NotificationManager {
+fn get_notification_manager() -> Result<&'static NotificationManager> {
+    let manager = NotificationManager::instance()?;
     static TAURI_EVENT_REGISTRATION: Once = Once::new();
     TAURI_EVENT_REGISTRATION.call_once(|| {
-        NotificationManager::subscribe(|event| match event {
+        NotificationManager::subscribe(move |event| match event {
             NotificationEvent::ModeChanged(mode) => {
-                emit_to_webviews(SeelenEvent::NotificationsModeChanged, mode);
+                emit_to_webviews(MacUiEvent::NotificationsModeChanged, mode);
             }
             _ => {
-                emit_to_webviews(
-                    SeelenEvent::Notifications,
-                    NotificationManager::instance().notifications(),
-                );
+                emit_to_webviews(MacUiEvent::Notifications, manager.notifications());
             }
         });
     });
-    NotificationManager::instance()
+    Ok(manager)
 }
 
 #[tauri::command(async)]
-pub fn get_notifications() -> Vec<AppNotification> {
-    get_notification_manager().notifications()
+pub fn get_notifications() -> Result<Vec<AppNotification>> {
+    let manager = get_notification_manager()?;
+    if !manager.has_access()? {
+        return Err("Windows notification access is unavailable".into());
+    }
+    Ok(manager.notifications())
 }
 
 // https://learn.microsoft.com/en-us/windows/win32/api/notificationactivationcallback/nf-notificationactivationcallback-inotificationactivationcallback-activate
@@ -69,13 +71,13 @@ pub fn activate_notification(
         // which is what Action Center does on any action click.
         ToastActionActivationType::System => {
             log::trace!("System action '{args}': removing notification locally");
-            let _ = get_notification_manager().remove_notification(id);
+            let _ = get_notification_manager().and_then(|manager| manager.remove_notification(id));
             return Ok(());
         }
         // Protocol activation: `args` is a URI. Delegate to the shell.
         ToastActionActivationType::Protocol => {
             crate::exposed::open_file_inner(args)?;
-            let _ = get_notification_manager().remove_notification(id);
+            let _ = get_notification_manager().and_then(|manager| manager.remove_notification(id));
             return Ok(());
         }
         ToastActionActivationType::Foreground
@@ -137,7 +139,8 @@ pub fn activate_notification(
 
             match result {
                 Ok(()) => {
-                    let _ = get_notification_manager().remove_notification(id);
+                    let _ = get_notification_manager()
+                        .and_then(|manager| manager.remove_notification(id));
                     return Ok(());
                 }
                 Err(error) => {
@@ -178,7 +181,8 @@ pub fn activate_notification(
 
         match result {
             Ok(()) => {
-                let _ = get_notification_manager().remove_notification(id);
+                let _ =
+                    get_notification_manager().and_then(|manager| manager.remove_notification(id));
                 return Ok(());
             }
             Err(error) => {
@@ -188,23 +192,23 @@ pub fn activate_notification(
     }
 
     // Last resort: mirror Action Center behavior by removing the toast anyway.
-    // let _ = get_notification_manager().remove_notification(id);
+    // let _ = get_notification_manager().and_then(|manager| manager.remove_notification(id));
     Err("Failed to activate notification".into())
 }
 
 #[tauri::command(async)]
 pub fn notifications_close(id: u32) -> Result<()> {
-    get_notification_manager().remove_notification(id)
+    get_notification_manager().and_then(|manager| manager.remove_notification(id))
 }
 
 #[tauri::command(async)]
 pub fn notifications_close_all() -> Result<()> {
-    get_notification_manager().clear_notifications()
+    get_notification_manager()?.clear_notifications()
 }
 
 #[tauri::command(async)]
 pub fn get_notifications_mode() -> Result<NotificationsMode> {
-    get_notification_manager().get_notifications_mode()
+    get_notification_manager()?.get_notifications_mode()
 }
 
 #[tauri::command(async)]

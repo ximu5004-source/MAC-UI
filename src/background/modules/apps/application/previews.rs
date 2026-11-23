@@ -2,8 +2,8 @@ use std::{collections::HashMap, sync::LazyLock, time::Duration};
 
 use base64::{Engine as _, engine::general_purpose::STANDARD};
 use image::{DynamicImage, RgbaImage};
-use seelen_core::system_state::{Color, UserAppWindowColors, UserAppWindowPreview};
-use slu_utils::{Debounce, debounce};
+use macui_core::system_state::{Color, UserAppWindowColors, UserAppWindowPreview};
+use macui_utils::{Debounce, debounce};
 use win_screenshot::prelude::capture_window;
 
 use crate::{

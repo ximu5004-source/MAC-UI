@@ -1,4 +1,4 @@
-import { Alignment } from "@seelen-ui/types";
+import { Alignment } from "@macui/types";
 import { Mutex } from "../../../utils/async.ts";
 import { fitIntoMonitor } from "../positioning.ts";
 import { Widget_2 } from "./2_triggering.ts";

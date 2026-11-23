@@ -18,12 +18,17 @@ context_menu:
   add_custom_text: 添加自定义文本项
   modules: 模块
   remove: 移除模块
-  reorder_disable: 锁定花式工具栏
-  reorder_enable: 解锁花式工具栏
+  reorder_disable: 锁定顶部栏
+  reorder_enable: 解锁顶部栏
   restore: 恢复默认值
   settings: 设置
   task_manager: 任务管理器
 media:
+  now_playing: 正在播放
+  not_playing: 当前无播放内容
+  playing: 播放中
+  paused: 已暂停
+  unavailable: 暂时无法获取播放信息
   default_multimedia_volume: 多媒体音量
   device:
     channel:

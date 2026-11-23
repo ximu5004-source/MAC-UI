@@ -1,7 +1,7 @@
 {
-  "name": "@seelen-ui/lib",
-  "version": "3.0.1",
-  "description": "Seelen UI Library for Widgets",
+  "name": "@macui/lib",
+  "version": "4.3.1",
+  "description": "MAC UI Library for Widgets",
   "license": "AGPL-3.0-only",
   "exports": {
     ".": "./src/lib.ts",
@@ -20,7 +20,7 @@
   },
   "imports": {
     "@deno/dnt": "jsr:@deno/dnt@0.42.3",
-    "@seelen-ui/types": "./gen/types/mod.ts",
+    "@macui/types": "./gen/types/mod.ts",
     "@std/assert": "jsr:@std/assert@^1.0.19",
     "@std/encoding": "jsr:@std/encoding@^1.0.10",
     "@tauri-apps/api": "npm:@tauri-apps/api@^2.11.0",

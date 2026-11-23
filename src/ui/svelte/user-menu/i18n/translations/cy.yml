@@ -15,7 +15,7 @@ profile:
   log_out: Allgofnodi
   open_onedrive: Agor cyfeiriadur OneDrive
   open_user_folder: Agor cyfeiriadur defnyddiwr
-seelen_options:
-  open_installation_folder: Agor ffolder gosodiadau Seelen
-  open_log_folder: Agor ffolder log Seelen
-  title: Cyfeiriaduron Seelen
+macui_options:
+  open_installation_folder: Agor ffolder gosodiadau MAC UI
+  open_log_folder: Agor ffolder log MAC UI
+  title: Cyfeiriaduron MAC UI

@@ -1,6 +1,6 @@
 use std::sync::Once;
 
-use seelen_core::{handlers::SeelenEvent, system_state::ClipboardData};
+use macui_core::{handlers::MacUiEvent, system_state::ClipboardData};
 
 use crate::{
     app::emit_to_webviews,
@@ -14,7 +14,7 @@ fn get_clipboard_manager() -> &'static ClipboardManager {
     TAURI_EVENT_REGISTRATION.call_once(|| {
         ClipboardManager::subscribe(|_| {
             emit_to_webviews(
-                SeelenEvent::ClipboardDataChanged,
+                MacUiEvent::ClipboardDataChanged,
                 ClipboardManager::instance().get_data(),
             );
         });

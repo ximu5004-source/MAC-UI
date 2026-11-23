@@ -15,7 +15,7 @@ profile:
   log_out: Odjavi se
   open_onedrive: Otvorite OneDrive direktorij
   open_user_folder: Otvori korisnički imenik
-seelen_options:
-  open_installation_folder: Otvorite mapu postavki Seelen
-  open_log_folder: Otvorite mapu dnevnika Seelen
-  title: Seelen imenici
+macui_options:
+  open_installation_folder: Otvorite mapu postavki MAC UI
+  open_log_folder: Otvorite mapu dnevnika MAC UI
+  title: MAC UI imenici

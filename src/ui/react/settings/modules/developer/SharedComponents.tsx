@@ -32,9 +32,9 @@ const BUTTON_ENTRIES: ComponentEntry[] = [
 
 const SURFACE_ENTRIES: ComponentEntry[] = [
   {
-    selector: ".slu-std-popover",
+    selector: ".macui-std-popover",
     preview: (
-      <div className="slu-std-popover" style={{ position: "relative", margin: 0 }}>
+      <div className="macui-std-popover" style={{ position: "relative", margin: 0 }}>
         Popover content
       </div>
     ),

@@ -3,7 +3,7 @@
 //!
 //! Field layouts adapted from <https://github.com/kvnxiao/win-nightlight-cli>.
 
-use seelen_core::{
+use macui_core::{
     chrono::{NaiveTime, Timelike},
     system_state::{NightlightSettings, ScheduleMode},
 };

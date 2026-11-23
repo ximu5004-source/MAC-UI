@@ -15,7 +15,7 @@ profile:
   log_out: लग आउट गर्नुहोस्
   open_onedrive: OneDrive डाइरेक्टरी खोल्नुहोस्
   open_user_folder: प्रयोगकर्ता निर्देशिका खोल्नुहोस्
-seelen_options:
-  open_installation_folder: Seelen सेटिंग्स फोल्डर खोल्नुहोस्
-  open_log_folder: Seelen लग फोल्डर खोल्नुहोस्
-  title: Seelen निर्देशिकाहरू
+macui_options:
+  open_installation_folder: MAC UI सेटिंग्स फोल्डर खोल्नुहोस्
+  open_log_folder: MAC UI लग फोल्डर खोल्नुहोस्
+  title: MAC UI निर्देशिकाहरू

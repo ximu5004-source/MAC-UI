@@ -1,5 +1,5 @@
-pub use slu_ipc::commands::ResourceManagerCli;
-use slu_ipc::commands::ResourceSubCommand;
+pub use macui_ipc::commands::ResourceManagerCli;
+use macui_ipc::commands::ResourceSubCommand;
 
 use crate::{error::Result, resources::RESOURCES};
 

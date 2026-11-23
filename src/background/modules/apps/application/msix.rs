@@ -154,7 +154,7 @@ fn get_icon_via_display_info(app_info: &AppInfo, app_umid: &str) -> Option<(Path
 
     let mut hasher = DefaultHasher::new();
     app_umid.hash(&mut hasher);
-    let path = std::env::temp_dir().join(format!("seelen_logo_{:x}.png", hasher.finish()));
+    let path = std::env::temp_dir().join(format!("macui_logo_{:x}.png", hasher.finish()));
     std::fs::write(&path, &bytes).ok()?;
 
     Some((path.clone(), path))

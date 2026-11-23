@@ -1,10 +1,10 @@
 use std::sync::atomic::Ordering;
 
-use slu_ipc::messages::SvcAction;
+use macui_ipc::messages::SvcAction;
 use tauri::{AppHandle, Emitter, Wry};
 use windows::Win32::System::TaskScheduler::{ITaskService, TaskScheduler};
 
-use seelen_core::state::shortcuts::resolve_shortcuts;
+use macui_core::state::shortcuts::resolve_shortcuts;
 
 use crate::{
     APP_HANDLE,
@@ -22,7 +22,7 @@ use crate::{
     utils::discord::{start_discord_rpc, update_discord_rpc},
     widgets::{
         manager::WIDGET_MANAGER, popups::shortcut_conflicts::show_shortcut_conflict_popup,
-        weg::SeelenWeg,
+        weg::MacUiWeg,
     },
     windows_api::{
         Com,
@@ -49,10 +49,10 @@ where
     get_app_handle().emit(event, payload).log_error();
 }
 
-pub struct SeelenUI {}
+pub struct MacUi {}
 
 /* ============== Methods ============== */
-impl SeelenUI {
+impl MacUi {
     /// this fn prepares the app loading assets and settings in memory parallelly
     pub async fn pre_start() -> Result<()> {
         Migrations::run_all()?;
@@ -64,8 +64,17 @@ impl SeelenUI {
             )
         });
 
+        let start_menu_load = tokio::task::spawn_blocking(|| {
+            crate::measure!("START_MENU", StartMenuManager::initialize())
+        });
+
         crate::measure!("RESOURCES", RESOURCES.initialize().await);
-        crate::measure!("START_MENU", StartMenuManager::initialize().log_error());
+        // The catalog and resources do not depend on each other. Keep the scan off
+        // the async executor, but finish it before settings migrate saved apps.
+        match start_menu_load.await {
+            Ok(result) => result.log_error(),
+            Err(err) => log::error!("Failed to load Start menu catalog: {err}"),
+        }
         crate::measure!("APP SETTINGS", FULL_STATE.load());
 
         if !webview_check.await.unwrap_or(false) {
@@ -86,7 +95,7 @@ impl SeelenUI {
         rust_i18n::set_locale(state.locale());
 
         if state.is_weg_enabled() {
-            SeelenWeg::hide_native_taskbar();
+            MacUiWeg::hide_native_taskbar();
         }
 
         WIDGET_MANAGER.reconcile()?;
@@ -125,9 +134,9 @@ impl SeelenUI {
         }
 
         if state.is_weg_enabled() {
-            SeelenWeg::hide_native_taskbar();
+            MacUiWeg::hide_native_taskbar();
         } else {
-            SeelenWeg::restore_native_taskbar()?;
+            MacUiWeg::restore_native_taskbar()?;
         }
 
         // Re-emit user and session so streaming mode redaction takes effect immediately.
@@ -146,8 +155,8 @@ impl SeelenUI {
                 &Default::default(),
             )?;
             let is_task_enabled = task_service
-                .GetFolder(&"\\Seelen".into())
-                .and_then(|folder| folder.GetTask(&"Seelen UI Service".into()))
+                .GetFolder(&"\\MAC UI".into())
+                .and_then(|folder| folder.GetTask(&"MAC UI Service".into()))
                 .and_then(|task| task.Definition())
                 .and_then(|definition| definition.Triggers())
                 .and_then(|triggers| triggers.get_Item(1))

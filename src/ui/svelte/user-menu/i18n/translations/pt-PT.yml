@@ -15,7 +15,7 @@ profile:
   log_out: Sair
   open_onedrive: Abra o diretório OneDrive
   open_user_folder: Abra o diretório do usuário
-seelen_options:
-  open_installation_folder: Abra a pasta de configurações do Seelen
-  open_log_folder: Abra a pasta de log do Seelen
-  title: Diretórios Seelen
+macui_options:
+  open_installation_folder: Abra a pasta de configurações do MAC UI
+  open_log_folder: Abra a pasta de log do MAC UI
+  title: Diretórios MAC UI

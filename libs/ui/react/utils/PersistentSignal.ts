@@ -1,5 +1,5 @@
 import type { ZodSchema } from "zod";
-import { invoke, SeelenCommand } from "@seelen-ui/lib";
+import { invoke, MacUiCommand } from "@macui/lib";
 import { Signal } from "@preact/signals";
 import { debounce } from "lodash";
 
@@ -30,7 +30,7 @@ export class PersistentSignal<T> extends Signal<T> {
 
   private async loadFromFile(): Promise<T | null> {
     try {
-      const content = await invoke(SeelenCommand.ReadFile, {
+      const content = await invoke(MacUiCommand.ReadFile, {
         filename: `${this.storeKey}.json`,
       });
       const parsed = JSON.parse(content);
@@ -45,7 +45,7 @@ export class PersistentSignal<T> extends Signal<T> {
 
   private async saveToFile(value: T): Promise<void> {
     try {
-      await invoke(SeelenCommand.WriteFile, {
+      await invoke(MacUiCommand.WriteFile, {
         filename: `${this.storeKey}.json`,
         content: JSON.stringify(value),
       });

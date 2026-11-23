@@ -7,6 +7,7 @@ mod enviroment;
 mod error;
 mod hotkeys;
 mod logger;
+mod native_animation;
 mod power;
 mod shutdown;
 mod string_utils;
@@ -16,9 +17,9 @@ mod windows_api;
 use cli::handle_console_client;
 use error::Result;
 use itertools::Itertools;
-use logger::SluServiceLogger;
-use shutdown::{restore_native_desktop_icons, restore_native_taskbar, start_shutdown_listener};
-use slu_ipc::{AppIpc, IPC, ServiceIpc};
+use logger::MacUiServiceLogger;
+use macui_ipc::{AppIpc, IPC, ServiceIpc};
+use shutdown::{restore_native_taskbar, start_shutdown_listener};
 use std::sync::{LazyLock, OnceLock, atomic::AtomicBool};
 use string_utils::WindowsString;
 use task_scheduler::TaskSchedulerHelper;
@@ -31,10 +32,10 @@ use windows::Win32::{
 };
 use windows_api::WindowsApi;
 
-use crate::{app_management::launch_seelen_ui, hotkeys::stop_app_shortcuts};
+use crate::{app_management::launch_macui, hotkeys::stop_app_shortcuts};
 
 pub static SERVICE_NAME: LazyLock<WindowsString> =
-    LazyLock::new(|| WindowsString::from_str("slu-service"));
+    LazyLock::new(|| WindowsString::from_str("macui-service"));
 pub static SERVICE_DISPLAY_NAME: LazyLock<WindowsString> =
     LazyLock::new(|| WindowsString::from_str("MAC UI Service"));
 
@@ -87,7 +88,7 @@ pub fn setup() -> Result<()> {
 
     let app_just_launched = if !AppIpc::can_stablish_connection() {
         WindowsApi::wait_for_native_shell();
-        log_error!(launch_seelen_ui());
+        log_error!(launch_macui());
         true
     } else {
         false
@@ -102,7 +103,7 @@ pub fn setup() -> Result<()> {
 fn is_svc_already_running() -> bool {
     unsafe {
         let session_id = WindowsApi::current_session_id();
-        let mutex_name = format!("Local\\Seelen-UI-Service-Instance-{}", session_id);
+        let mutex_name = format!("Local\\MAC-UI-Service-Instance-{}", session_id);
         let mutex_name_wide = WindowsString::from_str(&mutex_name);
 
         // Try to create a named mutex specific to the current session
@@ -132,8 +133,8 @@ async fn main() {
         let _ = WindowsApi::show_window(window.0 as _, SW_MINIMIZE.0);
     }
 
-    if let Err(err) = SluServiceLogger::init() {
-        let fallback = std::env::temp_dir().join("slu-service-logger-error.log");
+    if let Err(err) = MacUiServiceLogger::init() {
+        let fallback = std::env::temp_dir().join("macui-service-logger-error.log");
         let _ = std::fs::write(&fallback, format!("Failed to initialize logger: {err:?}"));
         std::process::exit(1);
     }
@@ -144,7 +145,7 @@ async fn main() {
     }
 
     if is_svc_already_running() {
-        println!("Seelen UI Service is already running");
+        println!("MAC UI Service is already running");
         return;
     }
 
@@ -160,9 +161,10 @@ async fn main() {
     #[cfg(not(debug_assertions))]
     let register_startup = true;
     if register_startup {
-        if let Err(err) = TaskSchedulerHelper::create_service_task() {
-            log::error!("Failed to create service task: {err:?}");
-            std::process::exit(1);
+        if let Err(err) = TaskSchedulerHelper::ensure_service_task() {
+            // Task repair is persistence maintenance, not IPC readiness. An
+            // access-denied update must not take the running helper down.
+            log::warn!("Could not repair service startup task; continuing helper startup: {err:?}");
         }
     }
 
@@ -170,14 +172,14 @@ async fn main() {
     let debug = if is_development() { " (debug)" } else { "" };
     let local = if is_local_dev() { " (local)" } else { "" };
     log::info!("──────────────────────────────────────────────────-");
-    log::info!("Starting Seelen UI Service v{version}{local}{debug}");
+    log::info!("Starting MAC UI Service v{version}{local}{debug}");
     log::info!("Arguments: {:?}", std::env::args().collect_vec());
 
     if let Err(err) = setup() {
         log::error!("Service setup failed: {:?}", err);
         // Run cleanup even on setup failure so the taskbar/hotkeys are restored
         log_error!(restore_native_taskbar());
-        log_error!(restore_native_desktop_icons());
+        log_error!(native_animation::restore());
         stop_app_shortcuts();
         std::process::exit(1);
     };
@@ -187,8 +189,8 @@ async fn main() {
 
     // shutdown tasks:
     log_error!(restore_native_taskbar());
-    log_error!(restore_native_desktop_icons());
+    log_error!(native_animation::restore());
     stop_app_shortcuts();
-    log::info!("Seelen UI Service exited with code {exit_code}");
+    log::info!("MAC UI Service exited with code {exit_code}");
     std::process::exit(exit_code as i32);
 }

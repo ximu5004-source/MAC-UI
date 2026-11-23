@@ -3,8 +3,8 @@ use windows::{
     Win32::{
         Foundation::RPC_E_CHANGED_MODE,
         System::Com::{
-            CLSCTX_ALL, COINIT_APARTMENTTHREADED, CoCreateInstance, CoInitializeEx, CoTaskMemFree,
-            CoUninitialize,
+            CLSCTX_ALL, COINIT, COINIT_APARTMENTTHREADED, COINIT_MULTITHREADED, CoCreateInstance,
+            CoInitializeEx, CoTaskMemFree, CoUninitialize,
         },
     },
     core::{GUID, Interface},
@@ -36,6 +36,14 @@ impl Com {
         F: FnOnce() -> Result<T>,
     {
         let _guard = Self::initialize(COINIT_APARTMENTTHREADED)?;
+        f()
+    }
+
+    pub fn run_with_mta_context<F, T>(f: F) -> Result<T>
+    where
+        F: FnOnce() -> Result<T>,
+    {
+        let _guard = Self::initialize(COINIT_MULTITHREADED)?;
         f()
     }
 
@@ -127,6 +135,24 @@ impl<S> ComThread<S> {
         F: FnOnce() -> Result<S> + Send + 'static,
         S: 'static,
     {
+        Self::spawn_with_apartment(name, COINIT_APARTMENTTHREADED, init)
+    }
+
+    /// UI Automation clients must run on a separate, windowless MTA thread.
+    /// COM interfaces are still created and released on this owning thread.
+    pub fn spawn_mta<F>(name: &str, init: F) -> Result<Self>
+    where
+        F: FnOnce() -> Result<S> + Send + 'static,
+        S: 'static,
+    {
+        Self::spawn_with_apartment(name, COINIT_MULTITHREADED, init)
+    }
+
+    fn spawn_with_apartment<F>(name: &str, apartment: COINIT, init: F) -> Result<Self>
+    where
+        F: FnOnce() -> Result<S> + Send + 'static,
+        S: 'static,
+    {
         let (sender, receiver) = crossbeam_channel::unbounded::<Command<S>>();
         let (ready_tx, ready_rx) = crossbeam_channel::bounded(1);
 
@@ -145,7 +171,7 @@ impl<S> ComThread<S> {
             // held for the whole thread lifetime: dropping it (which calls
             // `CoUninitialize`) must happen after the message loop returns, not right
             // after `init` runs
-            let _guard = match Com::initialize(COINIT_APARTMENTTHREADED) {
+            let _guard = match Com::initialize(apartment) {
                 Ok(guard) => guard,
                 Err(err) => {
                     ready_tx.send(Err(err)).ok();
@@ -243,5 +269,47 @@ impl<S> Drop for ComThread<S> {
         if let Some(thread) = self.thread.take() {
             let _ = thread.join();
         }
+    }
+}
+
+#[cfg(test)]
+mod apartment_tests {
+    use super::*;
+    use windows::Win32::System::Com::{
+        APTTYPE, APTTYPE_MAINSTA, APTTYPE_MTA, APTTYPE_STA, APTTYPEQUALIFIER, CoGetApartmentType,
+    };
+
+    fn apartment_type() -> Result<APTTYPE> {
+        let mut apartment = APTTYPE::default();
+        let mut qualifier = APTTYPEQUALIFIER::default();
+        unsafe {
+            CoGetApartmentType(&mut apartment, &mut qualifier)?;
+        }
+        Ok(apartment)
+    }
+
+    #[test]
+    fn default_com_worker_remains_sta_and_uia_worker_is_mta() {
+        let sta = ComThread::spawn("STA apartment check", apartment_type).unwrap();
+        let sta_type = sta
+            .call(|created| {
+                // The first STA in a process is reported as MAINSTA. Both denote
+                // an STA worker and must stay stable for its entire lifetime.
+                assert!(matches!(*created, APTTYPE_STA | APTTYPE_MAINSTA));
+                let current = apartment_type()?;
+                assert_eq!(current, *created);
+                Ok(current)
+            })
+            .unwrap();
+        assert!(matches!(sta_type, APTTYPE_STA | APTTYPE_MAINSTA));
+        let mta = ComThread::spawn_mta("UIA MTA apartment check", apartment_type).unwrap();
+        assert_eq!(
+            mta.call(|created| {
+                assert_eq!(*created, APTTYPE_MTA);
+                apartment_type()
+            })
+            .unwrap(),
+            APTTYPE_MTA
+        );
     }
 }

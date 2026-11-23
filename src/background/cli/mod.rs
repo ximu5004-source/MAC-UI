@@ -9,7 +9,7 @@ pub use svc_pipe::ServicePipe;
 
 use std::sync::atomic::Ordering;
 
-use slu_ipc::{AppIpc, commands::AppCommand, messages::AppMessage};
+use macui_ipc::{AppIpc, commands::AppCommand, messages::AppMessage};
 
 use crate::{
     error::Result,
@@ -22,9 +22,9 @@ use crate::{
     },
 };
 
-/// WARNING: seelen-ui.exe CLI commands are deprecated.
+/// WARNING: macui.exe CLI commands are deprecated.
 ///
-/// Use `slu` instead.
+/// Use `macui-cli` instead.
 #[derive(Debug, clap::Parser)]
 #[command(version, name = "MAC UI")]
 struct MainCli {

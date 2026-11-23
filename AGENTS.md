@@ -2,7 +2,7 @@
 
 Guidance for AI agents working in this repository.
 
-Seelen UI is a customizable Windows desktop environment built with:
+MAC UI is a local-first Windows desktop environment built with:
 
 - Rust + Tauri (backend)
 - TypeScript + React/Preact (frontend)
@@ -15,6 +15,7 @@ Build speed / safety:
 - DO NOT use `cargo build --release` for testing, type-checking, or local iteration.
 - Prefer `cargo check` for fast Rust validation.
 - Use `cargo build` (debug) only when you need a binary.
+- Finish the production frontend build before Cargo commands using `custom-protocol`; never run them concurrently because the frontend build replaces `dist` while Tauri embeds it.
 
 Translations:
 
@@ -72,7 +73,7 @@ Shared libraries:
 
 - `libs/core/` - Core library + Rust-generated TypeScript bindings
 - `libs/widgets-shared/` - Cross-widget state utilities (includes LazySignal)
-- `libs/slu-ipc/`, `libs/positioning/`, `libs/widgets-integrity/`
+- `libs/macui-ipc/`, `libs/positioning/`, `libs/widgets-integrity/`
 
 Main app:
 
@@ -120,7 +121,7 @@ Minimal pattern (infrastructure side):
 
 ```rust
 use std::sync::Once;
-use seelen_core::handlers::SeelenEvent;
+use macui_core::handlers::MacUiEvent;
 use crate::{app::emit_to_webviews, error::Result};
 use super::{YourEvent, YourManager};
 
@@ -130,7 +131,7 @@ fn get_manager() -> &'static YourManager {
         YourManager::subscribe(|_event: YourEvent| {
             // Keep this small and side-effect focused.
             if let Ok(data) = get_your_data() {
-                emit_to_webviews(SeelenEvent::YourDataChanged, data);
+                emit_to_webviews(MacUiEvent::YourDataChanged, data);
             }
         });
     });
@@ -196,7 +197,7 @@ When adding a new backend feature exposed to the UI, update `libs/core`:
 1. `libs/core/src/handlers/commands.rs`
 
 ```rust
-slu_commands_declaration! {
+macui_commands_declaration! {
     GetYourData = get_your_data() -> Vec<YourType>,
 }
 ```
@@ -204,7 +205,7 @@ slu_commands_declaration! {
 2. `libs/core/src/handlers/events.rs`
 
 ```rust
-slu_events_declaration! {
+macui_events_declaration! {
     YourDataChanged(Vec<YourType>) as "your-module::data-changed",
 }
 ```
@@ -268,13 +269,13 @@ Example:
 
 ```ts
 import { lazySignal } from "libs/widgets-shared/LazySignal";
-import { invoke, SeelenCommand, SeelenEvent, subscribe } from "@seelen-ui/lib";
+import { invoke, MacUiCommand, MacUiEvent, subscribe } from "@macui/lib";
 
 const $data = lazySignal(async () => {
-  return await invoke(SeelenCommand.GetYourData);
+  return await invoke(MacUiCommand.GetYourData);
 });
 
-subscribe(SeelenEvent.YourDataChanged, (event) => {
+subscribe(MacUiEvent.YourDataChanged, (event) => {
   $data.value = event.payload;
 });
 
@@ -329,7 +330,7 @@ directly — never wrap it in a `use:action` helper.
 
 ## Creating Svelte Widgets (High-Level)
 
-Seelen UI supports standalone Svelte widgets. Prefer following existing widget patterns; do not invent new build
+MAC UI supports standalone Svelte widgets. Prefer following existing widget patterns; do not invent new build
 plumbing.
 
 Typical pieces:
@@ -383,7 +384,7 @@ pub enum Action {
 User/developer-facing docs live under `documentation/`. Always check there before asking how something works:
 
 - `FEATURES.md` — Full feature reference: every widget, setting, shortcut, and system capability
-- `resource-guidelines.md` — Shared concepts: resource IDs, YAML `!include`/`!extend`, i18n, `slu` CLI
+- `resource-guidelines.md` — Shared concepts: resource IDs, YAML `!include`/`!extend`, i18n, resource CLI
 - `widget-guidelines.md` / `widget-js-api.md` — How to build a custom widget: the resource guideline plus the runtime JS
   API (`init`/`ready`, `invoke`/`subscribe`)
 - `theme-guidelines.md` — How to create a theme
@@ -400,13 +401,12 @@ The three external resource types and their required files:
 
 All resource IDs follow `@username/resource-name`.
 
-Dev workflow with the `slu` CLI (Seelen UI must be running):
+Dev workflow with the `macui-cli` CLI (MAC UI must be running for load/unload):
 
 ```bash
-slu resource load theme ./my-theme     # live-load without bundling
-slu resource load widget ./my-widget
-slu resource unload theme ./my-theme
-slu resource bundle theme ./my-theme   # produce .yaml for marketplace
+macui-cli resource load widget ./my-widget     # live-load without bundling
+macui-cli resource unload widget ./my-widget
+macui-cli resource bundle widget ./my-widget   # produce a local .maui package
 ```
 
 Built-in resources (used as reference implementations):

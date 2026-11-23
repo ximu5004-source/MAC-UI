@@ -38,3 +38,9 @@ trash_bin:
   label: 回收桶
 weg:
   empty: 沒有顯示的物品
+window_animation:
+  label: Dock 視窗動畫
+  genie: 神奇效果（最小化與還原）
+  native: Windows 預設
+  settings: 動畫設定…
+  save_failed: 無法儲存 Dock 動畫設定，請重試。

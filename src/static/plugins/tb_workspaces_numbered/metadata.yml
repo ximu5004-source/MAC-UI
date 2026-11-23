@@ -2,7 +2,7 @@ id: "@default/workspaces-numbered"
 metadata:
   displayName: !extend i18n/display_name.yml
 icon: GoNumber
-target: "@seelen/fancy-toolbar"
+target: "@macui/fancy-toolbar"
 plugin:
   scopes:
     - Workspaces

@@ -3,11 +3,11 @@ metadata:
   displayName: !extend i18n/display_name.yml
   description: !extend i18n/description.yml
 icon: PiBatteryMediumFill
-target: "@seelen/weg"
+target: "@macui/weg"
 plugin:
   scopes:
     - Power
   render: !include plugin/dock_plugin.js
   tooltip: !include plugin/tooltip.js
   onClick: |-
-    invoke(SeelenCommand.OpenFile, { path: "ms-settings:powersleep" });
+    invoke(MacUiCommand.OpenFile, { path: "ms-settings:powersleep" });

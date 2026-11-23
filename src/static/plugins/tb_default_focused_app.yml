@@ -72,7 +72,7 @@ metadata:
     si: අවධානය යොමු කළ යෙදුම් දර්ශන නාමය
     lo: ຊື່ການສະແດງແອັບ App ທີ່ສຸມໃສ່
 icon: MdCenterFocusStrong
-target: "@seelen/fancy-toolbar"
+target: "@macui/fancy-toolbar"
 plugin:
   scopes:
     - FocusedApp

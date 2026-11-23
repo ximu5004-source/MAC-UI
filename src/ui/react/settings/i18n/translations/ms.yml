@@ -30,14 +30,14 @@ apps_configurations:
     Konfigurasi yang dibundel ini tidak dapat diedit dan direka untuk memberi
     anda pengalaman terbaik tanpa penyesuaian. Mereka secara automatik
     mengkonfigurasi aplikasi yang paling biasa untuk anda.
-  bundled_title: Konfigurasi aplikasi dibundel dengan seelen
+  bundled_title: Konfigurasi aplikasi dibundel dengan macui
   confirm_delete: Adakah anda pasti mahu memadamkan konfigurasi ini?
   confirm_delete_title: Sahkan padam
   delete: Padam
   export: Eksport
   export_full: Tetapan eksport melalui permohonan
   extra_info: >-
-    UI Seelen hanya menggunakan satu pengecam bagi setiap apl (padanan pertama
+    UI MAC UI hanya menggunakan satu pengecam bagi setiap apl (padanan pertama
     ditemui) jadi susunan cara dikhususkan adalah penting, penambahan terkini
     akan diutamakan, kerana ambil perhatian bahawa jadual diisih secara lalai
     dari terkini ke lama.
@@ -82,12 +82,12 @@ devtools:
   enable: Dayakan alat pemaju
   enable_description: >-
     Membuka kunci alatan lanjutan untuk memeriksa dan menyahpepijat dalaman UI
-    Seelen. Tidak bertujuan untuk kegunaan biasa.
+    MAC UI. Tidak bertujuan untuk kegunaan biasa.
   icons: Ikon Cache
   install_folder: Folder pemasangan
   load: Beban
   settings_file: Fail tetapan
-  shared_components: Komponen Standard SLU
+  shared_components: Komponen Standard MAC UI
   simulate_dialog:
     label: Simulasi Dialog
     trigger: Pencetus
@@ -120,7 +120,7 @@ devtools:
     widget_id: ID Widget
 discord_banner:
   message: >-
-    Berhubung dengan pengguna UI Seelen yang lain, dapatkan bantuan, kongsi tema
+    Berhubung dengan pengguna UI MAC UI yang lain, dapatkan bantuan, kongsi tema
     dan kekalkan perkembangan terkini dengan berita terkini.
   title: Sertai Komuniti kami
 extras:
@@ -170,7 +170,7 @@ general:
     plugged: Dipasang atau mengecas
   polling_interval: Selang pengundian sistem
   polling_interval_description: >-
-    Berapa kerap (dalam saat) UI Seelen menyemak sumber sistem seperti CPU, RAM,
+    Berapa kerap (dalam saat) UI MAC UI menyemak sumber sistem seperti CPU, RAM,
     rangkaian dan aktiviti cakera. Bilangan yang lebih kecil bermakna kemas kini
     yang lebih kerap, tetapi penggunaan sumber yang lebih tinggi sedikit.
   saturday: Sabtu
@@ -226,7 +226,7 @@ reset_to_default: Tetapkan semula ke nilai lalai
 resources:
   affected_widgets: Widget Terjejas
   app_outdated: >-
-    Sumber ini memerlukan versi Seelen UI yang lebih baru untuk berfungsi dengan
+    Sumber ini memerlukan versi MAC UI yang lebih baru untuk berfungsi dengan
     baik.
   coming_soon: Akan Datang
   corrupted_wallpaper: Gagal mengeluarkan lakaran kecil - format video rosak atau tidak disokong
@@ -239,7 +239,7 @@ resources:
   modified: Diubah suai
   open_folder: Buka Folder Sumber
   outdated: >-
-    Sumber ini direka untuk versi lama Seelen UI dan mungkin tidak berfungsi
+    Sumber ini direka untuk versi lama MAC UI dan mungkin tidak berfungsi
     dengan baik.
   see_on_website: Lihat di laman web
   update_now: Kemas kini
@@ -248,7 +248,7 @@ resources:
 review_request:
   not_now: bukan sekarang
   sure: Pasti!
-  title: Menikmati UI Seelen?
+  title: Menikmati UI MAC UI?
 save: Simpan
 save_and_restart: Jimat & mulakan semula
 search: Cari
@@ -269,7 +269,7 @@ shortcuts:
   enable: Dayakan sistem pintasan terbina dalam
   enable_tooltip: >-
     Lumpuhkan jika anda akan melaksanakan sistem pintasan anda sendiri
-    menggunakan pelanggan Seelen UI
+    menggunakan pelanggan MAC UI
   labels:
     create_new_workspace: Buat ruang kerja baru
     create_new_workspace_row: Buat Baris Ruang Kerja Baharu
@@ -423,16 +423,16 @@ weg:
 welcome:
   give_a_review: Berikan Ulasan
   message: >-
-    UI Seelen ialah persekitaran desktop sumber terbuka dan percuma untuk
+    UI MAC UI ialah persekitaran desktop sumber terbuka dan percuma untuk
     Windows. Di sini anda mempunyai kawalan penuh ke atas rupa dan gelagat
     desktop anda, membolehkan anda menyesuaikan setiap butiran agar sepadan
     dengan aliran kerja dan gaya anda.
   ok: Mari mulakan!
   review: >-
-    Jika anda gemar menggunakan UI Seelen, pertimbangkan untuk meninggalkan
+    Jika anda gemar menggunakan UI MAC UI, pertimbangkan untuk meninggalkan
     ulasan di kedai — maklum balas anda membantu projek berkembang dan bertambah
     baik.
-  title: Selamat datang ke UI Seelen!
+  title: Selamat datang ke UI MAC UI!
 widget:
   default_instance: Contoh Lalai
   default_instance_hint: Sentiasa aktif, menggunakan konfigurasi widget akar

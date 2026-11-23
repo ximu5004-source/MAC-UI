@@ -15,7 +15,7 @@ profile:
   log_out: Se déconnecter
   open_onedrive: Ouvrir le répertoire OneDrive
   open_user_folder: Ouvrir le répertoire des utilisateurs
-seelen_options:
-  open_installation_folder: Ouvrir le dossier des paramètres de Seelen
-  open_log_folder: Ouvrir le dossier du journal Seelen
-  title: Annuaires Seelen
+macui_options:
+  open_installation_folder: Ouvrir le dossier des paramètres de MAC UI
+  open_log_folder: Ouvrir le dossier du journal MAC UI
+  title: Annuaires MAC UI

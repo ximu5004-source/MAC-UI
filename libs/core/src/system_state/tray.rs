@@ -23,7 +23,7 @@ impl std::fmt::Display for SysTrayIconId {
 }
 
 impl std::str::FromStr for SysTrayIconId {
-    type Err = crate::error::SeelenLibError;
+    type Err = crate::error::MacUiLibError;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         // Try parsing as handle and uid (format: "handle:uid").

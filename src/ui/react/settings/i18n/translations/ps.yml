@@ -85,7 +85,7 @@ devtools:
   install_folder: لګول فولډر
   load: بار
   settings_file: د امستنې دوتنه
-  shared_components: د SLU معیاري اجزا
+  shared_components: د MAC UI معیاري اجزا
   simulate_dialog:
     label: سمولیټ ډیالوګ
     trigger: محرک
@@ -118,7 +118,7 @@ devtools:
     widget_id: د ویجټ ID
 discord_banner:
   message: >-
-    د نورو Seelen UI کاروونکو سره اړیکه ونیسئ، مرسته ترلاسه کړئ، موضوعات شریک
+    د نورو MAC UI کاروونکو سره اړیکه ونیسئ، مرسته ترلاسه کړئ، موضوعات شریک
     کړئ، او د وروستي خبرونو سره تازه اوسئ.
   title: زموږ په ټولنه کې ګډون وکړئ
 extras:
@@ -241,7 +241,7 @@ resources:
 review_request:
   not_now: اوس نه
   sure: ډاډه!
-  title: د Seelen UI څخه خوند اخلئ؟
+  title: د MAC UI څخه خوند اخلئ؟
 save: خوندي کړئ
 save_and_restart: خوندي کول او بیا پیل کړئ
 search: لټون
@@ -420,7 +420,7 @@ welcome:
   review: >-
     که تاسو د سیلین UI کارولو څخه خوند اخلئ ، په پلورنځي کې بیاکتنه پریږدئ -
     ستاسو نظر د پروژې وده او وده کې مرسته کوي.
-  title: Seelen UI ته ښه راغلاست!
+  title: MAC UI ته ښه راغلاست!
 widget:
   default_instance: ډیفالټ مثال
   default_instance_hint: تل فعال، د روټ ویجټ ترتیب کاروي

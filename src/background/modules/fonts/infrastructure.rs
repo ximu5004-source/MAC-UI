@@ -1,6 +1,6 @@
 use std::sync::Once;
 
-use seelen_core::{handlers::SeelenEvent, system_state::SeelenFont};
+use macui_core::{handlers::MacUiEvent, system_state::MacUiFont};
 
 use crate::{app::emit_to_webviews, error::Result};
 
@@ -13,7 +13,7 @@ fn get_font_manager() -> &'static FontManager {
             if event == FontManagerEvent::FontsChanged
                 && let Ok(fonts) = FontManager::instance().get_fonts()
             {
-                emit_to_webviews(SeelenEvent::SystemFontsChanged, &fonts);
+                emit_to_webviews(MacUiEvent::SystemFontsChanged, &fonts);
             }
         });
     });
@@ -21,6 +21,6 @@ fn get_font_manager() -> &'static FontManager {
 }
 
 #[tauri::command(async)]
-pub fn get_fonts() -> Result<Vec<SeelenFont>> {
+pub fn get_fonts() -> Result<Vec<MacUiFont>> {
     get_font_manager().get_fonts()
 }

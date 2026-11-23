@@ -80,7 +80,7 @@ impl PwshScript {
     ///
     /// if elevated, will run as admin and always will return `Ok("")`
     pub async fn execute(&self) -> Result<String> {
-        let script_path = temp_dir().join(format!("slu-{}.ps1", uuid::Uuid::new_v4()));
+        let script_path = temp_dir().join(format!("macui-{}.ps1", uuid::Uuid::new_v4()));
         std::fs::write(&script_path, &self.inner)?;
 
         let args = self.build_args(&script_path.to_string_lossy());

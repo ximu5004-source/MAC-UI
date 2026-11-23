@@ -1,6 +1,6 @@
 use std::sync::LazyLock;
 
-use seelen_core::system_state::TrashBinInfo;
+use macui_core::system_state::TrashBinInfo;
 use windows::Win32::UI::Shell::{
     SHERB_NOSOUND, SHEmptyRecycleBinW, SHQUERYRBINFO, SHQueryRecycleBinW,
 };

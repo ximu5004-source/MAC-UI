@@ -4,7 +4,7 @@ use chrono::{DateTime, Utc};
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 
-use crate::resource::{IconPackId, ResourceKind, ResourceMetadata, SluResource};
+use crate::resource::{IconPackId, MacUiResource, ResourceKind, ResourceMetadata};
 
 #[derive(Debug, Default, Clone, Serialize, Deserialize, JsonSchema)]
 #[cfg_attr(feature = "salvo", derive(salvo::oapi::ToSchema))]
@@ -28,7 +28,7 @@ pub struct IconPack {
     pub downloaded: bool,
 }
 
-impl SluResource for IconPack {
+impl MacUiResource for IconPack {
     const KIND: ResourceKind = ResourceKind::IconPack;
 
     fn metadata(&self) -> &ResourceMetadata {

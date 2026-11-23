@@ -1,10 +1,10 @@
 import { settings } from "../../../../state/mod";
 import type {
-  SeelenWallSettings,
+  MacUiWallSettings,
   WallpaperCollection,
   WallpaperId,
   WallpaperInstanceSettings,
-} from "@seelen-ui/lib/types";
+} from "@macui/lib/types";
 
 /**
  * Patches the Wall configuration with partial updates.
@@ -12,13 +12,13 @@ import type {
  * @example
  * patchWallConfig({ enabled: true, interval: 3600 });
  */
-export function patchWallConfig(patch: Partial<SeelenWallSettings>) {
+export function patchWallConfig(patch: Partial<MacUiWallSettings>) {
   settings.value = {
     ...settings.value,
     byWidget: {
       ...settings.value.byWidget,
-      "@seelen/wallpaper-manager": {
-        ...settings.value.byWidget["@seelen/wallpaper-manager"],
+      "@macui/wallpaper-manager": {
+        ...settings.value.byWidget["@macui/wallpaper-manager"],
         ...patch,
       },
     },
@@ -28,8 +28,8 @@ export function patchWallConfig(patch: Partial<SeelenWallSettings>) {
 /**
  * Gets the current Wall configuration
  */
-export function getWallConfig(): SeelenWallSettings {
-  return settings.value.byWidget["@seelen/wallpaper-manager"];
+export function getWallConfig(): MacUiWallSettings {
+  return settings.value.byWidget["@macui/wallpaper-manager"];
 }
 
 /**
@@ -72,9 +72,9 @@ export function deleteWallpaperCollection(collectionId: string) {
   const newCollections = settings.value.wallpaperCollections.filter((c) => c.id !== collectionId);
 
   // Reset default collection if it was deleted
-  const newDefaultCollection = settings.value.byWidget["@seelen/wallpaper-manager"].defaultCollection === collectionId
+  const newDefaultCollection = settings.value.byWidget["@macui/wallpaper-manager"].defaultCollection === collectionId
     ? null
-    : settings.value.byWidget["@seelen/wallpaper-manager"].defaultCollection;
+    : settings.value.byWidget["@macui/wallpaper-manager"].defaultCollection;
 
   // Reset monitor collections if they were using this collection
   const newMonitors = { ...settings.value.monitorsV3 };
@@ -94,8 +94,8 @@ export function deleteWallpaperCollection(collectionId: string) {
     monitorsV3: newMonitors,
     byWidget: {
       ...settings.value.byWidget,
-      "@seelen/wallpaper-manager": {
-        ...settings.value.byWidget["@seelen/wallpaper-manager"],
+      "@macui/wallpaper-manager": {
+        ...settings.value.byWidget["@macui/wallpaper-manager"],
         defaultCollection: newDefaultCollection,
       },
     },

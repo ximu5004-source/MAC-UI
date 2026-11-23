@@ -1,11 +1,11 @@
 <script lang="ts">
   import { globalState } from "./state.svelte";
-  import { invoke, SeelenCommand } from "@seelen-ui/lib";
-  import { RadioDeviceKind } from "@seelen-ui/lib/types";
+  import { invoke, MacUiCommand } from "@macui/lib";
+  import { RadioDeviceKind } from "@macui/lib/types";
   import Icon from "libs/ui/svelte/components/Icon/Icon.svelte";
   import { t } from "./i18n";
   import BluetoothDevice from "./components/BluetoothDevice.svelte";
-  import { Widget } from "@seelen-ui/lib";
+  import { Widget } from "@macui/lib";
   import { dedupeBluetoothDevices } from "libs/ui/svelte/utils/bluetoothIcons.ts";
 
   const uniqueDevices = $derived(dedupeBluetoothDevices(globalState.devices));
@@ -17,12 +17,12 @@
   const bluetoothRadio = $derived(globalState.bluetoothRadio);
 
   function openBluetoothSettings() {
-    invoke(SeelenCommand.OpenFile, { path: "ms-settings:bluetooth" });
+    invoke(MacUiCommand.OpenFile, { path: "ms-settings:bluetooth" });
   }
 
   async function toggleBluetoothRadio() {
     if (bluetoothRadio) {
-      await invoke(SeelenCommand.SetRadioState, {
+      await invoke(MacUiCommand.SetRadioState, {
         kind: RadioDeviceKind.Bluetooth,
         enabled: !bluetoothRadio.isEnabled,
       });
@@ -46,7 +46,7 @@
 
 <svelte:window onkeydown={handleEscape} />
 
-<div class="slu-std-popover mac-panel mac-frosted-surface bluetooth-popup">
+<div class="macui-std-popover mac-panel mac-frosted-surface bluetooth-popup">
   {#if !bluetoothRadio}
     <div class="bluetooth-no-adapter">
       {$t("no_adapter")}
@@ -123,7 +123,7 @@
 </div>
 
 <style>
-  :global(#root) .slu-std-popover.mac-panel.bluetooth-popup {
+  :global(#root) .macui-std-popover.mac-panel.bluetooth-popup {
     border-radius: 28px;
     overflow: hidden;
   }

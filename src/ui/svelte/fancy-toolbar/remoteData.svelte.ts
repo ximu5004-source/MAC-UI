@@ -1,4 +1,4 @@
-import type { ToolbarItem } from "@seelen-ui/lib/types";
+import type { ToolbarItem } from "@macui/lib/types";
 
 export function createRemoteDataResolver(
   getRemoteData: () => ToolbarItem["remoteData"],

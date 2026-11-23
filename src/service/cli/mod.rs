@@ -1,6 +1,6 @@
 pub mod processing;
 
-use slu_ipc::{ServiceIpc, messages::SvcAction};
+use macui_ipc::{ServiceIpc, messages::SvcAction};
 
 use clap::{Arg, ArgAction, Command};
 
@@ -8,7 +8,7 @@ use crate::{
     SERVICE_DISPLAY_NAME,
     enviroment::{add_installation_dir_to_path, remove_installation_dir_from_path},
     error::Result,
-    logger::SluServiceLogger,
+    logger::MacUiServiceLogger,
     task_scheduler::TaskSchedulerHelper,
 };
 
@@ -23,7 +23,7 @@ pub fn get_cli() -> Command {
     let cli = Command::new(SERVICE_DISPLAY_NAME.to_string())
         .author("JONA")
         .about("MAC UI service command line interface.")
-        .long_about("MAC UI service command line interface. Based on Seelen UI.")
+        .long_about("MAC UI service command line interface.")
         .before_help("")
         .after_help("MAC UI by JONA. Upstream attribution is included in NOTICE.md.")
         .subcommands([
@@ -64,7 +64,7 @@ pub async fn handle_console_client() -> Result<()> {
             TaskSchedulerHelper::create_service_task()?;
         }
         Some((ServiceSubcommands::UNINSTALL, _)) => {
-            SluServiceLogger::uninstall_old_logging()?;
+            MacUiServiceLogger::uninstall_old_logging()?;
             remove_installation_dir_from_path()?;
             TaskSchedulerHelper::remove_service_task()?;
         }
@@ -86,10 +86,10 @@ mod qa_cli_tests {
 
     #[test]
     fn qa_mode_is_explicit_and_normal_startup_keeps_its_default() {
-        let normal = get_cli().try_get_matches_from(["slu-service"]).unwrap();
+        let normal = get_cli().try_get_matches_from(["macui-service"]).unwrap();
         assert!(!normal.get_flag("no-startup-task"));
         let qa = get_cli()
-            .try_get_matches_from(["slu-service", "--no-startup-task"])
+            .try_get_matches_from(["macui-service", "--no-startup-task"])
             .unwrap();
         assert!(qa.get_flag("no-startup-task"));
         assert!(qa.subcommand().is_none());

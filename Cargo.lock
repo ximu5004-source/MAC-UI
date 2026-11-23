@@ -3186,6 +3186,144 @@ dependencies = [
 ]
 
 [[package]]
+name = "macui"
+version = "4.3.1"
+dependencies = [
+ "arc-swap",
+ "backtrace",
+ "base64 0.23.1",
+ "battery",
+ "clap",
+ "crossbeam-channel",
+ "discord-rich-presence",
+ "encoding_rs",
+ "fern",
+ "futures",
+ "image",
+ "itertools 0.15.0",
+ "log",
+ "macui-core",
+ "macui-ipc",
+ "macui-utils",
+ "notify-debouncer-full",
+ "open",
+ "os_info",
+ "owo-colors",
+ "parking_lot",
+ "phf 0.11.3",
+ "positioning",
+ "quick-xml",
+ "rand 0.10.2",
+ "rayon",
+ "regex",
+ "reqwest 0.13.4",
+ "rust-i18n",
+ "rustfft",
+ "salvo",
+ "scc",
+ "serde",
+ "serde_json",
+ "serde_yaml",
+ "sysinfo",
+ "tauri",
+ "tauri-build",
+ "tauri-plugin-dialog",
+ "tauri-plugin-process",
+ "tauri-plugin-shell",
+ "tauri-plugin-updater",
+ "time",
+ "tokio",
+ "translators",
+ "url",
+ "urlencoding",
+ "uuid 1.22.0",
+ "walkdir",
+ "webp",
+ "webview2-com",
+ "widestring",
+ "win-hotkeys",
+ "win-screenshot",
+ "window-vibrancy",
+ "windows 0.62.2",
+ "windows-collections 0.3.2",
+ "windows-core 0.62.2",
+ "windows-future 0.3.2",
+ "winreg",
+ "wmi",
+]
+
+[[package]]
+name = "macui-core"
+version = "4.3.1"
+dependencies = [
+ "base64 0.23.1",
+ "chrono",
+ "futures",
+ "grass",
+ "macui-macros",
+ "num_enum",
+ "paste",
+ "regex",
+ "salvo",
+ "schemars 1.2.1",
+ "serde",
+ "serde_alias",
+ "serde_json",
+ "serde_path_to_error",
+ "serde_yaml",
+ "sys-locale",
+ "tokio",
+ "ts-rs",
+ "url",
+ "uuid 1.22.0",
+]
+
+[[package]]
+name = "macui-hook"
+version = "4.3.1"
+dependencies = [
+ "macui-ipc",
+ "uuid 1.22.0",
+ "windows 0.62.2",
+ "windows-core 0.62.2",
+]
+
+[[package]]
+name = "macui-ipc"
+version = "4.3.1"
+dependencies = [
+ "clap",
+ "interprocess",
+ "log",
+ "macui-core",
+ "serde",
+ "serde_json",
+ "thiserror 2.0.18",
+ "tokio",
+ "uuid 1.22.0",
+ "windows 0.62.2",
+]
+
+[[package]]
+name = "macui-macros"
+version = "4.3.1"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.117",
+]
+
+[[package]]
+name = "macui-utils"
+version = "4.3.1"
+dependencies = [
+ "base64 0.23.1",
+ "minisign",
+ "sha2",
+ "windows 0.62.2",
+]
+
+[[package]]
 name = "markup5ever"
 version = "0.14.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5640,99 +5778,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "seelen-core"
-version = "3.0.1"
-dependencies = [
- "base64 0.23.1",
- "chrono",
- "futures",
- "grass",
- "num_enum",
- "paste",
- "regex",
- "salvo",
- "schemars 1.2.1",
- "serde",
- "serde_alias",
- "serde_json",
- "serde_path_to_error",
- "serde_yaml",
- "slu-macros",
- "sys-locale",
- "tokio",
- "ts-rs",
- "url",
- "uuid 1.22.0",
-]
-
-[[package]]
-name = "seelen-ui"
-version = "3.0.1"
-dependencies = [
- "arc-swap",
- "backtrace",
- "base64 0.23.1",
- "battery",
- "clap",
- "crossbeam-channel",
- "discord-rich-presence",
- "encoding_rs",
- "fern",
- "futures",
- "image",
- "itertools 0.15.0",
- "log",
- "notify-debouncer-full",
- "open",
- "os_info",
- "owo-colors",
- "parking_lot",
- "phf 0.11.3",
- "positioning",
- "quick-xml",
- "rand 0.10.2",
- "rayon",
- "regex",
- "reqwest 0.13.4",
- "rust-i18n",
- "rustfft",
- "salvo",
- "scc",
- "seelen-core",
- "serde",
- "serde_json",
- "serde_yaml",
- "slu-ipc",
- "slu-utils",
- "sysinfo",
- "tauri",
- "tauri-build",
- "tauri-plugin-dialog",
- "tauri-plugin-process",
- "tauri-plugin-shell",
- "tauri-plugin-updater",
- "time",
- "tokio",
- "translators",
- "url",
- "urlencoding",
- "uuid 1.22.0",
- "walkdir",
- "webp",
- "webview2-com",
- "widestring",
- "win-hotkeys",
- "win-screenshot",
- "window-vibrancy",
- "windows 0.62.2",
- "windows-collections 0.3.2",
- "windows-core 0.62.2",
- "windows-future 0.3.2",
- "winreg",
- "wmi",
-]
-
-[[package]]
 name = "selectors"
 version = "0.24.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -6147,51 +6192,6 @@ name = "slab"
 version = "0.4.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0c790de23124f9ab44544d7ac05d60440adc586479ce501c1d6d7da3cd8c9cf5"
-
-[[package]]
-name = "slu-ipc"
-version = "3.0.1"
-dependencies = [
- "clap",
- "interprocess",
- "log",
- "seelen-core",
- "serde",
- "serde_json",
- "thiserror 2.0.18",
- "tokio",
- "uuid 1.22.0",
- "windows 0.62.2",
-]
-
-[[package]]
-name = "slu-macros"
-version = "3.0.1"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn 2.0.117",
-]
-
-[[package]]
-name = "slu-utils"
-version = "3.0.1"
-dependencies = [
- "base64 0.23.1",
- "minisign",
- "sha2",
- "windows 0.62.2",
-]
-
-[[package]]
-name = "sluhk"
-version = "3.0.1"
-dependencies = [
- "slu-ipc",
- "uuid 1.22.0",
- "windows 0.62.2",
- "windows-core 0.62.2",
-]
 
 [[package]]
 name = "smallvec"

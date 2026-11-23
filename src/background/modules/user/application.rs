@@ -1,4 +1,4 @@
-use seelen_core::system_state::User;
+use macui_core::system_state::User;
 use std::{path::PathBuf, sync::LazyLock};
 use windows::Win32::{
     Security::Authentication::Identity::{NameDisplay, NameSamCompatible},

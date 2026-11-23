@@ -1,7 +1,7 @@
 <script lang="ts">
   import QRCode from "qrcode";
-  import { invoke, SeelenCommand } from "@seelen-ui/lib";
-  import { HotspotState } from "@seelen-ui/lib/types";
+  import { invoke, MacUiCommand } from "@macui/lib";
+  import { HotspotState } from "@macui/lib/types";
   import Icon from "libs/ui/svelte/components/Icon/Icon.svelte";
   import { globalState } from "../state.svelte";
   import { t } from "../i18n";
@@ -18,7 +18,7 @@
 
   async function toggleHotspot() {
     if (!hotspot || isBusy) return;
-    await invoke(SeelenCommand.SetNetworkHotspotState, { enabled: !isOn });
+    await invoke(MacUiCommand.SetNetworkHotspotState, { enabled: !isOn });
   }
 
   let showPassword = $state(false);
@@ -46,7 +46,7 @@
   });
 
   function openHotspotSettings() {
-    invoke(SeelenCommand.OpenFile, { path: "ms-settings:network-mobilehotspot" });
+    invoke(MacUiCommand.OpenFile, { path: "ms-settings:network-mobilehotspot" });
   }
 </script>
 

@@ -1,8 +1,8 @@
 import { mount } from "svelte";
 import App from "./app.svelte";
-import { Widget } from "@seelen-ui/lib";
+import { Widget } from "@macui/lib";
 
-import "@seelen-ui/lib/styles/reset.css";
+import "@macui/lib/styles/reset.css";
 
 const root = document.getElementById("root")!;
 

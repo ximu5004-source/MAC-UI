@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Widget } from "@seelen-ui/lib";
+  import { Widget } from "@macui/lib";
   import { state } from "./state.svelte";
   import MenuItem from "./MenuItem.svelte";
   import Submenu from "./Submenu.svelte";
@@ -9,7 +9,7 @@
   });
 </script>
 
-<div class="slu-std-popover context-menu">
+<div class="macui-std-popover context-menu mac-frosted-surface">
   {#each state.data?.items || [] as item}
     {#if item.type === "Separator"}
       <hr />

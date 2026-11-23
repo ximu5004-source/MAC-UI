@@ -146,9 +146,9 @@
     is_visible: i < 4,
     notification: null,
   }));
-  window.__SLU_WIDGET = { id: `@seelen/${panel}`, settings: [] };
-  window.__SLU_WIDGET_INSTANCE = {
-    id: `@seelen/${panel}`,
+  window.__MACUI_WIDGET = { id: `@macui/${panel}`, settings: [] };
+  window.__MACUI_WIDGET_INSTANCE = {
+    id: `@macui/${panel}`,
     decoded: {},
     init: noop,
     ready: async () => {

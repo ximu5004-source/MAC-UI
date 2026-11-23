@@ -10,7 +10,7 @@ use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 
 use crate::{
-    resource::{ResourceKind, ResourceMetadata, SluResource, ThemeId, WidgetId},
+    resource::{MacUiResource, ResourceKind, ResourceMetadata, ThemeId, WidgetId},
     system_state::Color,
 };
 
@@ -41,7 +41,7 @@ pub struct Theme {
     pub accent_override: Option<Color>,
 }
 
-impl SluResource for Theme {
+impl MacUiResource for Theme {
     const KIND: ResourceKind = ResourceKind::Theme;
 
     fn metadata(&self) -> &ResourceMetadata {

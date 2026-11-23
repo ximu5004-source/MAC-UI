@@ -6,14 +6,14 @@ tray:
   refresh: Refresh tray
   loading: Loading tray apps…
   empty: No tray icons found. Use Refresh to try again.
-  load_failed: Could not load the tray. Use Refresh to retry.
+  load_failed: Could not load the tray. Press F5 or reopen the panel to retry.
   retry_hint: You can reload the tray without restarting the desktop.
   action_failed: "Could not interact with {{name}}. Refresh the tray and try again."
   hidden_icon: Hidden system icon
   unnamed: Unnamed tray app
 communication:
   label: Messaging and background apps
-  description: Messaging apps stay in the toolbar. Red means a notification; amber means tray activity. Click to open, right-click for the native menu.
+  description: Messaging apps stay in the toolbar. New notifications or repeated native icon changes flash briefly. Red means a notification; amber means tray activity, not an unread count. Click to open, right-click for the native menu.
   notification: New notification
   activity: Tray activity
   running: Running in background

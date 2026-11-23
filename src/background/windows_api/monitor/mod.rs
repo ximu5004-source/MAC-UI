@@ -24,7 +24,7 @@ use crate::{
     error::Result, modules::system_settings::application::SystemSettings,
     windows_api::string_utils::WindowsString,
 };
-use seelen_core::{rect::Rect, system_state::MonitorId};
+use macui_core::{rect::Rect, system_state::MonitorId};
 
 use super::WindowsApi;
 
@@ -47,8 +47,8 @@ impl From<isize> for Monitor {
     }
 }
 
-impl From<&seelen_core::Point> for Monitor {
-    fn from(point: &seelen_core::Point) -> Self {
+impl From<&macui_core::Point> for Monitor {
+    fn from(point: &macui_core::Point) -> Self {
         let hmonitor = WindowsApi::monitor_from_point(point);
         Self(hmonitor)
     }
@@ -69,7 +69,7 @@ impl Monitor {
         self.0 == WindowsApi::primary_monitor()
     }
 
-    pub fn at_point(point: &seelen_core::Point) -> Monitor {
+    pub fn at_point(point: &macui_core::Point) -> Monitor {
         Monitor(WindowsApi::monitor_from_point(point))
     }
 
@@ -276,10 +276,7 @@ impl DisplayView {
                     }
 
                     let pos = mode.Anonymous.sourceMode.position;
-                    return Ok(Monitor::at_point(&seelen_core::Point {
-                        x: pos.x,
-                        y: pos.y,
-                    }));
+                    return Ok(Monitor::at_point(&macui_core::Point { x: pos.x, y: pos.y }));
                 }
             }
         }

@@ -1,7 +1,7 @@
 use std::sync::Once;
 
-use seelen_core::{
-    handlers::SeelenEvent,
+use macui_core::{
+    handlers::MacUiEvent,
     system_state::{RadioDevice, RadioDeviceKind},
 };
 
@@ -14,7 +14,7 @@ fn get_radio_manager() -> &'static RadioManager {
     TAURI_EVENT_REGISTRATION.call_once(|| {
         RadioManager::subscribe(|_event| {
             emit_to_webviews(
-                SeelenEvent::RadiosChanged,
+                MacUiEvent::RadiosChanged,
                 RadioManager::instance().get_radios(),
             );
         });

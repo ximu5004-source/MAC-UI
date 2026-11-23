@@ -14,7 +14,7 @@ input[type="range"][data-skin="flat"] {
 
   height: 1.5rem;
   border-radius: 8px;
-  background: oklch(from var(--slu-std-ui-hover-color) l c h / 0.2);
+  background: oklch(from var(--macui-std-ui-hover-color) l c h / 0.2);
 
   &::-webkit-slider-runnable-track {
     appearance: none;
@@ -24,7 +24,7 @@ input[type="range"][data-skin="flat"] {
     appearance: none;
     width: 0;
     height: 0;
-    box-shadow: -100vw 0 0 100vw var(--slu-std-ui-color);
+    box-shadow: -100vw 0 0 100vw var(--macui-std-ui-color);
   }
 
   &[data-orientation="vertical"] {
@@ -34,7 +34,7 @@ input[type="range"][data-skin="flat"] {
     direction: rtl;
 
     &::-webkit-slider-thumb {
-      box-shadow: 0 100vh 0 100vh var(--slu-std-ui-color);
+      box-shadow: 0 100vh 0 100vh var(--macui-std-ui-color);
     }
   }
 }
@@ -53,14 +53,14 @@ select[data-skin="default"] {
   width: 100%;
   padding: 0.25em 0.5em;
 
-  background-color: var(--slu-std-bg-light-color);
-  border: 1px solid var(--slu-std-bg-dark-color);
+  background-color: var(--macui-std-bg-light-color);
+  border: 1px solid var(--macui-std-bg-dark-color);
   border-radius: 6px;
 
   font-size: inherit;
 
   &:hover:enabled {
-    border-color: var(--slu-std-ui-hover-color);
+    border-color: var(--macui-std-ui-hover-color);
   }
 
   &[data-error="true"] {
@@ -68,8 +68,8 @@ select[data-skin="default"] {
   }
 
   &:read-only {
-    background-color: var(--slu-std-bg-color);
-    color: var(--slu-std-fg-muted-color);
+    background-color: var(--macui-std-bg-color);
+    color: var(--macui-std-fg-muted-color);
     cursor: default;
   }
 }
@@ -97,7 +97,7 @@ select[data-skin="transparent"] {
 
   &:focus {
     /* background-color: var(--color-gray-50);
-    border-color: var(--slu-std-ui-hover-color); */
+    border-color: var(--macui-std-ui-hover-color); */
     outline: none;
   }
 
@@ -139,8 +139,8 @@ input[type="radio"][data-skin="default"] {
   }
 
   &:checked {
-    border-color: var(--slu-std-ui-color);
-    background-color: var(--slu-std-ui-color);
+    border-color: var(--macui-std-ui-color);
+    background-color: var(--macui-std-ui-color);
 
     &::before {
       transform: scale(1);
@@ -149,10 +149,10 @@ input[type="radio"][data-skin="default"] {
 
   &:hover:enabled {
     &:not(:checked) {
-      border-color: var(--slu-std-ui-hover-color);
+      border-color: var(--macui-std-ui-hover-color);
     }
     &:checked {
-      background-color: var(--slu-std-ui-hover-color);
+      background-color: var(--macui-std-ui-hover-color);
     }
   }
 }
@@ -185,8 +185,8 @@ input[type="checkbox"][data-skin="default"] {
   }
 
   &:checked {
-    border-color: var(--slu-std-ui-color);
-    background-color: var(--slu-std-ui-color);
+    border-color: var(--macui-std-ui-color);
+    background-color: var(--macui-std-ui-color);
 
     &::before {
       transform: scale(0.7);
@@ -195,10 +195,10 @@ input[type="checkbox"][data-skin="default"] {
 
   &:hover:enabled {
     &:not(:checked) {
-      border-color: var(--slu-std-ui-hover-color);
+      border-color: var(--macui-std-ui-hover-color);
     }
     &:checked {
-      background-color: var(--slu-std-ui-hover-color);
+      background-color: var(--macui-std-ui-hover-color);
     }
   }
 }
@@ -229,7 +229,7 @@ input[type="checkbox"][data-skin="switch"] {
   }
 
   &:checked {
-    background-color: var(--slu-std-ui-color);
+    background-color: var(--macui-std-ui-color);
 
     &::before {
       transform: translateX($width / 2);
@@ -239,7 +239,7 @@ input[type="checkbox"][data-skin="switch"] {
   &:hover:enabled {
     background-color: var(--color-gray-500);
     &:checked {
-      background-color: var(--slu-std-ui-hover-color);
+      background-color: var(--macui-std-ui-hover-color);
     }
   }
 }
@@ -249,7 +249,7 @@ input[type="checkbox"][data-skin="switch"] {
   border: none;
   box-shadow: var(--shadow-s);
   border-radius: 10px;
-  background-color: var(--slu-std-bg-light-color);
+  background-color: var(--macui-std-bg-light-color);
   padding: 0.25em;
 }
 
@@ -261,7 +261,7 @@ select[data-skin="transparent"] {
   appearance: base-select;
 
   &::picker-icon {
-    color: var(--slu-std-fg-muted-color);
+    color: var(--macui-std-fg-muted-color);
     width: min-content;
     height: min-content;
     transition: transform 0.4s ease;
@@ -282,11 +282,11 @@ select[data-skin="transparent"] {
     }
 
     &:hover {
-      background-color: oklch(from var(--slu-std-ui-color) l c h / 0.2);
+      background-color: oklch(from var(--macui-std-ui-color) l c h / 0.2);
     }
 
     &:checked {
-      background-color: var(--slu-std-ui-hover-color);
+      background-color: var(--macui-std-ui-hover-color);
       color: var(--color-gray-100);
       font-weight: 600;
     }
@@ -295,9 +295,9 @@ select[data-skin="transparent"] {
 
 select[data-skin="transparent"] {
   &:hover:enabled {
-    background-color: var(--slu-std-ui-hover-overlay);
+    background-color: var(--macui-std-ui-hover-overlay);
   }
   &:active:enabled {
-    background-color: var(--slu-std-ui-pressed-overlay);
+    background-color: var(--macui-std-ui-pressed-overlay);
   }
 }

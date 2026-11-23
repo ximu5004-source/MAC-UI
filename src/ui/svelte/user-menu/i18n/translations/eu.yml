@@ -15,7 +15,7 @@ profile:
   log_out: Amaitu saioa
   open_onedrive: Ireki OneDrive direktorioa
   open_user_folder: Ireki erabiltzailearen direktorioa
-seelen_options:
-  open_installation_folder: Ireki Seelen ezarpenen karpeta
-  open_log_folder: Ireki Seelen erregistro-karpeta
-  title: Seelen direktorioak
+macui_options:
+  open_installation_folder: Ireki MAC UI ezarpenen karpeta
+  open_log_folder: Ireki MAC UI erregistro-karpeta
+  title: MAC UI direktorioak

@@ -1,7 +1,7 @@
 use std::sync::Once;
 
-use seelen_core::{
-    handlers::SeelenEvent,
+use macui_core::{
+    handlers::MacUiEvent,
     system_state::{Battery, PowerMode, PowerStatus},
 };
 use windows::Win32::System::Shutdown::{EWX_LOGOFF, EWX_REBOOT, EWX_SHUTDOWN, SHTDN_REASON_NONE};
@@ -23,10 +23,10 @@ fn get_power_manager() -> &'static TracedMutex<PowerManager> {
     TAURI_EVENT_REGISTRATION.call_once(|| {
         PowerManager::subscribe(|event| match event {
             PowerManagerEvent::PowerStatusChanged(status) => {
-                emit_to_webviews(SeelenEvent::PowerStatus, status);
+                emit_to_webviews(MacUiEvent::PowerStatus, status);
             }
             PowerManagerEvent::BatteriesChanged(batteries) => {
-                emit_to_webviews(SeelenEvent::BatteriesStatus, batteries);
+                emit_to_webviews(MacUiEvent::BatteriesStatus, batteries);
             }
             PowerManagerEvent::PowerModeChanged(mode) => {
                 if FULL_STATE.load().settings.suspend_on_game_mode {
@@ -35,7 +35,7 @@ fn get_power_manager() -> &'static TracedMutex<PowerManager> {
                         _ => WIDGET_MANAGER.resume_all().log_error(),
                     }
                 }
-                emit_to_webviews(SeelenEvent::PowerMode, mode);
+                emit_to_webviews(MacUiEvent::PowerMode, mode);
             }
         });
     });

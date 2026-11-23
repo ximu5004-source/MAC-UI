@@ -1,3 +1,4 @@
+import { invoke, MacUiCommand } from "../../../handlers/mod.ts";
 import { debounce } from "../../../utils/async.ts";
 import { Widget_3 } from "./3_autosize.ts";
 import { SerialQueue } from "../../../utils/serial_queue.ts";
@@ -7,11 +8,21 @@ const HIDE_ANIMATION_MAX_MS = 200;
 
 export class Widget_4 extends Widget_3 {
   protected _destroyOnHide = false;
+  protected _passiveVisibility = false;
+
+  private setNativeVisible(visible: boolean): Promise<void> {
+    if (this._passiveVisibility) return invoke(MacUiCommand.SetSelfPopupVisible, { visible });
+    return visible ? this.window.show() : this.window.hide();
+  }
+
   /**
    * Incremented on every show/hide call, so any in-flight call can detect it was superseded
    * by a newer one after each `await` and bail out.
    */
   private _visibilityToken = 0;
+  protected get visibilityRevision(): number {
+    return this._visibilityToken;
+  }
   private _nativeVisibility = new SerialQueue();
   private _debouncedClose = debounce((token: number) => {
     void this._nativeVisibility.run(async () => {
@@ -30,7 +41,7 @@ export class Widget_4 extends Widget_3 {
       if (token !== this._visibilityToken) return;
       // Native hide already in flight must finish before show. Token checks alone
       // cannot stop its late completion from hiding a newly opened panel.
-      await this.window.show();
+      await this.setNativeVisible(true);
       if (token === this._visibilityToken) {
         delete globalThis.document.documentElement.dataset.widgetHidden;
       }
@@ -47,7 +58,7 @@ export class Widget_4 extends Widget_3 {
     }
     await this._nativeVisibility.run(async () => {
       if (token !== this._visibilityToken) return;
-      await this.window.hide();
+      await this.setNativeVisible(false);
       if (this._destroyOnHide && token === this._visibilityToken) {
         this._debouncedClose(token);
       }

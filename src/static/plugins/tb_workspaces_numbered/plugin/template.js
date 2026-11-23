@@ -14,7 +14,7 @@ return Group({
         fontWeight: 600,
         color: isActive ? "var(--system-accent-color)" : "currentColor",
       },
-      onClick: `invoke(SeelenCommand.SwitchWorkspace, { workspaceId: '${w.id}' })`,
+      onClick: `invoke(MacUiCommand.SwitchWorkspace, { workspaceId: '${w.id}' })`,
     });
   }),
   style: {

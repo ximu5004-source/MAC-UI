@@ -1,5 +1,5 @@
-import { invoke, SeelenCommand, SeelenEvent, Settings, subscribe, Widget } from "@seelen-ui/lib";
-import { type Hotspot, RadioDeviceKind, type WlanBssEntry } from "@seelen-ui/lib/types";
+import { invoke, MacUiCommand, MacUiEvent, Settings, subscribe, Widget } from "@macui/lib";
+import { type Hotspot, RadioDeviceKind, type WlanBssEntry } from "@macui/lib/types";
 import { locale } from "./i18n/index.ts";
 import { lazyRune } from "libs/ui/svelte/utils/LazyRune.svelte.ts";
 
@@ -18,16 +18,16 @@ $effect.root(() => {
 });
 
 let wlanBssEntries = $state<WlanBssEntry[]>([]);
-subscribe(SeelenEvent.NetworkWlanScanned, ({ payload }) => {
+subscribe(MacUiEvent.NetworkWlanScanned, ({ payload }) => {
   wlanBssEntries = payload;
 });
 
-let radios = lazyRune(() => invoke(SeelenCommand.GetRadios));
-subscribe(SeelenEvent.RadiosChanged, radios.setByPayload);
+let radios = lazyRune(() => invoke(MacUiCommand.GetRadios));
+subscribe(MacUiEvent.RadiosChanged, radios.setByPayload);
 await radios.init();
 
-let hotspot = lazyRune(() => invoke(SeelenCommand.GetNetworkHotspot));
-subscribe(SeelenEvent.NetworkHotspotChanged, hotspot.setByPayload);
+let hotspot = lazyRune(() => invoke(MacUiCommand.GetNetworkHotspot));
+subscribe(MacUiEvent.NetworkHotspotChanged, hotspot.setByPayload);
 await hotspot.init();
 
 let isScanning = $state(false);
@@ -52,8 +52,8 @@ $effect.root(() => {
     );
 
     if (isScanning && wifiEnabled) {
-      invoke(SeelenCommand.WlanScan);
-      scanInterval = setInterval(() => invoke(SeelenCommand.WlanScan), 2000);
+      invoke(MacUiCommand.WlanScan);
+      scanInterval = setInterval(() => invoke(MacUiCommand.WlanScan), 2000);
       return;
     }
 

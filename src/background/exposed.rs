@@ -1,6 +1,6 @@
 use std::{collections::HashMap, path::PathBuf};
 
-use seelen_core::{
+use macui_core::{
     command_handler_list,
     system_state::{Color, RelaunchArguments, StartMenuLayout, StartMenuLayoutItem},
 };
@@ -9,11 +9,11 @@ use tauri::{Builder, WebviewWindow, Wry};
 use tauri_plugin_shell::ShellExt;
 
 use crate::{
-    app::{SeelenUI, get_app_handle},
+    app::{MacUi, get_app_handle},
     error::Result,
     utils::{
         self,
-        constants::SEELEN_COMMON,
+        constants::MACUI_COMMON,
         icon_extractor::{request_icon_extraction_from_file, request_icon_extraction_from_umid},
         pwsh::PwshScript,
     },
@@ -52,7 +52,7 @@ pub fn open_file(webview: tauri::WebviewWindow, path: String) -> Result<()> {
 fn select_file_on_explorer(path: String) -> Result<()> {
     get_app_handle()
         .shell()
-        .command(SEELEN_COMMON.system_dir().join("explorer.exe"))
+        .command(MACUI_COMMON.system_dir().join("explorer.exe"))
         .args(["/select,", &path])
         .spawn()?;
     Ok(())
@@ -92,34 +92,13 @@ pub fn get_user_envs() -> HashMap<String, String> {
 }
 
 #[tauri::command(async)]
-async fn set_native_desktop_icons_hidden(
-    webview: tauri::WebviewWindow,
-    hidden: bool,
-) -> Result<()> {
-    let label = crate::widgets::webview::WidgetWebviewLabel::try_from_raw(webview.label())?;
-    if label.widget_id.as_str() != "@seelen/desktop-shell" {
-        return Err("Native desktop icons are owned by Desktop Manager".into());
-    }
-    if hidden
-        && !crate::state::application::FULL_STATE
-            .load()
-            .settings
-            .is_widget_enabled(&label.widget_id)
-    {
-        return Err("Desktop Manager is disabled".into());
-    }
-    let owner = webview.hwnd()?.0 as isize;
-    crate::widgets::desktop_shell::set_icons_hidden(owner, hidden).await
-}
-
-#[tauri::command(async)]
 async fn set_auto_start(enabled: bool) -> Result<()> {
-    SeelenUI::set_auto_start(enabled)
+    MacUi::set_auto_start(enabled)
 }
 
 #[tauri::command(async)]
 async fn get_auto_start_status() -> Result<bool> {
-    SeelenUI::is_auto_start_enabled()
+    MacUi::is_auto_start_enabled()
 }
 
 // used to request icon extraction
@@ -171,7 +150,7 @@ async fn install_last_available_update() -> Result<()> {
 
 #[tauri::command(async)]
 async fn get_native_start_menu() -> Result<StartMenuLayout> {
-    let output_path = SEELEN_COMMON.app_cache_dir().join("start-layout.json");
+    let output_path = MACUI_COMMON.app_cache_dir().join("start-layout.json");
     let output_path_str = output_path.to_string_lossy().to_string();
 
     let script =
@@ -204,10 +183,9 @@ pub fn register_invoke_handler(app_builder: Builder<Wry>) -> Builder<Wry> {
     use crate::state::infrastructure::*;
     use crate::virtual_desktops::handlers::*;
 
-    use crate::widgets::desktop_shell::*;
     use crate::widgets::frosted::*;
-    use crate::widgets::toolbar::wallpaper_contrast::*;
     use crate::widgets::permissions::*;
+    use crate::widgets::toolbar::wallpaper_contrast::*;
     use crate::widgets::wallpaper_manager::handlers::*;
     use crate::widgets::weg::handler::*;
     use crate::widgets::window_manager::handler::*;
@@ -219,6 +197,7 @@ pub fn register_invoke_handler(app_builder: Builder<Wry>) -> Builder<Wry> {
 
     use crate::modules::apps::infrastructure::*;
     use crate::modules::clipboard::infrastructure::*;
+    use crate::modules::communication_notifications::infrastructure::*;
     use crate::modules::focus_assist::infrastructure::*;
     use crate::modules::fonts::infrastructure::*;
     use crate::modules::media::devices::infrastructure::*;

@@ -1,5 +1,5 @@
-use seelen_core::{
-    resource::{ResourceId, ResourceKind, SluResource},
+use macui_core::{
+    resource::{MacUiResource, ResourceId, ResourceKind},
     state::{
         IconPack, Plugin, Theme, Wallpaper, Widget, settings::shortcuts::SystemShortcutDeclaration,
     },
@@ -19,7 +19,7 @@ pub fn state_get_widgets() -> Vec<Arc<Widget>> {
 
 #[tauri::command(async)]
 pub fn state_get_system_shortcuts() -> Vec<SystemShortcutDeclaration> {
-    seelen_core::state::settings::shortcuts::system_shortcut_declarations()
+    macui_core::state::settings::shortcuts::system_shortcut_declarations()
 }
 
 #[tauri::command(async)]
@@ -52,6 +52,9 @@ async fn delete_path(path: PathBuf) {
 
 #[tauri::command(async)]
 pub async fn remove_resource(kind: ResourceKind, id: ResourceId) -> Result<()> {
+    if matches!(kind, ResourceKind::Theme | ResourceKind::IconPack) {
+        return Err("MAC UI's appearance and system icons are built in".into());
+    }
     let mut to_delete = Vec::new();
 
     match kind {

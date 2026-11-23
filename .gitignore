@@ -11,11 +11,18 @@ node_modules
 
 # Local installers, private test captures and publication staging are not source.
 /release/
+/src/static/native/macui-desktop.exe
+/src/static/native/macui-desktop.pdb
+/src/static/native/macui-desktop.exe.config
+/src/static/native/desktop-locales.json
+/native/DesktopOrganizer/bin/
+/native/DesktopOrganizer/obj/
 
 dist
 target
 gen
 src/runtime
+/src/installer-runtime/
 
 # Submission Files
 /scripts/SBTemp

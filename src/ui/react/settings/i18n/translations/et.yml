@@ -30,14 +30,14 @@ apps_configurations:
     Need komplekteeritud konfiguratsioonid ei ole redigeeritavad ja on loodud
     selleks, et pakkuda teile parimat kogemust ilma kohandamiseta. Nad
     konfigureerivad teie jaoks automaatselt kõige levinumaid rakendusi.
-  bundled_title: Rakenduse konfiguratsioon, mis on komplekteeritud Seeleniga
+  bundled_title: Rakenduse konfiguratsioon, mis on komplekteeritud MacUiiga
   confirm_delete: Kas olete kindel, et soovite selle konfiguratsiooni/S kustutada?
   confirm_delete_title: Kinnitage kustutamine
   delete: Kustutama
   export: Ekspordi-
   export_full: Ekspordi seaded rakenduste kaupa
   extra_info: >-
-    Seeleni kasutajaliides kasutab rakenduse kohta ainult ühte identifikaatorit
+    MacUii kasutajaliides kasutab rakenduse kohta ainult ühte identifikaatorit
     (leiti esimene vaste), seega on määramise järjekord oluline, viimati lisatud
     on prioriteediks, kuna tabel sorteeritakse vaikimisi uusimast vanani.
   identifier:
@@ -79,13 +79,13 @@ devtools:
   data_folder: Andmekaust
   enable: Luba arendaja tööriistad
   enable_description: >-
-    Avab täiustatud tööriistad Seeleni kasutajaliidese sisemiste kontrollimiseks
+    Avab täiustatud tööriistad MacUii kasutajaliidese sisemiste kontrollimiseks
     ja silumiseks. Ei ole ette nähtud regulaarseks kasutamiseks.
   icons: Vahemällu salvestatud ikoonid
   install_folder: Installi kaust
   load: Laadima
   settings_file: Seadete fail
-  shared_components: SLU standardkomponendid
+  shared_components: MAC UI standardkomponendid
   simulate_dialog:
     label: Simuleeri dialoogi
     trigger: Päästik
@@ -118,7 +118,7 @@ devtools:
     widget_id: Vidina ID
 discord_banner:
   message: >-
-    Võtke ühendust teiste Seeleni kasutajaliidese kasutajatega, hankige abi,
+    Võtke ühendust teiste MacUii kasutajaliidese kasutajatega, hankige abi,
     jagage teemasid ja olge kursis viimaste uudistega.
   title: Liituge meie kogukonnaga
 extras:
@@ -167,7 +167,7 @@ general:
     plugged: Ühendatud või laadimine
   polling_interval: Süsteemi küsitlusintervall
   polling_interval_description: >-
-    Kui sageli (sekundites) Seelen UI kontrollib süsteemiressursse, nagu
+    Kui sageli (sekundites) MAC UI kontrollib süsteemiressursse, nagu
     protsessor, RAM, võrk ja ketta aktiivsus. Väiksem arv tähendab sagedasemaid
     uuendusi, kuid veidi suuremat ressursikasutust.
   saturday: laupäeval
@@ -222,7 +222,7 @@ reset_configurations: Lähtestage konfiguratsioonid
 reset_to_default: Nullida vaikimisi väärtus
 resources:
   affected_widgets: Mõjutatud vidinad
-  app_outdated: Selle ressursi korralikuks kasutamiseks on vaja Seelen UI uuemat versiooni.
+  app_outdated: Selle ressursi korralikuks kasutamiseks on vaja MAC UI uuemat versiooni.
   coming_soon: Varsti
   corrupted_wallpaper: >-
     Pisipildi ekstraktimine ebaõnnestus – videovorming on rikutud või seda ei
@@ -236,7 +236,7 @@ resources:
   modified: Muudetud
   open_folder: Avage ressursside kaust
   outdated: >-
-    See ressurss on loodud Seelen UI vanema versiooni jaoks ja see ei pruugi
+    See ressurss on loodud MAC UI vanema versiooni jaoks ja see ei pruugi
     korralikult töötada.
   see_on_website: Vaata kodulehelt
   update_now: Värskenda
@@ -245,7 +245,7 @@ resources:
 review_request:
   not_now: Mitte praegu
   sure: Muidugi!
-  title: Kas teile meeldib Seeleni kasutajaliides?
+  title: Kas teile meeldib MacUii kasutajaliides?
 save: Kokkuhoid
 save_and_restart: Salvesta ja taaskäivitage
 search: Otsi
@@ -419,15 +419,15 @@ weg:
 welcome:
   give_a_review: Andke ülevaade
   message: >-
-    Seelen UI on tasuta ja avatud lähtekoodiga töölauakeskkond Windowsi jaoks.
+    MAC UI on tasuta ja avatud lähtekoodiga töölauakeskkond Windowsi jaoks.
     Siin on teil täielik kontroll selle üle, kuidas teie töölaud välja näeb ja
     käitub, võimaldades teil kohandada iga detaili oma töövoo ja stiiliga
     sobivaks.
   ok: Alustame!
   review: >-
-    Kui teile meeldib Seeleni kasutajaliidese kasutamine, kaaluge poes arvustuse
+    Kui teile meeldib MacUii kasutajaliidese kasutamine, kaaluge poes arvustuse
     jätmist – teie tagasiside aitab projektil kasvada ja täiustada.
-  title: Tere tulemast Seeleni kasutajaliidese!
+  title: Tere tulemast MacUii kasutajaliidese!
 widget:
   default_instance: Vaikimisi eksemplar
   default_instance_hint: Alati aktiivne, kasutab juurvidina konfiguratsiooni

@@ -1,5 +1,5 @@
-import { invoke, SeelenCommand, SeelenEvent, subscribe } from "@seelen-ui/lib";
-import type { Wallpaper } from "@seelen-ui/lib/types";
+import { invoke, MacUiCommand, MacUiEvent, subscribe } from "@macui/lib";
+import type { Wallpaper } from "@macui/lib/types";
 import { locale } from "./i18n/index.ts";
 import { debounce } from "lodash";
 import { untrack } from "svelte";
@@ -17,7 +17,7 @@ import {
 import WallpaperState from "libs/ui/svelte/components/Wallpaper/state.svelte.ts";
 
 const settings = $derived.by(() => ({
-  ..._settings.value.byWidget["@seelen/wallpaper-manager"],
+  ..._settings.value.byWidget["@macui/wallpaper-manager"],
   byWallpaper: _settings.value.byWallpaper,
   byMonitor: _settings.value.monitorsV3,
 }));
@@ -39,7 +39,7 @@ const setAsIdle = debounce(
   },
   1000 * 60 * 3,
 ); // 3 min
-subscribe(SeelenEvent.GlobalMouseMove, () => {
+subscribe(MacUiEvent.GlobalMouseMove, () => {
   if (idle) idle = false;
   setAsIdle();
 });
@@ -160,11 +160,11 @@ class State {
 }
 
 // wait for initial positioning before ready;
-await invoke(SeelenCommand.SetAsWallpaper).catch(console.error);
+await invoke(MacUiCommand.SetAsWallpaper).catch(console.error);
 $effect.root(() => {
   $effect(() => {
     relativeMonitors;
-    invoke(SeelenCommand.SetAsWallpaper).catch(console.error);
+    invoke(MacUiCommand.SetAsWallpaper).catch(console.error);
   });
 });
 

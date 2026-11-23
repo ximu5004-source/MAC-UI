@@ -1,4 +1,4 @@
-import { Settings, Widget } from "@seelen-ui/lib";
+import { Settings, Widget } from "@macui/lib";
 import { lazyRune } from "libs/ui/svelte/utils";
 import { locale } from "../i18n/index.ts";
 import z from "zod";

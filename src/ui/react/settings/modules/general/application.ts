@@ -1,5 +1,5 @@
 import { needRestart, settings } from "../../state/mod";
-import type { PerformanceModeSettings, StartOfWeek } from "@seelen-ui/lib/types";
+import type { PerformanceModeSettings, StartOfWeek } from "@macui/lib/types";
 
 /**
  * Gets the current language setting

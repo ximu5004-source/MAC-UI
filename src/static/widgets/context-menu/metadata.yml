@@ -1,4 +1,4 @@
-id: "@seelen/context-menu"
+id: "@macui/context-menu"
 icon: HiOutlineDotsVertical
 metadata:
   displayName: !extend i18n/display_name.yml

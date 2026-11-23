@@ -6,7 +6,7 @@ use uuid::Uuid;
 use crate::{
     error::Result,
     resource::{
-        InternalResourceMetadata, ResourceKind, ResourceMetadata, ResourceText, SluResource,
+        InternalResourceMetadata, MacUiResource, ResourceKind, ResourceMetadata, ResourceText,
         WallpaperId,
     },
 };
@@ -52,7 +52,7 @@ pub enum WallpaperKind {
     Unsupported,
 }
 
-impl SluResource for Wallpaper {
+impl MacUiResource for Wallpaper {
     const KIND: ResourceKind = ResourceKind::Wallpaper;
 
     fn metadata(&self) -> &ResourceMetadata {

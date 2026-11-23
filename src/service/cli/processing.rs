@@ -1,7 +1,7 @@
 use std::sync::LazyLock;
 
+use macui_ipc::messages::{IpcResponse, SvcAction};
 use positioning::{AnimationOrchestrator, PositionerBuilder, easings::Easing};
-use slu_ipc::messages::{IpcResponse, SvcAction};
 
 use crate::{error::Result, task_scheduler::TaskSchedulerHelper, windows_api::WindowsApi};
 
@@ -79,8 +79,12 @@ async fn _process_action(command: SvcAction) -> Result<()> {
         }
         SvcAction::HideNativeTaskbar => crate::shutdown::hide_native_taskbar(),
         SvcAction::RestoreNativeTaskbar => crate::shutdown::restore_native_taskbar()?,
-        SvcAction::HideNativeDesktopIcons => crate::shutdown::hide_native_desktop_icons(),
-        SvcAction::RestoreNativeDesktopIcons => crate::shutdown::restore_native_desktop_icons()?,
+        SvcAction::SetNativeWindowAnimationSuppressed {
+            owner_pid,
+            suppressed,
+        } => {
+            crate::native_animation::set_suppressed(owner_pid, suppressed)?;
+        }
     }
     Ok(())
 }

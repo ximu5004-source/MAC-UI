@@ -1,7 +1,7 @@
-use seelen_core::resource::WidgetId;
+use macui_core::resource::WidgetId;
 use tauri::{Manager, path::BaseDirectory};
 
-use crate::{app::get_app_handle, error::Result, utils::constants::SEELEN_COMMON};
+use crate::{app::get_app_handle, error::Result, utils::constants::MACUI_COMMON};
 
 pub struct Migrations;
 
@@ -11,7 +11,7 @@ impl Migrations {
         let path = get_app_handle().path();
         let data_path = path.app_data_dir()?;
 
-        let old_path = path.resolve(".config/seelen", BaseDirectory::Home)?;
+        let old_path = path.resolve(".config/macui", BaseDirectory::Home)?;
         if old_path.exists() {
             log::trace!("Migrating user settings from {old_path:?}");
             for entry in std::fs::read_dir(&old_path)?.flatten() {
@@ -27,10 +27,10 @@ impl Migrations {
 
     // migration of user settings files below v2.1.0
     fn migration_v2_1_0() -> Result<()> {
-        let old_folder = SEELEN_COMMON.app_data_dir().join("placeholders");
+        let old_folder = MACUI_COMMON.app_data_dir().join("placeholders");
         let old = old_folder.join("custom.yml");
         if old.exists() {
-            std::fs::copy(old, SEELEN_COMMON.app_cache_dir().join("toolbar_items.yml"))?;
+            std::fs::copy(old, MACUI_COMMON.app_cache_dir().join("toolbar_items.yml"))?;
             std::fs::remove_dir_all(old_folder)?;
         }
         Ok(())
@@ -54,7 +54,7 @@ impl Migrations {
 
     // remove old generated icon pack (path changed in v2.4.10)
     fn migration_v2_4_10() -> Result<()> {
-        let old_path = SEELEN_COMMON.user_icons_path().join("system");
+        let old_path = MACUI_COMMON.user_icons_path().join("system");
         if old_path.exists() {
             std::fs::remove_dir_all(old_path)?;
         }
@@ -62,26 +62,23 @@ impl Migrations {
     }
 
     fn migration_v2_5_0() -> Result<()> {
-        let old = SEELEN_COMMON.app_data_dir().join("applications.yml");
+        let old = MACUI_COMMON.app_data_dir().join("applications.yml");
         if old.exists() {
-            std::fs::rename(
-                old,
-                SEELEN_COMMON.app_data_dir().join("settings_by_app.yml"),
-            )?;
+            std::fs::rename(old, MACUI_COMMON.app_data_dir().join("settings_by_app.yml"))?;
         }
 
-        let old_weg_save = SEELEN_COMMON.app_data_dir().join("seelenweg_items_v2.yml");
+        let old_weg_save = MACUI_COMMON.app_data_dir().join("macuiweg_items_v2.yml");
         if old_weg_save.exists() {
-            let new_weg_save = SEELEN_COMMON
+            let new_weg_save = MACUI_COMMON
                 .widget_data_dir(&WidgetId::known_weg())
                 .join("state.yml");
             std::fs::create_dir_all(new_weg_save.parent().unwrap())?;
             std::fs::rename(old_weg_save, new_weg_save)?;
         }
 
-        let old_toolbar_save = SEELEN_COMMON.app_data_dir().join("toolbar_items.yml");
+        let old_toolbar_save = MACUI_COMMON.app_data_dir().join("toolbar_items.yml");
         if old_toolbar_save.exists() {
-            let new_toolbar_save = SEELEN_COMMON
+            let new_toolbar_save = MACUI_COMMON
                 .widget_data_dir(&WidgetId::known_toolbar())
                 .join("state.yml");
             std::fs::create_dir_all(new_toolbar_save.parent().unwrap())?;

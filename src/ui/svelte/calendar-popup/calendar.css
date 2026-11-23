@@ -4,12 +4,12 @@ html, body, #root {
   background: transparent;
 }
 
-:is(#root, #app) .slu-std-popover.mac-panel.calendar-popup {
+:is(#root, #app) .macui-std-popover.mac-panel.calendar-popup {
   width: 320px;
   border-radius: 28px;
   padding: 12px;
   gap: 12px;
-  color-scheme: light dark;
+  color-scheme: inherit;
   --mac-ink: light-dark(#202020, #f4f4f4);
   --mac-secondary: light-dark(#3c3c3c, #ddd);
   text-shadow: none;

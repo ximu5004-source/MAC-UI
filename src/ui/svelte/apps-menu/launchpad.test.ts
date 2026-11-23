@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import type { StartMenuItem } from "@seelen-ui/lib/types";
-import { disbandFolder, importStartMenu, isApplicationItem, moveIntoFolder, moveRootItem, normalizeLayout, pageGeometry, pageSlice, removeApp, startMenuCatalog } from "./launchpad.ts";
+import type { StartMenuItem } from "@macui/lib/types";
+import { canonicalizeFavorites, disbandFolder, importStartMenu, isApplicationItem, migrateFavorites, moveIntoFolder, moveRootItem, normalizeLayout, pageGeometry, pageSlice, removeApp, startMenuCatalog } from "./launchpad.ts";
 
 const app = (name: string, folder: string[] = [], umid: string | null = null): StartMenuItem => ({
   path: `C:\\Programs\\${folder.join("\\")}\\${name}.lnk`, display_name: name,
@@ -37,13 +37,51 @@ test("package identities are deduplicated but distinct launch shortcuts are pres
 });
 
 test("search and import agree on launchable shortcut types", () => {
-  for (const extension of ["lnk", "EXE", "url", "appref-ms"]) {
+  for (const extension of ["LNK", "url", "appref-ms"]) {
     assert.equal(isApplicationItem({ path: `C:\\Fixture\\App.${extension}`, umid: null }), true);
   }
   assert.equal(isApplicationItem({ path: "", umid: "Package!App" }), true);
-  for (const extension of ["png", "pdf", "txt", "ini"]) {
+  for (const extension of ["exe", "msi", "msix", "png", "pdf", "txt", "ini"]) {
     assert.equal(isApplicationItem({ path: `C:\\Fixture\\File.${extension}`, umid: null }), false);
   }
+});
+
+test("fresh favorites are empty and migration never imports available applications", () => {
+  assert.deepEqual(migrateFavorites(null), { version: 2, items: [] });
+  assert.deepEqual(migrateFavorites(undefined, []), { version: 2, items: [] });
+  const legacy = [{ type: "app", itemId: "explicit!App" }];
+  assert.deepEqual(migrateFavorites(null, legacy), { version: 2, items: legacy });
+});
+
+test("favorites migration preserves manual folders, order, unavailable IDs and rollback input", () => {
+  const original = {
+    version: 1,
+    items: [
+      { type: "folder", itemId: "my-folder", name: "我的设计工具", itemIds: ["my!App", "temporarily-uninstalled!App"] },
+      { type: "app", itemId: "C:\\Users\\User\\Downloads\\legacy.exe" },
+    ],
+  };
+  const before = JSON.stringify(original);
+  const migrated = migrateFavorites(original);
+  assert.equal(migrated.version, 2);
+  assert.deepEqual(migrated.items, original.items);
+  assert.equal(JSON.stringify(original), before);
+  assert.deepEqual(migrateFavorites(migrated), migrated);
+});
+
+test("same-name downloaded installer cannot enter the application catalog", () => {
+  const installed = app("微信");
+  const downloaded = { ...installed, path: "C:\\Users\\User\\Downloads\\微信.exe" };
+  assert.deepEqual(startMenuCatalog([downloaded, installed]), [installed]);
+});
+
+test("migrated shortcut favorites resolve current identities without adding catalog apps", () => {
+  const catalog = [app("First", [], "FIRST!APP"), app("Second", [], "SECOND!APP")];
+  const items = [{ type: "folder" as const, itemId: "f", name: "Mine", itemIds: [catalog[0]!.path.toUpperCase(), "missing!App"] }];
+  assert.deepEqual(canonicalizeFavorites(items, catalog), [
+    { type: "folder", itemId: "f", name: "Mine", itemIds: ["FIRST!APP", "missing!App"] },
+  ]);
+  assert.equal(items[0]!.itemIds[0], catalog[0]!.path.toUpperCase());
 });
 
 test("moving or removing an app never deletes a folder's remaining sibling", () => {
@@ -61,7 +99,7 @@ test("normalization retains single/empty folders and rejects corrupt and duplica
 
 test("responsive pages stay bounded and page movement keeps all applications", () => {
   const items = Array.from({ length: 75 }, (_, i) => ({ type: "app" as const, itemId: String(i) }));
-  assert.equal(pageGeometry(1920, 1080).pageSize, 40);
+  assert.equal(pageGeometry(1920, 1080).pageSize, 28);
   assert.equal(pageGeometry(375, 500).columns, 3);
   assert.equal(pageSlice(items, 99, 35).page, 2);
   assert.equal(pageSlice([], 9, 0).count, 1);
@@ -70,12 +108,12 @@ test("responsive pages stay bounded and page movement keeps all applications", (
 });
 
 test("macOS-style pages reserve full native icons and two-line labels after page controls", () => {
-  assert.deepEqual(pageGeometry(1028, 740), { columns: 8, rows: 5, pageSize: 40, iconSize: 64 });
-  assert.deepEqual(pageGeometry(1028, 432), { columns: 8, rows: 2, pageSize: 16, iconSize: 64 });
+  assert.deepEqual(pageGeometry(1028, 740), { columns: 7, rows: 4, pageSize: 28, iconSize: 72 });
+  assert.deepEqual(pageGeometry(1028, 432), { columns: 7, rows: 2, pageSize: 14, iconSize: 72 });
   assert.deepEqual(pageGeometry(500, 240), { columns: 4, rows: 1, pageSize: 4, iconSize: 48 });
   assert.deepEqual(pageGeometry(300, 160), { columns: 2, rows: 1, pageSize: 2, iconSize: 48 });
-  assert.equal(pageGeometry(1028, 447).rows, 2, "do not add a clipped third large-icon row");
-  assert.equal(pageGeometry(1028, 448).rows, 3);
+  assert.equal(pageGeometry(1028, 471).rows, 2, "do not add a clipped third large-icon row");
+  assert.equal(pageGeometry(1028, 472).rows, 3);
   assert.equal(pageGeometry(500, 275).rows, 1, "compact cells retain 14px two-line labels");
   assert.equal(pageGeometry(500, 276).rows, 2);
 });
@@ -84,9 +122,14 @@ test("compact geometry keeps narrow, short and invalid measurements bounded", ()
   for (const [width, height] of [[0, 0], [1, 1], [NaN, Infinity], [-10, -5]]) {
     const layout = pageGeometry(width!, height!);
     assert.ok(Number.isFinite(layout.pageSize));
-    assert.ok(layout.columns >= 1 && layout.columns <= 8);
-    assert.ok(layout.rows >= 1 && layout.rows <= 5);
+      assert.ok(layout.columns >= 1 && layout.columns <= 7);
+      assert.ok(layout.rows >= 1 && layout.rows <= 4);
   }
+});
+
+test("a 4K desktop keeps a readable bounded page rather than spreading out more applications", () => {
+  assert.deepEqual(pageGeometry(3834, 2142), { columns: 7, rows: 4, pageSize: 28, iconSize: 72 });
+  assert.deepEqual(pageGeometry(1198, 710), pageGeometry(3834, 2142));
 });
 
 test("calculated page cells cannot clip icons or labels on supported measured viewports", () => {
@@ -95,7 +138,7 @@ test("calculated page cells cannot clip icons or labels on supported measured vi
       const geometry = pageGeometry(width, height);
       const compact = geometry.iconSize === 48;
       const columnGap = compact ? 16 : 24, rowGap = compact ? 12 : 16;
-      const cellWidth = compact ? 88 : 104, cellHeight = geometry.iconSize + 56;
+      const cellWidth = compact ? 88 : geometry.iconSize === 72 ? 120 : 104, cellHeight = geometry.iconSize + 56;
       assert.ok(geometry.columns * cellWidth + (geometry.columns - 1) * columnGap + 16 <= width);
       assert.ok(geometry.rows * cellHeight + (geometry.rows - 1) * rowGap + 56 <= height);
     }

@@ -1,5 +1,5 @@
-import { invoke, SeelenCommand, SeelenEvent, subscribe } from "@seelen-ui/lib";
-import type { PluginId, WegItem, WegItems } from "@seelen-ui/lib/types";
+import { invoke, MacUiCommand, MacUiEvent, subscribe } from "@macui/lib";
+import type { PluginId, WegItem, WegItems } from "@macui/lib/types";
 import { debounce } from "lodash";
 import { emit, listen } from "@tauri-apps/api/event";
 import type { AppOrFileWegItem, SeparatorWegItem } from "../types.ts";
@@ -35,6 +35,7 @@ function getStateFromStored(state: WegItems): OptimisticDockState {
   const seen = new Set<string>([HARDCODED_SEPARATOR_LEFT.id, HARDCODED_SEPARATOR_RIGHT.id]);
   const sanitize = (items: WegItem[]) =>
     items.filter((item) => {
+      if (item.type === "Media") return false; // Legacy Dock media controls now live in the top bar.
       if (seen.has(item.id)) return false;
       seen.add(item.id);
       return true;
@@ -72,7 +73,7 @@ export const dockState = {
   },
 };
 
-subscribe(SeelenEvent.WegAddItem, (e) => {
+subscribe(MacUiEvent.WegAddItem, (e) => {
   const item: WegItem = {
     ...e.payload,
     id: crypto.randomUUID(),
@@ -85,11 +86,11 @@ subscribe(SeelenEvent.WegAddItem, (e) => {
   _dockState = { ..._dockState, items };
 });
 
-subscribe(SeelenEvent.PluginEnabled, (e) => {
+subscribe(MacUiEvent.PluginEnabled, (e) => {
   dockStateActions.addPlugin(e.payload);
 });
 
-subscribe(SeelenEvent.WegItemsChanged, (e) => {
+subscribe(MacUiEvent.WegItemsChanged, (e) => {
   // Reload the entire dock state from the backend
   _dockState = getStateFromStored(e.payload);
 });
@@ -99,7 +100,7 @@ listen<SyncPayload>("hidden::sync-dock-items", ({ payload }) => {
   if (payload.source === CLIENT_ID) return;
   if (JSON.stringify(payload.state) !== JSON.stringify(_dockState)) {
     isRemoteUpdate = true;
-    _dockState = payload.state;
+    _dockState = { ...payload.state, items: payload.state.items.filter((item) => item.type !== "Media") };
   }
 });
 
@@ -122,7 +123,7 @@ export function listToGroups(items: WegItem[], includeSeparator = false) {
 
 const saveDockState = debounce(async (state: OptimisticDockState) => {
   console.trace("Saving dock state");
-  await invoke(SeelenCommand.StateWriteWegItems, {
+  await invoke(MacUiCommand.StateWriteWegItems, {
     items: {
       isReorderDisabled: state.isReorderDisabled,
       ...listToGroups(state.items),
@@ -167,20 +168,6 @@ export const dockStateActions = {
     _dockState = {
       ..._dockState,
       items: _dockState.items.map((item) => (item.id === id ? { ...item, pinned: false } : item)),
-    };
-  },
-  addMediaModule() {
-    if (!_dockState.items.some((i) => i.type === "Media")) {
-      _dockState = {
-        ..._dockState,
-        items: [..._dockState.items, { id: crypto.randomUUID(), type: "Media" }],
-      };
-    }
-  },
-  removeMediaModule() {
-    _dockState = {
-      ..._dockState,
-      items: _dockState.items.filter((i) => i.type !== "Media"),
     };
   },
   addPlugin(plugin: PluginId) {

@@ -1,4 +1,4 @@
-import type { Dialog } from "@seelen-ui/lib/types";
+import type { Dialog } from "@macui/lib/types";
 
 /** Only the backend shortcut dialog opts into close-as-cancel. */
 export function shortcutCancelEvent(dialog: Dialog | null): string | null {

@@ -8,7 +8,7 @@ cancel: Töröl
 done: Kész
 elevated:
   description: |-
-    A Seelen UI rendszergazdai jogosultságokkal fut.
+    A MAC UI rendszergazdai jogosultságokkal fut.
     Ez nem bővíti vagy javítja a funkciókat, és biztonsági kockázatot jelenthet.
     A nagyobb biztonság érdekében indítsa újra rendszergazdai engedélyek nélkül.
   title: Rendszergazdaként fut
@@ -16,7 +16,7 @@ file_explorer: Fájlböngésző
 resource:
   added: Egy új erőforrás került hozzáadásra
   download_failed_body: >-
-    Az erőforrás letöltése közben valami rosszul ment, kérjük, jelezze a Seelen
+    Az erőforrás letöltése közben valami rosszul ment, kérjük, jelezze a MAC UI
     fejlesztői csapatának.
   download_failed_title: Az erőforrás letöltése sikertelen
   downloading: Eszközök letöltése...
@@ -36,22 +36,22 @@ runtime:
     Ez akkor fordulhat elő, ha a fájlok módosultak, sérültek, vagy a telepítés
     nem fejeződött be.
 
-    Biztonsági okokból a Seelen UI nem folytatható.
+    Biztonsági okokból a MAC UI nem folytatható.
 
     Kérjük, telepítse újra a hivatalos webhelyről.
   files_integrity_title: Biztonsági figyelmeztetés – A fájlok integritásának ellenőrzése sikertelen
   not_found: A WebView2 futási környezet nem található
   not_found_description: >-
-    A Seelen felhasználói felületéhez Webview2 Runtime szükséges. Kérjük,
+    A MAC UI felhasználói felületéhez Webview2 Runtime szükséges. Kérjük,
     telepítse.
   outdated: WebView2 Runtime elavult
   outdated_description: >-
-    A Seelen felhasználói felületéhez Webview2 Runtime %{min_version} vagy újabb
+    A MAC UI felhasználói felületéhez Webview2 Runtime %{min_version} vagy újabb
     szükséges. Kérjük, frissítse.
 service:
-  not_running: Seelen UI szolgáltatás nem fut
+  not_running: MAC UI szolgáltatás nem fut
   not_running_description: >-
-    A Seelen UI szolgáltatás (slu-szolgáltatás) egy függőség/segítő az
+    A MAC UI szolgáltatás (macui-szolgáltatás) egy függőség/segítő az
     alkalmazás megfelelő működéséhez.
   not_running_ok: Indítsa el a szolgáltatást
 shortcut:

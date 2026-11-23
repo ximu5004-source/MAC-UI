@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { TwmReservation } from "@seelen-ui/lib/types";
+  import { TwmReservation } from "@macui/lib/types";
   import { state } from "../../../state.svelte.ts";
   import Icon from "libs/ui/svelte/components/Icon/Icon.svelte";
   import { ReservationIcon } from "../../domain.ts";

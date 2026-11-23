@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { FolderType } from "@seelen-ui/lib/types";
-  import { invoke, SeelenCommand } from "@seelen-ui/lib";
+  import { FolderType } from "@macui/lib/types";
+  import { invoke, MacUiCommand } from "@macui/lib";
   import { path } from "@tauri-apps/api";
   import Icon from "libs/ui/svelte/components/Icon/Icon.svelte";
   import { t } from "../i18n";
@@ -38,7 +38,7 @@
   }
 
   async function openOnExplorer() {
-    invoke(SeelenCommand.OpenFile, {
+    invoke(MacUiCommand.OpenFile, {
       path: await getPathByFolderType(type),
     });
   }

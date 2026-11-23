@@ -1,6 +1,6 @@
 use std::path::PathBuf;
 
-use seelen_core::state::{
+use macui_core::state::{
     AppConfig, IconPackEntry, PerformanceMode, Settings, ToolbarState, Wallpaper, WegItems,
     by_monitor::MonitorConfiguration, by_wallpaper::WallpaperInstanceSettings,
 };
@@ -10,7 +10,7 @@ use crate::{
     app::get_app_handle,
     error::{Result, ResultLogExt},
     state::application::{BUNDLED_SETTINGS_BY_APP, performance::PERFORMANCE_MODE},
-    utils::{constants::SEELEN_COMMON, date_based_hex_id},
+    utils::{constants::MACUI_COMMON, date_based_hex_id},
     windows_api::WindowsApi,
 };
 
@@ -101,7 +101,7 @@ pub fn state_request_wallpaper_addition() -> Result<()> {
         .pick_files(|picked| {
             for path in picked.unwrap_or_default() {
                 if let Ok(path) = path.simplified().into_path() {
-                    let folder_to_store = SEELEN_COMMON
+                    let folder_to_store = MACUI_COMMON
                         .user_wallpapers_path()
                         .join(date_based_hex_id());
                     crate::get_tokio_handle().spawn(async move {

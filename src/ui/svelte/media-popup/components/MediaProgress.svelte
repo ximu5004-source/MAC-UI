@@ -1,9 +1,10 @@
 <script lang="ts">
-  import type { MediaPlayer } from "@seelen-ui/lib/types";
-  import { invoke, SeelenCommand } from "@seelen-ui/lib";
+  import type { MediaPlayer } from "@macui/lib/types";
+  import { invoke, MacUiCommand } from "@macui/lib";
   import { nanosecondsToPlayingTime } from "libs/ui/utils";
   import { throttle } from "lodash";
   import { t } from "../i18n";
+  import { onDestroy } from "svelte";
 
   interface Props {
     session: MediaPlayer;
@@ -52,8 +53,9 @@
 
   const onSeek = throttle((positionSeconds: number) => {
     const position = Math.round(positionSeconds * NS_PER_SECOND);
-    invoke(SeelenCommand.MediaSeek, { id: session.umid, position }).catch(console.error);
+    invoke(MacUiCommand.MediaSeek, { id: session.umid, position }).catch(console.error);
   }, 200);
+  onDestroy(() => onSeek.cancel());
 
   function onSeekInput(e: Event & { currentTarget: HTMLInputElement }) {
     isSeeking = true;
@@ -62,6 +64,10 @@
   }
 
   function onSeekCommit() {
+    onSeek.flush();
+    basePosition = seekingPositionSeconds * NS_PER_SECOND;
+    baseTimestamp = Date.now();
+    now = baseTimestamp;
     isSeeking = false;
   }
 </script>

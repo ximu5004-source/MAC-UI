@@ -1,7 +1,6 @@
 <script lang="ts">
-  import { invoke, SeelenCommand } from "@seelen-ui/lib";
-  import { window as TauriWindow } from "@seelen-ui/lib/tauri";
-  import { WegMiddleClickAction, type UserAppWindow } from "@seelen-ui/lib/types";
+  import { invoke, MacUiCommand } from "@macui/lib";
+  import { WegMiddleClickAction, type UserAppWindow } from "@macui/lib/types";
   import { FileIcon } from "libs/ui/svelte/components/Icon/index.ts";
   import { t } from "../../i18n/index.ts";
   import type { AppOrFileWegItem } from "../../types.ts";
@@ -10,16 +9,21 @@
   import { notifications } from "../../state/getters.svelte.ts";
   import { activateItem, getUserApplicationContextMenu, launchItem } from "../../appMenu.ts";
   import { triggerPreviewWidget } from "../../previewWidget.ts";
+  import { onDestroy } from "svelte";
+  import { dockIsDragging } from "../../state/hidden.svelte.ts";
+  import { event as events } from "@macui/lib/tauri";
   import { CssHandled } from "libs/ui/svelte/utils/animations.ts";
   import { isDockPrimaryClick } from "../../activation.ts";
-  import { minimizeTarget } from "../../minimizeTarget.ts";
+  import { captureDockTarget } from "../../dockTarget";
+  import { registerWindowAnimationTarget } from "../../animationTargets";
 
   interface Props {
     item: AppOrFileWegItem;
     windows: UserAppWindow[];
+    isOverlay?: boolean;
   }
 
-  let { item, windows }: Props = $props();
+  let { item, windows, isOverlay = false }: Props = $props();
 
   const settings = $derived(settingsState.value as any);
   const notificationsCount = $derived(
@@ -37,22 +41,54 @@
   const isApp = $derived(Boolean(item.umid) || /\.(exe|appref-ms)$/i.test(item.path) || shortcutIsApp);
 
   $effect(() => {
+    const hwnds = windows.map((window) => window.hwnd);
+    if (itemEl && !isOverlay) return registerWindowAnimationTarget(itemEl, hwnds);
+    return undefined;
+  });
+
+  $effect(() => {
     const path = item.path;
     shortcutIsApp = false;
     if (!/\.lnk$/i.test(path)) return;
     let disposed = false;
-    invoke(SeelenCommand.IsApplicationFile, { path }).then((value) => {
+    invoke(MacUiCommand.IsApplicationFile, { path }).then((value) => {
       if (!disposed) shortcutIsApp = value;
     }).catch(console.error);
     return () => { disposed = true; };
   });
+
+  let hoverTimer: ReturnType<typeof setTimeout>;
+  let hoverRevision = 0;
+
+  function cancelHover() {
+    hoverRevision++;
+    clearTimeout(hoverTimer);
+  }
+
+  function onEnter(event: PointerEvent) {
+    cancelHover();
+    if (event.pointerType !== "mouse" || event.buttons || isOverlay || !windows.length) return;
+    const revision = hoverRevision;
+    const stillHere = () => revision === hoverRevision && !!itemEl?.matches(":hover") &&
+      !dockIsDragging.value && windows.length > 0;
+    hoverTimer = setTimeout(() => {
+      if (itemEl && stillHere()) void triggerPreviewWidget(itemEl, windows, stillHere).catch(console.error);
+    }, 260);
+  }
+
+  function onPress() {
+    cancelHover();
+    void events.emit("macui:dismiss-dock-hover").catch(console.error);
+  }
+
+  onDestroy(cancelHover);
 
   async function onClick(event?: MouseEvent) {
     if (event && !isDockPrimaryClick(event)) return;
     if (activating) return;
     activationError = false;
     if (windows.length > 1) {
-      triggerPreviewWidget(itemEl!, windows);
+      void triggerPreviewWidget(itemEl!, windows).catch(console.error);
       return;
     }
 
@@ -66,21 +102,8 @@
       const wasFocused = windowsState.delayedFocused?.hwnd === win.hwnd;
       activating = true;
       try {
-        let target = null;
-        if (wasFocused && itemEl && !globalThis.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-          try {
-            let timeout: ReturnType<typeof setTimeout> | undefined;
-            const origin = await Promise.race([
-              TauriWindow.getCurrentWindow().innerPosition(),
-              new Promise<never>((_, reject) => {
-                timeout = setTimeout(() => reject(new Error("Dock geometry timeout")), 60);
-              }),
-            ]).finally(() => clearTimeout(timeout));
-            const icon = itemEl.querySelector(".weg-item-icon") ?? itemEl;
-            target = minimizeTarget(icon.getBoundingClientRect(), origin, globalThis.devicePixelRatio);
-          } catch { /* Geometry failure must not prevent native minimize. */ }
-        }
-        await invoke(SeelenCommand.WegToggleWindowState, {
+        const target = itemEl ? await captureDockTarget(itemEl) : null;
+        await invoke(MacUiCommand.WegToggleWindowState, {
           hwnd: win.hwnd, wasFocused, minimizeTarget: target,
         });
       } catch (error) { console.error(error); activationError = true; }
@@ -96,7 +119,7 @@
       launchItem(item, false);
     } else {
       const win = windows[0];
-      if (win) invoke(SeelenCommand.WegCloseApp, { hwnd: win.hwnd });
+      if (win) invoke(MacUiCommand.WegCloseApp, { hwnd: win.hwnd });
     }
   }
 
@@ -105,7 +128,7 @@
     e.stopPropagation();
     const alignX = settingsState.popupAlignX;
     const alignY = settingsState.popupAlignY;
-    invoke(SeelenCommand.TriggerContextMenu, {
+    invoke(MacUiCommand.TriggerContextMenu, {
       menu: { ...getUserApplicationContextMenu($t, item, windows), alignX, alignY },
       forwardTo: null,
     });
@@ -124,11 +147,15 @@
     class="weg-item"
     aria-busy={activating}
     aria-label={activationError ? $t("weg.activation_failed") : item.displayName}
-    data-tooltip={activationError ? $t("weg.activation_failed") : item.displayName}
+    data-tooltip={activationError ? $t("weg.activation_failed") : windows.length ? undefined : item.displayName}
     data-tooltip-origin-y={settingsState.tooltipOrigin.y}
     data-tooltip-origin-x={settingsState.tooltipOrigin.x}
     data-tooltip-align-x={settingsState.popupAlignX}
     data-tooltip-align-y={settingsState.popupAlignY}
+    onpointerenter={onEnter}
+    onpointerleave={cancelHover}
+    onpointerdown={onPress}
+    onpointercancel={cancelHover}
     onclick={onClick}
     onauxclick={onAuxClick}
     oncontextmenu={onContextMenu}

@@ -1,4 +1,4 @@
-use seelen_core::system_state::PhysicalMonitor;
+use macui_core::system_state::PhysicalMonitor;
 
 use crate::{error::AppError, windows_api::monitor::Monitor};
 

@@ -3,8 +3,8 @@ use std::{
     sync::{Arc, LazyLock},
 };
 
-use seelen_core::{
-    handlers::SeelenEvent,
+use macui_core::{
+    handlers::MacUiEvent,
     rect::Rect,
     resource::PluginId,
     state::{
@@ -22,7 +22,7 @@ use crate::{
     modules::apps::application::UserAppsManager,
     state::application::FULL_STATE,
     utils::lock_free::TracedMutex,
-    virtual_desktops::SluWorkspacesManager2,
+    virtual_desktops::MacUiWorkspacesManager2,
     widgets::window_manager::{
         WindowManagerV2,
         cli::{Axis, Direction, StepWay},
@@ -64,7 +64,7 @@ event_manager!(TwmState, TwmStateEvent);
 
 impl TwmState {
     fn initialize(&mut self) {
-        let vd = SluWorkspacesManager2::instance();
+        let vd = MacUiWorkspacesManager2::instance();
         vd.monitors.for_each(|(_, monitor)| {
             let active_workspace_id = monitor.active_workspace_id().clone();
             for row in monitor.workspaces.rows() {
@@ -93,7 +93,7 @@ impl TwmState {
             }
         });
 
-        SluWorkspacesManager2::subscribe(|event| {
+        MacUiWorkspacesManager2::subscribe(|event| {
             WindowManagerV2::process_vd_event(event).log_error();
         });
 
@@ -161,7 +161,7 @@ impl TwmState {
             return false;
         }
 
-        let Some(searching) = window.slu_category() else {
+        let Some(searching) = window.macui_category() else {
             return false;
         };
 
@@ -171,7 +171,7 @@ impl TwmState {
                 matches!(node.kind, TwmNodeKind::Leaf | TwmNodeKind::Stack)
                     && node.windows.iter().any(|w| {
                         Window::from(*w)
-                            .slu_category()
+                            .macui_category()
                             .is_some_and(|c| c == searching)
                     })
             })
@@ -226,7 +226,7 @@ impl TwmState {
                     node_id,
                     side,
                 });
-                emit_to_webviews(SeelenEvent::WMSetReservation, Some(side));
+                emit_to_webviews(MacUiEvent::WMSetReservation, Some(side));
                 return;
             }
         }
@@ -234,7 +234,7 @@ impl TwmState {
 
     pub fn cancel_reservation(&mut self) {
         self.pending_reservation = None;
-        emit_to_webviews(SeelenEvent::WMSetReservation, None::<TwmReservation>);
+        emit_to_webviews(MacUiEvent::WMSetReservation, None::<TwmReservation>);
     }
 
     fn apply_reservation(
@@ -284,7 +284,7 @@ impl TwmState {
 
     pub fn add_to_layout(&mut self, window: &Window, workspace_id: &WorkspaceId) {
         if let Some(reservation) = self.pending_reservation.take() {
-            emit_to_webviews(SeelenEvent::WMSetReservation, None::<TwmReservation>);
+            emit_to_webviews(MacUiEvent::WMSetReservation, None::<TwmReservation>);
             if &reservation.workspace_id == workspace_id {
                 self.apply_reservation(window, workspace_id, reservation.node_id, reservation.side);
                 return;
@@ -502,7 +502,7 @@ impl TwmState {
     /// Recomputes `paused_by_monitor` from the live interactable-windows list.
     /// Returns `true` if the computed value changed.
     pub fn recompute_paused_by_monitor(&mut self) -> bool {
-        let mut computed: HashMap<seelen_core::system_state::MonitorId, bool> = HashMap::new();
+        let mut computed: HashMap<macui_core::system_state::MonitorId, bool> = HashMap::new();
         for w in UserAppsManager::instance().interactable_windows.to_vec() {
             let flag = (w.is_zoomed || w.is_fullscreen) && !w.is_iconic;
             let entry = computed.entry(w.monitor.clone()).or_insert(false);
@@ -669,7 +669,7 @@ impl TwmState {
 
     pub fn restore_stacks(&self) {
         let mut active_ids = std::collections::HashSet::new();
-        SluWorkspacesManager2::instance()
+        MacUiWorkspacesManager2::instance()
             .monitors
             .for_each(|(_, monitor)| {
                 active_ids.insert(monitor.active_workspace_id().clone());

@@ -37,9 +37,17 @@
   background: transparent;
   cursor: pointer;
 }
-#root .flyout.mac-frosted-surface .flyout-mute:hover { background: rgb(255 255 255 / .16); }
-#root .flyout.mac-frosted-surface .flyout-mute[aria-pressed="true"] { background: var(--flyout-track); }
-#root .flyout.mac-frosted-surface .slu-icon { width: 18px; height: 18px; min-width: 18px; }
+#root .flyout.mac-frosted-surface .flyout-mute:hover {
+  background: rgb(255 255 255 / .16);
+}
+#root .flyout.mac-frosted-surface .flyout-mute[aria-pressed="true"] {
+  background: var(--flyout-track);
+}
+#root .flyout.mac-frosted-surface .macui-icon {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+}
 #root .flyout.mac-frosted-surface input[type="range"][data-skin="flat"] {
   appearance: none;
   min-width: 0;
@@ -50,7 +58,8 @@
   border: 0;
   border-radius: 10px;
   overflow: visible;
-  background: linear-gradient(to right, var(--flyout-accent) var(--mac-level, 0%), var(--flyout-track) var(--mac-level, 0%));
+  background: linear-gradient(to right, var(--flyout-accent) var(--mac-level, 0%), var(--flyout-track) var(--mac-level,
+    0%));
   box-shadow: none;
   cursor: pointer;
 }
@@ -83,14 +92,40 @@
   width: 10px;
   writing-mode: vertical-lr;
   direction: rtl;
-  background: linear-gradient(to top, var(--flyout-accent) var(--mac-level, 0%), var(--flyout-track) var(--mac-level, 0%));
+  background: linear-gradient(to top, var(--flyout-accent) var(--mac-level, 0%), var(--flyout-track) var(--mac-level,
+    0%));
 }
 @media (prefers-reduced-transparency: reduce), (prefers-contrast: more), (forced-colors: active) {
-  #root .flyout.mac-frosted-surface { background: Canvas; color: CanvasText; }
+  #root .flyout.mac-frosted-surface {
+    background: Canvas;
+    color: CanvasText;
+  }
   #root .flyout.mac-frosted-surface::before,
-  #root .flyout.mac-frosted-surface::after { display: none; }
+  #root .flyout.mac-frosted-surface::after {
+    display: none;
+  }
 }
 @media (forced-colors: active) {
-  #root .flyout.mac-frosted-surface { border: 1px solid CanvasText; }
-  #root .flyout.mac-frosted-surface input[type="range"][data-skin="flat"] { appearance: auto; }
+  #root .flyout.mac-frosted-surface {
+    border: 1px solid CanvasText;
+  }
+  #root .flyout.mac-frosted-surface input[type="range"][data-skin="flat"] {
+    appearance: auto;
+  }
+}
+#root .flyout.mac-frosted-surface > .notification {
+  background: transparent;
+  box-shadow: none;
+  color: inherit;
+  border: 0;
+  border-radius: 0;
+  padding: 4px;
+}
+#root .flyout .notification-header {
+  border-color: color-mix(in srgb, currentColor 16%, transparent);
+}
+html:has(.flyout),
+body:has(> #root > .flyout),
+#root:has(> .flyout) {
+  background: transparent;
 }

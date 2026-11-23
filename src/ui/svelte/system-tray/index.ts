@@ -1,12 +1,12 @@
 import { mount } from "svelte";
 import App from "./app.svelte";
-import { Settings, Widget } from "@seelen-ui/lib";
+import { Settings, Widget } from "@macui/lib";
 import { locale } from "libs/ui/svelte/utils/i18n";
 import { currentMonitor, monitorFromPoint } from "@tauri-apps/api/window";
 import { trayPanelSize } from "./trayPresentation";
 import { state } from "./state.svelte";
 
-import "@seelen-ui/lib/styles/reset.css";
+import "@macui/lib/styles/reset.css";
 import "libs/ui/svelte/styles/mac-panels.css";
 import { configureMacPanel } from "libs/ui/svelte/utils/macPanel";
 import { trackFrostedSurfaces } from "libs/ui/svelte/utils/frostedSurfaces";

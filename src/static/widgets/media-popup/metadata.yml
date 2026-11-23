@@ -1,4 +1,4 @@
-id: "@seelen/media-popup"
+id: "@macui/media-popup"
 icon: IoVolumeHighOutline
 metadata:
   displayName: !extend i18n/display_name.yml

@@ -11,7 +11,7 @@ await esbuild.build({
   alias: { react: resolve("node_modules/preact/compat"), "react/jsx-runtime": resolve("node_modules/preact/jsx-runtime"), "react-dom": resolve("node_modules/preact/compat") },
   plugins: [
     { name: "isolate-settings", setup(build) {
-      build.onResolve({ filter: /^(\.\/application|\.\/seelenweg\/application)$/ }, args => args.importer.replaceAll("\\", "/").endsWith("Widget/DesktopGlass.tsx") ? { path: qa + "/mock.ts" } : undefined);
+      build.onResolve({ filter: /^(\.\/application|\.\/macuiweg\/application)$/ }, args => args.importer.replaceAll("\\", "/").endsWith("Widget/DesktopGlass.tsx") ? { path: qa + "/mock.ts" } : undefined);
     } },
     CssModulesPlugin({ localsConvention: "camelCase", pattern: "qa-[local]-[hash]", targets: {} }),
   ],

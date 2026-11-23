@@ -30,14 +30,14 @@ apps_configurations:
     Konfigurazio multzo hauek ez dira editagarriak eta pertsonalizaziorik gabeko
     esperientzia onena emateko diseinatuta daude. Zuretzako aplikazio ohikoenak
     automatikoki konfiguratzen dituzte.
-  bundled_title: App konfigurazioa Seelen-ekin lotuta
+  bundled_title: App konfigurazioa MAC UI-ekin lotuta
   confirm_delete: Ziur konfigurazio hau ezabatu nahi duzula?
   confirm_delete_title: Berretsi Ezabatu
   delete: Ezabatu
   export: Esportagai
   export_full: Esportatu ezarpenak aplikazioaren arabera
   extra_info: >-
-    Seelen UIk aplikazio bakoitzeko identifikatzaile bakarra erabili (lehen
+    MAC UIk aplikazio bakoitzeko identifikatzaile bakarra erabili (lehen
     partidua aurkitu da), beraz, zehatz-mehatz azaltzen da, azken erantsia
     lehentasuna izango da, ohar gisa taula lehenetsi da lehenetsitakoa
     zaharretik azkenetik ordenatuta.
@@ -80,7 +80,7 @@ devtools:
   data_folder: Datu karpeta
   enable: Gaitu garatzaileen tresnak
   enable_description: >-
-    Tresna aurreratuak desblokeatzen ditu Seelen UI barrukoak ikuskatzeko eta
+    Tresna aurreratuak desblokeatzen ditu MAC UI barrukoak ikuskatzeko eta
     arazketa egiteko. Ez da ohiko erabilerarako pentsatua.
   icons: Cachean gordetako ikonoak
   install_folder: Instalazio karpeta
@@ -119,7 +119,7 @@ devtools:
     widget_id: Widgetaren IDa
 discord_banner:
   message: >-
-    Konektatu Seelen UI erabiltzaileekin, lortu laguntza, partekatu gaiak eta
+    Konektatu MAC UI erabiltzaileekin, lortu laguntza, partekatu gaiak eta
     egon azken berrien berri.
   title: Sartu gure komunitatean
 extras:
@@ -169,7 +169,7 @@ general:
     plugged: Entxufatua edo kargatzea
   polling_interval: Sistemaren galdeketa tartea
   polling_interval_description: >-
-    Zenbateko maiztasuna (segundotan) Seelen UI-k sistemaren baliabideak
+    Zenbateko maiztasuna (segundotan) MAC UI-k sistemaren baliabideak
     egiaztatzen ditu, hala nola CPU, RAM, sarea eta diskoaren jarduera. Kopuru
     txikiagoak eguneratzeak maizago esan nahi du, baina baliabideen erabilera
     apur bat handiagoa da.
@@ -226,7 +226,7 @@ reset_to_default: Berrezarri lehenetsitako balioa
 resources:
   affected_widgets: Eragindako widgetak
   app_outdated: >-
-    Baliabide honek Seelen UI bertsio berriagoa behar du behar bezala funtziona
+    Baliabide honek MAC UI bertsio berriagoa behar du behar bezala funtziona
     dezan.
   coming_soon: Laster
   corrupted_wallpaper: Ezin izan da atera miniatura - hondatuta edo onartzen ez den bideo formatua
@@ -239,7 +239,7 @@ resources:
   modified: Aldatua
   open_folder: Baliabide irekiko karpeta
   outdated: >-
-    Baliabide hau Seelen UI bertsio zaharragoa da eta agian ez du behar bezala
+    Baliabide hau MAC UI bertsio zaharragoa da eta agian ez du behar bezala
     funtzionatuko.
   see_on_website: Ikus webgunean
   update_now: Eguneratu
@@ -248,7 +248,7 @@ resources:
 review_request:
   not_now: Orain ez
   sure: Noski!
-  title: Seelen UI gozatzen?
+  title: MAC UI gozatzen?
 save: Aurreztu
 save_and_restart: Gorde eta berrabiarazi
 search: Bilatu
@@ -268,7 +268,7 @@ shortcuts:
     konpontzeko.
   enable: Gaitu zuzeneko lasterbideen sistema
   enable_tooltip: >-
-    Desgaitu Seelen UI bezeroa erabiliz zure lasterbideen sistema ezartzen
+    Desgaitu MAC UI bezeroa erabiliz zure lasterbideen sistema ezartzen
     baduzu
   labels:
     create_new_workspace: Sortu laneko espazioa berria
@@ -423,15 +423,15 @@ weg:
 welcome:
   give_a_review: Iritzia eman
   message: >-
-    Seelen UI kode irekiko mahaigaineko ingurunea da Windows-erako. Hemen zure
+    MAC UI kode irekiko mahaigaineko ingurunea da Windows-erako. Hemen zure
     mahaigainaren itxura eta portaeraren gaineko kontrol osoa daukazu, eta
     xehetasun guztiak pertsonaliza ditzakezu zure lan-fluxuarekin eta
     estiloarekin bat etortzeko.
   ok: Has gaitezen!
   review: >-
-    Seelen UI erabiltzea gustatzen bazaizu, kontuan hartu berrikuspena dendan
+    MAC UI erabiltzea gustatzen bazaizu, kontuan hartu berrikuspena dendan
     uztea; zure iritziak proiektua hazten eta hobetzen laguntzen du.
-  title: Ongi etorri Seelen UI-ra!
+  title: Ongi etorri MAC UI-ra!
 widget:
   default_instance: Instantzia lehenetsia
   default_instance_hint: Beti aktibo, root widget-aren konfigurazioa erabiltzen du

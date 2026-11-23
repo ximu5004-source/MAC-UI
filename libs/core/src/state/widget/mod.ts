@@ -8,8 +8,8 @@ import {
   WidgetPreset,
   type WidgetSettingItem,
   WidgetStatus,
-} from "@seelen-ui/types";
-import { invoke, SeelenCommand, SeelenEvent } from "../../handlers/mod.ts";
+} from "@macui/types";
+import { invoke, MacUiCommand, MacUiEvent } from "../../handlers/mod.ts";
 import { decodeBase64Url } from "@std/encoding";
 import { debounce } from "../../utils/async.ts";
 import { adjustPositionByPlacement, fitIntoMonitor, initMonitorsState } from "./positioning.ts";
@@ -20,6 +20,8 @@ import { subscribe } from "../../handlers/mod.ts";
 import { WidgetBasics } from "./abstractions/mod.ts";
 import { getCurrentWebview } from "@tauri-apps/api/webview";
 import { OPTIMISTIC_FRAME } from "./abstractions/3_autosize.ts";
+import { initializeColorScheme } from "./color_scheme.ts";
+import { PopupIntent, popupOwnsFocus, popupToggleSource, shouldDismissPopupAfterFocusLoss } from "./popup_lifecycle.ts";
 
 interface WidgetInternalState {
   initialized: boolean;
@@ -31,17 +33,22 @@ interface WidgetInternalState {
  * Represents the widget instance running in the current webview
  */
 export class Widget extends WidgetBasics {
+  private _popupIntent = new PopupIntent();
+  private _recheckPopupFocus?: () => void;
+  private _lastPopupForegroundHwnd?: number;
+  private _popupOpeningHwnd?: number;
+  private _passivePopup = false;
   /**
    * Alternative accesor for the current running widget.\
-   * Will throw if the library is being used on a non Seelen UI environment
+   * Will throw if the library is being used outside a MAC UI environment
    */
   static getCurrent(): Widget {
     const scope = globalThis as ExtendedGlobalThis;
-    if (!scope.__SLU_WIDGET) {
-      throw new Error("The library is being used on a non Seelen UI environment");
+    if (!scope.__MACUI_WIDGET) {
+      throw new Error("The library is being used outside a MAC UI environment");
     }
     return (
-      scope.__SLU_WIDGET_INSTANCE || (scope.__SLU_WIDGET_INSTANCE = new Widget(scope.__SLU_WIDGET))
+      scope.__MACUI_WIDGET_INSTANCE || (scope.__MACUI_WIDGET_INSTANCE = new Widget(scope.__MACUI_WIDGET))
     );
   }
 
@@ -102,44 +109,137 @@ export class Widget extends WidgetBasics {
   private applyOverlayPreset(): void {}
 
   /** Will apply the recommended settings for a popup widget */
-  private applyPopupPreset(): void {
-    this.onTrigger(async ({ desiredPosition, alignX, alignY }) => {
-      if (desiredPosition) {
-        await this.adjustAndSetPosition(desiredPosition.x, desiredPosition.y, alignX, alignY);
+  private applyPopupPreset({ beforePopupShow: beforeShow, focusPopupOnShow }: InitWidgetOptions): void {
+    this._passiveVisibility = !!focusPopupOnShow;
+    this.onTrigger(async (payload) => {
+      const { token, close } = this._popupIntent.begin(popupToggleSource(payload.customArgs));
+      if (close) {
+        await this.hide().catch(console.error);
+        return;
       }
-      await this.show();
-      await this.focus();
-      // After positioning, re-run the autosizer to correct any size discrepancy. The trigger
-      // reads OPTIMISTIC_FRAME which may be stale: onResized events from prior async resizes
-      // can arrive before the trigger fires and roll back the optimistic size to an intermediate
-      // value. If the trigger then repositions with that stale size its SetSelfPosition call
-      // lands in the Win32 queue after the correct resize, overwriting it. Running execute()
-      // here detects the remaining diff and issues a corrective resize + position adjustment.
-      if (this.autoSize.enabled) {
-        await this.executeAutoSize();
+      // The toolbar does not activate itself. Preserve its existing foreground
+      // as a baseline, so ordinary title updates cannot cancel a hidden open.
+      this._popupOpeningHwnd = this._lastPopupForegroundHwnd;
+      this._passivePopup = focusPopupOnShow?.(payload) === false;
+      const current = () => this._popupIntent.isCurrent(token);
+      try {
+        const { desiredPosition, alignX, alignY } = payload;
+        if (beforeShow) {
+          await beforeShow(payload);
+          if (!current()) return;
+          // A multi-view popup must measure the committed target view while still
+          // hidden, not show the previous view's frame and correct it afterward.
+          if (this.autoSize.enabled) await this.executeAutoSize();
+          if (!current()) return;
+        }
+        if (desiredPosition) {
+          await this.adjustAndSetPosition(desiredPosition.x, desiredPosition.y, alignX, alignY);
+        }
+        if (!current()) return;
+        await this.show();
+        if (!current()) return;
+        if (!this._passivePopup) {
+          await this.focus();
+          if (!current()) return;
+          this._recheckPopupFocus?.();
+        }
+        // After positioning, re-run the autosizer to correct any size discrepancy. The trigger
+        // reads OPTIMISTIC_FRAME which may be stale: onResized events from prior async resizes
+        // can arrive before the trigger fires and roll back the optimistic size to an intermediate
+        // value. If the trigger then repositions with that stale size its SetSelfPosition call
+        // lands in the Win32 queue after the correct resize, overwriting it. Running execute()
+        // here detects the remaining diff and issues a corrective resize + position adjustment.
+        if (this.autoSize.enabled) {
+          await this.executeAutoSize();
+        }
+      } catch (error) {
+        console.error("Popup preparation failed", error);
+        if (current()) await this.hide().catch(console.error);
+      }
+    });
+    globalThis.addEventListener("keydown", (event: KeyboardEvent) => {
+      if (event.key === "Escape" && !event.defaultPrevented && !event.isComposing && !event.repeat) {
+        event.preventDefault();
+        void this.hide().catch(console.error);
       }
     });
   }
 
-  private hideOnFocusLoss(): void {
+  override async hide(): Promise<void> {
+    this._popupIntent.dismiss();
+    await super.hide();
+  }
+
+  private async hideOnFocusLoss(): Promise<void> {
     let wasFocused = false;
-
-    const hideDelayed = debounce(() => {
-      this.hide();
+    let focusUpdates = 0;
+    let dismissal = 0;
+    let pendingVisibility = -1, pendingIntent = -1;
+    const hideDelayed = debounce((request: number, visibility: number, intent: number) => {
+      void (async () => {
+        // Re-read native focus: the global hook can lag, and owned native
+        // dialogs must not dismiss their own popup while accepting input.
+        const focused = await invoke(MacUiCommand.GetFocusedApp);
+        if (
+          request !== dismissal || visibility !== this.visibilityRevision || intent !== this._popupIntent.generation ||
+          popupOwnsFocus(this.windowId, focused)
+        ) return;
+        const visible = await this.window.isVisible();
+        if (!shouldDismissPopupAfterFocusLoss(visible, this._popupOpeningHwnd, focused.hwnd)) return;
+        // Also cancel a hidden preparation if focus actually moved elsewhere.
+        // Otherwise its late completion could reopen and steal focus back.
+        if (
+          request === dismissal && visibility === this.visibilityRevision && intent === this._popupIntent.generation
+        ) await this.hide();
+      })().catch(console.error);
     }, 100);
-
-    subscribe(SeelenEvent.GlobalFocusChanged, ({ payload: focused }) => {
-      if (focused.hwnd !== this.windowId && focused.ownerHwnd !== this.windowId) {
-        if (wasFocused) {
-          hideDelayed();
-        }
-        wasFocused = false;
-        return;
-      }
-
-      wasFocused = true;
+    const cancel = () => {
+      dismissal += 1;
       hideDelayed.cancel();
-    });
+    };
+    const schedule = () => {
+      const visibility = this.visibilityRevision, intent = this._popupIntent.generation;
+      // Frequent foreground-title/position events must not postpone dismissal
+      // forever while the user interacts with another application.
+      if (hideDelayed.pending() && pendingVisibility === visibility && pendingIntent === intent) return;
+      pendingVisibility = visibility;
+      pendingIntent = intent;
+      hideDelayed(++dismissal, visibility, intent);
+    };
+    this._recheckPopupFocus = schedule;
+    await Promise.all([
+      subscribe(MacUiEvent.GlobalFocusChanged, ({ payload: focused }) => {
+        focusUpdates += 1;
+        this._lastPopupForegroundHwnd = focused.hwnd;
+        if (!popupOwnsFocus(this.windowId, focused)) {
+          if (this._passivePopup && this._popupOpeningHwnd === focused.hwnd && !wasFocused) return;
+          if (wasFocused || this._popupIntent.isOpen) {
+            schedule();
+          }
+          wasFocused = false;
+          return;
+        }
+        wasFocused = true;
+        cancel();
+      }),
+      this.window.onFocusChanged(({ payload: focused }) => {
+        if (focused) {
+          focusUpdates += 1;
+          this._lastPopupForegroundHwnd = this.windowId;
+          wasFocused = true;
+          cancel();
+        } else if (wasFocused || this._popupIntent.isOpen) {
+          schedule();
+        }
+      }),
+    ]);
+    const observedUpdates = focusUpdates;
+    try {
+      const focused = await invoke(MacUiCommand.GetFocusedApp);
+      if (observedUpdates === focusUpdates) this._lastPopupForegroundHwnd = focused.hwnd;
+    } catch (error) {
+      console.error("Could not initialize popup focus baseline", error);
+    }
   }
 
   /**
@@ -275,6 +375,7 @@ export class Widget extends WidgetBasics {
     }
 
     this.runtimeState.initialized = true;
+    await initializeColorScheme();
     await this.prepare();
 
     this._destroyOnHide = options.closeOnHide ?? this.def.lazy;
@@ -297,7 +398,7 @@ export class Widget extends WidgetBasics {
     }
 
     if (options.hideOnFocusLoss ?? this.def.preset === WidgetPreset.Popup) {
-      this.hideOnFocusLoss();
+      await this.hideOnFocusLoss();
     }
 
     switch (this.def.preset) {
@@ -310,7 +411,7 @@ export class Widget extends WidgetBasics {
         this.applyOverlayPreset();
         break;
       case WidgetPreset.Popup:
-        this.applyPopupPreset();
+        this.applyPopupPreset(options);
         break;
     }
 
@@ -355,7 +456,7 @@ export class Widget extends WidgetBasics {
 
     globalThis.document.documentElement.dataset.widgetReady = "";
     // this will mark the widget as ready, and send pending trigger event if exists
-    await invoke(SeelenCommand.SetCurrentWidgetStatus, { status: WidgetStatus.Ready });
+    await invoke(MacUiCommand.SetCurrentWidgetStatus, { status: WidgetStatus.Ready });
 
     if (show && !alreadyVisible) {
       await this.show();
@@ -445,21 +546,21 @@ export class Widget extends WidgetBasics {
       await this.webview.setFocus();
       this.runtimeState.firstFocus = false;
     }
-    await invoke(SeelenCommand.RequestFocus, { hwnd: this.windowId }).catch(() => {});
+    await invoke(MacUiCommand.RequestFocus, { hwnd: this.windowId }).catch(() => {});
   }
 }
 
 type ExtendedGlobalThis = typeof globalThis & {
-  __SLU_WIDGET?: IWidget;
-  __SLU_WIDGET_INSTANCE?: Widget;
+  __MACUI_WIDGET?: IWidget;
+  __MACUI_WIDGET_INSTANCE?: Widget;
 };
 
-export const SeelenSettingsWidgetId: WidgetId = "@seelen/settings" as WidgetId;
-export const SeelenPopupWidgetId: WidgetId = "@seelen/dialog" as WidgetId;
-export const SeelenWegWidgetId: WidgetId = "@seelen/weg" as WidgetId;
-export const SeelenToolbarWidgetId: WidgetId = "@seelen/fancy-toolbar" as WidgetId;
-export const SeelenWindowManagerWidgetId: WidgetId = "@seelen/window-manager" as WidgetId;
-export const SeelenWallWidgetId: WidgetId = "@seelen/wallpaper-manager" as WidgetId;
+export const MacUiSettingsWidgetId: WidgetId = "@macui/settings" as WidgetId;
+export const MacUiPopupWidgetId: WidgetId = "@macui/dialog" as WidgetId;
+export const MacUiWegWidgetId: WidgetId = "@macui/weg" as WidgetId;
+export const MacUiToolbarWidgetId: WidgetId = "@macui/fancy-toolbar" as WidgetId;
+export const MacUiWindowManagerWidgetId: WidgetId = "@macui/window-manager" as WidgetId;
+export const MacUiWallWidgetId: WidgetId = "@macui/wallpaper-manager" as WidgetId;
 
 function getDecodedWebviewLabel(): [WidgetId, string | undefined] {
   const encondedLabel = getCurrentWebview().label;

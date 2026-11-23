@@ -5,4 +5,4 @@ metadata:
   tags:
     - toolbar
 styles:
-  "@seelen/fancy-toolbar": !include styles/toolbar.css
+  "@macui/fancy-toolbar": !include styles/toolbar.css

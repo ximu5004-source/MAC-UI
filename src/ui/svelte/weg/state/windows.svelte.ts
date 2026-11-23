@@ -1,5 +1,5 @@
-import { SeelenEvent, subscribe, Widget } from "@seelen-ui/lib";
-import { type FocusedApp, SeelenWegSide, type UserAppWindow, type UserAppWindowColors } from "@seelen-ui/lib/types";
+import { MacUiEvent, subscribe, Widget } from "@macui/lib";
+import { type FocusedApp, MacUiWegSide, type UserAppWindow, type UserAppWindowColors } from "@macui/lib/types";
 import { settingsState } from "./settings.svelte.ts";
 import { debounce } from "lodash";
 import type { AppOrFileWegItem } from "../types.ts";
@@ -14,7 +14,7 @@ const setDelayedFocused = debounce((v: FocusedApp) => {
   _delayedFocused = v;
 }, 200);
 
-subscribe(SeelenEvent.GlobalFocusChanged, (e) => {
+subscribe(MacUiEvent.GlobalFocusChanged, (e) => {
   focused.value = e.payload;
   setDelayedFocused(e.payload);
   if (e.payload.hwnd !== selfWinId.value) {
@@ -121,11 +121,11 @@ $effect.root(() => {
       })`;
 
     const pos = settingsState.position;
-    if (pos === SeelenWegSide.Top) {
+    if (pos === MacUiWegSide.Top) {
       root.style.setProperty("--window-gradient", toHGradient(colors.top));
-    } else if (pos === SeelenWegSide.Bottom) {
+    } else if (pos === MacUiWegSide.Bottom) {
       root.style.setProperty("--window-gradient", toHGradient(colors.bottom));
-    } else if (pos === SeelenWegSide.Left) {
+    } else if (pos === MacUiWegSide.Left) {
       root.style.setProperty("--window-gradient", toVGradient(colors.left));
     } else {
       root.style.setProperty("--window-gradient", toVGradient(colors.right));

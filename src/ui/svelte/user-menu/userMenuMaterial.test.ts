@@ -10,7 +10,7 @@ const profile = source("./components/UserProfile.svelte");
 const folder = source("./components/UserFolder.svelte");
 
 test("account menu opts into the same neutral native frost, without wallpaper-only foreground sampling", () => {
-  assert.match(app, /slu-std-popover mac-panel mac-frosted-surface user-popup/);
+  assert.match(app, /macui-std-popover mac-panel mac-frosted-surface user-popup/);
   assert.match(source("./index.ts"), /trackFrostedSurfaces\("\.user-popup\.mac-frosted-surface"\)/);
   assert.match(css, /border-radius: 28px/);
   assert.match(css, /background: var\(--mac-glass-surface\)/);
@@ -38,15 +38,15 @@ test("directory open and disclosure are separate native buttons; existing explor
   );
   assert.match(folder, /aria-controls=\{`user-files-\$\{type\}`\}/);
   assert.doesNotMatch(folder, /role="button"|onkeydown=/);
-  assert.match(folder, /SeelenCommand\.OpenFile/);
-  assert.match(source("./components/FilePreview.svelte"), /SeelenCommand\.SelectFileOnExplorer/);
+  assert.match(folder, /MacUiCommand\.OpenFile/);
+  assert.match(source("./components/FilePreview.svelte"), /MacUiCommand\.SelectFileOnExplorer/);
   assert.match(css, /button:focus-visible\s*\{\s*outline: 2px solid var\(--mac-accent\)/);
 });
 
 test("session entry dismisses the account menu before opening the existing power confirmation", () => {
-  assert.match(profile, /await Widget\.self\.hide\(\);\s*await invoke\(SeelenCommand\.TriggerWidget/s);
-  assert.match(profile, /id: "@seelen\/power-menu" as WidgetId/);
-  assert.doesNotMatch(profile, /SeelenCommand\.LogOut|SeelenCommand\.Shutdown|SeelenCommand\.Lock/);
+  assert.match(profile, /await Widget\.self\.hide\(\);\s*await invoke\(MacUiCommand\.TriggerWidget/s);
+  assert.match(profile, /id: "@macui\/power-menu" as WidgetId/);
+  assert.doesNotMatch(profile, /MacUiCommand\.LogOut|MacUiCommand\.Shutdown|MacUiCommand\.Lock/);
   assert.match(profile, /disabled=\{openingPower\}/);
   assert.match(profile, /aria-label=\{\$t\("profile\.power_and_session"\)\}/);
   assert.match(app, /event\.key !== "Escape" \|\| event\.repeat \|\| closing/);

@@ -1,7 +1,7 @@
 use std::path::PathBuf;
 
 use base64::Engine;
-use seelen_core::{
+use macui_core::{
     resource::WidgetId,
     state::{Widget, WidgetLoader, WidgetPreset},
     system_state::MonitorId,
@@ -21,14 +21,14 @@ use crate::{
     app::get_app_handle,
     error::{Result, ResultLogExt},
     state::application::FULL_STATE,
-    utils::constants::SEELEN_COMMON,
+    utils::constants::MACUI_COMMON,
     windows_api::WindowsApi,
 };
 
 pub struct WidgetWebview(pub tauri::WebviewWindow);
 
 fn restore_native_transparency(hwnd: HWND) -> Result<bool> {
-    if !slu_utils::display_recovery::should_restore_native_transparency(
+    if !macui_utils::display_recovery::should_restore_native_transparency(
         WindowsApi::get_styles(hwnd).contains(WS_CHILD),
         WindowsApi::get_ex_styles(hwnd).contains(WS_EX_NOREDIRECTIONBITMAP),
     ) {
@@ -93,7 +93,7 @@ pub fn restore_webview_bounds(window: &tauri::WebviewWindow) -> Result<()> {
                 controller.ParentWindow(&mut parent).map_err(|error| error.to_string())?;
                 let mut client = RECT::default();
                 GetClientRect(HWND(parent.0), &mut client)?;
-                let Some((width, height)) = slu_utils::display_recovery::physical_client_viewport(
+                let Some((width, height)) = macui_utils::display_recovery::physical_client_viewport(
                     client.left, client.top, client.right, client.bottom,
                 ) else {
                     return Ok(());
@@ -180,6 +180,10 @@ impl WidgetWebview {
             .transparent(true)
             .visible(false);
 
+        if widget.id.as_str() == "@macui/settings" {
+            builder = builder.decorations(false).shadow(false);
+        }
+
         if matches!(
             widget.preset,
             WidgetPreset::Desktop | WidgetPreset::Overlay | WidgetPreset::Popup
@@ -205,7 +209,7 @@ impl WidgetWebview {
                 // Wallpaper is a WorkerW child; the independent desktop controls its own z-order.
                 if !matches!(
                     widget.id.as_str(),
-                    "@seelen/wallpaper-manager" | "@seelen/desktop-shell"
+                    "@macui/wallpaper-manager" | "@macui/desktop-shell"
                 ) {
                     builder = builder.always_on_bottom(true);
                 }
@@ -235,15 +239,6 @@ impl WidgetWebview {
                 super::frosted::destroyed(frosted_owner);
             }
         });
-
-        if widget.id.as_str() == "@seelen/desktop-shell" {
-            let owner = window.hwnd()?.0 as isize;
-            window.on_window_event(move |event| {
-                if matches!(event, tauri::WindowEvent::Destroyed) {
-                    super::desktop_shell::window_destroyed(owner);
-                }
-            });
-        }
 
         // Widgets handle their own show/hide animations, avoid the ones from the system.
         // SAFETY: HWND in windows 0.61 (tauri) and 0.62 (ours) share the same memory layout
@@ -454,12 +449,33 @@ impl WebviewArgs {
             (false, false) => "no-gpu",
         };
 
-        SEELEN_COMMON.app_cache_dir().join(foldername)
+        MACUI_COMMON.app_cache_dir().join(foldername)
     }
 }
 
 impl std::fmt::Display for WebviewArgs {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "{}", self.args.join(" "))
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::WidgetWebviewLabel;
+    use macui_core::resource::WidgetId;
+
+    #[test]
+    fn settings_process_capability_matches_the_current_widget_label() {
+        let capability: serde_json::Value =
+            serde_json::from_str(include_str!("../../capabilities/settings_widget.json")).unwrap();
+        let label = WidgetWebviewLabel::new(&WidgetId::known_settings(), None, None);
+
+        // Scope process exit/restart to the actual built-in settings window.
+        // A stale pre-rename label made both buttons fail Tauri ACL validation.
+        assert_eq!(capability["windows"], serde_json::json!([label.raw]));
+        assert_eq!(
+            capability["permissions"],
+            serde_json::json!(["process:allow-restart", "process:allow-exit"])
+        );
     }
 }

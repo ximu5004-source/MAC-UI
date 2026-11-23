@@ -40,31 +40,31 @@ button[data-skin="transparent"] {
   border: 1px solid transparent;
 
   &:hover:enabled {
-    background-color: var(--slu-std-ui-hover-overlay);
+    background-color: var(--macui-std-ui-hover-overlay);
   }
 
   &:active:enabled {
-    background-color: var(--slu-std-ui-pressed-overlay);
+    background-color: var(--macui-std-ui-pressed-overlay);
   }
 }
 
 button[data-skin="solid"] {
   @extend %btn-common;
-  background-color: var(--slu-std-ui-color);
+  background-color: var(--macui-std-ui-color);
   color: var(--color-gray-100);
   box-shadow: var(--shadow-s);
 
   &:hover:enabled {
-    background-color: var(--slu-std-ui-hover-color);
+    background-color: var(--macui-std-ui-hover-color);
   }
 }
 
 button[data-skin="default"] {
   @extend %btn-common;
-  background-color: var(--slu-std-bg-light-color);
+  background-color: var(--macui-std-bg-light-color);
   box-shadow: var(--shadow-s);
 
   &:hover:enabled {
-    color: var(--slu-std-ui-hover-color);
+    color: var(--macui-std-ui-hover-color);
   }
 }

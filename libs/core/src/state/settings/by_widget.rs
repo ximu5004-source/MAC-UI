@@ -5,27 +5,27 @@ use uuid::Uuid;
 
 use crate::{resource::WidgetId, utils::TsUnknown};
 
-use super::{FancyToolbarSettings, SeelenWallSettings, SeelenWegSettings, WindowManagerSettings};
+use super::{FancyToolbarSettings, MacUiWallSettings, MacUiWegSettings, WindowManagerSettings};
 
 const SYSTEM_WIDGET_IDS: &[&str] = &[
-    "@seelen/settings",
-    "@seelen/dialog",
-    "@seelen/context-menu",
-    "@seelen/tooltip",
+    "@macui/settings",
+    "@macui/dialog",
+    "@macui/context-menu",
+    "@macui/tooltip",
 ];
 
 #[derive(Clone, Debug, Default, Serialize, Deserialize, JsonSchema)]
 #[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), derive(ts_rs::TS))]
 #[serde(default)]
 pub struct SettingsByWidget {
-    #[serde(rename = "@seelen/weg")]
-    pub weg: SeelenWegSettings,
-    #[serde(rename = "@seelen/fancy-toolbar")]
+    #[serde(rename = "@macui/weg")]
+    pub weg: MacUiWegSettings,
+    #[serde(rename = "@macui/fancy-toolbar")]
     pub fancy_toolbar: FancyToolbarSettings,
-    #[serde(rename = "@seelen/window-manager")]
+    #[serde(rename = "@macui/window-manager")]
     pub wm: WindowManagerSettings,
-    #[serde(rename = "@seelen/wallpaper-manager")]
-    pub wall: SeelenWallSettings,
+    #[serde(rename = "@macui/wallpaper-manager")]
+    pub wall: MacUiWallSettings,
     #[serde(flatten)]
     pub others: HashMap<WidgetId, GenericWidgetSettings>,
 }
@@ -37,10 +37,10 @@ impl SettingsByWidget {
             std::sync::LazyLock::new(HashMap::new);
 
         let shortcuts = match widget_id.as_str() {
-            "@seelen/weg" => self.weg.shortcuts.as_ref(),
-            "@seelen/fancy-toolbar" => self.fancy_toolbar.shortcuts.as_ref(),
-            "@seelen/window-manager" => self.wm.shortcuts.as_ref(),
-            "@seelen/wallpaper-manager" => self.wall.shortcuts.as_ref(),
+            "@macui/weg" => self.weg.shortcuts.as_ref(),
+            "@macui/fancy-toolbar" => self.fancy_toolbar.shortcuts.as_ref(),
+            "@macui/window-manager" => self.wm.shortcuts.as_ref(),
+            "@macui/wallpaper-manager" => self.wall.shortcuts.as_ref(),
             _ => self
                 .others
                 .get(widget_id)
@@ -52,28 +52,28 @@ impl SettingsByWidget {
 
     pub fn is_enabled(&self, widget_id: &WidgetId) -> bool {
         match widget_id.as_str() {
-            "@seelen/weg" => self.weg.enabled,
-            "@seelen/fancy-toolbar" => self.fancy_toolbar.enabled,
-            "@seelen/window-manager" => self.wm.enabled,
-            "@seelen/wallpaper-manager" => self.wall.enabled,
+            "@macui/weg" => self.weg.enabled,
+            "@macui/fancy-toolbar" => self.fancy_toolbar.enabled,
+            "@macui/window-manager" => self.wm.enabled,
+            "@macui/wallpaper-manager" => self.wall.enabled,
             // Shell replacements are opt-in; an absent entry must preserve Windows behavior.
-            "@seelen/desktop-shell" | "@seelen/apps-menu" => {
+            "@macui/desktop-shell" | "@macui/apps-menu" => {
                 self.others.get(widget_id).is_some_and(|s| s.enabled)
             }
             _ => match self.others.get(widget_id) {
                 Some(settings) => settings.enabled,
                 // only official widgets are enabled by default
-                None => widget_id.starts_with("@seelen"),
+                None => widget_id.starts_with("@macui"),
             },
         }
     }
 
     pub fn set_enabled(&mut self, widget_id: &WidgetId, enabled: bool) {
         match widget_id.as_str() {
-            "@seelen/weg" => self.weg.enabled = enabled,
-            "@seelen/fancy-toolbar" => self.fancy_toolbar.enabled = enabled,
-            "@seelen/window-manager" => self.wm.enabled = enabled,
-            "@seelen/wallpaper-manager" => self.wall.enabled = enabled,
+            "@macui/weg" => self.weg.enabled = enabled,
+            "@macui/fancy-toolbar" => self.fancy_toolbar.enabled = enabled,
+            "@macui/window-manager" => self.wm.enabled = enabled,
+            "@macui/wallpaper-manager" => self.wall.enabled = enabled,
             _ => match self.others.entry(widget_id.clone()) {
                 std::collections::hash_map::Entry::Occupied(mut o) => {
                     o.get_mut().enabled = enabled;
@@ -93,9 +93,9 @@ impl SettingsByWidget {
     pub fn sanitize(&mut self) {
         // Unlike passive bundled widgets, a desktop replacement must be explicitly enabled.
         self.others
-            .entry("@seelen/desktop-shell".into())
+            .entry("@macui/desktop-shell".into())
             .or_default();
-        self.others.entry("@seelen/apps-menu".into()).or_default();
+        self.others.entry("@macui/apps-menu".into()).or_default();
         for id in SYSTEM_WIDGET_IDS {
             if let Some(settings) = self.others.get_mut(&WidgetId::from(*id)) {
                 settings.enabled = true;

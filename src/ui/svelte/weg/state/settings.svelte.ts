@@ -1,5 +1,5 @@
-import { invoke, RuntimeStyleSheet, SeelenCommand, Widget } from "@seelen-ui/lib";
-import { Alignment, FancyToolbarSide, HideMode, SeelenWegSide } from "@seelen-ui/lib/types";
+import { invoke, RuntimeStyleSheet, MacUiCommand, Widget } from "@macui/lib";
+import { Alignment, FancyToolbarSide, HideMode, MacUiWegSide } from "@macui/lib/types";
 import { isTouchPrimary } from "libs/ui/svelte/utils";
 import { locale } from "../i18n/index.ts";
 import { declareDocumentAsLayeredHitbox } from "libs/ui/react/utils/layered.ts";
@@ -9,13 +9,13 @@ import { dateState } from "libs/ui/svelte/runes/date.svelte.ts";
 import { normalizeDockSize } from "libs/ui/utils/dockSize";
 
 let isWidgetReady = $state(false);
-const settings = $derived(_settings.value.byWidget["@seelen/weg"]);
+const settings = $derived(_settings.value.byWidget["@macui/weg"]);
 
 const workArea = $derived.by(() => {
   const workArea = systemState.currentMonitor.rect;
-  const tbConfig = _settings.value.byWidget["@seelen/fancy-toolbar"];
+  const tbConfig = _settings.value.byWidget["@macui/fancy-toolbar"];
   const tbMonitorConfig = (_settings.value.monitorsV3[systemState.currentMonitor.id] as any)
-    ?.byWidget?.["@seelen/fancy-toolbar"] || { enabled: true };
+    ?.byWidget?.["@macui/fancy-toolbar"] || { enabled: true };
 
   if (!tbConfig?.enabled || !tbMonitorConfig?.enabled) {
     return workArea;
@@ -47,19 +47,19 @@ const widgetRect = $derived.by(() => {
   );
 
   switch (settings.position) {
-    case SeelenWegSide.Left:
+    case MacUiWegSide.Left:
       hitboxRect.right = hitboxRect.left + size;
       webviewRect.right = isTouchPrimary.value ? hitboxRect.right : wa.right - Math.round((wa.right - wa.left) / 2);
       break;
-    case SeelenWegSide.Right:
+    case MacUiWegSide.Right:
       hitboxRect.left = hitboxRect.right - size;
       webviewRect.left = isTouchPrimary.value ? hitboxRect.left : wa.left + Math.round((wa.right - wa.left) / 2);
       break;
-    case SeelenWegSide.Top:
+    case MacUiWegSide.Top:
       hitboxRect.bottom = hitboxRect.top + size;
       webviewRect.bottom = isTouchPrimary.value ? hitboxRect.bottom : wa.top + Math.round((wa.bottom - wa.top) / 2);
       break;
-    case SeelenWegSide.Bottom:
+    case MacUiWegSide.Bottom:
       hitboxRect.top = hitboxRect.bottom - size;
       webviewRect.top = isTouchPrimary.value ? hitboxRect.top : wa.bottom - Math.round((wa.bottom - wa.top) / 2);
       break;
@@ -85,9 +85,9 @@ export const fullSettings = {
 class SettingsState {
   popupAlignX = $derived.by(() => {
     switch (settings.position) {
-      case SeelenWegSide.Left:
+      case MacUiWegSide.Left:
         return Alignment.Start;
-      case SeelenWegSide.Right:
+      case MacUiWegSide.Right:
         return Alignment.End;
       default:
         return Alignment.Center;
@@ -96,9 +96,9 @@ class SettingsState {
 
   popupAlignY = $derived.by(() => {
     switch (settings.position) {
-      case SeelenWegSide.Bottom:
+      case MacUiWegSide.Bottom:
         return Alignment.End;
-      case SeelenWegSide.Top:
+      case MacUiWegSide.Top:
         return Alignment.Start;
       default:
         return Alignment.Center;
@@ -109,16 +109,16 @@ class SettingsState {
     const origin: { x: number | null; y: number | null } = { x: null, y: null };
     const rect = settingsState.widgetRect.hitboxRect;
     switch (settingsState.position) {
-      case SeelenWegSide.Left:
+      case MacUiWegSide.Left:
         origin.x = rect.right;
         break;
-      case SeelenWegSide.Right:
+      case MacUiWegSide.Right:
         origin.x = rect.left;
         break;
-      case SeelenWegSide.Top:
+      case MacUiWegSide.Top:
         origin.y = rect.bottom;
         break;
-      case SeelenWegSide.Bottom:
+      case MacUiWegSide.Bottom:
         origin.y = rect.top;
         break;
     }
@@ -145,7 +145,7 @@ class SettingsState {
     return settings;
   }
 
-  get position(): SeelenWegSide {
+  get position(): MacUiWegSide {
     return settings.position;
   }
 
@@ -170,7 +170,7 @@ export const settingsState = new SettingsState();
 
 export function isHorizontalDock(): boolean {
   const pos = settings.position;
-  return pos === SeelenWegSide.Top || pos === SeelenWegSide.Bottom;
+  return pos === MacUiWegSide.Top || pos === MacUiWegSide.Bottom;
 }
 
 async function updateWidgetPosition() {
@@ -187,12 +187,12 @@ async function updateWidgetPosition() {
   }
 
   if (hideMode === HideMode.Never || isTouch) {
-    await invoke(SeelenCommand.RegisterAppBar, {
+    await invoke(MacUiCommand.RegisterAppBar, {
       rect: hitboxRect,
       edge: position as any,
     });
   } else {
-    await invoke(SeelenCommand.UnregisterAppBar);
+    await invoke(MacUiCommand.UnregisterAppBar);
   }
 }
 

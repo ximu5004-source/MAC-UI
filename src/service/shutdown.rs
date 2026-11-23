@@ -1,13 +1,12 @@
-use parking_lot::Mutex;
 use std::sync::atomic::{AtomicBool, Ordering};
 
 use windows::Win32::{
     Foundation::{HWND, LPARAM, LRESULT, WPARAM},
     System::LibraryLoader::GetModuleHandleW,
     UI::WindowsAndMessaging::{
-        CreateWindowExW, DefWindowProcW, DispatchMessageW, GetMessageW, IsWindowVisible, MSG,
-        PostQuitMessage, RegisterClassW, SW_HIDE, SW_SHOWNORMAL, TranslateMessage, WINDOW_EX_STYLE,
-        WINDOW_STYLE, WM_DESTROY, WM_ENDSESSION, WM_QUERYENDSESSION, WNDCLASSW,
+        CreateWindowExW, DefWindowProcW, DispatchMessageW, GetMessageW, MSG, PostQuitMessage,
+        RegisterClassW, SW_HIDE, SW_SHOWNORMAL, TranslateMessage, WINDOW_EX_STYLE, WINDOW_STYLE,
+        WM_DESTROY, WM_ENDSESSION, WM_QUERYENDSESSION, WNDCLASSW,
     },
 };
 
@@ -24,8 +23,6 @@ use crate::{
 /// Tracks whether we actually hid the native taskbar, so we only restore it
 /// when it was hidden by us (avoids unnecessary restores on settings changes/shutdown).
 static NATIVE_TASKBAR_HIDDEN: AtomicBool = AtomicBool::new(false);
-static NATIVE_DESKTOP_ICONS_HIDDEN: AtomicBool = AtomicBool::new(false);
-static HIDDEN_DESKTOP_ICON_WINDOWS: Mutex<Vec<isize>> = Mutex::new(Vec::new());
 
 pub fn get_taskbars_handles() -> Result<Vec<HWND>> {
     let mut founds = Vec::new();
@@ -73,68 +70,6 @@ pub fn restore_native_taskbar() -> Result<()> {
     Ok(())
 }
 
-fn get_desktop_icon_handles() -> Result<Vec<HWND>> {
-    let mut found = Vec::new();
-
-    WindowEnumerator::new().for_each(|top_level| {
-        if !matches!(
-            WindowsApi::get_class(top_level).as_str(),
-            "WorkerW" | "Progman"
-        ) {
-            return;
-        }
-        let _ = WindowEnumerator::new()
-            .with_parent(top_level)
-            .for_each(|child| {
-                if WindowsApi::get_class(child) == "SysListView32" {
-                    // The independent top-level desktop owns its own hit testing.
-                    // Leave WorkerW / DefView and third-party wallpaper windows intact.
-                    found.push(child);
-                }
-            });
-    })?;
-
-    Ok(found)
-}
-
-pub fn hide_native_desktop_icons() {
-    let mut hidden = HIDDEN_DESKTOP_ICON_WINDOWS.lock();
-    NATIVE_DESKTOP_ICONS_HIDDEN.store(true, Ordering::Release);
-    match get_desktop_icon_handles() {
-        Ok(handles) => {
-            for hwnd in handles {
-                // Restore only icons we actually hid; respect a user's already-hidden icons.
-                if unsafe { IsWindowVisible(hwnd).as_bool() } {
-                    let handle = hwnd.0 as isize;
-                    if !hidden.contains(&handle) {
-                        hidden.push(handle);
-                    }
-                    let _ = WindowsApi::show_window_async(handle, SW_HIDE.0);
-                }
-            }
-        }
-        Err(err) => log::error!("Failed to get desktop icon handles: {err:?}"),
-    }
-}
-
-pub fn restore_native_desktop_icons() -> Result<()> {
-    let mut hidden = HIDDEN_DESKTOP_ICON_WINDOWS.lock();
-    if NATIVE_DESKTOP_ICONS_HIDDEN
-        .compare_exchange(true, false, Ordering::AcqRel, Ordering::Acquire)
-        .is_err()
-    {
-        return Ok(());
-    }
-
-    let live = get_desktop_icon_handles()?;
-    for handle in hidden.drain(..) {
-        if live.iter().any(|hwnd| hwnd.0 as isize == handle) {
-            WindowsApi::show_window_async(handle, SW_SHOWNORMAL.0)?;
-        }
-    }
-    Ok(())
-}
-
 unsafe extern "system" fn shutdown_window_proc(
     hwnd: HWND,
     msg: u32,
@@ -161,8 +96,8 @@ unsafe extern "system" fn shutdown_window_proc(
 /// will lock until the window is closed
 unsafe fn create_shutdown_window(done: &crossbeam_channel::Sender<()>) -> Result<()> {
     unsafe {
-        let title = WindowsString::from_str("Seelen UI Service Shutdown Window");
-        let class = WindowsString::from_str("SeelenServiceShutdownWindow");
+        let title = WindowsString::from_str("MAC UI Service Shutdown Window");
+        let class = WindowsString::from_str("MacUiServiceShutdownWindow");
 
         let h_module = GetModuleHandleW(None)?;
 

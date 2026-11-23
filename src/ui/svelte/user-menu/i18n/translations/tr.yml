@@ -15,7 +15,7 @@ profile:
   log_out: Oturumu kapat
   open_onedrive: OneDrive dizinini aç
   open_user_folder: Kullanıcı dizinini aç
-seelen_options:
-  open_installation_folder: Seelen ayarlar klasörünü aç
-  open_log_folder: Seelen günlük klasörünü aç
-  title: Seelen dizinleri
+macui_options:
+  open_installation_folder: MAC UI ayarlar klasörünü aç
+  open_log_folder: MAC UI günlük klasörünü aç
+  title: MAC UI dizinleri

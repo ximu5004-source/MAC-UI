@@ -1,3 +1,41 @@
+settings_detail:
+  wallpaper_library: 壁纸库
+  toggle: "启用{{name}}"
+  preview: "效果预览"
+  size_hint: "拖动滑块，查看图标与栏体大小的变化。"
+  layout: "外观与布局"
+  behavior: "显示行为"
+  applications: "应用与窗口"
+  margin_hint: "与屏幕边缘之间的距离"
+  padding_hint: "栏体内部保留的空白"
+  import_hint: "将 Windows 任务栏中的固定应用添加到 Dock。"
+  features:
+    desktop-shell: "整理桌面文件，让常用内容各就其位。"
+    weg: "常用应用和打开的窗口，随时触手可及。"
+    apps-menu: "集中启动应用，安排你的常用软件。"
+    fancy-toolbar: "系统状态与常用操作，集中在屏幕边缘。"
+    flyouts: "消息、音量和亮度变化，及时呈现在桌面。"
+    window-manager: "按你的习惯排列窗口，安排工作空间。"
+    task-switcher: "在打开的应用与窗口之间快速切换。"
+    wallpaper-manager: "设置桌面壁纸，安排壁纸轮换。"
+
+settings_home:
+  title: "设置"
+  subtitle: "按你的习惯，安排桌面。"
+  back: "返回首页"
+  desktop: "桌面"
+  desktop_hint: "图标整理、文件分组与桌面操作"
+  dock: "Dock 与启动台"
+  dock_hint: "常用应用、窗口预览与启动方式"
+  toolbar: "顶部栏与通知"
+  toolbar_hint: "顶部栏、消息提醒与系统浮层"
+  windows: "窗口与快捷键"
+  windows_hint: "窗口排列、任务切换与键盘操作"
+  appearance: "外观"
+  appearance_hint: "玻璃质感、对比度与壁纸"
+  system: "系统设置"
+  system_hint: "开机启动、语言、显示器与应用"
+
 mac_ui:
   by_jona: 由 JONA 打造
   personal: 个性化
@@ -5,8 +43,8 @@ mac_ui:
   appearance: 外观
   advanced: 高级
   navigation: 设置导航
-  search: 查找设置页面
-  no_results: 未找到匹配的设置页面
+  search: "搜索设置"
+  no_results: "没有匹配的设置"
   about: 关于 MAC UI
   minimize: 最小化
   maximize: 最大化或还原
@@ -26,13 +64,13 @@ mac_ui:
   wallpaper_hint: 桌面整理与壁纸各自独立。保留 Windows 壁纸，也能使用桌面收纳功能。
   publisher: 作者与发布者
   license: 开源许可
-  attribution: MAC UI 的定制与修改由 JONA 提供。保留 Seelen UI 原作版权及第三方许可。
-  upstream: 基于上游项目
-  upstream_account: Seelen 账户 · 上游服务
+  attribution: MAC UI 的定制与修改由 JONA 提供。保留第三方许可。
+  upstream: 
+  upstream_account: MAC UI 账户 
   updates: 程序更新
-  manual_updates: MAC UI 使用手动更新。为保留定制功能，不安装上游 Seelen 程序更新。
+  manual_updates: "下载新版 MAC UI 安装包进行更新，保留本地设置。"
   welcome_title: 欢迎使用 MAC UI
-  welcome_body: 液态玻璃控件、独立桌面整理，以及熟悉的 Windows 应用。你可以从侧栏分别调整每个组件。
+  welcome_body: 选择一个分类，调整桌面、应用和系统偏好。
   get_started: 开始使用
 action:
   confirm: 你确定吗？
@@ -63,7 +101,7 @@ apps_configurations:
     workspace: 工作区
     workspace_placeholder: 无
   bundled_msg: 这些捆绑配置不可编辑，旨在为您提供无需自定义的最佳体验。它们会自动为您配置最常见的应用程序。
-  bundled_title: Seelen 捆绑的应用配置
+  bundled_title: MAC UI 捆绑的应用配置
   confirm_delete: 确定要删除此配置吗？
   confirm_delete_title: 确认删除
   delete: 删除
@@ -110,7 +148,7 @@ devtools:
   install_folder: 安装文件夹
   load: 加载
   settings_file: 设置文件
-  shared_components: SLU 标准组件
+  shared_components: MAC UI 标准组件
   simulate_dialog:
     label: 模拟对话
     trigger: 扳机
@@ -138,7 +176,7 @@ devtools:
     tab: 小部件
     widget_id: 小部件 ID
 discord_banner:
-  message: 与其他 Seelen UI 用户联系、获取帮助、分享主题并了解最新消息。
+  message: 与其他 MAC UI 用户联系、获取帮助、分享主题并了解最新消息。
   title: 加入我们的社区
 extras:
   backup_group: 云备份
@@ -192,7 +230,7 @@ header:
   labels:
     config: 配置
     developer: 开发者选项
-    extras: 附加功能
+    extras: 关于 MAC UI
     general: 通用设置
     home: 首页
     iconpack: 图标包
@@ -206,7 +244,7 @@ header:
     theme: 主题
     virtual_desk: 虚拟桌面
     wallpaper: 壁纸
-    widget: 小部件
+    widget: 桌面组件
 home:
   new_resources: 新资源
 inherit: 继承
@@ -296,16 +334,16 @@ toolbar:
   auto_hide_touch_disabled: 自动隐藏在触摸屏设备上不可用
   delay_to_hide: 延迟隐藏
   delay_to_show: 延迟显示
-  dock_side: 职位
-  enable: 启用精美工具栏
+  dock_side: 位置
+  enable: 启用顶部栏
   hide_mode:
     always: 总是
     never: 从不
     on_overlap: 重叠时
-  item_size: 商品尺寸
-  label: 工具栏
-  margin: 边距大小
-  padding: 填充尺寸
+  item_size: 图标大小
+  label: 顶部栏
+  margin: 屏幕边距
+  padding: 内边距
   placeholder: {}
 update:
   available: 有可用更新！
@@ -324,7 +362,7 @@ wall:
   create_collection: 创建集合
   default_collection: 默认壁纸或集合
   default_collection_description: 应用于没有特定覆盖集的所有监视器和工作区。
-  desktop_shell: Seelen 桌面图标
+  desktop_shell: MAC UI 桌面图标
   desktop_shell_description: >-
     MAC UI 运行时替代 Windows 原生桌面图标层；关闭后会立即恢复原生桌面图标。
   delete_collection: 删除集合
@@ -373,6 +411,11 @@ wall:
   withOverlay: 启用叠加层
   workspace_collections: 工作区集合
 weg:
+  window_animation:
+    label: 窗口动画
+    description: 选择窗口最小化与恢复时的效果。神奇效果会让窗口沿 Dock 图标方向收拢和展开。
+    genie: 神奇效果
+    native: Windows 默认
   overall_size: Dock 整体大小
   size_small: 小
   size_large: 大
@@ -456,7 +499,7 @@ desktop_manager:
 widget:
   default_instance: 默认实例
   default_instance_hint: 始终处于活动状态，使用根小部件配置
-  enable: 启用此小部件
+  enable: 启用此功能
   enable_for_monitor: 在此显示器上启用
   extra_instances: 额外实例
   instance: 实例
@@ -491,3 +534,93 @@ wm:
   workspace_offset: 工作区偏移（边距）
   workspace_padding: 工作区内边距
 'yes': 是
+mac_local:
+  nav_desktop: "桌面"
+  nav_appearance: "外观"
+  nav_windows: "窗口"
+  nav_about: "关于"
+  message_popups: "消息弹窗"
+  original_glass: "原版玻璃"
+  contrast_glass: "增强对比"
+  liquid_glass_hint: "MAC UI 统一使用液态玻璃界面。调整玻璃质感，选择喜欢的壁纸。"
+  maintenance_hint: "查看维护选项和高级工具。"
+  wallpapers_local_hint: "从电脑导入图片或视频，所有壁纸在本地保存。"
+  color_scheme: "界面模式"
+  color_scheme_hint: "两种玻璃均保留壁纸透光。增强对比可提高亮色壁纸上的辨识度。"
+  light: "浅色"
+  dark: "深色"
+  general: "通用"
+  desktop: "桌面与 Dock"
+  appearance: "外观"
+  windows: "窗口与快捷键"
+  devices: "显示器与应用"
+  advanced: "更多"
+  desktop_hint: "桌面整理、应用启动和顶部栏，都在这里。"
+  appearance_hint: "调整玻璃质感，搭配喜欢的主题、图标与壁纸。"
+  windows_hint: "安排窗口布局，用顺手的快捷键切换任务。"
+  devices_hint: "为每块屏幕、每个应用设置合适的工作方式。"
+  advanced_hint: "管理本地资源，查看维护选项和高级工具。"
+  resources_hint: "本地资源库 · 双击 .maui 文件即可导入，无需登录。"
+  local_mode: "本地版"
+  local_hint: "设置保存在这台电脑上，已关闭在线账号、云同步、在线资源服务和使用统计。"
+  license_notice: "本修改版依据 GNU AGPL 许可发布，不提供担保。原作版权与第三方许可继续适用，项目仓库提供对应源码。"
+  source: "查看源码"
+  theme_settings: "主题详细设置"
+  more_options: "更多选项"
+  color_settings: "强调色"
+  performance_settings: "性能与高级选项"
+  link_theme: "已安装主题与自定义样式"
+  link_iconpack: "本地应用图标集合"
+  link_wallpaper: "图片、视频与壁纸轮播"
+  link_shortcuts: "Win 键、应用快捷键与组合键"
+  link_monitors: "每块屏幕的布局与显示选项"
+  link_specific_apps: "按应用指定窗口行为"
+  link_resources: "查看所有已安装资源"
+  link_widget: "桌面组件与附加面板"
+  link_plugin: "本地扩展功能"
+  link_developer: "诊断与开发工具"
+  link_extras: "版本、维护与开源许可"
+  wallpaper_controls: "壁纸播放设置"
+
+settings_exit:
+  label: 退出 MAC UI
+  hint: 退出软件并恢复 Windows 桌面
+  unsaved_title: 退出前放弃未保存的更改？
+  unsaved_hint: 当前设置尚未保存。退出后将放弃这些更改，并恢复 Windows 原生桌面。
+  discard_exit: 放弃更改并退出
+
+desktop_controls:
+  spacing: 图标间距
+  horizontalSpacing: 水平间距
+  verticalSpacing: 垂直间距
+  snapBoxes: 整理盒边缘吸附
+  snapBoxes_hint: 拖动时吸附到相邻整理盒的边缘，并保持间距。
+  glass: 整理盒玻璃
+  glass_hint: 调整整理盒与菜单的背景材质，松开滑块后立即生效并自动保存。
+  glassTransparency: 玻璃透明度
+  glassTransparency_low: 不透明
+  glassTransparency_high: 通透
+  glassBlur: 磨砂强度
+  glassBlur_low: 清晰
+  glassBlur_high: 柔和模糊
+  glass_reset: 恢复玻璃默认值
+  title: 桌面整理
+  icons: 图标与分组
+  layout: 整理框布局
+  live: 更改立即生效，并自动保存。
+  layout_hint: 调整整理框的移动方式与布局保护。
+  arrange: 桌面显示方式
+  arrange_hint: 切换显示方式时保留已有分组和图标位置。
+  category: 按整理框分组
+  name: 直接显示桌面图标
+  size: 图标大小
+  snapToGrid: 网格吸附
+  snapToGrid_hint: 移动或缩放整理框时自动吸附到网格。
+  showGrid: 显示网格
+  showGrid_hint: 在分组桌面上显示辅助线，方便摆放整理框。
+  layoutLocked: 锁定整理框
+  layoutLocked_hint: 固定整理框的位置和大小，框内图标仍可拖动。
+  loading: 正在读取桌面设置…
+  unavailable: 请启用并保存桌面管理，再读取整理设置。
+  refresh: 读取设置
+  failed: 暂时无法保存桌面设置，请结束当前桌面操作后重试。

@@ -44,7 +44,7 @@
 }
 
 .taskbar {
-  background-color: oklch(from var(--slu-std-bg-color) l c h / 0.8);
+  background-color: oklch(from var(--macui-std-bg-color) l c h / 0.8);
 
   &.horizontal {
     > .weg-items-container {
@@ -67,11 +67,11 @@
 
 .weg-separator {
   .horizontal & {
-    border-left: 1px solid var(--slu-std-fg-muted-color);
+    border-left: 1px solid var(--macui-std-fg-muted-color);
   }
 
   .vertical & {
-    border-top: 1px solid var(--slu-std-fg-muted-color);
+    border-top: 1px solid var(--macui-std-fg-muted-color);
   }
 }
 
@@ -81,7 +81,7 @@
   line-height: var(--config-item-size);
   vertical-align: middle;
   font-style: italic;
-  color: oklch(from var(--slu-std-fg-color) l c h / 0.5);
+  color: oklch(from var(--macui-std-fg-color) l c h / 0.5);
   margin: 0 calc(var(--config-padding) * 2);
 }
 
@@ -115,7 +115,7 @@
     min-width: 16px;
     border-radius: 8px;
 
-    background-color: var(--slu-std-ui-color);
+    background-color: var(--macui-std-ui-color);
     color: var(--color-gray-100);
     font-size: 10px;
     font-weight: 600;
@@ -206,7 +206,7 @@
   gap: var(--item-inner-spacing);
   padding: var(--item-inner-spacing);
 
-  background-color: var(--slu-std-bg-light-color);
+  background-color: var(--macui-std-bg-light-color);
   box-shadow: var(--shadow-s);
   border-radius: var(--item-border-radius);
 
@@ -253,7 +253,7 @@
   }
 
   &:hover {
-    background-color: var(--slu-std-bg-dark-color);
+    background-color: var(--macui-std-bg-dark-color);
 
     .weg-item-icon,
     .weg-item-canvas {

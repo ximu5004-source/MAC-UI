@@ -1,21 +1,19 @@
 <script lang="ts">
-  import { invoke, SeelenCommand, Widget } from "@seelen-ui/lib";
-  import type { WidgetId } from "@seelen-ui/lib/types";
+  import { invoke, MacUiCommand, Widget } from "@macui/lib";
+  import type { WidgetId } from "@macui/lib/types";
   import { Icon } from "libs/ui/svelte/components/Icon";
   import BrightnessControl from "./components/BrightnessControl.svelte";
   import MediaDevices from "./components/MediaDevices.svelte";
   import RadioButtons from "./components/RadioButtons.svelte";
   import { t } from "./i18n";
 
-  function openAppSettings() {
-    invoke(SeelenCommand.TriggerWidget, {
-      payload: { id: "@seelen/settings" as WidgetId },
-    });
+  function openWindowsSettings() {
+    invoke(MacUiCommand.OpenFile, { path: "ms-settings:" });
   }
 
   function openPowerMenu() {
-    invoke(SeelenCommand.TriggerWidget, {
-      payload: { id: "@seelen/power-menu" as WidgetId },
+    invoke(MacUiCommand.TriggerWidget, {
+      payload: { id: "@macui/power-menu" as WidgetId },
     });
   }
 
@@ -24,7 +22,7 @@
   });
 </script>
 
-<div class={["slu-std-popover", "mac-panel", "mac-frosted-surface", "quick-settings"]}>
+<div class={["macui-std-popover", "mac-panel", "mac-frosted-surface", "quick-settings"]}>
   <h1 class="mac-panel-heading">{$t("title")}</h1>
   <RadioButtons />
   <div class="quick-settings-levels">
@@ -33,7 +31,7 @@
   </div>
 
   <div class="quick-settings-footer">
-    <button data-skin="transparent" onclick={openAppSettings} title={$t("app_settings")} aria-label={$t("app_settings")}>
+    <button data-skin="transparent" onclick={openWindowsSettings} title={$t("windows_settings")} aria-label={$t("windows_settings")}>
       <Icon iconName="RiSettings4Fill" />
     </button>
 

@@ -11,7 +11,7 @@ use serde::{Deserialize, Serialize};
 use crate::{
     Point,
     error::Result,
-    resource::{ResourceKind, ResourceMetadata, ResourceText, SluResource, WidgetId},
+    resource::{MacUiResource, ResourceKind, ResourceMetadata, ResourceText, WidgetId},
     state::Plugin,
     system_state::MonitorId,
     utils::TsUnknown,
@@ -43,7 +43,7 @@ pub struct WidgetShortcutDeclaration {
 #[serde(default, rename_all = "camelCase")]
 #[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), ts(export))]
 pub struct Widget {
-    /// Resource id ex: `@seelen/weg`
+    /// Resource id ex: `@macui/weg`
     pub id: WidgetId,
     /// Optional icon to be used on settings. This have to be a valid react icon name.\
     /// You can find all icons here: https://react-icons.github.io/react-icons/.
@@ -90,7 +90,7 @@ pub struct Widget {
     pub shortcuts: Vec<WidgetShortcutDeclaration>,
 }
 
-impl SluResource for Widget {
+impl MacUiResource for Widget {
     const KIND: ResourceKind = ResourceKind::Widget;
 
     fn metadata(&self) -> &ResourceMetadata {
@@ -129,7 +129,7 @@ pub enum WidgetInstanceMode {
     /// The widget is allowed to have multiple instances.\
     /// This allow to the user manually create more instances of this same widget.
     Multiple,
-    /// Seelen UI will create an instance of this widget per each monitor connected.\
+    /// MacUi UI will create an instance of this widget per each monitor connected.\
     /// This can be configured by the user using per monitor settings.\
     ReplicaByMonitor,
 }

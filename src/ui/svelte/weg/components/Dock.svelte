@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { invoke, SeelenCommand } from "@seelen-ui/lib";
+  import { invoke, MacUiCommand } from "@macui/lib";
   import {
-    SeelenWegMode,
+    MacUiWegMode,
     WegPinnedItemsVisibility,
     WegTemporalItemsVisibility,
-  } from "@seelen-ui/lib/types";
+  } from "@macui/lib/types";
   import { DragDropProvider, DragOverlay } from "@dnd-kit/svelte";
   import { move } from "@dnd-kit/helpers";
   import { onDestroy } from "svelte";
@@ -15,13 +15,14 @@
   import { systemState } from "../state/system.svelte.ts";
   import { interactables, getWindowsForItem } from "../state/windows.svelte.ts";
   import { dockShouldBeHidden, setDockIsDraggingItem } from "../state/hidden.svelte.ts";
-  import { getSeelenWegMenu } from "../dockMenu.ts";
+  import { getMacUiWegMenu } from "../dockMenu.ts";
   import { createDragDropManager } from "libs/ui/dnd.ts";
   import type { SwItem } from "../types.ts";
   import DockItemsGroup from "./DockItemsGroup.svelte";
   import WegItemSwitch from "./WegItemSwitch.svelte";
   import { glassAppearanceStyle, GLASS_SETTINGS_WIDGET } from "libs/ui/utils/glassAppearance";
   import "libs/ui/styles/glass-material.css";
+  import { attachDockAnimationTargets } from "../animationTargets";
 
   // Workaround for https://github.com/clauderic/dnd-kit/issues/2112
   const manager = createDragDropManager();
@@ -80,8 +81,8 @@
     const alignX = settingsState.popupAlignX;
     const alignY = settingsState.popupAlignY;
     const cursor = { x: e.clientX, y: e.clientY };
-    invoke(SeelenCommand.TriggerContextMenu, {
-      menu: { ...getSeelenWegMenu($t, cursor), alignX, alignY },
+    invoke(MacUiCommand.TriggerContextMenu, {
+      menu: { ...getMacUiWegMenu($t, cursor), alignX, alignY },
       forwardTo: null,
     });
   }
@@ -102,10 +103,11 @@
 </script>
 
 <div
+  {@attach attachDockAnimationTargets}
   role="toolbar"
   tabindex="0"
   data-has-margin={!!settings?.margin}
-  data-size={settings?.mode === SeelenWegMode.FullWidth ? "full-width" : "min-content"}
+  data-size={settings?.mode === MacUiWegMode.FullWidth ? "full-width" : "min-content"}
   class="taskbar mac-dock-material {settingsState.position.toLowerCase()}"
   data-mac-material="dock"
   style={glassAppearanceStyle(settingsState.allByWidget[GLASS_SETTINGS_WIDGET]?.glassAppearance)}

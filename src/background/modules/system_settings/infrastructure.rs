@@ -1,7 +1,7 @@
 use std::sync::Once;
 
-use seelen_core::{
-    handlers::SeelenEvent,
+use macui_core::{
+    handlers::MacUiEvent,
     system_state::{Color, NightlightSettings, UIColors},
 };
 
@@ -23,13 +23,13 @@ fn get_system_settings() -> &'static SystemSettings {
             if event == SystemSettingsEvent::ColorChanged
                 && let Ok(colors) = SystemSettings::instance().get_colors()
             {
-                emit_to_webviews(SeelenEvent::ColorsChanged, &colors);
+                emit_to_webviews(MacUiEvent::ColorsChanged, &colors);
             }
 
             if event == SystemSettingsEvent::ColorSchemeSwitched
                 && let Ok(is_dark) = SystemSettings::instance().get_dark_mode()
             {
-                emit_to_webviews(SeelenEvent::DarkModeChanged, &is_dark);
+                emit_to_webviews(MacUiEvent::DarkModeChanged, &is_dark);
             }
         });
     });

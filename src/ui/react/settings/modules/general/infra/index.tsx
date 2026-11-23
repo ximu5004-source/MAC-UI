@@ -1,4 +1,4 @@
-import { SupportedLanguages } from "@seelen-ui/lib";
+import { SupportedLanguages } from "@macui/lib";
 import { Input, InputNumber, Select, Switch } from "antd";
 import { useTransition } from "react";
 import { useTranslation } from "react-i18next";
@@ -21,7 +21,6 @@ import {
 } from "../application.ts";
 
 import { SettingsGroup, SettingsOption } from "../../../components/SettingsBox/index.tsx";
-import { Colors } from "./Colors.tsx";
 import { PerformanceSettings } from "./Performance.tsx";
 
 export function General() {
@@ -58,9 +57,6 @@ export function General() {
           label={t("general.startup")}
           action={<Switch onChange={onAutoStart} value={autostart.value} loading={changingAutostart} />}
         />
-      </SettingsGroup>
-
-      <SettingsGroup>
         <SettingsOption
           label={t("general.language")}
           action={
@@ -107,6 +103,7 @@ export function General() {
         />
 
         <SettingsOption
+          wide
           label={t("general.start_of_week")}
           action={
             <Select
@@ -123,9 +120,7 @@ export function General() {
         />
       </SettingsGroup>
 
-      <Colors />
-
-      <SettingsGroup>
+      <SettingsGroup title={t("mac_local.performance_settings")} icon="TbAdjustments">
         <SettingsOption
           label={t("general.hardware_acceleration")}
           description={t("general.hardware_acceleration_description")}

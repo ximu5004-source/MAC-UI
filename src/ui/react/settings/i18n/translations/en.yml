@@ -1,3 +1,41 @@
+settings_detail:
+  wallpaper_library: Wallpaper library
+  toggle: "Enable {{name}}"
+  preview: "Preview"
+  size_hint: "Drag to preview the size of icons and the Dock."
+  layout: "Appearance & layout"
+  behavior: "Display behavior"
+  applications: "Apps & windows"
+  margin_hint: "Space between the bar and the screen edge"
+  padding_hint: "Space inside the bar"
+  import_hint: "Add pinned Windows taskbar applications to the Dock."
+  features:
+    desktop-shell: "Keep desktop files organized and easy to reach."
+    weg: "Keep favorite apps and open windows close at hand."
+    apps-menu: "Launch applications and arrange your favorites."
+    fancy-toolbar: "Keep system status and controls within reach."
+    flyouts: "See messages, volume and brightness changes on your desktop."
+    window-manager: "Arrange windows to suit the way you work."
+    task-switcher: "Move quickly between open applications and windows."
+    wallpaper-manager: "Choose desktop wallpapers and schedule their rotation."
+
+settings_home:
+  title: "Settings"
+  subtitle: "A desktop that works your way."
+  back: "All settings"
+  desktop: "Desktop"
+  desktop_hint: "Organize icons, files and desktop interactions"
+  dock: "Dock & Launchpad"
+  dock_hint: "Favorite apps, previews and launching"
+  toolbar: "Top bar & notifications"
+  toolbar_hint: "Top bar, message alerts and system overlays"
+  windows: "Windows & shortcuts"
+  windows_hint: "Window layouts, switching and keyboard controls"
+  appearance: "Appearance"
+  appearance_hint: "Glass, contrast and wallpapers"
+  system: "System"
+  system_hint: "Startup, language, displays and applications"
+
 mac_ui:
   by_jona: By JONA
   personal: Personalization
@@ -5,8 +43,8 @@ mac_ui:
   appearance: Appearance
   advanced: Advanced
   navigation: Settings navigation
-  search: Find a settings page
-  no_results: No matching settings pages
+  search: "Search settings"
+  no_results: "No matching settings"
   about: About MAC UI
   minimize: Minimize
   maximize: Maximize or restore
@@ -28,11 +66,11 @@ mac_ui:
   license: Open-source license
   attribution: MAC UI customizations by JONA. Original Seelen UI copyrights and third-party licenses are preserved.
   upstream: Based on
-  upstream_account: Seelen account · upstream service
+  upstream_account: MAC UI account · upstream service
   updates: Application updates
-  manual_updates: MAC UI uses manual updates. Upstream Seelen application updates are disabled to preserve your custom features.
+  manual_updates: "Install a new MAC UI installer to update. Your local settings are preserved."
   welcome_title: Welcome to MAC UI
-  welcome_body: Liquid Glass controls, an independent desktop organizer, and familiar Windows apps. Customize each component from the sidebar.
+  welcome_body: Choose a category to adjust your desktop, applications and system preferences.
   get_started: Get started
 action:
   confirm: Are you sure?
@@ -66,7 +104,7 @@ apps_configurations:
     These bundled configurations are not editable and are designed to provide
     you with the best experience without customization. They automatically
     configure the most common applications for you.
-  bundled_title: App Config Bundled with Seelen
+  bundled_title: App Config Bundled with MAC UI
   confirm_delete: Are you sure you want to delete this configuration/s?
   confirm_delete_title: Confirm Delete
   delete: Delete
@@ -121,7 +159,7 @@ devtools:
   install_folder: Installation Folder
   load: Load
   settings_file: Settings File
-  shared_components: SLU Standard Components
+  shared_components: MAC UI Standard Components
   simulate_dialog:
     label: Simulate Dialog
     trigger: Trigger
@@ -152,7 +190,7 @@ devtools:
     widget_id: Widget ID
 discord_banner:
   message: >-
-    Connect with other Seelen UI users, get help, share themes, and stay up to
+    Connect with other MAC UI users, get help, share themes, and stay up to
     date with the latest news.
   title: Join our Community
 extras:
@@ -221,7 +259,7 @@ header:
   labels:
     config: Configurations
     developer: For developers
-    extras: Extras
+    extras: About MAC UI
     general: General
     home: Home
     iconpack: Icon Packs
@@ -235,7 +273,7 @@ header:
     theme: Themes
     virtual_desk: Virtual Desktops
     wallpaper: Wallpapers
-    widget: Widgets
+    widget: Desktop Components
 home:
   new_resources: New Resources
 inherit: Inherit
@@ -332,7 +370,7 @@ toolbar:
   delay_to_hide: Delay to hide
   delay_to_show: Delay to show
   dock_side: Position
-  enable: Enable Fancy Toolbar
+  enable: Enable Top Bar
   hide_mode:
     always: Always
     never: Never
@@ -361,7 +399,7 @@ wall:
   default_collection_description: >-
     Applied to all monitors and workspaces that do not have a specific override
     set.
-  desktop_shell: Seelen desktop icons
+  desktop_shell: MAC UI desktop icons
   desktop_shell_description: >-
     Replace the native desktop icon surface while MAC UI is running. Turning
     this off restores Windows desktop icons immediately.
@@ -411,6 +449,11 @@ wall:
   withOverlay: With Overlay
   workspace_collections: Workspace Collections
 weg:
+  window_animation:
+    label: Window animation
+    description: Choose the effect used when windows minimize or restore. Genie draws windows into their Dock icons and back.
+    genie: Genie
+    native: Windows default
   overall_size: Dock Size
   size_small: Small
   size_large: Large
@@ -497,7 +540,7 @@ desktop_manager:
 widget:
   default_instance: Default Instance
   default_instance_hint: Always active, uses the root widget config
-  enable: Enable this widget
+  enable: Enable this feature
   enable_for_monitor: Enable on this monitor
   extra_instances: Extra Instances
   instance: Instance
@@ -532,3 +575,93 @@ wm:
   workspace_offset: Workspaces Offset (Margins)
   workspace_padding: Workspaces Padding
 'yes': 'Yes'
+mac_local:
+  nav_desktop: "Desktop"
+  nav_appearance: "Appearance"
+  nav_windows: "Windows"
+  nav_about: "About"
+  message_popups: "Message popups"
+  original_glass: "Original glass"
+  contrast_glass: "More contrast"
+  liquid_glass_hint: "MAC UI uses a unified Liquid Glass interface. Fine-tune the glass finish and choose your wallpaper."
+  maintenance_hint: "Maintenance options and advanced tools."
+  wallpapers_local_hint: "Import images or videos from your computer. All wallpapers stay local."
+  color_scheme: "Appearance mode"
+  color_scheme_hint: "Both finishes preserve translucency. More contrast strengthens edges over bright wallpapers."
+  light: "Light"
+  dark: "Dark"
+  general: "General"
+  desktop: "Desktop & Dock"
+  appearance: "Appearance"
+  windows: "Windows & Shortcuts"
+  devices: "Displays & Apps"
+  advanced: "More"
+  desktop_hint: "Keep your desktop organized, your apps close, and your controls within reach."
+  appearance_hint: "Shape your workspace with local themes, wallpapers and glass finishes."
+  windows_hint: "Arrange windows and move between tasks with the controls you prefer."
+  devices_hint: "Fine-tune each display and set rules for individual apps."
+  advanced_hint: "Manage local resources, maintenance and advanced tools."
+  resources_hint: "Local resources. Double-click a .maui file to import it. No account is required."
+  local_mode: "Local edition"
+  local_hint: "Settings stay on this PC. Accounts, cloud sync, online resource services and usage reporting are disabled."
+  license_notice: "This modified distribution is licensed under the GNU AGPL. It is provided without warranty. Original copyright notices and third-party licenses remain applicable; the corresponding source is available from the project repository."
+  source: "Source code"
+  theme_settings: "Theme options"
+  more_options: "More options"
+  color_settings: "Accent colors"
+  performance_settings: "Performance & advanced"
+  link_theme: "Installed themes and custom styles"
+  link_iconpack: "Local app icon collections"
+  link_wallpaper: "Images, videos and collections"
+  link_shortcuts: "Win key, app shortcuts and key combinations"
+  link_monitors: "Layout and options for each screen"
+  link_specific_apps: "Window rules for individual apps"
+  link_resources: "Browse all installed resources"
+  link_widget: "Desktop components and additional panels"
+  link_plugin: "Local extensions"
+  link_developer: "Diagnostics and development tools"
+  link_extras: "Version, maintenance and open-source licenses"
+  wallpaper_controls: "Wallpaper playback"
+
+settings_exit:
+  label: Exit MAC UI
+  hint: Exit MAC UI and restore the Windows desktop
+  unsaved_title: Exit with unsaved changes?
+  unsaved_hint: Your current changes have not been saved. Exiting will discard them and restore the Windows desktop.
+  discard_exit: Discard changes and exit
+
+desktop_controls:
+  spacing: Icon spacing
+  horizontalSpacing: Horizontal spacing
+  verticalSpacing: Vertical spacing
+  snapBoxes: Align organizer edges
+  snapBoxes_hint: Snap to nearby organizer edges while dragging and maintain consistent spacing.
+  glass: Organizer glass
+  glass_hint: Adjust the organizer and menu material. Changes apply and save when you release the slider.
+  glassTransparency: Glass transparency
+  glassTransparency_low: Opaque
+  glassTransparency_high: Clear
+  glassBlur: Frost strength
+  glassBlur_low: Sharp
+  glassBlur_high: Soft blur
+  glass_reset: Reset glass appearance
+  title: Desktop organization
+  icons: Icons and groups
+  layout: Group layout
+  live: Changes apply immediately and save automatically.
+  layout_hint: Control how groups move and protect their layout.
+  arrange: Desktop view
+  arrange_hint: Keep existing groups and icon positions when changing views.
+  category: Grouped desktop
+  name: Desktop icons
+  size: Icon size
+  snapToGrid: Snap to grid
+  snapToGrid_hint: Snap groups to the grid when moving or resizing them.
+  showGrid: Show grid
+  showGrid_hint: Show guides on the grouped desktop to help position groups.
+  layoutLocked: Lock groups
+  layoutLocked_hint: Keep group positions and sizes fixed. Icons inside remain draggable.
+  loading: Reading desktop settings…
+  unavailable: Enable and save Desktop management, then load these settings.
+  refresh: Load settings
+  failed: Could not save desktop settings. Finish the current desktop operation and try again.

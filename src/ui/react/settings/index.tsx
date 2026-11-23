@@ -2,15 +2,15 @@ import { getRootContainer } from "libs/ui/react/utils/index.ts";
 import { createRoot } from "react-dom/client";
 import { I18nextProvider } from "react-i18next";
 import { HashRouter } from "react-router";
-import { Widget } from "@seelen-ui/lib";
-import { LogicalSize } from "@seelen-ui/lib/tauri";
+import { Widget } from "@macui/lib";
+import { LogicalSize } from "@macui/lib/tauri";
 
 import { App } from "./app.tsx";
 
 import i18n from "./i18n/index.ts";
 
+import "@macui/lib/styles/reset.css";
 import "./styles/variables.css";
-import "@seelen-ui/lib/styles/reset.css";
 import "./styles/global.css";
 import "./styles/RichText.css";
 

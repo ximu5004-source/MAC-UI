@@ -1,6 +1,6 @@
 use std::sync::Once;
 
-use seelen_core::handlers::SeelenEvent;
+use macui_core::handlers::MacUiEvent;
 
 use crate::{app::emit_to_webviews, error::Result};
 
@@ -11,7 +11,7 @@ fn get_players_manager() -> &'static PlayersManager {
     TAURI_EVENT_REGISTRATION.call_once(|| {
         PlayersManager::subscribe(|_event| {
             emit_to_webviews(
-                SeelenEvent::MediaSessions,
+                MacUiEvent::MediaSessions,
                 PlayersManager::instance().get_playing_sessions(),
             );
         });

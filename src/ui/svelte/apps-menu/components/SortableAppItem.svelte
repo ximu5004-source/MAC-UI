@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { StartMenuItem } from "@seelen-ui/lib/types";
+  import type { StartMenuItem } from "@macui/lib/types";
   import { createSortable } from "@dnd-kit/svelte/sortable";
   import AppItem from "./AppItem.svelte";
   import type { SelectionScope } from "../keyboard-navigation";

@@ -15,7 +15,7 @@ profile:
   log_out: Ka bax
   open_onedrive: Fur buugga OneDrive
   open_user_folder: Fur hagaha isticmaalaha
-seelen_options:
-  open_installation_folder: Fur Seelen settings folder
-  open_log_folder: Fur Seelen log folder
-  title: Tilmaamaha Seelen
+macui_options:
+  open_installation_folder: Fur MAC UI settings folder
+  open_log_folder: Fur MAC UI log folder
+  title: Tilmaamaha MAC UI

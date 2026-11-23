@@ -1,4 +1,4 @@
-id: "@seelen/liquid-glass"
+id: "@macui/liquid-glass"
 metadata:
   displayName: !extend i18n/display_name.yml
   description: !extend i18n/description.yml
@@ -9,8 +9,8 @@ metadata:
     - task-switcher
     - liquid-glass
 styles:
-  "@seelen/fancy-toolbar": !include styles/fancy-toolbar.scss
-  "@seelen/weg": !include styles/weg.scss
-  "@seelen/apps-menu": !include styles/apps-menu.scss
-  "@seelen/task-switcher": !include styles/task-switcher.scss
+  "@macui/fancy-toolbar": !include styles/fancy-toolbar.scss
+  "@macui/weg": !include styles/weg.scss
+  "@macui/apps-menu": !include styles/apps-menu.scss
+  "@macui/task-switcher": !include styles/task-switcher.scss
 sharedStyles: !include shared/index.scss

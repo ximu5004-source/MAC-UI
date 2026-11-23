@@ -1,9 +1,10 @@
 use std::{
+    collections::HashSet,
     sync::atomic::Ordering,
     time::{SystemTime, UNIX_EPOCH},
 };
 
-use seelen_core::{state::AppExtraFlag, system_state::UserAppWindow};
+use macui_core::{state::AppExtraFlag, system_state::UserAppWindow};
 use windows::Win32::UI::WindowsAndMessaging::{
     WS_CHILD, WS_EX_APPWINDOW, WS_EX_NOACTIVATE, WS_EX_TOOLWINDOW, WS_MINIMIZEBOX,
 };
@@ -11,7 +12,7 @@ use windows::Win32::UI::WindowsAndMessaging::{
 use crate::{
     hook::HookManager,
     modules::apps::application::{USER_APPS_MANAGER, UserAppWinEvent, UserAppsManager},
-    utils::spawn_named_thread,
+    utils::{lock_free::SyncVec, spawn_named_thread},
     windows_api::{
         WindowEnumerator, WindowsApi,
         event_window::IS_INTERACTIVE_SESSION,
@@ -24,6 +25,85 @@ pub(super) fn now_millis() -> i64 {
         .duration_since(UNIX_EPOCH)
         .map(|d| d.as_millis() as i64)
         .unwrap_or(0)
+}
+
+/// A native predicate may synchronously message another GUI thread or call COM.
+/// Snapshot first; only the final identity-based removal holds the collection.
+fn prune_uninteractable(
+    windows: &SyncVec<UserAppWindow>,
+    mut still_interactable: impl FnMut(&UserAppWindow) -> bool,
+) -> Vec<isize> {
+    let rejected: HashSet<_> = windows
+        .to_vec()
+        .into_iter()
+        .filter(|entry| !still_interactable(entry))
+        .map(|entry| (entry.hwnd, entry.process.id))
+        .collect();
+    let mut removed = Vec::new();
+    windows.retain(|entry| {
+        let keep = !rejected.contains(&(entry.hwnd, entry.process.id));
+        if !keep {
+            removed.push(entry.hwnd);
+        }
+        keep
+    });
+    removed
+}
+
+/// Commit only fields owned by this event. A slow native query must not replace
+/// unrelated fields if another event refreshed the entry in the meantime.
+fn apply_window_update(current: &mut UserAppWindow, fresh: UserAppWindow, event: WinEvent) {
+    match event {
+        WinEvent::ObjectNameChange => {
+            current.title = fresh.title;
+            current.app_name = fresh.app_name;
+            current.relaunch = fresh.relaunch;
+            current.prevent_pinning = fresh.prevent_pinning;
+            current.umid = fresh.umid;
+        }
+        WinEvent::SynDebouncedRectChange => {
+            current.is_zoomed = fresh.is_zoomed;
+            current.is_fullscreen = fresh.is_fullscreen;
+            current.rect = fresh.rect;
+            current.monitor = fresh.monitor;
+        }
+        WinEvent::SystemForeground => current.last_foreground_at = fresh.last_foreground_at,
+        WinEvent::SystemMinimizeStart | WinEvent::SystemMinimizeEnd => {
+            current.is_iconic = fresh.is_iconic;
+        }
+        _ => {}
+    }
+}
+
+fn refresh_tracked_window(
+    windows: &SyncVec<UserAppWindow>,
+    hwnd: isize,
+    event: WinEvent,
+    query: impl FnOnce(&mut UserAppWindow, WinEvent) -> bool,
+) -> bool {
+    let Some(mut fresh) = windows.find_and_clone(|entry| entry.hwnd == hwnd) else {
+        return false;
+    };
+    // query is deliberately outside both find_and_clone and for_each locks.
+    if !query(&mut fresh, event) {
+        return false;
+    }
+    let mut fresh = Some(fresh);
+    let mut changed = false;
+    windows.for_each(|entry| {
+        if fresh
+            .as_ref()
+            .is_some_and(|fresh| entry.hwnd == fresh.hwnd && entry.process.id == fresh.process.id)
+        {
+            apply_window_update(
+                entry,
+                fresh.take().expect("one tracked window per HWND"),
+                event,
+            );
+            changed = true;
+        }
+    });
+    changed
 }
 
 impl UserAppsManager {
@@ -55,15 +135,13 @@ impl UserAppsManager {
                     continue;
                 }
 
-                Self::instance().interactable_windows.retain(|w| {
+                let removed = prune_uninteractable(&Self::instance().interactable_windows, |w| {
                     let window = Window::from(w.hwnd);
-                    if window.is_interactable_and_not_hidden() {
-                        true
-                    } else {
-                        Self::send(UserAppWinEvent::Removed(window.address()));
-                        false
-                    }
+                    window.is_interactable_and_not_hidden()
                 });
+                for hwnd in removed {
+                    Self::send(UserAppWinEvent::Removed(hwnd));
+                }
 
                 // Scan for windows that now qualify but were never tracked (e.g. style/frame
                 // state was not settled at creation time).
@@ -79,6 +157,14 @@ impl UserAppsManager {
     }
 
     fn on_win_event(event: WinEvent, window: Window) {
+        // A Dock transition hides only for its short native state commit. Keep
+        // its app item stable; no timer masks a later real hide/destroy event.
+        if matches!(event, WinEvent::ObjectHide | WinEvent::ObjectStateChange)
+            && (crate::widgets::weg::genie::is_transient_visibility(window)
+                || (event == WinEvent::ObjectHide && window.is_visible()))
+        {
+            return;
+        }
         let mut is_interactable = USER_APPS_MANAGER.contains_win(&window);
 
         match event {
@@ -137,12 +223,12 @@ impl UserAppsManager {
 
         // update cases on UserAppWindow
         if is_interactable {
-            let mut changed = false;
-            USER_APPS_MANAGER.interactable_windows.for_each(|entry| {
-                if entry.hwnd == window.address() {
-                    changed = Self::update_window_data(entry, event);
-                }
-            });
+            let changed = refresh_tracked_window(
+                &USER_APPS_MANAGER.interactable_windows,
+                window.address(),
+                event,
+                Self::update_window_data,
+            );
 
             if changed {
                 Self::send(UserAppWinEvent::Updated(window.address()));
@@ -205,12 +291,6 @@ pub fn is_interactable_window(window: &Window) -> bool {
         return false;
     }
 
-    // ignore windows without a title, these are not intended to be shown to users (comonly are invisible windows)
-    let title = window.title();
-    if title.is_empty() {
-        return false;
-    }
-
     // this class is used for edge tabs to be shown as independent windows on alt + tab
     // this only applies when the new tab is created it is binded to explorer.exe for some reason
     // maybe we can search/learn more about edge tabs later.
@@ -234,15 +314,22 @@ pub fn is_interactable_window(window: &Window) -> bool {
         }
     }
 
+    // Reject helpers/children before GetWindowText: for a window in this same
+    // process it synchronously sends WM_GETTEXT to that window's GUI thread.
+    // A Shell extension STA may be busy preparing/destroying such a helper.
+    if window.title().is_empty() {
+        return false;
+    }
+
     let process = window.process();
     // unmanageable window, these probably are system processes
     if process.open_limited_handle().is_err() {
         return false;
     }
 
-    // Internal behaviour for seelen ui widgets:
+    // Internal behaviour for macui ui widgets:
     // Discard unminimizable windows (they have no caption/title bar)
-    if !style.contains(WS_MINIMIZEBOX) && process.is_seelen() {
+    if !style.contains(WS_MINIMIZEBOX) && process.is_macui() {
         return false;
     }
 
@@ -270,4 +357,100 @@ pub fn is_interactable_window(window: &Window) -> bool {
     }
 
     true
+}
+
+#[cfg(test)]
+mod locking_tests {
+    use super::*;
+    use macui_core::system_state::{MonitorId, ProcessInformation};
+
+    fn entry(hwnd: isize, pid: u32) -> UserAppWindow {
+        UserAppWindow {
+            hwnd,
+            monitor: MonitorId("fixture-monitor".into()),
+            title: "fixture-title".into(),
+            app_name: "fixture-app".into(),
+            is_zoomed: false,
+            is_iconic: false,
+            is_fullscreen: false,
+            umid: None,
+            process: ProcessInformation {
+                id: pid,
+                path: None,
+            },
+            prevent_pinning: false,
+            relaunch: None,
+            rect: None,
+            last_foreground_at: 10,
+        }
+    }
+
+    #[test]
+    fn native_revalidation_can_read_and_add_without_holding_the_window_list() {
+        let windows = SyncVec::from(vec![entry(1, 10), entry(2, 20)]);
+        let removed = prune_uninteractable(&windows, |current| {
+            // A native/COM callback can reenter readers and another producer.
+            // The old retain(predicate) path held this exact lock here.
+            assert!(windows.any(|item| item.hwnd == current.hwnd));
+            if current.hwnd == 1 {
+                windows.push(entry(3, 30));
+                return false;
+            }
+            true
+        });
+        assert_eq!(removed, [1]);
+        assert_eq!(
+            windows
+                .to_vec()
+                .iter()
+                .map(|item| item.hwnd)
+                .collect::<Vec<_>>(),
+            [2, 3]
+        );
+    }
+
+    #[test]
+    fn revalidation_does_not_remove_a_replacement_process_with_the_same_handle() {
+        let windows = SyncVec::from(vec![entry(1, 10)]);
+        let removed = prune_uninteractable(&windows, |_| {
+            windows.replace(vec![entry(1, 20)]);
+            false
+        });
+        assert!(removed.is_empty());
+        assert_eq!(windows.to_vec()[0].process.id, 20);
+    }
+
+    #[test]
+    fn native_update_is_outside_the_lock_and_preserves_other_event_fields() {
+        let windows = SyncVec::from(vec![entry(1, 10)]);
+        let changed =
+            refresh_tracked_window(&windows, 1, WinEvent::ObjectNameChange, |fresh, _| {
+                assert!(windows.any(|item| item.hwnd == 1));
+                windows.for_each(|item| item.last_foreground_at = 99);
+                fresh.title = "new-title".into();
+                true
+            });
+        assert!(changed);
+        let current = windows.to_vec().remove(0);
+        assert_eq!(current.title, "new-title");
+        assert_eq!(current.last_foreground_at, 99);
+    }
+
+    #[test]
+    fn native_update_cannot_overwrite_a_replacement_process() {
+        let windows = SyncVec::from(vec![entry(1, 10)]);
+        assert!(!refresh_tracked_window(
+            &windows,
+            1,
+            WinEvent::ObjectNameChange,
+            |fresh, _| {
+                windows.replace(vec![entry(1, 20)]);
+                fresh.title = "stale-title".into();
+                true
+            }
+        ));
+        let current = windows.to_vec().remove(0);
+        assert_eq!(current.process.id, 20);
+        assert_eq!(current.title, "fixture-title");
+    }
 }

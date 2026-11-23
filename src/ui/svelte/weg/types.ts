@@ -1,4 +1,4 @@
-import type { WegItem } from "@seelen-ui/lib/types";
+import type { WegItem } from "@macui/lib/types";
 
 export type AppOrFileWegItem = Extract<WegItem, { type: "AppOrFile" }>;
 export type SeparatorWegItem = Extract<WegItem, { type: "Separator" }>;

@@ -2,7 +2,7 @@ pub mod tauri;
 
 use std::sync::{LazyLock, atomic::Ordering};
 
-use seelen_core::system_state::{Core, Disk, Memory, NetworkStatistics};
+use macui_core::system_state::{Core, Disk, Memory, NetworkStatistics};
 
 use crate::{
     error::{Result, ResultLogExt},

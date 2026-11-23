@@ -12,7 +12,7 @@ import {
 } from "../../application.ts";
 
 import { SettingsGroup, SettingsOption } from "../../../../../../components/SettingsBox/index.tsx";
-import { WmDragBehavior, WmStackBarVisibility } from "@seelen-ui/lib/types";
+import { WmDragBehavior, WmStackBarVisibility } from "@macui/lib/types";
 
 import { WmAnimationsSettings } from "./Animations.tsx";
 import { WmFloatingSizeSettings } from "./FloatingSize.tsx";

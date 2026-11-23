@@ -8,7 +8,7 @@ cancel: Tühistama
 done: Tehtud
 elevated:
   description: >-
-    Seelen UI töötab administraatoriõigustega.
+    MAC UI töötab administraatoriõigustega.
 
     See ei lisa ega täiusta ühtegi funktsiooni ning võib kujutada endast
     turvariski.
@@ -20,7 +20,7 @@ file_explorer: File Explorer
 resource:
   added: Lisatud on uus ressurss
   download_failed_body: >-
-    Midagi läks ressursi allalaadimisel valesti, palun teatage sellest Seeleni
+    Midagi läks ressursi allalaadimisel valesti, palun teatage sellest MacUii
     arendusmeeskonnale.
   download_failed_title: Ressursi allalaadimine ebaõnnestus
   downloading: Varade allalaadimine...
@@ -37,19 +37,19 @@ runtime:
   files_integrity: |-
     Meil ei õnnestunud rakendusfailide terviklikkust kontrollida.
     See võib juhtuda, kui faile on muudetud, rikutud või installimine on poolik.
-    Turvakaalutlustel ei saa Seelen UI jätkata.
+    Turvakaalutlustel ei saa MAC UI jätkata.
     Installige see uuesti ametlikult veebisaidilt.
   files_integrity_title: Turvahoiatus – failide terviklikkuse kontroll ebaõnnestus
   not_found: WebView2 käitusaega ei leitud
-  not_found_description: Seeleni kasutajaliides nõuab Webview2 Runtime'i. Palun installige see.
+  not_found_description: MacUii kasutajaliides nõuab Webview2 Runtime'i. Palun installige see.
   outdated: WebView2 käitusaeg on aegunud
   outdated_description: >-
-    Seeleni kasutajaliides nõuab Webview2 Runtime %{min_version} või uuemat.
+    MacUii kasutajaliides nõuab Webview2 Runtime %{min_version} või uuemat.
     Palun värskendage seda.
 service:
-  not_running: Seelen UI teenus ei tööta
+  not_running: MAC UI teenus ei tööta
   not_running_description: >-
-    Seeleni kasutajaliidese teenus (slu-teenus) on rakenduse nõuetekohaseks
+    MacUii kasutajaliidese teenus (macui-teenus) on rakenduse nõuetekohaseks
     tööks sõltuvus/abimees.
   not_running_ok: Käivitage teenus
 shortcut:

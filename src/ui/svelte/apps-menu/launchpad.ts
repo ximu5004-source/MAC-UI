@@ -1,4 +1,4 @@
-import type { StartMenuItem } from "@seelen-ui/lib/types";
+import type { StartMenuItem } from "@macui/lib/types";
 
 export interface FavAppItem { type: "app"; itemId: string }
 export interface FavFolderItem {
@@ -10,11 +10,11 @@ export interface FavFolderItem {
   sourceKey?: string;
 }
 export type FavPinnedItem = FavAppItem | FavFolderItem;
-export interface LaunchpadLayout { version: 1; items: FavPinnedItem[] }
+export interface LaunchpadLayout { version: 2; items: FavPinnedItem[] }
 
 export const getItemId = (item: Pick<StartMenuItem, "umid" | "path">) => item.umid || item.path.toLowerCase();
 export const isApplicationItem = (item: Pick<StartMenuItem, "umid" | "path">) =>
-  !!item.umid || /\.(lnk|url|exe|appref-ms)$/i.test(item.path || "");
+  !!item.umid || /\.(lnk|url|appref-ms)$/i.test(item.path || "");
 const key = (id: string) => id.toLocaleLowerCase("en-US");
 
 /** Validate persisted/legacy layouts without losing single-item or empty folders. */
@@ -56,6 +56,29 @@ export function startMenuCatalog(items: StartMenuItem[]): StartMenuItem[] {
     seen.add(id);
     return true;
   });
+}
+
+/** No source catalog is accepted here: migration must never fill user favorites. */
+export function migrateFavorites(layout: unknown, legacyFavorites: unknown = []): LaunchpadLayout {
+  if (layout && typeof layout === "object" && "version" in layout && "items" in layout
+    && (layout.version === 1 || layout.version === 2) && Array.isArray(layout.items)) {
+    return { version: 2, items: normalizeLayout(layout.items) };
+  }
+  return { version: 2, items: normalizeLayout(legacyFavorites) };
+}
+
+/** Resolve renamed identities without adding catalog entries or losing unavailable pins. */
+export function canonicalizeFavorites(items: FavPinnedItem[], catalog: StartMenuItem[]): FavPinnedItem[] {
+  const identities = new Map<string, string>();
+  for (const item of catalog) {
+    const id = getItemId(item);
+    identities.set(key(id), id);
+    if (item.path) identities.set(key(item.path), id);
+  }
+  const resolve = (id: string) => identities.get(key(id)) || id;
+  return normalizeLayout(items.map(item => item.type === "app"
+    ? { ...item, itemId: resolve(item.itemId) }
+    : { ...item, itemIds: item.itemIds.map(resolve) }));
 }
 
 /** Idempotent merge: preserve manual order, folder names and existing memberships. */
@@ -116,18 +139,21 @@ export function moveRootItem(items: FavPinnedItem[], id: string, offset: number)
   return result;
 }
 
-export function pageGeometry(width: number, height: number, preferredIconSize?: 48 | 64) {
+export function pageGeometry(width: number, height: number, preferredIconSize?: 48 | 64 | 72) {
   // Measure the application viewport, including its 40px page controls.
-  // A normal cell reserves 64px artwork + 8px spacing + two 20px label
-  // lines + 8px padding. Compact cells keep the same legible label size.
+  // A normal cell reserves 72px artwork + 8px spacing + two 20px label
+  // lines + 8px padding. Smaller windows retain 64/48px artwork and labels.
   const availableWidth = Number.isFinite(width) && width > 0 ? width : 320;
   const availableHeight = Number.isFinite(height) && height > 0 ? height : 200;
-  const iconSize = preferredIconSize ?? (availableWidth < 600 || availableHeight < 360 ? 48 : 64);
+  const iconSize = preferredIconSize ?? (availableWidth < 600 || availableHeight < 360 ? 48 : availableWidth < 740 ? 64 : 72);
   const compact = iconSize === 48;
   const columnGap = compact ? 16 : 24, rowGap = compact ? 12 : 16;
-  const cellWidth = compact ? 88 : 104, cellHeight = iconSize + 56;
-  const columns = Math.max(1, Math.min(8, Math.floor((availableWidth - 16 + columnGap) / (cellWidth + columnGap))));
-  const rows = Math.max(1, Math.min(5, Math.floor((availableHeight - 56 + rowGap) / (cellHeight + rowGap))));
+  const cellWidth = compact ? 88 : iconSize === 72 ? 120 : 104, cellHeight = iconSize + 56;
+  // Desktop-sized windows need a readable central composition, not extra-wide
+  // rows or huge vertical gaps as the monitor grows. The native window itself
+  // remains fullscreen; pagination absorbs a large catalog.
+  const columns = Math.max(1, Math.min(7, Math.floor((availableWidth - 16 + columnGap) / (cellWidth + columnGap))));
+  const rows = Math.max(1, Math.min(4, Math.floor((availableHeight - 56 + rowGap) / (cellHeight + rowGap))));
   return { columns, rows, pageSize: columns * rows, iconSize };
 }
 

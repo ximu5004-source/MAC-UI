@@ -1,11 +1,11 @@
 use std::sync::Arc;
 
-use seelen_core::{
-    handlers::SeelenEvent,
+use macui_core::{
+    handlers::MacUiEvent,
     resource::ResourceKind,
     state::{Theme, Widget, settings::shortcuts::resolve_shortcuts},
 };
-use slu_ipc::messages::SvcAction;
+use macui_ipc::messages::SvcAction;
 
 use crate::{
     app::emit_to_webviews,
@@ -47,7 +47,7 @@ impl ResourceManager {
         themes
     }
 
-    pub fn plugins(&self) -> Vec<Arc<seelen_core::state::Plugin>> {
+    pub fn plugins(&self) -> Vec<Arc<macui_core::state::Plugin>> {
         let show_premiums = SessionManager::instance().lock().has_premium_access();
         let mut plugins = Vec::new();
         self.plugins.iter_sync(|_, v| {
@@ -60,25 +60,16 @@ impl ResourceManager {
         plugins
     }
 
-    pub fn icon_packs(&self) -> Vec<Arc<seelen_core::state::IconPack>> {
-        let show_premiums = SessionManager::instance().lock().has_premium_access();
+    pub fn icon_packs(&self) -> Vec<Arc<macui_core::state::IconPack>> {
         let mut icon_packs = Vec::new();
         // Add system icon pack if it exists
         if let Some(system_pack) = self.system_icon_pack.lock().as_ref() {
             icon_packs.push(std::sync::Arc::new(system_pack.clone()));
         }
-        // Add user icon packs
-        self.icon_packs.iter_sync(|_, v| {
-            if v.metadata.premium && !show_premiums {
-                return true;
-            }
-            icon_packs.push(v.clone());
-            true
-        });
         icon_packs
     }
 
-    pub fn wallpapers(&self) -> Vec<Arc<seelen_core::state::Wallpaper>> {
+    pub fn wallpapers(&self) -> Vec<Arc<macui_core::state::Wallpaper>> {
         let show_premiums = SessionManager::instance().lock().has_premium_access();
         let mut wallpapers = Vec::new();
         self.wallpapers.iter_sync(|_, v| {
@@ -95,7 +86,7 @@ impl ResourceManager {
 impl ResourceManager {
     pub fn emit_widgets(&self) -> Result<()> {
         let widgets = self.widgets();
-        emit_to_webviews(SeelenEvent::StateWidgetsChanged, widgets.clone());
+        emit_to_webviews(MacUiEvent::StateWidgetsChanged, widgets.clone());
 
         WIDGET_MANAGER.reconcile()?;
 
@@ -112,19 +103,19 @@ impl ResourceManager {
     }
 
     pub fn emit_themes(&self) {
-        emit_to_webviews(SeelenEvent::StateThemesChanged, self.themes())
+        emit_to_webviews(MacUiEvent::StateThemesChanged, self.themes())
     }
 
     pub fn emit_plugins(&self) {
-        emit_to_webviews(SeelenEvent::StatePluginsChanged, self.plugins())
+        emit_to_webviews(MacUiEvent::StatePluginsChanged, self.plugins())
     }
 
     pub fn emit_icon_packs(&self) {
-        emit_to_webviews(SeelenEvent::StateIconPacksChanged, self.icon_packs())
+        emit_to_webviews(MacUiEvent::StateIconPacksChanged, self.icon_packs())
     }
 
     pub fn emit_wallpapers(&self) {
-        emit_to_webviews(SeelenEvent::StateWallpapersChanged, self.wallpapers())
+        emit_to_webviews(MacUiEvent::StateWallpapersChanged, self.wallpapers())
     }
 
     pub fn emit_kind_changed(&self, kind: &ResourceKind) -> Result<()> {

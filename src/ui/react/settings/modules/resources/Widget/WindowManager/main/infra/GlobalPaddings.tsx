@@ -1,4 +1,4 @@
-import type { Rect } from "@seelen-ui/lib";
+import type { Rect } from "@macui/lib";
 import { Icon } from "libs/ui/react/components/Icon/index.tsx";
 import { Button, InputNumber } from "antd";
 import { useTranslation } from "react-i18next";
@@ -69,7 +69,7 @@ export function WindowManagerSpacingSettings(
     <SettingsGroup>
       {onClear && (
         <SettingsOption>
-          <span>{t("header.labels.seelen_wm")}</span>
+          <span>{t("header.labels.macui_wm")}</span>
           <Button onClick={onClear}>
             <Icon iconName="IoTrash" size={14} />
           </Button>

@@ -1,5 +1,5 @@
-import { invoke, SeelenCommand } from "@seelen-ui/lib";
-import { type WidgetDebugInfo, WidgetStatus } from "@seelen-ui/lib/types";
+import { invoke, MacUiCommand } from "@macui/lib";
+import { type WidgetDebugInfo, WidgetStatus } from "@macui/lib/types";
 import { Button, Table, Tag } from "antd";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -21,7 +21,7 @@ export function WidgetsDebug() {
   async function refresh() {
     setLoading(true);
     try {
-      const data = await invoke(SeelenCommand.DebugGetWidgetsStatuses);
+      const data = await invoke(MacUiCommand.DebugGetWidgetsStatuses);
       setRows(data);
     } finally {
       setLoading(false);
@@ -29,7 +29,7 @@ export function WidgetsDebug() {
   }
 
   async function openDevTools(label: string) {
-    await invoke(SeelenCommand.DebugOpenDevTools, { label });
+    await invoke(MacUiCommand.DebugOpenDevTools, { label });
   }
 
   const columns = [

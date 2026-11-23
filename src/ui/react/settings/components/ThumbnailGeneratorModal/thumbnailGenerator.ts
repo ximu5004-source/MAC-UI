@@ -1,6 +1,6 @@
-import { invoke, SeelenCommand } from "@seelen-ui/lib";
-import type { Wallpaper } from "@seelen-ui/lib/types";
-import { WallpaperKind } from "@seelen-ui/lib/types";
+import { invoke, MacUiCommand } from "@macui/lib";
+import type { Wallpaper } from "@macui/lib/types";
+import { WallpaperKind } from "@macui/lib/types";
 import { convertFileSrc } from "@tauri-apps/api/core";
 
 import { extractThumbnailFromSource } from "./videoThumbnail.ts";
@@ -81,7 +81,7 @@ export async function generateThumbnails(
         continue;
       }
 
-      await invoke(SeelenCommand.WallpaperSaveThumbnail, {
+      await invoke(MacUiCommand.WallpaperSaveThumbnail, {
         wallpaperId: wallpaper.id,
         thumbnailBytes: Array.from(thumbnailBytes),
       });

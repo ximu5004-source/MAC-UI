@@ -1,6 +1,6 @@
 use std::{collections::HashMap, sync::Once};
 
-use slu_ipc::messages::SvcAction;
+use macui_ipc::messages::SvcAction;
 use windows::Win32::UI::WindowsAndMessaging::SW_NORMAL;
 
 use crate::{
@@ -11,8 +11,8 @@ use crate::{
     widgets::window_manager::state_v2::{TwmState, WM_STATE},
     windows_api::{WindowsApi, window::Window},
 };
-use seelen_core::{
-    handlers::SeelenEvent,
+use macui_core::{
+    handlers::MacUiEvent,
     rect::Rect,
     state::{PerformanceMode, TwmGlobalRuntimeTree},
 };
@@ -24,7 +24,7 @@ pub fn wm_get_render_tree() -> TwmGlobalRuntimeTree {
         TwmState::subscribe(|_event| {
             let guard = WM_STATE.lock();
             guard.restore_stacks();
-            emit_to_webviews(SeelenEvent::WMTreeChanged, &guard.state);
+            emit_to_webviews(MacUiEvent::WMTreeChanged, &guard.state);
         });
     });
 

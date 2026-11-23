@@ -37,7 +37,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--slu-std-fg-muted-color);
+    color: var(--macui-std-fg-muted-color);
     font-weight: 600;
     font-size: 0.8rem;
     height: 200px;
@@ -46,7 +46,7 @@
 
 .notification {
   border-radius: 12px;
-  background-color: var(--slu-std-bg-light-color);
+  background-color: var(--macui-std-bg-light-color);
   box-shadow: var(--shadow-s);
   padding: 10px;
   transition: scale 0.1s ease-in-out;
@@ -69,7 +69,7 @@
       align-items: center;
       gap: 8px;
       font-size: 0.8rem;
-      color: var(--slu-std-fg-secondary-color);
+      color: var(--macui-std-fg-secondary-color);
       font-weight: 600;
 
       .notification-icon {

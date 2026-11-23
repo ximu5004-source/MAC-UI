@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { invoke, SeelenCommand } from "@seelen-ui/lib";
+  import { invoke, MacUiCommand } from "@macui/lib";
   import { FileIcon, Icon, SpecificIcon } from "libs/ui/svelte/components/Icon/index.ts";
   import { convertFileSrc, invoke as tauriInvoke } from "@tauri-apps/api/core";
   import { t } from "../../i18n/index.ts";
@@ -43,7 +43,7 @@
     e.stopPropagation();
     const alignX = settingsState.popupAlignX;
     const alignY = settingsState.popupAlignY;
-    invoke(SeelenCommand.TriggerContextMenu, {
+    invoke(MacUiCommand.TriggerContextMenu, {
       menu: { ...getMenuForItem($t, item), alignX, alignY },
       forwardTo: null,
     });

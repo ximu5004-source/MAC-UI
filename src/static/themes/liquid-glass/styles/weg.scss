@@ -45,7 +45,7 @@
   background: transparent;
 }
 
-.weg-item:hover .slu-icon-outer[data-appearance="liquid-glass"] {
+.weg-item:hover .macui-icon-outer[data-appearance="liquid-glass"] {
   transform: translateY(-3px) scale(1.055);
   filter: none;
   box-shadow: none;
@@ -55,18 +55,18 @@
   transform: none;
 }
 
-.weg-item:active .slu-icon-outer[data-appearance="liquid-glass"] {
+.weg-item:active .macui-icon-outer[data-appearance="liquid-glass"] {
   transform: translateY(1px) scale(0.96);
 }
 
-.weg-item:hover .slu-icon-outer[data-appearance="app-glass"],
-.weg-item:focus-visible .slu-icon-outer[data-appearance="app-glass"] {
+.weg-item:hover .macui-icon-outer[data-appearance="app-glass"],
+.weg-item:focus-visible .macui-icon-outer[data-appearance="app-glass"] {
   transform: translateY(-3px) scale(1.055);
   filter: none;
   box-shadow: none;
 }
 
-.weg-item:active .slu-icon-outer[data-appearance="app-glass"] {
+.weg-item:active .macui-icon-outer[data-appearance="app-glass"] {
   transform: translateY(1px) scale(0.96);
 }
 
@@ -114,11 +114,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .weg-item:hover .slu-icon-outer[data-appearance="liquid-glass"],
-  .weg-item:active .slu-icon-outer[data-appearance="liquid-glass"],
-  .weg-item:hover .slu-icon-outer[data-appearance="app-glass"],
-  .weg-item:focus-visible .slu-icon-outer[data-appearance="app-glass"],
-  .weg-item:active .slu-icon-outer[data-appearance="app-glass"] {
+  .weg-item:hover .macui-icon-outer[data-appearance="liquid-glass"],
+  .weg-item:active .macui-icon-outer[data-appearance="liquid-glass"],
+  .weg-item:hover .macui-icon-outer[data-appearance="app-glass"],
+  .weg-item:focus-visible .macui-icon-outer[data-appearance="app-glass"],
+  .weg-item:active .macui-icon-outer[data-appearance="app-glass"] {
     transform: none;
   }
 }

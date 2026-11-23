@@ -15,7 +15,7 @@ profile:
   log_out: Logg ut
   open_onedrive: Åpne OneDrive-katalogen
   open_user_folder: Åpne brukerkatalogen
-seelen_options:
-  open_installation_folder: Åpne mappen Seelen-innstillinger
-  open_log_folder: Åpne Seelen-loggmappen
-  title: Seelen-kataloger
+macui_options:
+  open_installation_folder: Åpne mappen MAC UI-innstillinger
+  open_log_folder: Åpne MAC UI-loggmappen
+  title: MAC UI-kataloger

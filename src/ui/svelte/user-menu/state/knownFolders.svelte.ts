@@ -1,15 +1,15 @@
-import { invoke, SeelenCommand, SeelenEvent, subscribe } from "@seelen-ui/lib";
-import { FolderType } from "@seelen-ui/lib/types";
+import { invoke, MacUiCommand, MacUiEvent, subscribe } from "@macui/lib";
+import { FolderType } from "@macui/lib/types";
 import { lazyRune } from "libs/ui/svelte/utils";
 
-const desktop = lazyRune(() => invoke(SeelenCommand.GetUserFolderContent, { folderType: FolderType.Desktop }));
-const downloads = lazyRune(() => invoke(SeelenCommand.GetUserFolderContent, { folderType: FolderType.Downloads }));
-const documents = lazyRune(() => invoke(SeelenCommand.GetUserFolderContent, { folderType: FolderType.Documents }));
-const music = lazyRune(() => invoke(SeelenCommand.GetUserFolderContent, { folderType: FolderType.Music }));
-const pictures = lazyRune(() => invoke(SeelenCommand.GetUserFolderContent, { folderType: FolderType.Pictures }));
-const videos = lazyRune(() => invoke(SeelenCommand.GetUserFolderContent, { folderType: FolderType.Videos }));
+const desktop = lazyRune(() => invoke(MacUiCommand.GetUserFolderContent, { folderType: FolderType.Desktop }));
+const downloads = lazyRune(() => invoke(MacUiCommand.GetUserFolderContent, { folderType: FolderType.Downloads }));
+const documents = lazyRune(() => invoke(MacUiCommand.GetUserFolderContent, { folderType: FolderType.Documents }));
+const music = lazyRune(() => invoke(MacUiCommand.GetUserFolderContent, { folderType: FolderType.Music }));
+const pictures = lazyRune(() => invoke(MacUiCommand.GetUserFolderContent, { folderType: FolderType.Pictures }));
+const videos = lazyRune(() => invoke(MacUiCommand.GetUserFolderContent, { folderType: FolderType.Videos }));
 
-subscribe(SeelenEvent.UserFolderChanged, ({ payload: { ofFolder, content } }) => {
+subscribe(MacUiEvent.UserFolderChanged, ({ payload: { ofFolder, content } }) => {
   switch (ofFolder) {
     case FolderType.Desktop:
       desktop.value = content;

@@ -1,3 +1,5 @@
+import type { WidgetTriggerPayload } from "@macui/types";
+
 export interface WidgetInformation {
   /** decoded webview label */
   label: string;
@@ -10,6 +12,16 @@ export interface WidgetInformation {
 }
 
 export interface InitWidgetOptions {
+  /**
+   * Prepare a Popup's content before sizing, positioning and showing its window.
+   * Await the framework's render flush here when a trigger selects a different view.
+   * Other presets ignore this callback; existing Popup behavior is unchanged when omitted.
+   */
+  /** Passive previews preserve the foreground application while the pointer moves. */
+  focusPopupOnShow?: (payload: WidgetTriggerPayload) => boolean;
+
+  beforePopupShow?: (payload: WidgetTriggerPayload) => void | Promise<void>;
+
   /**
    * Automatically resizes the widget to match the content size of a given element.
    *

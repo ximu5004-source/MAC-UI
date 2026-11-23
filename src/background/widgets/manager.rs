@@ -3,7 +3,7 @@ use std::sync::{
     atomic::{AtomicBool, Ordering},
 };
 
-use seelen_core::{
+use macui_core::{
     resource::WidgetId,
     state::{WidgetLoader, WidgetStatus},
 };
@@ -68,6 +68,7 @@ impl WidgetManager {
 
     pub fn suspend_all(&self) {
         GAME_MODE_ACTIVE.store(true, Ordering::Release);
+        super::native_host::reconcile(false).log_error();
         self.deployments.for_each(|(_, deploy)| {
             deploy.pods.clear();
         });
@@ -105,13 +106,20 @@ impl WidgetManager {
 
         let mut filtered = Vec::new();
         RESOURCES.widgets.iter_sync(|k, w| {
-            if w.loader != WidgetLoader::Legacy {
+            if w.loader != WidgetLoader::Legacy && k.to_string() != super::native_host::DESKTOP_ID {
                 filtered.push((k.clone(), w.clone()));
             }
             true
         });
 
         let state = FULL_STATE.load();
+        self.deployments
+            .remove(&super::native_host::DESKTOP_ID.into());
+        super::native_host::reconcile(
+            state.is_widget_enabled(&super::native_host::DESKTOP_ID.into())
+                && !GAME_MODE_ACTIVE.load(Ordering::Acquire),
+        )
+        .log_error();
         for (id, widget) in filtered {
             if !state.is_widget_enabled(&id) {
                 self.deployments.remove(&id);

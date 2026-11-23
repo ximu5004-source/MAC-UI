@@ -78,13 +78,13 @@ devtools:
   data_folder: Folda data
   enable: Mu awọn irinṣẹ Oláàmúdà ṣiṣẹ
   enable_description: >-
-    Ṣii awọn irinṣẹ ilọsiwaju fun ayewo ati ṣiṣatunṣe awọn inu inu Seelen UI. Ko
+    Ṣii awọn irinṣẹ ilọsiwaju fun ayewo ati ṣiṣatunṣe awọn inu inu MAC UI. Ko
     ṣe ipinnu fun lilo deede.
   icons: Awọn aami ti a fipamọ
   install_folder: Filese Fifi sori ẹrọ
   load: Ẹru
   settings_file: Faili eto
-  shared_components: SLU Standard irinše
+  shared_components: MAC UI Standard irinše
   simulate_dialog:
     label: Afarawe ajọṣọ
     trigger: Nfa
@@ -117,7 +117,7 @@ devtools:
     widget_id: ID ailorukọ
 discord_banner:
   message: >-
-    Sopọ pẹlu awọn olumulo Seelen UI miiran, gba iranlọwọ, pin awọn akori, ki o
+    Sopọ pẹlu awọn olumulo MAC UI miiran, gba iranlọwọ, pin awọn akori, ki o
     duro titi di oni pẹlu awọn iroyin tuntun.
   title: Darapọ mọ Agbegbe wa
 extras:
@@ -166,7 +166,7 @@ general:
     plugged: Pulọọgi tabi gbigba agbara
   polling_interval: Aarin idibo eto
   polling_interval_description: >-
-    Igba melo (ni iṣẹju-aaya) Seelen UI ṣe ayẹwo awọn orisun eto bii Sipiyu,
+    Igba melo (ni iṣẹju-aaya) MAC UI ṣe ayẹwo awọn orisun eto bii Sipiyu,
     Ramu, nẹtiwọọki, ati iṣẹ disk. Nọmba ti o kere julọ tumọ si awọn imudojuiwọn
     loorekoore, ṣugbọn lilo awọn orisun diẹ ga julọ.
   saturday: Satidee
@@ -242,7 +242,7 @@ resources:
 review_request:
   not_now: Ko bayi
   sure: Daju!
-  title: Ngbadun Seelen UI?
+  title: Ngbadun MAC UI?
 save: Fipamọ
 save_and_restart: Fipamọ & Tun bẹrẹ
 search: Wa
@@ -414,14 +414,14 @@ weg:
 welcome:
   give_a_review: Fun Atunwo
   message: >-
-    Seelen UI jẹ ọfẹ ati agbegbe tabili orisun ṣiṣi fun Windows. Nibi o ni
+    MAC UI jẹ ọfẹ ati agbegbe tabili orisun ṣiṣi fun Windows. Nibi o ni
     iṣakoso ni kikun lori bii tabili tabili rẹ ṣe n wo ati ihuwasi, gbigba ọ
     laaye lati ṣe akanṣe gbogbo alaye lati baamu iṣan-iṣẹ ati aṣa rẹ.
   ok: Jẹ ká bẹrẹ!
   review: >-
-    Ti o ba gbadun lilo Seelen UI, ronu fifi atunyẹwo silẹ lori ile itaja - esi
+    Ti o ba gbadun lilo MAC UI, ronu fifi atunyẹwo silẹ lori ile itaja - esi
     rẹ ṣe iranlọwọ fun iṣẹ akanṣe lati dagba ati ilọsiwaju.
-  title: Kaabọ si Seelen UI!
+  title: Kaabọ si MAC UI!
 widget:
   default_instance: Apeere aiyipada
   default_instance_hint: Ṣiṣẹ nigbagbogbo, nlo atunto ẹrọ ailorukọ root

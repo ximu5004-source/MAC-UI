@@ -30,14 +30,14 @@ apps_configurations:
     Hierdie saamgevoegde konfigurasies is nie bewerkbaar nie en is ontwerp om u
     die beste ervaring sonder aanpassing te bied. Hulle stel outomaties die
     algemeenste toepassings vir u op.
-  bundled_title: App -konfigurasie saam met Seelen
+  bundled_title: App -konfigurasie saam met MAC UI
   confirm_delete: Is u seker dat u hierdie konfigurasie/s wil uitvee?
   confirm_delete_title: Bevestig delete
   delete: Verwyder
   export: Uitvoer
   export_full: Uitvoerinstellings volgens aansoek
   extra_info: >-
-    Seelen UI gebruik slegs een identifiseerder per app (eerste wedstryd
+    MAC UI gebruik slegs een identifiseerder per app (eerste wedstryd
     gevind), dus die volgorde in hoe dit gespesifiseer is, is belangrik, die
     nuutste bygevoeg sal geprioritiseer word, aangesien die tabel standaard van
     die nuutste na oud gesorteer is.
@@ -81,13 +81,13 @@ devtools:
   data_folder: Datapap
   enable: Aktiveer ontwikkelaarsgereedskap
   enable_description: >-
-    Ontsluit gevorderde nutsgoed vir die inspeksie en ontfouting van Seelen
+    Ontsluit gevorderde nutsgoed vir die inspeksie en ontfouting van MAC UI
     UI-interne. Nie bedoel vir gereelde gebruik nie.
   icons: Gekas ikone
   install_folder: Installasie -lêergids
   load: Vrag
   settings_file: Instellingslêer
-  shared_components: SLU Standaardkomponente
+  shared_components: MAC UI Standaardkomponente
   simulate_dialog:
     label: Simuleer dialoog
     trigger: Sneller
@@ -120,9 +120,9 @@ devtools:
     widget_id: Widget ID
 discord_banner:
   message: >-
-    Maak kontak met ander Seelen UI-gebruikers, kry hulp, deel temas en bly op
+    Maak kontak met ander MAC UI-gebruikers, kry hulp, deel temas en bly op
     hoogte van die jongste nuus.
-  title: Sluit aan by ons gemeenskap
+  title: MacUiit aan by ons gemeenskap
 extras:
   backup_group: Wolk-rugsteun
   backup_last_sync: Laaste sinkronisering
@@ -169,7 +169,7 @@ general:
     plugged: Ingeprop of laai
   polling_interval: Stelselpeilingsinterval
   polling_interval_description: >-
-    Hoe gereeld (in sekondes) Seelen UI stelselhulpbronne soos SVE, RAM, netwerk
+    Hoe gereeld (in sekondes) MAC UI stelselhulpbronne soos SVE, RAM, netwerk
     en skyfaktiwiteit nagaan. 'n Kleiner getal beteken meer gereelde
     opdaterings, maar effens hoër hulpbrongebruik.
   saturday: Saterdag
@@ -209,7 +209,7 @@ home:
 inherit: Erf
 inProgress: Aan die gang ...
 insert: Invoeg
-join_us: Sluit by ons aan!
+join_us: MacUiit by ons aan!
 loading: Laai ...
 miscellaneous: Verskillend
 monitors_configurations:
@@ -225,7 +225,7 @@ reset_to_default: Stel weer in standaardwaarde
 resources:
   affected_widgets: Geaffekteerde widgets
   app_outdated: >-
-    Hierdie hulpbron vereis dat 'n nuwer weergawe van Seelen UI behoorlik moet
+    Hierdie hulpbron vereis dat 'n nuwer weergawe van MAC UI behoorlik moet
     werk.
   coming_soon: Binnekort
   corrupted_wallpaper: Kon nie kleinkiekie onttrek nie - korrupte of ongesteunde videoformaat
@@ -238,7 +238,7 @@ resources:
   modified: Gewysig
   open_folder: Open Resource Folder
   outdated: >-
-    Hierdie hulpbron is ontwerp vir 'n ouer weergawe van Seelen UI en werk
+    Hierdie hulpbron is ontwerp vir 'n ouer weergawe van MAC UI en werk
     moontlik nie behoorlik nie.
   see_on_website: Sien op webwerf
   update_now: Dateer op
@@ -247,7 +247,7 @@ resources:
 review_request:
   not_now: Nie nou nie
   sure: Sekerlik!
-  title: Geniet jy van Seelen UI?
+  title: Geniet jy van MAC UI?
 save: Red
 save_and_restart: Stoor en herbegin
 search: Soek
@@ -267,7 +267,7 @@ shortcuts:
     los.
   enable: Aktiveer ingeboude kortpadstelsel
   enable_tooltip: >-
-    Deaktiveer as u u eie kortpadstelsel met behulp van die Seelen UI -kliënt
+    Deaktiveer as u u eie kortpadstelsel met behulp van die MAC UI -kliënt
     implementeer
   labels:
     create_new_workspace: Skep nuwe werkruimte
@@ -300,7 +300,7 @@ toolbar:
   delay_to_hide: Vertraag om weg te steek
   delay_to_show: Vertraag om te wys
   dock_side: Posisie
-  enable: Aktiveer Fancy Toolbar
+  enable: Aktiveer Top Bar
   hide_mode:
     always: Altyd
     never: Nooit nie
@@ -422,14 +422,14 @@ weg:
 welcome:
   give_a_review: Gee 'n resensie
   message: >-
-    Seelen UI is 'n gratis en oopbron lessenaaromgewing vir Windows. Hier het jy
+    MAC UI is 'n gratis en oopbron lessenaaromgewing vir Windows. Hier het jy
     volle beheer oor hoe jou lessenaar lyk en optree, sodat jy elke detail kan
     aanpas om by jou werkvloei en styl te pas.
   ok: Kom ons begin!
   review: >-
-    As jy daarvan hou om Seelen UI te gebruik, oorweeg dit om 'n resensie in die
+    As jy daarvan hou om MAC UI te gebruik, oorweeg dit om 'n resensie in die
     winkel te gee - jou terugvoer help die projek om te groei en te verbeter.
-  title: Welkom by Seelen UI!
+  title: Welkom by MAC UI!
 widget:
   default_instance: Verstek instansie
   default_instance_hint: Altyd aktief, gebruik die wortellegstukopstelling

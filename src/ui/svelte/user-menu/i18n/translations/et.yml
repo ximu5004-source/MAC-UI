@@ -15,7 +15,7 @@ profile:
   log_out: Logi välja
   open_onedrive: Avage OneDrive'i kataloog
   open_user_folder: Ava kasutajakataloog
-seelen_options:
-  open_installation_folder: Avage Seeleni seadete kaust
-  open_log_folder: Avage Seeleni logikaust
-  title: Seeleni kataloogid
+macui_options:
+  open_installation_folder: Avage MacUii seadete kaust
+  open_log_folder: Avage MacUii logikaust
+  title: MacUii kataloogid

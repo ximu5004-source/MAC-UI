@@ -1,5 +1,6 @@
 mod bluetooth;
 mod clipboard;
+mod communication_notification;
 mod components;
 mod fonts;
 mod language;
@@ -20,6 +21,7 @@ mod win_explorer;
 
 pub use bluetooth::*;
 pub use clipboard::*;
+pub use communication_notification::*;
 pub use components::*;
 pub use fonts::*;
 pub use language::*;

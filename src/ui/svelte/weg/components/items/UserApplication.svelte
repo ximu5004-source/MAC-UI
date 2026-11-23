@@ -22,9 +22,9 @@
     style="display: flex; align-items: center; gap: {settings?.spaceBetweenItems ?? 0}px;"
   >
     {#each windows as win (win.hwnd)}
-      <UserApplicationItem {item} windows={[win]} />
+      <UserApplicationItem {item} windows={[win]} {isOverlay} />
     {/each}
   </div>
 {:else}
-  <UserApplicationItem {item} {windows} />
+  <UserApplicationItem {item} {windows} {isOverlay} />
 {/if}

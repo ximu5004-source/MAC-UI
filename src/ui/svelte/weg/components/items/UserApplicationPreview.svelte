@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { invoke, SeelenCommand } from "@seelen-ui/lib";
+  import { invoke, MacUiCommand } from "@macui/lib";
   import { Icon, MissingIcon } from "libs/ui/svelte/components/Icon/index.ts";
   import { windowsState, previews } from "../../state/windows.svelte.ts";
 
@@ -13,7 +13,7 @@
   const preview = $derived(previews.value[hwnd]);
 
   function onClick() {
-    invoke(SeelenCommand.WegToggleWindowState, {
+    invoke(MacUiCommand.WegToggleWindowState, {
       hwnd,
       wasFocused: windowsState.delayedFocused?.hwnd === hwnd,
       minimizeTarget: null,
@@ -22,13 +22,13 @@
 
   function onAuxClick(e: MouseEvent) {
     if (e.button === 1) {
-      invoke(SeelenCommand.WegCloseApp, { hwnd });
+      invoke(MacUiCommand.WegCloseApp, { hwnd });
     }
   }
 
   function onClose(e: MouseEvent) {
     e.stopPropagation();
-    invoke(SeelenCommand.WegCloseApp, { hwnd });
+    invoke(MacUiCommand.WegCloseApp, { hwnd });
   }
 </script>
 

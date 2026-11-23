@@ -8,7 +8,7 @@ cancel: Ləğv etmək
 done: Tamamlandı
 elevated:
   description: >-
-    Seelen UI administrator imtiyazları ilə işləyir.
+    MAC UI administrator imtiyazları ilə işləyir.
 
     Bu, heç bir xüsusiyyət əlavə etmir və ya təkmilləşdirmir və təhlükəsizlik
     riski yarada bilər.
@@ -20,7 +20,7 @@ file_explorer: Fayl Explorer
 resource:
   added: Yeni bir qaynaq əlavə edildi
   download_failed_body: >-
-    Resursu yükləyərkən bir şey səhv oldu, xahiş edirəm Seelen geliştirici
+    Resursu yükləyərkən bir şey səhv oldu, xahiş edirəm MAC UI geliştirici
     komandasına bildirin.
   download_failed_title: Resurs yükləmə uğursuz oldu
   downloading: Aktivləri yükləmək ...
@@ -42,22 +42,22 @@ runtime:
     Bu, fayllar dəyişdirildikdə, zədələndikdə və ya quraşdırma tamamlanmadıqda
     baş verə bilər.
 
-    Təhlükəsizlik səbəbləri ilə Seelen UI davam edə bilməz.
+    Təhlükəsizlik səbəbləri ilə MAC UI davam edə bilməz.
 
     Lütfən, onu rəsmi saytdan yenidən quraşdırın.
   files_integrity_title: >-
     Təhlükəsizlik Xəbərdarlığı - Faylların bütövlüyünün yoxlanılması uğursuz
     oldu
   not_found: WebView2 İcra vaxtı tapılmadı
-  not_found_description: Seelen UI Webview2 Runtime tələb edir. Zəhmət olmasa quraşdırın.
+  not_found_description: MAC UI Webview2 Runtime tələb edir. Zəhmət olmasa quraşdırın.
   outdated: WebView2 İcra vaxtı köhnəlmişdir
   outdated_description: >-
-    Seelen UI Webview2 Runtime %{min_version} və ya daha yüksək tələb edir.
+    MAC UI Webview2 Runtime %{min_version} və ya daha yüksək tələb edir.
     Zəhmət olmasa yeniləyin.
 service:
-  not_running: Seelen UI Xidməti işləmir
+  not_running: MAC UI Xidməti işləmir
   not_running_description: >-
-    Seelen UI Xidməti (slu-xidmət) tətbiqin düzgün işləməsi üçün
+    MAC UI Xidməti (macui-xidmət) tətbiqin düzgün işləməsi üçün
     asılılıq/köməkçidir.
   not_running_ok: Xidmətə başlayın
 shortcut:

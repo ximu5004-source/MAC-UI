@@ -3,3 +3,11 @@ shortcuts_resumed: 快捷方式已恢復
 volume: 音量
 toggle_mute: 切換靜音
 brightness: 亮度
+reply: 回覆
+dismiss: 關閉此通知
+messaging:
+  wechat: 微信
+  wecom: 企業微信
+  open: 開啟{{app}}
+  new_message: '您有一則來自「{{app}}」的新訊息。'
+  action_failed: 無法開啟或關閉此通知，請重試。

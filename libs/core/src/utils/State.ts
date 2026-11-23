@@ -2,11 +2,11 @@ import { invoke as tauriInvoke } from "@tauri-apps/api/core";
 import { listen as tauriListen, type Options as ListenerOptions } from "@tauri-apps/api/event";
 
 import type {
-  AllSeelenCommandArguments,
-  AllSeelenCommandReturns,
-  AllSeelenEventPayloads,
-  SeelenCommand,
-  SeelenEvent,
+  AllMacUiCommandArguments,
+  AllMacUiCommandReturns,
+  AllMacUiEventPayloads,
+  MacUiCommand,
+  MacUiEvent,
   UnSubscriber,
 } from "../handlers/mod.ts";
 
@@ -17,19 +17,19 @@ interface ConstructorWithSingleArg<T = any> {
 }
 
 export async function newFromInvoke<
-  Command extends SeelenCommand,
-  This extends ConstructorWithSingleArg<AllSeelenCommandReturns[Command]>,
+  Command extends MacUiCommand,
+  This extends ConstructorWithSingleArg<AllMacUiCommandReturns[Command]>,
 >(
   Class: This,
   command: Command,
-  args?: NonNullable<AllSeelenCommandArguments[Command]>,
+  args?: NonNullable<AllMacUiCommandArguments[Command]>,
 ): Promise<InstanceType<This>> {
   return new Class(await tauriInvoke(command, args));
 }
 
 export function newOnEvent<
-  Event extends SeelenEvent,
-  This extends ConstructorWithSingleArg<AllSeelenEventPayloads[Event]>,
+  Event extends MacUiEvent,
+  This extends ConstructorWithSingleArg<AllMacUiEventPayloads[Event]>,
 >(
   cb: (instance: InstanceType<This>) => void,
   Class: This,
@@ -39,7 +39,7 @@ export function newOnEvent<
   return tauriListen(
     event,
     (eventData) => {
-      cb(new Class(eventData.payload as AllSeelenEventPayloads[Event]));
+      cb(new Class(eventData.payload as AllMacUiEventPayloads[Event]));
     },
     options,
   );

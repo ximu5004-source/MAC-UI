@@ -19,7 +19,7 @@
 }
 
 .ft-bar {
-  background-color: oklch(from var(--slu-std-bg-color) l c h / 0.9);
+  background-color: oklch(from var(--macui-std-bg-color) l c h / 0.9);
 
   &[data-has-margin="true"] {
     border-radius: calc((var(--config-item-size) + var(--config-padding) * 2) * 0.3);
@@ -61,7 +61,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  background-color: var(--slu-std-ui-color);
+  background-color: var(--macui-std-ui-color);
   color: var(--color-gray-100);
   height: 12px;
   min-width: 12px;
@@ -71,10 +71,10 @@
 
 .ft-corner-button {
   &:hover {
-    background-color: var(--slu-std-ui-hover-overlay);
+    background-color: var(--macui-std-ui-hover-overlay);
   }
 
   &:active {
-    background-color: var(--slu-std-ui-pressed-overlay);
+    background-color: var(--macui-std-ui-pressed-overlay);
   }
 }

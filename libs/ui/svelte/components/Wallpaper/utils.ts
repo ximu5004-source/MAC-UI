@@ -1,5 +1,5 @@
-import type { PlaybackSpeed, WallpaperInstanceSettings } from "@seelen-ui/lib/types";
-import { WallpaperConfiguration } from "@seelen-ui/lib";
+import type { PlaybackSpeed, WallpaperInstanceSettings } from "@macui/lib/types";
+import { WallpaperConfiguration } from "@macui/lib";
 
 export const defaultWallpaperConfig = await WallpaperConfiguration.default();
 

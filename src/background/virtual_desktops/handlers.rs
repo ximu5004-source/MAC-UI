@@ -1,8 +1,8 @@
 use std::sync::Once;
 
-use seelen_core::{
-    handlers::SeelenEvent,
-    resource::{SluResource, WallpaperId},
+use macui_core::{
+    handlers::MacUiEvent,
+    resource::{MacUiResource, WallpaperId},
     state::{VirtualDesktops, Wallpaper},
     system_state::MonitorId,
 };
@@ -12,25 +12,25 @@ use crate::{
     error::Result,
     resources::RESOURCES,
     utils::date_based_hex_id,
-    virtual_desktops::{SluWorkspacesManager2, events::VirtualDesktopEvent},
+    virtual_desktops::{MacUiWorkspacesManager2, events::VirtualDesktopEvent},
 };
 
-fn get_vd_manager() -> &'static SluWorkspacesManager2 {
+fn get_vd_manager() -> &'static MacUiWorkspacesManager2 {
     static TAURI_EVENT_REGISTRATION: Once = Once::new();
     TAURI_EVENT_REGISTRATION.call_once(|| {
-        SluWorkspacesManager2::subscribe(|event| {
+        MacUiWorkspacesManager2::subscribe(|event| {
             // As switching is atomic operation the data was send via the event to avoid waiting for switch end.
             if let VirtualDesktopEvent::SwitchingDesktop(payload) = event {
-                emit_to_webviews(SeelenEvent::VirtualDesktopsChanged, payload);
+                emit_to_webviews(MacUiEvent::VirtualDesktopsChanged, payload);
                 return;
             }
 
-            let payload: VirtualDesktops = SluWorkspacesManager2::instance().into();
-            emit_to_webviews(SeelenEvent::VirtualDesktopsChanged, payload);
+            let payload: VirtualDesktops = MacUiWorkspacesManager2::instance().into();
+            emit_to_webviews(MacUiEvent::VirtualDesktopsChanged, payload);
         });
     });
 
-    SluWorkspacesManager2::instance()
+    MacUiWorkspacesManager2::instance()
 }
 
 #[tauri::command(async)]
@@ -39,14 +39,14 @@ pub fn get_virtual_desktops() -> VirtualDesktops {
 }
 
 #[tauri::command(async)]
-pub fn switch_workspace(workspace_id: seelen_core::state::WorkspaceId) -> Result<()> {
+pub fn switch_workspace(workspace_id: macui_core::state::WorkspaceId) -> Result<()> {
     let manager = get_vd_manager();
     let monitor_id = manager.get_monitor_of_workspace(&workspace_id);
     manager.switch_to_id(&monitor_id, &workspace_id)
 }
 
 #[tauri::command(async)]
-pub fn create_workspace(monitor_id: MonitorId) -> Result<seelen_core::state::WorkspaceId> {
+pub fn create_workspace(monitor_id: MonitorId) -> Result<macui_core::state::WorkspaceId> {
     let vd = get_vd_manager();
     let workspace_id = vd.create_desktop(&monitor_id, false)?;
     vd.switch_to_id(&monitor_id, &workspace_id)?;
@@ -54,7 +54,7 @@ pub fn create_workspace(monitor_id: MonitorId) -> Result<seelen_core::state::Wor
 }
 
 #[tauri::command(async)]
-pub fn create_workspace_row(monitor_id: MonitorId) -> Result<seelen_core::state::WorkspaceId> {
+pub fn create_workspace_row(monitor_id: MonitorId) -> Result<macui_core::state::WorkspaceId> {
     let vd = get_vd_manager();
     let workspace_id = vd.create_desktop(&monitor_id, true)?;
     vd.switch_to_id(&monitor_id, &workspace_id)?;
@@ -62,7 +62,7 @@ pub fn create_workspace_row(monitor_id: MonitorId) -> Result<seelen_core::state:
 }
 
 #[tauri::command(async)]
-pub fn destroy_workspace(workspace_id: seelen_core::state::WorkspaceId) -> Result<()> {
+pub fn destroy_workspace(workspace_id: macui_core::state::WorkspaceId) -> Result<()> {
     let manager = get_vd_manager();
     let monitor_id = manager.get_monitor_of_workspace(&workspace_id);
     manager.destroy_desktop(&monitor_id, &workspace_id)
@@ -70,7 +70,7 @@ pub fn destroy_workspace(workspace_id: seelen_core::state::WorkspaceId) -> Resul
 
 #[tauri::command(async)]
 pub fn rename_workspace(
-    workspace_id: seelen_core::state::WorkspaceId,
+    workspace_id: macui_core::state::WorkspaceId,
     name: Option<String>,
 ) -> Result<()> {
     let manager = get_vd_manager();
@@ -81,7 +81,7 @@ pub fn rename_workspace(
 #[tauri::command(async)]
 pub fn move_window_to_workspace(
     hwnd: isize,
-    workspace_id: seelen_core::state::WorkspaceId,
+    workspace_id: macui_core::state::WorkspaceId,
 ) -> Result<()> {
     let manager = get_vd_manager();
     let window = crate::windows_api::window::Window::from(hwnd);

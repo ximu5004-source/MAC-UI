@@ -13,6 +13,6 @@ profile.accounts: 48e62ab4
 profile.log_out: 9a8a8630
 profile.open_onedrive: 6471a91c
 profile.open_user_folder: 84ad87f4
-seelen_options.open_installation_folder: 573e77dc
-seelen_options.open_log_folder: 98d66c68
-seelen_options.title: bd72230
+macui_options.open_installation_folder: 573e77dc
+macui_options.open_log_folder: 98d66c68
+macui_options.title: bd72230

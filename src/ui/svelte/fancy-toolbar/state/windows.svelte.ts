@@ -1,5 +1,5 @@
-import { Widget } from "@seelen-ui/lib";
-import { FancyToolbarSide, type UserAppWindowColors } from "@seelen-ui/lib/types";
+import { Widget } from "@macui/lib";
+import { FancyToolbarSide, type UserAppWindowColors } from "@macui/lib/types";
 import { settingsState } from "./settings.svelte.ts";
 import { focused, interactables, widgetStatuses, windowsColors } from "./getters.svelte.ts";
 

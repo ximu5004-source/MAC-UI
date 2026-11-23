@@ -1,19 +1,19 @@
 import type {
   GenericWidgetSettings,
   ResourceText,
-  SluShortcutsSettings,
+  MacUiShortcutsSettings,
   Widget,
   WidgetShortcutDeclaration,
-} from "@seelen-ui/lib/types";
+} from "@macui/lib/types";
 import { computed } from "@preact/signals";
 import { settings } from "../../state/mod";
 import { lazySignal } from "libs/ui/react/utils/LazySignal";
-import { invoke, SeelenCommand } from "@seelen-ui/lib";
-import type { WidgetId } from "@seelen-ui/lib/types";
+import { invoke, MacUiCommand } from "@macui/lib";
+import type { WidgetId } from "@macui/lib/types";
 import { cloneDeep } from "lodash";
 import { widgets } from "../../state/resources";
 
-export const systemShortcuts = lazySignal(() => invoke(SeelenCommand.StateGetSystemShortcuts));
+export const systemShortcuts = lazySignal(() => invoke(MacUiCommand.StateGetSystemShortcuts));
 await systemShortcuts.init();
 
 // ─── Types ───────────────────────────────────────────────────────────────────
@@ -51,7 +51,7 @@ function widgetShortcutToEntry(decl: WidgetShortcutDeclaration, widgetId: Widget
 
 // ─── Public API ──────────────────────────────────────────────────────────────
 
-export function getShortcutsConfig(): SluShortcutsSettings {
+export function getShortcutsConfig(): MacUiShortcutsSettings {
   return settings.value.shortcuts;
 }
 

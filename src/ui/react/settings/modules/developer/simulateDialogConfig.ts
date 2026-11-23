@@ -1,4 +1,4 @@
-import type { Dialog } from "@seelen-ui/lib/types";
+import type { Dialog } from "@macui/lib/types";
 
 export function createSampleDialog(): Dialog {
   const identifier = crypto.randomUUID();

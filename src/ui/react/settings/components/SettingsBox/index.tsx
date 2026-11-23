@@ -1,17 +1,34 @@
 import { Icon } from "libs/ui/react/components/Icon";
 import { ConfigProvider, Tooltip } from "antd";
 import type { ComponentChildren } from "preact";
+import type { IconName } from "libs/ui/icons";
 
 import cs from "./index.module.css";
 import { cx } from "libs/ui/react/utils/styling";
 
 interface Props {
   children: React.ReactNode;
+  title?: React.ReactNode;
+  description?: string;
+  icon?: IconName;
 }
 
-export const SettingsGroup = ({ children }: Props) => {
+export const SettingsGroup = ({ children, title, description, icon }: Props) => {
   return (
-    <div className={cs.group}>
+    <div className={cs.group} data-settings-card>
+      {title && (
+        <div className={cs.heading}>
+          {icon && (
+            <span className={cs.groupIcon} aria-hidden="true">
+              <Icon iconName={icon} size={19} />
+            </span>
+          )}
+          <div>
+            <h3>{title}</h3>
+            {description && <p>{description}</p>}
+          </div>
+        </div>
+      )}
       <div className={cs.content}>{children}</div>
     </div>
   );
@@ -26,7 +43,7 @@ interface SubGroupProps {
 export const SettingsSubGroup = ({ children, label, disabled }: SubGroupProps) => {
   return (
     <div className={cs.subgroup}>
-      <div className={cs.subtitle}>{label}</div>
+      <div data-setting className={cs.subtitle}>{label}</div>
       <ConfigProvider componentDisabled={disabled}>
         <div className={cs.content}>{children}</div>
       </ConfigProvider>
@@ -41,11 +58,12 @@ type OptionProps = {
   action?: ComponentChildren;
   children?: ComponentChildren;
   disabled?: boolean;
+  wide?: boolean;
 };
 
 export const SettingsOption = (props: OptionProps) => {
   return (
-    <div className={cx(cs.setting, { [cs.disabled!]: props.disabled })}>
+    <div data-setting className={cx(cs.setting, { [cs.disabled!]: props.disabled, [cs.wide!]: props.wide })}>
       {props.children
         ? (
           props.children

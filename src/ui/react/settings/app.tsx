@@ -1,14 +1,15 @@
-import { useDarkMode } from "libs/ui/react/utils/styling.ts";
-import { ConfigProvider, theme } from "antd";
+import { ConfigProvider } from "antd";
 import { useEffect } from "react";
-import { Widget } from "@seelen-ui/lib";
+import { Widget } from "@macui/lib";
 
+import { SettingsDialogHost } from "./components/SettingsDialogs";
 import { Routing } from "./router.tsx";
 import { ThumbnailGeneratorModal } from "./components/ThumbnailGeneratorModal/index.tsx";
 import { WelcomeModal } from "./components/WelcomeModal/infra.tsx";
+import { colorScheme } from "./state/colorScheme";
 
 export function App() {
-  const isDarkMode = useDarkMode();
+  const enhanced = colorScheme.value === "dark";
 
   useEffect(() => {
     setTimeout(() => {
@@ -23,19 +24,24 @@ export function App() {
   return (
     <ConfigProvider
       componentSize="middle"
+      button={{ autoInsertSpace: false }}
       theme={{
         token: {
-          colorPrimary: isDarkMode ? "#479bff" : "#0969da",
+          colorPrimary: "#175cd3",
           fontFamily: '"Segoe UI Variable", "Segoe UI", "Microsoft YaHei UI", sans-serif',
-          fontSize: 13,
-          borderRadius: 9,
-          colorBgContainer: isDarkMode ? "#30343d" : "#ffffff",
-          colorBgElevated: isDarkMode ? "#30343d" : "#ffffff",
-          controlHeight: 32,
+          fontSize: 14,
+          colorText: enhanced ? "#101e2f" : "#192535",
+          colorTextSecondary: enhanced ? "#263a50" : "#30435b",
+          colorTextPlaceholder: enhanced ? "#263a50" : "#30435b",
+          colorTextDisabled: "#5c6979",
+          borderRadius: 10,
+          colorBgContainer: "#ffffff",
+          colorBgElevated: "#ffffff",
+          controlHeight: 34,
         },
-        algorithm: isDarkMode ? theme.darkAlgorithm : theme.defaultAlgorithm,
       }}
     >
+      <SettingsDialogHost />
       <Routing />
       <ThumbnailGeneratorModal />
       <WelcomeModal />

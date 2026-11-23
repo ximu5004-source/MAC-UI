@@ -17,6 +17,7 @@ impl<T: Send + 'static> EventQueue<T> {
         capacity: usize,
         mut process: impl FnMut(T) + Send + 'static,
         mut recover: impl FnMut() + Send + 'static,
+        mut maintain: impl FnMut() + Send + 'static,
     ) -> std::io::Result<Self> {
         let (sender, receiver) = sync_channel(capacity);
         let overflowed = Arc::new(AtomicBool::new(false));
@@ -42,6 +43,7 @@ impl<T: Send + 'static> EventQueue<T> {
                         // the burst is drained instead of leaving stale icons.
                         recover();
                     }
+                    maintain();
                 }
             })?;
         Ok(Self { sender, overflowed })
@@ -79,6 +81,7 @@ mod tests {
                 processed_tx.send(value).unwrap();
             },
             || panic!("No overflow expected"),
+            || {},
         )
         .unwrap();
         assert!(queue.push(1));
@@ -110,6 +113,7 @@ mod tests {
             move || {
                 recovered_tx.send(()).unwrap();
             },
+            || {},
         )
         .unwrap();
         assert!(queue.push(1));
@@ -120,5 +124,20 @@ mod tests {
         resume_tx.send(()).unwrap();
         recovered_rx.recv_timeout(Duration::from_secs(2)).unwrap();
         assert!(recovered_rx.try_recv().is_err());
+    }
+
+    #[test]
+    fn maintenance_runs_without_new_native_messages() {
+        let (maintained_tx, maintained_rx) = channel();
+        let _queue = EventQueue::start(
+            1,
+            |_: ()| {},
+            || {},
+            move || {
+                let _ = maintained_tx.send(());
+            },
+        )
+        .unwrap();
+        maintained_rx.recv_timeout(Duration::from_secs(2)).unwrap();
     }
 }

@@ -1,6 +1,6 @@
 use std::sync::Once;
 
-use seelen_core::handlers::SeelenEvent;
+use macui_core::handlers::MacUiEvent;
 
 use crate::{app::emit_to_webviews, error::Result};
 
@@ -10,7 +10,7 @@ fn get_focus_assist_manager() -> &'static FocusAssistManager {
     static TAURI_EVENT_REGISTRATION: Once = Once::new();
     TAURI_EVENT_REGISTRATION.call_once(|| {
         FocusAssistManager::subscribe(|mode| {
-            emit_to_webviews(SeelenEvent::FocusAssistChanged, mode);
+            emit_to_webviews(MacUiEvent::FocusAssistChanged, mode);
         });
     });
     FocusAssistManager::instance()

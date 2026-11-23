@@ -219,21 +219,21 @@ resource_id_variant!(WallpaperId);
 
 impl WidgetId {
     pub fn known_settings() -> Self {
-        "@seelen/settings".into()
+        "@macui/settings".into()
     }
     pub fn known_weg() -> Self {
-        "@seelen/weg".into()
+        "@macui/weg".into()
     }
     pub fn known_toolbar() -> Self {
-        "@seelen/fancy-toolbar".into()
+        "@macui/fancy-toolbar".into()
     }
     pub fn known_wm() -> Self {
-        "@seelen/window-manager".into()
+        "@macui/window-manager".into()
     }
     pub fn known_wall() -> Self {
-        "@seelen/wallpaper-manager".into()
+        "@macui/wallpaper-manager".into()
     }
     pub fn known_popup() -> Self {
-        "@seelen/dialog".into()
+        "@macui/dialog".into()
     }
 }

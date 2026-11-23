@@ -1,62 +1,68 @@
-import { invoke, SeelenCommand, SeelenEvent, subscribe } from "@seelen-ui/lib";
-import type { NotificationsMode } from "@seelen-ui/lib/types";
+import { invoke, MacUiCommand, MacUiEvent, subscribe } from "@macui/lib";
 import { lazyRune } from "libs/ui/svelte/utils";
+import { communicationNotifications } from "libs/ui/svelte/runes/CommunicationNotifications.svelte";
 
 let shortcutsPaused = $state<boolean | null>(null);
-subscribe(SeelenEvent.ShortcutsPaused, (e) => {
+subscribe(MacUiEvent.ShortcutsPaused, (e) => {
   shortcutsPaused = e.payload;
 });
 
-let mediaDevices = lazyRune(() => invoke(SeelenCommand.GetMediaDevices));
-subscribe(SeelenEvent.MediaDevices, mediaDevices.setByPayload);
+let mediaDevices = lazyRune(() => invoke(MacUiCommand.GetMediaDevices));
+subscribe(MacUiEvent.MediaDevices, mediaDevices.setByPayload);
 
-let mediaPlaying = lazyRune(() => invoke(SeelenCommand.GetMediaSessions));
-subscribe(SeelenEvent.MediaSessions, mediaPlaying.setByPayload);
+let mediaPlaying = lazyRune(() => invoke(MacUiCommand.GetMediaSessions));
+subscribe(MacUiEvent.MediaSessions, mediaPlaying.setByPayload);
 
-let brightness = lazyRune(() => invoke(SeelenCommand.GetAllMonitorsBrightness));
-subscribe(SeelenEvent.SystemMonitorsBrightnessChanged, brightness.setByPayload);
+let brightness = lazyRune(() => invoke(MacUiCommand.GetAllMonitorsBrightness));
+subscribe(MacUiEvent.SystemMonitorsBrightnessChanged, brightness.setByPayload);
 
-let workspaces = lazyRune(() => invoke(SeelenCommand.StateGetVirtualDesktops));
-subscribe(SeelenEvent.VirtualDesktopsChanged, workspaces.setByPayload);
+let workspaces = lazyRune(() => invoke(MacUiCommand.StateGetVirtualDesktops));
+subscribe(MacUiEvent.VirtualDesktopsChanged, workspaces.setByPayload);
 
-let notifications = lazyRune(() => invoke(SeelenCommand.GetNotifications));
-subscribe(SeelenEvent.Notifications, notifications.setByPayload);
-
-let notificationsMode = lazyRune(() => invoke(SeelenCommand.GetNotificationsMode));
-subscribe(SeelenEvent.NotificationsModeChanged, notificationsMode.setByPayload);
-
-await Promise.all([
+const snapshots = await Promise.allSettled([
   mediaDevices.init(),
   mediaPlaying.init(),
   brightness.init(),
   workspaces.init(),
-  notifications.init(),
-  notificationsMode.init(),
 ]);
+for (const result of snapshots) {
+  if (result.status === "rejected") console.warn("Flyout data source unavailable", result.reason);
+}
 
-export const state = {
+class State {
   get mediaInputs() {
-    return mediaDevices.value[0];
-  },
+    return mediaDevices.snapshot?.[0] ?? [];
+  }
   get mediaOutputs() {
-    return mediaDevices.value[1];
-  },
+    return mediaDevices.snapshot?.[1] ?? [];
+  }
   get mediaPlaying() {
-    return mediaPlaying.value;
-  },
+    return mediaPlaying.snapshot ?? [];
+  }
   get brightness() {
-    return brightness.value[0] || null;
-  },
+    return brightness.snapshot?.[0] ?? null;
+  }
   get workspaces() {
-    return workspaces.value;
-  },
+    return workspaces.snapshot;
+  }
   get notifications() {
-    return notifications.value;
-  },
-  get notificationsMode(): NotificationsMode {
-    return notificationsMode.value;
-  },
+    return communicationNotifications.items;
+  }
+  get notificationsMode() {
+    return communicationNotifications.focusAssistMode;
+  }
+  get notificationsModePending() {
+    return communicationNotifications.modePending;
+  }
+  get notificationSourcesReady() {
+    return communicationNotifications.sourceReady;
+  }
+  get notificationKnownKeys() {
+    return communicationNotifications.knownKeys;
+  }
   get shortcutsPaused() {
     return shortcutsPaused;
-  },
-};
+  }
+}
+
+export const state = new State();

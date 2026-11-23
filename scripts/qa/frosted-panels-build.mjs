@@ -12,7 +12,7 @@ await esbuild.build({
   bundle: true, format: "esm", platform: "browser", target: "esnext", conditions: ["svelte"],
   plugins: [
     { name: "no-native-commands", setup(build) {
-      build.onResolve({ filter: /^@seelen-ui\/lib$/ }, () => ({ path: resolve("scripts/qa/frosted-panels/native-mock.ts") }));
+      build.onResolve({ filter: /^@macui\/lib$/ }, () => ({ path: resolve("scripts/qa/frosted-panels/native-mock.ts") }));
       build.onResolve({ filter: /^libs\/ui\/svelte\/components\/Icon$/ }, () => ({ path: resolve("scripts/qa/frosted-panels/icon-only.ts") }));
     } },
     svelte({ cache: false, preprocess: sveltePreprocess({ postcss: { plugins: [] } }) }),

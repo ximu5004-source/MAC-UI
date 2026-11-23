@@ -9,13 +9,13 @@ pub use toolbar_items::TOOLBAR_ITEMS_MANAGER;
 pub use weg_items::WEG_ITEMS_MANAGER;
 
 use arc_swap::ArcSwap;
+use macui_core::{
+    resource::ResourceKind,
+    state::{AppsConfigurationList, Settings},
+};
 use notify_debouncer_full::{
     DebounceEventResult, DebouncedEvent, Debouncer, FileIdMap, new_debouncer,
     notify::{ReadDirectoryChangesWatcher, RecursiveMode},
-};
-use seelen_core::{
-    resource::ResourceKind,
-    state::{AppsConfigurationList, Settings},
 };
 use std::{
     collections::HashSet,
@@ -27,7 +27,7 @@ use std::{
 use crate::{
     error::{Result, ResultLogExt},
     resources::{RESOURCES, ResourceManager},
-    utils::constants::SEELEN_COMMON,
+    utils::constants::MACUI_COMMON,
 };
 
 pub static BUNDLED_SETTINGS_BY_APP: LazyLock<Arc<AppsConfigurationList>> = LazyLock::new(|| {
@@ -80,7 +80,7 @@ static USER_RESOURCES_WATCHER: OnceLock<Debouncer<ReadDirectoryChangesWatcher, F
 static CHANGES_PROCESSING: tokio::sync::Mutex<()> = tokio::sync::Mutex::const_new(());
 
 pub fn initialize_user_resources_watcher() -> Result<()> {
-    log::trace!("Starting Seelen UI Files Watcher");
+    log::trace!("Starting MAC UI Files Watcher");
     let mut debouncer = new_debouncer(
         Duration::from_millis(100),
         None,
@@ -96,7 +96,7 @@ pub fn initialize_user_resources_watcher() -> Result<()> {
         },
     )?;
 
-    debouncer.watch(SEELEN_COMMON.app_data_dir(), RecursiveMode::Recursive)?;
+    debouncer.watch(MACUI_COMMON.app_data_dir(), RecursiveMode::Recursive)?;
     USER_RESOURCES_WATCHER.set(debouncer).ok();
     Ok(())
 }
@@ -122,36 +122,36 @@ async fn process_changes(changed: &HashSet<PathBuf>) -> Result<()> {
     let mut wallpapers_changed = false;
     let settings_changed = changed
         .iter()
-        .any(|path| settings_reload::is_settings_file(path, SEELEN_COMMON.settings_path()));
+        .any(|path| settings_reload::is_settings_file(path, MACUI_COMMON.settings_path()));
 
     // Single iteration over the changed paths
     for path in changed {
-        if !icons_changed && path.starts_with(SEELEN_COMMON.user_icons_path()) {
+        if !icons_changed && path.starts_with(MACUI_COMMON.user_icons_path()) {
             icons_changed = true;
         };
 
         if !themes_changed
-            && (path.starts_with(SEELEN_COMMON.user_themes_path())
-                || path.starts_with(SEELEN_COMMON.bundled_themes_path()))
+            && (path.starts_with(MACUI_COMMON.user_themes_path())
+                || path.starts_with(MACUI_COMMON.bundled_themes_path()))
         {
             themes_changed = true;
         }
 
         if !plugins_changed
-            && (path.starts_with(SEELEN_COMMON.user_plugins_path())
-                || path.starts_with(SEELEN_COMMON.bundled_plugins_path()))
+            && (path.starts_with(MACUI_COMMON.user_plugins_path())
+                || path.starts_with(MACUI_COMMON.bundled_plugins_path()))
         {
             plugins_changed = true;
         }
 
         if !widgets_changed
-            && (path.starts_with(SEELEN_COMMON.user_widgets_path())
-                || path.starts_with(SEELEN_COMMON.bundled_widgets_path()))
+            && (path.starts_with(MACUI_COMMON.user_widgets_path())
+                || path.starts_with(MACUI_COMMON.bundled_widgets_path()))
         {
             widgets_changed = true;
         }
 
-        if !wallpapers_changed && path.starts_with(SEELEN_COMMON.user_wallpapers_path()) {
+        if !wallpapers_changed && path.starts_with(MACUI_COMMON.user_wallpapers_path()) {
             wallpapers_changed = true;
         }
     }
@@ -208,17 +208,16 @@ async fn process_changes(changed: &HashSet<PathBuf>) -> Result<()> {
     // reconciling widgets or emitting it to settings/Dock webviews.
     if settings_changed {
         let current = FULL_STATE.load_full();
-        if let Some(settings) = settings_reload::load_changed_settings(
-            SEELEN_COMMON.settings_path(),
-            &current.settings,
-        )? {
+        if let Some(settings) =
+            settings_reload::load_changed_settings(MACUI_COMMON.settings_path(), &current.settings)?
+        {
             let mut updated = AppSettings { settings };
             updated.complete_initialization(&RESOURCES);
             log::info!(
                 "Settings refreshed from disk: launchpad={}, shortcuts={}",
                 updated
                     .settings
-                    .is_widget_enabled(&"@seelen/apps-menu".into()),
+                    .is_widget_enabled(&"@macui/apps-menu".into()),
                 updated.settings.shortcuts.enabled,
             );
             let updated = Arc::new(updated);

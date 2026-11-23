@@ -15,7 +15,7 @@ profile:
   log_out: Αποσυνδεθείτε
   open_onedrive: Ανοίξτε τον κατάλογο του OneDrive
   open_user_folder: Ανοίξτε τον κατάλογο χρήστη
-seelen_options:
-  open_installation_folder: Ανοίξτε το φάκελο ρυθμίσεων Seelen
-  open_log_folder: Ανοίξτε το φάκελο καταγραφής Seelen
-  title: Καταλόγους Seelen
+macui_options:
+  open_installation_folder: Ανοίξτε το φάκελο ρυθμίσεων MAC UI
+  open_log_folder: Ανοίξτε το φάκελο καταγραφής MAC UI
+  title: Καταλόγους MAC UI

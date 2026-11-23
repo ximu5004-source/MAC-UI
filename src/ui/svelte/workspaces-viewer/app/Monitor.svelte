@@ -2,8 +2,8 @@
   import Window from "./Window.svelte";
   import Workspace from "./Workspace.svelte";
   import { state as store } from "../state.svelte";
-  import type { PhysicalMonitor } from "@seelen-ui/lib/types";
-  import { invoke, SeelenCommand } from "@seelen-ui/lib";
+  import type { PhysicalMonitor } from "@macui/lib/types";
+  import { invoke, MacUiCommand } from "@macui/lib";
   import { Icon } from "libs/ui/svelte/components/Icon";
   import { Wallpaper } from "libs/ui/svelte/components/Wallpaper";
   import { DragDropProvider, DragOverlay } from "@dnd-kit/svelte";
@@ -36,12 +36,12 @@
 
   function createWorkspace(e: MouseEvent) {
     e.stopPropagation();
-    invoke(SeelenCommand.CreateWorkspace, { monitorId: monitor.id });
+    invoke(MacUiCommand.CreateWorkspace, { monitorId: monitor.id });
   }
   
   function createWorkspaceRow(e: MouseEvent) {
     e.stopPropagation();
-    invoke(SeelenCommand.CreateWorkspaceRow, { monitorId: monitor.id });
+    invoke(MacUiCommand.CreateWorkspaceRow, { monitorId: monitor.id });
   }
 </script>
 
@@ -53,7 +53,7 @@
     const hwnd = source.id as number;
     const workspaceId = target.id as string;
     if (viewingWorkspaceId === workspaceId) return;
-    invoke(SeelenCommand.MoveWindowToWorkspace, { hwnd, workspaceId });
+    invoke(MacUiCommand.MoveWindowToWorkspace, { hwnd, workspaceId });
   }}
 >
   <div

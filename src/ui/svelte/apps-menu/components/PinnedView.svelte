@@ -248,10 +248,11 @@
   </ul>
   </PageViewport>
 
-  {#if globalState.pinnedItems.length === 0}
+  {#if available.length === 0}
     <div class="pinned-view-empty">
       <p>{$t("welcome_message")}</p>
       <p>{$t("welcome_message2")}</p>
+      <button disabled={!globalState.canEditFavorites} onclick={() => globalState.chooseFavorites()}>{$t("launchpad.add_favorites")}</button>
     </div>
   {/if}
   <PageControls page={pagination.page} count={pagination.count} disabled={!!dragSnapshot} onchange={changePage} />

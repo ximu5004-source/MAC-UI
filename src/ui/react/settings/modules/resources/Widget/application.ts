@@ -1,5 +1,5 @@
 import { DEFAULT_SETTINGS, settings } from "../../../state/mod";
-import type { WidgetId } from "@seelen-ui/lib/types";
+import type { WidgetId } from "@macui/lib/types";
 import { widgets } from "../../../state/resources";
 
 /**
@@ -15,7 +15,7 @@ export function isWidgetEnabled(widgetId: WidgetId) {
   if (config) {
     return config.enabled;
   }
-  return !["@seelen/desktop-shell", "@seelen/apps-menu"].includes(widgetId) && !!widget?.metadata.bundled;
+  return !["@macui/desktop-shell", "@macui/apps-menu"].includes(widgetId) && !!widget?.metadata.bundled;
 }
 
 /**

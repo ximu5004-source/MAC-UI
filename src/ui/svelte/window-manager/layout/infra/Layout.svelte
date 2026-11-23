@@ -5,7 +5,7 @@
   import Container from "./Container.svelte";
   import { NodeUtils } from "../../utils.ts";
   import { TREE_CONTEXT_KEY } from "../domain.ts";
-  import type { TwmRuntimeTree } from "@seelen-ui/lib/types";
+  import type { TwmRuntimeTree } from "@macui/lib/types";
 
   interface Props {
     monitorId: string;

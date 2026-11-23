@@ -1,4 +1,4 @@
-import type { Color } from "@seelen-ui/lib/types";
+import type { Color } from "@macui/lib/types";
 
 const CANVAS_SIZE = 64;
 const CLUSTER_COUNT = 6;

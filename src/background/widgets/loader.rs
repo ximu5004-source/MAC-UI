@@ -1,7 +1,7 @@
 use std::{sync::Arc, time::Duration};
 
-use seelen_core::state::{Widget, WidgetInstanceMode, WidgetStatus};
-use slu_utils::widget_health::{HealthAction, WidgetHealth};
+use macui_core::state::{Widget, WidgetInstanceMode, WidgetStatus};
+use macui_utils::widget_health::{HealthAction, WidgetHealth};
 use tauri::{Emitter, Listener, Manager};
 use tauri_plugin_dialog::{DialogExt, MessageDialogButtons, MessageDialogKind};
 use uuid::Uuid;

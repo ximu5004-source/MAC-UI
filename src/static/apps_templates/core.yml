@@ -7,7 +7,7 @@
     - unmanage
 - name: MAC UI
   identifier:
-    id: (?i)^(mac-ui|seelen-ui)\.exe$
+    id: (?i)^(mac-ui|macui)\.exe$
     kind: Exe
     matchingStrategy: Regex
   options:

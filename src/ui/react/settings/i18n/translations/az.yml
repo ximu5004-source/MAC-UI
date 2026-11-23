@@ -30,14 +30,14 @@ apps_configurations:
     Bu paketlənmiş konfiqurasiya düzəliş deyil və özelleştirme olmadan ən yaxşı
     təcrübəni təmin etmək üçün hazırlanmışdır. Avtomatik olaraq sizin üçün ən
     çox yayılmış tətbiqləri konfiqurasiya edirlər.
-  bundled_title: App Config Seelen ilə birləşdirilmişdir
+  bundled_title: App Config MAC UI ilə birləşdirilmişdir
   confirm_delete: Bu konfiqurasiya / s silmək istədiyinizə əminsiniz?
   confirm_delete_title: Silmək təsdiqləyin
   delete: Silmək
   export: İxrac etmək
   export_full: Tətbiq tərəfindən parametrləri ixrac edin
   extra_info: >-
-    Seelen UI, bir tətbiq başına yalnız bir identifikatordan istifadə edir (ilk
+    MAC UI, bir tətbiq başına yalnız bir identifikatordan istifadə edir (ilk
     matç tapıldı), buna görə əmiklər necə vacibdir, ən son əlavə olaraq,
     cədvəlin ən sondan köhnəyə görə sıralandığı üçün prioritetləşdiriləcəkdir.
   identifier:
@@ -79,13 +79,13 @@ devtools:
   data_folder: Məlumat qovluğu
   enable: Developer alətlərini aktivləşdirin
   enable_description: >-
-    Seelen UI daxili hissələrini yoxlamaq və sazlamaq üçün qabaqcıl alətləri
+    MAC UI daxili hissələrini yoxlamaq və sazlamaq üçün qabaqcıl alətləri
     açır. Daimi istifadə üçün nəzərdə tutulmayıb.
   icons: Keşlənmiş Nişanlar
   install_folder: Quraşdırma qovluğu
   load: Yükləmək
   settings_file: Parametrlər faylı
-  shared_components: SLU Standart Komponentləri
+  shared_components: MAC UI Standart Komponentləri
   simulate_dialog:
     label: Dialoqu Simulyasiya edin
     trigger: Tətik
@@ -118,7 +118,7 @@ devtools:
     widget_id: Widget ID
 discord_banner:
   message: >-
-    Digər Seelen UI istifadəçiləri ilə əlaqə saxlayın, kömək alın, mövzuları
+    Digər MAC UI istifadəçiləri ilə əlaqə saxlayın, kömək alın, mövzuları
     paylaşın və ən son xəbərlərdən xəbərdar olun.
   title: İcmamıza qoşulun
 extras:
@@ -168,7 +168,7 @@ general:
     plugged: Qoşuldu və ya şarj
   polling_interval: Sistem sorğu intervalı
   polling_interval_description: >-
-    Seelen UI CPU, RAM, şəbəkə və disk fəaliyyəti kimi sistem resurslarını nə
+    MAC UI CPU, RAM, şəbəkə və disk fəaliyyəti kimi sistem resurslarını nə
     qədər tez-tez (saniyələrlə) yoxlayır. Daha kiçik rəqəm daha tez-tez
     yeniləmələr, lakin bir qədər yüksək resurs istifadəsi deməkdir.
   saturday: şənbə
@@ -224,7 +224,7 @@ reset_to_default: Defolt dəyərinə yenidən qurun
 resources:
   affected_widgets: Təsirə məruz qalan vidjetlər
   app_outdated: >-
-    Bu qaynaq, Seelen UI-nin düzgün işləməsi üçün daha yeni bir versiyasını
+    Bu qaynaq, MAC UI-nin düzgün işləməsi üçün daha yeni bir versiyasını
     tələb edir.
   coming_soon: Tezliklə
   corrupted_wallpaper: Miniatürü çıxarmaq alınmadı - zədələnmiş və ya dəstəklənməyən video formatı
@@ -237,7 +237,7 @@ resources:
   modified: Dəyişdirilib
   open_folder: Açıq Resurs qovluğu
   outdated: >-
-    Bu qaynaq Seelen UI-nin köhnə bir versiyası üçün hazırlanmış və düzgün
+    Bu qaynaq MAC UI-nin köhnə bir versiyası üçün hazırlanmış və düzgün
     işləməyə bilər.
   see_on_website: Veb saytında baxın
   update_now: Yeniləyin
@@ -246,7 +246,7 @@ resources:
 review_request:
   not_now: İndi yox
   sure: Əlbəttə!
-  title: Seelen UI-dən zövq alırsınız?
+  title: MAC UI-dən zövq alırsınız?
 save: Yadda saxla
 save_and_restart: Saxla və yenidən başladın
 search: Axtar
@@ -266,7 +266,7 @@ shortcuts:
     təyin edin.
   enable: Quraşdırılmış qısa yol sistemini aktivləşdirin
   enable_tooltip: >-
-    Seelen UI müştərisindən istifadə edərək öz qısa yol sisteminizi həyata
+    MAC UI müştərisindən istifadə edərək öz qısa yol sisteminizi həyata
     keçirəcəksənsə deaktiv edin
   labels:
     create_new_workspace: Yeni iş sahəsi yaradın
@@ -421,14 +421,14 @@ weg:
 welcome:
   give_a_review: Rəy verin
   message: >-
-    Seelen UI Windows üçün pulsuz və açıq mənbəli iş masası mühitidir. Burada iş
+    MAC UI Windows üçün pulsuz və açıq mənbəli iş masası mühitidir. Burada iş
     masanızın necə göründüyünə və davranışına tam nəzarət edirsiniz, bu da sizə
     hər bir detalı iş axınınıza və üslubunuza uyğunlaşdırmağa imkan verir.
   ok: Başlayaq!
   review: >-
-    Seelen UI-dən istifadə etməkdən zövq alırsınızsa, mağazada rəy yazmağı
+    MAC UI-dən istifadə etməkdən zövq alırsınızsa, mağazada rəy yazmağı
     düşünün – rəyiniz layihənin böyüməsinə və təkmilləşdirilməsinə kömək edir.
-  title: Seelen UI-ə xoş gəlmisiniz!
+  title: MAC UI-ə xoş gəlmisiniz!
 widget:
   default_instance: Defolt Nümunə
   default_instance_hint: Həmişə aktivdir, kök vidcet konfiqurasiyasından istifadə edir

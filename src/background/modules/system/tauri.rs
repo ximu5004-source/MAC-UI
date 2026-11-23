@@ -1,7 +1,7 @@
 use std::sync::Once;
 
-use seelen_core::{
-    handlers::SeelenEvent,
+use macui_core::{
+    handlers::MacUiEvent,
     system_state::{Core, Disk, Memory, NetworkStatistics},
 };
 
@@ -18,25 +18,25 @@ fn get_system_info() -> &'static SystemInfo {
         SystemInfo::subscribe(|event| match event {
             SystemInfoEvent::DisksChanged => {
                 emit_to_webviews(
-                    SeelenEvent::SystemDisksChanged,
+                    MacUiEvent::SystemDisksChanged,
                     &*SystemInfo::instance().last_disks.lock(),
                 );
             }
             SystemInfoEvent::NetworkChanged => {
                 emit_to_webviews(
-                    SeelenEvent::SystemNetworkChanged,
+                    MacUiEvent::SystemNetworkChanged,
                     &*SystemInfo::instance().last_networks.lock(),
                 );
             }
             SystemInfoEvent::MemoryChanged => {
                 emit_to_webviews(
-                    SeelenEvent::SystemMemoryChanged,
+                    MacUiEvent::SystemMemoryChanged,
                     &*SystemInfo::instance().last_memory.lock(),
                 );
             }
             SystemInfoEvent::CoresChanged => {
                 emit_to_webviews(
-                    SeelenEvent::SystemCoresChanged,
+                    MacUiEvent::SystemCoresChanged,
                     &*SystemInfo::instance().last_cores.lock(),
                 );
             }

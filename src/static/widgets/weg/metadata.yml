@@ -1,4 +1,4 @@
-id: "@seelen/weg"
+id: "@macui/weg"
 icon: BiDockBottom
 metadata:
   displayName: !extend i18n/display_name.yml

@@ -1,36 +1,36 @@
-import { invoke, RuntimeStyleSheet, SeelenCommand, SeelenEvent, Settings, subscribe, Widget } from "@seelen-ui/lib";
+import { invoke, RuntimeStyleSheet, MacUiCommand, MacUiEvent, Settings, subscribe, Widget } from "@macui/lib";
 import { declareDocumentAsLayeredHitbox } from "libs/ui/react/utils/layered";
-import type { FocusedApp, TwmReservation, TwmRuntimeTree, WindowManagerSettings } from "@seelen-ui/lib/types";
-import { FancyToolbarSide, HideMode } from "@seelen-ui/lib/types";
-import { SeelenWegSide } from "node_modules/@seelen-ui/lib/esm/gen/types/SeelenWegSide";
+import type { FocusedApp, TwmReservation, TwmRuntimeTree, WindowManagerSettings } from "@macui/lib/types";
+import { FancyToolbarSide, HideMode } from "@macui/lib/types";
+import { MacUiWegSide } from "node_modules/@macui/lib/esm/gen/types/MacUiWegSide";
 
 import { lazyRune } from "libs/ui/svelte/utils/LazyRune.svelte.ts";
 import { isTouchPrimary } from "libs/ui/svelte/utils/signals.svelte.ts";
 
-let layouts = lazyRune(() => invoke(SeelenCommand.WmGetRenderTree));
-subscribe(SeelenEvent.WMTreeChanged, layouts.setByPayload);
+let layouts = lazyRune(() => invoke(MacUiCommand.WmGetRenderTree));
+subscribe(MacUiEvent.WMTreeChanged, layouts.setByPayload);
 
-let workspaces = lazyRune(() => invoke(SeelenCommand.StateGetVirtualDesktops));
-subscribe(SeelenEvent.VirtualDesktopsChanged, workspaces.setByPayload);
+let workspaces = lazyRune(() => invoke(MacUiCommand.StateGetVirtualDesktops));
+subscribe(MacUiEvent.VirtualDesktopsChanged, workspaces.setByPayload);
 
-let interactables = lazyRune(() => invoke(SeelenCommand.GetUserAppWindows));
-subscribe(SeelenEvent.UserAppWindowsChanged, interactables.setByPayload);
+let interactables = lazyRune(() => invoke(MacUiCommand.GetUserAppWindows));
+subscribe(MacUiEvent.UserAppWindowsChanged, interactables.setByPayload);
 
-let monitors = lazyRune(() => invoke(SeelenCommand.SystemGetMonitors));
-subscribe(SeelenEvent.SystemMonitorsChanged, monitors.setByPayload);
+let monitors = lazyRune(() => invoke(MacUiCommand.SystemGetMonitors));
+subscribe(MacUiEvent.SystemMonitorsChanged, monitors.setByPayload);
 
 let reservation = $state<TwmReservation | null>(null);
-subscribe(SeelenEvent.WMSetReservation, (e) => {
+subscribe(MacUiEvent.WMSetReservation, (e) => {
   reservation = e.payload;
 });
 
 let forceRepositioning = $state(0);
-subscribe(SeelenEvent.WMForceRetiling, () => {
+subscribe(MacUiEvent.WMForceRetiling, () => {
   forceRepositioning++;
 });
 
 const [focusedAppInit, settingsInit] = await Promise.all([
-  invoke(SeelenCommand.GetFocusedApp),
+  invoke(MacUiCommand.GetFocusedApp),
   Settings.getAsync(),
   layouts.init(),
   workspaces.init(),
@@ -39,15 +39,15 @@ const [focusedAppInit, settingsInit] = await Promise.all([
 ]);
 
 let focusedApp = $state<FocusedApp>(focusedAppInit);
-subscribe(SeelenEvent.GlobalFocusChanged, (e) => {
+subscribe(MacUiEvent.GlobalFocusChanged, (e) => {
   focusedApp = e.payload;
 });
 
 let fullSettings = $state(settingsInit);
-let settings = $state<WindowManagerSettings>(settingsInit.byWidget["@seelen/window-manager"]);
+let settings = $state<WindowManagerSettings>(settingsInit.byWidget["@macui/window-manager"]);
 Settings.onChange((s) => {
   fullSettings = s;
-  settings = s.byWidget["@seelen/window-manager"];
+  settings = s.byWidget["@macui/window-manager"];
 });
 
 // =================================================
@@ -82,9 +82,9 @@ const widgetRect = $derived.by(() => {
   }
 
   const rect = { ...monitor.rect };
-  const tbConfig = fullSettings.byWidget["@seelen/fancy-toolbar"];
+  const tbConfig = fullSettings.byWidget["@macui/fancy-toolbar"];
   const tbMonitorConfig = (fullSettings.monitorsV3[monitor.id] as any)?.byWidget?.[
-    "@seelen/fancy-toolbar"
+    "@macui/fancy-toolbar"
   ] ?? {
     enabled: true,
   };
@@ -107,9 +107,9 @@ const widgetRect = $derived.by(() => {
     }
   }
 
-  const wegConfig = fullSettings.byWidget["@seelen/weg"];
+  const wegConfig = fullSettings.byWidget["@macui/weg"];
   const wegMonitorConfig = (fullSettings.monitorsV3[monitor.id] as any)?.byWidget?.[
-    "@seelen/weg"
+    "@macui/weg"
   ] ?? {
     enabled: true,
   };
@@ -123,16 +123,16 @@ const widgetRect = $derived.by(() => {
       (wegConfig.size + wegConfig.padding * 2 + wegConfig.margin * 2) * monitor.scaleFactor,
     );
     switch (wegConfig.position) {
-      case SeelenWegSide.Top:
+      case MacUiWegSide.Top:
         rect.top += wegSize;
         break;
-      case SeelenWegSide.Bottom:
+      case MacUiWegSide.Bottom:
         rect.bottom -= wegSize;
         break;
-      case SeelenWegSide.Left:
+      case MacUiWegSide.Left:
         rect.left += wegSize;
         break;
-      case SeelenWegSide.Right:
+      case MacUiWegSide.Right:
         rect.right -= wegSize;
         break;
     }

@@ -1,6 +1,6 @@
 use std::path::Path;
 
-use seelen_core::{SeelenLibError, state::Settings};
+use macui_core::{MacUiLibError, state::Settings};
 
 /// Only the three files that form a settings snapshot can refresh runtime settings.
 /// Backups and resource files must never accidentally replace the active snapshot.
@@ -21,7 +21,7 @@ pub fn is_settings_file(changed: &Path, settings_path: &Path) -> bool {
 pub fn load_changed_settings(
     settings_path: &Path,
     current: &Settings,
-) -> Result<Option<Settings>, SeelenLibError> {
+) -> Result<Option<Settings>, MacUiLibError> {
     let loaded = Settings::load(settings_path)?;
     if serde_json::to_value(&loaded)? == serde_json::to_value(current)? {
         Ok(None)
@@ -82,7 +82,7 @@ mod tests {
     #[test]
     fn disk_enable_and_disable_are_loaded_without_changing_other_preferences() {
         let fixture = Fixture::new();
-        let id = "@seelen/apps-menu".into();
+        let id = "@macui/apps-menu".into();
         let mut current = Settings::default();
         current.sanitize().unwrap();
         current.streaming_mode = true;
@@ -126,7 +126,7 @@ mod tests {
     #[test]
     fn incomplete_or_missing_files_do_not_reset_the_last_good_runtime_snapshot() {
         let fixture = Fixture::new();
-        let id = "@seelen/apps-menu".into();
+        let id = "@macui/apps-menu".into();
         let mut current = Settings::default();
         current.set_widget_enabled(&id, true);
         current.sanitize().unwrap();

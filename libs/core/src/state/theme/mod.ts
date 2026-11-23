@@ -5,19 +5,19 @@ import type {
   ThemeConfigDefinition,
   ThemeId,
   ThemeVariableDefinition,
-} from "@seelen-ui/types";
-import { SeelenCommand, SeelenEvent, type UnSubscriber } from "../../handlers/mod.ts";
+} from "@macui/types";
+import { MacUiCommand, MacUiEvent, type UnSubscriber } from "../../handlers/mod.ts";
 import { List } from "../../utils/List.ts";
 import { newFromInvoke, newOnEvent } from "../../utils/State.ts";
 import { Widget } from "../widget/mod.ts";
 
 export class ThemeList extends List<ITheme> {
   static getAsync(): Promise<ThemeList> {
-    return newFromInvoke(this, SeelenCommand.StateGetThemes);
+    return newFromInvoke(this, MacUiCommand.StateGetThemes);
   }
 
   static onChange(cb: (payload: ThemeList) => void): Promise<UnSubscriber> {
-    return newOnEvent(cb, this, SeelenEvent.StateThemesChanged);
+    return newOnEvent(cb, this, MacUiEvent.StateThemesChanged);
   }
 
   applyToDocument(activeIds: ThemeId[], variables: ISettings["byTheme"]): void {

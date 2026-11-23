@@ -7,6 +7,12 @@
   --mac-glass-rim: linear-gradient(145deg, #fffb 0%, #fff3 28%, #fff1 52%, #fff6 100%);
 }
 
+/* Contrast glass retains the wallpaper and strengthens the optical edge. */
+:root[data-glass-contrast="enhanced"] {
+  --mac-glass-surface: rgb(35 35 39 / .16);
+  --mac-glass-rim: linear-gradient(145deg, #fffe, #fff5 32%, #14141865 60%, #fff9);
+}
+
 :where(.mac-frosted-surface) {
   position: relative;
   isolation: isolate;
@@ -44,6 +50,9 @@ html[data-native-frosted="true"] #root .mac-frosted-surface {
   --flyout-ink: var(--mac-ink);
 }
 
+html[data-glass-contrast="enhanced"] .mac-frosted-surface::before {
+  filter: drop-shadow(0 1px 1px rgb(0 0 0 / .32));
+}
 @media (prefers-reduced-transparency: reduce), (forced-colors: active), (prefers-contrast: more) {
   #root .mac-frosted-surface { background: Canvas; color: CanvasText; backdrop-filter: none; }
   .mac-frosted-surface::before { background: CanvasText; padding: 1px; }

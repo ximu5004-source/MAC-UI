@@ -1,4 +1,4 @@
-import { TwmReservation } from "@seelen-ui/lib/types";
+import { TwmReservation } from "@macui/lib/types";
 import type { IconName } from "libs/ui/icons";
 
 export const ReservationIcon: Record<TwmReservation, IconName> = {

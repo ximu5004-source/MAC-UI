@@ -1,4 +1,4 @@
-id: "@seelen/system-tray"
+id: "@macui/system-tray"
 icon: IoIosArrowDropdown
 metadata:
   displayName: !extend i18n/display_name.yml

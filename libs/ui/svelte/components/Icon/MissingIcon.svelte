@@ -2,7 +2,7 @@
   import type { ClassValue } from "svelte/elements";
   import { iconPackManager, type IconState } from "./common.svelte.ts";
   import { prefersDarkColorScheme } from "../../runes/DarkMode.svelte.ts";
-  import SluIconRenderer from "./SluIconRenderer.svelte";
+  import MacUiIconRenderer from "./MacUiIconRenderer.svelte";
 
   interface Props {
     class?: ClassValue;
@@ -26,4 +26,4 @@
   });
 </script>
 
-<SluIconRenderer {...rest} {state} class={className} />
+<MacUiIconRenderer {...rest} {state} class={className} />

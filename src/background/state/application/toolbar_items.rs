@@ -1,14 +1,14 @@
 use std::{collections::HashSet, sync::LazyLock};
 
-use parking_lot::Mutex;
-use seelen_core::{
+use macui_core::{
     resource::WidgetId,
     state::{ToolbarItem, ToolbarItem2, ToolbarState},
 };
+use parking_lot::Mutex;
 
 use crate::{
     error::{Result, ResultLogExt},
-    utils::{atomic_write_file, constants::SEELEN_COMMON},
+    utils::{atomic_write_file, constants::MACUI_COMMON},
 };
 
 pub static TOOLBAR_ITEMS_MANAGER: LazyLock<ToolbarItemsManager> = LazyLock::new(|| {
@@ -30,7 +30,7 @@ impl ToolbarItemsManager {
 
     pub fn write(&self, mut items: ToolbarState) -> Result<()> {
         items.sanitize();
-        let path = SEELEN_COMMON
+        let path = MACUI_COMMON
             .widget_data_dir(&WidgetId::known_toolbar())
             .join("state.yml");
         // Hold the lock while writing so concurrent saves (one webview per
@@ -42,7 +42,7 @@ impl ToolbarItemsManager {
     }
 
     pub fn load(&self) -> Result<()> {
-        let path = SEELEN_COMMON
+        let path = MACUI_COMMON
             .widget_data_dir(&WidgetId::known_toolbar())
             .join("state.yml");
 
@@ -65,7 +65,7 @@ impl ToolbarItemsManager {
 fn initial_items() -> ToolbarState {
     ToolbarState {
         left: vec![
-            ToolbarItem2::Plugin("@seelen/tb-user-menu".into()),
+            ToolbarItem2::Plugin("@macui/tb-user-menu".into()),
             ToolbarItem2::Inline(Box::new(ToolbarItem {
                 template: "return \"|\"".into(),
                 ..Default::default()
@@ -78,16 +78,17 @@ fn initial_items() -> ToolbarState {
             })),
             ToolbarItem2::Plugin("@default/focused-app-title".into()),
         ],
-        center: vec![ToolbarItem2::Plugin("@seelen/tb-calendar-popup".into())],
+        center: vec![ToolbarItem2::Plugin("@macui/tb-calendar-popup".into())],
         right: vec![
-            ToolbarItem2::Plugin("@seelen/tb-system-tray".into()),
-            ToolbarItem2::Plugin("@seelen/tb-keyboard-selector".into()),
-            ToolbarItem2::Plugin("@seelen/tb-bluetooth-popup".into()),
-            ToolbarItem2::Plugin("@seelen/tb-network-popup".into()),
-            ToolbarItem2::Plugin("@seelen/tb-media-popup".into()),
+            ToolbarItem2::Plugin("@macui/tb-now-playing".into()),
+            ToolbarItem2::Plugin("@macui/tb-system-tray".into()),
+            ToolbarItem2::Plugin("@macui/tb-keyboard-selector".into()),
+            ToolbarItem2::Plugin("@macui/tb-bluetooth-popup".into()),
+            ToolbarItem2::Plugin("@macui/tb-network-popup".into()),
+            ToolbarItem2::Plugin("@macui/tb-media-popup".into()),
             ToolbarItem2::Plugin("@default/power".into()),
-            ToolbarItem2::Plugin("@seelen/tb-notifications".into()),
-            ToolbarItem2::Plugin("@seelen/tb-quick-settings".into()),
+            ToolbarItem2::Plugin("@macui/tb-notifications".into()),
+            ToolbarItem2::Plugin("@macui/tb-quick-settings".into()),
         ],
         ..Default::default()
     }

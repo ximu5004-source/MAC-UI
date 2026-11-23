@@ -14,7 +14,7 @@
   .media-control-label {
     font-size: 12px;
     font-weight: 600;
-    color: var(--slu-std-fg-secondary-color);
+    color: var(--macui-std-fg-secondary-color);
     margin-top: var(--spacing-xs);
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -207,7 +207,7 @@
 
       height: 4px;
       border-radius: 8px;
-      background: oklch(from var(--slu-std-bg-dark-color) l c h / 0.8);
+      background: oklch(from var(--macui-std-bg-dark-color) l c h / 0.8);
 
       &::-webkit-slider-runnable-track {
         appearance: none;
@@ -217,7 +217,7 @@
         appearance: none;
         width: 0;
         height: 0;
-        box-shadow: -100vw 0 0 100vw var(--slu-std-ui-color);
+        box-shadow: -100vw 0 0 100vw var(--macui-std-ui-color);
       }
     }
   }

@@ -1,4 +1,4 @@
-import type { WidgetId } from "@seelen-ui/lib/types";
+import type { WidgetId } from "@macui/lib/types";
 import { Switch } from "antd";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -16,21 +16,22 @@ import {
 import { widgets } from "../../../state/resources.ts";
 import { getDevTools } from "../../developer/application.ts";
 import { ResourceText } from "libs/ui/react/components/ResourceText/index.tsx";
+import { getResourceText } from "libs/ui/react/utils";
+import type { IconName } from "libs/ui/icons";
 import cs from "../infra.module.css";
+import feature from "./feature.module.css";
 
 import { Button } from "antd";
 
 import { SettingsGroup, SettingsOption, SettingsSubGroup } from "../../../components/SettingsBox/index.tsx";
-import { ResourceDescription } from "../ResourceCard.tsx";
 import { RenderBySettingsDeclaration } from "./ConfigRenderer.tsx";
 import { WidgetInstanceSelector } from "./InstanceSelector.tsx";
-import { SeelenWegSettings } from "./seelenweg/infra.tsx";
+import { MacUiWegSettings } from "./macuiweg/infra.tsx";
 import { FancyToolbarSettings } from "./fancyToolbar/infra.tsx";
 import { WallSettings } from "./Wall/infra.tsx";
 import { Icon } from "libs/ui/react/components/Icon/index.tsx";
-import { Note } from "../../../components/Note/index.tsx";
 import { WindowManagerSettings } from "./WindowManager/main/infra/index.tsx";
-import { DesktopGlassSettings } from "./DesktopGlass";
+import { DesktopOrganizerSettings } from "./DesktopControls";
 
 export function WidgetConfiguration({
   widgetId,
@@ -51,10 +52,13 @@ export function WidgetConfiguration({
   const monitorConfig = monitorId ? getMonitorWidgetConfig(monitorId, widgetId) : undefined;
   const areDevToolsEnabled = getDevTools();
 
-  const { t } = useTranslation();
-  const enabledLabel = monitorId ? t("widget.enable_for_monitor")
-    : widgetId === "@seelen/desktop-shell" ? t("desktop_manager.enable")
-    : widgetId === "@seelen/wallpaper-manager" ? t("desktop_manager.enable_wallpaper")
+  const { t, i18n } = useTranslation();
+  const enabledLabel = monitorId
+    ? t("widget.enable_for_monitor")
+    : widgetId === "@macui/desktop-shell"
+    ? t("desktop_manager.enable")
+    : widgetId === "@macui/wallpaper-manager"
+    ? t("desktop_manager.enable_wallpaper")
     : t("widget.enable");
 
   if (!widget) {
@@ -91,13 +95,39 @@ export function WidgetConfiguration({
   const showToggleEnabled = !monitorId || widget.instances === "ReplicaByMonitor";
 
   const widgetPlugins = widget.plugins;
+  const name = getResourceText(widget.metadata.displayName, i18n.language);
 
   return (
     <>
-      <Note>
-        <ResourceDescription text={widget.metadata.description} />
-      </Note>
-
+      <div className={feature.header} data-setting data-feature-header>
+        <span className={feature.icon} aria-hidden="true">
+          <Icon iconName={(widget.icon || "TbLayoutGrid") as IconName} size={26} />
+        </span>
+        <div className={feature.identity}>
+          <h2>{name}</h2>
+          <p>{t(`settings_detail.features.${widgetId.split("/")[1]}`, { defaultValue: "" })}</p>
+        </div>
+        {showToggleEnabled && (
+          <div className={feature.actions}>
+            <span className={feature.status} data-enabled={!!config.enabled}>
+              {t(config.enabled ? "mac_ui.enabled" : "mac_ui.disabled")}
+            </span>
+            <Switch
+              aria-label={monitorId ? enabledLabel : t("settings_detail.toggle", { name })}
+              checked={config.enabled}
+              onChange={(value) => onConfigChange("enabled", value)}
+            />
+            <Button
+              type="text"
+              title={t("reset_configurations")}
+              aria-label={t("reset_configurations")}
+              onClick={() => resetWidgetConfig(widgetId)}
+            >
+              <Icon iconName="RiResetLeftLine" />
+            </Button>
+          </div>
+        )}
+      </div>
       {widgetPlugins.length > 0 && (
         <SettingsGroup>
           <SettingsSubGroup label={t("resources.included_plugins")}>
@@ -109,27 +139,6 @@ export function WidgetConfiguration({
               ))}
             </div>
           </SettingsSubGroup>
-        </SettingsGroup>
-      )}
-
-      {showToggleEnabled && (
-        <SettingsGroup>
-          <SettingsOption>
-            <b>{enabledLabel}</b>
-            <Switch
-              aria-label={enabledLabel}
-              checked={config.enabled}
-              onChange={(value) => {
-                onConfigChange("enabled", value);
-              }}
-            />
-          </SettingsOption>
-          <SettingsOption>
-            <b>{t("reset_configurations")}</b>
-            <Button onClick={() => resetWidgetConfig(widgetId)}>
-              <Icon iconName="RiResetLeftLine" />
-            </Button>
-          </SettingsOption>
         </SettingsGroup>
       )}
 
@@ -181,20 +190,26 @@ export function WidgetConfiguration({
 export function WidgetView() {
   const [searchParams] = useSearchParams();
   const widgetId = searchParams.get("id") as WidgetId;
+  return <WidgetSettings widgetId={widgetId} />;
+}
 
-  if (widgetId === "@seelen/desktop-shell") {
-    return <WidgetConfiguration widgetId={widgetId}><DesktopGlassSettings /></WidgetConfiguration>;
-  }
-
-  if (widgetId === "@seelen/weg") {
+export function WidgetSettings({ widgetId }: { widgetId: WidgetId }) {
+  if (widgetId === "@macui/desktop-shell") {
     return (
       <WidgetConfiguration widgetId={widgetId}>
-        <SeelenWegSettings />
+        <DesktopOrganizerSettings />
+      </WidgetConfiguration>
+    );
+  }
+  if (widgetId === "@macui/weg") {
+    return (
+      <WidgetConfiguration widgetId={widgetId}>
+        <MacUiWegSettings />
       </WidgetConfiguration>
     );
   }
 
-  if (widgetId === "@seelen/window-manager") {
+  if (widgetId === "@macui/window-manager") {
     return (
       <WidgetConfiguration widgetId={widgetId}>
         <WindowManagerSettings />
@@ -202,7 +217,7 @@ export function WidgetView() {
     );
   }
 
-  if (widgetId === "@seelen/fancy-toolbar") {
+  if (widgetId === "@macui/fancy-toolbar") {
     return (
       <WidgetConfiguration widgetId={widgetId}>
         <FancyToolbarSettings />
@@ -210,7 +225,7 @@ export function WidgetView() {
     );
   }
 
-  if (widgetId === "@seelen/wallpaper-manager") {
+  if (widgetId === "@macui/wallpaper-manager") {
     return (
       <WidgetConfiguration widgetId={widgetId}>
         <WallSettings />

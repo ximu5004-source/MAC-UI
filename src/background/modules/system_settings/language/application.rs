@@ -1,6 +1,6 @@
 use std::sync::LazyLock;
 
-use seelen_core::system_state::{ImeState, KeyboardLayout, SystemLanguage};
+use macui_core::system_state::{ImeState, KeyboardLayout, SystemLanguage};
 use windows::{
     Win32::{
         Globalization::{

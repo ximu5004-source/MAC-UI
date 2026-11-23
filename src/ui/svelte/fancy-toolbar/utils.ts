@@ -1,4 +1,4 @@
-import type { ToolbarItem2 } from "@seelen-ui/lib/types";
+import type { ToolbarItem2 } from "@macui/lib/types";
 
 export function matchIds(tb: ToolbarItem2, id: string): boolean {
   if (typeof tb === "string") {

@@ -15,7 +15,7 @@ profile:
   log_out: Ausloggen
   open_onedrive: Open OneDrive Verzeechnes
   open_user_folder: Öffnen vum Benotzerverzeichnis
-seelen_options:
-  open_installation_folder: Open Seelen Astellungen Dossier
-  open_log_folder: Open Seelen Log Dossier
-  title: Seelen directory
+macui_options:
+  open_installation_folder: Open MAC UI Astellungen Dossier
+  open_log_folder: Open MAC UI Log Dossier
+  title: MAC UI directory

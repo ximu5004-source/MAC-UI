@@ -30,14 +30,14 @@ apps_configurations:
     Disse samlede konfigurationer kan ikke redigeres og er designet til at give
     dig den bedste oplevelse uden tilpasning. De konfigurerer automatisk de mest
     almindelige applikationer til dig.
-  bundled_title: App Config bundtet med Seelen
+  bundled_title: App Config bundtet med MAC UI
   confirm_delete: Er du sikker på, at du vil slette denne konfiguration/er?
   confirm_delete_title: Bekræft slet
   delete: Slet
   export: Eksport
   export_full: Eksporter indstillinger efter program
   extra_info: >-
-    Seelen UI bruger kun én identifikator pr. app (første match fundet), så
+    MAC UI bruger kun én identifikator pr. app (første match fundet), så
     rækkefølgen i, hvordan de specificeres, er vigtig, det senest tilføjede vil
     blive prioriteret, da bemærk, at tabellen er sorteret som standard fra
     seneste til gammel.
@@ -49,7 +49,7 @@ apps_configurations:
     matching_strategy: Matchende strategi
     matching_strategy_option:
       contains: Indeholder
-      ends_with: Slutter med
+      ends_with: MacUitter med
       equals: Lige til
       regex: Regelmæssigt udtryk
       starts_with: Starter med
@@ -80,13 +80,13 @@ devtools:
   data_folder: Datamappe
   enable: Aktivér udviklerværktøjer
   enable_description: >-
-    Låser op avancerede værktøjer til inspektion og fejlretning af Seelen
+    Låser op avancerede værktøjer til inspektion og fejlretning af MAC UI
     UI-internal. Not intended for regular use.
   icons: Cachelagrede ikoner
   install_folder: Installationsmappe
   load: belastning
   settings_file: Indstillinger fil
-  shared_components: SLU standardkomponenter
+  shared_components: MAC UI standardkomponenter
   simulate_dialog:
     label: Simuler dialog
     trigger: Udløser
@@ -119,7 +119,7 @@ devtools:
     widget_id: Widget ID
 discord_banner:
   message: >-
-    Få forbindelse til andre Seelen UI-brugere, få hjælp, del temaer, og hold
+    Få forbindelse til andre MAC UI-brugere, få hjælp, del temaer, og hold
     dig opdateret med de seneste nyheder.
   title: Tilmeld dig vores fællesskab
 extras:
@@ -168,7 +168,7 @@ general:
     plugged: Tilsluttet eller opladning
   polling_interval: System polling interval
   polling_interval_description: >-
-    Hvor ofte (i sekunder) Seelen UI kontrollerer systemressourcer som CPU, RAM,
+    Hvor ofte (i sekunder) MAC UI kontrollerer systemressourcer som CPU, RAM,
     netværk og diskaktivitet. Et mindre antal betyder hyppigere opdateringer,
     men lidt højere ressourceforbrug.
   saturday: lørdag
@@ -208,7 +208,7 @@ home:
 inherit: Arve
 inProgress: I gang...
 insert: Indsæt
-join_us: Slut dig til os!
+join_us: MacUit dig til os!
 loading: Indlæser...
 miscellaneous: Diverse
 monitors_configurations:
@@ -223,7 +223,7 @@ reset_configurations: Nulstil konfigurationer
 reset_to_default: Nulstil til standardværdi
 resources:
   affected_widgets: Berørte widgets
-  app_outdated: Denne ressource kræver en nyere version af Seelen UI for at fungere korrekt.
+  app_outdated: Denne ressource kræver en nyere version af MAC UI for at fungere korrekt.
   coming_soon: Kommer snart
   corrupted_wallpaper: >-
     Kunne ikke udtrække miniaturebilledet - beskadiget eller ikke-understøttet
@@ -237,7 +237,7 @@ resources:
   modified: Ændret
   open_folder: Åbn ressourcemappen
   outdated: >-
-    Denne ressource er designet til en ældre version af Seelen UI og fungerer
+    Denne ressource er designet til en ældre version af MAC UI og fungerer
     muligvis ikke korrekt.
   see_on_website: Se på hjemmesiden
   update_now: Opdatering
@@ -246,7 +246,7 @@ resources:
 review_request:
   not_now: Ikke nu
   sure: Sikker!
-  title: Nyder du Seelen UI?
+  title: Nyder du MAC UI?
 save: Gemme
 save_and_restart: Gem & genstart
 search: Søge
@@ -266,7 +266,7 @@ shortcuts:
   enable: Aktivér det indbyggede genvejssystem
   enable_tooltip: >-
     Deaktiver, hvis du vil implementere dit eget genvejssystem ved hjælp af
-    Seelen UI Client
+    MAC UI Client
   labels:
     create_new_workspace: Opret et nyt arbejdsområde
     create_new_workspace_row: Opret ny arbejdsområderække
@@ -420,14 +420,14 @@ weg:
 welcome:
   give_a_review: Giv en anmeldelse
   message: >-
-    Seelen UI er et gratis og open source-skrivebordsmiljø til Windows. Her har
+    MAC UI er et gratis og open source-skrivebordsmiljø til Windows. Her har
     du fuld kontrol over, hvordan dit skrivebord ser ud og opfører sig, så du
     kan tilpasse hver eneste detalje, så den matcher din arbejdsgang og stil.
   ok: Lad os starte!
   review: >-
-    Hvis du kan lide at bruge Seelen UI, kan du overveje at skrive en anmeldelse
+    Hvis du kan lide at bruge MAC UI, kan du overveje at skrive en anmeldelse
     i butikken – din feedback hjælper projektet med at vokse og forbedre.
-  title: Velkommen til Seelen UI!
+  title: Velkommen til MAC UI!
 widget:
   default_instance: Standardinstans
   default_instance_hint: Altid aktiv, bruger root-widget-konfigurationen

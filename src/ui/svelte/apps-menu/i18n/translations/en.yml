@@ -5,9 +5,9 @@ back: Back
 disband: Disband Folder
 edit_icon: Edit Icon
 folder: Folder
-no_matching_items: No items found matching your search
+no_matching_items: No Start Menu applications found matching your search
 open_file_location: Open File Location
-pin: Pin
+pin: Add to Favorites
 pin_to_dock: Pin to Dock
 power_menu: Power Menu
 query:
@@ -16,10 +16,10 @@ query:
   files: Files
   web: Web
 run_as_admin: Run as Administrator
-unpin: Unpin
+unpin: Remove from Favorites
 web_search: Press Enter to search the web
-welcome_message: Your Launchpad is ready.
-welcome_message2: Import Windows Start Menu apps, or add apps from All Apps.
+welcome_message: Your favorite apps belong here.
+welcome_message2: Choose Add Favorites to select apps from the Windows Start Menu.
 launchpad:
   quick_access: Quick access
   quick_access_hint: Common folders and file search
@@ -28,7 +28,23 @@ launchpad:
   documents: Documents
   file_search: Search files
   title: Launchpad
-  search: Search apps, files and the web
+  search: Search Start Menu apps
+  favorites: Favorites
+  add_favorites: Add Favorites
+  clear_favorites: Clear Favorites
+  clear_hint: Reset your personal Launchpad arrangement and choose favorite apps again. No apps are uninstalled.
+  clear_title: Clear Favorites and choose again?
+  clear_description: Your favorite apps and folders will be cleared after a recovery copy is saved. All Apps, the Windows Start Menu and installed software stay unchanged. Select your own apps afterward, or undo this clear.
+  clear_and_choose: Clear and Choose Again
+  clear_error: Could not back up or save. Your previous arrangement was preserved. Retry, or cancel and check the save status.
+  clearing: Backing up and clearing…
+  cancel: Cancel
+  undo_clear: Undo Clear
+  done: Done
+  refresh: Refresh
+  choose_hint: Select the apps you use often. Check marks show your favorites; no app is launched while selecting.
+  all_apps_hint: Windows Start Menu applications · Right-click an app to add it to Favorites
+  migrated_hint: Your previous layout was preserved. New apps appear in All Apps; only you add Favorites.
   search_scope: Search scope
   clear_search: Clear search
   close: Close Launchpad
@@ -58,5 +74,6 @@ launchpad:
   hint: Drag to arrange · Drop an app onto another to create a folder
   keyboard_hint: Scroll / trackpad or Ctrl + ← / → to change pages · Esc to go back
   saving: Saving layout…
-  save_error: Could not import or save the layout. Your current arrangement is still shown; please retry.
+  save_error: Could not refresh apps or save your favorites. Your current arrangement is still shown; please retry.
+  load_error: Could not read your favorites. Existing files are preserved; retry before editing.
   retry: Retry

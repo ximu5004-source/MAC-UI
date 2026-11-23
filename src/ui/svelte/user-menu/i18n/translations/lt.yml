@@ -15,7 +15,7 @@ profile:
   log_out: Atsijungti
   open_onedrive: Atidarykite OneDrive katalogą
   open_user_folder: Atidarykite vartotojo katalogą
-seelen_options:
-  open_installation_folder: Atidarykite Seelen nustatymų aplanką
-  open_log_folder: Atidarykite Seelen žurnalo aplanką
-  title: Seelen katalogai
+macui_options:
+  open_installation_folder: Atidarykite MAC UI nustatymų aplanką
+  open_log_folder: Atidarykite MAC UI žurnalo aplanką
+  title: MAC UI katalogai

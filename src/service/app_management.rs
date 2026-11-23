@@ -1,13 +1,13 @@
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::time::{Duration, Instant};
 
-use slu_ipc::{AppIpc, IPC};
+use macui_ipc::{AppIpc, IPC};
 use sysinfo::ProcessesToUpdate;
 
 use crate::{enviroment::was_installed_using_msix, error::Result, exit};
 
 /// How long to wait for the app to establish its IPC connection after each launch attempt.
-const STARTUP_TIMEOUT: Duration = Duration::from_secs(2);
+const STARTUP_TIMEOUT: Duration = Duration::from_secs(20);
 
 /// How long to wait for the app to restore its IPC pipe after a system resume.
 /// Tauri's async runtime can take several seconds to fully re-initialize.
@@ -21,6 +21,14 @@ const MAX_CRASHES: u32 = if cfg!(debug_assertions) { 0 } else { 5 };
 /// Written by the power monitor thread, read by the app monitoring thread.
 pub static SYSTEM_SUSPENDED: AtomicBool = AtomicBool::new(false);
 
+fn startup_deadline(app_just_launched: bool, now: Instant) -> Option<Instant> {
+    app_just_launched.then(|| now + STARTUP_TIMEOUT)
+}
+
+fn within_grace(deadline: Option<Instant>, now: Instant) -> bool {
+    deadline.is_some_and(|deadline| now < deadline)
+}
+
 pub fn on_system_suspend() {
     log::info!("System suspending — pausing app health checks.");
     SYSTEM_SUSPENDED.store(true, Ordering::SeqCst);
@@ -31,7 +39,7 @@ pub fn on_system_resume() {
     SYSTEM_SUSPENDED.store(false, Ordering::SeqCst);
 }
 
-/// Starts monitoring the Seelen UI app for the current session and restarts it automatically
+/// Starts monitoring the MAC UI app for the current session and restarts it automatically
 /// when it crashes or fails to start.
 ///
 /// `app_just_launched` should be `true` when the caller already launched the app so that the
@@ -41,8 +49,7 @@ pub fn start_app_monitoring(app_just_launched: bool) {
         let mut crash_count = 0u32;
         let mut app_was_connected = true;
         // Absolute deadline until which IPC failures are ignored (startup / resume grace).
-        let mut grace_until: Option<Instant> =
-            app_just_launched.then(|| Instant::now() + STARTUP_TIMEOUT);
+        let mut grace_until = startup_deadline(app_just_launched, Instant::now());
         let mut was_suspended = false;
 
         loop {
@@ -77,19 +84,26 @@ pub fn start_app_monitoring(app_just_launched: bool) {
 
             if AppIpc::can_stablish_connection() {
                 if !app_was_connected {
-                    log::info!("Seelen UI reconnected successfully, resetting crash counter.");
+                    log::info!("MAC UI reconnected successfully, resetting crash counter.");
                     crash_count = 0;
-                    grace_until = None;
                 }
+                // A successful connection ends the startup allowance at once.
+                // A later crash retains normal immediate recovery behavior.
+                grace_until = None;
                 app_was_connected = true;
                 continue;
+            }
+
+            // A stop can arrive while the IPC probe is waiting for a reply.
+            if crate::EXITING.load(Ordering::SeqCst) {
+                return;
             }
 
             // ── App is not reachable via IPC ──────────────────────────────────────────
 
             // If we are still within a grace window (post-launch or post-resume), do not
             // count the absence as a failure yet.
-            if matches!(grace_until, Some(deadline) if Instant::now() < deadline) {
+            if within_grace(grace_until, Instant::now()) {
                 continue;
             }
 
@@ -97,35 +111,67 @@ pub fn start_app_monitoring(app_just_launched: bool) {
             // or a grace window expired without the app establishing IPC.
             app_was_connected = false;
             crash_count += 1;
-            log::warn!("Seelen UI is not running (failure #{crash_count}/{MAX_CRASHES}).");
+            log::warn!("MAC UI is not running (failure #{crash_count}/{MAX_CRASHES}).");
 
             if crash_count > MAX_CRASHES {
-                log::error!("Seelen UI failed {crash_count} times in a row, stopping service.");
+                log::error!("MAC UI failed {crash_count} times in a row, stopping service.");
                 break;
             }
 
-            crate::log_error!(kill_all_seelen_ui_processes());
+            crate::log_error!(kill_all_macui_processes());
 
             // Linear back-off: 500 ms, 1000 ms, 1500 ms, …
             let backoff = Duration::from_millis(500 * crash_count as u64);
-            log::info!("Restarting Seelen UI in {}ms…", backoff.as_millis());
+            log::info!("Restarting MAC UI in {}ms…", backoff.as_millis());
             std::thread::sleep(backoff);
-            crate::log_error!(launch_seelen_ui());
+            // Do not relaunch a GUI after the user requested a normal exit.
+            if crate::EXITING.load(Ordering::SeqCst) {
+                return;
+            }
+            crate::log_error!(launch_macui());
             grace_until = Some(Instant::now() + STARTUP_TIMEOUT);
         }
 
-        log::error!("Seelen UI monitoring stopped after repeated failures.");
+        log::error!("MAC UI monitoring stopped after repeated failures.");
         exit(1);
     });
 }
 
+#[cfg(test)]
+mod startup_grace_tests {
+    use super::*;
+
+    #[test]
+    fn freshly_launched_app_gets_twenty_seconds_for_tauri_and_ipc_startup() {
+        let now = Instant::now();
+        let deadline = startup_deadline(true, now);
+        assert_eq!(deadline, Some(now + Duration::from_secs(20)));
+        assert!(within_grace(deadline, now + Duration::from_secs(3)));
+        assert!(within_grace(deadline, now + Duration::from_millis(19_999)));
+        assert!(!within_grace(deadline, now + Duration::from_secs(20)));
+    }
+
+    #[test]
+    fn already_connected_app_has_no_initial_or_post_connect_crash_delay() {
+        let now = Instant::now();
+        assert_eq!(startup_deadline(false, now), None);
+        assert!(!within_grace(None, now));
+        assert!(!within_grace(None, now + Duration::from_secs(1)));
+    }
+}
+
 /// will start the app on the interactive session
-pub fn launch_seelen_ui() -> Result<()> {
+pub fn launch_macui() -> Result<()> {
     let path = if was_installed_using_msix() {
-        "shell:AppsFolder\\Seelen.SeelenUI_p6yyn03m1894e!App".to_string()
+        format!(
+            "shell:AppsFolder\\{}!App",
+            windows::ApplicationModel::Package::Current()?
+                .Id()?
+                .FamilyName()?
+        )
     } else {
         let executable = std::env::current_exe()?;
-        slu_utils::app_identity::app_executable_in(
+        macui_utils::app_identity::app_executable_in(
             executable
                 .parent()
                 .ok_or("Missing installation directory")?,
@@ -142,9 +188,13 @@ pub fn launch_seelen_ui() -> Result<()> {
     Ok(())
 }
 
-pub fn kill_all_seelen_ui_processes() -> Result<()> {
-    log::info!("Killing all Seelen UI processes in current session");
+pub fn kill_all_macui_processes() -> Result<()> {
+    log::info!("Killing all MAC UI processes in current session");
     let current_session = crate::windows_api::WindowsApi::current_session_id();
+    let service_exe = std::env::current_exe()?;
+    let installation = service_exe
+        .parent()
+        .ok_or("Missing installation directory")?;
 
     let mut sys = sysinfo::System::new();
     sys.refresh_processes(ProcessesToUpdate::All, true);
@@ -152,10 +202,9 @@ pub fn kill_all_seelen_ui_processes() -> Result<()> {
         .processes()
         .values()
         .filter(|p| {
-            if !p
-                .exe()
-                .is_some_and(slu_utils::app_identity::is_app_executable)
-            {
+            if !p.exe().is_some_and(|path| {
+                macui_utils::app_identity::is_app_executable_in(path, installation)
+            }) {
                 return false;
             }
             let mut session_id = 0u32;

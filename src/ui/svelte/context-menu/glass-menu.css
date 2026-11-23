@@ -1,0 +1,38 @@
+html,
+body,
+#root {
+  background: transparent;
+}
+#root .context-menu {
+  --menu-ink: light-dark(#182330, #f6f8fc);
+  color: var(--menu-ink);
+  background: var(--mac-glass-surface);
+  border: 0;
+  border-radius: 18px;
+  padding: 7px;
+  gap: 3px;
+  box-shadow: none;
+}
+#root .context-menu .menu-item {
+  min-height: 36px;
+  padding: 8px 10px;
+  gap: 9px;
+  border-radius: 11px;
+  background: transparent;
+  color: inherit;
+}
+#root .context-menu .menu-item:hover,
+#root .context-menu .menu-item:focus-visible {
+  background: color-mix(in srgb, var(--menu-ink) 12%, transparent);
+}
+#root .context-menu .menu-item:disabled {
+  opacity: .45;
+}
+#root .context-menu .menu-item.danger {
+  color: light-dark(#b51d37, #ffb8c3);
+}
+#root .context-menu hr {
+  height: 1px;
+  margin: 4px 6px;
+  background: color-mix(in srgb, var(--menu-ink) 16%, transparent);
+}

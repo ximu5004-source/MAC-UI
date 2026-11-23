@@ -1,6 +1,6 @@
 use std::path::PathBuf;
 
-use seelen_core::system_state::ProcessInformation;
+use macui_core::system_state::ProcessInformation;
 use windows::{
     ApplicationModel::AppInfo,
     Win32::{
@@ -110,9 +110,9 @@ impl Process {
         }
     }
 
-    pub fn is_seelen(&self) -> bool {
+    pub fn is_macui(&self) -> bool {
         if let Ok(exe) = self.program_path() {
-            return slu_utils::app_identity::is_app_executable(&exe);
+            return macui_utils::app_identity::is_app_executable(&exe);
         }
         false
     }

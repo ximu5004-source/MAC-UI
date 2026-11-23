@@ -28,14 +28,14 @@ test("enabled and disabled quick toggles have the same plain glyph; only ink cha
   assert.match(pill, /border:\s*1px solid var\(--mac-line\)/);
   assert.match(pill, /background:\s*var\(--mac-card\)/);
   assert.doesNotMatch(stylesheet, /quick-toggle[^}]*quick-toggle-glyph\s*\{[^}]*background:\s*(?!transparent)[A-Za-z#]/);
-  const surface = rule("#root .slu-std-popover.mac-panel.quick-settings");
+  const surface = rule("#root .macui-std-popover.mac-panel.quick-settings");
   assert.match(surface, /--quick-enabled-ink:\s*color-mix\(in srgb, var\(--mac-accent\) 50%, var\(--mac-ink\)\)/);
 });
 
 test("glyph artwork remains solid and has no added glow or nested blur", () => {
   for (const selector of [
     "#root .quick-settings .quick-toggle-glyph",
-    "#root .quick-settings .quick-toggle-glyph .slu-icon",
+    "#root .quick-settings .quick-toggle-glyph .macui-icon",
     "#root .quick-settings .quick-toggle-pill button:disabled",
   ]) {
     const styles = rule(selector);

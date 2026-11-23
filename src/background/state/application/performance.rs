@@ -1,6 +1,6 @@
 use std::sync::{LazyLock, atomic::AtomicU8};
 
-use seelen_core::{handlers::SeelenEvent, state::PerformanceMode, system_state::PowerMode};
+use macui_core::{handlers::MacUiEvent, state::PerformanceMode, system_state::PowerMode};
 use tauri::Listener;
 
 use crate::{
@@ -42,9 +42,9 @@ impl Optimizations {
             .store(initial_u8, std::sync::atomic::Ordering::SeqCst);
 
         let handle = get_app_handle();
-        handle.listen(SeelenEvent::PowerMode, |_| Self::check_for_changes());
-        handle.listen(SeelenEvent::PowerStatus, |_| Self::check_for_changes());
-        handle.listen(SeelenEvent::StateSettingsChanged, |_| {
+        handle.listen(MacUiEvent::PowerMode, |_| Self::check_for_changes());
+        handle.listen(MacUiEvent::PowerStatus, |_| Self::check_for_changes());
+        handle.listen(MacUiEvent::StateSettingsChanged, |_| {
             Self::check_for_changes()
         });
 
@@ -66,11 +66,11 @@ impl Optimizations {
         let current_u8: u8 = current.into();
 
         if current_u8 != stored {
-            log::trace!("Seelen UI performance mode changed to {current:?}");
+            log::trace!("MAC UI performance mode changed to {current:?}");
             PERFORMANCE_MODE
                 .inner
                 .store(current_u8, std::sync::atomic::Ordering::SeqCst);
-            emit_to_webviews(SeelenEvent::StatePerformanceModeChanged, current);
+            emit_to_webviews(MacUiEvent::StatePerformanceModeChanged, current);
         }
     }
 }

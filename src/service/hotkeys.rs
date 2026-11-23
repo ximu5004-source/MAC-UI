@@ -1,7 +1,7 @@
 mod lifecycle;
 
-use seelen_core::state::shortcuts::ResolvedShortcut;
-use slu_ipc::{AppIpc, messages::AppMessage};
+use macui_core::state::shortcuts::ResolvedShortcut;
+use macui_ipc::{AppIpc, messages::AppMessage};
 use uuid::Uuid;
 use win_hotkeys::{
     Hotkey, HotkeyBuilder, HotkeyManager, TriggerTiming, VKey, error::WHKError,
@@ -9,7 +9,7 @@ use win_hotkeys::{
 };
 
 use crate::{
-    app_management::kill_all_seelen_ui_processes, error::Result, exit, get_async_handler, log_error,
+    app_management::kill_all_macui_processes, error::Result, exit, get_async_handler, log_error,
 };
 
 static SHORTCUT_CAPTURE: lifecycle::CaptureLifecycle = lifecycle::CaptureLifecycle::new();
@@ -65,11 +65,11 @@ fn replace_shortcut_registry(shortcuts: Vec<ResolvedShortcut>) -> Result<()> {
             log::trace!("Hotkey triggered: {command:?}");
             match command.as_slice() {
                 [a, b] if a == "service" && b == "force-restart" => {
-                    log_error!(kill_all_seelen_ui_processes());
+                    log_error!(kill_all_macui_processes());
                 }
                 [a, b] if a == "service" && b == "force-quit" => {
                     crate::EXITING.store(true, std::sync::atomic::Ordering::SeqCst);
-                    log_error!(kill_all_seelen_ui_processes());
+                    log_error!(kill_all_macui_processes());
                     exit(0);
                 }
                 _ => {

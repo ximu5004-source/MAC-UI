@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { invoke, SeelenCommand } from "@seelen-ui/lib";
+  import { invoke, MacUiCommand } from "@macui/lib";
   import { Icon } from "libs/ui/svelte/components/Icon";
   import { state } from "../state.svelte";
   import { throttle } from "lodash";
@@ -10,7 +10,7 @@
   let defaultInput = $derived(state.mediaInputs.find((d) => d.isDefaultMultimedia));
 
   const setVolumeThrottled = throttle((deviceId: string, level: number) => {
-    invoke(SeelenCommand.SetVolumeLevel, {
+    invoke(MacUiCommand.SetVolumeLevel, {
       deviceId,
       sessionId: null,
       level,
@@ -20,7 +20,7 @@
   onDestroy(() => setVolumeThrottled.cancel());
 
   function toggleMute(deviceId: string) {
-    invoke(SeelenCommand.MediaToggleMute, { deviceId, sessionId: null }).catch(console.error);
+    invoke(MacUiCommand.MediaToggleMute, { deviceId, sessionId: null }).catch(console.error);
   }
 </script>
 

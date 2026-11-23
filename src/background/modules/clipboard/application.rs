@@ -3,8 +3,8 @@ use std::sync::{
     atomic::{AtomicBool, AtomicU32, Ordering},
 };
 
-use seelen_core::system_state::{ClipboardData, ClipboardEntry, ClipboardEntryContent};
-use slu_utils::{Debounce, debounce};
+use macui_core::system_state::{ClipboardData, ClipboardEntry, ClipboardEntryContent};
+use macui_utils::{Debounce, debounce};
 use windows::{
     ApplicationModel::DataTransfer::{
         Clipboard, DataPackage, DataPackageOperation, DataPackageView, StandardDataFormats,

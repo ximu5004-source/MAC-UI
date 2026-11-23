@@ -1,12 +1,12 @@
 <script lang="ts">
-  import { invoke, SeelenCommand } from "@seelen-ui/lib";
+  import { invoke, MacUiCommand } from "@macui/lib";
   import type {
     AppNotification,
     ToastActionActivationType,
     ToastActionsChild,
     ToastBindingChild,
     ToastImage,
-  } from "@seelen-ui/lib/types";
+  } from "@macui/lib/types";
   import Icon from "libs/ui/svelte/components/Icon/Icon.svelte";
   import FileIcon from "libs/ui/svelte/components/Icon/FileIcon.svelte";
   import moment from "moment";
@@ -33,7 +33,7 @@
 
   async function handleAction(args: string, method: ToastActionActivationType) {
     try {
-      await invoke(SeelenCommand.ActivateNotification, {
+      await invoke(MacUiCommand.ActivateNotification, {
         id: notification.id,
         umid: notification.appUmid,
         args,
@@ -48,7 +48,7 @@
   async function handleClose(e: MouseEvent) {
     e.stopPropagation();
     try {
-      await invoke(SeelenCommand.NotificationsClose, { id: notification.id });
+      await invoke(MacUiCommand.NotificationsClose, { id: notification.id });
       onClose?.();
     } catch (error) {
       console.error("Failed to close notification:", error);

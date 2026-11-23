@@ -1,7 +1,7 @@
 <script lang="ts">
   import { globalState } from "../state.svelte";
   import { t } from "../i18n";
-  import { invoke, SeelenCommand } from "@seelen-ui/lib";
+  import { invoke, MacUiCommand } from "@macui/lib";
   import { Icon, FileIcon } from "libs/ui/svelte/components/Icon";
   import VolumeControl from "./VolumeControl.svelte";
 
@@ -33,7 +33,7 @@
 
   function openDeviceSettings() {
     if (device) {
-      invoke(SeelenCommand.OpenFile, {
+      invoke(MacUiCommand.OpenFile, {
         path: `ms-settings:sound-properties?endpointId=${device.id}`,
       });
     }

@@ -1,4 +1,4 @@
-import type { Widget } from "@seelen-ui/lib";
+import type { Widget } from "@macui/lib";
 import { currentMonitor, monitorFromPoint } from "@tauri-apps/api/window";
 
 /** Physical work area -> CSS size, independent of the auto-sized webview. */

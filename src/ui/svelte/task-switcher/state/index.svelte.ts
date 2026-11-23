@@ -1,4 +1,4 @@
-import { invoke, SeelenCommand } from "@seelen-ui/lib";
+import { invoke, MacUiCommand } from "@macui/lib";
 import { debounce } from "lodash";
 import z from "zod";
 import { focusedWinId, monitors, previews, settings, widget, windows } from "./getters.svelte.ts";
@@ -169,7 +169,7 @@ $effect.root(() => {
 
     const poll = async () => {
       while (!cancelled) {
-        const isAltDown = await invoke(SeelenCommand.GetKeyState, { key: "Alt" });
+        const isAltDown = await invoke(MacUiCommand.GetKeyState, { key: "Alt" });
         if (wasAltDown && !isAltDown) {
           onAltKeyUp();
         }
@@ -190,7 +190,7 @@ $effect.root(() => {
 function onAltKeyUp() {
   if (showing && selectedWindow && autoConfirm) {
     showing = false;
-    invoke(SeelenCommand.WegToggleWindowState, {
+    invoke(MacUiCommand.WegToggleWindowState, {
       hwnd: selectedWindow,
       wasFocused: false,
       minimizeTarget: null,

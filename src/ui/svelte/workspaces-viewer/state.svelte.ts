@@ -1,21 +1,21 @@
-import { invoke, type Rect, SeelenCommand, SeelenEvent, subscribe, Widget } from "@seelen-ui/lib";
-import type { Wallpaper } from "@seelen-ui/lib/types";
+import { invoke, type Rect, MacUiCommand, MacUiEvent, subscribe, Widget } from "@macui/lib";
+import type { Wallpaper } from "@macui/lib/types";
 import { lazyRune } from "libs/ui/svelte/utils";
 
-let monitors = lazyRune(() => invoke(SeelenCommand.SystemGetMonitors));
-subscribe(SeelenEvent.SystemMonitorsChanged, monitors.setByPayload);
+let monitors = lazyRune(() => invoke(MacUiCommand.SystemGetMonitors));
+subscribe(MacUiEvent.SystemMonitorsChanged, monitors.setByPayload);
 
-let wallpapers = lazyRune(() => invoke(SeelenCommand.StateGetWallpapers));
-subscribe(SeelenEvent.StateWallpapersChanged, wallpapers.setByPayload);
+let wallpapers = lazyRune(() => invoke(MacUiCommand.StateGetWallpapers));
+subscribe(MacUiEvent.StateWallpapersChanged, wallpapers.setByPayload);
 
-let workspaces = lazyRune(() => invoke(SeelenCommand.StateGetVirtualDesktops));
-subscribe(SeelenEvent.VirtualDesktopsChanged, workspaces.setByPayload);
+let workspaces = lazyRune(() => invoke(MacUiCommand.StateGetVirtualDesktops));
+subscribe(MacUiEvent.VirtualDesktopsChanged, workspaces.setByPayload);
 
-let windows = lazyRune(() => invoke(SeelenCommand.GetUserAppWindows));
-subscribe(SeelenEvent.UserAppWindowsChanged, windows.setByPayload);
+let windows = lazyRune(() => invoke(MacUiCommand.GetUserAppWindows));
+subscribe(MacUiEvent.UserAppWindowsChanged, windows.setByPayload);
 
-let previews = lazyRune(() => invoke(SeelenCommand.GetUserAppWindowsPreviews));
-subscribe(SeelenEvent.UserAppWindowsPreviewsChanged, previews.setByPayload);
+let previews = lazyRune(() => invoke(MacUiCommand.GetUserAppWindowsPreviews));
+subscribe(MacUiEvent.UserAppWindowsPreviewsChanged, previews.setByPayload);
 
 await Promise.all([
   monitors.init(),

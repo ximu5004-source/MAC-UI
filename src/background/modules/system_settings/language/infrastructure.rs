@@ -1,7 +1,7 @@
 use std::sync::Once;
 
-use seelen_core::{
-    handlers::SeelenEvent,
+use macui_core::{
+    handlers::MacUiEvent,
     system_state::{ImeState, SystemLanguage},
 };
 
@@ -15,13 +15,13 @@ fn get_language_manager() -> &'static LanguageManager {
         LanguageManager::subscribe(|event| match event {
             LanguageEvent::LayoutChanged => {
                 emit_to_webviews(
-                    SeelenEvent::SystemLanguagesChanged,
+                    MacUiEvent::SystemLanguagesChanged,
                     &LanguageManager::instance().get_languages(),
                 );
             }
             LanguageEvent::ImeChanged => {
                 if let Ok(state) = LanguageManager::get_ime_state() {
-                    emit_to_webviews(SeelenEvent::SystemImeStateChanged, &state);
+                    emit_to_webviews(MacUiEvent::SystemImeStateChanged, &state);
                 }
             }
         });

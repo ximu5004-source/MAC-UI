@@ -7,8 +7,8 @@ use std::{
     time::Duration,
 };
 
+use macui_core::handlers::MacUiEvent;
 use parking_lot::RwLock;
-use seelen_core::handlers::SeelenEvent;
 use windows::Win32::{
     Foundation::HWND,
     UI::{
@@ -26,7 +26,7 @@ use crate::{
     event_manager,
     state::application::FULL_STATE,
     utils::spawn_named_thread,
-    widgets::weg::SeelenWeg,
+    widgets::weg::MacUiWeg,
     windows_api::{
         WindowEnumerator,
         event_window::IS_INTERACTIVE_SESSION,
@@ -67,7 +67,7 @@ impl HookManager {
         // deprecated code refactor this on future.
         if FULL_STATE.load().is_weg_enabled() {
             // raw events should be only used for a fastest and immediately processing
-            SeelenWeg::process_raw_win_event(event, origin).log_error();
+            MacUiWeg::process_raw_win_event(event, origin).log_error();
         }
 
         let event = WinEvent::from(event);
@@ -144,7 +144,7 @@ impl HookManager {
 
             if shoup_update_focused && origin.is_focused() {
                 emit_to_webviews(
-                    SeelenEvent::GlobalFocusChanged,
+                    MacUiEvent::GlobalFocusChanged,
                     origin.as_focused_app_information(),
                 );
             }
@@ -156,6 +156,7 @@ pub fn register_win_hook() -> Result<()> {
     log::trace!("Registering Windows and Virtual Desktop Hooks");
     init_zombie_window_killer();
     HookManager::start();
+    crate::widgets::weg::genie::start_titlebar_hook();
 
     let eid = HookManager::subscribe(|(event, origin)| match event {
         WinEvent::SystemMoveSizeStart => {
@@ -170,7 +171,7 @@ pub fn register_win_hook() -> Result<()> {
 
     // todo move this to input/mouse/keyboard module
     spawn_named_thread("MouseEventHook", || {
-        let mut last_pos = seelen_core::Point::default();
+        let mut last_pos = macui_core::Point::default();
         let sleep_time = Duration::from_millis(100); // 10fps
         loop {
             // Pause when session is not interactive to reduce CPU usage
@@ -182,7 +183,7 @@ pub fn register_win_hook() -> Result<()> {
             if let Ok(pos) = Mouse::get_cursor_pos()
                 && last_pos != pos
             {
-                emit_to_webviews(SeelenEvent::GlobalMouseMove, &[pos.x, pos.y]);
+                emit_to_webviews(MacUiEvent::GlobalMouseMove, &[pos.x, pos.y]);
                 last_pos = pos;
             }
             std::thread::sleep(sleep_time);

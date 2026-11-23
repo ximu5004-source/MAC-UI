@@ -1,9 +1,9 @@
-use seelen_core::state::{AppConfig, AppsConfigurationList};
+use macui_core::state::{AppConfig, AppsConfigurationList};
 
 use crate::{
     error::Result,
     state::application::{BUNDLED_SETTINGS_BY_APP, FULL_STATE},
-    utils::constants::SEELEN_COMMON,
+    utils::constants::MACUI_COMMON,
     windows_api::window::Window,
 };
 
@@ -35,7 +35,7 @@ impl Window {
 
 impl AppSettings {
     pub(super) fn load_bundled_settings_by_app() -> Result<AppsConfigurationList> {
-        let apps_templates_path = SEELEN_COMMON.bundled_app_configs_path();
+        let apps_templates_path = MACUI_COMMON.bundled_app_configs_path();
         let mut configs = AppsConfigurationList::default();
 
         for entry in apps_templates_path.read_dir()?.flatten() {

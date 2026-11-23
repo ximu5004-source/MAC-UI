@@ -1,4 +1,4 @@
-id: "@seelen/bluetooth-popup"
+id: "@macui/bluetooth-popup"
 icon: TbBluetooth
 metadata:
   displayName: !extend i18n/display_name.yml

@@ -1,6 +1,6 @@
 use std::sync::Once;
 
-use seelen_core::{handlers::SeelenEvent, system_state::TrashBinInfo};
+use macui_core::{handlers::MacUiEvent, system_state::TrashBinInfo};
 
 use crate::{app::emit_to_webviews, error::Result, utils::lock_free::TracedMutex};
 
@@ -11,7 +11,7 @@ fn get_trash_bin_manager() -> &'static TracedMutex<TrashBinManager> {
     TAURI_EVENT_REGISTRATION.call_once(|| {
         TrashBinManager::subscribe(|event| {
             let TrashBinManagerEvent::InfoChanged(info) = event;
-            emit_to_webviews(SeelenEvent::TrashBinChanged, info);
+            emit_to_webviews(MacUiEvent::TrashBinChanged, info);
         });
     });
     TrashBinManager::instance()

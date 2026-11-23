@@ -6,7 +6,7 @@ export function communicationApp(value: string): string | null {
     [/wxwork|wecom|企业微信/, "WeCom"],
     [/(?:^|[\\/\s])qq(?:\.exe|\s|$)|腾讯qq/, "QQ"],
     [/dingtalk|钉钉/, "DingTalk"],
-    [/feishu|lark|飞书/, "Feishu"],
+    [/(?:^|[\\/\s.])(?:feishu|lark)(?:\.exe|[\\/\s.]|$)|飞书|飛書/, "Feishu"],
     [/teams/, "Teams"],
     [/telegram/, "Telegram"],
     [/whatsapp/, "WhatsApp"],
@@ -21,6 +21,9 @@ export function communicationApp(value: string): string | null {
 }
 
 export function hasUnreadHint(tooltip: string): boolean {
-  if (/\b0\s*(?:unread|new messages?)|(?:未读|新消息)\s*[:：]?\s*0(?:\D|$)/i.test(tooltip)) return false;
+  if (
+    /\b(?:0|no)\s*(?:unread|new messages?)|(?:未读|新消息|新信息)\s*[:：]?\s*0(?:\D|$)|(?:^|[^0-9])0\s*(?:条|个)?\s*(?:未读|新消息|新信息)|(?:没有|暂无|无)\s*(?:未读|新消息|新信息)/i
+      .test(tooltip)
+  ) return false;
   return /未读|新消息|新信息|\bunread\b|\bnew messages?\b/i.test(tooltip);
 }

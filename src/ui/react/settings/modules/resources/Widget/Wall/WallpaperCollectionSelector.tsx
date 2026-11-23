@@ -2,7 +2,7 @@ import { Select } from "antd";
 import type { CSSProperties } from "react";
 import { useTranslation } from "react-i18next";
 
-import { ResourceKind, type WallpaperId } from "@seelen-ui/lib/types";
+import { ResourceKind, type WallpaperId } from "@macui/lib/types";
 import { wallpapers } from "../../../../state/resources.ts";
 import { resolveDisplayName, ResourcePortrait } from "../../ResourceCard.tsx";
 import { getOrCreateHiddenCollection, getWallpaperCollections } from "./application.ts";

@@ -8,7 +8,7 @@ import { fileURLToPath } from "node:url";
 const root = fileURLToPath(new URL("../../", import.meta.url));
 const hotkeys = readFileSync(path.join(root, "src/service/hotkeys.rs"), "utf8");
 const processing = readFileSync(path.join(root, "src/service/cli/processing.rs"), "utf8");
-const messages = readFileSync(path.join(root, "libs/slu-ipc/src/messages.rs"), "utf8");
+const messages = readFileSync(path.join(root, "libs/macui-ipc/src/messages.rs"), "utf8");
 
 test("all SetShortcuts requests, including an empty set, replace the registry", () => {
   const branch = processing.match(/SvcAction::SetShortcuts\(shortcuts\) => \{([\s\S]*?)\n\s*\}/)?.[1];

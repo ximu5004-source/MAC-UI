@@ -1,7 +1,7 @@
-use parking_lot::Mutex as ParkingLotMutex;
-use seelen_core::system_state::{
+use macui_core::system_state::{
     AppNotification, NotificationsMode, Toast, ToastBindingChild, ToastText,
 };
+use parking_lot::Mutex as ParkingLotMutex;
 use std::{
     collections::HashSet,
     path::PathBuf,
@@ -41,7 +41,7 @@ use crate::{
         lock_free::SyncHashMap, spawn_named_thread,
     },
     windows_api::{
-        WindowsApi,
+        Com, WindowsApi,
         event_window::IS_INTERACTIVE_SESSION,
         types::{AppUserModelId, DateTimeExt},
     },
@@ -55,7 +55,6 @@ static RELEASED: AtomicBool = AtomicBool::new(true);
 pub enum NotificationEvent {
     Added(u32),
     Removed(u32),
-    Cleared,
     ModeChanged(NotificationsMode),
 }
 
@@ -73,7 +72,7 @@ unsafe impl Sync for NotificationManager {}
 event_manager!(NotificationManager, NotificationEvent);
 
 impl NotificationManager {
-    fn new() -> Result<Self> {
+    fn new() -> windows::core::Result<Self> {
         Ok(Self {
             notifications: SyncHashMap::new(),
             manager: ToastNotificationManager::GetDefault()?,
@@ -83,14 +82,18 @@ impl NotificationManager {
         })
     }
 
-    pub fn instance() -> &'static Self {
-        static MANAGER: LazyLock<NotificationManager> = LazyLock::new(|| {
-            let mut manager =
-                NotificationManager::new().expect("Failed to create notification manager");
-            manager.init().log_error();
-            manager
-        });
-        &MANAGER
+    pub fn instance() -> Result<&'static Self> {
+        static MANAGER: LazyLock<windows::core::Result<NotificationManager>> =
+            LazyLock::new(|| {
+                let mut manager = NotificationManager::new()?;
+                manager.init().log_error();
+                Ok(manager)
+            });
+        Ok(MANAGER.as_ref().map_err(Clone::clone)?)
+    }
+
+    pub fn has_access(&self) -> Result<bool> {
+        Ok(self.listener.GetAccessStatus()? == UserNotificationListenerAccessStatus::Allowed)
     }
 
     pub fn notifications(&self) -> Vec<AppNotification> {
@@ -107,25 +110,41 @@ impl NotificationManager {
 
     pub fn clear_notifications(&self) -> Result<()> {
         let ids: Vec<u32> = self.notifications.keys();
+        let mut result = Ok(());
         for id in ids {
-            self.listener.RemoveNotification(id).log_error();
+            if let Err(error) = self.remove_notification(id) {
+                result = Err(error);
+            }
         }
-        Self::send(NotificationEvent::Cleared);
-        Ok(())
+        result
     }
 
     fn init(&mut self) -> Result<()> {
-        let access = self.listener.RequestAccessAsync()?.join()?;
-        if access != UserNotificationListenerAccessStatus::Allowed {
-            return Err("Failed to get notification access".into());
-        }
+        // The polling and WinRT paths both publish into this dispatcher. Install
+        // it before optional event registrations, which unpackaged clients may
+        // reject independently of notification-read access.
+        let eid = Self::subscribe(|e| Self::process_event(e).log_error());
+        Self::set_event_handler_priority(&eid, 1);
 
-        let u_notifications = self
+        // Toast access and system quiet mode have independent lifetimes.
+        // A user can grant Toast access in Windows Settings after MAC UI starts.
+        let access = self
             .listener
-            .GetNotificationsAsync(NotificationKinds::Toast)?
-            .join()?;
-        for u_notification in u_notifications {
-            self.load_notification(u_notification).log_error();
+            .RequestAccessAsync()
+            .and_then(|request| request.join());
+        if matches!(access, Ok(UserNotificationListenerAccessStatus::Allowed)) {
+            let snapshot = self
+                .listener
+                .GetNotificationsAsync(NotificationKinds::Toast)
+                .and_then(|request| request.join());
+            match snapshot {
+                Ok(items) => {
+                    for item in items {
+                        self.load_notification(item).log_error();
+                    }
+                }
+                Err(error) => log::warn!("Initial Toast snapshot unavailable: {error}"),
+            }
         }
 
         // TODO: this only works on MSIX/APPX/UWP builds so idk how to make it work on win32 apps
@@ -136,29 +155,45 @@ impl NotificationManager {
             Ok(token) => self.event_token = Some(token),
             Err(error) => {
                 log::warn!("Failed to register winrt notification change handler: {error}");
-                // intead we use a thread
-                spawn_named_thread("Notification Manager", || -> Result<()> {
-                    RELEASED.store(false, Ordering::SeqCst);
-                    while !RELEASED.load(Ordering::Acquire) {
-                        std::thread::sleep(std::time::Duration::from_secs(1));
-                        // Pause when session is not interactive to reduce CPU usage
-                        if !IS_INTERACTIVE_SESSION.load(Ordering::Acquire) {
-                            continue;
-                        }
-                        Self::manual_notifications_loop().log_error();
-                    }
-                    Ok(())
-                });
             }
         }
 
-        self.mode_changed_token = Some(
-            self.manager
-                .NotificationModeChanged(&TypedEventHandler::new(Self::on_mode_change))?,
-        );
+        match self
+            .manager
+            .NotificationModeChanged(&TypedEventHandler::new(Self::on_mode_change))
+        {
+            Ok(token) => self.mode_changed_token = Some(token),
+            Err(error) => log::warn!(
+                "Notification quiet-mode events unavailable; polling remains active: {error}"
+            ),
+        }
 
-        let eid = Self::subscribe(|e| Self::process_event(e).log_error());
-        Self::set_event_handler_priority(&eid, 1);
+        // MyDockFinder's observed listener path reconciles Toast snapshots.
+        // Keep reconciliation even when WinRT accepts an event registration:
+        // unpackaged applications can miss notifications from desktop clients.
+        RELEASED.store(false, Ordering::Release);
+        spawn_named_thread("Notification Manager", || {
+            Com::run_with_mta_context(|| {
+                let mut previous_mode = None;
+                while !RELEASED.load(Ordering::Acquire) {
+                    std::thread::sleep(std::time::Duration::from_millis(500));
+                    if !IS_INTERACTIVE_SESSION.load(Ordering::Acquire) {
+                        continue;
+                    }
+                    let manager = Self::instance()?;
+                    if matches!(manager.has_access(), Ok(true)) {
+                        Self::manual_notifications_loop().log_error();
+                    }
+                    if let Ok(mode) = manager.get_notifications_mode() {
+                        if previous_mode.replace(mode) != Some(mode) {
+                            Self::send(NotificationEvent::ModeChanged(mode));
+                        }
+                    }
+                }
+                Ok(())
+            })
+            .log_error();
+        });
         Ok(())
     }
 
@@ -226,7 +261,7 @@ impl NotificationManager {
     }
 
     fn process_event(event: NotificationEvent) -> Result<()> {
-        let manager = NotificationManager::instance();
+        let manager = NotificationManager::instance()?;
         match event {
             NotificationEvent::Added(id) => {
                 let u_notification = UserNotificationListener::Current()?.GetNotification(id)?;
@@ -236,10 +271,6 @@ impl NotificationManager {
                 manager.notifications.remove(&id);
                 LOADED_NOTIFICATIONS.lock().remove(&id);
             }
-            NotificationEvent::Cleared => {
-                manager.notifications.clear();
-                LOADED_NOTIFICATIONS.lock().clear();
-            }
             NotificationEvent::ModeChanged(_) => {}
         }
         Ok(())
@@ -247,7 +278,7 @@ impl NotificationManager {
 
     fn get_notification_content(
         notification: &Notification,
-        toast_notifications: IVectorView<ToastNotification>,
+        toast_notifications: Option<IVectorView<ToastNotification>>,
         umid: &str,
     ) -> Result<Toast> {
         let visuals = notification.Visual()?;
@@ -260,11 +291,17 @@ impl NotificationManager {
             notification_text.push_str(&text);
         }
 
-        for toast_notification in toast_notifications {
+        for toast_notification in toast_notifications.into_iter().flatten() {
             // this can be null when the notification count is bigger than the max allowed by default 20
             if let Ok(content) = toast_notification.Content() {
-                let toast_xml = content.GetXml()?.to_string();
-                let mut toast: Toast = quick_xml::de::from_str(&toast_xml)?;
+                let Ok(toast_xml) = content.GetXml() else {
+                    continue;
+                };
+                let Ok(mut toast) = quick_xml::de::from_str::<Toast>(&toast_xml.to_string()) else {
+                    // One client's unsupported XML must not drop the actual
+                    // plain-text notification exposed by the listener.
+                    continue;
+                };
                 let toast_text = get_text_from_toast_for_comparison(&toast);
 
                 // log::debug!("comparing: \n - {notification_text:?} \n - {toast_text:?} \n {toast:?}");
@@ -277,8 +314,7 @@ impl NotificationManager {
         }
 
         log::debug!("Toast content not found, generating one from plain text");
-        let mut toast = Toast::default();
-        let content = &mut toast.visual.binding.children;
+        let mut text_entries = Vec::new();
         for text in text_sequence {
             let text = text
                 .Text()?
@@ -286,11 +322,9 @@ impl NotificationManager {
                 .replace("\r\n", "\n")
                 .trim()
                 .to_owned();
-            content.push(ToastBindingChild::Text(ToastText {
-                id: None,
-                content: text,
-            }));
+            text_entries.push(text);
         }
+        let mut toast = toast_from_plain_text(text_entries);
         Self::clean_toast(&mut toast, umid)?;
         Ok(toast)
     }
@@ -384,7 +418,6 @@ impl NotificationManager {
     // this function an in general all the notification system can still be improved on usability and performance
     fn load_notification(&self, u_notification: UserNotification) -> Result<()> {
         let notification_id = u_notification.Id()?;
-        LOADED_NOTIFICATIONS.lock().insert(notification_id);
         let notification = u_notification.Notification()?;
 
         let app_info = match u_notification.AppInfo() {
@@ -392,6 +425,7 @@ impl NotificationManager {
             Err(_) => {
                 // will fail if the notification was added by an uninstalled app
                 // log::error!("Unable to get app info: {}", error);
+                LOADED_NOTIFICATIONS.lock().insert(notification_id);
                 return Ok(());
             }
         };
@@ -399,8 +433,14 @@ impl NotificationManager {
         let display_info = app_info.DisplayInfo()?;
         let app_umid = app_info.AppUserModelId()?;
 
-        let history = self.manager.History()?;
-        let toast_notifications = history.GetHistoryWithId(&app_umid)?;
+        // Some traditional desktop clients publish valid listener text but
+        // do not expose full toast history under their AUMID. Keep the text
+        // path working instead of silently losing their notification.
+        let toast_notifications = self
+            .manager
+            .History()
+            .and_then(|history| history.GetHistoryWithId(&app_umid))
+            .ok();
 
         log::trace!(
             "Loading notification, ID: {}, AppID: {}",
@@ -428,6 +468,9 @@ impl NotificationManager {
                 content: notification_content,
             },
         );
+        // A transient history/text failure must be retried by reconciliation,
+        // rather than permanently marking an unreadable notification as loaded.
+        LOADED_NOTIFICATIONS.lock().insert(notification_id);
         Ok(())
     }
 
@@ -456,8 +499,22 @@ impl Drop for NotificationManager {
         if let Some(token) = self.event_token.take() {
             self.listener.RemoveNotificationChanged(token).log_error();
         }
+        if let Some(token) = self.mode_changed_token.take() {
+            self.manager
+                .RemoveNotificationModeChanged(token)
+                .log_error();
+        }
         RELEASED.store(true, Ordering::Release);
     }
+}
+
+fn toast_from_plain_text(text_entries: Vec<String>) -> Toast {
+    let mut toast = Toast::default();
+    toast.visual.binding.children = text_entries
+        .into_iter()
+        .map(|content| ToastBindingChild::Text(ToastText { id: None, content }))
+        .collect();
+    toast
 }
 
 fn get_text_from_toast_for_comparison(toast: &Toast) -> String {
@@ -478,6 +535,29 @@ fn get_text_from_toast_for_comparison(toast: &Toast) -> String {
         text.push_str(entry.content.replace("\r\n", "\n").trim());
     }
     text
+}
+
+#[cfg(test)]
+mod notification_fallback_tests {
+    use super::*;
+
+    #[test]
+    fn unavailable_rich_history_keeps_actual_plain_text_in_order() {
+        let toast = toast_from_plain_text(vec!["实际通知标题".into(), "客户端发布的正文".into()]);
+        let text: Vec<&str> = toast
+            .visual
+            .binding
+            .children
+            .iter()
+            .filter_map(|entry| match entry {
+                ToastBindingChild::Text(item) => Some(item.content.as_str()),
+                _ => None,
+            })
+            .collect();
+        assert_eq!(text, vec!["实际通知标题", "客户端发布的正文"]);
+        assert!(toast.actions.is_none());
+        assert!(toast.launch.is_none());
+    }
 }
 
 pub fn get_toast_activator_clsid(app_umid: &AppUserModelId) -> Result<String> {

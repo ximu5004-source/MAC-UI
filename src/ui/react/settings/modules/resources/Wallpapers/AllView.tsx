@@ -1,10 +1,11 @@
-import { invoke, SeelenCommand } from "@seelen-ui/lib";
-import { ResourceKind, type Wallpaper } from "@seelen-ui/lib/types";
+import { invoke, MacUiCommand } from "@macui/lib";
+import { ResourceKind, type Wallpaper, type WallpaperId } from "@macui/lib/types";
 import { Icon } from "libs/ui/react/components/Icon/index.tsx";
 import { Button, Input, Modal, Tooltip } from "antd";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "preact/hooks";
-import { NavLink } from "react-router";
+import { useSearchParams } from "react-router";
+import { SingleWallpaperView } from "./View";
 
 import cs from "../infra.module.css";
 
@@ -22,6 +23,14 @@ import { SettingsGroup, SettingsOption, SettingsSubGroup } from "../../../compon
 
 export function AllWallpapersView() {
   const { t, i18n } = useTranslation();
+  const [params, setParams] = useSearchParams();
+  const selectedWallpaper = params.get("wallpaper") as WallpaperId | null;
+  function editWallpaper(id: WallpaperId | null) {
+    const next = new URLSearchParams(params);
+    if (id) next.set("wallpaper", id);
+    else next.delete("wallpaper");
+    setParams(next, { replace: true });
+  }
   const [search, setSearch] = useState("");
   const wallpaperCollections = getWallpaperCollections().filter((c) => !c.hidden);
 
@@ -90,7 +99,6 @@ export function AllWallpapersView() {
   return (
     <>
       <ResourceListHeader
-        discoverUrl="https://seelen.io/resources/s?category=Wallpaper"
         search={search}
         onSearch={setSearch}
       >
@@ -99,7 +107,7 @@ export function AllWallpapersView() {
           <Button
             type="default"
             onClick={() => {
-              invoke(SeelenCommand.StateRequestWallpaperAddition);
+              invoke(MacUiCommand.StateRequestWallpaperAddition);
             }}
           >
             <Icon iconName="MdLibraryAdd" />
@@ -158,8 +166,20 @@ export function AllWallpapersView() {
       </SettingsGroup>
 
       <div className={cs.list}>
-        {filtered.map((resource) => <WallpaperItem key={resource.id} resource={resource} />)}
+        {filtered.map((resource) => <WallpaperItem key={resource.id} resource={resource} onEdit={editWallpaper} />)}
       </div>
+
+      <Modal
+        title={t("header.labels.wallpaper")}
+        open={!!selectedWallpaper}
+        onCancel={() => editWallpaper(null)}
+        footer={null}
+        width={760}
+        centered
+        destroyOnHidden
+      >
+        {selectedWallpaper && <SingleWallpaperView wallpaperId={selectedWallpaper} />}
+      </Modal>
 
       <Modal
         title={t("wall.create_collection")}
@@ -208,17 +228,16 @@ export function AllWallpapersView() {
   );
 }
 
-function WallpaperItem({ resource }: { resource: Wallpaper }) {
+function WallpaperItem({ resource, onEdit }: { resource: Wallpaper; onEdit: (id: WallpaperId) => void }) {
+  const { t } = useTranslation();
   return (
     <ResourceCard
       resource={resource}
       kind={ResourceKind.Wallpaper}
       actions={
-        <NavLink to={`/wallpaper?${new URLSearchParams({ id: resource.id })}`}>
-          <Button type="text">
-            <Icon iconName="RiSettings4Fill" />
-          </Button>
-        </NavLink>
+        <Button type="text" aria-label={t("header.labels.wallpaper")} onClick={() => onEdit(resource.id)}>
+          <Icon iconName="RiSettings4Fill" />
+        </Button>
       }
     />
   );

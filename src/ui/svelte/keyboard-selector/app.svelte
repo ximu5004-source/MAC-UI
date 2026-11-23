@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { invoke, SeelenCommand, Widget } from "@seelen-ui/lib";
+  import { invoke, MacUiCommand, Widget } from "@macui/lib";
   import Icon from "libs/ui/svelte/components/Icon/Icon.svelte";
   import { state } from "./state.svelte";
   import { t } from "./i18n";
@@ -9,14 +9,14 @@
   });
 
   function onKeyboardClick(id: string, handle: string) {
-    invoke(SeelenCommand.SystemSetKeyboardLayout, {
+    invoke(MacUiCommand.SystemSetKeyboardLayout, {
       id,
       handle,
     });
   }
 
   function openKeyboardSettings() {
-    invoke(SeelenCommand.OpenFile, { path: "ms-settings:keyboard" });
+    invoke(MacUiCommand.OpenFile, { path: "ms-settings:keyboard" });
   }
 
   let closing = false;
@@ -32,7 +32,7 @@
 
 <svelte:window onkeydown={handleEscape} />
 
-<div class={["slu-std-popover", "mac-panel", "mac-frosted-surface", "keyboard-selector"]}>
+<div class={["macui-std-popover", "mac-panel", "mac-frosted-surface", "keyboard-selector"]}>
   <div class="keyboard-selector-header">{$t("title")}</div>
   <div class="keyboard-selector-body">
     {#each state.langs as lang, li}
@@ -68,7 +68,7 @@
 </div>
 
 <style>
-  :global(#root) .slu-std-popover.mac-panel.keyboard-selector {
+  :global(#root) .macui-std-popover.mac-panel.keyboard-selector {
     border-radius: 28px;
     overflow: hidden;
   }

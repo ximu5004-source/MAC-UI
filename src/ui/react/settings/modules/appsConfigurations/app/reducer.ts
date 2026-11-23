@@ -1,4 +1,4 @@
-import type { AppConfig } from "@seelen-ui/lib/types";
+import type { AppConfig } from "@macui/lib/types";
 import { appsConfig, settings } from "../../../state/mod";
 
 interface AppPayload {

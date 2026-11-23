@@ -1,6 +1,6 @@
 use std::sync::Once;
 
-use seelen_core::handlers::SeelenEvent;
+use macui_core::handlers::MacUiEvent;
 
 use crate::{app::emit_to_webviews, error::Result, windows_api::WindowsApi};
 
@@ -14,9 +14,9 @@ fn get_devices_manager() -> &'static DevicesManager {
             let inputs = manager.get_inputs();
             let outputs = manager.get_outputs();
 
-            emit_to_webviews(SeelenEvent::MediaDevices, (&inputs, &outputs));
-            emit_to_webviews(SeelenEvent::MediaInputs, &inputs);
-            emit_to_webviews(SeelenEvent::MediaOutputs, &outputs);
+            emit_to_webviews(MacUiEvent::MediaDevices, (&inputs, &outputs));
+            emit_to_webviews(MacUiEvent::MediaInputs, &inputs);
+            emit_to_webviews(MacUiEvent::MediaOutputs, &outputs);
         });
     });
     DevicesManager::instance()

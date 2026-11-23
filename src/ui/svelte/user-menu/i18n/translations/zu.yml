@@ -15,7 +15,7 @@ profile:
   log_out: Phuma
   open_onedrive: Vula umkhombandlela we-OneDrive
   open_user_folder: Vula uhla lwemibhalo lomsebenzisi
-seelen_options:
-  open_installation_folder: Vula ifolda yezilungiselelo ze-Seelen
-  open_log_folder: Vula ifolda yelogi ye-Seelen
-  title: Seelen Izincwajana
+macui_options:
+  open_installation_folder: Vula ifolda yezilungiselelo ze-MAC UI
+  open_log_folder: Vula ifolda yelogi ye-MAC UI
+  title: MAC UI Izincwajana

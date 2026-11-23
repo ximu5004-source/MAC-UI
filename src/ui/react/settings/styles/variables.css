@@ -1,17 +1,46 @@
 :root {
-  --config-border-radius: 16px;
+  color-scheme: light;
+  --mac-window-radius: 26px;
+  --config-border-radius: 24px;
   --z-header: 1;
   --z-docs-menu: 2;
   --z-modal: 3;
-  --mac-window: light-dark(#f5f5f5, #242424);
-  --mac-glass-surface: rgb(255 255 255 / .1);
-  --mac-glass-blur: blur(6px);
-  --mac-sidebar: var(--mac-glass-surface);
-  --mac-surface: var(--mac-glass-surface);
-  --mac-search: var(--mac-glass-surface);
-  --mac-text: light-dark(#20252d, #f2f4f9);
-  --mac-secondary: light-dark(#596273, #b7c0cf);
-  --mac-divider: light-dark(rgb(30 50 80 / .12), rgb(205 221 250 / .14));
-  --mac-hover: light-dark(rgb(0 0 0 / .1), rgb(255 255 255 / .1));
-  --mac-selection: linear-gradient(155deg, #3f93f7, #1164db);
+  --mac-window: #eaf0f8;
+  --mac-sidebar: transparent;
+  --mac-surface: linear-gradient(145deg, #ffffffc9, #f8fbff9c);
+  --mac-solid: #fbfcff;
+  --mac-search: #f4f8ff7a;
+  --mac-text: #192535;
+  --mac-secondary: #30435b;
+  --mac-disabled-bg: #e0e6ef;
+  --mac-disabled-text: #5c6979;
+  --mac-divider: #24394e26;
+  --mac-hover: #dde9f6b8;
+  --mac-accent: #175cd3;
+  --mac-icon-surface: #dceaffb3;
+  --mac-selection: #175cd3;
+  --mac-on-selection: #fff;
+  --mac-shadow: inset 0 1px 1px #ffffffd9, inset 0 -1px 1px #ffffff40, 0 8px 28px #2339550e;
+  --mac-glass-blur: blur(18px) saturate(110%);
+}
+
+:root[data-native-frosted="true"] {
+  --mac-window: linear-gradient(135deg, #f5faff99, #eaf3ff8c 55%, #f5faff94);
+  --mac-surface: linear-gradient(135deg, #ffffffb3, #f9fcff8c);
+}
+
+:root[data-glass-contrast="enhanced"] {
+  --mac-divider: #24394e48;
+  --mac-text: #101e2f;
+  --mac-secondary: #263a50;
+  --mac-surface: linear-gradient(135deg, #ffffffd9, #f5f9ffb8);
+  --mac-search: #e3edf9a6;
+}
+
+@media (prefers-reduced-transparency: reduce), (forced-colors: active) {
+  :root {
+    --mac-window: #eaf0f8;
+    --mac-surface: #fafcff;
+    --mac-search: #edf3fb;
+  }
 }

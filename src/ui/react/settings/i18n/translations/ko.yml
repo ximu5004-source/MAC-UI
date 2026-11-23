@@ -29,14 +29,14 @@ apps_configurations:
   bundled_msg: >-
     이러한 미리 구성된 설정은 편집할 수 없으며, 수정하지 않고 최상의 경험을 제공하도록 설계되었습니다. 자주 사용되는 프로그램을 자동으로
     구성합니다.
-  bundled_title: Seelen에서 제공한 설정
+  bundled_title: MAC UI에서 제공한 설정
   confirm_delete: 정말로 이 설정을 삭제하시겠습니까?
   confirm_delete_title: 삭제하시겠습니까?
   delete: 삭제
   export: 내보내기
   export_full: 애플리케이션별 설정 내보내기
   extra_info: >-
-    Seelen UI는 앱당 (가장 먼저 일치한) 하나의 식별자만 사용하므로 식별된 순서는 중요합니다. 가장 최근에 추가된 항목이 우선순위를
+    MAC UI는 앱당 (가장 먼저 일치한) 하나의 식별자만 사용하므로 식별된 순서는 중요합니다. 가장 최근에 추가된 항목이 우선순위를
     정합니다. 참고로 테이블은 기본적으로 최신순 부터 오래된 순서로 정렬됩니다.
   identifier:
     add_block: 블록 추가
@@ -75,12 +75,12 @@ devtools:
   custom_config_file: 사용자 정의 구성 파일 로드
   data_folder: 데이터 폴더
   enable: 개발자 도구 활성화
-  enable_description: Seelen UI 내부를 검사하고 디버깅하기 위한 고급 도구를 잠금 해제합니다. 정기적인 사용을 위한 것이 아닙니다.
+  enable_description: MAC UI 내부를 검사하고 디버깅하기 위한 고급 도구를 잠금 해제합니다. 정기적인 사용을 위한 것이 아닙니다.
   icons: 캐시된 아이콘
   install_folder: 설치 폴더
   load: 로드
   settings_file: 설정 파일
-  shared_components: SLU 표준 구성요소
+  shared_components: MAC UI 표준 구성요소
   simulate_dialog:
     label: 대화 상자 시뮬레이션
     trigger: 방아쇠
@@ -108,7 +108,7 @@ devtools:
     tab: 위젯
     widget_id: 위젯 ID
 discord_banner:
-  message: 다른 Seelen UI 사용자와 연결하고, 도움을 받고, 테마를 공유하고, 최신 뉴스를 받아보세요.
+  message: 다른 MAC UI 사용자와 연결하고, 도움을 받고, 테마를 공유하고, 최신 뉴스를 받아보세요.
   title: 우리 커뮤니티에 가입하세요
 extras:
   backup_group: 클라우드 백업
@@ -152,7 +152,7 @@ general:
     plugged: 플러그 또는 충전
   polling_interval: 시스템 폴링 간격
   polling_interval_description: >-
-    Seelen UI가 CPU, RAM, 네트워크 및 디스크 활동과 같은 시스템 리소스를 확인하는 빈도(초)입니다. 숫자가 작을수록 업데이트
+    MAC UI가 CPU, RAM, 네트워크 및 디스크 활동과 같은 시스템 리소스를 확인하는 빈도(초)입니다. 숫자가 작을수록 업데이트
     빈도가 높아지지만 리소스 사용량이 약간 높아집니다.
   saturday: 토요일
   start_of_week: 주의 시작
@@ -205,7 +205,7 @@ reset_configurations: 구성 재설정
 reset_to_default: 기본값으로 재설정
 resources:
   affected_widgets: 영향을 받는 위젯
-  app_outdated: 이 리소스가 제대로 작동하려면 최신 버전의 Seelen UI가 필요합니다.
+  app_outdated: 이 리소스가 제대로 작동하려면 최신 버전의 MAC UI가 필요합니다.
   coming_soon: 출시 예정
   corrupted_wallpaper: 썸네일 추출 실패 - 손상되었거나 지원되지 않는 비디오 형식
   delete: 리소스 삭제
@@ -216,7 +216,7 @@ resources:
   included_plugins: 포함된 플러그인
   modified: 수정됨
   open_folder: 리소스 폴더 열기
-  outdated: 이 리소스는 이전 버전의 Seelen UI용으로 설계되었으며 제대로 작동하지 않을 수 있습니다.
+  outdated: 이 리소스는 이전 버전의 MAC UI용으로 설계되었으며 제대로 작동하지 않을 수 있습니다.
   see_on_website: 웹사이트에서 확인하세요
   update_now: 업데이트
   updates_available: 업데이트 가능
@@ -224,7 +224,7 @@ resources:
 review_request:
   not_now: 지금은 아님
   sure: 확신하는!
-  title: Seelen UI를 즐기고 계시나요?
+  title: MAC UI를 즐기고 계시나요?
 save: 저장
 save_and_restart: 저장 및 재시작
 search: 찾다
@@ -240,7 +240,7 @@ shortcuts:
   duplicate_error: 충돌하는 바로가기가 감지되었습니다.
   duplicate_error_hint: 일부 단축키는 여러 작업에 할당됩니다. 충돌하는 위젯 중 하나를 비활성화하거나 중복 키 바인딩을 다시 할당하여 문제를 해결하세요.
   enable: 내장 단축키 시스템을 활성화하십시오
-  enable_tooltip: Seelen UI 클라이언트를 사용하여 자신의 바로 가기 시스템을 구현하는 경우 비활성화하십시오.
+  enable_tooltip: MAC UI 클라이언트를 사용하여 자신의 바로 가기 시스템을 구현하는 경우 비활성화하십시오.
   labels:
     create_new_workspace: 새 작업 공간을 만듭니다
     create_new_workspace_row: 새 작업공간 행 생성
@@ -392,11 +392,11 @@ weg:
 welcome:
   give_a_review: 리뷰를 남겨주세요
   message: >-
-    Seelen UI는 Windows용 무료 오픈 소스 데스크톱 환경입니다. 여기에서 데스크탑의 모양과 동작을 완전히 제어할 수 있으므로
+    MAC UI는 Windows용 무료 오픈 소스 데스크톱 환경입니다. 여기에서 데스크탑의 모양과 동작을 완전히 제어할 수 있으므로
     작업 흐름과 스타일에 맞게 모든 세부 사항을 사용자 정의할 수 있습니다.
   ok: 시작하자!
-  review: Seelen UI를 즐겨 사용하신다면 스토어에 리뷰를 남겨보세요. 여러분의 피드백은 프로젝트 성장과 개선에 도움이 됩니다.
-  title: Seelen UI에 오신 것을 환영합니다!
+  review: MAC UI를 즐겨 사용하신다면 스토어에 리뷰를 남겨보세요. 여러분의 피드백은 프로젝트 성장과 개선에 도움이 됩니다.
+  title: MAC UI에 오신 것을 환영합니다!
 widget:
   default_instance: 기본 인스턴스
   default_instance_hint: 항상 활성 상태이며 루트 위젯 구성을 사용합니다.

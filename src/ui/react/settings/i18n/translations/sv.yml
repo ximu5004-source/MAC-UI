@@ -30,14 +30,14 @@ apps_configurations:
     Dessa bundna konfigurationer är inte redigerbara och är utformade för att ge
     dig den bästa upplevelsen utan anpassning. De konfigurerar automatiskt de
     vanligaste applikationerna för dig.
-  bundled_title: App config bunded med seelen
+  bundled_title: App config bunded med macui
   confirm_delete: Är du säker på att du vill ta bort den här konfigurationen/s?
   confirm_delete_title: Bekräfta radering
   delete: Radera
   export: Exportera
   export_full: Exportera inställningar per applikation
   extra_info: >-
-    Seelen UI använder endast en identifierare per app (första matchningen
+    MAC UI använder endast en identifierare per app (första matchningen
     hittas) så ordningen i hur de specificeras är viktig, det senast tillagda
     kommer att prioriteras, som observera att tabellen sorteras som standard
     från senaste till gammal.
@@ -49,7 +49,7 @@ apps_configurations:
     matching_strategy: Matchningsstrategi
     matching_strategy_option:
       contains: Innehåller
-      ends_with: Slutar med
+      ends_with: MacUitar med
       equals: Lika
       regex: Reguljärt uttryck
       starts_with: Börjar med
@@ -80,13 +80,13 @@ devtools:
   data_folder: Datarmapp
   enable: Aktivera utvecklarverktyg
   enable_description: >-
-    Låser upp avancerade verktyg för att inspektera och felsöka Seelen UI
+    Låser upp avancerade verktyg för att inspektera och felsöka MAC UI
     interna delar. Ej avsedd för regelbunden användning.
   icons: Cachade ikoner
   install_folder: Installationsmapp
   load: Ladda
   settings_file: Inställningsfil
-  shared_components: SLU Standardkomponenter
+  shared_components: MAC UI Standardkomponenter
   simulate_dialog:
     label: Simulera dialog
     trigger: Utlösare
@@ -119,7 +119,7 @@ devtools:
     widget_id: Widget-ID
 discord_banner:
   message: >-
-    Få kontakt med andra Seelen UI-användare, få hjälp, dela teman och håll dig
+    Få kontakt med andra MAC UI-användare, få hjälp, dela teman och håll dig
     uppdaterad med de senaste nyheterna.
   title: Gå med i vår community
 extras:
@@ -132,7 +132,7 @@ extras:
   clear_icons_tooltip: En omstart kan krävas för att få full effekt på alla widgets
   discord_rpc: Discord rik närvaro
   discord_rpc_description: Visa alla att du har stil!
-  exit: Sluta/avsluta
+  exit: MacUita/avsluta
   relaunch: Omstart
   streaming_mode: Strömningsläge
   streaming_mode_description: >-
@@ -169,7 +169,7 @@ general:
     plugged: Ansluten eller laddning
   polling_interval: Systemavfrågningsintervall
   polling_interval_description: >-
-    Hur ofta (i sekunder) Seelen UI kontrollerar systemresurser som CPU, RAM,
+    Hur ofta (i sekunder) MAC UI kontrollerar systemresurser som CPU, RAM,
     nätverk och diskaktivitet. Ett mindre antal innebär oftare uppdateringar,
     men något högre resursanvändning.
   saturday: lördag
@@ -217,14 +217,14 @@ monitors_configurations:
 more: Mer
 'no': Inga
 open: Öppen
-quit: Sluta
+quit: MacUita
 remove: Ta bort
 reset_all_to_default: Återställ alla till standardvärden
 reset_configurations: Återställ konfigurationer
 reset_to_default: Återställ till standardvärde
 resources:
   affected_widgets: Berörda widgetar
-  app_outdated: Denna resurs kräver en nyare version av Seelen UI för att fungera korrekt.
+  app_outdated: Denna resurs kräver en nyare version av MAC UI för att fungera korrekt.
   coming_soon: Kommer snart
   corrupted_wallpaper: >-
     Det gick inte att extrahera miniatyrbilden - skadat eller videoformat som
@@ -238,7 +238,7 @@ resources:
   modified: Ändrad
   open_folder: Öppna resursmappen
   outdated: >-
-    Den här resursen är utformad för en äldre version av Seelen UI och kanske
+    Den här resursen är utformad för en äldre version av MAC UI och kanske
     inte fungerar korrekt.
   see_on_website: Se på hemsidan
   update_now: Uppdatera
@@ -247,7 +247,7 @@ resources:
 review_request:
   not_now: Inte nu
   sure: Säker!
-  title: Gillar du Seelen UI?
+  title: Gillar du MAC UI?
 save: Spara
 save_and_restart: Spara och starta om
 search: Söka
@@ -266,7 +266,7 @@ shortcuts:
     widgetarna eller omtilldela den dubbla nyckelbindningen för att lösa.
   enable: Aktivera inbyggda genvägssystem
   enable_tooltip: >-
-    Inaktivera om du kommer att implementera ditt eget genvägssystem med Seelen
+    Inaktivera om du kommer att implementera ditt eget genvägssystem med MAC UI
     UI -klienten
   labels:
     create_new_workspace: Skapa en ny arbetsyta
@@ -360,7 +360,7 @@ wall:
     right: Rätt
     top: Topp
   processing_video: Bearbetar video
-  random: Slumpmässig bildspel
+  random: MacUimpmässig bildspel
   saturation: Mättnad
   seconds: sekunder
   select_collection: Välj Samling
@@ -421,14 +421,14 @@ weg:
 welcome:
   give_a_review: Ge en recension
   message: >-
-    Seelen UI är en gratis skrivbordsmiljö med öppen källkod för Windows. Här
+    MAC UI är en gratis skrivbordsmiljö med öppen källkod för Windows. Här
     har du full kontroll över hur ditt skrivbord ser ut och beter sig, så att du
     kan anpassa varje detalj för att matcha ditt arbetsflöde och din stil.
   ok: Låt oss börja!
   review: >-
-    Om du gillar att använda Seelen UI, överväg att lämna en recension i butiken
+    Om du gillar att använda MAC UI, överväg att lämna en recension i butiken
     – din feedback hjälper projektet att växa och förbättras.
-  title: Välkommen till Seelen UI!
+  title: Välkommen till MAC UI!
 widget:
   default_instance: Standardinstans
   default_instance_hint: Alltid aktiv, använder root-widgetkonfigurationen

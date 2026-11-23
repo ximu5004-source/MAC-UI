@@ -15,7 +15,7 @@ profile:
   log_out: Teken uit
   open_onedrive: Maak OneDrive-gids oop
   open_user_folder: Maak gebruikersgids oop
-seelen_options:
-  open_installation_folder: Maak Seelen-instellingsmap oop
-  open_log_folder: Maak Seelen-loglêergids oop
-  title: Seelen-gidse
+macui_options:
+  open_installation_folder: Maak MAC UI-instellingsmap oop
+  open_log_folder: Maak MAC UI-loglêergids oop
+  title: MAC UI-gidse

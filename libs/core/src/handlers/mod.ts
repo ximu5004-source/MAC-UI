@@ -1,9 +1,9 @@
-import type { SeelenCommandArgument, SeelenCommandReturn, SeelenEventPayload } from "@seelen-ui/types";
+import type { MacUiCommandArgument, MacUiCommandReturn, MacUiEventPayload } from "@macui/types";
 import { invoke as tauriInvoke, type InvokeOptions } from "@tauri-apps/api/core";
 import { type EventCallback, listen, type Options as ListenerOptions } from "@tauri-apps/api/event";
 
-import type { SeelenCommand } from "./commands.ts";
-import type { SeelenEvent } from "./events.ts";
+import type { MacUiCommand } from "./commands.ts";
+import type { MacUiEvent } from "./events.ts";
 
 type $keyof<Type> = [Type] extends [never] ? keyof Type
   : Type extends Type ? keyof Type
@@ -26,14 +26,14 @@ type MapNullToUndefined<Obj> = {
   [K in keyof Obj]: [Obj[K]] extends [null] ? undefined : Obj[K];
 };
 
-export type AllSeelenCommandArguments = MapNullToUndefined<
-  UnionToIntersection<SeelenCommandArgument>
+export type AllMacUiCommandArguments = MapNullToUndefined<
+  UnionToIntersection<MacUiCommandArgument>
 >;
-export type AllSeelenCommandReturns = MapNullToVoid<
-  UnionToIntersection<SeelenCommandReturn>
+export type AllMacUiCommandReturns = MapNullToVoid<
+  UnionToIntersection<MacUiCommandReturn>
 >;
 
-export type AllSeelenEventPayloads = UnionToIntersection<SeelenEventPayload>;
+export type AllMacUiEventPayloads = UnionToIntersection<MacUiEventPayload>;
 
 /**
  * Will call to the background process
@@ -41,27 +41,27 @@ export type AllSeelenEventPayloads = UnionToIntersection<SeelenEventPayload>;
  * @args Command arguments
  * @return Result of the command
  */
-export function invoke<T extends SeelenCommand>(
-  ...args: [AllSeelenCommandArguments[T]] extends [undefined] ? [
+export function invoke<T extends MacUiCommand>(
+  ...args: [AllMacUiCommandArguments[T]] extends [undefined] ? [
       command: T,
       args?: undefined,
       options?: InvokeOptions,
     ]
     : [
       command: T,
-      args: AllSeelenCommandArguments[T],
+      args: AllMacUiCommandArguments[T],
       options?: InvokeOptions,
     ]
-): Promise<AllSeelenCommandReturns[T]> {
+): Promise<AllMacUiCommandReturns[T]> {
   const [command, commandArgs, options] = args;
   return tauriInvoke(command, commandArgs, options);
 }
 
 export type UnSubscriber = () => void;
 
-export function subscribe<T extends SeelenEvent>(
+export function subscribe<T extends MacUiEvent>(
   event: T,
-  cb: EventCallback<AllSeelenEventPayloads[T]>,
+  cb: EventCallback<AllMacUiEventPayloads[T]>,
   options?: ListenerOptions,
 ): Promise<UnSubscriber> {
   return listen(event, cb, options);

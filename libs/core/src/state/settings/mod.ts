@@ -1,6 +1,6 @@
-import { SeelenCommand, SeelenEvent, type UnSubscriber } from "../../handlers/mod.ts";
+import { MacUiCommand, MacUiEvent, type UnSubscriber } from "../../handlers/mod.ts";
 
-import type { GenericWidgetSettings, Settings as ISettings } from "@seelen-ui/types";
+import type { GenericWidgetSettings, Settings as ISettings } from "@macui/types";
 import { newFromInvoke, newOnEvent } from "../../utils/State.ts";
 import { invoke } from "../../handlers/mod.ts";
 import { Widget } from "../widget/mod.ts";
@@ -12,19 +12,19 @@ export class Settings {
   }
 
   static default(): Promise<Settings> {
-    return newFromInvoke(this, SeelenCommand.StateGetDefaultSettings);
+    return newFromInvoke(this, MacUiCommand.StateGetDefaultSettings);
   }
 
   static getAsync(): Promise<Settings> {
-    return newFromInvoke(this, SeelenCommand.StateGetSettings);
+    return newFromInvoke(this, MacUiCommand.StateGetSettings);
   }
 
   static onChange(cb: (payload: Settings) => void): Promise<UnSubscriber> {
-    return newOnEvent(cb, this, SeelenEvent.StateSettingsChanged);
+    return newOnEvent(cb, this, MacUiEvent.StateSettingsChanged);
   }
 
   static loadCustom(path: string): Promise<Settings> {
-    return newFromInvoke(this, SeelenCommand.StateGetSettings, { path });
+    return newFromInvoke(this, MacUiCommand.StateGetSettings, { path });
   }
 
   /**
@@ -55,6 +55,6 @@ export class Settings {
 
   /** Will store the settings on disk */
   save(): Promise<void> {
-    return invoke(SeelenCommand.StateWriteSettings, { settings: this.inner });
+    return invoke(MacUiCommand.StateWriteSettings, { settings: this.inner });
   }
 }

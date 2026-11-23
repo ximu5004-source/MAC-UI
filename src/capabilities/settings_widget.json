@@ -4,7 +4,7 @@
   "description": "Settings Widget Capabilities",
   "local": true,
   "windows": [
-    "QHNlZWxlbi9zZXR0aW5ncw"
+    "QG1hY3VpL3NldHRpbmdz"
   ],
   "permissions": [
     "process:allow-restart",

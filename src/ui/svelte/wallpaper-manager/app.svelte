@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Widget } from "@seelen-ui/lib";
+  import { Widget } from "@macui/lib";
   import MonitorContainers from "./modules/Monitor/infra.svelte";
 
   $effect(() => {

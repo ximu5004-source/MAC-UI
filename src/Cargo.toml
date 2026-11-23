@@ -1,33 +1,33 @@
 [package]
-name = "seelen-ui"
-version = "3.0.1"
+name = "macui"
+version = "4.3.1"
 description = "MAC UI by JONA"
 authors = ["JONA", "eythaann (upstream Seelen UI)"]
 license = "AGPL-3.0-or-later"
-repository = "https://github.com/eythaann/seelen-ui.git"
-default-run = "seelen-ui"
+repository = "https://github.com/ximu5004-source/MAC-UI.git"
+default-run = "macui"
 edition = "2024"
 rust-version = "1.89"
 
 [[bin]]
-name = "seelen-ui"
+name = "macui"
 path = "background/main.rs"
 
 [[bin]]
-name = "slu"
-path = "slu/main.rs"
+name = "macui-cli"
+path = "macui-cli/main.rs"
 
 [[bin]]
-name = "slu-service"
+name = "macui-service"
 path = "service/main.rs"
 
 [build-dependencies]
 tauri-build = { workspace = true, features = [] }
-slu-utils = { workspace = true }
+macui-utils = { workspace = true }
 
 [dependencies]
-slu-ipc = { workspace = true }
-slu-utils = { workspace = true }
+macui-ipc = { workspace = true }
+macui-utils = { workspace = true }
 positioning = { workspace = true }
 tauri = { workspace = true, features = ["devtools", "protocol-asset"] }
 tauri-plugin-dialog = { workspace = true }
@@ -78,7 +78,7 @@ discord-rich-presence = { workspace = true }
 win-hotkeys = { workspace = true }
 walkdir = { workspace = true }
 tokio = { workspace = true }
-seelen-core = { workspace = true, features = ["salvo"] }
+macui-core = { workspace = true, features = ["salvo"] }
 wmi = { workspace = true }
 windows = { workspace = true, features = [
     "Win32_Foundation",
@@ -103,6 +103,7 @@ windows = { workspace = true, features = [
     "Win32_Graphics_DirectWrite",
     "Win32_Graphics_Dwm",
     "Win32_Graphics_Gdi",
+    "Win32_Storage_Xps",
     "Win32_UI_HiDpi",
     "Win32_System_DataExchange",
     "Win32_System_Ole",

@@ -1,4 +1,4 @@
-use seelen_core::{
+use macui_core::{
     state::{VirtualDesktops, WorkspaceId},
     system_state::MonitorId,
 };

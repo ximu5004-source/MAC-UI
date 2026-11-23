@@ -14,7 +14,7 @@ fn legacy_desktop_becomes_independent_without_losing_wallpapers() {
     settings.by_widget.wall.default_collection = Some(collection.id);
     settings.wallpaper_collections.push(collection.clone());
     settings.migrate().unwrap();
-    assert!(settings.is_widget_enabled(&"@seelen/desktop-shell".into()));
+    assert!(settings.is_widget_enabled(&"@macui/desktop-shell".into()));
     assert!(!settings.by_widget.wall.enabled);
     assert!(!settings.by_widget.wall.desktop_shell_enabled);
     assert_eq!(
@@ -23,25 +23,25 @@ fn legacy_desktop_becomes_independent_without_losing_wallpapers() {
     );
     assert_eq!(settings.wallpaper_collections.len(), 1);
     settings.migrate().unwrap();
-    assert!(settings.is_widget_enabled(&"@seelen/desktop-shell".into()));
+    assert!(settings.is_widget_enabled(&"@macui/desktop-shell".into()));
 }
 
 #[test]
 fn independent_switches_never_override_each_other() {
     let mut settings = Settings::default();
     settings.by_widget.wall.desktop_shell_enabled = true;
-    settings.set_widget_enabled(&"@seelen/desktop-shell".into(), false);
+    settings.set_widget_enabled(&"@macui/desktop-shell".into(), false);
     settings.migrate().unwrap();
-    assert!(!settings.is_widget_enabled(&"@seelen/desktop-shell".into()));
+    assert!(!settings.is_widget_enabled(&"@macui/desktop-shell".into()));
     assert!(settings.by_widget.wall.enabled);
     for desktop in [false, true] {
         for wallpaper in [false, true] {
-            settings.set_widget_enabled(&"@seelen/desktop-shell".into(), desktop);
+            settings.set_widget_enabled(&"@macui/desktop-shell".into(), desktop);
             settings.by_widget.wall.enabled = wallpaper;
             settings.migrate().unwrap();
             settings.sanitize().unwrap();
             assert_eq!(
-                settings.is_widget_enabled(&"@seelen/desktop-shell".into()),
+                settings.is_widget_enabled(&"@macui/desktop-shell".into()),
                 desktop
             );
             assert_eq!(settings.by_widget.wall.enabled, wallpaper);
@@ -52,9 +52,9 @@ fn independent_switches_never_override_each_other() {
 #[test]
 fn fresh_users_do_not_lose_native_desktop() {
     let mut settings = Settings::default();
-    assert!(!settings.is_widget_enabled(&"@seelen/desktop-shell".into()));
+    assert!(!settings.is_widget_enabled(&"@macui/desktop-shell".into()));
     settings.migrate().unwrap();
-    assert!(!settings.is_widget_enabled(&"@seelen/desktop-shell".into()));
+    assert!(!settings.is_widget_enabled(&"@macui/desktop-shell".into()));
 }
 
 #[test]
@@ -64,20 +64,20 @@ fn desktop_glass_preferences_survive_save_load_without_enabling_desktop() {
         "dockTransparency": 42, "dockGloss": 80,
         "iconEdgeTransparency": 73, "iconEdgeGloss": 56
     });
-    source["byWidget"]["@seelen/desktop-shell"] = serde_json::json!({
+    source["byWidget"]["@macui/desktop-shell"] = serde_json::json!({
         "enabled": false, "glassAppearance": appearance, "unrelatedPreference": 123
     });
     let mut settings: Settings = serde_json::from_value(source).unwrap();
     settings.sanitize().unwrap();
     let saved = serde_json::to_value(settings).unwrap();
     assert_eq!(
-        saved["byWidget"]["@seelen/desktop-shell"]["glassAppearance"],
+        saved["byWidget"]["@macui/desktop-shell"]["glassAppearance"],
         appearance
     );
     assert_eq!(
-        saved["byWidget"]["@seelen/desktop-shell"]["unrelatedPreference"],
+        saved["byWidget"]["@macui/desktop-shell"]["unrelatedPreference"],
         123
     );
     let reloaded: Settings = serde_json::from_value(saved).unwrap();
-    assert!(!reloaded.is_widget_enabled(&"@seelen/desktop-shell".into()));
+    assert!(!reloaded.is_widget_enabled(&"@macui/desktop-shell".into()));
 }

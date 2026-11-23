@@ -1,10 +1,10 @@
 use std::sync::atomic::{AtomicBool, Ordering};
 
-use seelen_core::{
-    handlers::SeelenEvent,
+use macui_core::{
+    handlers::MacUiEvent,
     state::shortcuts::{ResolvedShortcut, resolve_shortcuts, system_shortcut_declarations},
 };
-use slu_ipc::messages::SvcAction;
+use macui_ipc::messages::SvcAction;
 
 use crate::{
     app::emit_to_webviews, cli::ServicePipe, error::Result, resources::RESOURCES,
@@ -21,7 +21,7 @@ pub fn toggle_pause() -> Result<()> {
     } else {
         send_all()?;
     }
-    emit_to_webviews(SeelenEvent::ShortcutsPaused, now_paused);
+    emit_to_webviews(MacUiEvent::ShortcutsPaused, now_paused);
     Ok(())
 }
 

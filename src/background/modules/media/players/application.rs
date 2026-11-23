@@ -1,6 +1,6 @@
 use std::{ffi::OsStr, path::PathBuf, sync::LazyLock, time::Duration};
 
-use seelen_core::system_state::{MediaPlayerOwner, MediaPlayerTimeline};
+use macui_core::system_state::{MediaPlayerOwner, MediaPlayerTimeline};
 use windows::{
     Foundation::TypedEventHandler,
     Media::Control::{
@@ -294,7 +294,7 @@ impl PlayersManager {
         self.playing.upsert(
             source_app_umid.to_string(),
             MediaPlayer {
-                base: seelen_core::system_state::MediaPlayer {
+                base: macui_core::system_state::MediaPlayer {
                     umid: source_app_umid.to_string(),
                     title: properties.Title().unwrap_or_default().to_string_lossy(),
                     author: properties.Artist().unwrap_or_default().to_string_lossy(),

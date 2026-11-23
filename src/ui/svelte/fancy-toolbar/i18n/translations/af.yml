@@ -18,7 +18,7 @@ context_menu:
   add_custom_text: Voeg pasgemaakte teksitem by
   modules: Modules
   remove: Verwyder die module
-  reorder_disable: Sluitbalk
+  reorder_disable: MacUiitbalk
   reorder_enable: Ontsluit werkbalk
   restore: Herstel na standaard
   settings: Instellings

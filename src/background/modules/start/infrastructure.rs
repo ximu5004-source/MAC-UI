@@ -1,6 +1,6 @@
 use std::sync::{Arc, Once};
 
-use seelen_core::{handlers::SeelenEvent, system_state::StartMenuItem};
+use macui_core::{handlers::MacUiEvent, system_state::StartMenuItem};
 
 use crate::app::emit_to_webviews;
 
@@ -10,7 +10,7 @@ fn get_start_menu_manager() -> &'static StartMenuManager {
     static TAURI_EVENT_REGISTRATION: Once = Once::new();
     TAURI_EVENT_REGISTRATION.call_once(|| {
         StartMenuManager::subscribe(|_event| {
-            emit_to_webviews(SeelenEvent::StartMenuItemsChanged, get_start_menu_items());
+            emit_to_webviews(MacUiEvent::StartMenuItemsChanged, get_start_menu_items());
         });
     });
     StartMenuManager::instance()

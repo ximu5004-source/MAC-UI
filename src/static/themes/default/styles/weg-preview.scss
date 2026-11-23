@@ -4,7 +4,7 @@ $itemListSpacing: 10px;
 .weg-item-preview-container {
   width: max-content;
   padding: $itemListSpacing;
-  background-color: oklch(from var(--slu-std-bg-color) l c h / 0.8);
+  background-color: oklch(from var(--macui-std-bg-color) l c h / 0.8);
 
   .weg-item-preview-list {
     display: flex;
@@ -20,7 +20,7 @@ $itemListSpacing: 10px;
     padding: var(--spacing-xs);
 
     border-radius: 10px;
-    background-color: var(--slu-std-bg-light-color);
+    background-color: var(--macui-std-bg-light-color);
     box-shadow: var(--shadow-s);
 
     display: flex;

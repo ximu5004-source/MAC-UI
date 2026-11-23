@@ -1,3 +1,41 @@
+settings_detail:
+  wallpaper_library: 桌布庫
+  toggle: "啟用{{name}}"
+  preview: "效果預覽"
+  size_hint: "拖動滑桿，查看圖示與 Dock 大小的變化。"
+  layout: "外觀與版面配置"
+  behavior: "顯示行為"
+  applications: "應用程式與視窗"
+  margin_hint: "與螢幕邊緣之間的距離"
+  padding_hint: "列內部保留的空白"
+  import_hint: "將 Windows 工作列中的釘選應用程式加入 Dock。"
+  features:
+    desktop-shell: "整理桌面檔案，讓常用內容各就其位。"
+    weg: "常用應用程式與開啟的視窗，隨時觸手可及。"
+    apps-menu: "集中啟動應用程式，安排常用軟體。"
+    fancy-toolbar: "系統狀態與常用操作，集中在螢幕邊緣。"
+    flyouts: "訊息、音量與亮度變化，及時呈現在桌面。"
+    window-manager: "依照你的習慣排列視窗，安排工作空間。"
+    task-switcher: "在開啟的應用程式與視窗之間快速切換。"
+    wallpaper-manager: "設定桌布，安排桌布輪換。"
+
+settings_home:
+  title: "設定"
+  subtitle: "依照你的習慣，安排桌面。"
+  back: "返回首頁"
+  desktop: "桌面"
+  desktop_hint: "圖示整理、檔案分組與桌面操作"
+  dock: "Dock 與啟動台"
+  dock_hint: "常用應用程式、視窗預覽與啟動方式"
+  toolbar: "頂部列與通知"
+  toolbar_hint: "頂部列、訊息提醒與系統浮層"
+  windows: "視窗與快捷鍵"
+  windows_hint: "視窗排列、工作切換與鍵盤操作"
+  appearance: "外觀"
+  appearance_hint: "玻璃質感、對比度與桌布"
+  system: "系統設定"
+  system_hint: "開機啟動、語言、顯示器與應用程式"
+
 action:
   confirm: 你確定嗎？
   confirm_body: 該動作不能撤消。
@@ -27,14 +65,14 @@ apps_configurations:
     workspace: 工作區
     workspace_placeholder: 無
   bundled_msg: 這些捆綁的配置不可編輯，旨在為您提供最佳體驗而沒有自定義。他們會自動為您配置最常見的應用程序。
-  bundled_title: App Config與Seelen捆綁在一起
+  bundled_title: App Config與MAC UI捆綁在一起
   confirm_delete: 您確定要刪除此設定嗎？
   confirm_delete_title: 確認刪除
   delete: 刪除
   export: 匯出
   export_full: 按應用程式匯出設定
   extra_info: >-
-    SEELEN
+    MACUI
     UI僅使用每個應用程序使用一個標識符（第一次匹配），因此“如何指定”的順序很重要，最新添加的添加將得到優先級，因為註意表的默認情況下是從最新到舊的。
   identifier:
     add_block: 添加塊
@@ -59,7 +97,7 @@ apps_configurations:
   import: 匯入
   import_full: 通過應用程式匯入設定
   new: 新增
-  search: 搜尋
+  search: "搜尋設定"
   swap: 交換
 cancel: 取消
 close: 關閉
@@ -71,12 +109,12 @@ devtools:
   custom_config_file: 載入自定義設定文件
   data_folder: 數據文件夾
   enable: 啟用開發人員工具
-  enable_description: 解鎖用於檢查和除錯 Seelen UI 內部結構的進階工具。不建議日常使用。
+  enable_description: 解鎖用於檢查和除錯 MAC UI 內部結構的進階工具。不建議日常使用。
   icons: 快取圖示
   install_folder: 安裝文件夾
   load: 載入
   settings_file: 設定文件
-  shared_components: SLU 標準元件
+  shared_components: MAC UI 標準元件
   simulate_dialog:
     label: 模擬對話
     trigger: 扳機
@@ -104,7 +142,7 @@ devtools:
     tab: 小部件
     widget_id: 小部件 ID
 discord_banner:
-  message: 與其他 Seelen UI 使用者聯繫、獲取協助、分享主題並了解最新消息。
+  message: 與其他 MAC UI 使用者聯繫、獲取協助、分享主題並了解最新消息。
   title: 加入我們的社群
 extras:
   backup_group: 雲端備份
@@ -116,8 +154,8 @@ extras:
   clear_icons_tooltip: 小工具可能需要重新啟動才會生效
   discord_rpc: Discord富狀態
   discord_rpc_description: 向大家展示您的風格！
-  exit: 退出Seelen
-  relaunch: 重新啟動Seelen
+  exit: 退出MAC UI
+  relaunch: 重新啟動MAC UI
   streaming_mode: 串流模式
   streaming_mode_description: 用佔位符取代敏感資訊（例如電子郵件），以在錄製或螢幕截圖期間保護隱私。
   version: 版本
@@ -145,7 +183,7 @@ general:
       minimal: 基本優化
     plugged: 插電或充電時
   polling_interval: 系統輪詢間隔
-  polling_interval_description: Seelen UI 檢查 CPU、RAM、網路和磁碟活動等系統資源的頻率（以秒為單位）。數字越小意味著更新越頻繁，但資源使用率會稍高。
+  polling_interval_description: MAC UI 檢查 CPU、RAM、網路和磁碟活動等系統資源的頻率（以秒為單位）。數字越小意味著更新越頻繁，但資源使用率會稍高。
   saturday: 星期六
   start_of_week: 一週的第一天
   startup: 開機時自動啟動
@@ -160,7 +198,7 @@ header:
   labels:
     config: 設定
     developer: 開發人員選項
-    extras: 附加功能
+    extras: 關於 MAC UI
     general: 一般設定
     home: 首頁
     iconpack: icon包
@@ -174,7 +212,7 @@ header:
     theme: 主題
     virtual_desk: 虛擬桌面
     wallpaper: 桌布
-    widget: 小工具
+    widget: 桌面元件
 home:
   new_resources: 新資源
 inherit: 繼承
@@ -195,7 +233,7 @@ reset_configurations: 重置設定
 reset_to_default: 恢復為預設值
 resources:
   affected_widgets: 受影響的小工具
-  app_outdated: 此資源需要較新版本的Seelen UI才能正常運作。
+  app_outdated: 此資源需要較新版本的MAC UI才能正常運作。
   coming_soon: 即將推出
   corrupted_wallpaper: 無法擷取縮圖 - 影片格式已損壞或不受支持
   delete: 刪除資源
@@ -206,7 +244,7 @@ resources:
   included_plugins: 包含的擴充功能
   modified: 已修改
   open_folder: 打開資源文件夾
-  outdated: 此資源是為舊版Seelen UI設計的，可能無法正常運作。
+  outdated: 此資源是為舊版MAC UI設計的，可能無法正常運作。
   see_on_website: 查看詳情
   update_now: 更新
   updates_available: 可用更新
@@ -214,7 +252,7 @@ resources:
 review_request:
   not_now: 再體驗看看
   sure: 當然！
-  title: 喜歡Seelen UI嗎？
+  title: 喜歡MAC UI嗎？
 save: 保存
 save_and_restart: 保存並重新啟動
 search: 搜尋
@@ -230,13 +268,13 @@ shortcuts:
   duplicate_error: 偵測到衝突的捷徑
   duplicate_error_hint: 有些快捷鍵被指派給多個操作。禁用衝突的小部件之一或重新分配重複的鍵綁定來解決。
   enable: 使用內建快捷鍵
-  enable_tooltip: 禁用您使用SEELEN UI客戶端實現自己的快捷方式系統
+  enable_tooltip: 禁用您使用MAC UI客戶端實現自己的快捷方式系統
   labels:
     create_new_workspace: 創建新工作區
     create_new_workspace_row: 建立新的工作區行
     destroy_current_workspace: 刪除當前工作區
-    misc_force_quit: 強制退出Seelen
-    misc_force_restart: 強制重新啟動Seelen
+    misc_force_quit: 強制退出MAC UI
+    misc_force_restart: 強制重新啟動MAC UI
     move_to_workspace: 移至工作區{{0}}
     pause_toggle: 暫停/恢復快捷方式
     send_to_next_workspace: 將視窗傳送到下一個工作區
@@ -262,15 +300,15 @@ toolbar:
   delay_to_hide: 延遲隱藏
   delay_to_show: 延遲顯示
   dock_side: 位置
-  enable: 啟用精美工具欄
+  enable: 啟用頂部列
   hide_mode:
     always: 總是
     never: 絕不
     on_overlap: 視窗重疊時
   item_size: 尺寸
-  label: 工具欄
-  margin: 邊距大小
-  padding: 填充尺寸
+  label: 頂部列
+  margin: 螢幕邊距
+  padding: 內邊距
   placeholder: {}
 update:
   available: 有更新！
@@ -335,6 +373,11 @@ wall:
   withOverlay: 啟用疊加層
   workspace_collections: 工作區集合
 weg:
+  window_animation:
+    label: 視窗動畫
+    description: 選擇視窗最小化與還原時的效果。神奇效果會讓視窗沿 Dock 圖示方向收合與展開。
+    genie: 神奇效果
+    native: Windows 預設
   auto_hide: 自動隱藏
   auto_hide_touch_disabled: 自動隱藏在觸控螢幕裝置上不可用
   delay_to_hide: 延遲隱藏
@@ -382,11 +425,11 @@ weg:
 welcome:
   give_a_review: 發表評論
   message: >-
-    Seelen UI 是一個適用於 Windows 的免費開源桌面環境。
+    MAC UI 是一個適用於 Windows 的免費開源桌面環境。
     在這裡，您可以完全控制桌面的外觀和行為，允許您自定義每個細節以匹配您的工作流程和風格。
   ok: 讓我們開始吧！
-  review: 如果您喜歡使用 Seelen UI，請考慮在商店留下評論，您的回饋有助於專案的發展和改進。
-  title: 歡迎來到Seelen UI！
+  review: 如果您喜歡使用 MAC UI，請考慮在商店留下評論，您的回饋有助於專案的發展和改進。
+  title: 歡迎來到MAC UI！
 widget:
   default_instance: 預設視窗
   default_instance_hint: 始終處於活動狀態，使用根小工具配置
@@ -425,3 +468,72 @@ wm:
   workspace_offset: 工作區偏移（邊距）
   workspace_padding: 工作區填充
 'yes': 是的
+mac_local:
+  nav_desktop: "桌面"
+  nav_appearance: "外觀"
+  nav_windows: "視窗"
+  nav_about: "關於"
+  message_popups: "訊息彈窗"
+  original_glass: "原版玻璃"
+  contrast_glass: "增強對比"
+  general: "一般"
+  desktop: "桌面與 Dock"
+  appearance: "外觀"
+  windows: "視窗與快捷鍵"
+  devices: "顯示器與應用程式"
+  advanced: "更多"
+  desktop_hint: "桌面整理、應用程式啟動與頂部列，都在這裡。"
+  appearance_hint: "調整玻璃質感，搭配喜歡的主題、圖示與桌布。"
+  windows_hint: "安排視窗配置，用順手的快捷鍵切換工作。"
+  devices_hint: "為每個螢幕、每個應用程式設定合適的工作方式。"
+  advanced_hint: "管理本機資源，查看維護選項與進階工具。"
+  resources_hint: "本機資源庫 · 按兩下 .maui 檔案即可匯入，無需登入。"
+  local_mode: "本機版"
+  local_hint: "設定儲存在這台電腦上，已關閉線上帳號、雲端同步、線上資源服務和使用統計。"
+  license_notice: "本修改版依 GNU AGPL 授權發布，不提供擔保。原作著作權與第三方授權繼續適用，專案儲存庫提供對應原始碼。"
+  source: "檢視原始碼"
+  theme_settings: "主題詳細設定"
+  more_options: "更多選項"
+  color_settings: "強調色"
+  performance_settings: "效能與進階選項"
+  link_theme: "已安裝主題與自訂樣式"
+  link_iconpack: "本機應用程式圖示集合"
+  link_wallpaper: "圖片、影片與桌布輪播"
+  link_shortcuts: "Win 鍵、應用程式快捷鍵與組合鍵"
+  link_monitors: "每個螢幕的配置與顯示選項"
+  link_specific_apps: "依應用程式指定視窗行為"
+  link_resources: "查看所有已安裝資源"
+  link_widget: "桌面元件與附加面板"
+  link_plugin: "本機擴充功能"
+  link_developer: "診斷與開發工具"
+  link_extras: "版本、維護與開源授權"
+  wallpaper_controls: "桌布播放設定"
+
+settings_exit:
+  label: 結束 MAC UI
+  hint: 結束軟體並恢復 Windows 桌面
+  unsaved_title: 結束前捨棄尚未儲存的變更？
+  unsaved_hint: 目前設定尚未儲存。結束後將捨棄這些變更，並恢復 Windows 原生桌面。
+  discard_exit: 捨棄變更並結束
+
+desktop_controls:
+  title: 桌面整理
+  icons: 圖示與分組
+  layout: 整理框配置
+  live: 變更立即生效，並自動儲存。
+  layout_hint: 調整整理框的移動方式與配置保護。
+  arrange: 桌面顯示方式
+  arrange_hint: 切換顯示方式時保留既有分組和圖示位置。
+  category: 依整理框分組
+  name: 直接顯示桌面圖示
+  size: 圖示大小
+  snapToGrid: 網格吸附
+  snapToGrid_hint: 移動或縮放整理框時自動吸附至網格。
+  showGrid: 顯示網格
+  showGrid_hint: 在分組桌面上顯示輔助線，方便放置整理框。
+  layoutLocked: 鎖定整理框
+  layoutLocked_hint: 固定整理框的位置與大小，框內圖示仍可拖曳。
+  loading: 正在讀取桌面設定…
+  unavailable: 請啟用並儲存桌面管理，再讀取整理設定。
+  refresh: 讀取設定
+  failed: 暫時無法儲存桌面設定，請結束目前的桌面操作後重試。

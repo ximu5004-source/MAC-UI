@@ -2,7 +2,7 @@ pub mod application;
 pub mod infrastructure;
 
 use application::AppSettings;
-use seelen_core::{
+use macui_core::{
     resource::{PluginId, WidgetId},
     state::{
         WorkspaceId,

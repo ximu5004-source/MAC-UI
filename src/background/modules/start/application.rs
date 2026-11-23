@@ -2,15 +2,13 @@ use std::path::{Path, PathBuf};
 use std::sync::{Arc, LazyLock, OnceLock};
 use std::time::Duration;
 
+use macui_core::system_state::StartMenuItem;
 use notify_debouncer_full::{
     DebounceEventResult, DebouncedEvent, Debouncer, FileIdMap, new_debouncer,
     notify::{ReadDirectoryChangesWatcher, RecursiveMode},
 };
 use rayon::iter::{IntoParallelIterator, ParallelIterator};
-use seelen_core::system_state::StartMenuItem;
-use windows::Win32::UI::Shell::{
-    FOLDERID_CommonPrograms, FOLDERID_CommonStartMenu, FOLDERID_Programs, FOLDERID_StartMenu,
-};
+use windows::Win32::UI::Shell::{FOLDERID_CommonPrograms, FOLDERID_Programs};
 use windows::{
     ApplicationModel::{Core::AppListEntry, Package, PackageCatalog},
     Foundation::TypedEventHandler,
@@ -18,6 +16,7 @@ use windows::{
     UI::StartScreen::StartScreenManager,
 };
 
+use super::domain::{is_program_shortcut, visible_packaged_app_ids};
 use crate::{
     error::{Result, ResultLogExt},
     event_manager,
@@ -48,14 +47,14 @@ unsafe impl Sync for StartMenuManager {}
 impl StartMenuManager {
     /// programs shared by all users
     fn common_items_path() -> PathBuf {
-        WindowsApi::known_folder(FOLDERID_CommonStartMenu)
-            .expect("Failed to get FOLDERID_CommonStartMenu folder path")
+        WindowsApi::known_folder(FOLDERID_CommonPrograms)
+            .expect("Failed to get FOLDERID_CommonPrograms folder path")
     }
 
     /// programs specific to the current user
     fn user_items_path() -> PathBuf {
-        WindowsApi::known_folder(FOLDERID_StartMenu)
-            .expect("Failed to get FOLDERID_StartMenu folder path")
+        WindowsApi::known_folder(FOLDERID_Programs)
+            .expect("Failed to get FOLDERID_Programs folder path")
     }
 
     fn new() -> StartMenuManager {
@@ -79,16 +78,40 @@ impl StartMenuManager {
     /// the listeners that keep them updated. Should be awaited during the app startup.
     pub fn initialize() -> Result<()> {
         let manager = Self::instance();
-        manager.shortcuts.replace(crate::measure!(
-            "StartMenu Shortcuts",
-            Self::load_shortcut_items()
-        ));
-        manager.packaged.replace(crate::measure!(
-            "StartMenu Packaged",
-            Self::load_packaged_items()?
-        ));
+        let (shortcuts, packaged) = Self::load_initial_catalog();
+        manager.shortcuts.replace(shortcuts);
+        manager.packaged.replace(packaged?);
         manager.setup_listeners();
         Ok(())
+    }
+
+    fn load_initial_catalog() -> (Vec<Arc<StartMenuItem>>, Result<Vec<Arc<StartMenuItem>>>) {
+        // Shortcut resolution and installed-package enumeration are independent.
+        // Do not make first widget creation wait for their durations added together.
+        // Package COM objects are created/dropped inside their own known apartment;
+        // only the plain Rust catalog leaves this scoped worker.
+        std::thread::scope(|scope| {
+            let packaged = std::thread::Builder::new()
+                .name("StartMenuPackages".into())
+                .spawn_scoped(scope, || {
+                    Com::run_with_context(|| {
+                        crate::measure!("StartMenu Packaged", Self::load_packaged_items())
+                    })
+                });
+            let shortcuts = crate::measure!("StartMenu Shortcuts", Self::load_shortcut_items());
+            let packaged = match packaged {
+                Ok(worker) => worker
+                    .join()
+                    .unwrap_or_else(|_| Err("Start menu package worker failed".into())),
+                Err(error) => {
+                    // Thread exhaustion must not remove packaged applications.
+                    // Preserve the existing synchronous fallback and error path.
+                    log::warn!("Could not start package catalog worker: {error}");
+                    crate::measure!("StartMenu Packaged", Self::load_packaged_items())
+                }
+            };
+            (shortcuts, packaged)
+        })
     }
 
     /// Shortcuts followed by the packaged apps.
@@ -150,7 +173,7 @@ impl StartMenuManager {
             .to_string();
 
         Arc::new(StartMenuItem {
-            start_menu_folder: slu_utils::start_menu::folder_segments(&path, programs_root),
+            start_menu_folder: macui_utils::start_menu::folder_segments(&path, programs_root),
             umid,
             toast_activator,
             path,
@@ -165,19 +188,19 @@ impl StartMenuManager {
     /// each one starts resolving its shortcuts without waiting for the other one.
     fn load_shortcut_items() -> Vec<Arc<StartMenuItem>> {
         // Resolve known folders, not translated display names or hard-coded user paths.
-        let common_programs = WindowsApi::known_folder(FOLDERID_CommonPrograms)
-            .unwrap_or_else(|_| Self::common_items_path().join("Programs"));
-        let user_programs = WindowsApi::known_folder(FOLDERID_Programs)
-            .unwrap_or_else(|_| Self::user_items_path().join("Programs"));
+        let common_programs = Self::common_items_path();
+        let user_programs = Self::user_items_path();
         let (a, b) = rayon::join(
-            || crate::utils::collect_files(&Self::common_items_path()),
-            || crate::utils::collect_files(&Self::user_items_path()),
+            || crate::utils::collect_files(&common_programs),
+            || crate::utils::collect_files(&user_programs),
         );
 
         b.into_par_iter()
+            .filter(|path| is_program_shortcut(path))
             .map(|path| Self::_process_file(path, &user_programs))
             .chain(
                 a.into_par_iter()
+                    .filter(|path| is_program_shortcut(path))
                     .map(|path| Self::_process_file(path, &common_programs)),
             )
             .collect::<Vec<_>>()
@@ -204,6 +227,21 @@ impl StartMenuManager {
         start_screen: &StartScreenManager,
         package: &Package,
     ) -> Vec<Arc<StartMenuItem>> {
+        // SupportsAppListEntry only tests whether pinning is supported. Respect
+        // AppListEntry="none" so activation-only package helpers are excluded.
+        let visibility = (|| -> Result<_> {
+            let path =
+                PathBuf::from(package.InstalledPath()?.to_os_string()).join("AppxManifest.xml");
+            let file = std::fs::File::open(path)?;
+            Ok(visible_packaged_app_ids(std::io::BufReader::new(file))?)
+        })();
+        let visible_apps = match visibility {
+            Ok(ids) => ids,
+            Err(error) => {
+                log::debug!("Cannot verify packaged Start Menu visibility: {error:?}");
+                return Vec::new();
+            }
+        };
         let apps = match package.GetAppListEntries() {
             Ok(apps) => apps,
             Err(e) => {
@@ -214,6 +252,14 @@ impl StartMenuManager {
 
         let mut items = Vec::new();
         for app in apps {
+            let is_listed = app.AppUserModelId().ok().is_some_and(|id| {
+                let id = id.to_string_lossy();
+                id.rsplit_once('!')
+                    .is_some_and(|(_, id)| visible_apps.contains(id))
+            });
+            if !is_listed {
+                continue;
+            }
             match Self::_process_app_list_entry(start_screen, &app) {
                 Ok(Some(item)) => items.push(item),
                 Ok(None) => {}

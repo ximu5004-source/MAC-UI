@@ -1,9 +1,9 @@
-id: "@seelen/tb-notifications"
+id: "@macui/tb-notifications"
 metadata:
   displayName: !extend i18n/display_name.yml
   description: !extend i18n/description.yml
 icon: IoNotificationsOutline
-target: "@seelen/fancy-toolbar"
+target: "@macui/fancy-toolbar"
 plugin:
   scopes:
     - Notifications
@@ -15,4 +15,4 @@ plugin:
   badge: "return count > 0 ? count : null"
   tooltip: 'return [t("placeholder.notifications"), ": ", count]'
   onClickV2: |-
-    trigger("@seelen/notifications");
+    trigger("@macui/notifications");

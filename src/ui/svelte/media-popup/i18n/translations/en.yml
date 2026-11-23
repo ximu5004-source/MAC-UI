@@ -21,3 +21,8 @@ previous: Previous track
 next: Next track
 play: Play
 pause: Pause
+now_playing: Now Playing
+not_playing: No media playing
+start_playback: Play music or a video in an app to control it here.
+untitled: Untitled
+control_failed: The player did not respond. Please try again.

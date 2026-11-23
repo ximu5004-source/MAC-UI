@@ -1,4 +1,4 @@
-use seelen_core::state::{CssStyles, Dialog, DialogContent};
+use macui_core::state::{CssStyles, Dialog, DialogContent};
 
 use tauri::Listener;
 

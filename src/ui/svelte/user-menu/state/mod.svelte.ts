@@ -1,5 +1,5 @@
-import { invoke, SeelenCommand, SeelenEvent, Settings, subscribe, Widget } from "@seelen-ui/lib";
-import type { FolderType, User } from "@seelen-ui/lib/types";
+import { invoke, MacUiCommand, MacUiEvent, Settings, subscribe, Widget } from "@macui/lib";
+import type { FolderType, User } from "@macui/lib/types";
 import { locale } from "../i18n/index.ts";
 import { lazyRune } from "libs/ui/svelte/utils/LazyRune.svelte.ts";
 
@@ -15,8 +15,8 @@ $effect.root(() => {
   });
 });
 
-const user = lazyRune(() => invoke(SeelenCommand.GetUser));
-subscribe(SeelenEvent.UserChanged, user.setByPayload);
+const user = lazyRune(() => invoke(MacUiCommand.GetUser));
+subscribe(MacUiEvent.UserChanged, user.setByPayload);
 await user.init();
 
 let openCategory = $state<FolderType | null>(null);

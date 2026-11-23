@@ -441,7 +441,7 @@ impl WindowsApi {
     pub fn set_foreground(target_hwnd: HWND) -> Result<()> {
         let window = Window::from(target_hwnd);
 
-        slu_utils::windows::set_foreground(target_hwnd.0 as isize)?;
+        macui_utils::windows::set_foreground(target_hwnd.0 as isize)?;
 
         // event sometimes is not emitted, so we manually emit it, this will cause 2 foreground events
         // if original was recieved, btw having it twice is better than nothing
@@ -846,7 +846,7 @@ impl WindowsApi {
         unsafe { MonitorFromWindow(hwnd, MONITOR_DEFAULTTOPRIMARY) }
     }
 
-    pub fn monitor_from_point(point: &seelen_core::Point) -> HMONITOR {
+    pub fn monitor_from_point(point: &macui_core::Point) -> HMONITOR {
         unsafe {
             MonitorFromPoint(
                 POINT {

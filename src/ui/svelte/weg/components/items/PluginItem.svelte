@@ -1,14 +1,13 @@
 <script lang="ts">
-  import { invoke, SeelenCommand } from "@seelen-ui/lib";
+  import { invoke, MacUiCommand } from "@macui/lib";
   import {
     type WegPluginItem as WegPluginPayload,
     type WidgetId,
     CanvasSize,
-  } from "@seelen-ui/lib/types";
+  } from "@macui/lib/types";
   import type { PluginWegItem } from "../../types.ts";
   import { t } from "../../i18n/index.ts";
   import {
-    getEditCustomIconEntry,
     getEmptyTrashBinEntry,
     getMenuForItem,
   } from "../../generalMenu.ts";
@@ -42,7 +41,7 @@
 
   let userSourceName = $derived.by(() => {
     const allByWidget = settingsState.allByWidget;
-    const userMenuConfig = allByWidget["@seelen/user-menu" as WidgetId];
+    const userMenuConfig = allByWidget["@macui/user-menu" as WidgetId];
     return userMenuConfig?.displayNameSource as string;
   });
 
@@ -84,15 +83,11 @@
 
     const menu = getMenuForItem($t, item);
 
-    if (customIconKey) {
-      menu.items.unshift(getEditCustomIconEntry($t, customIconKey), { type: "Separator" });
-    }
-
     if (hasTrashBinScope) {
       menu.items.unshift(getEmptyTrashBinEntry($t), { type: "Separator" });
     }
 
-    invoke(SeelenCommand.TriggerContextMenu, {
+    invoke(MacUiCommand.TriggerContextMenu, {
       menu: { ...menu, alignX, alignY },
       forwardTo: null,
     });

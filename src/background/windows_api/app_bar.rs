@@ -1,4 +1,4 @@
-use seelen_core::system_state::AppBarEdge;
+use macui_core::system_state::AppBarEdge;
 use std::sync::LazyLock;
 use windows::Win32::{
     Foundation::{HWND, LPARAM, RECT},

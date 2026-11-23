@@ -30,14 +30,14 @@ apps_configurations:
     Các cấu hình đi kèm này không thể chỉnh sửa và được thiết kế để cung cấp cho
     bạn trải nghiệm tốt nhất mà không cần tùy chỉnh. Chúng tự động định cấu hình
     các ứng dụng phổ biến nhất cho bạn.
-  bundled_title: Ứng dụng Cấu hình đi kèm với Seelen
+  bundled_title: Ứng dụng Cấu hình đi kèm với MAC UI
   confirm_delete: Bạn có chắc bạn muốn xóa cấu hình/s này không?
   confirm_delete_title: Xác nhận xóa
   delete: Xóa bỏ
   export: Xuất khẩu
   export_full: Cài đặt xuất theo ứng dụng
   extra_info: >-
-    Seelen UI chỉ sử dụng một định danh cho mỗi ứng dụng (tìm thấy trận đấu đầu
+    MAC UI chỉ sử dụng một định danh cho mỗi ứng dụng (tìm thấy trận đấu đầu
     tiên) vì vậy thứ tự được cụ thể là quan trọng, phần được thêm mới nhất sẽ
     được ưu tiên, vì ghi chú được sắp xếp theo mặc định từ mới nhất đến cũ.
   identifier:
@@ -80,12 +80,12 @@ devtools:
   enable: Kích hoạt các công cụ nhà phát triển
   enable_description: >-
     Mở khóa các công cụ nâng cao để kiểm tra và gỡ lỗi nội bộ giao diện người
-    dùng Seelen. Không dành cho sử dụng thường xuyên.
+    dùng MAC UI. Không dành cho sử dụng thường xuyên.
   icons: Biểu tượng được lưu trong bộ nhớ đệm
   install_folder: Thư mục cài đặt
   load: Trọng tải
   settings_file: Cài đặt tập tin
-  shared_components: Thành phần tiêu chuẩn SLU
+  shared_components: Thành phần tiêu chuẩn MAC UI
   simulate_dialog:
     label: Hộp thoại mô phỏng
     trigger: Cò súng
@@ -118,7 +118,7 @@ devtools:
     widget_id: ID tiện ích
 discord_banner:
   message: >-
-    Kết nối với những người dùng Seelen UI khác, nhận trợ giúp, chia sẻ chủ đề
+    Kết nối với những người dùng MAC UI khác, nhận trợ giúp, chia sẻ chủ đề
     và cập nhật những tin tức mới nhất.
   title: Tham gia cộng đồng của chúng tôi
 extras:
@@ -169,7 +169,7 @@ general:
     plugged: Cắm hoặc sạc
   polling_interval: Khoảng thời gian thăm dò hệ thống
   polling_interval_description: >-
-    Tần suất (tính bằng giây) Seelen UI kiểm tra các tài nguyên hệ thống như
+    Tần suất (tính bằng giây) MAC UI kiểm tra các tài nguyên hệ thống như
     hoạt động của CPU, RAM, mạng và ổ đĩa. Số lượng nhỏ hơn có nghĩa là cập nhật
     thường xuyên hơn nhưng mức sử dụng tài nguyên cao hơn một chút.
   saturday: Thứ bảy
@@ -224,7 +224,7 @@ reset_configurations: Đặt lại cấu hình
 reset_to_default: Đặt lại về giá trị mặc định
 resources:
   affected_widgets: Widget bị ảnh hưởng
-  app_outdated: Tài nguyên này yêu cầu phiên bản UI Seelen mới hơn hoạt động đúng.
+  app_outdated: Tài nguyên này yêu cầu phiên bản UI MAC UI mới hơn hoạt động đúng.
   coming_soon: Sắp ra mắt
   corrupted_wallpaper: >-
     Không thể trích xuất hình thu nhỏ - định dạng video bị hỏng hoặc không được
@@ -238,7 +238,7 @@ resources:
   modified: Đã sửa đổi
   open_folder: Mở thư mục tài nguyên
   outdated: >-
-    Tài nguyên này được thiết kế cho phiên bản cũ của SEELEN UI và có thể không
+    Tài nguyên này được thiết kế cho phiên bản cũ của MAC UI và có thể không
     hoạt động đúng.
   see_on_website: Xem trên trang web
   update_now: Cập nhật
@@ -247,7 +247,7 @@ resources:
 review_request:
   not_now: Không phải bây giờ
   sure: Chắc chắn!
-  title: Bạn thích giao diện người dùng Seelen?
+  title: Bạn thích giao diện người dùng MAC UI?
 save: Cứu
 save_and_restart: Lưu & Khởi động lại
 search: Tìm kiếm
@@ -267,7 +267,7 @@ shortcuts:
   enable: Bật hệ thống phím tắt tích hợp
   enable_tooltip: >-
     Tắt nếu bạn sẽ triển khai hệ thống phím tắt của riêng mình bằng cách sử dụng
-    ứng dụng UI Seelen
+    ứng dụng UI MAC UI
   labels:
     create_new_workspace: Tạo không gian làm việc mới
     create_new_workspace_row: Tạo hàng không gian làm việc mới
@@ -421,15 +421,15 @@ weg:
 welcome:
   give_a_review: Đưa ra đánh giá
   message: >-
-    Seelen UI là môi trường máy tính để bàn nguồn mở và miễn phí dành cho
+    MAC UI là môi trường máy tính để bàn nguồn mở và miễn phí dành cho
     Windows. Tại đây, bạn có toàn quyền kiểm soát giao diện và hoạt động của màn
     hình, cho phép bạn tùy chỉnh mọi chi tiết để phù hợp với quy trình làm việc
     và phong cách của mình.
   ok: Hãy bắt đầu!
   review: >-
-    Nếu bạn thích sử dụng Seelen UI, hãy cân nhắc để lại đánh giá trên cửa hàng
+    Nếu bạn thích sử dụng MAC UI, hãy cân nhắc để lại đánh giá trên cửa hàng
     - phản hồi của bạn sẽ giúp dự án phát triển và cải thiện.
-  title: Chào mừng bạn đến với giao diện người dùng Seelen!
+  title: Chào mừng bạn đến với giao diện người dùng MAC UI!
 widget:
   default_instance: Phiên bản mặc định
   default_instance_hint: Luôn hoạt động, sử dụng cấu hình widget gốc

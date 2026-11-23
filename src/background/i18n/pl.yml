@@ -8,7 +8,7 @@ cancel: Anulować
 done: Zrobione
 elevated:
   description: >-
-    Seelen UI działa z uprawnieniami administratora.
+    MAC UI działa z uprawnieniami administratora.
 
     Nie dodaje to ani nie ulepsza żadnych funkcji i może stanowić zagrożenie
     bezpieczeństwa.
@@ -21,7 +21,7 @@ resource:
   added: Dodano nowy zasób
   download_failed_body: >-
     Coś poszło nie tak podczas pobierania zasobu, zgłoś to zespołowi deweloperów
-    Seelen.
+    MAC UI.
   download_failed_title: Pobieranie zasobów nie powiodło się
   downloading: Pobieranie zasobów...
   downloading_body: Może to potrwać kilka sekund, nie zamykaj okna.
@@ -42,23 +42,23 @@ runtime:
     Może się to zdarzyć, jeśli pliki zostały zmodyfikowane, uszkodzone lub
     instalacja jest niekompletna.
 
-    Ze względów bezpieczeństwa interfejs użytkownika Seelen nie może być
+    Ze względów bezpieczeństwa interfejs użytkownika MAC UI nie może być
     kontynuowany.
 
     Zainstaluj go ponownie z oficjalnej strony internetowej.
   files_integrity_title: Alert zabezpieczeń — sprawdzenie integralności plików nie powiodło się
   not_found: Nie znaleziono środowiska uruchomieniowego WebView2
   not_found_description: >-
-    Interfejs użytkownika Seelen wymaga środowiska uruchomieniowego Webview2.
+    Interfejs użytkownika MAC UI wymaga środowiska uruchomieniowego Webview2.
     Zainstaluj go.
   outdated: Środowisko wykonawcze WebView2 jest nieaktualne
   outdated_description: >-
-    Interfejs użytkownika Seelen wymaga środowiska uruchomieniowego Webview2
+    Interfejs użytkownika MAC UI wymaga środowiska uruchomieniowego Webview2
     %{min_version} lub nowszego. Zaktualizuj je i spróbuj ponownie.
 service:
-  not_running: Usługa Seelen UI nie działa prawidłowo
+  not_running: Usługa MAC UI nie działa prawidłowo
   not_running_description: >-
-    Usługa Seelen UI Service (slu-service) jest zależnością umożliwiającą
+    Usługa MAC UI Service (macui-service) jest zależnością umożliwiającą
     prawidłowe działanie aplikacji.
   not_running_ok: Uruchom usługę
 shortcut:

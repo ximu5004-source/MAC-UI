@@ -1,6 +1,6 @@
 /* Compact native-style pills. Material belongs to the single outer surface;
  * individual controls never blur or brighten the interior a second time. */
-#root .slu-std-popover.mac-panel.quick-settings {
+#root .macui-std-popover.mac-panel.quick-settings {
   /* Keep state color readable without putting an opaque disc under the icon. */
   --quick-enabled-ink: color-mix(in srgb, var(--mac-accent) 50%, var(--mac-ink));
   width: 360px;
@@ -46,7 +46,7 @@
 }
 #root .quick-settings .quick-toggle-action { flex: 1; border-radius: 24px; }
 #root .quick-settings .quick-toggle-details { width: 34px; border-radius: 0 24px 24px 0; }
-#root .quick-settings .quick-toggle-details .slu-icon { height: 17px; }
+#root .quick-settings .quick-toggle-details .macui-icon { height: 17px; }
 #root .quick-settings .quick-toggle-glyph {
   display: grid;
   place-items: center;
@@ -62,7 +62,7 @@
   opacity: 1;
   transition: color 140ms ease;
 }
-#root .quick-settings .quick-toggle-glyph .slu-icon {
+#root .quick-settings .quick-toggle-glyph .macui-icon {
   width: 23px;
   height: 23px;
   min-width: 23px;
@@ -95,25 +95,25 @@
   overflow-wrap: anywhere;
 }
 #root .quick-settings .quick-toggle-status.failed { color: var(--mac-ink); font-weight: 600; }
-#root .slu-std-popover.mac-panel.quick-settings .quick-settings-levels {
+#root .macui-std-popover.mac-panel.quick-settings .quick-settings-levels {
   display: flex;
   flex-direction: column;
   gap: 8px;
   padding-top: 12px;
   border-top: 1px solid var(--mac-line);
 }
-#root .slu-std-popover.mac-panel.quick-settings .quick-settings-item {
+#root .macui-std-popover.mac-panel.quick-settings .quick-settings-item {
   padding: 0;
   grid-template-columns: 32px minmax(0, 1fr) 36px;
   min-height: 40px;
   gap: 8px;
   background: transparent;
 }
-#root .slu-std-popover.mac-panel.quick-settings .quick-settings-footer {
+#root .macui-std-popover.mac-panel.quick-settings .quick-settings-footer {
   margin: 0 -4px;
   padding-top: 8px;
 }
-#root .slu-std-popover.mac-panel.quick-settings .quick-settings-footer > button {
+#root .macui-std-popover.mac-panel.quick-settings .quick-settings-footer > button {
   height: 36px;
   width: 36px;
   background: transparent;

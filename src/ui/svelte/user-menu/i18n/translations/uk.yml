@@ -15,7 +15,7 @@ profile:
   log_out: Вийти
   open_onedrive: Відкрийте каталог OneDrive
   open_user_folder: Відкрити каталог користувача
-seelen_options:
-  open_installation_folder: Відкрийте папку налаштувань Seelen
-  open_log_folder: Відкрийте папку журналу Seelen
-  title: Довідники Seelen
+macui_options:
+  open_installation_folder: Відкрийте папку налаштувань MAC UI
+  open_log_folder: Відкрийте папку журналу MAC UI
+  title: Довідники MAC UI

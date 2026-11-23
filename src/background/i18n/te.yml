@@ -45,15 +45,15 @@ runtime:
     దయచేసి అధికారిక వెబ్‌సైట్ నుండి దీన్ని మళ్లీ ఇన్‌స్టాల్ చేయండి.
   files_integrity_title: భద్రతా హెచ్చరిక - ఫైల్‌ల సమగ్రత తనిఖీ విఫలమైంది
   not_found: WebView2 రన్‌టైమ్ కనుగొనబడలేదు
-  not_found_description: Seelen UIకి Webview2 రన్‌టైమ్ అవసరం. దయచేసి దీన్ని ఇన్‌స్టాల్ చేయండి.
+  not_found_description: MAC UIకి Webview2 రన్‌టైమ్ అవసరం. దయచేసి దీన్ని ఇన్‌స్టాల్ చేయండి.
   outdated: WebView2 రన్‌టైమ్ పాతది
   outdated_description: >-
-    Seelen UIకి Webview2 రన్‌టైమ్ %{min_version} లేదా అంతకంటే ఎక్కువ అవసరం.
+    MAC UIకి Webview2 రన్‌టైమ్ %{min_version} లేదా అంతకంటే ఎక్కువ అవసరం.
     దయచేసి దీన్ని నవీకరించండి.
 service:
   not_running: సీలెన్ UI సర్వీస్ అమలులో లేదు
   not_running_description: >-
-    సీలెన్ UI సర్వీస్ (slu-service) అనేది యాప్ సరిగ్గా పని చేయడానికి
+    సీలెన్ UI సర్వీస్ (macui-service) అనేది యాప్ సరిగ్గా పని చేయడానికి
     డిపెండెన్సీ/సహాయకం.
   not_running_ok: సేవ ప్రారంభించండి
 shortcut:

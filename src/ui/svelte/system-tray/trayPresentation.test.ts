@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import type { SysTrayIcon } from "@seelen-ui/lib/types";
+import type { SysTrayIcon } from "@macui/lib/types";
 import { allTrayItems, trayIconKey, trayIconLabel, trayPanelSize } from "./trayPresentation.ts";
 
 function icon(uid: number, overrides: Partial<SysTrayIcon> = {}): SysTrayIcon {
@@ -59,4 +59,13 @@ test("tray dimensions use monitor work area with DPI scaling, not popup viewport
   assert.deepEqual(trayPanelSize(1920, 1080, 2), { width: 360, maxHeight: 476 });
   assert.deepEqual(trayPanelSize(320, 480), { width: 288, maxHeight: 416 });
   assert.deepEqual(trayPanelSize(NaN, NaN, 0), { width: 360, maxHeight: 600 });
+});
+
+test("Task Manager renders one tile per callback window and forwards the visible meter ID", () => {
+  const meter = (id: number, visible: boolean, hwnd = 12) => icon(id, {
+    executable: "C:\\Windows\\System32\\Taskmgr.exe", window_handle: hwnd, is_visible: visible,
+  });
+  const hidden = Array.from({ length: 12 }, (_, i) => meter(i, false));
+  assert.deepEqual(allTrayItems([...hidden, meter(15, true)]).map(x => x.uid), [15]);
+  assert.equal(allTrayItems([meter(2, false), meter(3, true, 14)]).length, 2);
 });

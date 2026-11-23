@@ -5,14 +5,14 @@ cancel: 取消
 done: 完成
 elevated:
   description: |-
-    Seelen UI 正在以管理員權限執行。
+    MAC UI 正在以管理員權限執行。
     這不會增加或改進任何功能，並且可能會帶來安全風險。
     為了更好的安全性，請在沒有管理員權限的情況下重新啟動它。
   title: 以管理員身份執行
 file_explorer: 文件瀏覽器
 resource:
   added: 添加了一個新資源
-  download_failed_body: 下載資源時出現問題，請向Seelen開發人員團隊報告。
+  download_failed_body: 下載資源時出現問題，請向MAC UI開發人員團隊報告。
   download_failed_title: 資源下載失敗
   downloading: 下載資源中……
   downloading_body: 這可能需要幾秒鐘，請不要關閉視窗。
@@ -28,16 +28,16 @@ runtime:
   files_integrity: |-
     我們無法驗證應用程序文件的完整性。
     如果文件被修改、損壞或安裝不完整，則可能會發生這種情況。
-    出於安全原因，Seelen UI 無法繼續。
+    出於安全原因，MAC UI 無法繼續。
     請從官方網站重新安裝。
   files_integrity_title: 安全警報 - 文件完整性檢查失敗
   not_found: 找不到 WebView2 runtime
-  not_found_description: Seelen UI 需要 WebView2 runtime。請安裝。
+  not_found_description: MAC UI 需要 WebView2 runtime。請安裝。
   outdated: WebView2 runtime 版本過舊
-  outdated_description: Seelen UI 需要 WebView2 runtime ％{min_version} 或更高的版本。請更新。
+  outdated_description: MAC UI 需要 WebView2 runtime ％{min_version} 或更高的版本。請更新。
 service:
   not_running: 服務尚未執行
-  not_running_description: SEELEN UI服務（SLU服務）是該是應用程式正常運作所需的必要元件。
+  not_running_description: MAC UI 服務（macui-service）是應用程式正常運作所需的必要元件。
   not_running_ok: 開始服務
 shortcut:
   conflicts:

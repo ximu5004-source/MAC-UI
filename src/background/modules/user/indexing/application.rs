@@ -1,8 +1,8 @@
+use macui_core::system_state::FolderType;
 use notify_debouncer_full::{
     DebounceEventResult, Debouncer, FileIdMap, new_debouncer,
     notify::{ReadDirectoryChangesWatcher, RecursiveMode},
 };
-use seelen_core::system_state::FolderType;
 use std::{
     collections::{HashMap, HashSet},
     path::PathBuf,

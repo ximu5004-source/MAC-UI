@@ -8,6 +8,8 @@ use windows::Win32::{
 };
 use windows_core::{BSTR, Interface};
 
+mod ownership;
+
 use crate::{
     enviroment::was_installed_using_msix,
     error::Result,
@@ -16,11 +18,55 @@ use crate::{
 
 pub struct TaskSchedulerHelper {}
 
-static GROUP_FOLDER: &str = "\\Seelen";
-static OLD_APP_TASK_NAME: &str = "Seelen-UI";
-static SERVICE_TASK_NAME: &str = "Seelen UI Service";
+static GROUP_FOLDER: &str = "\\MAC UI";
+static SERVICE_TASK_NAME: &str = "MAC UI Service";
 
 impl TaskSchedulerHelper {
+    /// Launching the helper must not require rewriting an already-correct
+    /// elevated task. Standard-user launches may read/run it but cannot update it.
+    pub fn ensure_service_task() -> Result<()> {
+        let service_path = if was_installed_using_msix() {
+            WindowsApi::known_folder(FOLDERID_LocalAppData)?
+                .join("Microsoft\\WindowsApps\\macui-service.exe")
+        } else {
+            std::env::current_exe()?
+        };
+        let reusable = Com::run_with_context(|| unsafe {
+            let service = Self::get_task_service()?;
+            let task = service
+                .GetFolder(&GROUP_FOLDER.into())?
+                .GetTask(&SERVICE_TASK_NAME.into())?;
+            let definition = task.Definition()?;
+            let actions = definition.Actions()?;
+            let action: IExecAction2 = actions.get_Item(1)?.cast()?;
+            let mut path = BSTR::new();
+            let mut args = BSTR::new();
+            action.Path(&mut path)?;
+            action.Arguments(&mut args)?;
+            let mut level = Default::default();
+            definition.Principal()?.RunLevel(&mut level)?;
+            let mut demand = VARIANT_FALSE;
+            definition.Settings()?.AllowDemandStart(&mut demand)?;
+            let mut count = 0;
+            actions.Count(&mut count)?;
+            Ok(count == 1
+                && reusable_task(
+                    &path.to_string(),
+                    &service_path.to_string_lossy(),
+                    &args.to_string(),
+                    level == TASK_RUNLEVEL_HIGHEST,
+                    task.Enabled()? != VARIANT_FALSE,
+                    demand != VARIANT_FALSE,
+                ))
+        })
+        .unwrap_or(false);
+        if reusable {
+            log::debug!("Existing service task matches this installation; keeping it unchanged");
+            return Ok(());
+        }
+        Self::create_service_task()
+    }
+
     unsafe fn get_task_service() -> Result<ITaskService> {
         unsafe {
             let task_service: ITaskService = Com::create_instance(&TaskScheduler)?;
@@ -55,19 +101,44 @@ impl TaskSchedulerHelper {
         log::debug!("Creating service task...");
         let service_path = if was_installed_using_msix() {
             WindowsApi::known_folder(FOLDERID_LocalAppData)?
-                .join("Microsoft\\WindowsApps\\slu-service.exe")
+                .join("Microsoft\\WindowsApps\\macui-service.exe")
         } else {
             std::env::current_exe()?
         };
         Com::run_with_context(|| unsafe {
             let task_service = Self::get_task_service()?;
-            // remove old task as backwards compatibility
-            let mut old_task = None;
-            if let Ok(seelen_folder) = task_service.GetFolder(&GROUP_FOLDER.into()) {
-                let _ = seelen_folder.DeleteTask(&OLD_APP_TASK_NAME.into(), 0);
-                old_task = seelen_folder.GetTask(&OLD_APP_TASK_NAME.into()).ok();
-            };
+            let existing = task_service
+                .GetFolder(&GROUP_FOLDER.into())
+                .and_then(|folder| folder.GetTask(&SERVICE_TASK_NAME.into()))
+                .ok();
+            // Adopt only an earlier task owned by this installation directory.
+            // A separately installed upstream application is never changed.
+            let legacy_folder = task_service.GetFolder(&"\\Seelen".into()).ok();
+            let legacy = legacy_folder
+                .as_ref()
+                .and_then(|folder| folder.GetTask(&"Seelen UI Service".into()).ok())
+                .filter(|task| {
+                    let path = (|| -> Result<String> {
+                        let action: IExecAction2 =
+                            task.Definition()?.Actions()?.get_Item(1)?.cast()?;
+                        let mut value = BSTR::new();
+                        action.Path(&mut value)?;
+                        Ok(value.to_string())
+                    })();
+                    path.is_ok_and(|path| {
+                        ownership::is_owned_service_action(
+                            std::path::Path::new(&path),
+                            &service_path,
+                            !was_installed_using_msix(),
+                        )
+                    })
+                });
+            let migrating_legacy = legacy.is_some();
+            let old_task = existing.or(legacy);
             let root_folder = task_service.GetFolder(&"\\".into())?;
+            let folder = task_service
+                .GetFolder(&GROUP_FOLDER.into())
+                .or_else(|_| root_folder.CreateFolder(&GROUP_FOLDER.into(), &Default::default()))?;
 
             let task = task_service.NewTask(0)?;
             task.Principal()?.SetRunLevel(TASK_RUNLEVEL_HIGHEST)?;
@@ -94,11 +165,12 @@ impl TaskSchedulerHelper {
 
             let mut task_xml = BSTR::new();
             task.XmlText(&mut task_xml)?;
-            Self::register_task(
-                &root_folder,
-                &format!("{GROUP_FOLDER}\\{SERVICE_TASK_NAME}"),
-                &task_xml,
-            )?;
+            Self::register_task(&folder, SERVICE_TASK_NAME, &task_xml)?;
+            if migrating_legacy {
+                if let Some(old_folder) = legacy_folder {
+                    old_folder.DeleteTask(&"Seelen UI Service".into(), 0)?;
+                }
+            }
             Ok(())
         })
     }
@@ -106,8 +178,8 @@ impl TaskSchedulerHelper {
     pub fn set_run_on_logon(enabled: bool) -> Result<()> {
         Com::run_with_context(|| unsafe {
             let task_service = Self::get_task_service()?;
-            let seelen_folder = task_service.GetFolder(&GROUP_FOLDER.into())?;
-            let task = seelen_folder.GetTask(&SERVICE_TASK_NAME.into())?;
+            let macui_folder = task_service.GetFolder(&GROUP_FOLDER.into())?;
+            let task = macui_folder.GetTask(&SERVICE_TASK_NAME.into())?;
             let task = task.Definition()?;
             let triggers = task.Triggers()?;
             triggers.Clear()?;
@@ -116,7 +188,7 @@ impl TaskSchedulerHelper {
             }
             let mut task_xml = BSTR::new();
             task.XmlText(&mut task_xml)?;
-            Self::register_task(&seelen_folder, SERVICE_TASK_NAME, &task_xml)?;
+            Self::register_task(&macui_folder, SERVICE_TASK_NAME, &task_xml)?;
             Ok(())
         })
     }
@@ -130,10 +202,82 @@ impl TaskSchedulerHelper {
                 &Default::default(),
                 &Default::default(),
             )?;
-            if let Ok(seelen_folder) = task_service.GetFolder(&GROUP_FOLDER.into()) {
-                let _ = seelen_folder.DeleteTask(&SERVICE_TASK_NAME.into(), 0);
+            if let Ok(macui_folder) = task_service.GetFolder(&GROUP_FOLDER.into()) {
+                let _ = macui_folder.DeleteTask(&SERVICE_TASK_NAME.into(), 0);
             }
             Ok(())
         })
+    }
+}
+
+fn reusable_task(
+    path: &str,
+    expected: &str,
+    arguments: &str,
+    highest: bool,
+    enabled: bool,
+    demand: bool,
+) -> bool {
+    path.eq_ignore_ascii_case(expected)
+        && arguments.trim() == "--startup"
+        && highest
+        && enabled
+        && demand
+}
+
+#[cfg(test)]
+mod startup_task_tests {
+    use super::reusable_task;
+    #[test]
+    fn correct_owned_task_is_preserved_without_elevated_re_registration() {
+        let expected = "C:\\Apps\\MAC UI\\macui-service.exe";
+        assert!(reusable_task(
+            "c:\\apps\\mac ui\\MACUI-SERVICE.EXE",
+            expected,
+            "--startup",
+            true,
+            true,
+            true
+        ));
+        assert!(!reusable_task(
+            "D:\\Other\\macui-service.exe",
+            expected,
+            "--startup",
+            true,
+            true,
+            true
+        ));
+        assert!(!reusable_task(
+            expected,
+            expected,
+            "--startup --other",
+            true,
+            true,
+            true
+        ));
+        assert!(!reusable_task(
+            expected,
+            expected,
+            "--startup",
+            false,
+            true,
+            true
+        ));
+        assert!(!reusable_task(
+            expected,
+            expected,
+            "--startup",
+            true,
+            false,
+            true
+        ));
+        assert!(!reusable_task(
+            expected,
+            expected,
+            "--startup",
+            true,
+            true,
+            false
+        ));
     }
 }

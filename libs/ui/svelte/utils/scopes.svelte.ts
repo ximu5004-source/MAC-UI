@@ -1,18 +1,19 @@
 // In this files scopes declaration for toolbar and dock plugins are defined
 
-import { type AllSeelenCommandReturns, invoke, SeelenCommand, SeelenEvent, subscribe, Widget } from "@seelen-ui/lib";
-import { NotificationsMode } from "@seelen-ui/lib/types";
+import { type AllMacUiCommandReturns, invoke, MacUiCommand, MacUiEvent, subscribe, Widget } from "@macui/lib";
+import { NotificationsMode } from "@macui/lib/types";
+import { communicationNotifications } from "../runes/CommunicationNotifications.svelte";
 import { dateState } from "../runes/date.svelte.ts";
 import { dedupeBluetoothDevices, getIconNameForBTDevice } from "./bluetoothIcons.ts";
 
-class LazyScope<C extends SeelenCommand> {
+class LazyScope<C extends MacUiCommand> {
   private _ready = $state.raw(false);
-  private _data = $state.raw<AllSeelenCommandReturns[C] | null>(null);
+  private _data = $state.raw<AllMacUiCommandReturns[C] | null>(null);
   private _started = false;
 
   constructor(
     private command: C,
-    private event: SeelenEvent,
+    private event: MacUiEvent,
   ) {}
 
   get fetching(): boolean {
@@ -23,7 +24,7 @@ class LazyScope<C extends SeelenCommand> {
     return this._ready;
   }
 
-  get data(): AllSeelenCommandReturns[C] | null {
+  get data(): AllMacUiCommandReturns[C] | null {
     return this._data;
   }
 
@@ -32,66 +33,61 @@ class LazyScope<C extends SeelenCommand> {
     this._started = true;
 
     subscribe(this.event, ({ payload }) => {
-      this._data = payload as AllSeelenCommandReturns[C];
+      this._data = payload as AllMacUiCommandReturns[C];
       this._ready = true;
     });
 
     invoke(this.command as any).then((data) => {
       if (!this._ready) {
-        this._data = data as AllSeelenCommandReturns[C];
+        this._data = data as AllMacUiCommandReturns[C];
         this._ready = true;
       }
     });
   }
 }
 
-const _notifications = new LazyScope(SeelenCommand.GetNotifications, SeelenEvent.Notifications);
-const _notificationsMode = new LazyScope(
-  SeelenCommand.GetNotificationsMode,
-  SeelenEvent.NotificationsModeChanged,
-);
-const _mediaSessions = new LazyScope(SeelenCommand.GetMediaSessions, SeelenEvent.MediaSessions);
-const _mediaDevices = new LazyScope(SeelenCommand.GetMediaDevices, SeelenEvent.MediaDevices);
+const _mediaSessions = new LazyScope(MacUiCommand.GetMediaSessions, MacUiEvent.MediaSessions);
+const _mediaDevices = new LazyScope(MacUiCommand.GetMediaDevices, MacUiEvent.MediaDevices);
 const _networkOnline = new LazyScope(
-  SeelenCommand.GetNetworkInternetConnection,
-  SeelenEvent.NetworkInternetConnection,
+  MacUiCommand.GetNetworkInternetConnection,
+  MacUiEvent.NetworkInternetConnection,
 );
 const _networkAdapters = new LazyScope(
-  SeelenCommand.GetNetworkAdapters,
-  SeelenEvent.NetworkAdapters,
+  MacUiCommand.GetNetworkAdapters,
+  MacUiEvent.NetworkAdapters,
 );
 const _networkLocalIp = new LazyScope(
-  SeelenCommand.GetNetworkDefaultLocalIp,
-  SeelenEvent.NetworkDefaultLocalIp,
+  MacUiCommand.GetNetworkDefaultLocalIp,
+  MacUiEvent.NetworkDefaultLocalIp,
 );
 const _languages = new LazyScope(
-  SeelenCommand.SystemGetLanguages,
-  SeelenEvent.SystemLanguagesChanged,
+  MacUiCommand.SystemGetLanguages,
+  MacUiEvent.SystemLanguagesChanged,
 );
-const _imeState = new LazyScope(SeelenCommand.SystemGetImeState, SeelenEvent.SystemImeStateChanged);
-const _user = new LazyScope(SeelenCommand.GetUser, SeelenEvent.UserChanged);
+const _imeState = new LazyScope(MacUiCommand.SystemGetImeState, MacUiEvent.SystemImeStateChanged);
+const _user = new LazyScope(MacUiCommand.GetUser, MacUiEvent.UserChanged);
 const _bluetoothDevices = new LazyScope(
-  SeelenCommand.GetBluetoothDevices,
-  SeelenEvent.BluetoothDevicesChanged,
+  MacUiCommand.GetBluetoothDevices,
+  MacUiEvent.BluetoothDevicesChanged,
 );
-const _power = new LazyScope(SeelenCommand.GetPowerStatus, SeelenEvent.PowerStatus);
-const _powerMode = new LazyScope(SeelenCommand.GetPowerMode, SeelenEvent.PowerMode);
-const _batteries = new LazyScope(SeelenCommand.GetBatteries, SeelenEvent.BatteriesStatus);
-const _disks = new LazyScope(SeelenCommand.GetSystemDisks, SeelenEvent.SystemDisksChanged);
+const _power = new LazyScope(MacUiCommand.GetPowerStatus, MacUiEvent.PowerStatus);
+const _powerMode = new LazyScope(MacUiCommand.GetPowerMode, MacUiEvent.PowerMode);
+const _batteries = new LazyScope(MacUiCommand.GetBatteries, MacUiEvent.BatteriesStatus);
+const _disks = new LazyScope(MacUiCommand.GetSystemDisks, MacUiEvent.SystemDisksChanged);
 const _networkStatistics = new LazyScope(
-  SeelenCommand.GetSystemNetwork,
-  SeelenEvent.SystemNetworkChanged,
+  MacUiCommand.GetSystemNetwork,
+  MacUiEvent.SystemNetworkChanged,
 );
-const _memory = new LazyScope(SeelenCommand.GetSystemMemory, SeelenEvent.SystemMemoryChanged);
-const _cores = new LazyScope(SeelenCommand.GetSystemCores, SeelenEvent.SystemCoresChanged);
-const _focusedApp = new LazyScope(SeelenCommand.GetFocusedApp, SeelenEvent.GlobalFocusChanged);
+const _memory = new LazyScope(MacUiCommand.GetSystemMemory, MacUiEvent.SystemMemoryChanged);
+const _cores = new LazyScope(MacUiCommand.GetSystemCores, MacUiEvent.SystemCoresChanged);
+const _focusedApp = new LazyScope(MacUiCommand.GetFocusedApp, MacUiEvent.GlobalFocusChanged);
 const _virtualDesktops = new LazyScope(
-  SeelenCommand.StateGetVirtualDesktops,
-  SeelenEvent.VirtualDesktopsChanged,
+  MacUiCommand.StateGetVirtualDesktops,
+  MacUiEvent.VirtualDesktopsChanged,
 );
-const _trayIcons = new LazyScope(SeelenCommand.GetSystemTrayIcons, SeelenEvent.SystemTrayChanged);
-const _trashBinInfo = new LazyScope(SeelenCommand.GetTrashBinInfo, SeelenEvent.TrashBinChanged);
-const _waveform = new LazyScope(SeelenCommand.GetMediaWaveform, SeelenEvent.MediaWaveform);
+const _trayIcons = new LazyScope(MacUiCommand.GetSystemTrayIcons, MacUiEvent.SystemTrayChanged);
+const _trashBinInfo = new LazyScope(MacUiCommand.GetTrashBinInfo, MacUiEvent.TrashBinChanged);
+const _waveform = new LazyScope(MacUiCommand.GetMediaWaveform, MacUiEvent.MediaWaveform);
 
 type Data = Record<string, unknown>;
 export interface ScopesResult {
@@ -188,17 +184,9 @@ function dateStep(data: Data): void {
 }
 
 function notificationsStep(data: Data): boolean {
-  _notifications.lazyInit();
-  _notificationsMode.lazyInit();
-
-  if (_notifications.fetching || _notificationsMode.fetching) {
-    return true;
-  }
-
-  const notifs = _notifications.data;
-  data.count = notifs?.length || 0;
-  data.dndActive = _notificationsMode.data !== NotificationsMode.All;
-  return false;
+  data.count = communicationNotifications.items.length;
+  data.dndActive = communicationNotifications.focusAssistMode !== NotificationsMode.All;
+  return !communicationNotifications.ready;
 }
 
 function mediaStep(data: Data): boolean {

@@ -15,7 +15,7 @@ profile:
   log_out: Одјавите се
   open_onedrive: Отворите ОнеДриве директоријум
   open_user_folder: Отворите кориснички именик
-seelen_options:
+macui_options:
   open_installation_folder: Отворите фасциклу подешавања Сеелен
   open_log_folder: Отворите фасциклу дневника Сеелен
   title: Сеелен дирецториес

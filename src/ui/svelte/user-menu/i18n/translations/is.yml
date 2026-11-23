@@ -15,7 +15,7 @@ profile:
   log_out: Skráðu þig út
   open_onedrive: Opnaðu OneDrive möppuna
   open_user_folder: Opnaðu notendaskrá
-seelen_options:
-  open_installation_folder: Opnaðu Seelen stillingamöppuna
-  open_log_folder: Opnaðu Seelen log möppu
-  title: Seelen möppur
+macui_options:
+  open_installation_folder: Opnaðu MAC UI stillingamöppuna
+  open_log_folder: Opnaðu MAC UI log möppu
+  title: MAC UI möppur

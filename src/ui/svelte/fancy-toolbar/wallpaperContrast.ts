@@ -1,4 +1,4 @@
-import { invoke, SeelenCommand } from "@seelen-ui/lib";
+import { invoke, MacUiCommand } from "@macui/lib";
 import { toolbarForeground, type ToolbarForeground } from "./contrast";
 
 /** One coalesced request; polling notices Windows slideshows without screen capture. */
@@ -19,7 +19,7 @@ export function watchWallpaperContrast() {
         return [{ id, rect: [Math.min(...items.map((r) => r.left)), Math.min(...items.map((r) => r.top)), Math.max(...items.map((r) => r.right)), Math.max(...items.map((r) => r.bottom))] }];
       });
       if (!samples.length) return;
-      const luminances = await invoke(SeelenCommand.GetToolbarWallpaperLuminance, {
+      const luminances = await invoke(MacUiCommand.GetToolbarWallpaperLuminance, {
         viewport: [innerWidth, innerHeight], rects: samples.map((sample) => sample.rect as [number, number, number, number]),
       });
       if (disposed) return;

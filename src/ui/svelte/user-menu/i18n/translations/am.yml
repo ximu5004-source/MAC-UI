@@ -15,7 +15,7 @@ profile:
   log_out: ውጣ
   open_onedrive: OneDrive ማውጫን ክፈት
   open_user_folder: የተጠቃሚ ማውጫን ክፈት
-seelen_options:
-  open_installation_folder: የ Seelen ቅንብሮች አቃፊን ይክፈቱ
-  open_log_folder: የ Seelen ሎግ አቃፊን ክፈት
+macui_options:
+  open_installation_folder: የ MAC UI ቅንብሮች አቃፊን ይክፈቱ
+  open_log_folder: የ MAC UI ሎግ አቃፊን ክፈት
   title: የታዩ ማውጫዎች

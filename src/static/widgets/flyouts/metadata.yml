@@ -1,4 +1,4 @@
-id: "@seelen/flyouts"
+id: "@macui/flyouts"
 icon: LuRectangleEllipsis
 metadata:
   displayName: !extend i18n/display_name.yml
@@ -6,80 +6,116 @@ metadata:
 loader: Internal
 preset: Overlay
 settings:
-  - type: select
-    key: placement
-    label: !extend i18n/settings/placement.yml
-    options:
-      - label: !extend i18n/settings/placement-top-left.yml
-        value: top-left
-        icon: TbBoxAlignTopLeft
+  - group:
+      label: !extend i18n/settings/placement.yml
+      items:
+        - type: select
+          key: placement
+          description:
+            en: Choose where popups appear on your screen.
+            zh-CN: 选择提醒出现在屏幕的哪个位置。
+            zh-TW: 選擇提醒出現在螢幕的哪個位置。
+          label: !extend i18n/settings/placement.yml
+          options:
+            - label: !extend i18n/settings/placement-top-left.yml
+              value: top-left
+              icon: TbBoxAlignTopLeft
 
-      - label: !extend i18n/settings/placement-top.yml
-        value: top
-        icon: TbBoxAlignTop
+            - label: !extend i18n/settings/placement-top.yml
+              value: top
+              icon: TbBoxAlignTop
 
-      - label: !extend i18n/settings/placement-top-right.yml
-        value: top-right
-        icon: TbBoxAlignTopRight
+            - label: !extend i18n/settings/placement-top-right.yml
+              value: top-right
+              icon: TbBoxAlignTopRight
 
-      - label: !extend i18n/settings/placement-left.yml
-        value: left
-        icon: TbBoxAlignLeft
+            - label: !extend i18n/settings/placement-left.yml
+              value: left
+              icon: TbBoxAlignLeft
 
-      - label: !extend i18n/settings/placement-right.yml
-        value: right
-        icon: TbBoxAlignRight
+            - label: !extend i18n/settings/placement-right.yml
+              value: right
+              icon: TbBoxAlignRight
 
-      - label: !extend i18n/settings/placement-bottom-left.yml
-        value: bottom-left
-        icon: TbBoxAlignBottomLeft
+            - label: !extend i18n/settings/placement-bottom-left.yml
+              value: bottom-left
+              icon: TbBoxAlignBottomLeft
 
-      - label: !extend i18n/settings/placement-bottom.yml
-        value: bottom
-        icon: TbBoxAlignBottom
+            - label: !extend i18n/settings/placement-bottom.yml
+              value: bottom
+              icon: TbBoxAlignBottom
 
-      - label: !extend i18n/settings/placement-bottom-right.yml
-        value: bottom-right
-        icon: TbBoxAlignBottomRight
-    defaultValue: top
+            - label: !extend i18n/settings/placement-bottom-right.yml
+              value: bottom-right
+              icon: TbBoxAlignBottomRight
+          defaultValue: top
 
-  - type: number
-    key: margin
-    label: !extend i18n/settings/margin.yml
-    min: 0
-    defaultValue: 30
+        - type: number
+          key: margin
+          description:
+            en: Leave space between popups and the screen edge.
+            zh-CN: 调整弹窗与屏幕边缘之间的距离。
+            zh-TW: 調整彈窗與螢幕邊緣之間的距離。
+          label: !extend i18n/settings/margin.yml
+          min: 0
+          defaultValue: 30
 
-  - type: number
-    key: timeToShow
-    label: !extend i18n/settings/time-to-show.yml
-    min: 1
-    max: 10
-    defaultValue: 4
+        - type: number
+          key: timeToShow
+          description:
+            en: Automatically hide a popup after this many seconds.
+            zh-CN: 超过这段时间后，弹窗自动收起。
+            zh-TW: 超過這段時間後，彈窗自動收起。
+          label: !extend i18n/settings/time-to-show.yml
+          min: 1
+          max: 10
+          defaultValue: 4
 
   - group:
       label: !extend i18n/settings/show-on.yml
       items:
         - type: switch
+          key: showNotifications
+          description:
+            en: Show a popup for messages from WeChat, WeCom and other apps.
+            zh-CN: 收到微信、企业微信等应用的新消息时，显示提醒弹窗。
+            zh-TW: 收到微信、企業微信等應用程式的新訊息時，顯示提醒彈窗。
+          label: !extend i18n/settings/show-notifications.yml
+          defaultValue: true
+
+        - type: switch
           key: showBrightnessChange
+          description:
+            en: Show the brightness level when it changes.
+            zh-CN: 调整屏幕亮度时，显示当前亮度。
+            zh-TW: 調整螢幕亮度時，顯示目前亮度。
           label: !extend i18n/settings/show-brightness-change.yml
           defaultValue: true
 
         - type: switch
           key: showVolumeChange
+          description:
+            en: Show the volume level when it changes.
+            zh-CN: 调整音量时，显示当前音量。
+            zh-TW: 調整音量時，顯示目前音量。
           label: !extend i18n/settings/show-volume-change.yml
           defaultValue: true
 
         - type: switch
           key: showMediaPlayerChange
+          description:
+            en: Show the current track when music changes.
+            zh-CN: 音乐切换时，显示正在播放的歌曲。
+            zh-TW: 音樂切換時，顯示正在播放的歌曲。
           label: !extend i18n/settings/show-media-player-change.yml
           defaultValue: true
 
         - type: switch
           key: showWorkspaceChange
+          description:
+            en: Show the workspace name when switching desktops.
+            zh-CN: 切换虚拟桌面时，显示工作区名称。
+            zh-TW: 切換虛擬桌面時，顯示工作區名稱。
           label: !extend i18n/settings/show-workspace-change.yml
           defaultValue: true
 
-        - type: switch
-          key: showNotifications
-          label: !extend i18n/settings/show-notifications.yml
-          defaultValue: true

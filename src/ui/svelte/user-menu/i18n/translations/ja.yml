@@ -15,7 +15,7 @@ profile:
   log_out: ログアウト
   open_onedrive: OneDrive フォルダを開く
   open_user_folder: ユーザーフォルダを開く
-seelen_options:
-  open_installation_folder: SeelenUI 設定フォルダを開く
-  open_log_folder: SeelenUI ログフォルダを開く
-  title: SeelenUI フォルダ
+macui_options:
+  open_installation_folder: MacUi 設定フォルダを開く
+  open_log_folder: MacUi ログフォルダを開く
+  title: MacUi フォルダ

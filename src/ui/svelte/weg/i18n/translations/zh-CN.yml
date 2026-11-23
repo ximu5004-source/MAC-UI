@@ -39,3 +39,9 @@ trash_bin:
 weg:
   activation_failed: 未能唤回后台应用，请从系统托盘打开；未重复启动新实例。
   empty: 暂无内容显示
+window_animation:
+  label: Dock 窗口动画
+  genie: 神奇效果（最小化与恢复）
+  native: Windows 默认
+  settings: 动画设置…
+  save_failed: 无法保存 Dock 动画设置，请重试。

@@ -1,0 +1,32 @@
+.card {
+  position: relative;
+  isolation: isolate;
+  border-radius: 28px;
+  background: var(--mac-surface);
+  box-shadow: var(--mac-shadow);
+}
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(300px circle at var(--spotlight-x, 50%) var(--spotlight-y, 50%), #2563eb17, transparent
+    80%);
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+.card:hover::before,
+.card:focus-within::before {
+  opacity: 1;
+}
+.card:focus-within {
+  outline: 2px solid var(--mac-accent);
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .card::before {
+    transition: none;
+  }
+}

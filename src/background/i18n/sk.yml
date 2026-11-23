@@ -8,7 +8,7 @@ cancel: Zrušiť
 done: Vykonaný
 elevated:
   description: >-
-    Používateľské rozhranie Seelen je spustené s oprávneniami správcu.
+    Používateľské rozhranie MAC UI je spustené s oprávneniami správcu.
 
     Toto nepridáva ani nevylepšuje žiadne funkcie a môže predstavovať
     bezpečnostné riziko.
@@ -20,7 +20,7 @@ resource:
   added: Bol pridaný nový zdroj
   download_failed_body: >-
     Pri sťahovaní zdroja sa niečo pokazilo, nahláste to prosím vývojárskemu tímu
-    Seelen.
+    MAC UI.
   download_failed_title: Stiahnutie zdroja sa nepodarilo
   downloading: Sťahovanie aktív...
   downloading_body: Môže to trvať niekoľko sekúnd, nezatvárajte okno.
@@ -41,22 +41,22 @@ runtime:
     To sa môže stať, ak boli súbory upravené, poškodené alebo inštalácia nie je
     dokončená.
 
-    Z bezpečnostných dôvodov nemôže používateľské rozhranie Seelen pokračovať.
+    Z bezpečnostných dôvodov nemôže používateľské rozhranie MAC UI pokračovať.
 
     Preinštalujte ho z oficiálnej webovej stránky.
   files_integrity_title: Bezpečnostné upozornenie – kontrola integrity súborov zlyhala
   not_found: WebView2 Runtime sa nenašlo
   not_found_description: >-
-    Používateľské rozhranie Seelen vyžaduje Webview2 Runtime. Nainštalujte si
+    Používateľské rozhranie MAC UI vyžaduje Webview2 Runtime. Nainštalujte si
     ho.
   outdated: WebView2 Runtime je zastarané
   outdated_description: >-
-    Používateľské rozhranie Seelen vyžaduje Webview2 Runtime %{min_version}
+    Používateľské rozhranie MAC UI vyžaduje Webview2 Runtime %{min_version}
     alebo vyššie. Aktualizujte ho.
 service:
-  not_running: Služba používateľského rozhrania Seelen nie je spustená
+  not_running: MacUižba používateľského rozhrania MAC UI nie je spustená
   not_running_description: >-
-    Seelen UI Service (slu-service) je závislosť/pomocník pre správne fungovanie
+    MAC UI Service (macui-service) je závislosť/pomocník pre správne fungovanie
     aplikácie.
   not_running_ok: Spustite službu
 shortcut:

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { globalState } from "./state.svelte";
-  import { invoke, SeelenCommand, Widget } from "@seelen-ui/lib";
-  import { RadioDeviceKind, type WlanBssEntry } from "@seelen-ui/lib/types";
+  import { invoke, MacUiCommand, Widget } from "@macui/lib";
+  import { RadioDeviceKind, type WlanBssEntry } from "@macui/lib/types";
   import Icon from "libs/ui/svelte/components/Icon/Icon.svelte";
   import { t } from "./i18n";
   import WlanEntry from "./components/WlanEntry.svelte";
@@ -53,12 +53,12 @@
   const wifiRadio = $derived(globalState.wifiRadio);
 
   function openNetworkSettings() {
-    invoke(SeelenCommand.OpenFile, { path: "ms-settings:network" });
+    invoke(MacUiCommand.OpenFile, { path: "ms-settings:network" });
   }
 
   async function toggleWifiRadio() {
     if (wifiRadio) {
-      await invoke(SeelenCommand.SetRadioState, {
+      await invoke(MacUiCommand.SetRadioState, {
         kind: RadioDeviceKind.WiFi,
         enabled: !wifiRadio.isEnabled,
       });
@@ -82,7 +82,7 @@
 
 <svelte:window onkeydown={handleEscape} />
 
-<div class="slu-std-popover mac-panel mac-frosted-surface network-popup">
+<div class="macui-std-popover mac-panel mac-frosted-surface network-popup">
   {#if globalState.view === "hotspot"}
     <HotspotView onBack={() => (globalState.view = "main")} />
   {:else}
@@ -172,7 +172,7 @@
 </div>
 
 <style>
-  :global(#root) .slu-std-popover.mac-panel.network-popup {
+  :global(#root) .macui-std-popover.mac-panel.network-popup {
     border-radius: 28px;
     overflow: hidden;
   }

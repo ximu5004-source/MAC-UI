@@ -1,4 +1,4 @@
-import { SeelenWegSide } from "@seelen-ui/lib/types";
+import { MacUiWegSide } from "@macui/lib/types";
 import { currentMonitorId, monitors, mousePos } from "./getters.svelte.ts";
 
 const _currentMonitor = $derived.by(() => {
@@ -14,21 +14,21 @@ function inRange(value: number, origin: number) {
   return value >= origin - THRESHOLD && value <= origin + THRESHOLD;
 }
 
-const _mouseAtEdge = $derived.by((): SeelenWegSide | null => {
+const _mouseAtEdge = $derived.by((): MacUiWegSide | null => {
   const box = _currentMonitor.rect;
   const x = mousePos.value.x;
   const y = mousePos.value.y;
 
   const isOutHorizontally = x < box.left || x > box.right;
   if (!isOutHorizontally) {
-    if (inRange(y, box.top)) return SeelenWegSide.Top;
-    if (inRange(y, box.bottom - 1)) return SeelenWegSide.Bottom;
+    if (inRange(y, box.top)) return MacUiWegSide.Top;
+    if (inRange(y, box.bottom - 1)) return MacUiWegSide.Bottom;
   }
 
   const isOutVertically = y < box.top || y > box.bottom;
   if (!isOutVertically) {
-    if (inRange(x, box.left)) return SeelenWegSide.Left;
-    if (inRange(x, box.right - 1)) return SeelenWegSide.Right;
+    if (inRange(x, box.left)) return MacUiWegSide.Left;
+    if (inRange(x, box.right - 1)) return MacUiWegSide.Right;
   }
 
   return null;
@@ -39,7 +39,7 @@ class SystemState {
     return _currentMonitor;
   }
 
-  get mouseAtEdge(): SeelenWegSide | null {
+  get mouseAtEdge(): MacUiWegSide | null {
     return _mouseAtEdge;
   }
 }

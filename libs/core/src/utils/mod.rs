@@ -72,7 +72,7 @@ impl<T: Into<serde_json::Value>> From<T> for TsUnknown {
 }
 
 static ALLOWED_ROOT_FILESTEMS: &[&str] = &["metadata"];
-static ALLOWED_ROOT_EXTENSIONS: &[&str] = &["yml", "slu", "yaml", "json"];
+static ALLOWED_ROOT_EXTENSIONS: &[&str] = &["maui", "yml", "yaml", "json", "slu"];
 pub async fn search_resource_entrypoint(folder: &Path) -> Option<PathBuf> {
     // Build all candidates in priority order (stem × extension),
     // then probe all of them concurrently instead of sequentially.

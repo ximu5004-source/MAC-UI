@@ -1,7 +1,7 @@
 import { mount } from "svelte";
-import { invoke, SeelenCommand, Widget } from "@seelen-ui/lib";
+import { invoke, MacUiCommand, Widget } from "@macui/lib";
 import App from "./app.svelte";
-import "@seelen-ui/lib/styles/reset.css";
+import "@macui/lib/styles/reset.css";
 
 await Widget.self.init({ saveAndRestoreLastRect: false });
 await Widget.self.window.setResizable(false);
@@ -14,7 +14,7 @@ await Widget.self.window.setResizable(false);
 // the window to disappear from WorkerW when SetParent is called with WINDOWEDGE set.
 // Attaching before setIgnoreCursorEvents ensures SetParent runs while the window is still a
 // normal top-level window and no conflicting apply_diff is pending on the main thread.
-await invoke(SeelenCommand.SetAsWallpaper);
+await invoke(MacUiCommand.SetAsWallpaper);
 // await Widget.self.window.setIgnoreCursorEvents(true); btw this does nothing so better not call it.
 
 // Polling instead of Widget.self.normalizeDevicePixelRatio() (onScaleChanged event): this

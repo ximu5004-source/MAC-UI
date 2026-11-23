@@ -1,4 +1,4 @@
-id: "@seelen/desktop-shell"
+id: "@macui/desktop-shell"
 icon: TbLayoutDashboard
 metadata:
   displayName: !extend i18n/display_name.yml

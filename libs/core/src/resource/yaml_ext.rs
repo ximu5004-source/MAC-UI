@@ -69,7 +69,7 @@ async fn slice_to_yml_value(content: Vec<u8>) -> Result<Value> {
 
 /// Extracts the top-level `id` field of a resource document, used as `self.id`.
 ///
-/// Every Seelen UI resource document must declare an `id`, so a missing/invalid
+/// Every MacUi UI resource document must declare an `id`, so a missing/invalid
 /// field is an error rather than an absent value.
 fn extract_self_id(value: &Value) -> Result<String> {
     value
@@ -80,19 +80,44 @@ fn extract_self_id(value: &Value) -> Result<String> {
         .ok_or_else(|| "Resource is missing required top-level 'id' field".into())
 }
 
-/// Extracts `self.id` for a `.slu` document, coming from `root["resource"]["id"]`
+/// Extracts `self.id` for a `.maui` document, coming from `root["resource"]["id"]`
 /// (the published UUID).
 ///
-/// Every `.slu` file must carry this id, so a missing/invalid field is an error
+/// Every package must carry this id, so a missing/invalid field is an error
 /// rather than an absent value.
-pub fn extract_self_id_slu(root: &Value) -> Result<String> {
+pub fn extract_self_id_maui(root: &Value) -> Result<String> {
     root.as_mapping()
         .and_then(|m| m.get("resource"))
         .and_then(Value::as_mapping)
         .and_then(|m| m.get("id"))
         .and_then(Value::as_str)
         .map(str::to_string)
-        .ok_or_else(|| "SLU resource file is missing required 'resource.id' field".into())
+        .ok_or_else(|| "MACUI resource file is missing required 'resource.id' field".into())
+}
+
+/// Import compatibility: built-in widget/plugin targets now use MAC UI's namespace.
+/// New IDs win if a legacy package contains both representations.
+pub fn adopt_macui_resource_ids(value: &mut Value) {
+    match value {
+        Value::String(text) => *text = text.replace("@seelen/", "@macui/"),
+        Value::Sequence(items) => items.iter_mut().for_each(adopt_macui_resource_ids),
+        Value::Mapping(items) => {
+            let keys: Vec<_> = items.keys().cloned().collect();
+            for key in keys {
+                let mut new = key.clone();
+                adopt_macui_resource_ids(&mut new);
+                if new != key {
+                    let value = items.remove(&key).unwrap();
+                    if !items.contains_key(&new) {
+                        items.insert(new, value);
+                    }
+                }
+            }
+            items.values_mut().for_each(adopt_macui_resource_ids);
+        }
+        Value::Tagged(tag) => adopt_macui_resource_ids(&mut tag.value),
+        _ => {}
+    }
 }
 
 /// Substitutes `${key}` placeholders in a string using the given variable map.
@@ -144,7 +169,7 @@ async fn resolve_extensions(
         Value::Mapping(map) => {
             let futs = map.into_iter().map(|(key, val)| async move {
                 let resolved = Box::pin(resolve_extensions(base, val, resolve_self, vars)).await?;
-                Ok::<_, crate::error::SeelenLibError>((key, resolved))
+                Ok::<_, crate::error::MacUiLibError>((key, resolved))
             });
             let pairs: Vec<_> = futures::future::try_join_all(futs).await?;
             let mut new_map = Mapping::new();
@@ -176,7 +201,7 @@ async fn resolve_extensions(
                         grass::from_path(&to_include, &grass::Options::default())
                     })
                     .await
-                    .map_err(|e| crate::error::SeelenLibError::from(e.to_string()))??
+                    .map_err(|e| crate::error::MacUiLibError::from(e.to_string()))??
                 } else {
                     tokio::fs::read_to_string(&to_include).await?
                 };

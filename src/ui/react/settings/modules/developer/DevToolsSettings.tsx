@@ -1,4 +1,4 @@
-import { invoke, SeelenCommand } from "@seelen-ui/lib";
+import { invoke, MacUiCommand } from "@macui/lib";
 import { path } from "@tauri-apps/api";
 import { Button, Input, Select } from "antd";
 import { useState } from "react";
@@ -19,17 +19,17 @@ export function DevToolsSettings() {
   const { t } = useTranslation();
 
   async function openSettingsFile() {
-    invoke(SeelenCommand.OpenFile, {
+    invoke(MacUiCommand.OpenFile, {
       path: await resolveDataPath("settings.json"),
     });
   }
 
   async function openInstallFolder() {
-    invoke(SeelenCommand.OpenFile, { path: await path.resourceDir() });
+    invoke(MacUiCommand.OpenFile, { path: await path.resourceDir() });
   }
 
   async function openDataFolder() {
-    invoke(SeelenCommand.OpenFile, { path: await path.appDataDir() });
+    invoke(MacUiCommand.OpenFile, { path: await path.appDataDir() });
   }
 
   async function onSimulatePerm() {
@@ -43,7 +43,7 @@ export function DevToolsSettings() {
   }
 
   async function onSimulateDialog() {
-    await invoke(SeelenCommand.TriggerDialog, { dialog: createSampleDialog() });
+    await invoke(MacUiCommand.TriggerDialog, { dialog: createSampleDialog() });
   }
 
   return (

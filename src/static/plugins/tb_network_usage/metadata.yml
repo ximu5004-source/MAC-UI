@@ -2,7 +2,7 @@ id: "@default/network-usage"
 metadata:
   displayName: !extend i18n/display_name.yml
 icon: PiArrowsDownUpBold
-target: "@seelen/fancy-toolbar"
+target: "@macui/fancy-toolbar"
 plugin:
   scopes:
     - NetworkStatistics

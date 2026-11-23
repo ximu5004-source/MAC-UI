@@ -15,7 +15,7 @@ profile:
   log_out: Jelentkezzen ki
   open_onedrive: Nyissa meg a OneDrive könyvtárat
   open_user_folder: Nyissa meg a felhasználói könyvtárat
-seelen_options:
-  open_installation_folder: Nyissa meg a Seelen beállítások mappát
-  open_log_folder: Nyissa meg a Seelen naplómappát
-  title: Seelen könyvtárak
+macui_options:
+  open_installation_folder: Nyissa meg a MAC UI beállítások mappát
+  open_log_folder: Nyissa meg a MAC UI naplómappát
+  title: MAC UI könyvtárak

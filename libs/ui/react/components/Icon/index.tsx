@@ -21,7 +21,7 @@ export const Icon = forwardRef<HTMLElement, ReactIconProps>((props, ref) => {
       ref={ref}
       {...rest}
       src={`/icons/${iconName}.svg`}
-      className={cx("slu-icon", cs.reactIcon, className)}
+      className={cx("macui-icon", cs.reactIcon, className)}
       style={{ height: size, color, ...(style || {}) }}
     />
   );

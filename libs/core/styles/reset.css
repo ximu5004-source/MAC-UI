@@ -1,6 +1,6 @@
 @layer reset {
   :root {
-    color-scheme: light dark; /* enables light and dark mode as well light-dark() function */
+    color-scheme: light; /* enables light and dark mode as well light-dark() function */
 
     interpolate-size: allow-keywords; /* This enables animations between keywords (auto, min-content, etc) */
     transition-behavior: allow-discrete; /* allow transitions between discrete values (display, content-visibility) */

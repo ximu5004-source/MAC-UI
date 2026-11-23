@@ -2,7 +2,7 @@ id: "@default/disk-usage"
 metadata:
   displayName: !extend i18n/display_name.yml
 icon: BsDeviceHdd
-target: "@seelen/fancy-toolbar"
+target: "@macui/fancy-toolbar"
 plugin:
   scopes:
     - Disk

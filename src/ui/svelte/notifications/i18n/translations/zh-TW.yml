@@ -3,3 +3,13 @@ dnd: 請勿打擾
 empty: 沒有通知
 settings: 更多通知設定
 title: 通知
+reply: 回覆
+dismiss: 關閉此通知
+messaging:
+  wechat: 微信
+  wecom: 企業微信
+  open: 開啟{{app}}
+  new_message: '您有一則來自「{{app}}」的新訊息。'
+  action_failed: 無法開啟或關閉此通知，請重試。
+  windows_unavailable: Windows 通知暫時無法使用，微信和企業微信提醒仍可在此顯示。
+  bridge_unavailable: 微信和企業微信提醒暫時無法使用，請重新開啟 MAC UI 後重試。

@@ -1,5 +1,5 @@
 import { _invoke } from "./_tauri";
-import { Alignment, type Point, type WidgetId, type WidgetTriggerPayload } from "@seelen-ui/lib/types";
+import { Alignment, type Point, type WidgetId, type WidgetTriggerPayload } from "@macui/lib/types";
 
 function alignment(value: any): Alignment {
   return Object.values(Alignment).includes(value) ? value : Alignment.Start;
@@ -103,7 +103,7 @@ function showTooltip(
   const run = () => {
     tooltipVisible = true;
     const payload: WidgetTriggerPayload = {
-      id: "@seelen/tooltip" as WidgetId,
+      id: "@macui/tooltip" as WidgetId,
       alignX,
       alignY,
       desiredPosition: origin,
@@ -133,7 +133,7 @@ function hideTooltip() {
 
   tooltipVisible = false;
   const payload: WidgetTriggerPayload = {
-    id: "@seelen/tooltip" as WidgetId,
+    id: "@macui/tooltip" as WidgetId,
     customArgs: { show: false },
   };
   _invoke("trigger_widget", { payload });
@@ -142,7 +142,7 @@ function hideTooltip() {
 document.addEventListener(
   "pointerenter",
   (e) => {
-    if (!window.__SLU_WIDGET_INSTANCE?.isReady) {
+    if (!window.__MACUI_WIDGET_INSTANCE?.isReady) {
       return;
     }
 

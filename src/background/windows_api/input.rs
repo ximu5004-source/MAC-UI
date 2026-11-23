@@ -5,9 +5,9 @@ use std::str::Chars;
 use std::thread::sleep;
 use std::time::Duration;
 
+use macui_core::Point;
 use phf::phf_map;
 use phf::phf_set;
-use seelen_core::Point;
 use windows::Win32::UI::Input::KeyboardAndMouse::*;
 use windows::Win32::UI::WindowsAndMessaging::GetCursorPos;
 use windows::Win32::UI::WindowsAndMessaging::GetSystemMetrics;

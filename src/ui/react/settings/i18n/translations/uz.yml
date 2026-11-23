@@ -30,14 +30,14 @@ apps_configurations:
     Ushbu yig'ilgan konfiguratsiyalar tahrirlanmaydi va sizga eng yaxshi
     tajribani taqdim etishsiz taqdim etish uchun mo'ljallangan. Ular avtomatik
     ravishda siz uchun eng keng tarqalgan dasturlarni sozlaydi.
-  bundled_title: Dastur konfigurasi Seelen bilan bog'langan
+  bundled_title: Dastur konfigurasi MAC UI bilan bog'langan
   confirm_delete: Ushbu konfiguratsiyani o'chirishni xohlayotganingizga ishonchingiz komilmi?
   confirm_delete_title: O'chirishni tasdiqlang
   delete: O'chirmoq
   export: Eksport
   export_full: Ilova orqali eksport sozlamalari
   extra_info: >-
-    Seelen UI har bir ilovada faqat bitta identifikatordan foydalanadi (birinchi
+    MAC UI har bir ilovada faqat bitta identifikatordan foydalanadi (birinchi
     moslik topildi), shuning uchun qanday belgilanish tartibi muhim, oxirgi
     qoʻshilganlar ustuvor boʻladi, chunki jadval sukut boʻyicha oxirgidan
     eskisiga saralanganligini unutmang.
@@ -81,14 +81,14 @@ devtools:
   data_folder: Ma'lumotlar papkasi
   enable: Ishlab chiqaruvchi vositalarni yoqish
   enable_description: >-
-    Seelen UI ichki qismlarini tekshirish va disk raskadrovka qilish uchun
+    MAC UI ichki qismlarini tekshirish va disk raskadrovka qilish uchun
     ilg'or vositalarni qulfdan chiqaradi. Muntazam foydalanish uchun
     mo'ljallanmagan.
   icons: Keshlangan piktogrammalar
   install_folder: O'rnatish papkasini o'rnatish
   load: Yuklamoq
   settings_file: Sozlamalar fayli
-  shared_components: SLU standart komponentlari
+  shared_components: MAC UI standart komponentlari
   simulate_dialog:
     label: Simulyatsiya dialogi
     trigger: Trigger
@@ -121,7 +121,7 @@ devtools:
     widget_id: Vidjet identifikatori
 discord_banner:
   message: >-
-    Boshqa Seelen UI foydalanuvchilari bilan bog'laning, yordam oling,
+    Boshqa MAC UI foydalanuvchilari bilan bog'laning, yordam oling,
     mavzularni baham ko'ring va so'nggi yangiliklardan xabardor bo'ling.
   title: Hamjamiyatimizga qo'shiling
 extras:
@@ -174,7 +174,7 @@ general:
     plugged: Ulangan yoki zaryadlash
   polling_interval: Tizim so'rovi oralig'i
   polling_interval_description: >-
-    Seelen UI protsessor, operativ xotira, tarmoq va disk faoliyati kabi tizim
+    MAC UI protsessor, operativ xotira, tarmoq va disk faoliyati kabi tizim
     resurslarini qanchalik tez-tez tekshiradi (soniyalarda). Kichikroq raqam
     tez-tez yangilanishlarni anglatadi, lekin biroz yuqoriroq resurslardan
     foydalanish.
@@ -230,7 +230,7 @@ reset_configurations: Konfiguratsiyalarni tiklash
 reset_to_default: Standart qiymatni qayta o'rnating
 resources:
   affected_widgets: Ta'sir qilingan vidjetlar
-  app_outdated: Ushbu resurs Seelen UIning yangi versiyasini kerakli ishlashga talab qiladi.
+  app_outdated: Ushbu resurs MAC UIning yangi versiyasini kerakli ishlashga talab qiladi.
   coming_soon: Tez kunlarda
   corrupted_wallpaper: >-
     Eskizni chiqarib boʻlmadi - buzilgan yoki qoʻllab-quvvatlanmaydigan video
@@ -244,7 +244,7 @@ resources:
   modified: O'zgartirildi
   open_folder: Resurslar jildini oching
   outdated: >-
-    Ushbu manba Seelen UIning eski versiyasi uchun mo'ljallangan va to'g'ri
+    Ushbu manba MAC UIning eski versiyasi uchun mo'ljallangan va to'g'ri
     ishlamasligi mumkin.
   see_on_website: Veb-saytda ko'ring
   update_now: Yangilash
@@ -253,7 +253,7 @@ resources:
 review_request:
   not_now: Hozir emas
   sure: Albatta!
-  title: Seelen UI yoqyapsizmi?
+  title: MAC UI yoqyapsizmi?
 save: Tejash
 save_and_restart: Saqlang va qayta yoqing
 search: Qidiruv
@@ -273,7 +273,7 @@ shortcuts:
     bog'lashni qayta tayinlang.
   enable: Ichki yorliqlar tizimini yoqing
   enable_tooltip: >-
-    Seelen Ui mijozidan foydalanib o'zingizning yorliq tizimingizni amalga
+    MAC UI mijozidan foydalanib o'zingizning yorliq tizimingizni amalga
     oshirsangiz, o'chiring
   labels:
     create_new_workspace: Yangi ish maydonini yarating
@@ -432,16 +432,16 @@ weg:
 welcome:
   give_a_review: Sharh bering
   message: >-
-    Seelen UI Windows uchun bepul va ochiq manbali ish stoli muhitidir. Bu yerda
+    MAC UI Windows uchun bepul va ochiq manbali ish stoli muhitidir. Bu yerda
     siz ish stolingiz qanday koʻrinishi va oʻzini tutishini toʻliq nazorat qila
     olasiz, bu sizga har bir detalni ish jarayoni va uslubingizga mos ravishda
     sozlash imkonini beradi.
   ok: Boshlaymiz!
   review: >-
-    Agar siz Seelen UI-dan foydalanishni yoqtirsangiz, do'konda sharh qoldiring
+    Agar siz MAC UI-dan foydalanishni yoqtirsangiz, do'konda sharh qoldiring
     - fikr-mulohazalaringiz loyihani rivojlantirish va yaxshilashga yordam
     beradi.
-  title: Seelen UI-ga xush kelibsiz!
+  title: MAC UI-ga xush kelibsiz!
 widget:
   default_instance: Standart misol
   default_instance_hint: Har doim faol, ildiz vidjet konfiguratsiyasidan foydalanadi

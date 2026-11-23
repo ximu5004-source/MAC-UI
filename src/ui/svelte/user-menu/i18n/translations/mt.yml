@@ -15,7 +15,7 @@ profile:
   log_out: Log out
   open_onedrive: Iftaħ id-direttorju OneDrive
   open_user_folder: Iftaħ id-direttorju tal-utent
-seelen_options:
-  open_installation_folder: Iftaħ il-folder tas-settings ta' Seelen
-  open_log_folder: Iftaħ il-fowlder tal-log Seelen
-  title: Direttorji Seelen
+macui_options:
+  open_installation_folder: Iftaħ il-folder tas-settings ta' MAC UI
+  open_log_folder: Iftaħ il-fowlder tal-log MAC UI
+  title: Direttorji MAC UI

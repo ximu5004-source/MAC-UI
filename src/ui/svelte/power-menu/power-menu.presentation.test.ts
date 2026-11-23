@@ -12,7 +12,7 @@ test("only the session sheet opts into shared native frost without wallpaper-bas
   assert.match(entry, /import "libs\/ui\/styles\/frosted-material\.css"/);
   assert.match(entry, /trackFrostedSurfaces\("\.power-sheet\.mac-frosted-surface"\);/);
   assert.doesNotMatch(entry, /trackFrostedSurfaces\([^;]*,\s*true\)/);
-  assert.match(css, /color-scheme: light dark;/);
+  assert.match(css, /color-scheme: inherit;/);
   assert.match(css, /--power-ink: light-dark\(#000, #fff\);/);
 });
 

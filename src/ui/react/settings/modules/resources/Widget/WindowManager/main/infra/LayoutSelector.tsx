@@ -1,7 +1,7 @@
 import { getWmConfig, setWmDefaultLayout } from "../../application";
 import { plugins } from "src/ui/react/settings/state/resources";
-import { SeelenWindowManagerWidgetId } from "@seelen-ui/lib";
-import { TwmNodeKind, type TwmPluginNode } from "@seelen-ui/lib/types";
+import { MacUiWindowManagerWidgetId } from "@macui/lib";
+import { TwmNodeKind, type TwmPluginNode } from "@macui/lib/types";
 import { SettingsGroup, SettingsOption } from "src/ui/react/settings/components/SettingsBox";
 import { Select } from "antd";
 import { ResourceText } from "libs/ui/react/components/ResourceText";
@@ -13,7 +13,7 @@ export function LayoutSelector() {
   const wmSettings = getWmConfig();
   const defaultLayout = wmSettings.defaultLayout;
 
-  const layouts = plugins.value.filter((plugin) => plugin.target === SeelenWindowManagerWidgetId);
+  const layouts = plugins.value.filter((plugin) => plugin.target === MacUiWindowManagerWidgetId);
   const usingLayout = layouts.find((plugin) => plugin.id === defaultLayout);
 
   const { t } = useTranslation();

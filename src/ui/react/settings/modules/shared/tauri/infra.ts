@@ -1,13 +1,13 @@
-import { SeelenCommand } from "@seelen-ui/lib";
+import { MacUiCommand } from "@macui/lib";
 import { invoke } from "@tauri-apps/api/core";
 
 export class startup {
   static async enable(): Promise<void> {
-    await invoke(SeelenCommand.SetAutoStart, { enabled: true });
+    await invoke(MacUiCommand.SetAutoStart, { enabled: true });
   }
 
   static async disable(): Promise<void> {
-    await invoke(SeelenCommand.SetAutoStart, { enabled: false });
+    await invoke(MacUiCommand.SetAutoStart, { enabled: false });
   }
 
   static async isEnabled(): Promise<boolean> {

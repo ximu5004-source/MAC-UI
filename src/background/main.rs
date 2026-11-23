@@ -1,13 +1,16 @@
-// Prevents additional console window on Windows in release
-#![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
+// The desktop app is a GUI in both self-contained debug and release builds.
+// The separate macui-cli binary provides console commands.
+#![cfg_attr(all(target_os = "windows", not(test)), windows_subsystem = "windows")]
 #![feature(never_type)]
 
 mod app;
 mod backups;
 mod cli;
 mod error;
+mod exit_flow;
 mod exposed;
 mod hook;
+mod local_migration;
 mod logger;
 mod migrations;
 mod modules;
@@ -17,7 +20,6 @@ mod session;
 mod state;
 mod tauri_context;
 mod tauri_plugins;
-mod telemetry;
 mod utils;
 mod virtual_desktops;
 mod widgets;
@@ -29,20 +31,18 @@ i18n!("background/i18n", fallback = "en");
 
 use std::sync::{OnceLock, atomic::AtomicBool};
 
-use app::SeelenUI;
+use app::MacUi;
 use cli::{SelfPipe, ServicePipe, handle_console_client};
 use error::Result;
 use exposed::register_invoke_handler;
-use logger::SeelenLogger;
-use session::application::SessionManager;
-use slu_ipc::messages::SvcAction;
+use logger::MacUiLogger;
 use tauri_plugins::register_plugins;
 use utils::{
     integrity::{is_already_running, print_initial_information, restart_as_appx, warn_if_elevated},
     is_running_as_appx, was_installed_using_msix,
 };
 
-use crate::{app::get_app_handle, error::ResultLogExt, utils::constants::SEELEN_COMMON};
+use crate::{app::get_app_handle, error::ResultLogExt, utils::constants::MACUI_COMMON};
 
 static APP_HANDLE: OnceLock<tauri::AppHandle<tauri::Wry>> = OnceLock::new();
 static TOKIO_RUNTIME_HANDLE: OnceLock<tokio::runtime::Handle> = OnceLock::new();
@@ -62,8 +62,8 @@ pub fn get_tokio_handle() -> &'static tokio::runtime::Handle {
 
 #[tokio::main]
 async fn main() -> std::process::ExitCode {
-    if let Err(err) = SeelenLogger::init() {
-        let fallback = std::env::temp_dir().join("seelen-ui-logger-error.log");
+    if let Err(err) = MacUiLogger::init() {
+        let fallback = std::env::temp_dir().join("mac-ui-logger-error.log");
         let _ = std::fs::write(&fallback, format!("Failed to initialize logger: {err:?}"));
         return std::process::ExitCode::from(1);
     }
@@ -74,8 +74,18 @@ async fn main() -> std::process::ExitCode {
     };
 
     if is_already_running() {
-        SelfPipe::request_open_settings().await.log_error();
-        return std::process::ExitCode::from(0);
+        if let Err(error) = ServicePipe::recover_for_existing_instance().await {
+            log::warn!("Could not restore the existing instance's helper: {error}");
+        }
+        return match SelfPipe::request_open_settings().await {
+            Ok(()) => std::process::ExitCode::SUCCESS,
+            Err(error) => {
+                log::error!(
+                    "Existing MAC UI instance did not acknowledge opening settings; refusing a duplicate desktop: {error}"
+                );
+                std::process::ExitCode::from(1)
+            }
+        };
     }
 
     if was_installed_using_msix() && !is_running_as_appx() {
@@ -88,7 +98,7 @@ async fn main() -> std::process::ExitCode {
         .set(tokio::runtime::Handle::current())
         .expect("Failed to set runtime handle");
 
-    rust_i18n::set_locale(&seelen_core::state::Settings::get_app_language());
+    rust_i18n::set_locale(&macui_core::state::Settings::get_app_language());
 
     let mut app_builder = tauri::Builder::default();
     app_builder = register_plugins(app_builder);
@@ -123,17 +133,12 @@ async fn main() -> std::process::ExitCode {
 
 async fn setup(app_handle: &tauri::AppHandle<tauri::Wry>) -> Result<()> {
     print_initial_information();
+    local_migration::migrate_legacy_data(app_handle)?;
     create_main_folders()?;
 
     SelfPipe::start_listener()?;
-    if !ServicePipe::is_running() {
+    crate::measure!("Service readiness", {
         ServicePipe::start_service().await?;
-    }
-
-    // Pre-warm SessionManager early so its PasswordVault decryption (~1s) overlaps
-    // with the integrity checks instead of running during the startup critical path.
-    std::thread::spawn(|| {
-        let _ = SessionManager::instance();
     });
 
     if let Err(err) = utils::integrity::validate_webview_runtime() {
@@ -156,30 +161,29 @@ async fn setup(app_handle: &tauri::AppHandle<tauri::Wry>) -> Result<()> {
         return Err(err);
     }
 
-    SeelenUI::pre_start().await?;
-    SeelenUI::start().await?;
+    MacUi::pre_start().await?;
+    crate::measure!("Widget startup", MacUi::start().await)?;
+    ServicePipe::start_health_monitor();
     warn_if_elevated(app_handle);
-    telemetry::start_telemetry();
-    backups::infrastructure::start_backup_sync();
     server::http::start_http_server();
     Ok(())
 }
 
 fn create_main_folders() -> Result<()> {
-    std::fs::create_dir_all(SEELEN_COMMON.app_temp_dir())?;
-    std::fs::create_dir_all(SEELEN_COMMON.app_data_dir())?;
-    std::fs::create_dir_all(SEELEN_COMMON.app_cache_dir())?;
+    std::fs::create_dir_all(MACUI_COMMON.app_temp_dir())?;
+    std::fs::create_dir_all(MACUI_COMMON.app_data_dir())?;
+    std::fs::create_dir_all(MACUI_COMMON.app_cache_dir())?;
 
-    std::fs::create_dir_all(SEELEN_COMMON.user_themes_path())?;
-    std::fs::create_dir_all(SEELEN_COMMON.user_icons_path())?;
-    std::fs::create_dir_all(SEELEN_COMMON.user_wallpapers_path())?;
-    std::fs::create_dir_all(SEELEN_COMMON.user_sounds_path())?;
-    std::fs::create_dir_all(SEELEN_COMMON.user_plugins_path())?;
-    std::fs::create_dir_all(SEELEN_COMMON.user_widgets_path())?;
+    std::fs::create_dir_all(MACUI_COMMON.user_themes_path())?;
+    std::fs::create_dir_all(MACUI_COMMON.user_icons_path())?;
+    std::fs::create_dir_all(MACUI_COMMON.user_wallpapers_path())?;
+    std::fs::create_dir_all(MACUI_COMMON.user_sounds_path())?;
+    std::fs::create_dir_all(MACUI_COMMON.user_plugins_path())?;
+    std::fs::create_dir_all(MACUI_COMMON.user_widgets_path())?;
     Ok(())
 }
 
-fn app_callback(_: &tauri::AppHandle<tauri::Wry>, event: tauri::RunEvent) {
+fn app_callback(app: &tauri::AppHandle<tauri::Wry>, event: tauri::RunEvent) {
     match event {
         tauri::RunEvent::Ready => {
             log::info!("Tauri Application is ready.");
@@ -188,17 +192,15 @@ fn app_callback(_: &tauri::AppHandle<tauri::Wry>, event: tauri::RunEvent) {
             log::info!("Tauri Event Loop was resumed.");
         }
         tauri::RunEvent::ExitRequested { api, code, .. } => match code {
-            Some(code) => {
-                // if exit code is 0 it means that the app was closed by the user
-                if code == 0 {
-                    ServicePipe::request(SvcAction::Stop).log_error();
-                }
-            }
+            Some(0) => exit_flow::on_user_exit(app, api),
+            Some(_) => {}
             // prevent close background on webview windows closing
             None => api.prevent_exit(),
         },
         tauri::RunEvent::Exit => {
-            log::info!("───────────────────── Exiting Seelen UI ─────────────────────");
+            ServicePipe::begin_shutdown();
+            crate::widgets::weg::genie::shutdown();
+            log::info!("───────────────────── Exiting MAC UI ─────────────────────");
         }
         _ => {}
     }

@@ -15,7 +15,7 @@ profile:
   log_out: लॉग आउट
   open_onedrive: वनड्राइव निर्देशिका खोलें
   open_user_folder: उपयोगकर्ता निर्देशिका खोलें
-seelen_options:
+macui_options:
   open_installation_folder: सीलेन सेटिंग्स फ़ोल्डर खोलें
   open_log_folder: सीलेन लॉग फ़ोल्डर खोलें
   title: सीलेन निर्देशिकाएँ

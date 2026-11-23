@@ -1,9 +1,10 @@
-import { Widget } from "@seelen-ui/lib";
-import type { PhysicalMonitor } from "@seelen-ui/lib/types";
+import { Widget } from "@macui/lib";
+import type { PhysicalMonitor } from "@macui/lib/types";
 import { globalState } from "./mod.svelte";
 import { StartDisplayMode, StartView } from "../constants";
 import { tick } from "svelte";
 import { LatestPlacement } from "../launchpadOperations";
+import { launchpadBounds } from "../launchpadGeometry";
 
 let desiredPosition = $state<{ x: number; y: number } | null>(null);
 
@@ -35,35 +36,8 @@ const placement = new LatestPlacement<{ left: number; top: number; right: number
 );
 
 function placeCenteredToMonitor(targetMonitor: PhysicalMonitor): Promise<void> {
-  const monitorWidth = targetMonitor.rect.right - targetMonitor.rect.left;
-  const monitorHeight = targetMonitor.rect.bottom - targetMonitor.rect.top;
-  if (monitorWidth <= 0 || monitorHeight <= 0) return Promise.resolve();
-
-  // globalState.displayMode === StartDisplayMode.Fullscreen
-  let x = targetMonitor.rect.left;
-  let y = targetMonitor.rect.top;
-  let width = monitorWidth;
-  let height = monitorHeight;
-
-  if (globalState.displayMode === StartDisplayMode.Normal) {
-    // Wide, compact application surface. Keep the existing fullscreen preference
-    // and monitor/DPI selection, while leaving visible desktop around windowed UI.
-    width = Math.round(Math.min(monitorWidth * 0.9, 1100 * targetMonitor.scaleFactor));
-    height = Math.round(Math.min(monitorHeight * 0.88, 850 * targetMonitor.scaleFactor));
-
-    const monitorCenterX = targetMonitor.rect.left + monitorWidth / 2;
-    const monitorCenterY = targetMonitor.rect.top + monitorHeight / 2;
-
-    x = Math.round(monitorCenterX - width / 2);
-    y = Math.round(monitorCenterY - height / 2);
-  }
-
-  return placement.request({
-    left: x,
-    top: y,
-    right: x + width,
-    bottom: y + height,
-  });
+  const rect = launchpadBounds(targetMonitor, globalState.displayMode === StartDisplayMode.Fullscreen);
+  return rect ? placement.request(rect) : Promise.resolve();
 }
 
 $effect.root(() => {
@@ -80,6 +54,7 @@ export async function onTriggered(cursorPosition?: { x: number; y: number } | nu
   desiredPosition = cursorPosition ?? null;
 
   globalState.view = StartView.Favorites;
+  globalState.choosingFavorites = false;
   globalState.page = 0;
   globalState.openFolderId = null;
   globalState.version++; // trigger reactive updates

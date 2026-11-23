@@ -1,4 +1,4 @@
-import { AppExtraFlag, type AppIdentifier } from "@seelen-ui/lib/types";
+import { AppExtraFlag, type AppIdentifier } from "@macui/lib/types";
 import { ConfigProvider, Input, Modal, Select, Switch } from "antd";
 import { cloneDeep } from "lodash";
 import { useEffect, useState } from "react";

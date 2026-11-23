@@ -1,4 +1,4 @@
-import type { Widget } from "@seelen-ui/lib/types";
+import type { Widget } from "@macui/lib/types";
 import { _invoke, webviewInfo } from "src/ui/vanilla/entry-point/_tauri.ts";
 import { listen } from "@tauri-apps/api/event";
 
@@ -6,19 +6,19 @@ import { hookLocalStorage } from "src/ui/vanilla/entry-point/_LocalStorage";
 
 const indexJsCode = fetch("./index.js").then((res) => res.text());
 
-// initialize global widget variable, needed by slu-lib
+// initialize global widget variable, needed by macui-lib
 const currentWidgetId = webviewInfo.widgetId;
 const widgetList = await _invoke<Widget[]>("state_get_widgets");
-window.__SLU_WIDGET = widgetList.find((widget) => widget.id === currentWidgetId)!;
+window.__MACUI_WIDGET = widgetList.find((widget) => widget.id === currentWidgetId)!;
 
-if (!window.__SLU_WIDGET) {
+if (!window.__MACUI_WIDGET) {
   throw new Error(`Widget definition not found for ${currentWidgetId}`);
 }
 
 // reload if widget definition changed
 listen<Widget[]>("widgets-changed", ({ payload }) => {
   const actual = payload.find((widget) => widget.id === currentWidgetId);
-  if (actual && JSON.stringify(actual) !== JSON.stringify(window.__SLU_WIDGET)) {
+  if (actual && JSON.stringify(actual) !== JSON.stringify(window.__MACUI_WIDGET)) {
     window.location.reload();
   }
 });

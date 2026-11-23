@@ -196,8 +196,8 @@ impl From<u32> for WinEvent {
     }
 }
 
-static LAZY_LOCATION_CHANGE_EVENT: LazyLock<slu_utils::Throttle<isize>> = LazyLock::new(|| {
-    slu_utils::throttle(
+static LAZY_LOCATION_CHANGE_EVENT: LazyLock<macui_utils::Throttle<isize>> = LazyLock::new(|| {
+    macui_utils::throttle(
         |addr| {
             let window = Window::from(addr);
             if window.is_focused() {

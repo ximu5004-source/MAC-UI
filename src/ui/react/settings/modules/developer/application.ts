@@ -1,10 +1,10 @@
-import { dialog } from "@seelen-ui/lib/tauri";
+import { dialog } from "@macui/lib/tauri";
 import { path } from "@tauri-apps/api";
 import { needRestart, settings } from "../../state/mod";
-import { invoke, SeelenCommand } from "@seelen-ui/lib";
+import { invoke, MacUiCommand } from "@macui/lib";
 
 export async function simulatePerm(widgetId: string, perm: string): Promise<void> {
-  await invoke(SeelenCommand.SimulatePerm, { widgetId, perm });
+  await invoke(MacUiCommand.SimulatePerm, { widgetId, perm });
 }
 
 /**
@@ -62,5 +62,5 @@ export async function LoadCustomConfigFile() {
     return;
   }
 
-  settings.value = await invoke(SeelenCommand.StateGetSettings, { path: file });
+  settings.value = await invoke(MacUiCommand.StateGetSettings, { path: file });
 }

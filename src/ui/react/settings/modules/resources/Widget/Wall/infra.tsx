@@ -1,13 +1,11 @@
-import { Icon } from "libs/ui/react/components/Icon/index.tsx";
-import { Button, InputNumber, Select, Switch } from "antd";
+import { InputNumber, Select, Switch } from "antd";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router";
 
 import { getWallConfig, patchWallConfig, setDefaultWallpaperCollection } from "./application.ts";
 import { WallpaperCollectionSelector } from "./WallpaperCollectionSelector.tsx";
 
-import { MultimonitorBehaviour } from "@seelen-ui/lib/types";
+import { MultimonitorBehaviour } from "@macui/lib/types";
 import { SettingsGroup, SettingsOption, SettingsSubGroup } from "../../../../components/SettingsBox/index.tsx";
 
 export function WallSettings() {
@@ -38,34 +36,6 @@ export function WallSettings() {
 
   return (
     <>
-      <SettingsGroup>
-        <SettingsOption label={t("desktop_manager.independent")} description={t("desktop_manager.wallpaper_hint")}
-          action={<Link to="/widget?id=%40seelen%2Fdesktop-shell"><Button>{t("desktop_manager.open")}</Button></Link>}
-        />
-      </SettingsGroup>
-      <SettingsGroup>
-        <SettingsOption
-          label={t("wall.wallpapers_and_collections")}
-          action={
-            <Link to="/resources/wallpaper">
-              <Button type="primary">
-                <Icon iconName="IoArrowForward" />
-              </Button>
-            </Link>
-          }
-        />
-        <SettingsOption
-          label={t("wall.per_monitor_config")}
-          action={
-            <Link to="/monitors">
-              <Button type="primary">
-                <Icon iconName="IoArrowForward" />
-              </Button>
-            </Link>
-          }
-        />
-      </SettingsGroup>
-
       <SettingsGroup>
         <SettingsOption
           label={t("wall.default_collection")}

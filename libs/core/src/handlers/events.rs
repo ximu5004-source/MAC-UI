@@ -4,12 +4,12 @@ use crate::resource::PluginId;
 use crate::state::*;
 use crate::system_state::*;
 
-macro_rules! slu_events_declaration {
+macro_rules! macui_events_declaration {
     ($($name:ident$(($payload:ty))? as $value:literal,)*) => {
-        pub struct SeelenEvent;
+        pub struct MacUiEvent;
 
         #[allow(non_upper_case_globals)]
-        impl SeelenEvent {
+        impl MacUiEvent {
             $(
                 pub const $name: &'static str = $value;
             )*
@@ -18,7 +18,7 @@ macro_rules! slu_events_declaration {
             pub(crate) fn generate_ts_file(path: &str) {
                 let content: Vec<String> = vec![
                     "// This file was generated via rust macros. Don't modify manually.".to_owned(),
-                    "export enum SeelenEvent {".to_owned(),
+                    "export enum MacUiEvent {".to_owned(),
                     $(
                         format!("  {} = '{}',", stringify!($name), Self::$name),
                     )*
@@ -31,7 +31,7 @@ macro_rules! slu_events_declaration {
         #[derive(Serialize)]
         #[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), derive(ts_rs::TS))]
         #[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), ts(export))]
-        pub enum SeelenEventPayload {
+        pub enum MacUiEventPayload {
             $(
                 #[serde(rename = $value)]
                 $name($crate::__switch! {
@@ -44,11 +44,12 @@ macro_rules! slu_events_declaration {
     };
 }
 
-slu_events_declaration! {
+macui_events_declaration! {
     VirtualDesktopsChanged(VirtualDesktops) as "virtual-desktops::changed",
 
     GlobalFocusChanged(FocusedApp) as "global-focus-changed",
     GlobalMouseMove([i32; 2]) as "global-mouse-move",
+    DesktopNativePointer(DesktopNativePointer) as "desktop-native-pointer",
 
     SystemMonitorsChanged(Vec<PhysicalMonitor>) as "system::monitors-changed",
     SystemLanguagesChanged(Vec<SystemLanguage>) as "system::languages-changed",
@@ -79,7 +80,7 @@ slu_events_declaration! {
 
     ColorsChanged(UIColors) as "colors-changed",
     DarkModeChanged(bool) as "dark-mode-changed",
-    SystemFontsChanged(Vec<SeelenFont>) as "system::fonts-changed",
+    SystemFontsChanged(Vec<MacUiFont>) as "system::fonts-changed",
 
     WMSetReservation(Option<twm::TwmReservation>) as "wm::set-reservation",
     WMForceRetiling as "wm::force-retiling",
@@ -113,18 +114,18 @@ slu_events_declaration! {
     // Start Menu
     StartMenuItemsChanged(Vec<StartMenuItem>) as "start-menu::items-changed",
 
-    // SeelenWeg
+    // MacUiWeg
     WegAddItem(WegItemData) as "weg::add-item",
     WegItemsChanged(WegItems) as "weg::items-changed",
 
     // Trash Bin
     TrashBinChanged(TrashBinInfo) as "trash-bin::changed",
 
-    // Seelen Session
-    SeelenSessionChanged(Option<SeelenSession>) as "session::changed",
+    // MacUi Session
+    MacUiSessionChanged(Option<MacUiSession>) as "session::changed",
 
     // Cloud Backup
-    SeelenBackupStatusChanged(BackupStatus) as "backup::status-changed",
+    MacUiBackupStatusChanged(BackupStatus) as "backup::status-changed",
 
     // Clipboard
     ClipboardDataChanged(ClipboardData) as "clipboard::data-changed",
@@ -133,6 +134,7 @@ slu_events_declaration! {
     FocusAssistChanged(bool) as "focus-assist::changed",
     NotificationsModeChanged(NotificationsMode) as "notifications::mode-changed",
     Notifications(Vec<AppNotification>) as "notifications",
+    CommunicationNotificationsChanged(Vec<CommunicationNotification>) as "communication-notifications::changed",
 
     // Plugins
     PluginEnabled(PluginId) as "plugin::enabled",

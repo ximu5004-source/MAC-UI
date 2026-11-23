@@ -3,9 +3,9 @@ use std::{
     sync::LazyLock,
 };
 
-use seelen_core::chrono::{DateTime, Utc};
-use seelen_core::{
-    resource::{ResourceText, SluResource},
+use macui_core::chrono::{DateTime, Utc};
+use macui_core::{
+    resource::{MacUiResource, ResourceText},
     state::{
         CustomIconPackEntry, Icon, IconPack, IconPackEntry, SharedIconPackEntry,
         UniqueIconPackEntry,
@@ -15,11 +15,11 @@ use seelen_core::{
 use crate::{
     error::{Result, ResultLogExt},
     resources::{RESOURCES, ResourceManager},
-    utils::constants::SEELEN_COMMON,
+    utils::constants::MACUI_COMMON,
 };
 
-static SAVE_SYSTEM_ICON_PACK: LazyLock<slu_utils::Throttle<()>> = LazyLock::new(|| {
-    slu_utils::throttle(
+static SAVE_SYSTEM_ICON_PACK: LazyLock<macui_utils::Throttle<()>> = LazyLock::new(|| {
+    macui_utils::throttle(
         |()| {
             let pack = RESOURCES.system_icon_pack.lock().clone();
             if let Some(pack) = pack {
@@ -59,7 +59,7 @@ impl ResourceManager {
             let icon_path = sys_icons_path.join(filename);
             if override_icons || !icon_path.exists() {
                 std::fs::copy(
-                    SEELEN_COMMON
+                    MACUI_COMMON
                         .app_resource_dir()
                         .join("static/icons")
                         .join(filename),
@@ -106,7 +106,7 @@ impl ResourceManager {
         }));
 
         system_pack.add_entry(IconPackEntry::Custom(CustomIconPackEntry {
-            key: "@seelen/weg::start-menu".to_owned(),
+            key: "@macui/weg::start-menu".to_owned(),
             icon: Icon {
                 base: Some("launchpad.svg".to_owned()),
                 is_aproximately_square: true,
@@ -115,7 +115,7 @@ impl ResourceManager {
         }));
 
         system_pack.add_entry(IconPackEntry::Custom(CustomIconPackEntry {
-            key: "@seelen/weg::folder".to_owned(),
+            key: "@macui/weg::folder".to_owned(),
             icon: Icon {
                 base: Some("folder.svg".to_owned()),
                 mask: Some("folder.svg".to_owned()),
@@ -124,7 +124,7 @@ impl ResourceManager {
         }));
 
         system_pack.add_entry(IconPackEntry::Custom(CustomIconPackEntry {
-            key: "@seelen/weg::show-desktop".to_owned(),
+            key: "@macui/weg::show-desktop".to_owned(),
             icon: Icon {
                 base: Some("desktop.svg".to_owned()),
                 is_aproximately_square: true,
@@ -163,7 +163,7 @@ impl ResourceManager {
 
     pub fn ensure_system_icon_pack(&self, override_icons: bool) -> Result<()> {
         let mut guard = self.system_icon_pack.lock();
-        let sys_icons_path = SEELEN_COMMON.system_icon_pack_path();
+        let sys_icons_path = MACUI_COMMON.system_icon_pack_path();
 
         // Create new pack if it doesn't exist
         if guard.is_none() {
@@ -235,7 +235,7 @@ impl ResourceManager {
     }
 
     fn icon_exists(icon: &Icon) -> bool {
-        let root_path = SEELEN_COMMON.system_icon_pack_path();
+        let root_path = MACUI_COMMON.system_icon_pack_path();
         icon.base
             .as_ref()
             .is_some_and(|sub| root_path.join(sub).exists())

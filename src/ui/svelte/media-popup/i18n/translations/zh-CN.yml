@@ -21,3 +21,8 @@ previous: 上一首
 next: 下一首
 play: 播放
 pause: 暂停
+now_playing: 正在播放
+not_playing: 当前无播放内容
+start_playback: 在应用中播放音乐或视频，即可在这里控制。
+untitled: 未命名
+control_failed: 播放器暂未响应，请重试。

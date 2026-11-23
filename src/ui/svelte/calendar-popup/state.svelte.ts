@@ -1,5 +1,5 @@
-import { Settings } from "@seelen-ui/lib";
-import type { Settings as SettingsType, StartOfWeek } from "@seelen-ui/lib/types";
+import { Settings } from "@macui/lib";
+import type { Settings as SettingsType, StartOfWeek } from "@macui/lib/types";
 import { locale } from "./i18n/index.ts";
 import moment from "moment";
 

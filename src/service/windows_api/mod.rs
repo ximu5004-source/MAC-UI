@@ -53,7 +53,7 @@ impl WindowsApi {
     }
 
     pub fn set_foreground(addr: isize) -> Result<()> {
-        slu_utils::windows::set_foreground(addr)?;
+        macui_utils::windows::set_foreground(addr)?;
         Ok(())
     }
 

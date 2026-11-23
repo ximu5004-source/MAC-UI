@@ -18,14 +18,18 @@ use std::{
 use windows::{
     Win32::{
         Foundation::{HWND, LPARAM, LRESULT, RECT, WPARAM},
+        Graphics::Gdi::{
+            BeginPaint, CreateSolidBrush, DeleteObject, EndPaint, FillRect, HDC, PAINTSTRUCT,
+        },
         UI::WindowsAndMessaging::{
             CreateWindowExW, DefWindowProcW, DestroyWindow, DispatchMessageW, GetForegroundWindow,
             GetSystemMetrics, GetWindowPlacement, GetWindowThreadProcessId, IsIconic, IsWindow,
             IsWindowVisible, MSG, PM_REMOVE, PeekMessageW, RegisterClassW, SHOW_WINDOW_CMD,
             SM_CXVIRTUALSCREEN, SM_XVIRTUALSCREEN, SM_YVIRTUALSCREEN, SW_HIDE, SW_SHOWMINNOACTIVE,
             SW_SHOWNA, SW_SHOWNOACTIVATE, ShowWindow, ShowWindowAsync, TranslateMessage,
-            WINDOWPLACEMENT, WM_ACTIVATE, WM_SHOWWINDOW, WM_SIZE, WM_WINDOWPOSCHANGED, WNDCLASSW,
-            WS_EX_APPWINDOW, WS_EX_NOACTIVATE, WS_OVERLAPPEDWINDOW,
+            WINDOWPLACEMENT, WM_ACTIVATE, WM_PAINT, WM_PRINT, WM_PRINTCLIENT, WM_SHOWWINDOW,
+            WM_SIZE, WM_WINDOWPOSCHANGED, WNDCLASSW, WS_EX_APPWINDOW, WS_EX_NOACTIVATE,
+            WS_OVERLAPPEDWINDOW,
         },
     },
     core::w,
@@ -50,6 +54,46 @@ unsafe extern "system" fn window_proc(
     lparam: LPARAM,
 ) -> LRESULT {
     match message {
+        WM_PAINT => {
+            unsafe {
+                let mut paint = PAINTSTRUCT::default();
+                let dc = BeginPaint(hwnd, &mut paint);
+                let brush = CreateSolidBrush(windows::Win32::Foundation::COLORREF(0x00f5750d));
+                let _ = FillRect(
+                    dc,
+                    &RECT {
+                        left: 0,
+                        top: 0,
+                        right: 8192,
+                        bottom: 8192,
+                    },
+                    brush,
+                );
+                let _ = DeleteObject(brush.into());
+                let _ = EndPaint(hwnd, &paint);
+            }
+            return LRESULT(0);
+        }
+        WM_PRINT | WM_PRINTCLIENT => {
+            // Synthetic pixels only, making the explicit 4K capture probe
+            // independent of any content in other applications.
+            let brush =
+                unsafe { CreateSolidBrush(windows::Win32::Foundation::COLORREF(0x00f5750d)) };
+            unsafe {
+                let _ = FillRect(
+                    HDC(wparam.0 as _),
+                    &RECT {
+                        left: 0,
+                        top: 0,
+                        right: 8192,
+                        bottom: 8192,
+                    },
+                    brush,
+                );
+                let _ = DeleteObject(brush.into());
+            }
+            return LRESULT(1);
+        }
         WM_SHOWWINDOW => {
             if wparam.0 == 0 {
                 HIDE_MESSAGES.fetch_add(1, Ordering::Relaxed);
@@ -71,10 +115,10 @@ unsafe extern "system" fn window_proc(
     unsafe { DefWindowProcW(hwnd, message, wparam, lparam) }
 }
 
-struct OwnedWindow(HWND);
+pub(super) struct OwnedWindow(pub(super) HWND);
 
 impl OwnedWindow {
-    fn new() -> Self {
+    pub(super) fn new() -> Self {
         static REGISTER: Once = Once::new();
         let instance = WindowsApi::module_handle_w().unwrap().into();
         REGISTER.call_once(|| unsafe {

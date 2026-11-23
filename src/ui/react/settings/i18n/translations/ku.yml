@@ -30,7 +30,7 @@ apps_configurations:
     Van konfigurasyonên bundled ne edîtor in û têne çêkirin ku ji we re ezmûna
     çêtirîn bêyî adetbûnê peyda bikin. Ew bixweber ji bo we serlêdanên herî
     gelemperî mîheng dikin.
-  bundled_title: App Confic bi seelen
+  bundled_title: App Confic bi macui
   confirm_delete: Ma hûn guman dikin ku hûn dixwazin vê konfigurasyonê / s jêbirin?
   confirm_delete_title: DELETE piştrast bikin
   delete: Lûleêkirin
@@ -78,13 +78,13 @@ devtools:
   data_folder: Peldanka daneyê
   enable: Amûrên Pêşdebir çalak bikin
   enable_description: >-
-    Amûrên pêşkeftî yên ji bo teftîşkirin û verastkirina hundurên UI-ya Seelen
+    Amûrên pêşkeftî yên ji bo teftîşkirin û verastkirina hundurên UI-ya MAC UI
     vedike. Ji bo karanîna birêkûpêk nayê armanc kirin.
   icons: Îkonên Cached
   install_folder: Peldanka sazkirinê
   load: Dawetkirin
   settings_file: Pelê Mîhengan
-  shared_components: Pêkhateyên Standard SLU
+  shared_components: Pêkhateyên Standard MAC UI
   simulate_dialog:
     label: Simulate Dialog
     trigger: Kişok
@@ -117,7 +117,7 @@ devtools:
     widget_id: ID widget
 discord_banner:
   message: >-
-    Bi bikarhênerên din ên Seelen UI re têkilî daynin, alîkariyê bistînin,
+    Bi bikarhênerên din ên MAC UI re têkilî daynin, alîkariyê bistînin,
     mijaran parve bikin û bi nûçeyên herî dawî re bimînin.
   title: Tevlî Civata me bibin
 extras:
@@ -168,7 +168,7 @@ general:
     plugged: Plug kirin an drav kirin
   polling_interval: Navbera dengdanê ya pergalê
   polling_interval_description: >-
-    Çi caran (di çirkeyan de) Seelen UI çavkaniyên pergalê yên wekî CPU, RAM,
+    Çi caran (di çirkeyan de) MAC UI çavkaniyên pergalê yên wekî CPU, RAM,
     torê, û çalakiya dîskê kontrol dike. Hejmarek piçûktir tê wateya nûvekirinên
     pir caran, lê karanîna çavkaniyê hinekî bilindtir e.
   saturday: Şemî
@@ -224,7 +224,7 @@ reset_to_default: Reset bi nirxa xwerû
 resources:
   affected_widgets: Widgetên bandorkirî
   app_outdated: >-
-    Vê çavkaniyê guhertoyek nû ya Seelen UI hewce dike ku bi rengek baş
+    Vê çavkaniyê guhertoyek nû ya MAC UI hewce dike ku bi rengek baş
     bixebite.
   coming_soon: Hema têm
   corrupted_wallpaper: >-
@@ -239,7 +239,7 @@ resources:
   modified: Hate guhertin
   open_folder: Peldanka çavkaniya vekirî
   outdated: >-
-    Vê çavkaniyê ji bo guhertoyek kevn a Seelen UI hate çêkirin û dibe ku bi
+    Vê çavkaniyê ji bo guhertoyek kevn a MAC UI hate çêkirin û dibe ku bi
     rengek baş kar neke.
   see_on_website: Li ser malperê bibînin
   update_now: Rojanekirin
@@ -248,7 +248,7 @@ resources:
 review_request:
   not_now: Guhê xwe nedenê
   sure: Emîn!
-  title: Ji Seelen UI-ê kêfxweş dibin?
+  title: Ji MAC UI-ê kêfxweş dibin?
 save: Rizgarkirin
 save_and_restart: Save & Restart
 search: Gerr
@@ -268,7 +268,7 @@ shortcuts:
     tayîn bike.
   enable: Pergala kurtefîlmên çêkirî çalak bikin
   enable_tooltip: >-
-    Heke hûn ê pergala kurteya xwe bi karanîna muwekîlê Seelen UI bikar bînin
+    Heke hûn ê pergala kurteya xwe bi karanîna muwekîlê MAC UI bikar bînin
     bicîh bikin
   labels:
     create_new_workspace: Karê nû nû çêbikin
@@ -423,16 +423,16 @@ weg:
 welcome:
   give_a_review: Bidin Review
   message: >-
-    Seelen UI ji bo Windows-ê hawîrdorek sermaseya belaş û çavkaniya vekirî ye.
+    MAC UI ji bo Windows-ê hawîrdorek sermaseya belaş û çavkaniya vekirî ye.
     Li vir kontrola we ya bêkêmasî heye ka sermaseya we çawa xuya dike û
     tevdigere, ku dihêle hûn her hûrgulî xweş bikin da ku li gorî xebata xwe û
     şêwaza xwe tevbigerin.
   ok: Ka em dest pê bikin!
   review: >-
-    Heke hûn ji karanîna Seelen UI-yê hez dikin, bifikirin ku li ser firotgehê
+    Heke hûn ji karanîna MAC UI-yê hez dikin, bifikirin ku li ser firotgehê
     nirxandinek bihêlin - nerînên we ji projeyê re dibe alîkar ku mezin bibe û
     pêşve bibe.
-  title: Hûn bi xêr hatin Seelen UI!
+  title: Hûn bi xêr hatin MAC UI!
 widget:
   default_instance: Mînaka Bingehîn
   default_instance_hint: Her gav çalak e, veavakirina widgeta root bikar tîne

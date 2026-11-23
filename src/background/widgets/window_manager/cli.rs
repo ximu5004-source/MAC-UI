@@ -1,11 +1,11 @@
-use slu_ipc::commands::AllowedReservations;
-pub use slu_ipc::commands::{Axis, Direction, Sizing, StepWay, WindowManagerCli, WmCommand};
+use macui_ipc::commands::AllowedReservations;
+pub use macui_ipc::commands::{Axis, Direction, Sizing, StepWay, WindowManagerCli, WmCommand};
 
-use seelen_core::state::twm::TwmReservation;
+use macui_core::state::twm::TwmReservation;
 
 use crate::error::Result;
 use crate::state::application::FULL_STATE;
-use crate::virtual_desktops::SluWorkspacesManager2;
+use crate::virtual_desktops::MacUiWorkspacesManager2;
 use crate::widgets::window_manager::state_v2::{
     TwmState, TwmStateEvent, WM_STATE, twm_set_rect_to_float_initial_size,
 };
@@ -92,7 +92,7 @@ fn process_wm_command(cmd: WmCommand) -> Result<()> {
         }
         WmCommand::ToggleMonocle => {
             let monitor_id = foreground.monitor_id();
-            let workspace_id = SluWorkspacesManager2::instance()
+            let workspace_id = MacUiWorkspacesManager2::instance()
                 .monitors
                 .get(&monitor_id, |m| m.active_workspace_id().clone())
                 .ok_or("Monitor not found")?;
@@ -152,7 +152,7 @@ fn process_focus_to_monitor(foreground: &Window, side: Direction) -> Result<()> 
         return Ok(());
     };
 
-    let Some(target_workspace_id) = SluWorkspacesManager2::instance()
+    let Some(target_workspace_id) = MacUiWorkspacesManager2::instance()
         .monitors
         .get(&target_monitor.stable_id()?, |m| {
             m.active_workspace_id().clone()
@@ -180,7 +180,7 @@ fn process_move_to_monitor(foreground: &Window, side: Direction) -> Result<()> {
     };
     let target_monitor_id = target_monitor.stable_id()?;
 
-    if let Some(target_workspace_id) = SluWorkspacesManager2::instance()
+    if let Some(target_workspace_id) = MacUiWorkspacesManager2::instance()
         .monitors
         .get(&target_monitor_id, |m| m.active_workspace_id().clone())
     {
@@ -189,7 +189,7 @@ fn process_move_to_monitor(foreground: &Window, side: Direction) -> Result<()> {
         // target monitor, the SynDebouncedRectChange handler finds the workspaces manager's own
         // bookkeeping stale and re-triggers a redundant remove+add cycle, doubling up on
         // WM_STATE updates and causing extra set_app_windows_positions calls.
-        SluWorkspacesManager2::instance().send_to(foreground, &target_workspace_id)?;
+        MacUiWorkspacesManager2::instance().send_to(foreground, &target_workspace_id)?;
 
         let is_target_paused = {
             let guard = WM_STATE.lock();

@@ -10,7 +10,7 @@ body {
   overflow: hidden;
 }
 
-#root .slu-std-popover.mac-panel.user-popup.mac-frosted-surface {
+#root .macui-std-popover.mac-panel.user-popup.mac-frosted-surface {
   --mac-ink: light-dark(#171717, #fff);
   --mac-secondary: var(--mac-ink);
   --mac-card: rgb(255 255 255 / .1);
@@ -141,15 +141,15 @@ body {
   color: var(--mac-ink);
   font-style: normal;
 }
-#root .user-popup .user-seelen-option-item {
+#root .user-popup .user-macui-option-item {
   min-height: 40px;
   color: var(--mac-ink);
   background: transparent;
 }
-#root .user-popup .user-seelen-option-item:hover {
+#root .user-popup .user-macui-option-item:hover {
   background: var(--mac-hover);
 }
-#root .user-popup .user-seelen-option-item-title {
+#root .user-popup .user-macui-option-item-title {
   min-width: 0;
   overflow-wrap: anywhere;
 }
@@ -166,7 +166,7 @@ html[data-native-frosted="true"] #root .user-popup.mac-frosted-surface {
   backdrop-filter: none;
 }
 @media (prefers-reduced-transparency: reduce), (prefers-contrast: more), (forced-colors: active) {
-  #root .slu-std-popover.mac-panel.user-popup.mac-frosted-surface {
+  #root .macui-std-popover.mac-panel.user-popup.mac-frosted-surface {
     background: Canvas;
     color: CanvasText;
     --mac-ink: CanvasText;

@@ -1,5 +1,5 @@
-pub use slu_ipc::commands::PopupsCli;
-use slu_ipc::commands::PopupsCommand;
+pub use macui_ipc::commands::PopupsCli;
+use macui_ipc::commands::PopupsCommand;
 
 use crate::{error::Result, widgets::popups::shortcut_registering::set_registering_shortcut};
 

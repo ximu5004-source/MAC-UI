@@ -171,7 +171,7 @@ pub struct AppConfig {
     /// extra specific options/settings for the app
     #[serde(default)]
     pub options: Vec<AppExtraFlag>,
-    /// is this config bundled with seelen ui.
+    /// is this config bundled with macui ui.
     #[serde(skip_deserializing, skip_serializing_if = "AppConfig::is_false")]
     pub is_bundled: bool,
 }

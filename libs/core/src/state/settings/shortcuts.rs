@@ -7,7 +7,7 @@ use crate::state::Widget;
 
 /// Declaration for a system-level shortcut (not attached to any specific widget definition).
 /// Hardcoded in Rust; exposed to the frontend via the `StateGetSystemShortcuts` command.
-/// The user can override keys via `SluShortcutsSettings.shortcuts`.
+/// The user can override keys via `MacUiShortcutsSettings.shortcuts`.
 #[derive(Debug, Clone, Serialize, Deserialize, JsonSchema)]
 #[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), derive(ts_rs::TS))]
 #[serde(rename_all = "camelCase")]
@@ -39,12 +39,12 @@ pub struct ResolvedShortcut {
 #[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), derive(ts_rs::TS))]
 #[serde(default, rename_all = "camelCase")]
 #[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), ts(export))]
-pub struct SluShortcutsSettings {
+pub struct MacUiShortcutsSettings {
     pub enabled: bool,
     pub shortcuts: HashMap<String, Vec<String>>,
 }
 
-impl Default for SluShortcutsSettings {
+impl Default for MacUiShortcutsSettings {
     fn default() -> Self {
         Self {
             enabled: true,
@@ -320,10 +320,10 @@ mod native_start_tests {
 
     fn launchpad() -> Widget {
         Widget {
-            id: "@seelen/apps-menu".into(),
+            id: "@macui/apps-menu".into(),
             shortcuts: vec![WidgetShortcutDeclaration {
                 id: "apps-menu-toggle".into(),
-                command: cmd!["widget", "trigger", "@seelen/apps-menu"],
+                command: cmd!["widget", "trigger", "@macui/apps-menu"],
                 default_keys: cmd!["Win"],
                 readonly: true,
                 ..Default::default()
@@ -380,19 +380,27 @@ mod native_start_tests {
         let (resolved, _) = resolve_shortcuts(&settings, &[&widget]);
         assert_eq!(resolved.iter().filter(|s| s.keys == cmd!["Win"]).count(), 1);
         let mut source = serde_json::to_value(settings).unwrap();
-        source["byWidget"]["@seelen/apps-menu"]["$shortcuts"] =
+        source["byWidget"]["@macui/apps-menu"]["$shortcuts"] =
             serde_json::json!({ "apps-menu-toggle": [] });
         let settings: Settings = serde_json::from_value(source).unwrap();
         let (resolved, _) = resolve_shortcuts(&settings, &[&widget]);
         assert!(resolved.iter().all(|s| s.keys != cmd!["Win"]));
-        assert!(resolved.iter().all(|s| !s.command.contains(&widget.id.to_string())));
-        assert!(resolved.iter().any(|s| s.keys == cmd!["Ctrl", "Win", "Alt", "P"]));
+        assert!(
+            resolved
+                .iter()
+                .all(|s| !s.command.contains(&widget.id.to_string()))
+        );
+        assert!(
+            resolved
+                .iter()
+                .any(|s| s.keys == cmd!["Ctrl", "Win", "Alt", "P"])
+        );
     }
 
     #[test]
     fn native_start_preference_survives_roundtrip_and_sanitize() {
         let mut source = serde_json::to_value(Settings::default()).unwrap();
-        source["byWidget"]["@seelen/apps-menu"] = serde_json::json!({
+        source["byWidget"]["@macui/apps-menu"] = serde_json::json!({
             "enabled": false, "savedPreference": "keep", "$shortcuts": {"apps-menu-toggle": ["Win"]}
         });
         let mut settings: Settings = serde_json::from_value(source).unwrap();
@@ -400,7 +408,7 @@ mod native_start_tests {
         settings.sanitize().unwrap();
         let saved = serde_json::to_value(&settings).unwrap();
         assert_eq!(
-            saved["byWidget"]["@seelen/apps-menu"]["savedPreference"],
+            saved["byWidget"]["@macui/apps-menu"]["savedPreference"],
             "keep"
         );
         assert!(!settings.is_widget_enabled(&launchpad().id));

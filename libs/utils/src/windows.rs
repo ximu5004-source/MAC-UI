@@ -95,7 +95,7 @@ fn is_foreground(target: HWND) -> bool {
 /// This is the only thing each escalation step below trusts to decide whether it worked. The
 /// `BOOL` returned by Win32 calls like `SetForegroundWindow` or `BringWindowToTop` is not a
 /// reliable signal here: it can be `TRUE` without the window actually taking real OS-level
-/// input focus (this bit Seelen UI before, see [`set_foreground`]'s docs), and conversely
+/// input focus (this bit MacUi UI before, see [`set_foreground`]'s docs), and conversely
 /// [`GetForegroundWindow`] itself can transiently return null while a window is losing/gaining
 /// activation, per its docs.
 fn wait_until_foreground(target: HWND, retries: u32) -> bool {
@@ -112,7 +112,7 @@ fn wait_until_foreground(target: HWND, retries: u32) -> bool {
 ///
 /// Windows heavily restricts [`SetForegroundWindow`], succeeding only under a handful of
 /// conditions (see its docs), none of which a background process/service normally satisfies. A
-/// plain call from Seelen UI's background process or service will therefore usually fail
+/// plain call from MacUi UI's background process or service will therefore usually fail
 /// silently: it returns without actually raising the window.
 ///
 /// To work around that, this tries progressively more invasive methods, stopping as soon as one
@@ -126,7 +126,7 @@ fn wait_until_foreground(target: HWND, retries: u32) -> bool {
 ///    doing. This `Attach + BringWindowToTop (+ SetForegroundWindow)` combo is the workaround
 ///    widely documented since Vista/UAC started blocking plain `SetForegroundWindow` calls (e.g.
 ///    <https://shlomio.wordpress.com/2012/09/04/solved-setforegroundwindow-win32-api-not-always-works/>).
-///    Seelen UI used to call only `BringWindowToTop` here (no `SetForegroundWindow`), which
+///    MacUi UI used to call only `BringWindowToTop` here (no `SetForegroundWindow`), which
 ///    reorders the z-order but doesn't reliably move real input focus by itself — that's exactly
 ///    the kind of false success this function guards against by re-checking real state before
 ///    trusting any step worked, rather than trusting either call's own return value.

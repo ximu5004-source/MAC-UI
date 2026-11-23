@@ -1,7 +1,7 @@
 pub mod types;
 
 use itertools::Itertools;
-use seelen_core::system_state::{AdapterStatus, NetworkAdapter};
+use macui_core::system_state::{AdapterStatus, NetworkAdapter};
 use types::InterfaceType;
 use windows::Win32::{
     NetworkManagement::{IpHelper::IP_ADAPTER_ADDRESSES_LH, Ndis::IfOperStatusUp},
@@ -93,7 +93,7 @@ unsafe fn get_address(adapter: &IP_ADAPTER_ADDRESSES_LH, address: Address) -> Op
     }
 }
 
-pub fn adapter_to_slu_net_adapter(adapter: &IP_ADAPTER_ADDRESSES_LH) -> Result<NetworkAdapter> {
+pub fn adapter_to_macui_net_adapter(adapter: &IP_ADAPTER_ADDRESSES_LH) -> Result<NetworkAdapter> {
     unsafe {
         let mac_address = adapter
             .PhysicalAddress

@@ -3,18 +3,20 @@ use std::{
     sync::LazyLock,
 };
 
+use macui_utils::{Debounce, debounce};
 use serde::{Deserialize, Serialize};
-use slu_utils::{Debounce, debounce};
 
 use crate::{
     error::{Result, ResultLogExt},
     event_manager,
     modules::start::application::{StartMenuEvent, StartMenuManager},
-    utils::{constants::SEELEN_COMMON, lock_free::SyncVec},
+    utils::{constants::MACUI_COMMON, lock_free::SyncVec},
     windows_api::types::AppUserModelId,
 };
 
-use super::{_extract_and_save_icon_from_file, _extract_and_save_icon_umid};
+use super::{
+    _extract_and_save_icon_from_file, _extract_and_save_icon_umid, is_desktop_namespace_path,
+};
 
 /// File extensions that are per-file (each has its own unique icon).
 /// Everything else is per-extension (all files of that type share the same shell icon).
@@ -67,7 +69,7 @@ impl IconExtractor {
             failures: SyncVec::new(),
             save_failures: debounce(
                 |_| {
-                    let path = SEELEN_COMMON.app_cache_dir().join("icon_failures2.yml");
+                    let path = MACUI_COMMON.app_cache_dir().join("icon_failures2.yml");
                     if let Ok(file) = std::fs::File::create(&path) {
                         serde_yaml::to_writer(file, &Self::instance().failures.to_vec())
                             .log_error();
@@ -104,7 +106,7 @@ impl IconExtractor {
     }
 
     pub fn init(&mut self) -> Result<()> {
-        let cached = SEELEN_COMMON.app_cache_dir().join("icon_failures2.yml");
+        let cached = MACUI_COMMON.app_cache_dir().join("icon_failures2.yml");
         if cached.exists() {
             let buff = std::fs::read(cached)?;
             let mut failures = serde_yaml::from_slice::<Vec<IconExtractorRequest>>(&buff)?;
@@ -112,7 +114,7 @@ impl IconExtractor {
             // asking the shell. Retry those now that per-path extraction supports them.
             failures.retain(|request| {
                 !matches!(request, IconExtractorRequest::Path(path)
-                if path.is_dir() || (path.extension().is_none() && path.exists()))
+                if is_desktop_namespace_path(path) || path.is_dir() || (path.extension().is_none() && path.exists()))
             });
             self.failures = failures.into();
         }
@@ -190,7 +192,7 @@ impl IconExtractor {
 
     pub fn clear_failures(&self) {
         self.failures.clear();
-        let path = SEELEN_COMMON.app_cache_dir().join("icon_failures2.yml");
+        let path = MACUI_COMMON.app_cache_dir().join("icon_failures2.yml");
         std::fs::remove_file(path).log_error();
     }
 

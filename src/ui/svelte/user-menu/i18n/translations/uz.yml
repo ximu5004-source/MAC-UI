@@ -15,7 +15,7 @@ profile:
   log_out: Chiqish
   open_onedrive: OneDrive katalogini oching
   open_user_folder: Foydalanuvchi katalogini oching
-seelen_options:
-  open_installation_folder: Seelen sozlamalari papkasini oching
-  open_log_folder: Seelen jurnali papkasini oching
+macui_options:
+  open_installation_folder: MAC UI sozlamalari papkasini oching
+  open_log_folder: MAC UI jurnali papkasini oching
   title: Ko'rilgan kataloglar

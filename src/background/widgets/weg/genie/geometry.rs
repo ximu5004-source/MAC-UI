@@ -1,4 +1,4 @@
-//! Pure geometry for a strip-mesh Genie transition, independent of Win32.
+//! Independent cosine-phased Genie geometry; no application binary/resources.
 
 #[derive(Debug, Clone, Copy, PartialEq)]
 pub struct Bounds {
@@ -34,7 +34,7 @@ pub fn direction(source: Bounds, target: Bounds) -> Direction {
 
 fn smooth(value: f64) -> f64 {
     let t = value.clamp(0.0, 1.0);
-    t * t * (3.0 - 2.0 * t)
+    (1.0 - (std::f64::consts::PI * t).cos()) * 0.5
 }
 
 fn mix(from: f64, to: f64, t: f64) -> f64 {
@@ -46,11 +46,90 @@ fn mix(from: f64, to: f64, t: f64) -> f64 {
 /// between the stretching and swallowing phases.
 const NECK_PHASE_END: f64 = 0.42;
 
+pub const MESH_SIDE: usize = 26;
+
+#[derive(Debug, Clone, Copy, Default)]
+pub struct Vertex {
+    pub x: f64,
+    pub y: f64,
+    pub u: f64,
+    pub v: f64,
+}
+
+/// 25 x 25 connected quads (676 shared vertices), in source texture order.
+/// Restore samples this same deformation with time running from one to zero.
+pub fn mesh(
+    source: Bounds,
+    target: Bounds,
+    side: Direction,
+    t: f64,
+) -> [Vertex; MESH_SIDE * MESH_SIDE] {
+    let horizontal = matches!(side, Direction::Left | Direction::Right);
+    let reverse = matches!(side, Direction::Top | Direction::Left);
+    let stretch = smooth(t / NECK_PHASE_END);
+    let collapse = smooth((t - NECK_PHASE_END) / (1.0 - NECK_PHASE_END));
+    std::array::from_fn(|index| {
+        let u = (index % MESH_SIDE) as f64 / (MESH_SIDE - 1) as f64;
+        let v = (index / MESH_SIDE) as f64 / (MESH_SIDE - 1) as f64;
+        let axis = if horizontal { u } else { v };
+        let cross = if horizontal { v } else { u };
+        let near = if reverse { 1.0 - axis } else { axis };
+        let bend = stretch * smooth(near);
+        let narrow = bend + (1.0 - bend) * collapse;
+        let (src_axis, src_len, dst_axis, dst_len, src_cross, src_width, dst_cross, dst_width) =
+            if horizontal {
+                (
+                    source.x,
+                    source.width,
+                    target.x,
+                    target.width,
+                    source.y,
+                    source.height,
+                    target.y,
+                    target.height,
+                )
+            } else {
+                (
+                    source.y,
+                    source.height,
+                    target.y,
+                    target.height,
+                    source.x,
+                    source.width,
+                    target.x,
+                    target.width,
+                )
+            };
+        let low = mix(src_axis, dst_axis, if reverse { stretch } else { collapse });
+        let high = mix(
+            src_axis + src_len,
+            dst_axis + dst_len,
+            if reverse { collapse } else { stretch },
+        );
+        let center = mix(
+            src_cross + src_width * 0.5,
+            dst_cross + dst_width * 0.5,
+            narrow,
+        );
+        let width = mix(src_width, dst_width, narrow);
+        let axis_pos = mix(low, high, axis);
+        let cross_pos = center + (cross - 0.5) * width;
+        let (x, y) = if horizontal {
+            (axis_pos, cross_pos)
+        } else {
+            (cross_pos, axis_pos)
+        };
+        Vertex { x, y, u, v }
+    })
+}
+
 /// Each strip first stretches into a funnel anchored at the destination, then
 /// gets swallowed into that destination. The far edge stays at the original
 /// window during the first phase, while the near edge reaches the Dock. During
 /// the second phase the near edge stays at the Dock and the far edge catches up.
 /// Both cross-axis width and center vary by strip: this is not an affine scale.
+/// Legacy synthetic preview/test adapter; production renders `mesh` triangles.
+#[cfg(test)]
 pub fn strip(
     source: Bounds,
     target: Bounds,
@@ -179,6 +258,43 @@ mod tests {
             (first.x, last.x + last.width)
         } else {
             (first.y, last.y + last.height)
+        }
+    }
+
+    #[test]
+    fn shared_mesh_has_exact_endpoints_and_reversible_time_for_each_direction() {
+        for side in [
+            Direction::Top,
+            Direction::Bottom,
+            Direction::Left,
+            Direction::Right,
+        ] {
+            let target = target_for(side);
+            for (t, expected) in [(0.0, SOURCE), (1.0, target)] {
+                let vertices = mesh(SOURCE, target, side, t);
+                assert_eq!(vertices.len(), 676);
+                for vertex in vertices {
+                    assert!((vertex.x - (expected.x + vertex.u * expected.width)).abs() < 1e-8);
+                    assert!((vertex.y - (expected.y + vertex.v * expected.height)).abs() < 1e-8);
+                }
+            }
+            for step in 0..=100 {
+                let t = step as f64 / 100.0;
+                let vertices = mesh(SOURCE, target, side, t);
+                assert!(
+                    vertices
+                        .iter()
+                        .all(|p| [p.x, p.y, p.u, p.v].iter().all(|v| v.is_finite()))
+                );
+                for column in 0..MESH_SIDE {
+                    for row in 1..MESH_SIDE {
+                        assert!(
+                            vertices[row * MESH_SIDE + column].y
+                                > vertices[(row - 1) * MESH_SIDE + column].y
+                        );
+                    }
+                }
+            }
         }
     }
 

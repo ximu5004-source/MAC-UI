@@ -105,7 +105,7 @@ VIAddVersionKey "ProductVersion" "${VERSION}"
 
 !if "${INSTALLMODE}" == "both"
   !define MULTIUSER_MUI
-  !define MULTIUSER_INSTALLMODE_INSTDIR "${MANUFACTURER}\${PRODUCTNAME}" ;slu
+  !define MULTIUSER_INSTALLMODE_INSTDIR "${MANUFACTURER}\${PRODUCTNAME}"
   !define MULTIUSER_INSTALLMODE_COMMANDLINE
   !if "${ARCH}" == "x64"
     !define MULTIUSER_USE_PROGRAMFILES64
@@ -123,7 +123,7 @@ VIAddVersionKey "ProductVersion" "${VERSION}"
 ; Installer & Unistaller icon
 !if "${INSTALLERICON}" != ""
   !define MUI_ICON "${INSTALLERICON}"
-  !define MUI_UNICON "${INSTALLERICON}" ;slu
+  !define MUI_UNICON "${INSTALLERICON}"
 !endif
 
 ; Installer sidebar image
@@ -388,18 +388,18 @@ Var AppStartMenuFolder
 ; Don't auto jump to finish page after installation page,
 ; because the installation page has useful info that can be used debug any issues with the installer.
 !define MUI_FINISHPAGE_NOAUTOCLOSE
-; Show discord link
+; Show the MAC UI project page
 !define MUI_FINISHPAGE_LINK_COLOR 59a7f6
-!define MUI_FINISHPAGE_LINK "Join us on Discord!"
-!define MUI_FINISHPAGE_LINK_LOCATION "https://discord.seelen.io"
+!define MUI_FINISHPAGE_LINK "MAC UI on GitHub"
+!define MUI_FINISHPAGE_LINK_LOCATION "https://github.com/ximu5004-source/MAC-UI"
 !define MUI_PAGE_CUSTOMFUNCTION_PRE SkipIfPassive
 !define MUI_PAGE_CUSTOMFUNCTION_LEAVE RunMainBinary
 !insertmacro MUI_PAGE_FINISH
 
 Function RunMainBinary
   ; Start the service
-  DetailPrint 'Exec: slu-service.exe'
-  Exec '"$INSTDIR\slu-service.exe"'
+  DetailPrint 'Exec: macui-service.exe'
+  Exec '"$INSTDIR\macui-service.exe"'
   ; nsis_tauri_utils::RunAsUser "$INSTDIR\${MAINBINARYNAME}.exe" ""
 FunctionEnd
 
@@ -456,6 +456,37 @@ FunctionEnd
 {{#each language_files}}
   !include "{{this}}"
 {{/each}}
+
+LangString macuiRuntimeInstalling ${LANG_ENGLISH} "Installing Microsoft Visual C++ runtime..."
+LangString macuiRuntimeFailed ${LANG_ENGLISH} "Unable to install Microsoft Visual C++ runtime. See MACUI-VC-Runtime.log in the temporary folder."
+LangString macuiRuntimeInstalling ${LANG_SIMPCHINESE} "正在安装 Microsoft Visual C++ 运行库..."
+LangString macuiRuntimeFailed ${LANG_SIMPCHINESE} "Microsoft Visual C++ 运行库安装失败。请查看临时文件夹中的 MACUI-VC-Runtime.log。"
+LangString macuiRuntimeInstalling ${LANG_TRADCHINESE} "正在安裝 Microsoft Visual C++ 執行階段..."
+LangString macuiRuntimeFailed ${LANG_TRADCHINESE} "Microsoft Visual C++ 執行階段安裝失敗。請查看暫存資料夾中的 MACUI-VC-Runtime.log。"
+LangString macuiRuntimeInstalling ${LANG_ARABIC} "جارٍ تثبيت مكتبة تشغيل Microsoft Visual C++..."
+LangString macuiRuntimeFailed ${LANG_ARABIC} "تعذر تثبيت مكتبة تشغيل Microsoft Visual C++. راجع MACUI-VC-Runtime.log في المجلد المؤقت."
+LangString macuiRuntimeInstalling ${LANG_BULGARIAN} "Инсталиране на Microsoft Visual C++..."
+LangString macuiRuntimeFailed ${LANG_BULGARIAN} "Неуспешно инсталиране на Microsoft Visual C++. Вижте MACUI-VC-Runtime.log във временната папка."
+LangString macuiRuntimeInstalling ${LANG_DUTCH} "Microsoft Visual C++-runtime installeren..."
+LangString macuiRuntimeFailed ${LANG_DUTCH} "De Microsoft Visual C++-runtime kon niet worden geïnstalleerd. Zie MACUI-VC-Runtime.log in de tijdelijke map."
+LangString macuiRuntimeInstalling ${LANG_FRENCH} "Installation du runtime Microsoft Visual C++..."
+LangString macuiRuntimeFailed ${LANG_FRENCH} "Impossible d’installer le runtime Microsoft Visual C++. Consultez MACUI-VC-Runtime.log dans le dossier temporaire."
+LangString macuiRuntimeInstalling ${LANG_GERMAN} "Microsoft Visual C++-Laufzeit wird installiert..."
+LangString macuiRuntimeFailed ${LANG_GERMAN} "Microsoft Visual C++-Laufzeit konnte nicht installiert werden. Siehe MACUI-VC-Runtime.log im temporären Ordner."
+LangString macuiRuntimeInstalling ${LANG_JAPANESE} "Microsoft Visual C++ ランタイムをインストールしています..."
+LangString macuiRuntimeFailed ${LANG_JAPANESE} "Microsoft Visual C++ ランタイムをインストールできませんでした。一時フォルダーの MACUI-VC-Runtime.log を確認してください。"
+LangString macuiRuntimeInstalling ${LANG_KOREAN} "Microsoft Visual C++ 런타임 설치 중..."
+LangString macuiRuntimeFailed ${LANG_KOREAN} "Microsoft Visual C++ 런타임을 설치하지 못했습니다. 임시 폴더의 MACUI-VC-Runtime.log를 확인하세요."
+LangString macuiRuntimeInstalling ${LANG_PORTUGUESEBR} "Instalando o runtime do Microsoft Visual C++..."
+LangString macuiRuntimeFailed ${LANG_PORTUGUESEBR} "Não foi possível instalar o runtime do Microsoft Visual C++. Consulte MACUI-VC-Runtime.log na pasta temporária."
+LangString macuiRuntimeInstalling ${LANG_RUSSIAN} "Установка среды выполнения Microsoft Visual C++..."
+LangString macuiRuntimeFailed ${LANG_RUSSIAN} "Не удалось установить среду выполнения Microsoft Visual C++. См. MACUI-VC-Runtime.log во временной папке."
+LangString macuiRuntimeInstalling ${LANG_SPANISH} "Instalando el entorno de ejecución de Microsoft Visual C++..."
+LangString macuiRuntimeFailed ${LANG_SPANISH} "No se pudo instalar el entorno de ejecución de Microsoft Visual C++. Consulte MACUI-VC-Runtime.log en la carpeta temporal."
+LangString macuiRuntimeInstalling ${LANG_SWEDISH} "Installerar Microsoft Visual C++-körmiljön..."
+LangString macuiRuntimeFailed ${LANG_SWEDISH} "Det gick inte att installera Microsoft Visual C++-körmiljön. Se MACUI-VC-Runtime.log i den tillfälliga mappen."
+LangString macuiRuntimeInstalling ${LANG_TURKISH} "Microsoft Visual C++ çalışma zamanı yükleniyor..."
+LangString macuiRuntimeFailed ${LANG_TURKISH} "Microsoft Visual C++ çalışma zamanı yüklenemedi. Geçici klasördeki MACUI-VC-Runtime.log dosyasına bakın."
 
 Function .onInit
   ${GetOptions} $CMDLINE "/P" $PassiveMode
@@ -537,84 +568,62 @@ Section WebView2
     ReadRegStr $4 HKCU "SOFTWARE\Microsoft\EdgeUpdate\Clients\${WEBVIEW2APPGUID}" "pv"
   ${EndIf}
 
+  !if "${MINIMUMWEBVIEW2VERSION}" != ""
+    ${If} $4 != ""
+      ${VersionCompare} "${MINIMUMWEBVIEW2VERSION}" "$4" $R0
+      ${If} $R0 = 1
+        StrCpy $4 ""
+      ${EndIf}
+    ${EndIf}
+  !endif
+
   ${If} $4 == ""
     ; Webview2 installation
     ;
-    ; Skip if updating
-    ${If} $UpdateMode <> 1
-      !if "${INSTALLWEBVIEW2MODE}" == "downloadBootstrapper"
-        Delete "$TEMP\MicrosoftEdgeWebview2Setup.exe"
-        DetailPrint "$(webview2Downloading)"
-        NSISdl::download "https://go.microsoft.com/fwlink/p/?LinkId=2124703" "$TEMP\MicrosoftEdgeWebview2Setup.exe"
-        Pop $0
-        ${If} $0 == "success"
-          DetailPrint "$(webview2DownloadSuccess)"
-        ${Else}
-          DetailPrint "$(webview2DownloadError)"
-          Abort "$(webview2AbortError)"
-        ${EndIf}
-        StrCpy $6 "$TEMP\MicrosoftEdgeWebview2Setup.exe"
-        Goto install_webview2
-      !endif
-
-      !if "${INSTALLWEBVIEW2MODE}" == "embedBootstrapper"
-        Delete "$TEMP\MicrosoftEdgeWebview2Setup.exe"
-        File "/oname=$TEMP\MicrosoftEdgeWebview2Setup.exe" "${WEBVIEW2BOOTSTRAPPERPATH}"
-        DetailPrint "$(installingWebview2)"
-        StrCpy $6 "$TEMP\MicrosoftEdgeWebview2Setup.exe"
-        Goto install_webview2
-      !endif
-
-      !if "${INSTALLWEBVIEW2MODE}" == "offlineInstaller"
-        Delete "$TEMP\MicrosoftEdgeWebView2RuntimeInstaller.exe"
-        File "/oname=$TEMP\MicrosoftEdgeWebView2RuntimeInstaller.exe" "${WEBVIEW2INSTALLERPATH}"
-        DetailPrint "$(installingWebview2)"
-        StrCpy $6 "$TEMP\MicrosoftEdgeWebView2RuntimeInstaller.exe"
-        Goto install_webview2
-      !endif
-
-      Goto webview2_done
-
-      install_webview2:
-        DetailPrint "$(installingWebview2)"
-        ; $6 holds the path to the webview2 installer
-        ExecWait "$6 ${WEBVIEW2INSTALLERARGS} /install" $1
-        ${If} $1 = 0
-          DetailPrint "$(webview2InstallSuccess)"
-        ${Else}
-          DetailPrint "$(webview2InstallError)"
-          Abort "$(webview2AbortError)"
-        ${EndIf}
-      webview2_done:
-    ${EndIf}
-  ${Else}
-    !if "${MINIMUMWEBVIEW2VERSION}" != ""
-      ${VersionCompare} "${MINIMUMWEBVIEW2VERSION}" "$4" $R0
-      ${If} $R0 = 1
-        update_webview:
-          DetailPrint "$(installingWebview2)"
-          ${If} ${RunningX64}
-            ReadRegStr $R1 HKLM "SOFTWARE\WOW6432Node\Microsoft\EdgeUpdate" "path"
-          ${Else}
-            ReadRegStr $R1 HKLM "SOFTWARE\Microsoft\EdgeUpdate" "path"
-          ${EndIf}
-          ${If} $R1 == ""
-            ReadRegStr $R1 HKCU "SOFTWARE\Microsoft\EdgeUpdate" "path"
-          ${EndIf}
-          ${If} $R1 != ""
-            ; Chromium updater docs: https://source.chromium.org/chromium/chromium/src/+/main:docs/updater/user_manual.md
-            ; Modified from "HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Microsoft EdgeWebView\ModifyPath"
-            ExecWait `"$R1" /install appguid=${WEBVIEW2APPGUID}&needsadmin=true` $1
-            ${If} $1 = 0
-              DetailPrint "$(webview2InstallSuccess)"
-            ${Else}
-              MessageBox MB_ICONEXCLAMATION|MB_ABORTRETRYIGNORE "$(webview2InstallError)" IDIGNORE ignore IDRETRY update_webview
-              Quit
-              ignore:
-            ${EndIf}
-          ${EndIf}
+    !if "${INSTALLWEBVIEW2MODE}" == "downloadBootstrapper"
+      Delete "$TEMP\MicrosoftEdgeWebview2Setup.exe"
+      DetailPrint "$(webview2Downloading)"
+      NSISdl::download "https://go.microsoft.com/fwlink/p/?LinkId=2124703" "$TEMP\MicrosoftEdgeWebview2Setup.exe"
+      Pop $0
+      ${If} $0 == "success"
+        DetailPrint "$(webview2DownloadSuccess)"
+      ${Else}
+        DetailPrint "$(webview2DownloadError)"
+        Abort "$(webview2AbortError)"
       ${EndIf}
+      StrCpy $6 "$TEMP\MicrosoftEdgeWebview2Setup.exe"
+      Goto install_webview2
     !endif
+
+    !if "${INSTALLWEBVIEW2MODE}" == "embedBootstrapper"
+      Delete "$TEMP\MicrosoftEdgeWebview2Setup.exe"
+      File "/oname=$TEMP\MicrosoftEdgeWebview2Setup.exe" "${WEBVIEW2BOOTSTRAPPERPATH}"
+      DetailPrint "$(installingWebview2)"
+      StrCpy $6 "$TEMP\MicrosoftEdgeWebview2Setup.exe"
+      Goto install_webview2
+    !endif
+
+    !if "${INSTALLWEBVIEW2MODE}" == "offlineInstaller"
+      Delete "$TEMP\MicrosoftEdgeWebView2RuntimeInstaller.exe"
+      File "/oname=$TEMP\MicrosoftEdgeWebView2RuntimeInstaller.exe" "${WEBVIEW2INSTALLERPATH}"
+      DetailPrint "$(installingWebview2)"
+      StrCpy $6 "$TEMP\MicrosoftEdgeWebView2RuntimeInstaller.exe"
+      Goto install_webview2
+    !endif
+
+    Goto webview2_done
+
+    install_webview2:
+      DetailPrint "$(installingWebview2)"
+      ; $6 holds the path to the webview2 installer
+      ExecWait '"$6" ${WEBVIEW2INSTALLERARGS} /install' $1
+      ${If} $1 = 0
+        DetailPrint "$(webview2InstallSuccess)"
+      ${Else}
+        DetailPrint "$(webview2InstallError)"
+        Abort "$(webview2AbortError)"
+      ${EndIf}
+    webview2_done:
   ${EndIf}
 SectionEnd
 

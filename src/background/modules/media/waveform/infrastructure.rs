@@ -1,6 +1,6 @@
 use std::sync::Once;
 
-use seelen_core::{handlers::SeelenEvent, system_state::AudioWaveform};
+use macui_core::{handlers::MacUiEvent, system_state::AudioWaveform};
 
 use crate::{app::emit_to_webviews, error::Result};
 
@@ -11,7 +11,7 @@ fn get_waveform_manager() -> &'static WaveformManager {
     REGISTER.call_once(|| {
         WaveformManager::subscribe(|_event| {
             emit_to_webviews(
-                SeelenEvent::MediaWaveform,
+                MacUiEvent::MediaWaveform,
                 WaveformManager::instance().get_latest(),
             );
         });

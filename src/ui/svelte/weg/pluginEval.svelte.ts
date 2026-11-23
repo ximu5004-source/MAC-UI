@@ -1,18 +1,18 @@
 import type Sandbox from "@nyariv/sandboxjs";
-import { Alignment, SeelenWegSide, type WidgetId } from "@seelen-ui/lib/types";
-import { invoke, SeelenCommand } from "@seelen-ui/lib";
+import { Alignment, MacUiWegSide, type WidgetId } from "@macui/lib/types";
+import { invoke, MacUiCommand } from "@macui/lib";
 import { settingsState } from "./state/settings.svelte.ts";
 import { evalSanboxed } from "libs/ui/svelte/utils/sandbox.ts";
 
-const ALLOWED_COMMANDS: SeelenCommand[] = [
-  SeelenCommand.OpenFile,
-  SeelenCommand.ShowDesktop,
-  SeelenCommand.ShowStartMenu,
+const ALLOWED_COMMANDS: MacUiCommand[] = [
+  MacUiCommand.OpenFile,
+  MacUiCommand.ShowDesktop,
+  MacUiCommand.ShowStartMenu,
 ];
 
 const ActionsScope = {
-  SeelenCommand,
-  invoke(command: SeelenCommand, args?: any) {
+  MacUiCommand,
+  invoke(command: MacUiCommand, args?: any) {
     if (!ALLOWED_COMMANDS.includes(command)) {
       console.warn(`Trying to execute command that is not allowed: "${command}"`);
       return;
@@ -51,25 +51,25 @@ export function triggerWidget(widgetId: WidgetId, itemId: string): void {
   let alignY: Alignment;
 
   switch (dockSide) {
-    case SeelenWegSide.Bottom:
+    case MacUiWegSide.Bottom:
       x = viewRect.left + toPhysical(elRect.left + elRect.width / 2);
       y = viewRect.top;
       alignX = Alignment.Center;
       alignY = Alignment.End;
       break;
-    case SeelenWegSide.Top:
+    case MacUiWegSide.Top:
       x = viewRect.left + toPhysical(elRect.left + elRect.width / 2);
       y = viewRect.bottom;
       alignX = Alignment.Center;
       alignY = Alignment.Start;
       break;
-    case SeelenWegSide.Left:
+    case MacUiWegSide.Left:
       x = viewRect.right;
       y = viewRect.top + toPhysical(elRect.top + elRect.height / 2);
       alignX = Alignment.Start;
       alignY = Alignment.Center;
       break;
-    case SeelenWegSide.Right:
+    case MacUiWegSide.Right:
       x = viewRect.left;
       y = viewRect.top + toPhysical(elRect.top + elRect.height / 2);
       alignX = Alignment.End;
@@ -77,7 +77,7 @@ export function triggerWidget(widgetId: WidgetId, itemId: string): void {
       break;
   }
 
-  invoke(SeelenCommand.TriggerWidget, {
+  invoke(MacUiCommand.TriggerWidget, {
     payload: {
       id: widgetId,
       desiredPosition: { x, y },

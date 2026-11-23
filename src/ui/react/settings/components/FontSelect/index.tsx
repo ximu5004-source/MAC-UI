@@ -1,4 +1,4 @@
-import { invoke, SeelenCommand } from "@seelen-ui/lib";
+import { invoke, MacUiCommand } from "@macui/lib";
 import { Select } from "antd";
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
   style?: React.CSSProperties;
 }
 
-const fonts = await invoke(SeelenCommand.GetFonts);
+const fonts = await invoke(MacUiCommand.GetFonts);
 
 export function FontSelect({ value, defaultValue, onChange, style }: Props) {
   const options = fonts.map((f) => ({

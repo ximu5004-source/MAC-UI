@@ -3,3 +3,13 @@ shortcuts_resumed: 快捷方式已恢复
 volume: 音量
 toggle_mute: 切换静音
 brightness: 亮度
+reply: 回复
+dismiss: 关闭此通知
+messaging:
+  wechat: 微信
+  wecom: 企业微信
+  dingtalk: 钉钉
+  feishu: 飞书
+  open: 打开{{app}}
+  new_message: '您有一条来自“{{app}}”的新消息。'
+  action_failed: 无法打开或关闭此通知，请重试。

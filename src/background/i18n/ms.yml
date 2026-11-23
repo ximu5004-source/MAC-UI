@@ -8,7 +8,7 @@ cancel: Batalkan
 done: Selesai
 elevated:
   description: >-
-    UI Seelen berjalan dengan keistimewaan pentadbir.
+    UI MAC UI berjalan dengan keistimewaan pentadbir.
 
     Ini tidak menambah atau menambah baik sebarang ciri, dan ia mungkin
     menimbulkan risiko keselamatan.
@@ -21,7 +21,7 @@ resource:
   added: Sumber baru telah ditambah
   download_failed_body: >-
     Sesuatu yang tidak kena semasa memuat turun sumber, sila laporkan kepada
-    pasukan pemaju Seelen.
+    pasukan pemaju MAC UI.
   download_failed_title: Muat turun sumber gagal
   downloading: Memuat turun aset ...
   downloading_body: Ini mungkin mengambil masa beberapa saat, jangan menutup tetingkap.
@@ -40,20 +40,20 @@ runtime:
     Ini boleh berlaku jika fail diubah suai, rosak atau pemasangan tidak
     lengkap.
 
-    Atas sebab keselamatan, UI Seelen tidak boleh diteruskan.
+    Atas sebab keselamatan, UI MAC UI tidak boleh diteruskan.
 
     Sila pasang semula dari laman web rasmi.
   files_integrity_title: Makluman Keselamatan - Semakan Integriti Fail Gagal
   not_found: WebView2 Runtime tidak ditemui
-  not_found_description: UI Seelen memerlukan Webview2 Runtime. Sila pasang.
+  not_found_description: UI MAC UI memerlukan Webview2 Runtime. Sila pasang.
   outdated: WebView2 Runtime sudah lapuk
   outdated_description: >-
-    UI Seelen memerlukan Webview2 Runtime %{min_version} atau lebih tinggi. Sila
+    UI MAC UI memerlukan Webview2 Runtime %{min_version} atau lebih tinggi. Sila
     kemas kini.
 service:
-  not_running: Perkhidmatan UI Seelen tidak berjalan
+  not_running: Perkhidmatan UI MAC UI tidak berjalan
   not_running_description: >-
-    Perkhidmatan UI Seelen (perkhidmatan slu) ialah kebergantungan/pembantu
+    Perkhidmatan UI MAC UI (perkhidmatan macui-service) ialah kebergantungan/pembantu
     untuk apl berfungsi dengan betul.
   not_running_ok: Mulakan perkhidmatan
 shortcut:

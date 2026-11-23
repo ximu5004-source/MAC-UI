@@ -18,11 +18,11 @@ pub enum PluginValue {
 #[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), derive(ts_rs::TS))]
 #[serde(tag = "target", content = "plugin")]
 pub enum KnownPlugin {
-    #[serde(rename = "@seelen/fancy-toolbar")]
+    #[serde(rename = "@macui/fancy-toolbar")]
     FacyToolbar(Box<ToolbarItem>),
-    #[serde(rename = "@seelen/window-manager")]
+    #[serde(rename = "@macui/window-manager")]
     WManager(Box<TwmPlugin>),
-    #[serde(rename = "@seelen/weg")]
+    #[serde(rename = "@macui/weg")]
     Weg(Box<WegPluginItem>),
 }
 

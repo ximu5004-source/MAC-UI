@@ -1,5 +1,5 @@
-import { Widget } from "@seelen-ui/lib";
-import type { ContextMenu } from "@seelen-ui/lib/types";
+import { Widget } from "@macui/lib";
+import type { ContextMenu } from "@macui/lib/types";
 import { emitTo } from "@tauri-apps/api/event";
 
 const CLOSE_CONTEXT_MENU_CHAIN_EVENT = "close-context-menu-chain";

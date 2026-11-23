@@ -1,5 +1,5 @@
-import { invoke, SeelenCommand } from "@seelen-ui/lib";
-import type { Rect } from "@seelen-ui/lib/types";
+import { invoke, MacUiCommand } from "@macui/lib";
+import type { Rect } from "@macui/lib/types";
 import { toPhysicalPixels } from "libs/ui/react/utils";
 import type { State } from "../state.svelte";
 
@@ -31,5 +31,5 @@ export function requestPositioningOfLeaves(state: State) {
     };
   });
 
-  invoke(SeelenCommand.SetAppWindowsPositions, { positions });
+  invoke(MacUiCommand.SetAppWindowsPositions, { positions });
 }

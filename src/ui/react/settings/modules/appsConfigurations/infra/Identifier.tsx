@@ -1,4 +1,4 @@
-import { type AppIdentifier, AppIdentifierType, MatchingStrategy } from "@seelen-ui/lib/types";
+import { type AppIdentifier, AppIdentifierType, MatchingStrategy } from "@macui/lib/types";
 import { Icon } from "libs/ui/react/components/Icon/index.tsx";
 import { Button, Input, Select, Switch } from "antd";
 import { cloneDeep } from "lodash";

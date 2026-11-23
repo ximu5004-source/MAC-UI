@@ -44,20 +44,22 @@ mod qa_backdrop;
 fn supports_frosted_widget(widget_id: &str) -> bool {
     matches!(
         widget_id,
-        "@seelen/desktop-shell"
-            | "@seelen/apps-menu"
-            | "@seelen/weg"
-            | "@seelen/quick-settings"
-            | "@seelen/media-popup"
-            | "@seelen/flyouts"
-            | "@seelen/keyboard-selector"
-            | "@seelen/network-popup"
-            | "@seelen/bluetooth-popup"
-            | "@seelen/calendar-popup"
-            | "@seelen/user-menu"
-            | "@seelen/power-menu"
-            | "@seelen/notifications"
-            | "@seelen/system-tray"
+        "@macui/desktop-shell"
+            | "@macui/settings"
+            | "@macui/context-menu"
+            | "@macui/apps-menu"
+            | "@macui/weg"
+            | "@macui/quick-settings"
+            | "@macui/media-popup"
+            | "@macui/flyouts"
+            | "@macui/keyboard-selector"
+            | "@macui/network-popup"
+            | "@macui/bluetooth-popup"
+            | "@macui/calendar-popup"
+            | "@macui/user-menu"
+            | "@macui/power-menu"
+            | "@macui/notifications"
+            | "@macui/system-tray"
     )
 }
 
@@ -211,9 +213,12 @@ impl NativeFrost {
     }
 
     fn paint(&mut self, client: [i32; 2]) -> Result<()> {
-        let regions =
-            slu_utils::frosted_regions::physical_regions(self.snapshot.0, client, &self.snapshot.1)
-                .ok_or("Invalid native frosted surface geometry")?;
+        let regions = macui_utils::frosted_regions::physical_regions(
+            self.snapshot.0,
+            client,
+            &self.snapshot.1,
+        )
+        .ok_or("Invalid native frosted surface geometry")?;
         let children = self.root.Children()?;
         // Build a complete replacement subtree before publishing it, so failed
         // allocation does not leave a half-updated panel at its old bounds.
@@ -250,7 +255,7 @@ fn update(hwnd: HWND, snapshot: Snapshot) -> Result<()> {
         GetClientRect(hwnd, &mut bounds)?;
     }
     let client = [bounds.right - bounds.left, bounds.bottom - bounds.top];
-    slu_utils::frosted_regions::physical_regions(snapshot.0, client, &snapshot.1)
+    macui_utils::frosted_regions::physical_regions(snapshot.0, client, &snapshot.1)
         .ok_or("Invalid native frosted surface geometry")?;
     let scale = (client[0] as f64 / snapshot.0[0]).min(client[1] as f64 / snapshot.0[1]) as f32;
     SURFACES.with(|surfaces| -> Result<()> {
@@ -296,7 +301,7 @@ pub async fn set_frosted_regions(
     if !supports_frosted_widget(label.widget_id.as_str()) {
         return Err("This widget does not own native frosted surfaces".into());
     }
-    slu_utils::frosted_regions::physical_regions(viewport, [1, 1], &rects)
+    macui_utils::frosted_regions::physical_regions(viewport, [1, 1], &rects)
         .ok_or("Invalid native frosted surface geometry")?;
     let handle = webview.hwnd()?.0 as isize;
     let raw_label = webview.label().to_owned();
@@ -345,29 +350,30 @@ mod tests {
     #[test]
     fn only_opted_in_widgets_can_install_native_frost() {
         for id in [
-            "@seelen/desktop-shell",
-            "@seelen/apps-menu",
-            "@seelen/weg",
-            "@seelen/quick-settings",
-            "@seelen/media-popup",
-            "@seelen/flyouts",
-            "@seelen/keyboard-selector",
-            "@seelen/network-popup",
-            "@seelen/bluetooth-popup",
-            "@seelen/calendar-popup",
-            "@seelen/user-menu",
-            "@seelen/power-menu",
-            "@seelen/notifications",
-            "@seelen/system-tray",
+            "@macui/desktop-shell",
+            "@macui/settings",
+            "@macui/context-menu",
+            "@macui/apps-menu",
+            "@macui/weg",
+            "@macui/quick-settings",
+            "@macui/media-popup",
+            "@macui/flyouts",
+            "@macui/keyboard-selector",
+            "@macui/network-popup",
+            "@macui/bluetooth-popup",
+            "@macui/calendar-popup",
+            "@macui/user-menu",
+            "@macui/power-menu",
+            "@macui/notifications",
+            "@macui/system-tray",
         ] {
             assert!(supports_frosted_widget(id));
         }
         for id in [
-            "@seelen/context-menu",
             "@third-party/widget",
-            "@seelen/notifications?other=true",
-            "@seelen/calendar-popup?other=true",
-            "@seelen/power-menu?other=true",
+            "@macui/notifications?other=true",
+            "@macui/calendar-popup?other=true",
+            "@macui/power-menu?other=true",
         ] {
             assert!(!supports_frosted_widget(id));
         }

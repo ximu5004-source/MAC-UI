@@ -1,17 +1,17 @@
-import { SeelenCommand, SeelenEvent, type UnSubscriber } from "../handlers/mod.ts";
+import { MacUiCommand, MacUiEvent, type UnSubscriber } from "../handlers/mod.ts";
 import { RuntimeStyleSheet } from "../utils/DOM.ts";
 import { newFromInvoke, newOnEvent } from "../utils/State.ts";
-import type { Color as IColor, UIColors as IUIColors } from "@seelen-ui/types";
+import type { Color as IColor, UIColors as IUIColors } from "@macui/types";
 
 export class UIColors {
   constructor(public inner: IUIColors) {}
 
   static getAsync(): Promise<UIColors> {
-    return newFromInvoke(this, SeelenCommand.SystemGetColors);
+    return newFromInvoke(this, MacUiCommand.SystemGetColors);
   }
 
   static onChange(cb: (payload: UIColors) => void): Promise<UnSubscriber> {
-    return newOnEvent(cb, this, SeelenEvent.ColorsChanged);
+    return newOnEvent(cb, this, MacUiEvent.ColorsChanged);
   }
 
   setAsCssVariables(): void {
@@ -95,7 +95,7 @@ export class Color {
   }
 
   private getRuntimeStyleSheet(): HTMLStyleElement {
-    const styleId = "slu-lib-runtime-color-variables";
+    const styleId = "macui-lib-runtime-color-variables";
     let styleElement = document.getElementById(styleId) as HTMLStyleElement;
     if (!styleElement) {
       styleElement = document.createElement("style");

@@ -1,6 +1,6 @@
 use std::sync::Once;
 
-use seelen_core::{handlers::SeelenEvent, system_state::SeelenSession};
+use macui_core::{handlers::MacUiEvent, system_state::MacUiSession};
 
 use crate::{
     app::emit_to_webviews,
@@ -11,10 +11,10 @@ use crate::{
 
 use super::application::{SessionManager, SessionManagerEvent};
 
-fn maybe_redact_session(session: Option<SeelenSession>) -> Option<SeelenSession> {
+fn maybe_redact_session(session: Option<MacUiSession>) -> Option<MacUiSession> {
     session.map(|mut s| {
         if FULL_STATE.load().settings.streaming_mode {
-            s.email = "***@seelen.io".to_string();
+            s.email = "***@local".to_string();
         }
         s
     })
@@ -26,7 +26,7 @@ fn get_session_manager() -> &'static parking_lot::Mutex<SessionManager> {
         SessionManager::subscribe(|event| {
             let SessionManagerEvent::Changed(session) = event;
             emit_to_webviews(
-                SeelenEvent::SeelenSessionChanged,
+                MacUiEvent::MacUiSessionChanged,
                 maybe_redact_session(session),
             );
             RESOURCES.emit_on_session_changed().log_error();
@@ -38,7 +38,7 @@ fn get_session_manager() -> &'static parking_lot::Mutex<SessionManager> {
 pub fn reemit_session() {
     let session = get_session_manager().lock().session.clone();
     emit_to_webviews(
-        SeelenEvent::SeelenSessionChanged,
+        MacUiEvent::MacUiSessionChanged,
         maybe_redact_session(session),
     );
 }
@@ -46,24 +46,20 @@ pub fn reemit_session() {
 /// Returns the current session (user data without tokens) or `null` if not
 /// authenticated. Safe to call from any widget.
 #[tauri::command(async)]
-pub fn get_seelen_session() -> Option<SeelenSession> {
+pub fn get_macui_session() -> Option<MacUiSession> {
     maybe_redact_session(get_session_manager().lock().session.clone())
 }
 
-/// Opens the system browser to the Seelen sign-in page. After the user
-/// authenticates, the website redirects back via the deep-link URI scheme and
-/// the session is established automatically. Tokens are stored exclusively in
-/// the Windows Credential Manager and never returned to the UI.
+/// Compatibility command for the removed online account service.
 #[tauri::command(async)]
-pub fn seelen_login() -> Result<()> {
+pub fn macui_login() -> Result<()> {
     get_session_manager(); // ensure event subscription is initialised
     SessionManager::login()
 }
 
-/// Invalidates the current session server-side and wipes all locally stored
-/// tokens from the Windows Credential Manager.
+/// Clears only the in-memory compatibility session; saved credentials are untouched.
 #[tauri::command(async)]
-pub async fn seelen_logout() -> Result<()> {
+pub async fn macui_logout() -> Result<()> {
     get_session_manager(); // ensure event subscription is initialised
     SessionManager::logout().await
 }

@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { invoke, SeelenCommand } from "@seelen-ui/lib";
-  import { WallpaperKind, type PhysicalMonitor } from "@seelen-ui/lib/types";
+  import { invoke, MacUiCommand } from "@macui/lib";
+  import { WallpaperKind, type PhysicalMonitor } from "@macui/lib/types";
   import { Wallpaper } from "libs/ui/svelte/components/Wallpaper";
   import { gState } from "../../state.svelte.ts";
   import { t } from "../../i18n/index.ts";
@@ -102,7 +102,7 @@
     if (!monitor.isPrimary || !accentFilename || !gState.settings.useAccentColor) return;
     extractAccentColorFromSrc(convertFileSrc(accentFilename)).then((color) => {
       if (color) {
-        invoke(SeelenCommand.SystemSetAccentColor, { color });
+        invoke(MacUiCommand.SystemSetAccentColor, { color });
       }
     });
   });

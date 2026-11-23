@@ -15,7 +15,7 @@ profile:
   log_out: وتل
   open_onedrive: د OneDrive لارښود خلاص کړئ
   open_user_folder: د کارونکي لارښود خلاص کړئ
-seelen_options:
+macui_options:
   open_installation_folder: د سیلین ترتیبات فولډر خلاص کړئ
   open_log_folder: د سیلین لاګ فولډر خلاص کړئ
   title: سیلین لارښودونه

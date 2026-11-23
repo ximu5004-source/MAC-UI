@@ -15,7 +15,7 @@ profile:
   log_out: Atteikties
   open_onedrive: Atveriet OneDrive direktoriju
   open_user_folder: Atveriet lietotāja direktoriju
-seelen_options:
-  open_installation_folder: Atveriet Seelen iestatījumu mapi
-  open_log_folder: Atveriet Seelen žurnāla mapi
-  title: Seelen katalogi
+macui_options:
+  open_installation_folder: Atveriet MAC UI iestatījumu mapi
+  open_log_folder: Atveriet MAC UI žurnāla mapi
+  title: MAC UI katalogi

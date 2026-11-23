@@ -1,4 +1,4 @@
-import type { WidgetId } from "@seelen-ui/lib/types";
+import type { WidgetId } from "@macui/lib/types";
 import { Icon } from "libs/ui/react/components/Icon/index.tsx";
 import { Button, Select, Space } from "antd";
 

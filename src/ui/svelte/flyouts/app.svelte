@@ -1,12 +1,14 @@
 <script lang="ts">
-  import { Widget } from "@seelen-ui/lib";
-  import { NotificationsMode } from "@seelen-ui/lib/types";
+  import { Widget } from "@macui/lib";
+  import { NotificationsMode } from "@macui/lib/types";
 
   import { state as gState } from "./state/mod.svelte";
   import { RendererState } from "./state/placement.svelte";
   import { ConfigState } from "./state/config.svelte";
   import { debounce } from "lodash";
   import Notification from "../notifications/components/Notification.svelte";
+  import CommunicationNotification from "../notifications/components/CommunicationNotification.svelte";
+  import { NotificationFlyoutTracker } from "libs/ui/svelte/utils/notificationCenter";
   import Workspace from "./app/Workspace.svelte";
   import MediaDevices from "./app/MediaDevices.svelte";
   import MediaPlaying from "./app/MediaPlaying.svelte";
@@ -33,7 +35,7 @@
 
   let vd = $derived.by(() => {
     if (RendererState.primary) {
-      return gState.workspaces.monitors[RendererState.primary.id] || null;
+      return gState.workspaces?.monitors[RendererState.primary.id] ?? null;
     }
     return null;
   });
@@ -44,23 +46,25 @@
       .find((workspace) => workspace.id == vd.active_workspace);
   });
 
-  // Use [0] (newest) instead of .pop() (oldest) on a descending-sorted array.
-  let notification = $derived.by(() => {
-    const top = gState.notifications.toSorted((a, b) => Number(b.date - a.date))[0];
-    // Also filter out stale notifications (older than 10 s) to avoid showing them as new
-    // when a previously dismissed notification causes the top item to change.
-    const isRecent = !!top && Date.now() - top.date < 10_000;
-    return isRecent ? top : null;
-  });
-
-  let notificationId = $derived(notification?.id);
+  const notificationTracker = new NotificationFlyoutTracker();
+  let notificationKey = $state<string | null>(null);
+  let notification = $derived(gState.notifications.find((item) => item.key === notificationKey) ?? null);
   let isDnd = $derived(gState.notificationsMode !== NotificationsMode.All);
+  const popupPermission = $derived(
+    !ConfigState.config.showNotifications ? false : gState.notificationsModePending ? null : !isDnd,
+  );
   let volume = $derived(output?.volume || 0);
   let muted = $derived(output?.muted || false);
   let playingTitle = $derived(recomendedPlayer?.title);
   let brightnessLevel = $derived(gState.brightness?.currentBrightness);
   let activeWorkspace = $derived(vd?.active_workspace);
   let shortcutsPaused = $derived(gState.shortcutsPaused);
+
+  $effect(() => {
+    // Only a visible notification explicitly requests the topmost layer; the
+    // remaining flyouts keep their existing placement and activation behavior.
+    RendererState.notificationShowing = lastChanged === "notification" && !!notification;
+  });
 
   // svelte-ignore state_referenced_locally
   const prev = {
@@ -69,7 +73,6 @@
     playingTitle,
     brightnessLevel,
     activeWorkspace,
-    notificationId,
     shortcutsPaused,
   };
 
@@ -122,13 +125,15 @@
       somethingChanged = true;
     }
 
-    // Guard with `notification` so we never show an empty flyout when the list becomes empty.
-    if (
-      ConfigState.config.showNotifications &&
-      prev.notificationId !== notificationId &&
-      notification &&
-      !isDnd
-    ) {
+    const newNotification = notificationTracker.consume(
+      gState.notifications,
+      Date.now(),
+      popupPermission,
+      gState.notificationSourcesReady,
+      gState.notificationKnownKeys,
+    );
+    if (newNotification) {
+      notificationKey = newNotification.key;
       lastChanged = "notification";
       somethingChanged = true;
     }
@@ -146,7 +151,7 @@
     // Hide immediately when the currently displayed flyout loses its data source.
     if (
       (lastChanged === "mediaPlaying" && !recomendedPlayer) ||
-      (lastChanged === "notification" && !notification)
+      (lastChanged === "notification" && (!notification || isDnd || !ConfigState.config.showNotifications))
     ) {
       hideWithDelay.cancel();
       RendererState.showing = false;
@@ -158,7 +163,6 @@
     prev.playingTitle = playingTitle;
     prev.brightnessLevel = brightnessLevel;
     prev.activeWorkspace = activeWorkspace;
-    prev.notificationId = notificationId;
     prev.shortcutsPaused = shortcutsPaused;
   });
 </script>
@@ -167,9 +171,15 @@
   class="flyout mac-frosted-surface"
   data-placement={ConfigState.config.placement}
   data-showing={RendererState.showing}
+  aria-live={lastChanged === "notification" ? "polite" : "off"}
+  aria-atomic={lastChanged === "notification" ? "true" : undefined}
 >
   {#if lastChanged === "notification" && notification}
-    <Notification {notification} />
+    {#if notification.source === "windows"}
+      <Notification notification={notification.notification} />
+    {:else}
+      <CommunicationNotification notification={notification.notification} />
+    {/if}
   {/if}
 
   {#if lastChanged === "workspace" && activeWorkspaceData}

@@ -39,7 +39,7 @@ define_app_errors!(
     SerdeJson(serde_json::Error);
     Logger(log::SetLoggerError);
     WideStringNull(widestring::error::MissingNulTerminator);
-    SluIpc(slu_ipc::error::Error);
+    MacUiIpc(macui_ipc::error::Error);
     WinHotkeys(win_hotkeys::error::WHKError);
     TimeFormat(time::error::InvalidFormatDescription);
     TimeOffset(time::error::IndeterminateOffset);
@@ -70,7 +70,7 @@ impl std::fmt::Debug for ServiceError {
                 }
 
                 // 2) skip trace of other modules/libraries specially tracing of tao and tauri libs
-                if !name.starts_with("slu_service") {
+                if !name.starts_with("macui_service") {
                     index += 1;
                     continue;
                 }

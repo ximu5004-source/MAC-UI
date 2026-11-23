@@ -1,5 +1,5 @@
-import { Settings, Widget } from "@seelen-ui/lib";
-import type { IconPackEntry } from "@seelen-ui/lib/types";
+import { Settings, Widget } from "@macui/lib";
+import type { IconPackEntry } from "@macui/lib/types";
 import { locale } from "./i18n/index.ts";
 import { lazyRune } from "libs/ui/svelte/utils/LazyRune.svelte.ts";
 

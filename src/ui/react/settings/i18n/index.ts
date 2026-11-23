@@ -1,4 +1,4 @@
-import type { SupportedLanguagesCode } from "@seelen-ui/lib";
+import type { SupportedLanguagesCode } from "@macui/lib";
 import i18n from "i18next";
 import yaml from "js-yaml";
 import { initReactI18next } from "react-i18next";

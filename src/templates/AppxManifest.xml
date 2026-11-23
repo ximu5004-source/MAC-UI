@@ -13,17 +13,17 @@
   IgnorableNamespaces="uap uap3 uap5 uap7 uap10 desktop6 desktop7 rescap virtualization"
 >
   <Identity
-    Name="Seelen.SeelenUI"
-    Publisher="CN=7E60225C-94CB-4B2E-B17F-0159A11074CB"
+    Name="MACUI.Desktop"
+    Publisher="{{publisher}}"
     Version="{{version}}"
     ProcessorArchitecture="{{architecture}}"
   />
 
   <Properties>
-    <DisplayName>Seelen UI</DisplayName>
-    <PublisherDisplayName>Seelen</PublisherDisplayName>
-    <Description>Fully Customizable Desktop Enviroment for Windows.</Description>
-    <Logo>static\icons\256x256.png</Logo>
+    <DisplayName>MAC UI</DisplayName>
+    <PublisherDisplayName>JONA</PublisherDisplayName>
+    <Description>A local-first desktop workspace for Windows.</Description>
+    <Logo>static\icons\mac-ui\128x128@2x.png</Logo>
 
     <uap10:PackageIntegrity>
       <uap10:Content Enforcement="on" />
@@ -33,8 +33,8 @@
     <!-- will be used on versions 21H1 and newer -->
     <virtualization:FileSystemWriteVirtualization>
       <virtualization:ExcludedDirectories>
-        <virtualization:ExcludedDirectory>$(KnownFolder:LocalAppData)\com.seelen.seelen-ui\logs</virtualization:ExcludedDirectory>
-        <virtualization:ExcludedDirectory>$(KnownFolder:RoamingAppData)\com.seelen.seelen-ui</virtualization:ExcludedDirectory>
+        <virtualization:ExcludedDirectory>$(KnownFolder:LocalAppData)\com.jona.mac-ui\logs</virtualization:ExcludedDirectory>
+        <virtualization:ExcludedDirectory>$(KnownFolder:RoamingAppData)\com.jona.mac-ui</virtualization:ExcludedDirectory>
       </virtualization:ExcludedDirectories>
     </virtualization:FileSystemWriteVirtualization>
 
@@ -63,34 +63,34 @@
   <Applications>
     <Application
       Id="App"
-      Executable="seelen-ui.exe"
+      Executable="macui.exe"
       EntryPoint="Windows.FullTrustApplication"
     >
       <uap3:VisualElements
-        DisplayName="Seelen UI"
-        Description="Fully Customizable Desktop Enviroment for Windows."
-        Square150x150Logo="static\icons\128x128.png"
-        Square44x44Logo="static\icons\48x48.png"
+        DisplayName="MAC UI"
+        Description="A local-first desktop workspace for Windows."
+        Square150x150Logo="static\icons\mac-ui\Square150x150Logo.png"
+        Square44x44Logo="static\icons\mac-ui\Square44x44Logo.png"
         BackgroundColor="transparent"
         AppListEntry="default"
-        VisualGroup="Seelen"
+        VisualGroup="MAC UI"
       ></uap3:VisualElements>
 
       <Extensions>
         <uap:Extension Category="windows.fileTypeAssociation">
-          <uap:FileTypeAssociation Name="seelen-ui.file">
-            <uap:Logo>static\icons\128x128.png</uap:Logo>
-            <uap:DisplayName>Seelen UI</uap:DisplayName>
+          <uap:FileTypeAssociation Name="mac-ui.resource">
+            <uap:Logo>static\icons\mac-ui\Square150x150Logo.png</uap:Logo>
+            <uap:DisplayName>MAC UI</uap:DisplayName>
             <uap:SupportedFileTypes>
-              <uap:FileType>.slu</uap:FileType>
+              <uap:FileType>.maui</uap:FileType>
             </uap:SupportedFileTypes>
           </uap:FileTypeAssociation>
         </uap:Extension>
 
         <uap10:Extension Category="windows.protocol">
-          <uap10:Protocol Name="seelen-ui.uri">
-            <uap10:Logo>static\icons\128x128.png</uap10:Logo>
-            <uap10:DisplayName>Seelen UI</uap10:DisplayName>
+          <uap10:Protocol Name="mac-ui">
+            <uap10:Logo>static\icons\mac-ui\Square150x150Logo.png</uap10:Logo>
+            <uap10:DisplayName>MAC UI</uap10:DisplayName>
           </uap10:Protocol>
         </uap10:Extension>
       </Extensions>
@@ -98,23 +98,23 @@
 
     <Application
       Id="CLI"
-      Executable="slu.exe"
+      Executable="macui-cli.exe"
       EntryPoint="Windows.FullTrustApplication"
     >
       <uap3:VisualElements
-        DisplayName="SLU Terminal Tools"
-        Description="Command-line client for Seelen UI"
-        Square150x150Logo="static\icons\128x128.png"
-        Square44x44Logo="static\icons\48x48.png"
+        DisplayName="MAC UI Command Line"
+        Description="Command-line client for MAC UI"
+        Square150x150Logo="static\icons\mac-ui\Square150x150Logo.png"
+        Square44x44Logo="static\icons\mac-ui\Square44x44Logo.png"
         BackgroundColor="transparent"
         AppListEntry="default"
-        VisualGroup="Seelen"
+        VisualGroup="MAC UI"
       ></uap3:VisualElements>
 
       <Extensions>
         <uap5:Extension Category="windows.appExecutionAlias">
           <uap5:AppExecutionAlias>
-            <uap5:ExecutionAlias Alias="slu.exe" />
+            <uap5:ExecutionAlias Alias="macui-cli.exe" />
           </uap5:AppExecutionAlias>
         </uap5:Extension>
       </Extensions>
@@ -122,23 +122,23 @@
 
     <Application
       Id="Service"
-      Executable="slu-service.exe"
+      Executable="macui-service.exe"
       EntryPoint="Windows.FullTrustApplication"
     >
       <uap3:VisualElements
-        DisplayName="SLU Service"
-        Description="Service Helper for Seelen UI"
-        Square150x150Logo="static\icons\128x128.png"
-        Square44x44Logo="static\icons\48x48.png"
+        DisplayName="MAC UI Service"
+        Description="Service Helper for MAC UI"
+        Square150x150Logo="static\icons\mac-ui\Square150x150Logo.png"
+        Square44x44Logo="static\icons\mac-ui\Square44x44Logo.png"
         BackgroundColor="transparent"
         AppListEntry="default"
-        VisualGroup="Seelen"
+        VisualGroup="MAC UI"
       ></uap3:VisualElements>
 
       <Extensions>
         <uap5:Extension Category="windows.appExecutionAlias">
           <uap5:AppExecutionAlias>
-            <uap5:ExecutionAlias Alias="slu-service.exe" />
+            <uap5:ExecutionAlias Alias="macui-service.exe" />
           </uap5:AppExecutionAlias>
         </uap5:Extension>
       </Extensions>

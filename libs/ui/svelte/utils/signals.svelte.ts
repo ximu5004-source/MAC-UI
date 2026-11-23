@@ -1,7 +1,7 @@
-import { SeelenEvent, subscribe, Widget } from "@seelen-ui/lib";
+import { MacUiEvent, subscribe, Widget } from "@macui/lib";
 
 let _isThisWebviewFocused = $state(false);
-subscribe(SeelenEvent.GlobalFocusChanged, ({ payload: { hwnd, ownerHwnd } }) => {
+subscribe(MacUiEvent.GlobalFocusChanged, ({ payload: { hwnd, ownerHwnd } }) => {
   _isThisWebviewFocused = Widget.self.windowId === hwnd || Widget.self.windowId === ownerHwnd;
 });
 

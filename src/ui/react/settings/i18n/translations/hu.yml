@@ -30,14 +30,14 @@ apps_configurations:
     Ezek a csomagolt konfigurációk nem szerkeszthetők, és úgy tervezték, hogy
     testreszabás nélkül biztosítsa a legjobb élményt. Automatikusan
     konfigurálják a leggyakoribb alkalmazásokat az Ön számára.
-  bundled_title: A Seelen -vel csomagolt alkalmazás konfigurációja
+  bundled_title: A MAC UI -vel csomagolt alkalmazás konfigurációja
   confirm_delete: Biztos benne, hogy törölni akarja ezt a konfigurációt/S -t?
   confirm_delete_title: Törlés jóváhagyása
   delete: Töröl
   export: Export
   export_full: Beállítások exportálása alkalmazásonként
   extra_info: >-
-    A Seelen UI alkalmazásonként csak egy azonosítót használ (az első egyezés
+    A MAC UI alkalmazásonként csak egy azonosítót használ (az első egyezés
     található), ezért fontos a sorrend, a legutolsó hozzáadott lesz prioritás,
     mivel a táblázat alapértelmezés szerint a legújabbtól a régiig van rendezve.
   identifier:
@@ -80,13 +80,13 @@ devtools:
   data_folder: Adatmappa
   enable: Engedélyezze a fejlesztői eszközöket
   enable_description: >-
-    Feloldja a fejlett eszközöket a Seelen UI belső részeinek vizsgálatához és
+    Feloldja a fejlett eszközöket a MAC UI belső részeinek vizsgálatához és
     hibakereséséhez. Nem rendszeres használatra készült.
   icons: Gyorsítótárazott ikonok
   install_folder: Telepítési mappa
   load: Betöltés
   settings_file: Beállítási fájl
-  shared_components: SLU szabványos komponensek
+  shared_components: MAC UI szabványos komponensek
   simulate_dialog:
     label: Szimulációs párbeszédpanel
     trigger: Kioldó
@@ -120,7 +120,7 @@ devtools:
     widget_id: Widget azonosító
 discord_banner:
   message: >-
-    Lépjen kapcsolatba más Seelen UI-felhasználókkal, kérjen segítséget, osszon
+    Lépjen kapcsolatba más MAC UI-felhasználókkal, kérjen segítséget, osszon
     meg témákat, és maradjon naprakész a legfrissebb hírekről.
   title: Csatlakozz közösségünkhöz
 extras:
@@ -174,7 +174,7 @@ general:
     plugged: Bedugva vagy töltés
   polling_interval: Rendszerlekérdezési intervallum
   polling_interval_description: >-
-    Milyen gyakran (másodpercben) ellenőrzi a Seelen UI a rendszererőforrásokat,
+    Milyen gyakran (másodpercben) ellenőrzi a MAC UI a rendszererőforrásokat,
     például a CPU-t, a RAM-ot, a hálózatot és a lemeztevékenységet. A kisebb
     szám gyakoribb frissítéseket jelent, de valamivel nagyobb
     erőforrás-felhasználást.
@@ -230,7 +230,7 @@ reset_configurations: Állítsa vissza a konfigurációkat
 reset_to_default: Alapértelmezett értékre visszaállítása
 resources:
   affected_widgets: Érintett widgetek
-  app_outdated: Ez az erőforrás a Seelen UI újabb verzióját igényli a megfelelő működéshez.
+  app_outdated: Ez az erőforrás a MAC UI újabb verzióját igényli a megfelelő működéshez.
   coming_soon: Hamarosan
   corrupted_wallpaper: Nem sikerült a miniatűr kibontása – sérült vagy nem támogatott videóformátum
   delete: Az erőforrás törlése
@@ -242,7 +242,7 @@ resources:
   modified: Módosítva
   open_folder: Nyissa meg az erőforrás mappát
   outdated: >-
-    Ez az erőforrás a Seelen UI régebbi verziójához készült, és előfordulhat,
+    Ez az erőforrás a MAC UI régebbi verziójához készült, és előfordulhat,
     hogy nem működik megfelelően.
   see_on_website: Lásd a weboldalon
   update_now: Frissítés
@@ -251,7 +251,7 @@ resources:
 review_request:
   not_now: Most nem
   sure: Persze!
-  title: Élvezed a Seelen felhasználói felületet?
+  title: Élvezed a MAC UI felhasználói felületet?
 save: Megment
 save_and_restart: Mentés és újraindítás
 search: Keresés
@@ -271,7 +271,7 @@ shortcuts:
     kulcs-összerendelést a megoldáshoz.
   enable: Engedélyezze a beépített parancsikonok rendszerét
   enable_tooltip: >-
-    Tiltsa le, ha a Seelen UI kliens segítségével megvalósítja saját
+    Tiltsa le, ha a MAC UI kliens segítségével megvalósítja saját
     parancsikonjait
   labels:
     create_new_workspace: Hozzon létre új munkaterületet
@@ -428,15 +428,15 @@ weg:
 welcome:
   give_a_review: Adj véleményt
   message: >-
-    A Seelen UI egy ingyenes és nyílt forráskódú asztali környezet Windowshoz.
+    A MAC UI egy ingyenes és nyílt forráskódú asztali környezet Windowshoz.
     Itt teljes mértékben irányíthatja az asztali számítógép megjelenését és
     viselkedését, így minden részletet személyre szabhat a munkafolyamatának és
     stílusának megfelelően.
   ok: Kezdjük!
   review: >-
-    Ha szívesen használja a Seelen UI-t, fontolja meg, hogy véleményt írjon az
+    Ha szívesen használja a MAC UI-t, fontolja meg, hogy véleményt írjon az
     áruházban – visszajelzése segíti a projekt növekedését és fejlődését.
-  title: Üdvözöljük a Seelen UI-n!
+  title: Üdvözöljük a MAC UI-n!
 widget:
   default_instance: Alapértelmezett példány
   default_instance_hint: Mindig aktív, a root widget konfigurációját használja

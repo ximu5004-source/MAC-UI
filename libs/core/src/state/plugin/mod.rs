@@ -6,7 +6,7 @@ use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 use value::PluginValue;
 
-use crate::resource::{PluginId, ResourceKind, ResourceMetadata, SluResource};
+use crate::resource::{MacUiResource, PluginId, ResourceKind, ResourceMetadata};
 
 #[derive(Debug, Clone, Serialize, Deserialize, JsonSchema)]
 #[cfg_attr(all(feature = "gen-binds", not(feature = "salvo")), derive(ts_rs::TS))]
@@ -33,7 +33,7 @@ impl Default for Plugin {
     }
 }
 
-impl SluResource for Plugin {
+impl MacUiResource for Plugin {
     const KIND: ResourceKind = ResourceKind::Plugin;
 
     fn metadata(&self) -> &ResourceMetadata {

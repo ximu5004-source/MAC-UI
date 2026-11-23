@@ -1,4 +1,4 @@
-import { invoke, SeelenCommand } from "@seelen-ui/lib";
+import { invoke, MacUiCommand } from "@macui/lib";
 import { getCurrentWebviewWindow } from "@tauri-apps/api/webviewWindow";
 import { frostedRect, FrostedWriter, type FrostedSnapshot } from "./frostedGeometry";
 import { frostedForeground, type FrostedInk } from "./frostedContrast";
@@ -15,7 +15,7 @@ export function trackFrostedSurfaces(selector = ".mac-frosted-surface", adaptive
   const watched = new Set<Element>();
   const reduced = matchMedia("(prefers-reduced-transparency: reduce), (forced-colors: active), (prefers-contrast: more)");
   const writer = new FrostedWriter(async (snapshot) => {
-    await invoke(SeelenCommand.SetFrostedRegions, snapshot);
+    await invoke(MacUiCommand.SetFrostedRegions, snapshot);
     document.documentElement.dataset.nativeFrosted = String(snapshot.rects.length > 0 && !disposed);
     reportedFailure = false;
   });
@@ -53,7 +53,7 @@ export function trackFrostedSurfaces(selector = ".mac-frosted-surface", adaptive
     const generation = ++sampleGeneration;
     const nodes = paintedNodes.slice(0, 3);
     try {
-      const values = await invoke(SeelenCommand.GetFrostedWallpaperLuminance, {
+      const values = await invoke(MacUiCommand.GetFrostedWallpaperLuminance, {
         viewport: snapshot.viewport,
         rects: snapshot.rects.slice(0, 3).map(([l, t, r, b]) => [l, t, r, b] as [number, number, number, number]),
       });

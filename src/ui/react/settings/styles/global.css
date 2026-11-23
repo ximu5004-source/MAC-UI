@@ -1,14 +1,14 @@
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background: transparent;
+}
 body {
-  height: 100vh;
-  width: 100vw;
   overflow: hidden;
   font-family: "Segoe UI Variable", "Segoe UI", "Microsoft YaHei UI", sans-serif;
   color: var(--mac-text);
-  font-size: 13px;
-}
-#root {
-  width: 100%;
-  height: 100%;
+  font-size: 14px;
 }
 * {
   box-sizing: border-box;
@@ -16,7 +16,7 @@ body {
   scrollbar-color: light-dark(#a5afbb, #626c7c) transparent;
 }
 :focus-visible {
-  outline: 2px solid light-dark(#0869da, #6bb0ff);
+  outline: 2px solid var(--mac-accent);
   outline-offset: 3px;
 }
 button,
@@ -39,10 +39,10 @@ hr {
 .ant-modal-content,
 .ant-popover-inner,
 .ant-dropdown-menu {
-  border: 1px solid var(--mac-divider);
+  border: 0;
 }
 .ant-modal-content {
-  border-radius: 20px;
+  border-radius: var(--config-border-radius);
 }
 .ant-tabs-nav {
   padding: 0 8px;
@@ -66,4 +66,54 @@ hr {
   :root {
     --mac-divider: light-dark(#707b8b, #8996ac);
   }
+}
+.mac-details {
+  margin-block: 20px;
+  border: 0;
+  border-radius: var(--config-border-radius);
+  padding: 0 18px;
+  background: var(--mac-surface);
+}
+.mac-details > summary {
+  cursor: pointer;
+  padding-block: 18px;
+  font-weight: 600;
+  color: var(--mac-text);
+}
+.mac-details[open] {
+  padding-bottom: 18px;
+}
+.mac-details p {
+  line-height: 1.7;
+  color: var(--mac-secondary);
+}
+.mac-details a {
+  color: var(--mac-accent);
+}
+[data-setting]:focus {
+  border-radius: 8px;
+  outline: 2px solid var(--mac-accent);
+  outline-offset: 5px;
+}
+/* Surface and text switch together; don't tween through a low-contrast middle. */
+.ant-btn:disabled {
+  color: var(--mac-disabled-text) !important;
+  background: var(--mac-disabled-bg) !important;
+  border-color: var(--mac-divider) !important;
+  opacity: 1;
+}
+
+
+.ant-btn-default, .ant-input-outlined, .ant-input-number-outlined,
+.ant-input-affix-wrapper-outlined, .ant-select-outlined .ant-select-selector {
+  border-color: transparent !important;
+  background: var(--mac-hover) !important;
+  box-shadow: none !important;
+}
+.ant-btn-default { border-radius: 999px; }
+@media (forced-colors: active) {
+  button, input, select, [role="switch"], .ant-select-selector {
+    outline: 1px solid ButtonText;
+  }
+  :focus-visible { outline: 2px solid Highlight; }
 }

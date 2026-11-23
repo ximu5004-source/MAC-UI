@@ -32,7 +32,7 @@
       padding: var(--spacing-m);
       box-shadow: var(--shadow-m);
 
-      background-color: var(--slu-std-bg-color);
+      background-color: var(--macui-std-bg-color);
       border-radius: 10px;
 
       display: grid;
@@ -54,7 +54,7 @@
         grid-template-rows: auto 1fr;
         gap: var(--spacing-s);
 
-        background-color: var(--slu-std-bg-light-color);
+        background-color: var(--macui-std-bg-light-color);
         padding: var(--spacing-s);
         box-shadow: var(--shadow-s);
         border-radius: 10px;
@@ -118,7 +118,7 @@
         flex-shrink: 0;
 
         border-radius: 8px;
-        background-color: var(--slu-std-bg-light-color);
+        background-color: var(--macui-std-bg-light-color);
         box-shadow: var(--shadow-s);
 
         display: flex;
@@ -165,7 +165,7 @@
   width: fit-content;
 
   border-radius: 10px;
-  background-color: var(--slu-std-bg-light-color);
+  background-color: var(--macui-std-bg-light-color);
   box-shadow: var(--shadow-s);
   overflow: hidden;
 

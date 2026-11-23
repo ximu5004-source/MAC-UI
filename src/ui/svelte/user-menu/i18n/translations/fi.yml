@@ -15,7 +15,7 @@ profile:
   log_out: Kirjaudu ulos
   open_onedrive: Avaa OneDrive-hakemisto
   open_user_folder: Avaa käyttäjähakemisto
-seelen_options:
-  open_installation_folder: Avaa Seelen-asetuskansio
-  open_log_folder: Avaa Seelen-lokikansio
-  title: Seelen-hakemistot
+macui_options:
+  open_installation_folder: Avaa MAC UI-asetuskansio
+  open_log_folder: Avaa MAC UI-lokikansio
+  title: MAC UI-hakemistot

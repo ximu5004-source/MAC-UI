@@ -3,8 +3,8 @@ use std::{
     path::{Path, PathBuf},
 };
 
-use seelen_core::state::WegItemData;
-use seelen_core::system_state::RelaunchArguments;
+use macui_core::state::WegItemData;
+use macui_core::system_state::RelaunchArguments;
 use winreg::{RegKey, enums::HKEY_CURRENT_USER};
 
 use crate::{error::Result, windows_api::WindowsApi};
@@ -133,7 +133,7 @@ fn create_weg_item_from_shortcut(lnk_path: &Path) -> Result<WegItemData> {
             target_path.parent().map(|p| p.to_path_buf())
         };
 
-        Some(seelen_core::system_state::Relaunch {
+        Some(macui_core::system_state::Relaunch {
             command,
             args,
             working_dir,

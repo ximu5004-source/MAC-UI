@@ -7,7 +7,7 @@ use crate::{
     windows_api::{Com, ComThread},
 };
 use image::{ImageReader, RgbImage};
-use slu_utils::{
+use macui_utils::{
     desktop_regions::physical_regions,
     wallpaper_contrast::{luminance, source_point},
 };
@@ -169,7 +169,7 @@ pub async fn get_toolbar_wallpaper_luminance(
     rects: Vec<[f64; 4]>,
 ) -> Result<Vec<f64>> {
     let label = super::super::webview::WidgetWebviewLabel::try_from_raw(webview.label())?;
-    if label.widget_id.as_str() != "@seelen/fancy-toolbar" || rects.len() > 3 {
+    if label.widget_id.as_str() != "@macui/fancy-toolbar" || rects.len() > 3 {
         return Err("Wallpaper contrast is limited to the toolbar's three groups".into());
     }
     sample_window_wallpaper(webview, viewport, rects, "toolbar").await
@@ -179,15 +179,15 @@ fn frosted_sampling_allowed(widget_id: &str, count: usize) -> bool {
     count <= 3
         && matches!(
             widget_id,
-            "@seelen/quick-settings"
-                | "@seelen/apps-menu"
-                | "@seelen/media-popup"
-                | "@seelen/flyouts"
-                | "@seelen/keyboard-selector"
-                | "@seelen/network-popup"
-                | "@seelen/bluetooth-popup"
-                | "@seelen/notifications"
-                | "@seelen/system-tray"
+            "@macui/quick-settings"
+                | "@macui/apps-menu"
+                | "@macui/media-popup"
+                | "@macui/flyouts"
+                | "@macui/keyboard-selector"
+                | "@macui/network-popup"
+                | "@macui/bluetooth-popup"
+                | "@macui/notifications"
+                | "@macui/system-tray"
         )
 }
 
@@ -240,15 +240,15 @@ mod tests {
     #[test]
     fn frosted_sampling_is_scoped_to_three_opted_in_panels() {
         for id in [
-            "@seelen/quick-settings",
-            "@seelen/apps-menu",
-            "@seelen/media-popup",
-            "@seelen/flyouts",
-            "@seelen/keyboard-selector",
-            "@seelen/network-popup",
-            "@seelen/bluetooth-popup",
-            "@seelen/notifications",
-            "@seelen/system-tray",
+            "@macui/quick-settings",
+            "@macui/apps-menu",
+            "@macui/media-popup",
+            "@macui/flyouts",
+            "@macui/keyboard-selector",
+            "@macui/network-popup",
+            "@macui/bluetooth-popup",
+            "@macui/notifications",
+            "@macui/system-tray",
         ] {
             assert!(frosted_sampling_allowed(id, 0));
             assert!(frosted_sampling_allowed(id, 1));
@@ -260,11 +260,11 @@ mod tests {
     #[test]
     fn frosted_sampling_does_not_expand_toolbar_or_third_party_authority() {
         for id in [
-            "@seelen/fancy-toolbar",
-            "@seelen/desktop-shell",
-            "@seelen/weg",
+            "@macui/fancy-toolbar",
+            "@macui/desktop-shell",
+            "@macui/weg",
             "@someone/widget",
-            "@seelen/flyouts?monitorId=test",
+            "@macui/flyouts?monitorId=test",
         ] {
             assert!(!frosted_sampling_allowed(id, 1));
         }

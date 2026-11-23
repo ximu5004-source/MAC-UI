@@ -15,7 +15,7 @@ profile:
   log_out: ចេញ
   open_onedrive: បើកថត OneDrive
   open_user_folder: បើកបញ្ជីអ្នកប្រើប្រាស់
-seelen_options:
-  open_installation_folder: បើកថតការកំណត់ Seelen
-  open_log_folder: បើកថតឯកសារ Seelen
-  title: បញ្ជីឈ្មោះ Seelen
+macui_options:
+  open_installation_folder: បើកថតការកំណត់ MAC UI
+  open_log_folder: បើកថតឯកសារ MAC UI
+  title: បញ្ជីឈ្មោះ MAC UI

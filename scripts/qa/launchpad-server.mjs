@@ -9,7 +9,6 @@ const port = Number(process.argv[3] || 3581);
 const files = new Map();
 // This theme uses CSS-native nesting; its only Sass syntax is line comments.
 const theme = (await readFile("src/static/themes/default/styles/apps-menu.scss", "utf8")).replace(/^\s*\/\/.*$/gm, "");
-const mock = await readFile(new URL("./launchpad-mock.js", import.meta.url), "utf8");
 const mime = { ".js": "text/javascript", ".css": "text/css", ".svg": "image/svg+xml", ".yml": "text/plain" };
 const server = createServer(async (req, res) => {
   try {
@@ -52,7 +51,7 @@ const server = createServer(async (req, res) => {
       const surface = isDark ? "#20242b" : "#fafafa";
       res.setHeader("Content-Type", "text/html; charset=utf-8");
       res.end(`<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><link rel="stylesheet" href="/svelte/apps-menu/index.css">
-        <style>@layer theme-default-shared { :root{--slu-std-bg-color:${surface};--system-accent-color:#1677ff;--shadow-m:0 4px 12px #0008;color-scheme:${isDark ? "dark" : "light"}}body{background:var(--slu-std-bg-color)}}
+        <style>@layer theme-default-shared { :root{--macui-std-bg-color:${surface};--system-accent-color:#1677ff;--shadow-m:0 4px 12px #0008;color-scheme:${isDark ? "dark" : "light"}}body{background:var(--macui-std-bg-color)}}
         @layer theme-default {${theme}}</style></head><body><div id="root"><main class="apps-menu launchpad" data-fullscreen="false">
         <div class="launchpad-backdrop" aria-hidden="true"></div><header class="launchpad-header"><h1>启动台 · 边缘回归</h1></header>
         </main></div></body></html>`);
@@ -71,6 +70,8 @@ const server = createServer(async (req, res) => {
       return;
     }
     if (url.pathname === "/svelte/apps-menu/index.html") {
+      // QA-only source stays hot on reload; rebuilding product code is unrelated.
+      const mock = await readFile(new URL("./launchpad-mock.js", import.meta.url), "utf8");
       res.setHeader("Content-Type", "text/html; charset=utf-8");
       res.end(`<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><title>Launchpad isolated QA</title><link rel="stylesheet" href="./index.css"><style>${theme}
       body .apps-menu.launchpad{color-scheme:${url.searchParams.has("dark") ? "dark" : "light"}}

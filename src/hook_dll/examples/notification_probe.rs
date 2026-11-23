@@ -31,7 +31,7 @@ unsafe extern "system" fn proc(hwnd: HWND, msg: u32, wp: WPARAM, lp: LPARAM) -> 
                     uFlags: NIF_INFO,
                     ..Default::default()
                 };
-                let title: Vec<_> = "Seelen notification test".encode_utf16().collect();
+                let title: Vec<_> = "MacUi notification test".encode_utf16().collect();
                 let body: Vec<_> = "Native Windows tray notification received successfully."
                     .encode_utf16()
                     .collect();
@@ -55,13 +55,13 @@ fn main() -> windows::core::Result<()> {
         RegisterClassW(&WNDCLASSW {
             lpfnWndProc: Some(proc),
             hInstance: instance,
-            lpszClassName: w!("SeelenNativeTrayProbe"),
+            lpszClassName: w!("MacUiNativeTrayProbe"),
             ..Default::default()
         });
         let hwnd = CreateWindowExW(
             WINDOW_EX_STYLE::default(),
-            w!("SeelenNativeTrayProbe"),
-            w!("Seelen notification test - native activation OK"),
+            w!("MacUiNativeTrayProbe"),
+            w!("MacUi notification test - native activation OK"),
             WS_OVERLAPPEDWINDOW,
             200,
             200,
@@ -81,7 +81,7 @@ fn main() -> windows::core::Result<()> {
             hIcon: LoadIconW(None, IDI_INFORMATION)?,
             ..Default::default()
         };
-        let tip: Vec<_> = "Telegram - Seelen TEST (no real messages)"
+        let tip: Vec<_> = "Telegram - MacUi TEST (no real messages)"
             .encode_utf16()
             .collect();
         data.szTip[..tip.len()].copy_from_slice(&tip);

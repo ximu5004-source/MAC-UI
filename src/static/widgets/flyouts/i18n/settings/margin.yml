@@ -11,7 +11,7 @@ cy: Ymyl Ochr
 da: Sidemargen
 de: Seitenrand
 el: Πλαϊνό Περιθώριο
-en: Side Margin
+en: Distance from screen edge
 es: Margen lateral
 et: Külgmine marginaal
 eu: Alboko Marjina
@@ -67,6 +67,6 @@ ur: سائیڈ مارجن
 uz: Yon chegara
 vi: Lề bên
 yo: Ipin Ala
-zh-CN: 侧边距
-zh-TW: 側邊間隔
+zh-CN: 屏幕边距（像素）
+zh-TW: 螢幕邊距（像素）
 zu: I-Side Margin

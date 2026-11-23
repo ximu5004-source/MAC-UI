@@ -1,0 +1,18 @@
+id: "@macui/tb-now-playing"
+metadata:
+  displayName:
+    en: Music Playback
+    zh-CN: 音乐播放
+    zh-TW: 音樂播放
+  description:
+    en: Current track, playback status and media controls in the top bar. Add, remove or reorder independently of volume.
+    zh-CN: 在顶栏显示当前歌曲、播放状态与媒体控制，可独立添加、移除或调整位置，不影响音量模块。
+    zh-TW: 在頂欄顯示目前歌曲、播放狀態與媒體控制，可獨立新增、移除或調整位置，不影響音量模組。
+icon: IoMusicalNotes
+target: "@macui/fancy-toolbar"
+plugin:
+  # The built-in renderer owns a mount-scoped media subscription and its controls.
+  scopes: []
+  template: 'return icon("IoMusicalNotes")'
+  tooltip: 'return t("media.now_playing")'
+  onClick: 'trigger("@macui/media-popup", { view: "now-playing" });'

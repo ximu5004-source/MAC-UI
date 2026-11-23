@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Widget } from "@seelen-ui/lib";
+  import { Widget } from "@macui/lib";
   import { globalState } from "./state/index.svelte.ts";
   import TaskItem from "./components/TaskItem.svelte";
 

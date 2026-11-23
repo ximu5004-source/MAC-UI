@@ -1,10 +1,10 @@
-import { invoke, SeelenCommand, SeelenEvent, Settings, subscribe } from "@seelen-ui/lib";
-import type { AppNotification, NotificationsMode } from "@seelen-ui/lib/types";
+import { Settings } from "@macui/lib";
+import { communicationNotifications } from "libs/ui/svelte/runes/CommunicationNotifications.svelte";
 import { locale } from "./i18n/index.ts";
 import { lazyRune } from "libs/ui/svelte/utils/LazyRune.svelte.ts";
 
 const settings = lazyRune(() => Settings.getAsync());
-Settings.onChange((s) => (settings.value = s));
+await Settings.onChange((s) => (settings.value = s));
 await settings.init();
 
 $effect.root(() => {
@@ -13,21 +13,21 @@ $effect.root(() => {
   });
 });
 
-let notifications = lazyRune(() => invoke(SeelenCommand.GetNotifications));
-subscribe(SeelenEvent.Notifications, notifications.setByPayload);
-await notifications.init();
-
-let notificationsMode = lazyRune(() => invoke(SeelenCommand.GetNotificationsMode));
-subscribe(SeelenEvent.NotificationsModeChanged, notificationsMode.setByPayload);
-await notificationsMode.init();
-
 class State {
-  get notifications(): AppNotification[] {
-    return notifications.value;
+  get notifications() {
+    return communicationNotifications.items;
   }
-
-  get focusAssistMode(): NotificationsMode {
-    return notificationsMode.value;
+  get focusAssistMode() {
+    return communicationNotifications.focusAssistMode;
+  }
+  get modeAvailable() {
+    return communicationNotifications.modeAvailable;
+  }
+  get nativeUnavailable() {
+    return communicationNotifications.nativeUnavailable;
+  }
+  get communicationUnavailable() {
+    return communicationNotifications.communicationUnavailable;
   }
 }
 

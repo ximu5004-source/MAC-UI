@@ -17,7 +17,7 @@ resource:
   added: A new resource has been added
   download_failed_body: >-
     Something went wrong while downloading the resource, please report it to the
-    Seelen developer team.
+    MAC UI developer team.
   download_failed_title: Resource download failed
   downloading: Downloading assets...
   downloading_body: This might take a few seconds, please don't close the window.
@@ -47,9 +47,11 @@ runtime:
     MAC UI requires Webview2 Runtime %{min_version} or higher. Please update
     it.
 service:
+  exit_failed_title: MAC UI has not exited
+  exit_failed_description: MAC UI Service did not finish stopping. Your desktop remains running. Please try Exit again; details have been saved to the log.
   not_running: MAC UI Service not running
   not_running_description: >-
-    MAC UI Service (slu-service) is a dependency/helper for the app to work
+    MAC UI Service (macui-service) is a dependency/helper for the app to work
     properly.
   not_running_ok: Start service
 shortcut:

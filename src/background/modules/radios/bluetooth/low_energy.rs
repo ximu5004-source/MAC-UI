@@ -1,4 +1,4 @@
-use seelen_core::system_state::BluetoothDevice as SerializableBluetoothDevice;
+use macui_core::system_state::BluetoothDevice as SerializableBluetoothDevice;
 use windows::{
     Devices::Bluetooth::{BluetoothLEDevice, GenericAttributeProfile::GattSession},
     Foundation::TypedEventHandler,
@@ -84,7 +84,7 @@ impl BluetoothLEDeviceWrapper {
         id: &str,
         device: &BluetoothLEDevice,
     ) -> Result<SerializableBluetoothDevice> {
-        use seelen_core::system_state::class_of_device_enums::BluetoothClass;
+        use macui_core::system_state::class_of_device_enums::BluetoothClass;
         use windows::Devices::Bluetooth::BluetoothConnectionStatus;
 
         let pairing_state = device.DeviceInformation()?.Pairing()?;

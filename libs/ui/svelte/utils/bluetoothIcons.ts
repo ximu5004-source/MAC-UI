@@ -13,7 +13,7 @@ import type {
   BluetoothPhoneMinor,
   BluetoothToyMinor,
   BluetoothWearableMinor,
-} from "@seelen-ui/lib/types";
+} from "@macui/lib/types";
 
 const UNKNOWN_ICON = "TbDeviceUnknown";
 

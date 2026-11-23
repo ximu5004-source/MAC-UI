@@ -11,7 +11,7 @@ cy: Lleoliad
 da: Placering
 de: Platzierung
 el: Τοποθέτηση
-en: Placement
+en: Popup position
 es: Colocación
 et: Paigutus
 eu: Kokatzea
@@ -67,6 +67,6 @@ ur: جگہ کا تعین
 uz: Joylashtirish
 vi: Vị trí
 yo: Ipo
-zh-CN: 放置
-zh-TW: 放置
+zh-CN: 弹窗位置
+zh-TW: 彈窗位置
 zu: Ukubekwa

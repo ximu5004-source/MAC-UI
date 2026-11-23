@@ -15,7 +15,7 @@ profile:
   log_out: تسجيل الخروج
   open_onedrive: افتح دليل OneDrive
   open_user_folder: افتح دليل المستخدم
-seelen_options:
-  open_installation_folder: افتح مجلد إعدادات Seelen
-  open_log_folder: افتح مجلد سجل Seelen
+macui_options:
+  open_installation_folder: افتح مجلد إعدادات MAC UI
+  open_log_folder: افتح مجلد سجل MAC UI
   title: أدلة سيلين

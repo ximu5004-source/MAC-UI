@@ -37,7 +37,7 @@ apps_configurations:
   export: Dhoofin
   export_full: Dejinta Dhoofinta Codsiga
   extra_info: >-
-    Seelen UI waxay isticmaashaa hal aqoonsi oo app kasta ah (ciyaartii ugu
+    MAC UI waxay isticmaashaa hal aqoonsi oo app kasta ah (ciyaartii ugu
     horaysay ee la helay) markaa siday u kala horreeyaan sida loo cayimay ayaa
     muhiim ah, waxa ugu dambeeya ee lagu daray ayaa la kala hormarin doonaa,
     sida la ogsoon yahay in miiska si caadi ah loo soocay kii u dambeeyay ilaa
@@ -83,12 +83,12 @@ devtools:
   enable: U oggolow qalabka horumarinta
   enable_description: >-
     Waxay furaysaa aaladaha horumarsan ee lagu baadho laguna saxayo gudaha
-    Seelen UI. Looguma talagalin isticmaalka joogtada ah.
+    MAC UI. Looguma talagalin isticmaalka joogtada ah.
   icons: Astaamaha kaydsan
   install_folder: Xeerka rakibaadda
   load: Xammuul
   settings_file: Faylka Dejinta
-  shared_components: Qaybaha caadiga ah ee SLU
+  shared_components: Qaybaha caadiga ah ee MAC UI
   simulate_dialog:
     label: Isku day wada hadal
     trigger: Kicin
@@ -121,7 +121,7 @@ devtools:
     widget_id: Aqoonsiga widget
 discord_banner:
   message: >-
-    Ku xidh isticmaalayaasha kale ee Seelen UI, hel caawimo, wadaag mawduucyada,
+    Ku xidh isticmaalayaasha kale ee MAC UI, hel caawimo, wadaag mawduucyada,
     oo la soco wararkii ugu dambeeyay
   title: Ku Soo Biir Bulshadeena
 extras:
@@ -173,7 +173,7 @@ general:
     plugged: Xirxiran ama ku dallac
   polling_interval: Inta u dhaxaysa nidaamka cod bixinta
   polling_interval_description: >-
-    Intee jeer (ilbiriqsi gudahood) Seelen UI waxay hubisaa ilaha nidaamka sida
+    Intee jeer (ilbiriqsi gudahood) MAC UI waxay hubisaa ilaha nidaamka sida
     CPU, RAM, network, iyo dhaqdhaqaaqa diskka. Nambar ka yar macnaheedu waa
     cusbooneysiin badan oo soo noqnoqda, laakiin isticmaalka kheyraadka wax yar
     ka sarreeya.
@@ -255,7 +255,7 @@ resources:
 review_request:
   not_now: Hadda maaha
   sure: Hubaal!
-  title: Ku raaxaysiga Seelen UI?
+  title: Ku raaxaysiga MAC UI?
 save: Badbaadin
 save_and_restart: Badbaadin & Dib u bilow
 search: Raadi
@@ -308,7 +308,7 @@ toolbar:
   delay_to_hide: Dib u dhig si loo qariyo
   delay_to_show: Dib u dhig si loo muujiyo
   dock_side: Meel
-  enable: Keeniyaan Qalabka Fancy Toolbar
+  enable: Keeniyaan Qalabka Top Bar
   hide_mode:
     always: Had iyo jeer
     never: Marna
@@ -430,16 +430,16 @@ weg:
 welcome:
   give_a_review: Dib u eegis sii
   message: >-
-    Seelen UI waa goob desktop il bilaash ah oo furan oo loogu talagalay
+    MAC UI waa goob desktop il bilaash ah oo furan oo loogu talagalay
     Windows. Halkan waxa aad si buuxda gacanta ugu haysaa sida uu desktop-kaagu
     u eg yahay una dhaqmo, taas oo kuu ogolaanaysa in aad habayso tafaasiil
     kasta si uu u waafajiyo socodka shaqadaada iyo qaabkaaga.
   ok: Aan bilowno!
   review: >-
-    Haddii aad ku raaxaysato isticmaalka Seelen UI, tixgeli inaad dib u eegis
+    Haddii aad ku raaxaysato isticmaalka MAC UI, tixgeli inaad dib u eegis
     kaga tagto dukaanka - jawaab celintaadu waxay caawisaa mashruuca inuu koro
     oo horumaro.
-  title: Ku soo dhawoow Seelen UI!
+  title: Ku soo dhawoow MAC UI!
 widget:
   default_instance: Tusaale ahaan
   default_instance_hint: Had iyo jeer fir fircoon, isticmaal nidaamka xididka widget-ka

@@ -1,6 +1,6 @@
 use std::sync::Once;
 
-use seelen_core::handlers::SeelenEvent;
+use macui_core::handlers::MacUiEvent;
 
 use crate::{app::emit_to_webviews, error::Result};
 
@@ -12,7 +12,7 @@ fn get_wifi_manager() -> &'static WifiManager {
         WifiManager::subscribe(|event| match event {
             WifiManagerEvent::NetworksChanged => {
                 match WifiManager::instance().get_available_networks() {
-                    Ok(networks) => emit_to_webviews(SeelenEvent::NetworkWlanScanned, &networks),
+                    Ok(networks) => emit_to_webviews(MacUiEvent::NetworkWlanScanned, &networks),
                     Err(e) => log::error!("Failed to emit WiFi networks: {e}"),
                 }
             }
@@ -32,7 +32,7 @@ pub fn wlan_connect(ssid: String, password: Option<String>, hidden: bool) -> Res
     match manager.connect(&ssid, password.as_deref(), hidden) {
         Ok(result) => {
             if result && let Ok(networks) = manager.get_available_networks() {
-                emit_to_webviews(SeelenEvent::NetworkWlanScanned, &networks);
+                emit_to_webviews(MacUiEvent::NetworkWlanScanned, &networks);
             }
             Ok(result)
         }
@@ -48,7 +48,7 @@ pub fn wlan_forget(ssid: String) -> Result<()> {
     let manager = get_wifi_manager();
     manager.forget(&ssid)?;
     if let Ok(networks) = manager.get_available_networks() {
-        emit_to_webviews(SeelenEvent::NetworkWlanScanned, &networks);
+        emit_to_webviews(MacUiEvent::NetworkWlanScanned, &networks);
     }
     Ok(())
 }
@@ -58,7 +58,7 @@ pub fn wlan_disconnect() -> Result<()> {
     let manager = get_wifi_manager();
     manager.disconnect()?;
     if let Ok(networks) = manager.get_available_networks() {
-        emit_to_webviews(SeelenEvent::NetworkWlanScanned, &networks);
+        emit_to_webviews(MacUiEvent::NetworkWlanScanned, &networks);
     }
     Ok(())
 }

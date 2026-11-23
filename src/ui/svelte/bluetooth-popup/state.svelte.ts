@@ -1,5 +1,5 @@
-import { invoke, SeelenCommand, SeelenEvent, Settings, subscribe, Widget } from "@seelen-ui/lib";
-import { RadioDeviceKind } from "@seelen-ui/lib/types";
+import { invoke, MacUiCommand, MacUiEvent, Settings, subscribe, Widget } from "@macui/lib";
+import { RadioDeviceKind } from "@macui/lib/types";
 import { locale } from "./i18n/index.ts";
 import { lazyRune } from "libs/ui/svelte/utils/LazyRune.svelte.ts";
 
@@ -17,11 +17,11 @@ $effect.root(() => {
   });
 });
 
-let devices = lazyRune(() => invoke(SeelenCommand.GetBluetoothDevices));
-subscribe(SeelenEvent.BluetoothDevicesChanged, devices.setByPayload);
+let devices = lazyRune(() => invoke(MacUiCommand.GetBluetoothDevices));
+subscribe(MacUiEvent.BluetoothDevicesChanged, devices.setByPayload);
 
-let radios = lazyRune(() => invoke(SeelenCommand.GetRadios));
-subscribe(SeelenEvent.RadiosChanged, radios.setByPayload);
+let radios = lazyRune(() => invoke(MacUiCommand.GetRadios));
+subscribe(MacUiEvent.RadiosChanged, radios.setByPayload);
 
 await Promise.all([devices.init(), radios.init()]);
 
@@ -39,10 +39,10 @@ let loadingOperation = $state<BluetoothOperation | null>(null);
 
 widget.window.onFocusChanged(async (e) => {
   if (e.payload) {
-    await invoke(SeelenCommand.StartBluetoothScanning);
+    await invoke(MacUiCommand.StartBluetoothScanning);
     isScanning = true;
   } else {
-    await invoke(SeelenCommand.StopBluetoothScanning);
+    await invoke(MacUiCommand.StopBluetoothScanning);
     isScanning = false;
     selectedDeviceId = null;
   }

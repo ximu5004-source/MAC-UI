@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import type { Dialog, DialogContent } from "@seelen-ui/lib/types";
+import type { Dialog, DialogContent } from "@macui/lib/types";
 import { shortcutCancelEvent } from "./shortcutClose";
 
 function fixture(id: string, onClick: string): Dialog {

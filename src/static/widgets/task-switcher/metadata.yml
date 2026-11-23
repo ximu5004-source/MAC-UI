@@ -1,4 +1,4 @@
-id: "@seelen/task-switcher"
+id: "@macui/task-switcher"
 icon: PiSelectionForegroundDuotone
 metadata:
   displayName: !extend i18n/display_name.yml

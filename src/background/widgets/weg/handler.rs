@@ -1,6 +1,6 @@
-use std::path::PathBuf;
+use std::{collections::HashMap, path::PathBuf};
 
-use seelen_core::{handlers::SeelenEvent, rect::Rect, state::WegItemData};
+use macui_core::{handlers::MacUiEvent, rect::Rect, state::WegItemData};
 use tauri_plugin_shell::ShellExt;
 
 use crate::{
@@ -9,7 +9,7 @@ use crate::{
     state::application::WEG_ITEMS_MANAGER,
     windows_api::{WindowsApi, window::Window},
 };
-use windows::Win32::UI::WindowsAndMessaging::{SW_MINIMIZE, WM_CLOSE};
+use windows::Win32::UI::WindowsAndMessaging::WM_CLOSE;
 
 #[tauri::command(async)]
 pub fn weg_close_app(hwnd: isize) -> Result<()> {
@@ -38,17 +38,17 @@ pub fn weg_toggle_window_state(
     let window = Window::from(hwnd);
     // was_focused is intented to know if the window was focused before click on the dock item
     // on click the items makes the dock being focused.
-    if was_focused {
-        if !minimize_target.is_some_and(|target| super::genie::try_minimize(window, target)) {
-            super::genie::cancel();
-            window.show_window_async(SW_MINIMIZE)?;
-        }
-    } else {
-        super::genie::cancel();
-        window.unminimize()?;
-        window.focus()?;
-    }
-    Ok(())
+    let target = minimize_target.or_else(|| super::genie::targets::target_for(window));
+    super::genie::toggle(window, was_focused, target)
+}
+
+/// Only the actual Dock webview may publish physical positions of its icons.
+#[tauri::command(async)]
+pub fn weg_set_window_animation_targets(
+    webview: tauri::WebviewWindow,
+    targets: HashMap<isize, Rect>,
+) -> Result<()> {
+    super::genie::targets::set_targets(webview, targets)
 }
 
 #[tauri::command(async)]
@@ -74,7 +74,7 @@ pub fn weg_pin_item(path: PathBuf) -> Result<()> {
         relaunch: None,
     };
 
-    emit_to_webviews(SeelenEvent::WegAddItem, &item);
+    emit_to_webviews(MacUiEvent::WegAddItem, &item);
     Ok(())
 }
 
@@ -85,7 +85,7 @@ pub fn weg_import_pinned_taskbar_items() -> Result<usize> {
     // Emit event to notify all webviews about the updated items
     if count > 0 {
         let items = WEG_ITEMS_MANAGER.get();
-        emit_to_webviews(SeelenEvent::WegItemsChanged, items);
+        emit_to_webviews(MacUiEvent::WegItemsChanged, items);
     }
 
     Ok(count)

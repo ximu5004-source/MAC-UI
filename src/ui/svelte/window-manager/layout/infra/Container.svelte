@@ -1,7 +1,7 @@
 <script lang="ts">
   import { getContext } from "svelte";
-  import type { TwmRuntimeTree } from "@seelen-ui/lib/types";
-  import { TwmNodeKind } from "@seelen-ui/lib/types";
+  import type { TwmRuntimeTree } from "@macui/lib/types";
+  import { TwmNodeKind } from "@macui/lib/types";
   import { NodeUtils } from "../../utils.ts";
   import { TREE_CONTEXT_KEY } from "../domain.ts";
   import Leaf from "./containers/Leaf.svelte";

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { ContextMenuItem, ContextMenuCallbackPayload } from "@seelen-ui/lib/types";
+  import type { ContextMenuItem, ContextMenuCallbackPayload } from "@macui/lib/types";
   import { Icon } from "libs/ui/svelte/components/Icon";
   import { emitTo } from "@tauri-apps/api/event";
   import { state as gState, closeContextMenuChain } from "./state.svelte";

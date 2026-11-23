@@ -15,7 +15,7 @@ profile:
   log_out: 로그아웃
   open_onedrive: OneDrive 디렉터리 열기
   open_user_folder: 사용자 디렉토리 열기
-seelen_options:
-  open_installation_folder: Seelen 설정 폴더 열기
-  open_log_folder: Seelen 로그 폴더 열기
-  title: Seelen 디렉토리
+macui_options:
+  open_installation_folder: MAC UI 설정 폴더 열기
+  open_log_folder: MAC UI 로그 폴더 열기
+  title: MAC UI 디렉토리

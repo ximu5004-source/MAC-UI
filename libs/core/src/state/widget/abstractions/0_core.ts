@@ -1,6 +1,6 @@
 import { getCurrentWebview, type Webview } from "@tauri-apps/api/webview";
 import { getCurrentWindow, type Window } from "@tauri-apps/api/window";
-import { invoke, SeelenCommand } from "../../../../mod.ts";
+import { invoke, MacUiCommand } from "../../../../mod.ts";
 
 export abstract class Widget_0 {
   private _windowId: number = 0;
@@ -16,6 +16,6 @@ export abstract class Widget_0 {
   }
 
   protected async prepare(): Promise<void> {
-    this._windowId = await invoke(SeelenCommand.GetSelfWindowId);
+    this._windowId = await invoke(MacUiCommand.GetSelfWindowId);
   }
 }

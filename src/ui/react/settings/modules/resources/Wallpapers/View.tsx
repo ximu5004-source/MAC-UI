@@ -1,5 +1,5 @@
-import { SUPPORTED_VIDEO_WALLPAPER_EXTENSIONS, WallpaperConfiguration } from "@seelen-ui/lib";
-import type { PlaybackSpeed, WallpaperId, WallpaperInstanceSettings } from "@seelen-ui/lib/types";
+import { SUPPORTED_VIDEO_WALLPAPER_EXTENSIONS, WallpaperConfiguration } from "@macui/lib";
+import type { PlaybackSpeed, WallpaperId, WallpaperInstanceSettings } from "@macui/lib/types";
 import { Icon } from "libs/ui/react/components/Icon/index.tsx";
 import { ResourceText } from "libs/ui/react/components/ResourceText/index.tsx";
 import { Wallpaper } from "libs/ui/react/components/Wallpaper/index.tsx";
@@ -33,9 +33,9 @@ const playbackSpeedOptions = playbackSpeeds.map((s) => ({
 
 const defaultWallpaperConfig = await WallpaperConfiguration.default();
 
-export function SingleWallpaperView() {
+export function SingleWallpaperView({ wallpaperId }: { wallpaperId?: WallpaperId }) {
   const [searchParams] = useSearchParams();
-  const resourceId = searchParams.get("id") as WallpaperId;
+  const resourceId = wallpaperId ?? searchParams.get("id") as WallpaperId;
 
   const editingWallpaper = wallpapers.value.find((wallpaper) => wallpaper.id === resourceId);
 

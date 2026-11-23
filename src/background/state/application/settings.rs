@@ -1,15 +1,15 @@
 use std::path::Path;
 
-use seelen_core::{
-    handlers::SeelenEvent,
+use macui_core::{
+    handlers::MacUiEvent,
     state::{CssStyles, Dialog, DialogContent, Settings},
 };
 
 use crate::{
-    app::{SeelenUI, emit_to_webviews},
+    app::{MacUi, emit_to_webviews},
     error::{Result, ResultLogExt},
     resources::ResourceManager,
-    utils::constants::SEELEN_COMMON,
+    utils::constants::MACUI_COMMON,
     widgets::{
         manager::WIDGET_MANAGER, trigger_dialog_backend, window_manager::state_v2::WM_STATE,
     },
@@ -19,22 +19,22 @@ use super::AppSettings;
 
 impl AppSettings {
     pub(super) fn emit_settings(&self) -> Result<()> {
-        emit_to_webviews(SeelenEvent::StateSettingsChanged, &self.settings);
-        SeelenUI::on_settings_change(self)?;
+        emit_to_webviews(MacUiEvent::StateSettingsChanged, &self.settings);
+        MacUi::on_settings_change(self)?;
         WIDGET_MANAGER.reconcile().log_error();
         WM_STATE.lock().on_settings_changed();
         Ok(())
     }
 
     pub(super) fn read_settings() -> Settings {
-        let path = SEELEN_COMMON.settings_path();
+        let path = MACUI_COMMON.settings_path();
         if path.exists() {
             let load = || -> Result<Settings> {
                 let original = std::fs::read(path)?;
                 let json: serde_json::Value = serde_json::from_slice(&original)?;
                 let by_widget = &json["byWidget"];
-                let migrating = by_widget["@seelen/desktop-shell"].is_null()
-                    && by_widget["@seelen/wallpaper-manager"]["desktopShellEnabled"] == true;
+                let migrating = by_widget["@macui/desktop-shell"].is_null()
+                    && by_widget["@macui/wallpaper-manager"]["desktopShellEnabled"] == true;
                 if migrating {
                     let backup = path.with_file_name("settings.before-independent-desktop.json");
                     if !backup.exists() {
@@ -51,14 +51,14 @@ impl AppSettings {
                 Ok(settings) => {
                     log::info!(
                         "Settings loaded from {path:?}: launchpad={}, shortcuts={}",
-                        settings.is_widget_enabled(&"@seelen/apps-menu".into()),
+                        settings.is_widget_enabled(&"@macui/apps-menu".into()),
                         settings.shortcuts.enabled,
                     );
                     return settings;
                 }
                 Err(err) => {
                     log::error!("Failed to read settings from {path:?}: {err}");
-                    show_corrupted_state_to_user(SEELEN_COMMON.settings_path());
+                    show_corrupted_state_to_user(MACUI_COMMON.settings_path());
                 }
             }
         }
@@ -154,7 +154,7 @@ impl AppSettings {
     }
 
     pub fn write_settings(&self) -> Result<()> {
-        self.settings.save(SEELEN_COMMON.settings_path())?;
+        self.settings.save(MACUI_COMMON.settings_path())?;
         self.emit_settings()?;
         Ok(())
     }

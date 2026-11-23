@@ -1,5 +1,5 @@
-use seelen_core::{
-    handlers::SeelenEvent,
+use macui_core::{
+    handlers::MacUiEvent,
     system_state::{BluetoothDevice, DevicePairingAnswer, DevicePairingNeededAction},
 };
 use windows::Devices::Enumeration::{DevicePairingResultStatus, DeviceUnpairingResultStatus};
@@ -13,7 +13,7 @@ fn get_bluetooth_manager() -> &'static BluetoothManager {
     INIT.call_once(|| {
         BluetoothManager::subscribe(|_e| {
             emit_to_webviews(
-                SeelenEvent::BluetoothDevicesChanged,
+                MacUiEvent::BluetoothDevicesChanged,
                 BluetoothManager::instance().get_all_devices(),
             );
         });

@@ -15,7 +15,7 @@ profile:
   log_out: Abmelden
   open_onedrive: Öffnen Sie das OneDrive-Verzeichnis
   open_user_folder: Benutzerverzeichnis öffnen
-seelen_options:
-  open_installation_folder: Öffnen Sie den Seelen-Einstellungsordner
-  open_log_folder: Öffnen Sie den Seelen-Protokollordner
-  title: Seelen-Verzeichnisse
+macui_options:
+  open_installation_folder: Öffnen Sie den MAC UI-Einstellungsordner
+  open_log_folder: Öffnen Sie den MAC UI-Protokollordner
+  title: MAC UI-Verzeichnisse

@@ -8,7 +8,7 @@ cancel: Peruuttaa
 done: Tehty
 elevated:
   description: >-
-    Seelen-käyttöliittymä toimii järjestelmänvalvojan oikeuksilla.
+    MAC UI-käyttöliittymä toimii järjestelmänvalvojan oikeuksilla.
 
     Tämä ei lisää tai paranna ominaisuuksia, ja se voi aiheuttaa
     turvallisuusriskin.
@@ -20,7 +20,7 @@ file_explorer: Tiedostonhallinta
 resource:
   added: Uusi resurssi on lisätty
   download_failed_body: >-
-    Jotain meni pieleen resurssin lataamisen aikana, ilmoita siitä Seelenin
+    Jotain meni pieleen resurssin lataamisen aikana, ilmoita siitä MacUiin
     kehittäjätiimille.
   download_failed_title: Resurssien lataus epäonnistui
   downloading: Varojen lataaminen...
@@ -40,20 +40,20 @@ runtime:
     Tämä voi tapahtua, jos tiedostoja on muokattu, vioittunut tai asennus on
     epätäydellinen.
 
-    Turvallisuussyistä Seelen UI ei voi jatkaa.
+    Turvallisuussyistä MAC UI ei voi jatkaa.
 
     Asenna se uudelleen viralliselta verkkosivustolta.
   files_integrity_title: Suojaushälytys – Tiedostojen eheyden tarkistus epäonnistui
   not_found: WebView2:n suoritusaikaa ei löydy
-  not_found_description: Seelen-käyttöliittymä vaatii Webview2 Runtime -sovelluksen. Asenna se.
+  not_found_description: MAC UI-käyttöliittymä vaatii Webview2 Runtime -sovelluksen. Asenna se.
   outdated: WebView2 Runtime vanhentunut
   outdated_description: >-
-    Seelen-käyttöliittymä vaatii Webview2 Runtime %{min_version} tai uudemman.
+    MAC UI-käyttöliittymä vaatii Webview2 Runtime %{min_version} tai uudemman.
     Päivitä se.
 service:
-  not_running: Seelen UI -palvelu ei ole käynnissä
+  not_running: MAC UI -palvelu ei ole käynnissä
   not_running_description: >-
-    Seelen UI Service (slu-service) on riippuvuus/apuohjelma, jonka avulla
+    MAC UI Service (macui-service) on riippuvuus/apuohjelma, jonka avulla
     sovellus toimii oikein.
   not_running_ok: Aloita palvelu
 shortcut:

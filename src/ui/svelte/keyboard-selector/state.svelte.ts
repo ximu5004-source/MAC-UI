@@ -1,9 +1,9 @@
-import { invoke, SeelenCommand, SeelenEvent, subscribe } from "@seelen-ui/lib";
+import { invoke, MacUiCommand, MacUiEvent, subscribe } from "@macui/lib";
 import { lazyRune } from "libs/ui/svelte/utils";
 import { locale } from "./i18n/index.ts";
 
-let settings = lazyRune(() => invoke(SeelenCommand.StateGetSettings, { path: null }));
-subscribe(SeelenEvent.StateSettingsChanged, settings.setByPayload);
+let settings = lazyRune(() => invoke(MacUiCommand.StateGetSettings, { path: null }));
+subscribe(MacUiEvent.StateSettingsChanged, settings.setByPayload);
 await settings.init();
 $effect.root(() => {
   $effect(() => {
@@ -11,8 +11,8 @@ $effect.root(() => {
   });
 });
 
-const langs = lazyRune(() => invoke(SeelenCommand.SystemGetLanguages));
-subscribe(SeelenEvent.SystemLanguagesChanged, langs.setByPayload);
+const langs = lazyRune(() => invoke(MacUiCommand.SystemGetLanguages));
+subscribe(MacUiEvent.SystemLanguagesChanged, langs.setByPayload);
 await langs.init();
 
 export const state = {

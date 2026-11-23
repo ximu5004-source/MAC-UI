@@ -1,0 +1,91 @@
+.hub {
+  min-width: 0;
+  padding-top: 0;
+}
+.intro {
+  margin-bottom: 18px;
+}
+.intro h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -.5px;
+}
+.intro p {
+  margin: 0;
+  color: var(--mac-secondary);
+  line-height: 1.6;
+}
+.flow {
+  column-count: 2;
+  column-gap: 18px;
+}
+.flow [data-settings-card] {
+  break-inside: avoid-column;
+}
+.appearanceFlow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+}
+.lane {
+  min-width: 0;
+}
+.library {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 18px;
+  align-items: start;
+}
+.library .sectionHeading,
+.library .section > :not([data-settings-card]) {
+  grid-column: 1 / -1;
+}
+.section {
+  display: contents;
+  min-width: 0;
+  scroll-margin-top: 16px;
+}
+.section > *,
+.lane > [data-settings-card] {
+  break-inside: avoid-column;
+  min-width: 0;
+  margin-bottom: 14px !important;
+}
+.sectionHeading,
+.section > [data-feature-header] {
+  break-after: avoid-column;
+}
+.section > [data-settings-wide] {
+  column-span: all;
+}
+@media (max-width: 640px) {
+  .flow {
+    column-count: 1;
+  }
+  .appearanceFlow,
+  .library {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.sectionHeading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0 10px 4px;
+}
+.sectionHeading > span {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 11px;
+  background: var(--mac-icon-surface);
+  color: var(--mac-accent);
+}
+.sectionHeading h2 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 650;
+}

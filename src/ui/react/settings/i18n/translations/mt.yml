@@ -30,14 +30,14 @@ apps_configurations:
     Dawn il-konfigurazzjonijiet miġbura mhumiex editabbli u huma mfassla biex
     jipprovdulek l-aħjar esperjenza mingħajr personalizzazzjoni. Huma
     awtomatikament jikkonfiguraw l-aktar applikazzjonijiet komuni għalik.
-  bundled_title: App konfigurazzjoni miġbura ma 'seelen
+  bundled_title: App konfigurazzjoni miġbura ma 'macui
   confirm_delete: Int żgur li trid tħassar din il-konfigurazzjoni / i?
   confirm_delete_title: Ikkonferma Ħassar
   delete: Ħassar
   export: Esportazzjoni
   export_full: Settings tal-Esportazzjoni skont l-Applikazzjoni
   extra_info: >-
-    Seelen UI tuża identifikatur wieħed biss għal kull app (l-ewwel tqabbil
+    MAC UI tuża identifikatur wieħed biss għal kull app (l-ewwel tqabbil
     misjub) sabiex l-ordni ta 'kif huma speċifikati hija importanti, l-aħħar
     miżjuda se tkun prijoritizzata, peress li nnota li t-tabella hija magħżula
     b'mod awtomatiku mill-aktar tard għall-qadim.
@@ -81,12 +81,12 @@ devtools:
   enable: Ippermetti għodod għall-iżviluppaturi
   enable_description: >-
     Jiżblokka għodod avvanzati għall-ispezzjoni u l-iddibaggjar tal-interns
-    tal-UI Seelen. Mhux maħsub għal użu regolari.
+    tal-UI MAC UI. Mhux maħsub għal użu regolari.
   icons: Ikoni Cached
   install_folder: Folder tal-installazzjoni
   load: Tagħbija
   settings_file: Settings Fajl
-  shared_components: Komponenti Standard SLU
+  shared_components: Komponenti Standard MAC UI
   simulate_dialog:
     label: Issimula Djalogu
     trigger: Trigger
@@ -119,7 +119,7 @@ devtools:
     widget_id: ID tal-widget
 discord_banner:
   message: >-
-    Ikkonnettja ma' utenti oħra ta' Seelen UI, ikseb għajnuna, taqsam it-temi, u
+    Ikkonnettja ma' utenti oħra ta' MAC UI, ikseb għajnuna, taqsam it-temi, u
     żomm ruħek aġġornat bl-aħħar aħbarijiet.
   title: Ingħaqad fil-Komunità tagħna
 extras:
@@ -173,7 +173,7 @@ general:
     plugged: Imqabbad jew iċċarġjar
   polling_interval: Intervall tal-votazzjoni tas-sistema
   polling_interval_description: >-
-    Kemm-il darba (f'sekondi) Seelen UI tiċċekkja r-riżorsi tas-sistema bħal
+    Kemm-il darba (f'sekondi) MAC UI tiċċekkja r-riżorsi tas-sistema bħal
     CPU, RAM, netwerk, u attività tad-disk. Numru iżgħar ifisser aġġornamenti
     aktar frekwenti, iżda użu tar-riżorsi kemmxejn ogħla.
   saturday: is-Sibt
@@ -228,7 +228,7 @@ reset_configurations: Irrisettja l-konfigurazzjonijiet
 reset_to_default: Irrisettja għall-valur awtomatiku
 resources:
   affected_widgets: Widgets Affettwati
-  app_outdated: Din ir-riżorsa teħtieġ verżjoni aktar ġdida ta 'Seelen UI biex taħdem sew.
+  app_outdated: Din ir-riżorsa teħtieġ verżjoni aktar ġdida ta 'MAC UI biex taħdem sew.
   coming_soon: Dalwaqt
   corrupted_wallpaper: >-
     Naqas milli jiġi estratt thumbnail - format tal-vidjo korrotta jew mhux
@@ -242,7 +242,7 @@ resources:
   modified: Modifikat
   open_folder: Folder tar-Riżorsi Miftuħa
   outdated: >-
-    Din ir-riżorsa kienet iddisinjata għal verżjoni aktar antika ta 'Seelen UI u
+    Din ir-riżorsa kienet iddisinjata għal verżjoni aktar antika ta 'MAC UI u
     tista' ma taħdimx sew.
   see_on_website: Ara fuq il-websajt
   update_now: Aġġornament
@@ -251,7 +251,7 @@ resources:
 review_request:
   not_now: Mhux issa
   sure: Żgur!
-  title: Tgawdi Seelen UI?
+  title: Tgawdi MAC UI?
 save: Ħlief
 save_and_restart: Issejvja u terġa 'tibda
 search: Fittex
@@ -272,7 +272,7 @@ shortcuts:
   enable: Ippermetti s-sistema shortcuts inkorporati
   enable_tooltip: >-
     Itfi jekk timplimentax is-sistema shortcuts tiegħek stess billi tuża
-    l-klijent Seelen UI
+    l-klijent MAC UI
   labels:
     create_new_workspace: Oħloq spazju ta 'xogħol ġdid
     create_new_workspace_row: Oħloq Ringiela ta' Spazju tax-Xogħol Ġdid
@@ -426,15 +426,15 @@ weg:
 welcome:
   give_a_review: Agħti Reviżjoni
   message: >-
-    Seelen UI huwa ambjent desktop b'xejn u open source għall-Windows. Hawnhekk
+    MAC UI huwa ambjent desktop b'xejn u open source għall-Windows. Hawnhekk
     għandek kontroll sħiħ fuq kif id-desktop tiegħek jidher u jaġixxi, li
     jippermettilek tippersonalizza kull dettall biex jaqbel mal-fluss tax-xogħol
     u l-istil tiegħek.
   ok: Nibdew!
   review: >-
-    Jekk tieħu pjaċir tuża Seelen UI, ikkunsidra li tħalli reviżjoni fuq
+    Jekk tieħu pjaċir tuża MAC UI, ikkunsidra li tħalli reviżjoni fuq
     il-maħżen — ir-rispons tiegħek jgħin lill-proġett jikber u jitjieb.
-  title: Merħba għal Seelen UI!
+  title: Merħba għal MAC UI!
 widget:
   default_instance: Istanza Default
   default_instance_hint: Dejjem attiv, juża l-konfigurazzjoni tal-widget tal-għeruq

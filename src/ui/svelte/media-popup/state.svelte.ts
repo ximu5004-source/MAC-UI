@@ -1,12 +1,12 @@
-import { invoke, SeelenCommand, SeelenEvent, Settings, subscribe, Widget } from "@seelen-ui/lib";
-import type { MediaDevice, MediaPlayer } from "@seelen-ui/lib/types";
+import { invoke, MacUiCommand, MacUiEvent, Settings, subscribe } from "@macui/lib";
+import type { MediaDevice, MediaPlayer, WidgetTriggerPayload } from "@macui/lib/types";
+import { tick } from "svelte";
 import { locale } from "./i18n/index.ts";
 import { lazyRune } from "libs/ui/svelte/utils/LazyRune.svelte.ts";
-
-let widget = Widget.getCurrent();
+import { mediaPopupViewFromArgs, type MediaPopupView } from "./model.ts";
 
 const settings = lazyRune(() => Settings.getAsync());
-Settings.onChange((s) => (settings.value = s));
+await Settings.onChange((s) => (settings.value = s));
 await settings.init();
 
 $effect.root(() => {
@@ -15,26 +15,26 @@ $effect.root(() => {
   });
 });
 
-let mediaDevices = lazyRune(() => invoke(SeelenCommand.GetMediaDevices));
-subscribe(SeelenEvent.MediaDevices, mediaDevices.setByPayload);
+let mediaDevices = lazyRune(() => invoke(MacUiCommand.GetMediaDevices));
+await subscribe(MacUiEvent.MediaDevices, mediaDevices.setByPayload);
 
-let mediaSessions = lazyRune(() => invoke(SeelenCommand.GetMediaSessions));
-subscribe(SeelenEvent.MediaSessions, mediaSessions.setByPayload);
+let mediaSessions = lazyRune(() => invoke(MacUiCommand.GetMediaSessions));
+await subscribe(MacUiEvent.MediaSessions, mediaSessions.setByPayload);
 
 await Promise.all([mediaDevices.init(), mediaSessions.init()]);
 
-let currentView = $state<"main" | "mixer">("main");
+let currentView = $state<MediaPopupView>("main");
 let selectedDeviceId = $state<string | null>(null);
 
-widget.window.onFocusChanged((e) => {
-  if (!e.payload) {
-    // Reset state when popup loses focus
-    currentView = "main";
-    selectedDeviceId = null;
-  }
-});
-
 class State {
+  async prepareShow({ customArgs }: WidgetTriggerPayload): Promise<void> {
+    currentView = mediaPopupViewFromArgs(customArgs);
+    selectedDeviceId = null;
+    // Keep the selected view during focus loss/hide animations. The next trigger
+    // explicitly selects its own view, and the preset waits for this DOM commit.
+    await tick();
+  }
+
   get inputs(): MediaDevice[] {
     return mediaDevices.value[0];
   }
@@ -59,7 +59,7 @@ class State {
     return currentView;
   }
 
-  set view(value: "main" | "mixer") {
+  set view(value: MediaPopupView) {
     currentView = value;
   }
 

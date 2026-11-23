@@ -1,8 +1,8 @@
 import { mount } from "svelte";
 import App from "./app.svelte";
-import { Widget } from "@seelen-ui/lib";
+import { Widget } from "@macui/lib";
 
-import "@seelen-ui/lib/styles/reset.css";
+import "@macui/lib/styles/reset.css";
 import "libs/ui/svelte/styles/mac-panels.css";
 import "./user-menu.css";
 import { configureMacPanel } from "libs/ui/svelte/utils/macPanel";

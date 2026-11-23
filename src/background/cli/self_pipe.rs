@@ -1,5 +1,5 @@
 use clap::Parser;
-use slu_ipc::{
+use macui_ipc::{
     AppIpc,
     commands::{AppCli, AppCommand},
     messages::{AppMessage, IpcResponse},
@@ -19,15 +19,15 @@ impl SelfPipe {
         }
 
         // Normalize argv: always use a fixed program name as argv[0] for clap.
-        // The first element may be an executable path (seelen-ui.exe, slu.exe, etc.)
+        // The first element may be an executable path (macui.exe, macui-cli.exe, etc.)
         // or already a subcommand when called internally.
         let normalized: Vec<String> =
             if argv[0].ends_with(".exe") || argv[0].contains('\\') || argv[0].contains('/') {
-                std::iter::once("seelen-ui.exe".to_string())
+                std::iter::once("macui.exe".to_string())
                     .chain(argv.into_iter().skip(1))
                     .collect()
             } else {
-                std::iter::once("seelen-ui.exe".to_string())
+                std::iter::once("macui.exe".to_string())
                     .chain(argv)
                     .collect()
             };
@@ -76,7 +76,18 @@ impl SelfPipe {
     }
 
     pub async fn request_open_settings() -> Result<()> {
-        AppIpc::send(AppMessage::Command(AppCommand::Settings)).await?;
-        Ok(())
+        let mut last_error = None;
+        for delay in [0, 200, 500] {
+            if delay != 0 {
+                tokio::time::sleep(std::time::Duration::from_millis(delay)).await;
+            }
+            match AppIpc::send(AppMessage::Command(AppCommand::Settings)).await {
+                Ok(()) => return Ok(()),
+                Err(error) => last_error = Some(error),
+            }
+        }
+        Err(last_error
+            .expect("settings request is attempted at least once")
+            .into())
     }
 }

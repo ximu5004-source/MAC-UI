@@ -1,4 +1,4 @@
-//! Generated QA data uses the production pure geometry, never a real window.
+//! Legacy strip-geometry QA adapter, never a real window or production raster.
 //! This module is test-only; the fixture renderer has no native bridge.
 
 use std::{fs, path::PathBuf};

@@ -1,143 +1,337 @@
-use std::path::{Path, PathBuf};
+use std::{
+    io::Write,
+    os::windows::ffi::OsStringExt,
+    path::{Path, PathBuf},
+    sync::mpsc::{Receiver, Sender, channel},
+    thread::JoinHandle,
+    time::Instant,
+};
 
 use windows::{
     Win32::{
-        Foundation::{HMODULE, LPARAM, LRESULT, WPARAM},
-        System::LibraryLoader::{GetProcAddress, LoadLibraryW},
-        UI::WindowsAndMessaging::{HHOOK, SetWindowsHookExW, WH_CALLWNDPROC},
+        Foundation::{FILETIME, HANDLE, HMODULE, HWND, LPARAM, LRESULT, WAIT_TIMEOUT, WPARAM},
+        System::{
+            LibraryLoader::{GetProcAddress, LoadLibraryW},
+            RemoteDesktop::ProcessIdToSessionId,
+            SystemInformation::GetWindowsDirectoryW,
+            Threading::{
+                GetProcessTimes, OpenProcess, PROCESS_NAME_WIN32,
+                PROCESS_QUERY_LIMITED_INFORMATION, PROCESS_SYNCHRONIZE, QueryFullProcessImageNameW,
+                WaitForSingleObject,
+            },
+        },
+        UI::WindowsAndMessaging::{GetShellWindow, HHOOK, SetWindowsHookExW, WH_CALLWNDPROC},
     },
-    core::PCWSTR,
+    core::{PCWSTR, PWSTR},
 };
 use windows_core::Owned;
 
+use super::{
+    hook_lifecycle::{PROBE_INTERVAL, ReconnectPolicy},
+    util::Util,
+};
 use crate::{
     error::{Result, ResultLogExt},
-    modules::system_tray::application::util::Util,
-    utils::constants::SEELEN_COMMON,
+    utils::constants::MACUI_COMMON,
     windows_api::WindowsApi,
 };
 
-// ============================================================================
-// DLL Function Types
-// ============================================================================
-
-/// Type for the GetMsgProc hook procedure exported by the DLL
 type GetMsgProcFn = unsafe extern "system" fn(i32, WPARAM, LPARAM) -> LRESULT;
 
-// ============================================================================
-// Hook Loader Implementation
-// ============================================================================
+/// Tray-local identity check. Does not participate in startup, permissions,
+/// installation ownership or desktop recovery.
+#[derive(Clone, Debug, PartialEq, Eq)]
+struct ExplorerProcessIdentity {
+    pid: u32,
+    created: u64,
+    session: u32,
+    image: String,
+}
 
-// SAFETY: HHOOK is a Windows handle that is safe to share between threads
-// even though it contains a raw pointer internally
-unsafe impl Send for TrayHookLoader {}
-unsafe impl Sync for TrayHookLoader {}
+impl ExplorerProcessIdentity {
+    fn from_handle(pid: u32, handle: HANDLE) -> Result<Self> {
+        let mut creation = FILETIME::default();
+        let mut exit = FILETIME::default();
+        let mut kernel = FILETIME::default();
+        let mut user = FILETIME::default();
+        unsafe { GetProcessTimes(handle, &mut creation, &mut exit, &mut kernel, &mut user)? };
+        let mut image = vec![0u16; 32_768];
+        let mut length = image.len() as u32;
+        unsafe {
+            QueryFullProcessImageNameW(
+                handle,
+                PROCESS_NAME_WIN32,
+                PWSTR(image.as_mut_ptr()),
+                &mut length,
+            )?
+        };
+        let mut session = 0;
+        unsafe { ProcessIdToSessionId(pid, &mut session)? };
+        let image = PathBuf::from(std::ffi::OsString::from_wide(&image[..length as usize]))
+            .canonicalize()?
+            .to_string_lossy()
+            .to_lowercase();
+        Ok(Self {
+            pid,
+            created: ((creation.dwHighDateTime as u64) << 32) | creation.dwLowDateTime as u64,
+            session,
+            image,
+        })
+    }
+}
 
+#[derive(Clone, Debug, PartialEq, Eq)]
+struct ShellIdentity {
+    process: ExplorerProcessIdentity,
+    window: isize,
+    thread: u32,
+}
+
+struct ShellTarget {
+    identity: ShellIdentity,
+    // Retaining this exact kernel handle prevents a recycled PID from becoming
+    // permission to attach to an unrelated process during DLL loading.
+    process: Owned<HANDLE>,
+}
+
+impl ShellTarget {
+    fn current() -> Result<Self> {
+        let window = WindowsApi::find_window(None, None, None, Some("Shell_TrayWnd"))?;
+        let (pid, thread) = WindowsApi::window_thread_process_id(window);
+        if pid == 0 || thread == 0 {
+            return Err("Windows tray thread is unavailable; no hook installed".into());
+        }
+        let process = unsafe {
+            Owned::new(OpenProcess(
+                PROCESS_QUERY_LIMITED_INFORMATION | PROCESS_SYNCHRONIZE,
+                false,
+                pid,
+            )?)
+        };
+        let identity = ExplorerProcessIdentity::from_handle(pid, *process)?;
+        let mut directory = vec![0u16; 32_768];
+        let length = unsafe { GetWindowsDirectoryW(Some(&mut directory)) } as usize;
+        if length == 0 || length >= directory.len() {
+            return Err("Windows directory is unavailable; no tray hook installed".into());
+        }
+        let expected = PathBuf::from(std::ffi::OsString::from_wide(&directory[..length]))
+            .join("explorer.exe")
+            .canonicalize()?;
+        if identity.image != expected.to_string_lossy().to_lowercase()
+            || identity.session == 0
+            || identity.session != WindowsApi::current_session_id()
+        {
+            return Err("Tray owner is not this session's Windows Explorer".into());
+        }
+        let target = Self {
+            identity: ShellIdentity {
+                process: identity,
+                window: window.0 as isize,
+                thread,
+            },
+            process,
+        };
+        target.ensure_current()?;
+        Ok(target)
+    }
+
+    fn ensure_current(&self) -> Result<()> {
+        let window = HWND(self.identity.window as _);
+        let (pid, thread) = WindowsApi::window_thread_process_id(window);
+        let shell = unsafe { GetShellWindow() };
+        let (shell_pid, _) = WindowsApi::window_thread_process_id(shell);
+        if unsafe { WaitForSingleObject(*self.process, 0) } != WAIT_TIMEOUT
+            || shell.is_invalid()
+            || pid != self.identity.process.pid
+            || shell_pid != pid
+            || thread == 0
+            || thread != self.identity.thread
+            || WindowsApi::get_class(window)? != "Shell_TrayWnd"
+        {
+            return Err("Windows tray identity changed; no hook installed".into());
+        }
+        Ok(())
+    }
+}
+
+/// Only the worker owns native hook handles. Drop wakes its bounded wait,
+/// joins the worker and unloads the hook before releasing its DLL reference.
 pub struct TrayHookLoader {
-    // Drop order matches declaration order: hook is uninstalled before DLL is freed
-    _hook_handle: Option<Owned<HHOOK>>,
-    _dll_handle: Option<Owned<HMODULE>>,
+    stop: Sender<()>,
+    worker: Option<JoinHandle<()>>,
 }
 
 impl TrayHookLoader {
-    /// Creates a new loader, loads the DLL and installs the hook
-    /// Events will be sent automatically through AppIpc
-    pub fn new() -> Result<Self> {
-        let dll_path = Self::get_dll_path()?;
-        let dll_handle = Self::load_dll(&dll_path)?;
-        let call_msg_proc = Self::get_proc_address::<GetMsgProcFn>(*dll_handle, "CallWndProc")?;
-
-        let shell_tray = WindowsApi::find_window(None, None, None, Some("Shell_TrayWnd"))?;
-        let (_pid, thread_id) = WindowsApi::window_thread_process_id(shell_tray);
-
-        let hook_handle = unsafe {
-            SetWindowsHookExW(
-                WH_CALLWNDPROC,
-                Some(call_msg_proc),
-                Some((*dll_handle).into()),
-                thread_id, // 0 = global hook for all threads
-            )
-            .map_err(|e| format!("Failed to install hook: {:?}", e))?
-        };
-
-        log::info!("Tray hook DLL loaded and installed successfully");
-
-        Util::refresh_icons().log_error();
-
+    pub fn new(reset_snapshot: fn()) -> Result<Self> {
+        let (stop, receiver) = channel();
+        let worker = std::thread::Builder::new()
+            .name("TrayHookLifecycle".into())
+            .spawn(move || supervise(receiver, reset_snapshot))?;
         Ok(Self {
-            _hook_handle: Some(unsafe { Owned::new(hook_handle) }),
-            _dll_handle: Some(dll_handle),
+            stop,
+            worker: Some(worker),
         })
-    }
-
-    /// Gets the DLL path, copying it to SEELEN_COMMON temp directory to avoid
-    /// permission issues with MSIX installations (WindowsApps folder is restricted)
-    fn get_dll_path() -> Result<PathBuf> {
-        let exe_path = std::env::current_exe()?;
-        let exe_dir = exe_path
-            .parent()
-            .ok_or("Failed to get executable directory")?;
-
-        // The DLL should be in the same directory as the executable
-        let source_dll_path = exe_dir.join("sluhk.dll");
-        if !source_dll_path.exists() {
-            return Err(format!("DLL not found at: {}", source_dll_path.display()).into());
-        }
-
-        // Copy to temp directory to ensure accessibility for hooks
-        // (MSIX installations in WindowsApps have restricted permissions)
-        let temp_dir = SEELEN_COMMON.app_temp_dir();
-        std::fs::create_dir_all(temp_dir)?;
-        let target_dll_path = temp_dir.join("sluhk.dll");
-
-        // Use read & write instead of copy to avoid encryption issues on MSIX/APPX
-        // when copying across different volumes (e.g., S: to C:)
-        let content = std::fs::read(&source_dll_path)?;
-        std::fs::write(&target_dll_path, content)?;
-        log::info!(
-            "Tray hook DLL copied from {} to {}",
-            source_dll_path.display(),
-            target_dll_path.display()
-        );
-
-        Ok(target_dll_path)
-    }
-
-    /// Loads the DLL into memory
-    fn load_dll(path: &Path) -> Result<Owned<HMODULE>> {
-        let path_wide: Vec<u16> = path
-            .to_string_lossy()
-            .encode_utf16()
-            .chain(std::iter::once(0))
-            .collect();
-
-        unsafe {
-            let handle = LoadLibraryW(PCWSTR(path_wide.as_ptr()))?;
-            Ok(Owned::new(handle))
-        }
-    }
-
-    /// Gets the address of an exported function
-    fn get_proc_address<F>(dll_handle: HMODULE, name: &str) -> Result<F> {
-        let name_cstr = std::ffi::CString::new(name)
-            .map_err(|e| format!("Invalid function name '{}': {}", name, e))?;
-
-        unsafe {
-            let proc_addr =
-                GetProcAddress(dll_handle, windows::core::PCSTR(name_cstr.as_ptr() as _));
-
-            match proc_addr {
-                Some(addr) => Ok(std::mem::transmute_copy(&addr)),
-                None => Err(format!("Failed to get proc address for: {}", name).into()),
-            }
-        }
     }
 }
 
 impl Drop for TrayHookLoader {
     fn drop(&mut self) {
-        // Owned<HHOOK> calls UnhookWindowsHookEx, Owned<HMODULE> calls FreeLibrary automatically.
-        // Fields drop in declaration order: hook_handle first, then _dll_handle.
-        log::info!("Tray hook unloaded");
+        let _ = self.stop.send(());
+        if let Some(worker) = self.worker.take() {
+            let _ = worker.join();
+        }
+    }
+}
+
+fn supervise(stop: Receiver<()>, reset_snapshot: fn()) {
+    let mut policy = ReconnectPolicy::new();
+    let mut installed: Option<InstalledTrayHook> = None;
+    let started = Instant::now();
+    let mut probe_failed = false;
+    loop {
+        if !matches!(stop.try_recv(), Err(std::sync::mpsc::TryRecvError::Empty)) {
+            break;
+        }
+        let target = match ShellTarget::current() {
+            Ok(target) => {
+                probe_failed = false;
+                Some(target)
+            }
+            Err(error) => {
+                if !probe_failed {
+                    log::warn!(
+                        "Windows tray unavailable; waiting for a verified Explorer: {error}"
+                    );
+                }
+                probe_failed = true;
+                None
+            }
+        };
+        let decision = policy.observe(
+            target.as_ref().map(|value| value.identity.clone()),
+            started.elapsed(),
+        );
+        if decision.detach {
+            // Unhook and release the old DLL before attempting any replacement.
+            drop(installed.take());
+            reset_snapshot();
+        }
+        if decision.attach {
+            if let Some(target) = target {
+                match InstalledTrayHook::new(target) {
+                    Ok(hook) => {
+                        installed = Some(hook);
+                        policy.connected();
+                        reset_snapshot();
+                        Util::refresh_icons().log_error();
+                        log::info!(
+                            "Verified Explorer tray hook connected; native snapshot requested"
+                        );
+                    }
+                    Err(error) => {
+                        let delay = policy.failed(started.elapsed());
+                        log::warn!(
+                            "Tray hook unavailable; retry in {}s: {error}",
+                            delay.as_secs()
+                        );
+                    }
+                }
+            }
+        }
+        match stop.recv_timeout(PROBE_INTERVAL) {
+            Err(std::sync::mpsc::RecvTimeoutError::Timeout) => {}
+            _ => break,
+        }
+    }
+    drop(installed);
+}
+
+struct InstalledTrayHook {
+    // Declaration order: uninstall the hook, then free our DLL reference.
+    _hook_handle: Owned<HHOOK>,
+    _dll_handle: Owned<HMODULE>,
+    _target: ShellTarget,
+}
+
+impl InstalledTrayHook {
+    fn new(target: ShellTarget) -> Result<Self> {
+        let dll_path = Self::get_dll_path()?;
+        let dll_handle = Self::load_dll(&dll_path)?;
+        let procedure = Self::get_proc_address::<GetMsgProcFn>(*dll_handle, "CallWndProc")?;
+        target.ensure_current()?;
+        // Never use thread 0 (global injection). This is strictly the existing
+        // Windows Explorer tray thread, not third-party application threads.
+        let hook_handle = unsafe {
+            SetWindowsHookExW(
+                WH_CALLWNDPROC,
+                Some(procedure),
+                Some((*dll_handle).into()),
+                target.identity.thread,
+            )?
+        };
+        let installed = Self {
+            _hook_handle: unsafe { Owned::new(hook_handle) },
+            _dll_handle: dll_handle,
+            _target: target,
+        };
+        installed._target.ensure_current()?;
+        Ok(installed)
+    }
+
+    fn get_dll_path() -> Result<PathBuf> {
+        let exe_path = std::env::current_exe()?;
+        let source = exe_path
+            .parent()
+            .ok_or("Missing executable directory")?
+            .join("macui-hook.dll");
+        let content = std::fs::read(&source)?;
+        let digest = macui_utils::checksums::calculate_sha256(&content);
+        let temp_dir = MACUI_COMMON.app_temp_dir();
+        std::fs::create_dir_all(temp_dir)?;
+        // Never overwrite a DLL still loaded in an exiting Explorer. Identical
+        // verified content can be reused after transient attachment failures.
+        let target = temp_dir.join(format!("macui-hook-{digest}.dll"));
+        match std::fs::OpenOptions::new()
+            .write(true)
+            .create_new(true)
+            .open(&target)
+        {
+            Ok(mut file) => {
+                if let Err(error) = file.write_all(&content) {
+                    drop(file);
+                    // This exact cache file was just created by us, not supplied
+                    // by the user. Do not leave a truncated DLL for later retries.
+                    let _ = std::fs::remove_file(&target);
+                    return Err(error.into());
+                }
+            }
+            Err(error) if error.kind() == std::io::ErrorKind::AlreadyExists => {
+                if std::fs::metadata(&target)?.len() != content.len() as u64
+                    || std::fs::read(&target)? != content
+                {
+                    return Err("Cached tray hook content differs from this installation".into());
+                }
+            }
+            Err(error) => return Err(error.into()),
+        }
+        Ok(target)
+    }
+
+    fn load_dll(path: &Path) -> Result<Owned<HMODULE>> {
+        let wide: Vec<u16> = path
+            .to_string_lossy()
+            .encode_utf16()
+            .chain(std::iter::once(0))
+            .collect();
+        unsafe { Ok(Owned::new(LoadLibraryW(PCWSTR(wide.as_ptr()))?)) }
+    }
+
+    fn get_proc_address<F>(dll_handle: HMODULE, name: &str) -> Result<F> {
+        let name = std::ffi::CString::new(name).map_err(|e| e.to_string())?;
+        unsafe {
+            let address = GetProcAddress(dll_handle, windows::core::PCSTR(name.as_ptr() as _))
+                .ok_or("Tray hook export is missing")?;
+            Ok(std::mem::transmute_copy(&address))
+        }
     }
 }

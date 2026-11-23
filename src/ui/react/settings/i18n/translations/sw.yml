@@ -29,14 +29,14 @@ apps_configurations:
   bundled_msg: >-
     Usanidi huu uliowekwa wazi hauwezi kuhaririwa na umeundwa kukupa uzoefu bora
     bila ubinafsishaji. Wao husanidi moja kwa moja programu za kawaida kwako.
-  bundled_title: Programu ya kusanidi na Seelen
+  bundled_title: Programu ya kusanidi na MAC UI
   confirm_delete: Je! Una uhakika unataka kufuta usanidi huu/s?
   confirm_delete_title: Thibitisha Futa
   delete: Futa
   export: Kuuza nje
   export_full: Mipangilio ya kuuza nje na Maombi
   extra_info: >-
-    Seelen UI hutumia kitambulisho kimoja tu kwa kila programu (kwanza
+    MAC UI hutumia kitambulisho kimoja tu kwa kila programu (kwanza
     kupatikana) kwa hivyo mpangilio wa jinsi ulivyobainishwa ni muhimu, ya hivi
     punde zaidi yatapewa kipaumbele, kwani kumbuka jedwali hupangwa kwa
     chaguo-msingi kutoka kwa hivi karibuni hadi vya zamani.
@@ -80,13 +80,13 @@ devtools:
   data_folder: Folda ya data
   enable: Wezesha zana za msanidi programu
   enable_description: >-
-    Hufungua zana za kina za kukagua na kutatua vifaa vya ndani vya Seelen UI.
+    Hufungua zana za kina za kukagua na kutatua vifaa vya ndani vya MAC UI.
     Haikusudiwa kwa matumizi ya kawaida.
   icons: Aikoni Zilizohifadhiwa
   install_folder: Folda ya usanikishaji
   load: Mzigo
   settings_file: Faili ya mipangilio
-  shared_components: Vipengele vya kawaida vya SLU
+  shared_components: Vipengele vya kawaida vya MAC UI
   simulate_dialog:
     label: Maongezi ya Kuiga
     trigger: Anzisha
@@ -119,7 +119,7 @@ devtools:
     widget_id: Kitambulisho cha Wijeti
 discord_banner:
   message: >-
-    Ungana na watumiaji wengine wa Seelen UI, pata usaidizi, shiriki mandhari na
+    Ungana na watumiaji wengine wa MAC UI, pata usaidizi, shiriki mandhari na
     usasishe habari za hivi punde.
   title: Jiunge na Jumuiya yetu
 extras:
@@ -168,7 +168,7 @@ general:
     plugged: Kuziba au kuchaji
   polling_interval: Muda wa upigaji kura wa mfumo
   polling_interval_description: >-
-    Ni mara ngapi (kwa sekunde) Seelen UI hukagua rasilimali za mfumo kama vile
+    Ni mara ngapi (kwa sekunde) MAC UI hukagua rasilimali za mfumo kama vile
     CPU, RAM, mtandao na shughuli za diski. Nambari ndogo inamaanisha masasisho
     ya mara kwa mara, lakini matumizi ya juu kidogo ya rasilimali.
   saturday: Jumamosi
@@ -223,7 +223,7 @@ reset_configurations: Weka upya mipangilio
 reset_to_default: Rudisha kwa thamani ya msingi
 resources:
   affected_widgets: Wijeti Zilizoathiriwa
-  app_outdated: Rasilimali hii inahitaji toleo jipya la Seelen UI kufanya kazi vizuri.
+  app_outdated: Rasilimali hii inahitaji toleo jipya la MAC UI kufanya kazi vizuri.
   coming_soon: Inakuja Hivi Karibuni
   corrupted_wallpaper: Imeshindwa kutoa kijipicha - umbizo la video mbovu au ambalo halitumiki
   delete: Futa rasilimali
@@ -235,7 +235,7 @@ resources:
   modified: Imebadilishwa
   open_folder: Fungua folda ya rasilimali
   outdated: >-
-    Rasilimali hii ilibuniwa kwa toleo la zamani la Seelen UI na linaweza
+    Rasilimali hii ilibuniwa kwa toleo la zamani la MAC UI na linaweza
     kufanya kazi vizuri.
   see_on_website: Tazama kwenye tovuti
   update_now: Sasisha
@@ -244,7 +244,7 @@ resources:
 review_request:
   not_now: Si sasa
   sure: Hakika!
-  title: Je, unafurahia UI ya Seelen?
+  title: Je, unafurahia UI ya MAC UI?
 save: Kuokoa
 save_and_restart: Okoa na uanze tena
 search: Tafuta
@@ -264,7 +264,7 @@ shortcuts:
   enable: Wezesha mfumo wa mkato uliojengwa ndani
   enable_tooltip: >-
     Lemaza ikiwa utatumia mfumo wako wa njia za mkato kwa kutumia mteja wa
-    Seelen UI
+    MAC UI
   labels:
     create_new_workspace: Unda nafasi mpya ya kazi
     create_new_workspace_row: Unda Safu Mpya ya Nafasi ya Kazi
@@ -420,15 +420,15 @@ weg:
 welcome:
   give_a_review: Toa Uhakiki
   message: >-
-    Seelen UI ni mazingira ya bure na ya wazi ya eneo-kazi kwa Windows. Hapa una
+    MAC UI ni mazingira ya bure na ya wazi ya eneo-kazi kwa Windows. Hapa una
     udhibiti kamili wa jinsi eneo-kazi lako linavyoonekana na kufanya kazi,
     hivyo kukuruhusu kubinafsisha kila undani ili kuendana na utendakazi na
     mtindo wako.
   ok: Hebu tuanze!
   review: >-
-    Ikiwa unafurahia kutumia Seelen UI, zingatia kuacha ukaguzi kwenye duka -
+    Ikiwa unafurahia kutumia MAC UI, zingatia kuacha ukaguzi kwenye duka -
     maoni yako husaidia mradi kukua na kuboreka.
-  title: Karibu kwenye Seelen UI!
+  title: Karibu kwenye MAC UI!
 widget:
   default_instance: Tukio Chaguomsingi
   default_instance_hint: Inatumika kila wakati, hutumia usanidi wa wijeti ya mizizi

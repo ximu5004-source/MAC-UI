@@ -37,7 +37,7 @@ use windows::{
 use crate::windows_api::WindowsApi;
 
 const TARGET_ENV: &str = "MAC_UI_FROST_QA_POPUP_HWND";
-const EXPECTED_IMAGE: &str = r"E:\换皮\Seelen-UI\target\debug\mac-ui.exe";
+const EXPECTED_IMAGE: &str = r"E:\换皮\MAC-UI-test\macui.exe";
 const LIFETIME: Duration = Duration::from_secs(90);
 const PHASE: Duration = Duration::from_secs(5);
 const TILE: i32 = 48;

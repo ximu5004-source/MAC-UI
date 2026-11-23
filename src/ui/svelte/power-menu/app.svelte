@@ -5,7 +5,7 @@
   import { state as powerState } from "./state.svelte";
   import { convertFileSrc } from "@tauri-apps/api/core";
   import { Icon, MissingIcon } from "libs/ui/svelte/components/Icon";
-  import { Widget } from "@seelen-ui/lib";
+  import { Widget } from "@macui/lib";
   import { t } from "./i18n";
 
   let sheet = $state<HTMLElement>();

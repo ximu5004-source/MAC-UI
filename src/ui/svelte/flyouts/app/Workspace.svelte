@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Icon } from "libs/ui/svelte/components/Icon";
-  import type { DesktopWorkspace } from "@seelen-ui/lib/types";
+  import type { DesktopWorkspace } from "@macui/lib/types";
 
   interface Props {
     workspace: DesktopWorkspace & { rowIdx: number; colIdx: number };

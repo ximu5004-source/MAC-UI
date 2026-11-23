@@ -1,11 +1,11 @@
-use seelen_core::system_state::ClipboardEntry;
+use macui_core::system_state::ClipboardEntry;
 use serde::{Deserialize, Serialize};
 use windows::{
     Security::Cryptography::{CryptographicBuffer, DataProtection::DataProtectionProvider},
     core::HSTRING,
 };
 
-use crate::{error::Result, utils::constants::SEELEN_COMMON};
+use crate::{error::Result, utils::constants::MACUI_COMMON};
 
 /// On-disk shape of our clipboard history store. Wrapped in a struct (instead
 /// of persisting a bare `Vec<ClipboardEntry>`) so new top-level fields (like
@@ -52,7 +52,7 @@ fn decrypt(ciphertext: &[u8]) -> Result<Vec<u8>> {
 pub fn save_store(store: &ClipboardStore) -> Result<()> {
     let json = serde_json::to_vec(store)?;
     let encrypted = encrypt(&json)?;
-    std::fs::write(SEELEN_COMMON.clipboard_history_path(), encrypted)?;
+    std::fs::write(MACUI_COMMON.clipboard_history_path(), encrypted)?;
     Ok(())
 }
 
@@ -60,7 +60,7 @@ pub fn save_store(store: &ClipboardStore) -> Result<()> {
 /// there is no store yet, or if it fails to read/decrypt (corrupted file,
 /// moved from another user/machine, etc). Must be called from an STA thread.
 pub fn load_store() -> ClipboardStore {
-    let path = SEELEN_COMMON.clipboard_history_path();
+    let path = MACUI_COMMON.clipboard_history_path();
     if !path.exists() {
         return ClipboardStore::default();
     }

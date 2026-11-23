@@ -1,5 +1,5 @@
-import { invoke, SeelenCommand, SeelenEvent, Settings, subscribe } from "@seelen-ui/lib";
-import type { Hotspot, MediaDevice, PhysicalMonitor, RadioDevice } from "@seelen-ui/lib/types";
+import { invoke, MacUiCommand, MacUiEvent, Settings, subscribe } from "@macui/lib";
+import type { Hotspot, MediaDevice, PhysicalMonitor, RadioDevice } from "@macui/lib/types";
 import { lazyRune } from "libs/ui/svelte/utils";
 import { locale } from "./i18n/index.ts";
 
@@ -14,30 +14,30 @@ $effect.root(() => {
 });
 
 // Initialize lazy signals
-const brightness = lazyRune(() => invoke(SeelenCommand.GetAllMonitorsBrightness));
-subscribe(SeelenEvent.SystemMonitorsBrightnessChanged, brightness.setByPayload);
+const brightness = lazyRune(() => invoke(MacUiCommand.GetAllMonitorsBrightness));
+subscribe(MacUiEvent.SystemMonitorsBrightnessChanged, brightness.setByPayload);
 
 const mediaDevices = lazyRune(async () => {
-  const [inputs, outputs] = await invoke(SeelenCommand.GetMediaDevices);
+  const [inputs, outputs] = await invoke(MacUiCommand.GetMediaDevices);
   return { inputs, outputs };
 });
-subscribe(SeelenEvent.MediaDevices, ({ payload: [inputs, outputs] }) => {
+subscribe(MacUiEvent.MediaDevices, ({ payload: [inputs, outputs] }) => {
   mediaDevices.value = { inputs, outputs };
 });
 
-const radios = lazyRune(() => invoke(SeelenCommand.GetRadios));
-subscribe(SeelenEvent.RadiosChanged, radios.setByPayload);
+const radios = lazyRune(() => invoke(MacUiCommand.GetRadios));
+subscribe(MacUiEvent.RadiosChanged, radios.setByPayload);
 
-const hotspot = lazyRune(() => invoke(SeelenCommand.GetNetworkHotspot));
-subscribe(SeelenEvent.NetworkHotspotChanged, hotspot.setByPayload);
+const hotspot = lazyRune(() => invoke(MacUiCommand.GetNetworkHotspot));
+subscribe(MacUiEvent.NetworkHotspotChanged, hotspot.setByPayload);
 
-const monitors = lazyRune(() => invoke(SeelenCommand.SystemGetMonitors));
-subscribe(SeelenEvent.SystemMonitorsChanged, monitors.setByPayload);
+const monitors = lazyRune(() => invoke(MacUiCommand.SystemGetMonitors));
+subscribe(MacUiEvent.SystemMonitorsChanged, monitors.setByPayload);
 
-const darkMode = lazyRune(() => invoke(SeelenCommand.SystemGetDarkMode));
-subscribe(SeelenEvent.DarkModeChanged, darkMode.setByPayload);
+const darkMode = lazyRune(() => invoke(MacUiCommand.SystemGetDarkMode));
+subscribe(MacUiEvent.DarkModeChanged, darkMode.setByPayload);
 
-const nightLightEnabled = lazyRune(() => invoke(SeelenCommand.SystemGetNightLightEnabled));
+const nightLightEnabled = lazyRune(() => invoke(MacUiCommand.SystemGetNightLightEnabled));
 
 await Promise.all([
   brightness.init(),

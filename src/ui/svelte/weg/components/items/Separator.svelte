@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { invoke, SeelenCommand } from "@seelen-ui/lib";
+  import { invoke, MacUiCommand } from "@macui/lib";
   import { HARDCODED_SEPARATOR_LEFT, HARDCODED_SEPARATOR_RIGHT } from "../../state/items.svelte.ts";
   import { settingsState } from "../../state/settings.svelte.ts";
   import { getMenuForItem } from "../../generalMenu.ts";
@@ -21,7 +21,7 @@
     e.stopPropagation();
     const alignX = settingsState.popupAlignX;
     const alignY = settingsState.popupAlignY;
-    invoke(SeelenCommand.TriggerContextMenu, {
+    invoke(MacUiCommand.TriggerContextMenu, {
       menu: { ...getMenuForItem($t, item), alignX, alignY },
       forwardTo: null,
     });

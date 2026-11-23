@@ -1,135 +1,102 @@
 import { Icon } from "libs/ui/react/components/Icon";
-import { getResourceText } from "libs/ui/react/utils";
-import { Input } from "antd";
-import { useState } from "react";
+import { Input, Modal } from "antd";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { NavLink, useLocation } from "react-router";
-import { getCurrentWebviewWindow } from "@tauri-apps/api/webviewWindow";
-import { RouteIcons, RoutePath } from "./routes";
-import { resourcesWithUpdate, themes, widgets } from "../../state/resources";
-import { settings } from "../../state/mod";
+import { searchSettings, sections } from "../../modules/Hub/catalog";
 import cs from "./index.module.css";
 
-export function Navigation() {
+export function SettingsSearch() {
   const { t, i18n } = useTranslation();
   const location = useLocation();
   const [query, setQuery] = useState("");
-  const window = getCurrentWebviewWindow();
-  const routeItem = (route: RoutePath) => ({
-    route,
-    label: t(`header.labels.${route === "/" ? "home" : route.slice(1)}`),
-    icon: RouteIcons[route],
-  });
-  const groups = [
-    { label: t("mac_ui.personal"), items: [RoutePath.Home, RoutePath.General, RoutePath.Resource].map(routeItem) },
-    {
-      label: t("mac_ui.desktop"),
-      items: widgets.value.filter((widget) => !widget.hidden).map((widget) => ({
-        route: `/widget?${new URLSearchParams({ id: widget.id })}`,
-        label: getResourceText(widget.metadata.displayName, i18n.language),
-        icon: <Icon iconName={(widget.icon as any) || "TbLayoutGrid"} />,
-      })),
-    },
-    {
-      label: t("mac_ui.appearance"),
-      items: themes.value.filter((theme) => theme.settings.length && settings.value.activeThemes.includes(theme.id))
-        .map((theme) => ({
-          route: `/theme?${new URLSearchParams({ id: theme.id })}`,
-          label: getResourceText(theme.metadata.displayName, i18n.language),
-          icon: <Icon iconName="TbPalette" />,
-        })),
-    },
-    {
-      label: t("mac_ui.advanced"),
-      items: [RoutePath.SettingsByMonitor, RoutePath.SettingsByApplication, RoutePath.Shortcuts, RoutePath.DevTools]
-        .map(routeItem),
-    },
-  ].map((group) => ({
-    ...group,
-    items: group.items.filter((item) => item.label.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase())),
-  }));
+  const [open, setOpen] = useState(false);
+  const input = useRef<HTMLDivElement>(null);
+  const trigger = useRef<HTMLButtonElement>(null);
+  function close() {
+    setOpen(false);
+    setQuery("");
+  }
+  useEffect(() => {
+    function key(event: KeyboardEvent) {
+      if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        setOpen(true);
+      }
+    }
+    document.addEventListener("keydown", key);
+    return () => document.removeEventListener("keydown", key);
+  }, []);
+  useEffect(close, [location.pathname, location.search]);
+  const items = query.trim()
+    ? searchSettings(query, t, i18n)
+    : sections.map((item) => ({ ...item, label: t(`settings_home.${item.key}`), hint: undefined }));
   return (
-    <nav className={cs.navigation} aria-label={t("mac_ui.navigation")}>
-      <div className={cs.windowBar} data-tauri-drag-region>
-        <div className={cs.trafficLights}>
-          <button className={cs.close} aria-label={t("close")} title={t("close")} onClick={() => window.close()}>
-            <span>×</span>
-          </button>
-          <button
-            className={cs.minimize}
-            aria-label={t("mac_ui.minimize")}
-            title={t("mac_ui.minimize")}
-            onClick={() => window.minimize()}
-          >
-            <span>−</span>
-          </button>
-          <button
-            className={cs.maximize}
-            aria-label={t("mac_ui.maximize")}
-            title={t("mac_ui.maximize")}
-            onClick={() => window.toggleMaximize()}
-          >
-            <span>+</span>
-          </button>
-        </div>
-      </div>
-      <NavLink to="/" className={cs.identity}>
-        <img src="./mac-ui.svg" alt="" width={44} height={44} />
-        <span>
-          <strong>MAC UI</strong>
-          <small>{t("mac_ui.by_jona")}</small>
-        </span>
-      </NavLink>
-      <div className={cs.search}>
-        <Input
-          allowClear
-          prefix={<Icon iconName="TbSearch" />}
-          aria-label={t("mac_ui.search")}
-          placeholder={t("mac_ui.search")}
-          value={query}
-          onChange={(event) => setQuery((event.target as HTMLInputElement).value)}
-        />
-      </div>
-      <div className={cs.body}>
-        {groups.map((group, index) =>
-          !!group.items.length && (
-            <section className={cs.group} key={group.label}>
-              <h2>{group.label}</h2>
-              {group.items.map((item) => {
-                const target = new URL(item.route, "https://settings.local");
-                const active = (location.pathname === target.pathname ||
-                  (item.route === RoutePath.Resource && location.pathname.startsWith("/resources/"))) &&
-                  (!target.search || new URLSearchParams(location.search).get("id") === target.searchParams.get("id"));
-                return (
-                  <NavLink
-                    key={item.route}
-                    to={item.route}
-                    aria-current={active ? "page" : undefined}
-                    className={`${cs.item} ${active ? cs.active : ""}`}
-                    title={item.label}
-                  >
-                    <span className={cs.iconWrapper} data-tone={index} aria-hidden="true">{item.icon}</span>
-                    <span className={cs.label}>{item.label}</span>
-                    {item.route === RoutePath.Resource && resourcesWithUpdate.value.length > 0 && (
-                      <span className={cs.badge} aria-label={t("mac_ui.updates_available")} />
-                    )}
-                  </NavLink>
-                );
-              })}
-            </section>
-          )
-        )}
-        {groups.every((group) => !group.items.length) && (
-          <p className={cs.empty} role="status">{t("mac_ui.no_results")}</p>
-        )}
-      </div>
-      <NavLink
-        to={RoutePath.Extras}
-        className={`${cs.about} ${location.pathname === RoutePath.Extras ? cs.active : ""}`}
+    <>
+      <button
+        type="button"
+        ref={trigger}
+        className={cs.searchButton}
+        aria-label={t("mac_ui.search")}
+        title={t("mac_ui.search") + " (Ctrl+K)"}
+        aria-haspopup="dialog"
+        onClick={() => setOpen(true)}
       >
-        <Icon iconName="TbInfoCircle" />
-        <span>{t("mac_ui.about")}</span>
-      </NavLink>
-    </nav>
+        <Icon iconName="TbSearch" size={18} />
+        <span>{t("mac_ui.search")}</span>
+        <kbd>Ctrl K</kbd>
+      </button>
+      <Modal
+        title={t("mac_ui.search")}
+        open={open}
+        footer={null}
+        onCancel={close}
+        width={540}
+        centered
+        afterOpenChange={(visible) =>
+          visible ? input.current?.querySelector("input")?.focus() : trigger.current?.focus()}
+      >
+        <div ref={input}>
+          <Input
+            allowClear
+            aria-label={t("mac_ui.search")}
+            placeholder={t("mac_ui.search")}
+            value={query}
+            onChange={(event) => setQuery(event.currentTarget.value)}
+            onKeyDown={(event) => {
+              if (event.key === "ArrowDown") {
+                event.preventDefault();
+                document.getElementById("settings-search-results")?.querySelector("a")?.focus();
+              }
+            }}
+          />
+        </div>
+        <div
+          id="settings-search-results"
+          className={cs.results}
+          onKeyDown={(event) => {
+            const links = Array.from(event.currentTarget.querySelectorAll("a"));
+            const index = links.indexOf(document.activeElement as HTMLAnchorElement);
+            if (event.key === "ArrowDown") {
+              event.preventDefault();
+              links[Math.min(index + 1, links.length - 1)]?.focus();
+            }
+            if (event.key === "ArrowUp") {
+              event.preventDefault();
+              index > 0 ? links[index - 1]?.focus() : input.current?.querySelector("input")?.focus();
+            }
+          }}
+        >
+          {items.map((item) => (
+            <NavLink key={item.route + item.label} to={item.route} onClick={close}>
+              <Icon iconName={item.icon as any} />
+              <span>{item.label}{item.hint && <small>{item.hint}</small>}</span>
+              <Icon iconName="TbChevronRight" />
+            </NavLink>
+          ))}
+          {!items.length && <p role="status">{t("mac_ui.no_results")}</p>}
+        </div>
+      </Modal>
+    </>
   );
 }

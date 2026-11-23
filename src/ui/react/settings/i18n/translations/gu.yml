@@ -86,7 +86,7 @@ devtools:
   install_folder: ઇન્સ્ટોલેશન ફોલ્ડર
   load: લોડ
   settings_file: સેટિંગ્સ ફાઇલ
-  shared_components: SLU પ્રમાણભૂત ઘટકો
+  shared_components: MAC UI પ્રમાણભૂત ઘટકો
   simulate_dialog:
     label: ડાયલોગનું અનુકરણ કરો
     trigger: ટ્રિગર
@@ -119,7 +119,7 @@ devtools:
     widget_id: વિજેટ ID
 discord_banner:
   message: >-
-    અન્ય Seelen UI વપરાશકર્તાઓ સાથે કનેક્ટ થાઓ, મદદ મેળવો, થીમ્સ શેર કરો અને
+    અન્ય MAC UI વપરાશકર્તાઓ સાથે કનેક્ટ થાઓ, મદદ મેળવો, થીમ્સ શેર કરો અને
     નવીનતમ સમાચાર સાથે અદ્યતન રહો.
   title: અમારા સમુદાયમાં જોડાઓ
 extras:
@@ -244,7 +244,7 @@ resources:
 review_request:
   not_now: અત્યારે નહિ
   sure: ચોક્કસ!
-  title: Seelen UI માણી રહ્યાં છો?
+  title: MAC UI માણી રહ્યાં છો?
 save: સાચવો
 save_and_restart: સાચવો અને ફરીથી પ્રારંભ કરો
 search: શોધો
@@ -423,9 +423,9 @@ welcome:
     કસ્ટમાઇઝ કરવાની મંજૂરી આપે છે.
   ok: ચાલો શરૂ કરીએ!
   review: >-
-    જો તમને Seelen UI નો ઉપયોગ કરવાનો આનંદ આવે, તો સ્ટોર પર સમીક્ષા કરવાનું
+    જો તમને MAC UI નો ઉપયોગ કરવાનો આનંદ આવે, તો સ્ટોર પર સમીક્ષા કરવાનું
     વિચારો — તમારો પ્રતિસાદ પ્રોજેક્ટને વધવા અને સુધારવામાં મદદ કરે છે.
-  title: Seelen UI માં આપનું સ્વાગત છે!
+  title: MAC UI માં આપનું સ્વાગત છે!
 widget:
   default_instance: ડિફૉલ્ટ ઇન્સ્ટન્સ
   default_instance_hint: હંમેશા સક્રિય, રૂટ વિજેટ રૂપરેખાનો ઉપયોગ કરે છે

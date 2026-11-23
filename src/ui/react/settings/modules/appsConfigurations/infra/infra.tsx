@@ -1,4 +1,4 @@
-import { type AppConfig, AppExtraFlag } from "@seelen-ui/lib/types";
+import { type AppConfig, AppExtraFlag } from "@macui/lib/types";
 import { Icon } from "libs/ui/react/components/Icon/index.tsx";
 import { Button, Input, Modal, Switch, Table, Tooltip } from "antd";
 import type { ColumnsType, ColumnType } from "antd/es/table";
@@ -207,7 +207,7 @@ export function AppsConfiguration() {
         dataSource={data}
         columns={columns}
         pagination={{ pageSize: 25 }}
-        scroll={{ y: "calc(100vh - 180px)", x: "100vw" }}
+        scroll={{ y: 360, x: 1000 }}
         className={cs.table}
         rowSelection={{
           selectedRowKeys: selectedAppsKey,

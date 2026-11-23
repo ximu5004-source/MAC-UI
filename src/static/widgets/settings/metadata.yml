@@ -1,4 +1,4 @@
-id: "@seelen/settings"
+id: "@macui/settings"
 icon: RiSettings4Fill
 metadata:
   displayName: !extend i18n/display_name.yml

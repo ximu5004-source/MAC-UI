@@ -1,7 +1,7 @@
-import { Alignment, type Frame, type PhysicalMonitor } from "@seelen-ui/types";
+import { Alignment, type Frame, type PhysicalMonitor } from "@macui/types";
 import { invoke, subscribe } from "../../handlers/mod.ts";
-import { SeelenCommand } from "../../handlers/commands.ts";
-import { SeelenEvent } from "../../handlers/events.ts";
+import { MacUiCommand } from "../../handlers/commands.ts";
+import { MacUiEvent } from "../../handlers/events.ts";
 
 interface args {
   frame: Frame;
@@ -15,12 +15,12 @@ const monitors = {
 
 export async function initMonitorsState(): Promise<void> {
   let revision = 0;
-  await subscribe(SeelenEvent.SystemMonitorsChanged, ({ payload }) => {
+  await subscribe(MacUiEvent.SystemMonitorsChanged, ({ payload }) => {
     revision++;
     monitors.value = payload;
   });
   const requestedAt = revision;
-  const initial = await invoke(SeelenCommand.SystemGetMonitors);
+  const initial = await invoke(MacUiCommand.SystemGetMonitors);
   // A recovery event can arrive while the initial request is in flight.
   if (revision === requestedAt) monitors.value = initial;
 }

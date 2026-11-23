@@ -3,7 +3,7 @@ import {
   WidgetSelectSubtype,
   type WidgetSettingItem,
   type WidgetSettingsDeclarationList,
-} from "@seelen-ui/lib/types";
+} from "@macui/lib/types";
 import { ResourceText } from "libs/ui/react/components/ResourceText/index.tsx";
 import { Button, ColorPicker, ConfigProvider, Flex, Input, InputNumber, Select, Slider, Switch, Tooltip } from "antd";
 import type { ReactNode } from "react";
@@ -13,6 +13,8 @@ import { SettingsGroup, SettingsOption, SettingsSubGroup } from "../../../compon
 import { FontSelect } from "../../../components/FontSelect/index.tsx";
 import Compact from "antd/es/space/Compact";
 import { Icon } from "libs/ui/react/components/Icon/index.tsx";
+import { useTranslation } from "react-i18next";
+import { getResourceText } from "libs/ui/react/utils";
 
 interface Props {
   // settings definitions
@@ -160,7 +162,9 @@ interface InputRenderer {
 }
 
 function InputRenderer({ def, values, onConfigChange }: InputRenderer): ReactNode {
+  const { i18n } = useTranslation();
   const commonProps = {
+    "aria-label": getResourceText(def.label, i18n.language),
     value: values[def.key] ?? def.defaultValue,
     onChange: (value: any) => onConfigChange(def.key, value),
   };
